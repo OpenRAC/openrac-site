@@ -122,7 +122,3 @@ To update: `git pull && podman build -t localhost/openrac:latest . && systemctl 
 OpenRAC is an independent fan project, not affiliated with or endorsed by Sony Interactive Entertainment or
 Insomniac Games. "Ratchet & Clank" and related names are trademarks of their owners and are used only to
 identify the games the linked projects study. This repository contains no game assets, code or binaries.
-
-## License
-
-[MIT](LICENSE)
