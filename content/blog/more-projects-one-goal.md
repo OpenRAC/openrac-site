@@ -3,7 +3,7 @@ title: More projects, one goal
 date: 2026-09-30
 summary: More people than ever are working on Ratchet & Clank, from decompilation to a native PC port. We are glad about every one of them, and we are working together.
 tags: [community, news]
-author: TODO your name
+author: Lynder063
 draft: false
 ---
 
