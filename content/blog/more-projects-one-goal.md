@@ -8,8 +8,7 @@ draft: false
 ---
 
 Something nice has been happening lately: **more and more people are working on Ratchet & Clank.** New
-repositories, new faces on Discord, new pull requests from people we had never met. [TODO: a sentence or two
-in your own words, e.g. when you first noticed.]
+repositories, new faces on Discord, new pull requests from people we had never met.
 
 We think that is wonderful news, and we want to say clearly where we stand.
 
