@@ -57,11 +57,11 @@ export function Activity({ commits }: { commits: Commit[] }) {
       {commits.length === 0 ? (
         <p className="text-dim">Could not load activity right now. See the repositories on GitHub.</p>
       ) : (
-        <ul className="grid max-w-[820px] gap-2.5">
+        <ul className="grid grid-cols-[minmax(0,1fr)] gap-2.5">
           {commits.map((c) => (
-            <li key={c.url} className="flex flex-wrap items-center gap-x-3.5 gap-y-1.5 rounded-xl border border-line bg-panel px-4 py-3">
+            <li key={c.url} className="flex min-w-0 flex-wrap items-center gap-x-3.5 gap-y-1.5 rounded-xl border border-line bg-panel px-4 py-3">
               <span className={`flex-none rounded-full px-2.5 py-1 font-orbitron text-[11px] font-semibold tracking-wider ${c.projectId === "uya" ? "bg-brand/20 text-[#ffc35a]" : "bg-lav/15 text-lav"}`}>{c.project}</span>
-              <a href={c.url} className="order-3 basis-full truncate text-[#e3e9ff] no-underline hover:text-amber sm:order-none sm:basis-0 sm:flex-1">{c.message}</a>
+              <a href={c.url} className="order-3 min-w-0 basis-full truncate text-[#e3e9ff] no-underline hover:text-amber sm:order-none sm:basis-0 sm:flex-1">{c.message}</a>
               <time dateTime={c.date} className="flex-none text-[13px] text-dim">{ago(c.date)}</time>
             </li>
           ))}
@@ -173,19 +173,5 @@ export function Legal() {
         </p>
       </div>
     </section>
-  );
-}
-
-export function Footer() {
-  return (
-    <footer className="border-t border-line bg-ink-deep py-8 text-[13px] text-dim">
-      <div className="mx-auto max-w-[1080px] px-4">
-        <p className="max-w-[820px]">
-          OpenRAC · unofficial community project · <a className="text-amber" href="https://github.com/Lynder063/rac1-decomp">GitHub</a> ·{" "}
-          <a className="text-amber" href={DISCORD_URL}>Discord</a>
-        </p>
-        <p className="mt-2 max-w-[820px]">Progress is read from the projects&apos; repositories on the server and refreshed every ten minutes.</p>
-      </div>
-    </footer>
   );
 }

@@ -13,21 +13,21 @@ export default function Hero({ progress }: { progress: Partial<Record<ProjectId,
   return (
     <div className="relative isolate pb-10 pt-16 sm:pb-16 sm:pt-24">
       <Particles />
-      <div aria-hidden className="absolute -left-32 -top-10 -z-10 size-[420px] animate-drift rounded-full bg-brand opacity-25 blur-[90px]" />
-      <div aria-hidden className="absolute -right-36 top-8 -z-10 size-[460px] animate-drift rounded-full bg-[#3a4fb8] opacity-50 blur-[90px] [animation-delay:-6s]" />
+      <div aria-hidden className="absolute -left-32 -top-10 -z-10 size-[420px] rounded-full bg-brand opacity-25 blur-[60px] sm:animate-drift sm:blur-[90px]" />
+      <div aria-hidden className="absolute -right-36 top-8 -z-10 size-[460px] rounded-full bg-[#3a4fb8] opacity-50 blur-[60px] sm:animate-drift sm:blur-[90px] [animation-delay:-6s]" />
 
-      <span className="mb-5 inline-flex animate-rise items-center gap-2.5 rounded-full border border-lav/35 bg-lav/10 px-3.5 py-1.5 text-[13px] tracking-wide text-lav [animation-delay:.05s]">
+      <span className="mb-5 inline-flex items-center gap-2.5 rounded-full border border-lav/35 bg-lav/10 px-3.5 py-1.5 text-[13px] tracking-wide text-lav">
         <i className="size-2 animate-pulse-dot rounded-full bg-[#5be38a] shadow-[0_0_0_0_rgb(91_227_138/0.6)]" />
         Unofficial · open source · community driven
       </span>
-      <h1 className="max-w-[900px] animate-rise font-audiowide text-[clamp(36px,7.2vw,72px)] leading-[1.04] [animation-delay:.18s]">
+      <h1 className="max-w-[900px] font-audiowide text-[clamp(36px,7.2vw,72px)] leading-[1.04]">
         Understanding the{" "}
         <span className="animate-shine bg-gradient-to-r from-amber via-[#ff8a00] to-gold bg-[length:220%_100%] bg-clip-text text-transparent">
           Ratchet &amp; Clank
         </span>{" "}
         series from the inside out.
       </h1>
-      <p className="mt-4 max-w-[660px] animate-rise text-[17px] text-soft sm:text-[19px] [animation-delay:.32s]">
+      <p className="mt-4 max-w-[660px] text-[17px] text-soft sm:text-[19px]">
         OpenRAC is a hub for community decompilation projects of the Ratchet &amp; Clank series. Each project writes readable C that compiles to the
         same machine code as the original game, one function at a time, in the open.
       </p>

@@ -1,11 +1,12 @@
+import Image from "next/image";
 import type { CSSProperties } from "react";
 import { PROJECTS, type Project, type ProjectId } from "@/lib/projects";
 import { percent } from "@/lib/types";
 import type { ProjectProgress } from "@/lib/progress";
 import Section from "./Section";
 
-const fmt = (n: number) => n.toLocaleString("en-US");
-const pct = (p: number) => `${p.toFixed(p < 10 ? 1 : 2).replace(".", ",")} %`;
+/** Two decimals, like decomp.dev. */
+const pct = (p: number) => `${p.toFixed(2).replace(".", ",")} %`;
 
 const GITHUB = (
   <svg viewBox="0 0 16 16" aria-hidden="true" className="size-7 flex-none fill-current sm:size-9">
@@ -16,11 +17,10 @@ const GITHUB = (
 /** One title, styled like its own menu. Rendered on the server. */
 function Card({ project: g, progress: p }: { project: Project; progress?: ProjectProgress }) {
   const t = g.theme;
-  const font = g.font === "audiowide" ? "font-audiowide" : "font-orbitron";
   const style = {
     "--box": t.box, "--bd": t.border, "--tx": t.text, "--tx2": t.text2,
-    // gradient first so the card still looks right when the optional image is not deployed
-    backgroundImage: `url(${g.image}), radial-gradient(90% 70% at 70% 0, ${t.from}, transparent 70%), linear-gradient(160deg, ${t.from}, ${t.to})`,
+    // the gradient is the card's own background; the optional backdrop image is laid over it
+    backgroundImage: `radial-gradient(90% 70% at 70% 0, ${t.from}, transparent 70%), linear-gradient(160deg, ${t.from}, ${t.to})`,
   } as CSSProperties;
   const box = "border-[7px] border-(--bd) bg-(--box) px-5 py-3 text-center text-(--tx) shadow-[0_8px_24px_rgb(0_0_0/0.35)] sm:px-6 sm:py-3.5";
   const codePct = p ? percent(p.code) : 0;
@@ -29,8 +29,10 @@ function Card({ project: g, progress: p }: { project: Project; progress?: Projec
     <section
       aria-label={`${g.name} progress`}
       style={style}
-      className={`relative flex min-h-[560px] flex-col items-center justify-center gap-5 overflow-hidden rounded-[30px] bg-ink bg-cover bg-center px-3.5 py-8 shadow-[0_18px_50px_rgb(0_0_0/0.45)] sm:h-[600px] sm:px-6 sm:py-10 ${font}`}
+      className={`relative flex min-h-[560px] flex-col items-center justify-center gap-5 overflow-hidden rounded-[30px] bg-ink px-3.5 py-8 shadow-[0_18px_50px_rgb(0_0_0/0.45)] sm:h-[600px] sm:px-6 sm:py-10 ${g.fontClass}`}
     >
+      {/* Optional backdrop (not in the repository). If the file is missing, the gradient above shows. */}
+      <Image src={g.image} alt="" fill sizes="(min-width: 1080px) 1048px, 100vw" quality={70} className="object-cover" />
       <div aria-hidden className="absolute inset-0 bg-black/20" />
       <div className={`${box} relative w-full max-w-[640px] text-[clamp(24px,4.5vw,44px)] leading-tight sm:px-10 sm:py-6`}>
         {g.name}
@@ -41,10 +43,7 @@ function Card({ project: g, progress: p }: { project: Project; progress?: Projec
         <>
           <div className="relative flex w-full max-w-[640px] flex-wrap justify-center gap-4">
             <div className={`${box} flex-1 text-[clamp(18px,3vw,26px)]`}>Progress</div>
-            <div className={`${box} flex-[2] text-[clamp(16px,2.6vw,24px)] tabular-nums`}>
-              {fmt(p.functions.done)} / {fmt(p.functions.total)} <span className="whitespace-nowrap">({pct(percent(p.functions))})</span>
-              <small className="block text-[.55em] text-(--tx2)">functions matched</small>
-            </div>
+            <div className={`${box} flex-[2] text-[clamp(20px,3.4vw,32px)] tabular-nums`}>{pct(codePct)}</div>
           </div>
 
           <div className="relative w-full max-w-[640px]">
@@ -60,9 +59,6 @@ function Card({ project: g, progress: p }: { project: Project; progress?: Projec
                 <span aria-hidden className="absolute inset-0 animate-sweep bg-gradient-to-r from-transparent via-white/45 to-transparent" />
               </i>
             </div>
-            <p className="mt-1.5 text-center text-[13px] text-(--tx)">
-              <b className="tabular-nums">{pct(codePct)}</b> of the code by size
-            </p>
           </div>
 
           {g.repo && (
@@ -88,17 +84,17 @@ function Card({ project: g, progress: p }: { project: Project; progress?: Projec
 
 export default function Progress({ progress }: { progress: Partial<Record<ProjectId, ProjectProgress>> }) {
   return (
-    <Section id="progress" title="Progress" sub="Every title gets its own menu. Numbers count functions whose compiled output is byte-identical to the retail build.">
+    <Section id="progress" title="Progress" sub="Every title gets its own menu. The percentage is the share of the game's code that compiles to exactly the retail bytes.">
       <div className="grid gap-7">
         {PROJECTS.map((g) => (
           <Card key={g.id} project={g} progress={progress[g.id]} />
         ))}
       </div>
       <p className="mt-3.5 text-[13px] text-dim">
-        Each title links to its own community repository, and a title without a link has not been started. Both projects are measured the same way:
-        functions that match retail, and the same thing weighted by code size. Up Your Arsenal counts hand-written assembly that is verified against
-        retail as done (as objdiff does) and lists its C-only count underneath. Numbers are read from the repositories on the server and refreshed every
-        ten minutes. Roadmap entries are not a promise.
+        The figure is matched code, weighted by size, the same number decomp.dev shows. Each title links to its own community repository, and a title
+        without a link has not been started. Up Your Arsenal counts hand-written assembly that is verified against retail as done, as objdiff does, and
+        lists its C-only count underneath. Numbers are read from the repositories on the server and refreshed every ten minutes. Roadmap entries are
+        not a promise.
       </p>
     </Section>
   );

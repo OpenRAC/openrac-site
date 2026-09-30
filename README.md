@@ -34,6 +34,32 @@ Sources (see `src/lib/progress.ts`):
 
 If GitHub cannot be reached, the last known snapshot (in `progress.ts`) is shown and labelled as such.
 
+## Blog
+
+The blog lives at `/blog`. Posts are Markdown files in `content/blog/`, added through pull requests:
+
+```yaml
+---
+title: A short title
+date: 2026-09-30            # YYYY-MM-DD
+summary: One or two sentences for the list page and link previews.
+tags: [news]                # optional
+author: Name                # optional
+draft: true                 # optional, hides the post from the published site
+---
+```
+
+The file name is the address (`my-post.md` becomes `/blog/my-post`). A bad header fails the build and names the file.
+Raw HTML in posts is ignored and images must be files in `public/blog/` (remote images are dropped), so a post
+cannot load anything from another server. There is an RSS feed at `/blog/rss.xml`, plus `sitemap.xml` and `robots.txt`.
+
+## Credits
+
+`src/lib/credits.ts` lists the people credited on the front page and their YouTube videos (links or video ids).
+The section stays hidden until a video is listed. Titles and thumbnails are fetched by the server, and a video
+loads from YouTube (privacy-enhanced `youtube-nocookie.com`) only when a visitor presses play, so nothing
+reaches Google before that.
+
 ## Develop
 
 ```sh

@@ -1,44 +1,63 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { DISCORD_URL } from "@/lib/projects";
 
-const LINKS = [
+/** Sections of the home page. Plain anchors: on the home page they scroll, elsewhere they go home first. */
+const SECTIONS = [
   ["progress", "Progress"],
   ["contribute", "Contribute"],
   ["how", "How it works"],
   ["faq", "FAQ"],
   ["ai", "AI"],
-  ["legal", "Legal"],
+  ["credits", "Credits"],
 ] as const;
 
-/** Sticky orange bar. Client-side only for the mobile menu, shrink on scroll and scroll-spy. */
+const link = "group/l relative rounded-full px-3.5 py-3 text-[17px] font-medium no-underline transition-colors min-[821px]:py-2 min-[821px]:text-[15px]";
+const linkOn = "bg-[#1b1206] text-amber";
+const linkOff = "text-[#2a1800] hover:bg-black/10";
+const underline =
+  "absolute inset-x-3.5 bottom-1 hidden h-0.5 origin-left scale-x-0 rounded bg-current transition-transform group-hover/l:scale-x-100 min-[821px]:block";
+
+/** Sticky orange bar. Client-side for the mobile menu, shrink on scroll and scroll-spy. */
 export default function Header() {
+  const pathname = usePathname();
+  const home = pathname === "/";
+  const inBlog = pathname.startsWith("/blog");
   const [open, setOpen] = useState(false);
   const [small, setSmall] = useState(false);
   const [active, setActive] = useState<string | null>(null);
 
   useEffect(() => {
+    let frame = 0;
     const onScroll = () => {
       setSmall(window.scrollY > 40);
+      if (!home) return setActive(null);
       const y = window.scrollY + 120;
       let cur: string | null = null;
-      for (const [id] of LINKS) {
+      for (const [id] of SECTIONS) {
         const el = document.getElementById(id);
         if (el && el.offsetTop <= y) cur = id;
       }
+      // Near the bottom the last section may be too short to ever reach the top of the screen.
+      if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 160) cur = SECTIONS[SECTIONS.length - 1][0];
       setActive(cur);
     };
+    const onFrame = () => {
+      if (!frame) frame = requestAnimationFrame(() => { frame = 0; onScroll(); });
+    };
     onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+    window.addEventListener("scroll", onFrame, { passive: true });
+    return () => { window.removeEventListener("scroll", onFrame); cancelAnimationFrame(frame); };
+  }, [home]);
 
   return (
     <header className="sticky top-0 z-20 border-b border-black/30 bg-gradient-to-b from-[#e5a013] to-[#cd8300] text-black shadow-[inset_0_1px_0_rgb(255_255_255/0.35),0_4px_24px_rgb(0_0_0/0.45)]">
       <div className={`mx-auto flex max-w-[1080px] items-center gap-7 px-4 transition-[height] duration-300 ${small ? "h-[46px]" : "h-[60px]"}`}>
-        <a href="#" className="group flex items-center gap-2 font-audiowide text-[26px] no-underline">
+        <Link href="/" onClick={() => setOpen(false)} className="group flex items-center gap-2 font-audiowide text-[26px] no-underline">
           <Image
             src="/wrench.webp"
             alt=""
@@ -50,7 +69,7 @@ export default function Header() {
           <span>
             Open<b>RAC</b>
           </span>
-        </a>
+        </Link>
 
         <button
           type="button"
@@ -68,21 +87,16 @@ export default function Header() {
           className={`${open ? "flex" : "hidden"} absolute inset-x-0 top-full flex-col gap-3 border-b border-black/30 bg-[#cd8300] px-4 pb-[18px] pt-3.5 shadow-[0_20px_30px_rgb(0_0_0/0.4)] min-[821px]:static min-[821px]:flex min-[821px]:flex-1 min-[821px]:flex-row min-[821px]:items-center min-[821px]:gap-[18px] min-[821px]:border-0 min-[821px]:bg-transparent min-[821px]:p-0 min-[821px]:shadow-none`}
         >
           <div className="flex flex-col gap-1 min-[821px]:ml-2 min-[821px]:flex-row">
-            {LINKS.map(([id, label]) => (
-              <a
-                key={id}
-                href={`#${id}`}
-                onClick={() => setOpen(false)}
-                className={`group/l relative rounded-full px-3.5 py-3 text-[17px] font-medium no-underline transition-colors min-[821px]:py-2 min-[821px]:text-[15px] ${
-                  active === id ? "bg-[#1b1206] text-amber" : "text-[#2a1800] hover:bg-black/10"
-                }`}
-              >
+            {SECTIONS.map(([id, label]) => (
+              <a key={id} href={`/#${id}`} onClick={() => setOpen(false)} className={`${link} ${active === id ? linkOn : linkOff}`}>
                 {label}
-                {active !== id && (
-                  <span className="absolute inset-x-3.5 bottom-1 hidden h-0.5 origin-left scale-x-0 rounded bg-current transition-transform group-hover/l:scale-x-100 min-[821px]:block" />
-                )}
+                {active !== id && <span className={underline} />}
               </a>
             ))}
+            <Link href="/blog" onClick={() => setOpen(false)} className={`${link} ${inBlog ? linkOn : linkOff}`}>
+              Blog
+              {!inBlog && <span className={underline} />}
+            </Link>
           </div>
           <div className="min-[821px]:ml-auto">
             <a

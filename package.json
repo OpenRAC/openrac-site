@@ -1,5 +1,5 @@
 {
-  "name": "openrac-next",
+  "name": "openrac-site",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -10,12 +10,16 @@
     "test": "node --test \"src/lib/*.test.ts\""
   },
   "dependencies": {
+    "gray-matter": "^4.0.3",
     "next": "16.3.8",
     "react": "19.2.8",
-    "react-dom": "19.2.8"
+    "react-dom": "19.2.8",
+    "react-markdown": "^10.1.0",
+    "remark-gfm": "^4.0.1"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
+    "@tailwindcss/typography": "^0.5.20",
     "@types/node": "20.19.43",
     "@types/react": "19.3.0",
     "@types/react-dom": "^19",

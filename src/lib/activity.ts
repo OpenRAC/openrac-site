@@ -13,7 +13,7 @@ interface GithubCommit {
   commit: { message: string; author: { date: string } };
 }
 
-const SKIP_LINE = /^(signed-off-by|co-authored-by|claude-session)/i;
+const SKIP_LINE = /^(signed-off-by|co-authored-by)/i;
 
 /** First meaningful line of a commit message. */
 export function commitTitle(message: string): string {
