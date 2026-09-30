@@ -1,3 +1,5 @@
+![OpenRAC: community decompilation projects of the Ratchet & Clank series](.github/social-preview.png)
+
 # OpenRAC website
 
 The website of [OpenRAC](https://openrac.dev), an unofficial hub for community decompilation projects of the
