@@ -19,7 +19,9 @@ ENV NODE_ENV=production \
     HOSTNAME=0.0.0.0
 # `.next/cache` holds the server-side page cache, so it must stay writable
 # (the Quadlet unit mounts a volume there and runs the rest read-only).
-RUN mkdir -p .next/cache && chown -R node:node /app
+# `/data/img` is where the card backdrops are read from; mount a folder there (see deploy/openrac.container).
+RUN mkdir -p .next/cache /data/img && chown -R node:node /app /data
+ENV IMAGE_DIR=/data/img
 COPY --from=build --chown=node:node /app/.next/standalone ./
 COPY --from=build --chown=node:node /app/.next/static ./.next/static
 COPY --from=build --chown=node:node /app/public ./public
