@@ -4,14 +4,8 @@ date: 2026-09-30
 summary: More people than ever are working on Ratchet & Clank, from decompilation to a native PC port. We are glad about every one of them, and we are working together.
 tags: [community, news]
 author: TODO your name
-draft: true
+draft: false
 ---
-
-<!--
-  DRAFT. Hidden from the published site while `draft: true`.
-  Everything in **[TODO ...]** is for you to fill in or delete. Delete this comment too.
-  To publish: remove the `draft: true` line and the author TODO above.
--->
 
 Something nice has been happening lately: **more and more people are working on Ratchet & Clank.** New
 repositories, new faces on Discord, new pull requests from people we had never met. [TODO: a sentence or two
