@@ -1,0 +1,49 @@
+# Quadlet unit for the OpenRAC website.
+#
+# 1. Build the image once (and again after every update):
+#      podman build -t localhost/openrac:latest .
+# 2. Rootless:  copy this file to ~/.config/containers/systemd/
+#    Rootful:   copy it to /etc/containers/systemd/
+# 3. systemctl --user daemon-reload && systemctl --user start openrac.service
+#    (for a rootful install use `systemctl` without --user)
+#
+# Rootless: run `loginctl enable-linger $USER` once so it starts at boot without a login.
+#
+# The app listens on 127.0.0.1:3000; put your reverse proxy (Caddy, nginx, ...) in front of it.
+
+[Unit]
+Description=OpenRAC website (Next.js)
+Wants=network-online.target
+After=network-online.target
+
+[Container]
+Image=localhost/openrac:latest
+Pull=never
+ContainerName=openrac
+PublishPort=127.0.0.1:3000:3000
+
+# Public address, used for absolute URLs in page metadata.
+Environment=SITE_URL=https://openrac.dev
+# Optional: a file with GITHUB_TOKEN=... raises the GitHub API rate limit for the activity feed.
+# Create it first (the unit does not start if the file is missing), then uncomment:
+#EnvironmentFile=%h/.config/openrac/openrac.env
+
+# Hardening: nothing in the image needs to be writable except the page cache.
+ReadOnly=true
+Tmpfs=/tmp
+Volume=openrac-cache:/app/.next/cache
+NoNewPrivileges=true
+DropCapability=ALL
+
+HealthCmd=wget -q -O /dev/null http://127.0.0.1:3000/healthz
+HealthInterval=30s
+HealthRetries=3
+HealthStartPeriod=20s
+HealthOnFailure=restart
+
+[Service]
+Restart=always
+TimeoutStartSec=300
+
+[Install]
+WantedBy=default.target

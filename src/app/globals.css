@@ -1,0 +1,71 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+  --font-audiowide: var(--font-audiowide), var(--font-inter), sans-serif;
+  --font-orbitron: var(--font-orbitron), var(--font-inter), sans-serif;
+}
+
+@theme {
+  --color-ink: #181820;
+  --color-ink-deep: #12121a;
+  --color-panel: #1d1d28;
+  --color-panel-hi: #22222f;
+  --color-brand: #d58a00;
+  --color-amber: #ffb443;
+  --color-gold: #ffd08a;
+  --color-lav: #c8d2ff;
+  --color-soft: #aab6dc;
+  --color-dim: #8f9ac4;
+  --color-line: rgb(156 161 212 / 0.22);
+
+  --animate-rise: rise 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  --animate-drift: drift 14s ease-in-out infinite alternate;
+  --animate-pulse-dot: pulse-dot 2s infinite;
+  --animate-shine: shine 6s linear infinite;
+  --animate-sweep: sweep 2.6s ease-in-out 1.6s infinite;
+
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(26px); }
+    to { opacity: 1; transform: none; }
+  }
+  @keyframes drift {
+    to { transform: translate(50px, 36px) scale(1.12); }
+  }
+  @keyframes pulse-dot {
+    70% { box-shadow: 0 0 0 9px transparent; }
+    100% { box-shadow: 0 0 0 0 transparent; }
+  }
+  @keyframes shine {
+    to { background-position: 220% 0; }
+  }
+  @keyframes sweep {
+    to { transform: translateX(100%); }
+  }
+}
+
+html { scroll-behavior: smooth; scroll-padding-top: 4.5rem; }
+body { background: var(--color-ink); color: #e8f0ff; overflow-x: hidden; }
+
+/* Sections fade in once scrolled to. Only hidden when scripting is available,
+   so the page stays fully readable without JavaScript. */
+@media (scripting: enabled) {
+  [data-reveal]:not(.in) { opacity: 0; transform: translateY(22px); }
+  [data-reveal] { transition: opacity 0.7s ease, transform 0.7s ease; }
+  [data-reveal]:not(.in) .bar-fill { width: 0; }
+}
+.bar-fill { width: var(--w); transition: width 1.4s cubic-bezier(0.2, 0.8, 0.2, 1); }
+
+/* Section numbers count up automatically: 01, 02, ... */
+main { counter-reset: sec; }
+.sec-num::before { counter-increment: sec; content: "0" counter(sec); }
+
+details[open] > summary .plus { transform: rotate(45deg); }
+details[open] > p { animation: rise 0.35s ease both; }
+summary::-webkit-details-marker { display: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  [data-reveal]:not(.in) { opacity: 1; transform: none; }
+}
