@@ -36,6 +36,7 @@ export function Contribute() {
           Join our Discord
         </a>
         <a href="https://github.com/Lynder063/rac1-decomp/blob/main/CONTRIBUTING.md" className={btn}>Contribute to Ratchet &amp; Clank</a>
+        <a href="https://github.com/llesieur99/rac2-decomp" className={btn}>Contribute to Going Commando</a>
         <a href="https://github.com/vetusmagnus/ratchet-uya-decomp/blob/main/CONTRIBUTING.md" className={btn}>Contribute to Up Your Arsenal</a>
       </div>
     </Section>
@@ -60,7 +61,7 @@ export function Activity({ commits }: { commits: Commit[] }) {
         <ul className="grid grid-cols-[minmax(0,1fr)] gap-2.5">
           {commits.map((c) => (
             <li key={c.url} className="flex min-w-0 flex-wrap items-center gap-x-3.5 gap-y-1.5 rounded-xl border border-line bg-panel px-4 py-3">
-              <span className={`flex-none rounded-full px-2.5 py-1 font-orbitron text-[11px] font-semibold tracking-wider ${c.projectId === "uya" ? "bg-brand/20 text-[#ffc35a]" : "bg-lav/15 text-lav"}`}>{c.project}</span>
+              <span className={`flex-none rounded-full px-2.5 py-1 font-orbitron text-[11px] font-semibold tracking-wider ${c.projectId === "uya" ? "bg-brand/20 text-[#ffc35a]" : c.projectId === "gc" ? "bg-[#5a7fa6]/25 text-[#9fd3ff]" : "bg-lav/15 text-lav"}`}>{c.project}</span>
               <a href={c.url} className="order-3 min-w-0 basis-full truncate text-[#e3e9ff] no-underline hover:text-amber sm:order-none sm:basis-0 sm:flex-1">{c.message}</a>
               <time dateTime={c.date} className="flex-none text-[13px] text-dim">{ago(c.date)}</time>
             </li>

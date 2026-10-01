@@ -1,5 +1,6 @@
 import { unstable_cache } from "next/cache";
 import { parseUyaReport } from "./uya";
+import { parseGcReport } from "./gc";
 import type { Progress } from "./types";
 import type { ProjectId } from "./projects";
 
@@ -35,6 +36,18 @@ async function loadRac1(): Promise<Progress> {
   return p;
 }
 
+/** Going Commando: read from the project's own progress report and scope. */
+async function loadGc(): Promise<Progress> {
+  const [reportRes, scopeRes] = await Promise.allSettled([
+    get(`${RAW}/llesieur99/rac2-decomp/RAC2/progress/report.json`),
+    get(`${RAW}/llesieur99/rac2-decomp/RAC2/config/progress-scope.json`),
+  ]);
+  if (reportRes.status !== "fulfilled") throw reportRes.reason;
+  const report = await reportRes.value.json();
+  const scope = scopeRes.status === "fulfilled" ? await scopeRes.value.json() : undefined;
+  return parseGcReport(report, scope);
+}
+
 /** Up Your Arsenal: read from the project's own objdiff progress report. */
 async function loadUya(): Promise<Progress> {
   const report = await (await get(`${RAW}/vetusmagnus/ratchet-uya-decomp/main/progress_report.json`)).json();
@@ -43,12 +56,14 @@ async function loadUya(): Promise<Progress> {
 
 const cached = {
   rac1: unstable_cache(loadRac1, ["progress-rac1"], { revalidate: REVALIDATE_SECONDS }),
+  gc: unstable_cache(loadGc, ["progress-gc"], { revalidate: REVALIDATE_SECONDS }),
   uya: unstable_cache(loadUya, ["progress-uya"], { revalidate: REVALIDATE_SECONDS }),
 };
 
 /** Last numbers known to be good. Used only if GitHub cannot be reached at all. */
-const FALLBACK: Record<"rac1" | "uya", Progress> = {
+const FALLBACK: Record<ProjectId, Progress> = {
   rac1: { functions: { done: 1777, total: 5111 }, code: { done: 323648, total: 3713628 }, source: "snapshot 2026-09-30" },
+  gc: { functions: { done: 427, total: 603 }, code: { done: 25312, total: 48788176 }, note: "427 of 603 units complete", source: "snapshot 2026-10-01" },
   uya: { functions: { done: 1292, total: 31316 }, code: { done: 164764, total: 12838776 }, note: "0 of 114 source files complete", source: "snapshot 2026-10-01" },
 };
 
@@ -58,8 +73,8 @@ export interface ProjectProgress extends Progress {
 }
 
 export async function getProgress(): Promise<Partial<Record<ProjectId, ProjectProgress>>> {
-  const [rac1, uya] = await Promise.allSettled([cached.rac1(), cached.uya()]);
+  const [rac1, gc, uya] = await Promise.allSettled([cached.rac1(), cached.gc(), cached.uya()]);
   const pick = (r: PromiseSettledResult<Progress>, fb: Progress): ProjectProgress =>
     r.status === "fulfilled" ? { ...r.value, stale: false } : { ...fb, stale: true };
-  return { rac1: pick(rac1, FALLBACK.rac1), uya: pick(uya, FALLBACK.uya) };
+  return { rac1: pick(rac1, FALLBACK.rac1), gc: pick(gc, FALLBACK.gc), uya: pick(uya, FALLBACK.uya) };
 }

@@ -28,6 +28,7 @@ export const PROJECTS: readonly Project[] = [
     id: "gc",
     name: "Going Commando",
     year: 2003,
+    repo: "llesieur99/rac2-decomp",
     fontClass: "font-orbitron font-semibold",
     theme: { box: "#101a2a", border: "#5a7fa6", text: "#9fd3ff", text2: "#6fa8d6", from: "#7a4d1a", to: "#2a1a0c" },
     image: "/img/gc-bg.webp",
