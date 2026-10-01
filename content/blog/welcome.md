@@ -18,8 +18,8 @@ Every project is measured the same way, so the bars can be compared:
 - **Functions matched** is the share of functions. It always looks bigger, because small functions get
   matched first.
 
-Where a project publishes an objdiff report, we read it. Where it does not, as with Up Your Arsenal, we
-derive the numbers from the sources themselves and check them against the project's own README.
+Where a project publishes an objdiff report, we read it. Projects like Ratchet & Clank and Up Your Arsenal
+publish standard objdiff reports which are fetched directly from their repositories.
 
 ## Writing for this blog
 

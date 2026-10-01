@@ -1,5 +1,5 @@
 import { unstable_cache } from "next/cache";
-import { computeUya } from "./uya";
+import { parseUyaReport } from "./uya";
 import type { Progress } from "./types";
 import type { ProjectId } from "./projects";
 
@@ -22,11 +22,11 @@ async function loadRac1(): Promise<Progress> {
     measures?: Record<string, string | number>;
   };
   const m = report.measures;
-  const n = (key: string): number => Number(m?.[key]);
+  const n = (key: string): number => Number(m?.[key] ?? 0);
   const p: Progress = {
     functions: { done: n("matched_functions"), total: n("total_functions") },
     code: { done: n("matched_code"), total: n("total_code") },
-    note: `${n("complete_units")} of ${n("total_units")} source files complete`,
+    note: `${m?.complete_units != null ? Number(m.complete_units) : 0} of ${n("total_units")} source files complete`,
     source: "progress/report.json",
   };
   if (![p.functions.done, p.functions.total, p.code.done, p.code.total].every((v) => Number.isFinite(v) && v >= 0) || p.functions.total <= 0 || p.code.total <= 0) {
@@ -35,16 +35,10 @@ async function loadRac1(): Promise<Progress> {
   return p;
 }
 
-/** Up Your Arsenal: derived from its sources, see ./uya.ts. */
+/** Up Your Arsenal: read from the project's own objdiff progress report. */
 async function loadUya(): Promise<Progress> {
-  const base = `${RAW}/vetusmagnus/ratchet-uya-decomp/HEAD`;
-  const [textC, tsv] = await Promise.all([
-    get(`${base}/src/text.c`).then((r) => r.text()),
-    get(`${base}/tools/remaining_functions.tsv`).then((r) => r.text()),
-  ]);
-  const p = computeUya(textC, tsv);
-  if (!p) throw new Error("uya sources did not parse");
-  return p;
+  const report = await (await get(`${RAW}/vetusmagnus/ratchet-uya-decomp/main/progress_report.json`)).json();
+  return parseUyaReport(report);
 }
 
 const cached = {
@@ -55,7 +49,7 @@ const cached = {
 /** Last numbers known to be good. Used only if GitHub cannot be reached at all. */
 const FALLBACK: Record<"rac1" | "uya", Progress> = {
   rac1: { functions: { done: 1777, total: 5111 }, code: { done: 323648, total: 3713628 }, source: "snapshot 2026-09-30" },
-  uya: { functions: { done: 1202, total: 1867 }, code: { done: 155968, total: 458404 }, note: "833 in C, 369 verified hand-written assembly", source: "snapshot 2026-09-30" },
+  uya: { functions: { done: 1292, total: 31316 }, code: { done: 164764, total: 12838776 }, note: "0 of 114 source files complete", source: "snapshot 2026-10-01" },
 };
 
 export interface ProjectProgress extends Progress {

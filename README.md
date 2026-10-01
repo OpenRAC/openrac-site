@@ -26,13 +26,7 @@ Every project is measured the same way, so the bars can be compared:
 Sources (see `src/lib/progress.ts`):
 
 - **Ratchet & Clank**: `progress/report.json` (objdiff report) of [`Lynder063/rac1-decomp`](https://github.com/Lynder063/rac1-decomp).
-- **Up Your Arsenal**: no report is published, so the numbers are derived from the sources of
-  [`vetusmagnus/ratchet-uya-decomp`](https://github.com/vetusmagnus/ratchet-uya-decomp) (`src/lib/uya.ts`):
-  `src/text.c` lists every function once as C, verified hand-written assembly, or `INCLUDE_ASM` (not done),
-  and `tools/remaining_functions.tsv` gives the size of each function not done. Done = C + verified assembly,
-  the same way objdiff counts it and the same headline as that project's README; the C-only count is shown
-  underneath. The parser refuses input it does not recognise and the page then shows a clearly marked snapshot
-  instead of a wrong number.
+- **Up Your Arsenal**: `progress_report.json` (objdiff report) of [`vetusmagnus/ratchet-uya-decomp`](https://github.com/vetusmagnus/ratchet-uya-decomp).
 
 If GitHub cannot be reached, the last known snapshot (in `progress.ts`) is shown and labelled as such.
 

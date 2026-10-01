@@ -92,8 +92,7 @@ export default function Progress({ progress }: { progress: Partial<Record<Projec
       </div>
       <p className="mt-3.5 text-[13px] text-dim">
         The figure is matched code, weighted by size, the same number decomp.dev shows. Each title links to its own community repository, and a title
-        without a link has not been started. Up Your Arsenal counts hand-written assembly that is verified against retail as done, as objdiff does, and
-        lists its C-only count underneath. Numbers are read from the repositories on the server and refreshed every ten minutes. Roadmap entries are
+        without a link has not been started. Numbers are read from the repositories on the server and refreshed every ten minutes. Roadmap entries are
         not a promise.
       </p>
     </Section>
