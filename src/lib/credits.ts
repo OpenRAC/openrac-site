@@ -20,3 +20,6 @@ export interface Credit {
 }
 
 export const CREDITS: Credit[] = [];
+
+/** Whether the home page has a Credits section to link to. */
+export const HAS_CREDITS = CREDITS.some((c) => c.videos.length > 0 || c.url || c.links?.length);

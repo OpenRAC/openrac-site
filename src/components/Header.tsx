@@ -4,17 +4,18 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import { HAS_CREDITS } from "@/lib/credits";
 import { DISCORD_URL } from "@/lib/projects";
 
 /** Sections of the home page. Plain anchors: on the home page they scroll, elsewhere they go home first. */
-const SECTIONS = [
+const SECTIONS = ([
   ["progress", "Progress"],
   ["contribute", "Contribute"],
   ["how", "How it works"],
   ["faq", "FAQ"],
   ["ai", "AI"],
   ["credits", "Credits"],
-] as const;
+] as const).filter(([id]) => id !== "credits" || HAS_CREDITS);
 
 const link = "group/l relative rounded-full px-3.5 py-3 text-[17px] font-medium no-underline transition-colors min-[821px]:py-2 min-[821px]:text-[15px]";
 const linkOn = "bg-[#1b1206] text-amber";
