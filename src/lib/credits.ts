@@ -19,22 +19,4 @@ export interface Credit {
   videos: CreditVideo[];
 }
 
-export const CREDITS: Credit[] = [
-  {
-    name: "Bordplate",
-    githubUser: "bordplate",
-    links: [
-      { label: "YouTube", url: "https://www.youtube.com/@bordplate." },
-      { label: "GitHub", url: "https://github.com/bordplate" },
-    ],
-    videos: [],
-  },
-  {
-    name: "The Golden Bolt",
-    videos: [
-      { url: "https://www.youtube.com/watch?v=BNSbXZgrDcY", label: "Ratchet & Clank" },
-      { url: "https://youtu.be/AVQwM8Fr3YI", label: "Going Commando" },
-      { url: "https://youtu.be/i55EWQWKQuo", label: "Up Your Arsenal" },
-    ],
-  },
-];
+export const CREDITS: Credit[] = [];
