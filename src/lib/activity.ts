@@ -42,7 +42,7 @@ export async function getActivity(limit = 8): Promise<Commit[]> {
         if (!res.ok) return [];
         const commits = (await res.json()) as GithubCommit[];
         return commits.map<Commit>((c) => ({
-          project: p.id === "rac1" ? "RaC1" : p.id.toUpperCase(),
+          project: p.tag ?? (p.id === "rac1" ? "RaC1" : p.id.toUpperCase()),
           projectId: p.id,
           message: commitTitle(c.commit.message),
           date: c.commit.author.date,

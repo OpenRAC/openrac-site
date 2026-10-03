@@ -28,8 +28,8 @@ export default function Hero({ progress }: { progress: Partial<Record<ProjectId,
         series from the inside out.
       </h1>
       <p className="mt-4 max-w-[660px] text-[17px] text-soft sm:text-[19px]">
-        OpenRAC is a hub for community decompilation projects of the Ratchet &amp; Clank series. Each project writes readable C that compiles to the
-        same machine code as the original game, one function at a time, in the open.
+        OpenRAC is a hub for community decompilation projects of the Ratchet &amp; Clank series. Each project reconstructs readable source code that compiles to the
+        same bytes as the original game, one function at a time, in the open.
       </p>
       <div className="mt-6 flex animate-rise flex-wrap gap-3 [animation-delay:.45s]">
         <a href="#progress" className="rounded-full border border-amber bg-gradient-to-b from-amber to-[#ff8a00] px-5 py-2.5 font-semibold text-[#1a0d00] shadow-[0_6px_24px_rgb(255_138_0/0.35)] transition hover:-translate-y-0.5 hover:brightness-110">

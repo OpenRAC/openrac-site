@@ -35,8 +35,16 @@ function Card({ project: g, progress: p }: { project: Project; progress?: Projec
       <Image src={g.image} alt="" fill sizes="(min-width: 1080px) 1048px, 100vw" quality={70} className="object-cover" />
       <div aria-hidden className="absolute inset-0 bg-black/20" />
       <div className={`${box} relative w-full max-w-[640px] text-[clamp(24px,4.5vw,44px)] leading-tight sm:px-10 sm:py-6`}>
+        {codePct >= 100 && (
+          <div className="mb-2.5 flex justify-center">
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-emerald-400/50 bg-emerald-950/80 px-3 py-1 font-mono text-[11px] font-semibold tracking-wider text-emerald-300 shadow-[0_0_14px_rgba(16,185,129,0.4)] sm:text-xs">
+              <span className="size-2 rounded-full bg-emerald-400 animate-pulse" />
+              100% BYTE-MATCHED · COMPLETE
+            </span>
+          </div>
+        )}
         {g.name}
-        <small className="mt-1.5 block text-[.5em] tracking-wide text-(--tx2)">decompilation · {g.year}</small>
+        <small className="mt-1.5 block text-[.5em] tracking-wide text-(--tx2)">{g.subtitle ?? `decompilation · ${g.year}`}</small>
       </div>
 
       {p ? (
@@ -55,7 +63,14 @@ function Card({ project: g, progress: p }: { project: Project; progress?: Projec
               aria-valuemax={100}
               className="h-3.5 overflow-hidden rounded-[7px] border-2 border-(--bd) bg-black/45"
             >
-              <i style={{ "--w": `${codePct}%` } as CSSProperties} className="bar-fill relative block h-full overflow-hidden rounded-md bg-gradient-to-r from-(--tx2) to-(--tx)">
+              <i
+                style={{ "--w": `${codePct}%` } as CSSProperties}
+                className={`bar-fill relative block h-full overflow-hidden rounded-md ${
+                  codePct >= 100
+                    ? "bg-gradient-to-r from-emerald-400 via-[#38bdf8] to-emerald-300 shadow-[0_0_12px_rgba(52,211,153,0.6)]"
+                    : "bg-gradient-to-r from-(--tx2) to-(--tx)"
+                }`}
+              >
                 <span aria-hidden className="absolute inset-0 animate-sweep bg-gradient-to-r from-transparent via-white/45 to-transparent" />
               </i>
             </div>
@@ -83,14 +98,54 @@ function Card({ project: g, progress: p }: { project: Project; progress?: Projec
 }
 
 export default function Progress({ progress }: { progress: Partial<Record<ProjectId, ProjectProgress>> }) {
+  const mainline = PROJECTS.filter((p) => p.category !== "spinoff");
+  const spinoffs = PROJECTS.filter((p) => p.category === "spinoff");
+
   return (
     <Section id="progress" title="Progress" sub="Every title gets its own menu. The percentage is the share of the game's code that compiles to exactly the retail bytes.">
-      <div className="grid gap-7">
-        {PROJECTS.map((g) => (
-          <Card key={g.id} project={g} progress={progress[g.id]} />
-        ))}
+      <div className="space-y-12">
+        <div>
+          <div className="mb-5 flex flex-wrap items-center justify-between gap-2">
+            <h3 className="flex items-center gap-2.5 font-orbitron text-lg font-bold tracking-wide text-lav sm:text-xl">
+              <span className="size-2.5 rounded-full bg-brand" />
+              Mainline Trilogy
+            </h3>
+            <span className="rounded-full border border-lav/20 bg-lav/5 px-3 py-1 font-orbitron text-xs text-dim">
+              PlayStation 2
+            </span>
+          </div>
+          <div className="grid gap-7">
+            {mainline.map((g) => (
+              <Card key={g.id} project={g} progress={progress[g.id]} />
+            ))}
+          </div>
+        </div>
+
+        {spinoffs.length > 0 && (
+          <div>
+            <div className="mb-5 flex flex-wrap items-center justify-between gap-2">
+              <div>
+                <h3 className="flex items-center gap-2.5 font-orbitron text-lg font-bold tracking-wide text-lav sm:text-xl">
+                  <span className="size-2.5 rounded-full bg-[#00b4d8]" />
+                  Spin-offs &amp; Handhelds
+                </h3>
+                <p className="mt-1 text-xs text-dim sm:text-sm">
+                  Mobile entries and side projects in the Ratchet &amp; Clank universe.
+                </p>
+              </div>
+              <span className="rounded-full border border-[#00b4d8]/40 bg-[#00b4d8]/10 px-3 py-1 font-orbitron text-xs text-[#7dd3fc]">
+                J2ME / Mobile
+              </span>
+            </div>
+            <div className="grid gap-7">
+              {spinoffs.map((g) => (
+                <Card key={g.id} project={g} progress={progress[g.id]} />
+              ))}
+            </div>
+          </div>
+        )}
       </div>
-      <p className="mt-3.5 text-[13px] text-dim">
+      <p className="mt-6 text-[13px] text-dim">
         The figure is matched code, weighted by size, the same number decomp.dev shows. Each title links to its own community repository, and a title
         without a link has not been started. Numbers are read from the repositories on the server and refreshed every ten minutes. Roadmap entries are
         not a promise.
