@@ -101,7 +101,7 @@ systemctl --user start openrac.service
 loginctl enable-linger "$USER"      # once, so it starts at boot without a login
 
 # 4. card backdrops: copy your images into the folder the unit mounts (no restart needed)
-cp rac1-bg.webp gc-bg.webp uya-bg.webp ~/openrac-img/
+cp rac1-bg.webp gc-bg.webp uya-bg.webp going-mobile-bg.webp ~/openrac-img/
 ```
 
 The container listens on `127.0.0.1:3000`; put your reverse proxy in front of it. It runs as a non-root user with
