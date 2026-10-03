@@ -71,12 +71,12 @@ rate limit for the activity feed; it stays on the server.
 
 ### Card backdrops
 
-The title cards can show a backdrop image named `rac1-bg.webp`, `gc-bg.webp` and `uya-bg.webp` (WebP, about
+The title cards can show a backdrop image named `rac1-bg.webp`, `gc-bg.webp`, `uya-bg.webp` and `going-mobile-bg.webp` (WebP, about
 1600 px wide). Those would be screenshots from the games, which are copyrighted, so **they are not part of this
 repository**. Without them the cards use a colour gradient.
 
 The images are read from a folder, set by `IMAGE_DIR` (default `public/img`, which is git-ignored), on every
-request. Drop a file in and it is used at once, with no rebuild or restart. Only those three names are ever
+request. Drop a file in and it is used at once, with no rebuild or restart. Only those four names are ever
 served. Resized copies are cached for a day, so a replaced image can take up to a day to show (or restart
 the service after clearing the cache volume).
 

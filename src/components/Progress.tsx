@@ -97,6 +97,115 @@ function Card({ project: g, progress: p }: { project: Project; progress?: Projec
   );
 }
 
+function MobileCard({ project: g, progress: p }: { project: Project; progress?: ProjectProgress }) {
+  const codePct = p ? percent(p.code) : 100;
+
+  return (
+    <section
+      aria-label={`${g.name} progress`}
+      className="relative flex min-h-[560px] flex-col items-center justify-center gap-4 overflow-hidden rounded-[24px] border-4 border-[#00f0ff] bg-[#020b14] px-4 py-8 shadow-[0_0_40px_rgba(0,240,255,0.25)] sm:min-h-[620px] sm:px-6 sm:py-10 font-pixel"
+    >
+      {/* Authentic Going Mobile starfield backdrop with Ratchet */}
+      <Image src={g.image} alt="" fill sizes="(min-width: 1080px) 1048px, 100vw" quality={90} className="object-cover opacity-90" />
+      <div aria-hidden className="absolute inset-0 bg-black/35" />
+
+      {/* Retro In-Game Top HUD Bar matching Going Mobile */}
+      <div className="relative flex w-full max-w-[640px] items-center justify-between rounded-full border-2 border-[#00f0ff] bg-[#002433]/90 px-4 py-2 text-[10px] text-[#00f0ff] shadow-[0_0_15px_rgba(0,240,255,0.35)] sm:text-xs">
+        <div className="flex items-center gap-1.5 text-white">
+          <svg viewBox="0 0 16 16" className="size-3.5 fill-[#00f0ff] sm:size-4" aria-hidden="true">
+            <path d="M9 1L3 9h5l-1 6 6-8H8l1-6z" />
+          </svg>
+          <span className="tracking-wider">351 MTHD</span>
+        </div>
+
+        {/* 5 Nanotech Health Nodes */}
+        <div className="flex items-center gap-1 sm:gap-1.5 text-[#00f0ff]">
+          <span className="text-[10px] opacity-75 sm:text-xs">&lt;</span>
+          {[0, 1, 2, 3, 4].map((i) => (
+            <span
+              key={i}
+              className="inline-block size-2.5 rotate-45 border border-[#00f0ff] bg-[#00f0ff] shadow-[0_0_8px_#00f0ff] sm:size-3"
+            />
+          ))}
+          <span className="text-[10px] opacity-75 sm:text-xs">&gt;</span>
+        </div>
+
+        <div className="flex items-center gap-1.5 text-white">
+          <span className="tracking-wider">10/10 CLS</span>
+          <svg viewBox="0 0 16 16" className="size-3.5 fill-[#00f0ff] sm:size-4" aria-hidden="true">
+            <path d="M14 2a3 3 0 0 0-4.24 0L7.5 4.26 9.74 6.5l2.26-2.26A1.5 1.5 0 0 1 14.12 6.36l-2.26 2.26 2.24 2.24 2.12-2.12a3 3 0 0 0 0-4.24L14 2zm-7.6 3.66L1.88 10.18a2 2 0 0 0 0 2.83l1.11 1.11a2 2 0 0 0 2.83 0l4.52-4.52-3.94-3.94z" />
+          </svg>
+        </div>
+      </div>
+
+      {/* Main Title Box in Pixel Styling */}
+      <div className="relative w-full max-w-[640px] rounded-xl border-4 border-[#00f0ff] bg-[#002433]/92 px-4 py-5 text-center text-[#e0f2fe] shadow-[0_0_25px_rgba(0,240,255,0.3)] sm:px-8 sm:py-6">
+        <div className="mb-3 flex justify-center">
+          <span className="inline-flex items-center gap-2 rounded-full border border-emerald-400 bg-emerald-950/85 px-3 py-1 text-[9px] tracking-wider text-emerald-300 shadow-[0_0_12px_rgba(52,211,153,0.5)] sm:text-[11px]">
+            <span className="size-2 rounded-full bg-emerald-400 animate-pulse" />
+            100% BYTE-MATCHED · EXACT
+          </span>
+        </div>
+        <h2 className="text-[clamp(16px,2.8vw,28px)] font-normal tracking-wide text-[#00f0ff] drop-shadow-[0_2px_10px_rgba(0,240,255,0.4)]">
+          {g.name}
+        </h2>
+        <small className="mt-2.5 block text-[9px] tracking-wider text-[#7dd3fc] sm:text-[11px]">
+          {g.subtitle ?? "Java reconstruction · 2005 · J2ME"}
+        </small>
+      </div>
+
+      {/* Progress Box in Pixel Styling */}
+      <div className="relative flex w-full max-w-[640px] flex-wrap justify-center gap-3">
+        <div className="flex-1 rounded-xl border-4 border-[#00f0ff] bg-[#002433]/92 px-4 py-3 text-center text-[clamp(11px,1.8vw,16px)] text-[#00f0ff] shadow-[0_0_15px_rgba(0,240,255,0.25)]">
+          PROGRESS
+        </div>
+        <div className="flex-[2] rounded-xl border-4 border-[#00f0ff] bg-[#002433]/92 px-4 py-3 text-center text-[clamp(13px,2.2vw,22px)] text-[#00f0ff] shadow-[0_0_15px_rgba(0,240,255,0.25)]">
+          {pct(codePct)}
+        </div>
+      </div>
+
+      {/* Segmented Pixel Progress Bar */}
+      <div className="relative w-full max-w-[640px]">
+        <div
+          role="progressbar"
+          aria-label={`${g.name} code matched`}
+          aria-valuenow={Math.round(codePct * 10) / 10}
+          aria-valuemin={0}
+          aria-valuemax={100}
+          className="h-5 overflow-hidden rounded-lg border-2 border-[#00f0ff] bg-[#001018] p-0.5 shadow-[0_0_12px_rgba(0,240,255,0.3)]"
+        >
+          <div className="flex h-full w-full gap-1">
+            {[...Array(10)].map((_, i) => (
+              <span
+                key={i}
+                className="h-full flex-1 rounded-xs bg-gradient-to-t from-[#00b4d8] to-[#00f0ff] shadow-[0_0_8px_rgba(0,240,255,0.6)]"
+              />
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* GitHub Repo Link in Pixel Style */}
+      {g.repo && (
+        <a
+          href={`https://github.com/${g.repo}`}
+          className="relative inline-flex max-w-full items-center gap-3 rounded-xl border-4 border-[#00f0ff] bg-[#002433]/92 px-5 py-3 text-[10px] text-[#e0f2fe] no-underline shadow-[0_0_15px_rgba(0,240,255,0.25)] transition hover:bg-[#00384d] hover:brightness-125 sm:text-xs"
+        >
+          {GITHUB}
+          <span className="truncate">{g.repo}</span>
+        </a>
+      )}
+
+      {/* Note */}
+      {p?.note && (
+        <p className="relative px-2 text-center text-[9px] tracking-wider text-[#7dd3fc] sm:text-[11px]">
+          {p.note}
+        </p>
+      )}
+    </section>
+  );
+}
+
 export default function Progress({ progress }: { progress: Partial<Record<ProjectId, ProjectProgress>> }) {
   const mainline = PROJECTS.filter((p) => p.category !== "spinoff");
   const spinoffs = PROJECTS.filter((p) => p.category === "spinoff");
@@ -138,9 +247,13 @@ export default function Progress({ progress }: { progress: Partial<Record<Projec
               </span>
             </div>
             <div className="grid gap-7">
-              {spinoffs.map((g) => (
-                <Card key={g.id} project={g} progress={progress[g.id]} />
-              ))}
+              {spinoffs.map((g) =>
+                g.id === "gm" ? (
+                  <MobileCard key={g.id} project={g} progress={progress[g.id]} />
+                ) : (
+                  <Card key={g.id} project={g} progress={progress[g.id]} />
+                )
+              )}
             </div>
           </div>
         )}
