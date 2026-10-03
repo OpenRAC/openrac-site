@@ -35,14 +35,6 @@ function Card({ project: g, progress: p }: { project: Project; progress?: Projec
       <Image src={g.image} alt="" fill sizes="(min-width: 1080px) 1048px, 100vw" quality={70} className="object-cover" />
       <div aria-hidden className="absolute inset-0 bg-black/20" />
       <div className={`${box} relative w-full max-w-[640px] text-[clamp(24px,4.5vw,44px)] leading-tight sm:px-10 sm:py-6`}>
-        {codePct >= 100 && (
-          <div className="mb-2.5 flex justify-center">
-            <span className="inline-flex items-center gap-1.5 rounded-full border border-emerald-400/50 bg-emerald-950/80 px-3 py-1 font-mono text-[11px] font-semibold tracking-wider text-emerald-300 shadow-[0_0_14px_rgba(16,185,129,0.4)] sm:text-xs">
-              <span className="size-2 rounded-full bg-emerald-400 animate-pulse" />
-              100% BYTE-MATCHED · COMPLETE
-            </span>
-          </div>
-        )}
         {g.name}
         <small className="mt-1.5 block text-[.5em] tracking-wide text-(--tx2)">{g.subtitle ?? `decompilation · ${g.year}`}</small>
       </div>
@@ -65,11 +57,7 @@ function Card({ project: g, progress: p }: { project: Project; progress?: Projec
             >
               <i
                 style={{ "--w": `${codePct}%` } as CSSProperties}
-                className={`bar-fill relative block h-full overflow-hidden rounded-md ${
-                  codePct >= 100
-                    ? "bg-gradient-to-r from-emerald-400 via-[#38bdf8] to-emerald-300 shadow-[0_0_12px_rgba(52,211,153,0.6)]"
-                    : "bg-gradient-to-r from-(--tx2) to-(--tx)"
-                }`}
+                className="bar-fill relative block h-full overflow-hidden rounded-md bg-gradient-to-r from-(--tx2) to-(--tx)"
               >
                 <span aria-hidden className="absolute inset-0 animate-sweep bg-gradient-to-r from-transparent via-white/45 to-transparent" />
               </i>
@@ -103,14 +91,14 @@ function MobileCard({ project: g, progress: p }: { project: Project; progress?: 
   return (
     <section
       aria-label={`${g.name} progress`}
-      className="relative flex min-h-[560px] flex-col items-center justify-center gap-4 overflow-hidden rounded-[24px] border-4 border-[#00f0ff] bg-[#020b14] px-4 py-8 shadow-[0_0_40px_rgba(0,240,255,0.25)] sm:min-h-[620px] sm:px-6 sm:py-10 font-pixel"
+      className="relative flex min-h-[560px] flex-col items-center justify-center gap-4 overflow-hidden rounded-[24px] border-4 border-[#00f0ff] bg-[#020b14] px-4 py-8 shadow-[0_18px_50px_rgb(0_0_0/0.45)] sm:min-h-[620px] sm:px-6 sm:py-10 font-pixel"
     >
       {/* Authentic Going Mobile starfield backdrop with Ratchet */}
       <Image src={g.image} alt="" fill sizes="(min-width: 1080px) 1048px, 100vw" quality={90} className="object-cover opacity-90" />
       <div aria-hidden className="absolute inset-0 bg-black/35" />
 
       {/* Retro In-Game Top HUD Bar matching Going Mobile */}
-      <div className="relative flex w-full max-w-[640px] items-center justify-between rounded-full border-2 border-[#00f0ff] bg-[#002433]/90 px-4 py-2 text-[10px] text-[#00f0ff] shadow-[0_0_15px_rgba(0,240,255,0.35)] sm:text-xs">
+      <div className="relative flex w-full max-w-[640px] items-center justify-between rounded-full border-2 border-[#00f0ff] bg-[#002433]/90 px-4 py-2 text-[10px] text-[#00f0ff] shadow-[0_4px_16px_rgba(0,0,0,0.5)] sm:text-xs">
         <div className="flex items-center gap-1.5 text-white">
           <svg viewBox="0 0 16 16" className="size-3.5 fill-[#00f0ff] sm:size-4" aria-hidden="true">
             <path d="M9 1L3 9h5l-1 6 6-8H8l1-6z" />
@@ -124,7 +112,7 @@ function MobileCard({ project: g, progress: p }: { project: Project; progress?: 
           {[0, 1, 2, 3, 4].map((i) => (
             <span
               key={i}
-              className="inline-block size-2.5 rotate-45 border border-[#00f0ff] bg-[#00f0ff] shadow-[0_0_8px_#00f0ff] sm:size-3"
+              className="inline-block size-2.5 rotate-45 border border-[#00f0ff] bg-[#00f0ff] sm:size-3"
             />
           ))}
           <span className="text-[10px] opacity-75 sm:text-xs">&gt;</span>
@@ -139,14 +127,8 @@ function MobileCard({ project: g, progress: p }: { project: Project; progress?: 
       </div>
 
       {/* Main Title Box in Pixel Styling */}
-      <div className="relative w-full max-w-[640px] rounded-xl border-4 border-[#00f0ff] bg-[#002433]/92 px-4 py-5 text-center text-[#e0f2fe] shadow-[0_0_25px_rgba(0,240,255,0.3)] sm:px-8 sm:py-6">
-        <div className="mb-3 flex justify-center">
-          <span className="inline-flex items-center gap-2 rounded-full border border-emerald-400 bg-emerald-950/85 px-3 py-1 text-[9px] tracking-wider text-emerald-300 shadow-[0_0_12px_rgba(52,211,153,0.5)] sm:text-[11px]">
-            <span className="size-2 rounded-full bg-emerald-400 animate-pulse" />
-            100% BYTE-MATCHED · EXACT
-          </span>
-        </div>
-        <h2 className="text-[clamp(16px,2.8vw,28px)] font-normal tracking-wide text-[#00f0ff] drop-shadow-[0_2px_10px_rgba(0,240,255,0.4)]">
+      <div className="relative w-full max-w-[640px] rounded-xl border-4 border-[#00f0ff] bg-[#002433]/92 px-4 py-5 text-center text-[#e0f2fe] shadow-[0_8px_24px_rgba(0,0,0,0.45)] sm:px-8 sm:py-6">
+        <h2 className="text-[clamp(16px,2.8vw,28px)] font-normal tracking-wide text-[#00f0ff]">
           {g.name}
         </h2>
         <small className="mt-2.5 block text-[9px] tracking-wider text-[#7dd3fc] sm:text-[11px]">
@@ -156,10 +138,10 @@ function MobileCard({ project: g, progress: p }: { project: Project; progress?: 
 
       {/* Progress Box in Pixel Styling */}
       <div className="relative flex w-full max-w-[640px] flex-wrap justify-center gap-3">
-        <div className="flex-1 rounded-xl border-4 border-[#00f0ff] bg-[#002433]/92 px-4 py-3 text-center text-[clamp(11px,1.8vw,16px)] text-[#00f0ff] shadow-[0_0_15px_rgba(0,240,255,0.25)]">
+        <div className="flex-1 rounded-xl border-4 border-[#00f0ff] bg-[#002433]/92 px-4 py-3 text-center text-[clamp(11px,1.8vw,16px)] text-[#00f0ff] shadow-[0_8px_24px_rgba(0,0,0,0.35)]">
           PROGRESS
         </div>
-        <div className="flex-[2] rounded-xl border-4 border-[#00f0ff] bg-[#002433]/92 px-4 py-3 text-center text-[clamp(13px,2.2vw,22px)] text-[#00f0ff] shadow-[0_0_15px_rgba(0,240,255,0.25)]">
+        <div className="flex-[2] rounded-xl border-4 border-[#00f0ff] bg-[#002433]/92 px-4 py-3 text-center text-[clamp(13px,2.2vw,22px)] text-[#00f0ff] shadow-[0_8px_24px_rgba(0,0,0,0.35)]">
           {pct(codePct)}
         </div>
       </div>
@@ -172,13 +154,13 @@ function MobileCard({ project: g, progress: p }: { project: Project; progress?: 
           aria-valuenow={Math.round(codePct * 10) / 10}
           aria-valuemin={0}
           aria-valuemax={100}
-          className="h-5 overflow-hidden rounded-lg border-2 border-[#00f0ff] bg-[#001018] p-0.5 shadow-[0_0_12px_rgba(0,240,255,0.3)]"
+          className="h-5 overflow-hidden rounded-lg border-2 border-[#00f0ff] bg-[#001018] p-0.5 shadow-[0_4px_12px_rgba(0,0,0,0.45)]"
         >
           <div className="flex h-full w-full gap-1">
             {[...Array(10)].map((_, i) => (
               <span
                 key={i}
-                className="h-full flex-1 rounded-xs bg-gradient-to-t from-[#00b4d8] to-[#00f0ff] shadow-[0_0_8px_rgba(0,240,255,0.6)]"
+                className="h-full flex-1 rounded-xs bg-gradient-to-t from-[#00b4d8] to-[#00f0ff]"
               />
             ))}
           </div>
@@ -189,7 +171,7 @@ function MobileCard({ project: g, progress: p }: { project: Project; progress?: 
       {g.repo && (
         <a
           href={`https://github.com/${g.repo}`}
-          className="relative inline-flex max-w-full items-center gap-3 rounded-xl border-4 border-[#00f0ff] bg-[#002433]/92 px-5 py-3 text-[10px] text-[#e0f2fe] no-underline shadow-[0_0_15px_rgba(0,240,255,0.25)] transition hover:bg-[#00384d] hover:brightness-125 sm:text-xs"
+          className="relative inline-flex max-w-full items-center gap-3 rounded-xl border-4 border-[#00f0ff] bg-[#002433]/92 px-5 py-3 text-[10px] text-[#e0f2fe] no-underline shadow-[0_8px_24px_rgba(0,0,0,0.35)] transition hover:bg-[#00384d] hover:brightness-125 sm:text-xs"
         >
           {GITHUB}
           <span className="truncate">{g.repo}</span>
