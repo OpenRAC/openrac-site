@@ -91,40 +91,11 @@ function MobileCard({ project: g, progress: p }: { project: Project; progress?: 
   return (
     <section
       aria-label={`${g.name} progress`}
-      className="relative flex min-h-[560px] flex-col items-center justify-center gap-4 overflow-hidden rounded-[24px] border-4 border-[#00f0ff] bg-[#020b14] px-4 py-8 shadow-[0_18px_50px_rgb(0_0_0/0.45)] sm:min-h-[620px] sm:px-6 sm:py-10 font-pixel"
+      className="relative flex min-h-[560px] flex-col items-center justify-center gap-5 overflow-hidden rounded-[30px] bg-[#020b14] px-3.5 py-8 shadow-[0_18px_50px_rgb(0_0_0/0.45)] sm:h-[600px] sm:px-6 sm:py-10 font-pixel"
     >
       {/* Authentic Going Mobile starfield backdrop with Ratchet */}
       <Image src={g.image} alt="" fill sizes="(min-width: 1080px) 1048px, 100vw" quality={90} className="object-cover opacity-90" />
       <div aria-hidden className="absolute inset-0 bg-black/35" />
-
-      {/* Retro In-Game Top HUD Bar matching Going Mobile */}
-      <div className="relative flex w-full max-w-[640px] items-center justify-between rounded-full border-2 border-[#00f0ff] bg-[#002433]/90 px-4 py-2 text-[10px] text-[#00f0ff] shadow-[0_4px_16px_rgba(0,0,0,0.5)] sm:text-xs">
-        <div className="flex items-center gap-1.5 text-white">
-          <svg viewBox="0 0 16 16" className="size-3.5 fill-[#00f0ff] sm:size-4" aria-hidden="true">
-            <path d="M9 1L3 9h5l-1 6 6-8H8l1-6z" />
-          </svg>
-          <span className="tracking-wider">351 MTHD</span>
-        </div>
-
-        {/* 5 Nanotech Health Nodes */}
-        <div className="flex items-center gap-1 sm:gap-1.5 text-[#00f0ff]">
-          <span className="text-[10px] opacity-75 sm:text-xs">&lt;</span>
-          {[0, 1, 2, 3, 4].map((i) => (
-            <span
-              key={i}
-              className="inline-block size-2.5 rotate-45 border border-[#00f0ff] bg-[#00f0ff] sm:size-3"
-            />
-          ))}
-          <span className="text-[10px] opacity-75 sm:text-xs">&gt;</span>
-        </div>
-
-        <div className="flex items-center gap-1.5 text-white">
-          <span className="tracking-wider">10/10 CLS</span>
-          <svg viewBox="0 0 16 16" className="size-3.5 fill-[#00f0ff] sm:size-4" aria-hidden="true">
-            <path d="M14 2a3 3 0 0 0-4.24 0L7.5 4.26 9.74 6.5l2.26-2.26A1.5 1.5 0 0 1 14.12 6.36l-2.26 2.26 2.24 2.24 2.12-2.12a3 3 0 0 0 0-4.24L14 2zm-7.6 3.66L1.88 10.18a2 2 0 0 0 0 2.83l1.11 1.11a2 2 0 0 0 2.83 0l4.52-4.52-3.94-3.94z" />
-          </svg>
-        </div>
-      </div>
 
       {/* Main Title Box in Pixel Styling */}
       <div className="relative w-full max-w-[640px] rounded-xl border-4 border-[#00f0ff] bg-[#002433]/92 px-4 py-5 text-center text-[#e0f2fe] shadow-[0_8px_24px_rgba(0,0,0,0.45)] sm:px-8 sm:py-6">
