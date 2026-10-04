@@ -1,0 +1,40 @@
+name: Daily Wayback Machine Snapshot
+
+on:
+  schedule:
+    # Runs daily at 04:00 UTC
+    - cron: '0 4 * * *'
+  workflow_dispatch: # Allows manual trigger from GitHub UI
+
+jobs:
+  wayback-snapshot:
+    name: Archive openrac.dev to Wayback Machine
+    runs-on: ubuntu-latest
+    steps:
+      - name: Request Wayback Machine Snapshots
+        run: |
+          URLS=(
+            "https://openrac.dev/"
+            "https://openrac.dev/blog"
+          )
+          
+          echo "## Wayback Machine Snapshots" >> $GITHUB_STEP_SUMMARY
+          echo "| Page | Status | Snapshot Archive URL |" >> $GITHUB_STEP_SUMMARY
+          echo "|---|---|---|" >> $GITHUB_STEP_SUMMARY
+
+          for target in "${URLS[@]}"; do
+            echo "Requesting snapshot for ${target}..."
+            headers=$(curl -s -S -D - "https://web.archive.org/save/${target}" -o /dev/null -A "OpenRAC-ArchiveBot/1.0 (+https://openrac.dev)" 2>&1 || true)
+            
+            status=$(echo "$headers" | grep -iE '^HTTP/' | tail -n 1 | awk '{print $2}' || true)
+            archive_url=$(echo "$headers" | grep -i '^location:' | head -n 1 | awk '{print $2}' | tr -d '\r' || true)
+
+            if [ "$status" = "200" ] || [ "$status" = "302" ]; then
+              echo "  ✓ Success (HTTP ${status}): ${archive_url}"
+              echo "| \`${target}\` | ✅ HTTP ${status} | [${archive_url}](${archive_url}) |" >> $GITHUB_STEP_SUMMARY
+            else
+              echo "  ✗ Failed (HTTP ${status:-unknown})"
+              echo "| \`${target}\` | ❌ HTTP ${status:-unknown} | Failed |" >> $GITHUB_STEP_SUMMARY
+            fi
+            sleep 5
+          done
