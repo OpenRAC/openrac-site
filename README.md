@@ -26,6 +26,7 @@ Every project is measured the same way, so the bars can be compared:
 Sources (see `src/lib/progress.ts`):
 
 - **Ratchet & Clank**: `progress/report.json` (objdiff report) of [`Lynder063/rac1-decomp`](https://github.com/Lynder063/rac1-decomp).
+- **Going Commando**: `progress/report.json` and `config/progress-scope.json` of [`llesieur99/rac2-decomp`](https://github.com/llesieur99/rac2-decomp), branch `RAC2`. The percentage uses integrated C bytes over all executable bytes in the boot and 27 level overlays. The detail line separates boot functions from level placements and shows the report's verification date when available. Placements are occurrences across programs, not unique algorithms. The scope lists ELF sections, so it cannot supply a total function count; that denominator stays unknown. Exported objdiff unit counts remain report units, not source-file or function totals.
 - **Up Your Arsenal**: `progress_report.json` (objdiff report) of [`vetusmagnus/ratchet-uya-decomp`](https://github.com/vetusmagnus/ratchet-uya-decomp).
 
 If GitHub cannot be reached, the last known snapshot (in `progress.ts`) is shown and labelled as such.
