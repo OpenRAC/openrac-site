@@ -13,7 +13,8 @@ export const percent = (r: Ratio): number => (r.total > 0 ? (r.done / r.total) *
  *    the small functions get matched first)
  */
 export interface Progress {
-  functions: Ratio;
+  /** Null means the report does not provide that count; never infer it from sections or units. */
+  functions: { done: number | null; total: number | null };
   code: Ratio;
   /** Short extra line shown under the numbers, e.g. how the count is made up. */
   note?: string;

@@ -1,6 +1,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { parseGcReport, GC_TOTAL_CODE_FALLBACK, GC_TOTAL_UNITS_FALLBACK } from "./gc.ts";
+import { parseGcReport, GC_TOTAL_CODE_FALLBACK } from "./gc.ts";
+import { percent } from "./types.ts";
 
 const sampleRepositoryReport = {
   verified_at: "2026-10-01T18:51:29.877133+00:00",
@@ -48,12 +49,12 @@ test("parseGcReport parses repository progress/report.json with default fallback
   assert.equal(p.code.done, 2876);
   assert.equal(p.code.total, GC_TOTAL_CODE_FALLBACK);
   assert.equal(p.functions.done, 56); // 26 + 15 + 15
-  assert.equal(p.functions.total, GC_TOTAL_UNITS_FALLBACK);
-  assert.equal(p.note, `56 of ${GC_TOTAL_UNITS_FALLBACK} units complete`);
+  assert.equal(p.functions.total, null);
+  assert.equal(p.note, "2,876 / 48,788,176 code bytes integrated · 26 boot functions · 30 level placements · verified 2026-10-01");
   assert.equal(p.source, "progress/report.json");
 });
 
-test("parseGcReport computes total code and units dynamically when scope is provided", () => {
+test("ELF sections set the byte denominator without becoming a function denominator", () => {
   const scope = {
     programs: [
       {
@@ -75,16 +76,16 @@ test("parseGcReport computes total code and units dynamically when scope is prov
   assert.equal(p.code.done, 2876);
   assert.equal(p.code.total, 3000);
   assert.equal(p.functions.done, 56);
-  assert.equal(p.functions.total, 3);
-  assert.equal(p.note, "56 of 3 units complete");
+  assert.equal(p.functions.total, null);
+  assert.equal(p.note, "2,876 / 3,000 code bytes integrated · 26 boot functions · 30 level placements · verified 2026-10-01");
 });
 
 test("parseGcReport correctly parses objdiff v2 camelCase measures", () => {
   const p = parseGcReport(sampleObjdiffReport);
   assert.equal(p.code.done, 25312);
   assert.equal(p.code.total, 48788176);
-  assert.equal(p.functions.done, 427);
-  assert.equal(p.functions.total, 603);
+  assert.equal(p.functions.done, null);
+  assert.equal(p.functions.total, null);
   assert.equal(p.note, "427 of 603 units complete");
 });
 
@@ -128,10 +129,53 @@ test("parseGcReport handles full rac2-decomp report values accurately", () => {
   const p = parseGcReport(fullReport);
   assert.equal(p.code.done, 25312);
   assert.equal(p.code.total, 48788176);
-  assert.equal(p.functions.done, 427); // 26 + (25*15 + 2*14 = 401) = 427
-  assert.equal(p.functions.total, 603);
-  assert.equal(p.note, "427 of 603 units complete");
+  assert.equal(p.functions.done, 427); // 26 boot + 23*15 + 4*14 level placements.
+  assert.equal(p.functions.total, null);
+  assert.equal(p.note, "25,312 / 48,788,176 code bytes integrated · 26 boot functions · 401 level placements · verified 2026-10-01");
   assert.equal(p.source, "progress/report.json");
+});
+
+test("RAC2's percentage is unchanged when function counts exceed the section count", () => {
+  const report = {
+    verified_at: "2026-10-04T13:24:08.419407+00:00",
+    integrated_code_bytes: 242732,
+    g1: { integrated_c_functions: 178, integrated_c_bytes: 9336 },
+    g3: [{ integrated_c_functions: 4607, integrated_c_bytes: 233396 }],
+  };
+  const scope = {
+    programs: [{ sections: Array.from({ length: 176 }, (_, i) => (
+      i === 0 ? { flags: 6, size: 48788176 } : { flags: 2, size: 16 }
+    )) }],
+  };
+  const p = parseGcReport(report, scope);
+  assert.equal(percent(p.code).toFixed(2), "0.50");
+  assert.deepEqual(p.functions, { done: 4785, total: null });
+  assert.equal(p.note, "242,732 / 48,788,176 code bytes integrated · 178 boot functions · 4,607 level placements · verified 2026-10-04");
+  assert.doesNotMatch(p.note!, /units complete|of 176/);
+});
+
+test("boot-only reports and missing verification dates do not invent level counts", () => {
+  const p = parseGcReport({ g1: { integrated_c_functions: 26, integrated_c_bytes: 1076 } });
+  assert.deepEqual(p.functions, { done: 26, total: null });
+  assert.equal(p.note, "1,076 / 48,788,176 code bytes integrated · 26 boot functions");
+});
+
+test("byte-only reports do not invent a function count", () => {
+  const p = parseGcReport({ integrated_code_bytes: 1076, verified_at: "invalid date" });
+  assert.deepEqual(p.functions, { done: null, total: null });
+  assert.equal(p.note, "1,076 / 48,788,176 code bytes integrated");
+});
+
+test("a measured zero function count stays zero rather than falling back to complete units", () => {
+  const p = parseGcReport({ measures: { total_code: 100, matched_code: 0,
+    matched_functions: 0, total_functions: 10, complete_units: 2, total_units: 3 } });
+  assert.deepEqual(p.functions, { done: 0, total: 10 });
+});
+
+test("invalid repository counts cannot produce a misleading summary", () => {
+  assert.throws(() => parseGcReport({ ...sampleRepositoryReport,
+    g3: [{ integrated_c_functions: -1 }] }), /unexpected shape/);
+  assert.throws(() => parseGcReport({ integrated_code_bytes: GC_TOTAL_CODE_FALLBACK + 1 }), /unexpected shape/);
 });
 
 test("parseGcReport rejects invalid input", () => {
