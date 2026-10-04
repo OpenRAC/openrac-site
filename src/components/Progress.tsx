@@ -159,6 +159,348 @@ function MobileCard({ project: g, progress: p }: { project: Project; progress?: 
   );
 }
 
+function Rac1Card({ project: g, progress: p }: { project: Project; progress?: ProjectProgress }) {
+  const codePct = p ? percent(p.code) : 0;
+
+  return (
+    <section
+      aria-label={`${g.name} progress`}
+      className="relative flex min-h-[560px] flex-col items-center justify-center gap-5 overflow-hidden rounded-[30px] bg-[#101413] px-3.5 py-8 shadow-[0_18px_50px_rgb(0_0_0/0.5)] sm:h-[600px] sm:px-6 sm:py-10 font-audiowide"
+    >
+      {/* Novalis / Tobruk Crater backdrop */}
+      <Image src={g.image} alt="" fill sizes="(min-width: 1080px) 1048px, 100vw" quality={75} className="object-cover" />
+      <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/45 to-black/60" />
+
+      {/* Gadgetron Industrial Chassis */}
+      <div className="relative w-full max-w-[640px]">
+        {/* Top-left Gadgetron badge */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute -left-2 -top-2.5 z-10 flex items-center gap-1.5 rounded-tl-md border-t-2 border-l-2 border-[#828f73] bg-[#3a4734] px-2.5 py-0.5 text-[9px] font-bold tracking-widest text-[#d8e2cf] shadow-md"
+        >
+          <span className="opacity-80">{"//"}</span>
+          <span className="text-[8px] uppercase tracking-wider">GADGETRON · 2002</span>
+        </div>
+
+        {/* Bottom-right industrial badge */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute -bottom-2.5 -right-2 z-10 flex items-center gap-1.5 rounded-br-md border-b-2 border-r-2 border-[#828f73] bg-[#3a4734] px-2.5 py-0.5 text-[9px] font-bold tracking-widest text-[#d8e2cf] shadow-md"
+        >
+          <span className="text-[8px] uppercase tracking-wider">PS2 · CLASSIC</span>
+          <span className="opacity-80">{"//"}</span>
+        </div>
+
+        {/* Main Terminal Frame */}
+        <div className="relative overflow-hidden rounded-xl border-2 border-[#6f7c62] bg-[#141816]/95 p-2 shadow-2xl backdrop-blur-md">
+          {/* Corner metallic rivets */}
+          <span aria-hidden className="absolute left-2.5 top-2.5 size-2 rounded-full border border-black/70 bg-[#7c8a6f] shadow-[inset_0_1px_1px_rgba(255,255,255,0.4)]" />
+          <span aria-hidden className="absolute right-2.5 top-2.5 size-2 rounded-full border border-black/70 bg-[#7c8a6f] shadow-[inset_0_1px_1px_rgba(255,255,255,0.4)]" />
+          <span aria-hidden className="absolute bottom-2.5 left-2.5 size-2 rounded-full border border-black/70 bg-[#7c8a6f] shadow-[inset_0_1px_1px_rgba(255,255,255,0.4)]" />
+          <span aria-hidden className="absolute bottom-2.5 right-2.5 size-2 rounded-full border border-black/70 bg-[#7c8a6f] shadow-[inset_0_1px_1px_rgba(255,255,255,0.4)]" />
+
+          <div className="flex flex-col gap-2 rounded-lg border border-white/10 bg-[#18201a]/90 p-2 sm:p-2.5">
+            
+            {/* Active Header Item */}
+            <div className="relative flex flex-col items-center justify-center rounded-md border border-[#828f73]/50 bg-gradient-to-r from-[#253d29] via-[#35583b] to-[#253d29] px-4 py-3 text-center text-[#e8f3e5] shadow-[inset_0_1px_2px_rgba(255,255,255,0.3),0_4px_12px_rgba(0,0,0,0.6)]">
+              <div className="flex w-full items-center justify-between">
+                <span aria-hidden className="text-xs text-[#a3c29e]">◀</span>
+                <h2 className="px-2 text-[clamp(18px,3.5vw,32px)] font-bold tracking-wider text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.7)]">
+                  {g.name.toUpperCase()}
+                </h2>
+                <span aria-hidden className="text-xs text-[#a3c29e]">▶</span>
+              </div>
+              <small className="mt-1 block text-[10px] font-semibold tracking-widest text-[#a8cd9f] uppercase sm:text-xs">
+                {g.subtitle ?? "PlayStation 2 · 2002"}
+              </small>
+            </div>
+
+            {/* Menu item 1: Progress */}
+            <div className="flex items-center justify-between rounded-md border border-white/5 bg-[#1b251e]/95 px-5 py-3 text-center shadow-[inset_0_1px_0_rgba(255,255,255,0.05)]">
+              <span className="text-[clamp(12px,2vw,16px)] font-bold tracking-widest text-[#9ca1d4]">
+                PROGRESS
+              </span>
+              <span className="text-[clamp(16px,2.8vw,24px)] font-bold tabular-nums tracking-wider text-[#c8d2ff]">
+                {pct(codePct)}
+              </span>
+            </div>
+
+            {/* Industrial Nanotech meter */}
+            <div className="px-0.5">
+              <div
+                role="progressbar"
+                aria-label={`${g.name} code matched`}
+                aria-valuenow={Math.round(codePct * 10) / 10}
+                aria-valuemin={0}
+                aria-valuemax={100}
+                className="h-4 overflow-hidden rounded-md border border-[#6f7c62]/70 bg-black/70 p-0.5 shadow-[inset_0_2px_4px_rgba(0,0,0,0.9)]"
+              >
+                <i
+                  style={{ "--w": `${codePct}%` } as CSSProperties}
+                  className="bar-fill relative block h-full overflow-hidden rounded-xs bg-gradient-to-r from-[#2d6a36] via-[#489e56] to-[#74c683]"
+                >
+                  <span aria-hidden className="absolute inset-0 animate-sweep bg-gradient-to-r from-transparent via-white/45 to-transparent" />
+                </i>
+              </div>
+            </div>
+
+            {/* Menu item 2: GitHub Repository */}
+            {g.repo && (
+              <a
+                href={`https://github.com/${g.repo}`}
+                className="group relative flex items-center justify-between rounded-md border border-white/5 bg-[#1b251e]/95 px-5 py-3 text-[#d1d5db] no-underline shadow-[inset_0_1px_0_rgba(255,255,255,0.05)] transition hover:border-[#74c683]/80 hover:bg-gradient-to-r hover:from-[#1e3824] hover:via-[#2a4d32] hover:to-[#1e3824] hover:text-white"
+              >
+                <div className="flex items-center gap-3 truncate">
+                  {GITHUB}
+                  <span className="truncate text-[clamp(12px,2vw,17px)] font-bold tracking-wide">
+                    {g.repo}
+                  </span>
+                </div>
+                <span aria-hidden className="text-xs font-bold opacity-0 transition-opacity group-hover:opacity-100 text-[#74c683]">
+                  ▶
+                </span>
+              </a>
+            )}
+
+            {/* Menu item 3: Status / Note */}
+            <div className="flex items-center justify-center rounded-md border border-white/5 bg-[#131b15]/90 px-4 py-2.5 text-center">
+              <p className="text-[11px] font-medium tracking-wide text-[#9ca1d4] sm:text-xs">
+                {p?.note ?? "Decompilation in progress"}
+                {p?.stale ? " · snapshot" : ""}
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function GcCard({ project: g, progress: p }: { project: Project; progress?: ProjectProgress }) {
+  const codePct = p ? percent(p.code) : 0;
+
+  return (
+    <section
+      aria-label={`${g.name} progress`}
+      className="relative flex min-h-[560px] flex-col items-center justify-center gap-5 overflow-hidden rounded-[30px] bg-[#090f18] px-3.5 py-8 shadow-[0_18px_50px_rgb(0_0_0/0.5)] sm:h-[600px] sm:px-6 sm:py-10 font-orbitron"
+    >
+      {/* Megacorp Games / Maktar backdrop */}
+      <Image src={g.image} alt="" fill sizes="(min-width: 1080px) 1048px, 100vw" quality={75} className="object-cover" />
+      <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/45 to-black/60" />
+
+      {/* Megacorp Corporate Terminal Chassis */}
+      <div className="relative w-full max-w-[640px]">
+        {/* Top-left Megacorp tech badge */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute -left-2 -top-2.5 z-10 flex items-center gap-1.5 rounded-tl-md border-t-2 border-l-2 border-[#5883b2] bg-[#1a3556] px-2.5 py-0.5 text-[9px] font-black tracking-widest text-[#d6e7f9] shadow-md"
+        >
+          <span className="opacity-80">{"//"}</span>
+          <span className="text-[8px] uppercase tracking-wider">MEGACORP · BOGON</span>
+        </div>
+
+        {/* Bottom-right tech badge */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute -bottom-2.5 -right-2 z-10 flex items-center gap-1.5 rounded-br-md border-b-2 border-r-2 border-[#5883b2] bg-[#1a3556] px-2.5 py-0.5 text-[9px] font-black tracking-widest text-[#d6e7f9] shadow-md"
+        >
+          <span className="text-[8px] uppercase tracking-wider">SYS · GC-02</span>
+          <span className="opacity-80">{"//"}</span>
+        </div>
+
+        {/* Main Terminal Frame */}
+        <div className="overflow-hidden rounded-xl border-2 border-[#476f99] bg-[#0e1724]/95 p-2 shadow-2xl backdrop-blur-md">
+          <div className="flex flex-col gap-2 rounded-lg border border-white/10 bg-[#121f31]/90 p-2 sm:p-2.5">
+            
+            {/* Active Header Item */}
+            <div className="relative flex flex-col items-center justify-center rounded-md border border-[#5883b2]/60 bg-gradient-to-r from-[#142948] via-[#1d3f6d] to-[#142948] px-4 py-3 text-center text-white shadow-[inset_0_1px_2px_rgba(255,255,255,0.3),0_4px_12px_rgba(0,0,0,0.6)]">
+              <div className="flex w-full items-center justify-between">
+                <span aria-hidden className="text-xs text-[#9fd3ff]">◀</span>
+                <h2 className="px-2 text-[clamp(18px,3.5vw,32px)] font-bold tracking-wider text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.7)]">
+                  {g.name.toUpperCase()}
+                </h2>
+                <span aria-hidden className="text-xs text-[#9fd3ff]">▶</span>
+              </div>
+              <small className="mt-1 block text-[10px] font-semibold tracking-widest text-[#9fd3ff] uppercase sm:text-xs">
+                {g.subtitle ?? "PlayStation 2 · 2003"}
+              </small>
+            </div>
+
+            {/* Menu item 1: Progress */}
+            <div className="flex items-center justify-between rounded-md border border-white/5 bg-[#17273d]/95 px-5 py-3 text-center shadow-[inset_0_1px_0_rgba(255,255,255,0.05)]">
+              <span className="text-[clamp(12px,2vw,16px)] font-bold tracking-widest text-[#6fa8d6]">
+                PROGRESS
+              </span>
+              <span className="text-[clamp(16px,2.8vw,24px)] font-black tabular-nums tracking-wider text-[#9fd3ff]">
+                {pct(codePct)}
+              </span>
+            </div>
+
+            {/* Megacorp Bogon energy meter */}
+            <div className="px-0.5">
+              <div
+                role="progressbar"
+                aria-label={`${g.name} code matched`}
+                aria-valuenow={Math.round(codePct * 10) / 10}
+                aria-valuemin={0}
+                aria-valuemax={100}
+                className="h-4 overflow-hidden rounded-md border border-[#476f99]/70 bg-black/70 p-0.5 shadow-[inset_0_2px_4px_rgba(0,0,0,0.9)]"
+              >
+                <i
+                  style={{ "--w": `${codePct}%` } as CSSProperties}
+                  className="bar-fill relative block h-full overflow-hidden rounded-xs bg-gradient-to-r from-[#1d4ed8] via-[#2563eb] to-[#38bdf8]"
+                >
+                  <span aria-hidden className="absolute inset-0 animate-sweep bg-gradient-to-r from-transparent via-white/45 to-transparent" />
+                </i>
+              </div>
+            </div>
+
+            {/* Menu item 2: GitHub Repository */}
+            {g.repo && (
+              <a
+                href={`https://github.com/${g.repo}`}
+                className="group relative flex items-center justify-between rounded-md border border-white/5 bg-[#17273d]/95 px-5 py-3 text-[#d1d5db] no-underline shadow-[inset_0_1px_0_rgba(255,255,255,0.05)] transition hover:border-[#38bdf8]/80 hover:bg-gradient-to-r hover:from-[#16355d] hover:via-[#1e487e] hover:to-[#16355d] hover:text-white"
+              >
+                <div className="flex items-center gap-3 truncate">
+                  {GITHUB}
+                  <span className="truncate text-[clamp(12px,2vw,17px)] font-bold tracking-wide">
+                    {g.repo}
+                  </span>
+                </div>
+                <span aria-hidden className="text-xs font-black opacity-0 transition-opacity group-hover:opacity-100 text-[#38bdf8]">
+                  ▶
+                </span>
+              </a>
+            )}
+
+            {/* Menu item 3: Status / Note */}
+            <div className="flex items-center justify-center rounded-md border border-white/5 bg-[#0d1624]/90 px-4 py-2.5 text-center">
+              <p className="text-[11px] font-medium tracking-wide text-[#6fa8d6] sm:text-xs">
+                {p?.note ?? "Decompilation in progress"}
+                {p?.stale ? " · snapshot" : ""}
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function UyaCard({ project: g, progress: p }: { project: Project; progress?: ProjectProgress }) {
+  const codePct = p ? percent(p.code) : 0;
+
+  return (
+    <section
+      aria-label={`${g.name} progress`}
+      className="relative flex min-h-[560px] flex-col items-center justify-center gap-5 overflow-hidden rounded-[30px] bg-[#081216] px-3.5 py-8 shadow-[0_18px_50px_rgb(0_0_0/0.5)] sm:h-[600px] sm:px-6 sm:py-10 font-orbitron"
+    >
+      {/* Starship Phoenix / Marcadia backdrop */}
+      <Image src={g.image} alt="" fill sizes="(min-width: 1080px) 1048px, 100vw" quality={75} className="object-cover" />
+      <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/45 to-black/60" />
+
+      {/* Starship Phoenix Tactical Chassis */}
+      <div className="relative w-full max-w-[640px]">
+        {/* Top-left Phoenix tactical badge */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute -left-2 -top-2.5 z-10 flex items-center gap-1.5 rounded-tl-md border-t-2 border-l-2 border-[#b88636] bg-[#4a3512] px-2.5 py-0.5 text-[9px] font-black tracking-widest text-[#fce8c3] shadow-md"
+        >
+          <span className="opacity-80">{"//"}</span>
+          <span className="text-[8px] uppercase tracking-wider">PHOENIX · BRIDGE</span>
+        </div>
+
+        {/* Bottom-right Q-Force badge */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute -bottom-2.5 -right-2 z-10 flex items-center gap-1.5 rounded-br-md border-b-2 border-r-2 border-[#b88636] bg-[#4a3512] px-2.5 py-0.5 text-[9px] font-black tracking-widest text-[#fce8c3] shadow-md"
+        >
+          <span className="text-[8px] uppercase tracking-wider">Q-FORCE · UYA</span>
+          <span className="opacity-80">{"//"}</span>
+        </div>
+
+        {/* Main Terminal Frame */}
+        <div className="overflow-hidden rounded-xl border-2 border-[#a0742e] bg-[#0e1e24]/95 p-2 shadow-2xl backdrop-blur-md">
+          <div className="flex flex-col gap-2 rounded-lg border border-white/10 bg-[#14262d]/90 p-2 sm:p-2.5">
+            
+            {/* Active Header Item */}
+            <div className="relative flex flex-col items-center justify-center rounded-md border border-[#b88636]/60 bg-gradient-to-r from-[#3b280c] via-[#593d13] to-[#3b280c] px-4 py-3 text-center text-white shadow-[inset_0_1px_2px_rgba(255,255,255,0.3),0_4px_12px_rgba(0,0,0,0.6)]">
+              <div className="flex w-full items-center justify-between">
+                <span aria-hidden className="text-xs text-[#ebbe67]">◀</span>
+                <h2 className="px-2 text-[clamp(18px,3.5vw,32px)] font-bold tracking-wider text-[#ffd08a] drop-shadow-[0_2px_4px_rgba(0,0,0,0.7)]">
+                  {g.name.toUpperCase()}
+                </h2>
+                <span aria-hidden className="text-xs text-[#ebbe67]">▶</span>
+              </div>
+              <small className="mt-1 block text-[10px] font-semibold tracking-widest text-[#ebbe67] uppercase sm:text-xs">
+                {g.subtitle ?? "PlayStation 2 · 2004"}
+              </small>
+            </div>
+
+            {/* Menu item 1: Progress */}
+            <div className="flex items-center justify-between rounded-md border border-white/5 bg-[#172c34]/95 px-5 py-3 text-center shadow-[inset_0_1px_0_rgba(255,255,255,0.05)]">
+              <span className="text-[clamp(12px,2vw,16px)] font-bold tracking-widest text-[#c99a45]">
+                PROGRESS
+              </span>
+              <span className="text-[clamp(16px,2.8vw,24px)] font-black tabular-nums tracking-wider text-[#ebbe67]">
+                {pct(codePct)}
+              </span>
+            </div>
+
+            {/* Phoenix tactical laser / energy meter */}
+            <div className="px-0.5">
+              <div
+                role="progressbar"
+                aria-label={`${g.name} code matched`}
+                aria-valuenow={Math.round(codePct * 10) / 10}
+                aria-valuemin={0}
+                aria-valuemax={100}
+                className="h-4 overflow-hidden rounded-md border border-[#a0742e]/70 bg-black/70 p-0.5 shadow-[inset_0_2px_4px_rgba(0,0,0,0.9)]"
+              >
+                <i
+                  style={{ "--w": `${codePct}%` } as CSSProperties}
+                  className="bar-fill relative block h-full overflow-hidden rounded-xs bg-gradient-to-r from-[#92400e] via-[#d97706] to-[#fbbf24]"
+                >
+                  <span aria-hidden className="absolute inset-0 animate-sweep bg-gradient-to-r from-transparent via-white/45 to-transparent" />
+                </i>
+              </div>
+            </div>
+
+            {/* Menu item 2: GitHub Repository */}
+            {g.repo && (
+              <a
+                href={`https://github.com/${g.repo}`}
+                className="group relative flex items-center justify-between rounded-md border border-white/5 bg-[#172c34]/95 px-5 py-3 text-[#d1d5db] no-underline shadow-[inset_0_1px_0_rgba(255,255,255,0.05)] transition hover:border-[#ebbe67]/80 hover:bg-gradient-to-r hover:from-[#402c0e] hover:via-[#593d14] hover:to-[#402c0e] hover:text-white"
+              >
+                <div className="flex items-center gap-3 truncate">
+                  {GITHUB}
+                  <span className="truncate text-[clamp(12px,2vw,17px)] font-bold tracking-wide">
+                    {g.repo}
+                  </span>
+                </div>
+                <span aria-hidden className="text-xs font-black opacity-0 transition-opacity group-hover:opacity-100 text-[#ebbe67]">
+                  ▶
+                </span>
+              </a>
+            )}
+
+            {/* Menu item 3: Status / Note */}
+            <div className="flex items-center justify-center rounded-md border border-white/5 bg-[#0b181d]/90 px-4 py-2.5 text-center">
+              <p className="text-[11px] font-medium tracking-wide text-[#c99a45] sm:text-xs">
+                {p?.note ?? "Decompilation in progress"}
+                {p?.stale ? " · snapshot" : ""}
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function DeadlockedCard({ project: g, progress: p }: { project: Project; progress?: ProjectProgress }) {
   const codePct = p ? percent(p.code) : 0;
 
@@ -178,12 +520,12 @@ function DeadlockedCard({ project: g, progress: p }: { project: Project; progres
       />
       <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/45 to-black/65" />
 
-      {/* DreadZone combat terminal box inspired by Deadlocked menu */}
+      {/* DreadZone combat terminal box inspired by Deadlocked menu (no neon glow) */}
       <div className="relative w-full max-w-[640px]">
         {/* Top-left red corner tab / bracket */}
         <div
           aria-hidden
-          className="pointer-events-none absolute -left-2 -top-2.5 z-10 flex items-center gap-1 rounded-tl-md border-t-2 border-l-2 border-[#ff3b3b] bg-[#b91c1c] px-2 py-0.5 text-[9px] font-black tracking-widest text-white shadow-[0_0_10px_rgba(220,38,38,0.7)]"
+          className="pointer-events-none absolute -left-2 -top-2.5 z-10 flex items-center gap-1 rounded-tl-md border-t-2 border-l-2 border-[#dc2626] bg-[#991b1b] px-2 py-0.5 text-[9px] font-black tracking-widest text-white shadow-md"
         >
           <span className="opacity-80">{"//"}</span>
           <span className="text-[8px] uppercase tracking-wider">ZONE</span>
@@ -192,14 +534,14 @@ function DeadlockedCard({ project: g, progress: p }: { project: Project; progres
         {/* Bottom-right red corner tab / bracket */}
         <div
           aria-hidden
-          className="pointer-events-none absolute -bottom-2.5 -right-2 z-10 flex items-center gap-1 rounded-br-md border-b-2 border-r-2 border-[#ff3b3b] bg-[#b91c1c] px-2 py-0.5 text-[9px] font-black tracking-widest text-white shadow-[0_0_10px_rgba(220,38,38,0.7)]"
+          className="pointer-events-none absolute -bottom-2.5 -right-2 z-10 flex items-center gap-1 rounded-br-md border-b-2 border-r-2 border-[#dc2626] bg-[#991b1b] px-2 py-0.5 text-[9px] font-black tracking-widest text-white shadow-md"
         >
           <span className="text-[8px] uppercase tracking-wider">HUD</span>
           <span className="opacity-80">{"//"}</span>
         </div>
 
         {/* Outer terminal frame */}
-        <div className="overflow-hidden rounded-xl border-2 border-[#dc2626] bg-[#12151c]/95 p-2 shadow-[0_0_30px_rgba(220,38,38,0.3),0_16px_40px_rgba(0,0,0,0.8)] backdrop-blur-md">
+        <div className="overflow-hidden rounded-xl border-2 border-[#b91c1c] bg-[#12151c]/95 p-2 shadow-2xl backdrop-blur-md">
           <div className="flex flex-col gap-2 rounded-lg border border-white/10 bg-[#161a22]/90 p-2 sm:p-2.5">
             
             {/* Active Header item (inspired by 'SINGLE PLAYER' active row in images.jpeg) */}
@@ -238,7 +580,7 @@ function DeadlockedCard({ project: g, progress: p }: { project: Project; progres
               >
                 <i
                   style={{ "--w": `${codePct}%` } as CSSProperties}
-                  className="bar-fill relative block h-full overflow-hidden rounded-xs bg-gradient-to-r from-[#991b1b] via-[#dc2626] to-[#f87171] shadow-[0_0_10px_rgba(220,38,38,0.8)]"
+                  className="bar-fill relative block h-full overflow-hidden rounded-xs bg-gradient-to-r from-[#991b1b] via-[#dc2626] to-[#f87171]"
                 >
                   <span aria-hidden className="absolute inset-0 animate-sweep bg-gradient-to-r from-transparent via-white/45 to-transparent" />
                 </i>
@@ -249,7 +591,7 @@ function DeadlockedCard({ project: g, progress: p }: { project: Project; progres
             {g.repo && (
               <a
                 href={`https://github.com/${g.repo}`}
-                className="group relative flex items-center justify-between rounded-md border border-white/5 bg-[#1b202a]/95 px-5 py-3 text-[#d1d5db] no-underline shadow-[inset_0_1px_0_rgba(255,255,255,0.05)] transition hover:border-[#dc2626]/80 hover:bg-gradient-to-r hover:from-[#7f1d1d]/90 hover:via-[#991b1b]/90 hover:to-[#7f1d1d]/90 hover:text-white hover:shadow-[0_0_18px_rgba(220,38,38,0.5)]"
+                className="group relative flex items-center justify-between rounded-md border border-white/5 bg-[#1b202a]/95 px-5 py-3 text-[#d1d5db] no-underline shadow-[inset_0_1px_0_rgba(255,255,255,0.05)] transition hover:border-[#dc2626] hover:bg-gradient-to-r hover:from-[#7f1d1d]/90 hover:via-[#991b1b]/90 hover:to-[#7f1d1d]/90 hover:text-white"
               >
                 <div className="flex items-center gap-3 truncate">
                   {GITHUB}
@@ -301,13 +643,13 @@ export default function Progress({ progress }: { progress: Partial<Record<Projec
             </span>
           </div>
           <div className="grid gap-7">
-            {mainline.map((g) =>
-              g.id === "deadlocked" ? (
-                <DeadlockedCard key={g.id} project={g} progress={progress[g.id]} />
-              ) : (
-                <Card key={g.id} project={g} progress={progress[g.id]} />
-              )
-            )}
+            {mainline.map((g) => {
+              if (g.id === "rac1") return <Rac1Card key={g.id} project={g} progress={progress[g.id]} />;
+              if (g.id === "gc") return <GcCard key={g.id} project={g} progress={progress[g.id]} />;
+              if (g.id === "uya") return <UyaCard key={g.id} project={g} progress={progress[g.id]} />;
+              if (g.id === "deadlocked") return <DeadlockedCard key={g.id} project={g} progress={progress[g.id]} />;
+              return <Card key={g.id} project={g} progress={progress[g.id]} />;
+            })}
           </div>
         </div>
 
