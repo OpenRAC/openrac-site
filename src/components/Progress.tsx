@@ -186,13 +186,9 @@ function DeadlockedCard({ project: g, progress: p }: { project: Project; progres
             
             {/* Active Header item (inspired by 'SINGLE PLAYER' active row in images.jpeg) */}
             <div className="relative flex flex-col items-center justify-center rounded-md border border-[#ff6b6b]/40 bg-gradient-to-r from-[#991b1b] via-[#dc2626] to-[#991b1b] px-4 py-3 text-center text-white shadow-[inset_0_1px_2px_rgba(255,255,255,0.4),0_4px_12px_rgba(0,0,0,0.6)]">
-              <div className="flex w-full items-center justify-between">
-                <span aria-hidden className="text-xs text-white/90">◀</span>
-                <h2 className="px-2 text-[clamp(18px,3.5vw,32px)] font-black tracking-wider text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.7)]">
-                  {g.name.toUpperCase()}
-                </h2>
-                <span aria-hidden className="text-xs text-white/90">▶</span>
-              </div>
+              <h2 className="px-2 text-[clamp(18px,3.5vw,32px)] font-black tracking-wider text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.7)]">
+                {g.name.toUpperCase()}
+              </h2>
               <small className="mt-1 block text-[10px] font-semibold tracking-widest text-red-100 uppercase sm:text-xs">
                 {g.subtitle ?? "PlayStation 2 · 2005"}
               </small>
@@ -231,16 +227,11 @@ function DeadlockedCard({ project: g, progress: p }: { project: Project; progres
             {g.repo && (
               <a
                 href={`https://github.com/${g.repo}`}
-                className="group relative flex items-center justify-between rounded-md border border-white/5 bg-[#1b202a]/95 px-5 py-3 text-[#d1d5db] no-underline shadow-[inset_0_1px_0_rgba(255,255,255,0.05)] transition hover:border-[#dc2626] hover:bg-gradient-to-r hover:from-[#7f1d1d]/90 hover:via-[#991b1b]/90 hover:to-[#7f1d1d]/90 hover:text-white"
+                className="group relative flex items-center justify-center gap-3 rounded-md border border-white/5 bg-[#1b202a]/95 px-5 py-3 text-[#d1d5db] no-underline shadow-[inset_0_1px_0_rgba(255,255,255,0.05)] transition hover:border-[#dc2626] hover:bg-gradient-to-r hover:from-[#7f1d1d]/90 hover:via-[#991b1b]/90 hover:to-[#7f1d1d]/90 hover:text-white"
               >
-                <div className="flex items-center gap-3 truncate">
-                  {GITHUB}
-                  <span className="truncate text-[clamp(12px,2vw,17px)] font-bold tracking-wide">
-                    {g.repo}
-                  </span>
-                </div>
-                <span aria-hidden className="text-xs font-black opacity-0 transition-opacity group-hover:opacity-100">
-                  ▶
+                {GITHUB}
+                <span className="truncate text-[clamp(12px,2vw,17px)] font-bold tracking-wide">
+                  {g.repo}
                 </span>
               </a>
             )}
