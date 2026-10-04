@@ -159,6 +159,125 @@ function MobileCard({ project: g, progress: p }: { project: Project; progress?: 
   );
 }
 
+function DeadlockedCard({ project: g, progress: p }: { project: Project; progress?: ProjectProgress }) {
+  const codePct = p ? percent(p.code) : 0;
+
+  return (
+    <section
+      aria-label={`${g.name} progress`}
+      className="relative flex min-h-[560px] flex-col items-center justify-center gap-5 overflow-hidden rounded-[30px] bg-[#0c0d12] px-3.5 py-8 shadow-[0_18px_50px_rgb(0_0_0/0.5)] sm:h-[600px] sm:px-6 sm:py-10 font-orbitron"
+    >
+      {/* Battledome arena backdrop */}
+      <Image
+        src={g.image}
+        alt=""
+        fill
+        sizes="(min-width: 1080px) 1048px, 100vw"
+        quality={85}
+        className="object-cover"
+      />
+      <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/45 to-black/65" />
+
+      {/* DreadZone combat terminal box inspired by Deadlocked menu */}
+      <div className="relative w-full max-w-[640px]">
+        {/* Top-left red corner tab / bracket */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute -left-2 -top-2.5 z-10 flex items-center gap-1 rounded-tl-md border-t-2 border-l-2 border-[#ff3b3b] bg-[#b91c1c] px-2 py-0.5 text-[9px] font-black tracking-widest text-white shadow-[0_0_10px_rgba(220,38,38,0.7)]"
+        >
+          <span className="opacity-80">{"//"}</span>
+          <span className="text-[8px] uppercase tracking-wider">ZONE</span>
+        </div>
+
+        {/* Bottom-right red corner tab / bracket */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute -bottom-2.5 -right-2 z-10 flex items-center gap-1 rounded-br-md border-b-2 border-r-2 border-[#ff3b3b] bg-[#b91c1c] px-2 py-0.5 text-[9px] font-black tracking-widest text-white shadow-[0_0_10px_rgba(220,38,38,0.7)]"
+        >
+          <span className="text-[8px] uppercase tracking-wider">HUD</span>
+          <span className="opacity-80">{"//"}</span>
+        </div>
+
+        {/* Outer terminal frame */}
+        <div className="overflow-hidden rounded-xl border-2 border-[#dc2626] bg-[#12151c]/95 p-2 shadow-[0_0_30px_rgba(220,38,38,0.3),0_16px_40px_rgba(0,0,0,0.8)] backdrop-blur-md">
+          <div className="flex flex-col gap-2 rounded-lg border border-white/10 bg-[#161a22]/90 p-2 sm:p-2.5">
+            
+            {/* Active Header item (inspired by 'SINGLE PLAYER' active row in images.jpeg) */}
+            <div className="relative flex flex-col items-center justify-center rounded-md border border-[#ff6b6b]/40 bg-gradient-to-r from-[#991b1b] via-[#dc2626] to-[#991b1b] px-4 py-3 text-center text-white shadow-[inset_0_1px_2px_rgba(255,255,255,0.4),0_4px_12px_rgba(0,0,0,0.6)]">
+              <div className="flex w-full items-center justify-between">
+                <span aria-hidden className="text-xs text-white/90">◀</span>
+                <h2 className="px-2 text-[clamp(18px,3.5vw,32px)] font-black tracking-wider text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.7)]">
+                  {g.name.toUpperCase()}
+                </h2>
+                <span aria-hidden className="text-xs text-white/90">▶</span>
+              </div>
+              <small className="mt-1 block text-[10px] font-semibold tracking-widest text-red-100 uppercase sm:text-xs">
+                {g.subtitle ?? "PlayStation 2 · 2005"}
+              </small>
+            </div>
+
+            {/* Menu item 1: Progress */}
+            <div className="flex items-center justify-between rounded-md border border-white/5 bg-[#1b202a]/95 px-5 py-3 text-center shadow-[inset_0_1px_0_rgba(255,255,255,0.05)]">
+              <span className="text-[clamp(12px,2vw,16px)] font-bold tracking-widest text-[#9ca3af]">
+                PROGRESS
+              </span>
+              <span className="text-[clamp(16px,2.8vw,24px)] font-black tabular-nums tracking-wider text-white">
+                {pct(codePct)}
+              </span>
+            </div>
+
+            {/* DreadZone energy / progress meter */}
+            <div className="px-0.5">
+              <div
+                role="progressbar"
+                aria-label={`${g.name} code matched`}
+                aria-valuenow={Math.round(codePct * 10) / 10}
+                aria-valuemin={0}
+                aria-valuemax={100}
+                className="h-4 overflow-hidden rounded-md border border-[#dc2626]/60 bg-black/70 p-0.5 shadow-[inset_0_2px_4px_rgba(0,0,0,0.9)]"
+              >
+                <i
+                  style={{ "--w": `${codePct}%` } as CSSProperties}
+                  className="bar-fill relative block h-full overflow-hidden rounded-xs bg-gradient-to-r from-[#991b1b] via-[#dc2626] to-[#f87171] shadow-[0_0_10px_rgba(220,38,38,0.8)]"
+                >
+                  <span aria-hidden className="absolute inset-0 animate-sweep bg-gradient-to-r from-transparent via-white/45 to-transparent" />
+                </i>
+              </div>
+            </div>
+
+            {/* Menu item 2: GitHub Repository (interactive hover state) */}
+            {g.repo && (
+              <a
+                href={`https://github.com/${g.repo}`}
+                className="group relative flex items-center justify-between rounded-md border border-white/5 bg-[#1b202a]/95 px-5 py-3 text-[#d1d5db] no-underline shadow-[inset_0_1px_0_rgba(255,255,255,0.05)] transition hover:border-[#dc2626]/80 hover:bg-gradient-to-r hover:from-[#7f1d1d]/90 hover:via-[#991b1b]/90 hover:to-[#7f1d1d]/90 hover:text-white hover:shadow-[0_0_18px_rgba(220,38,38,0.5)]"
+              >
+                <div className="flex items-center gap-3 truncate">
+                  {GITHUB}
+                  <span className="truncate text-[clamp(12px,2vw,17px)] font-bold tracking-wide">
+                    {g.repo}
+                  </span>
+                </div>
+                <span aria-hidden className="text-xs font-black opacity-0 transition-opacity group-hover:opacity-100">
+                  ▶
+                </span>
+              </a>
+            )}
+
+            {/* Menu item 3: Status / Note */}
+            <div className="flex items-center justify-center rounded-md border border-white/5 bg-[#12151b]/90 px-4 py-2.5 text-center">
+              <p className="text-[11px] font-medium tracking-wide text-[#9ca3af] sm:text-xs">
+                {p?.note ?? "Decompilation initialized · Initial symbol & function mapping in progress"}
+                {p?.stale ? " · snapshot" : ""}
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export default function Progress({ progress }: { progress: Partial<Record<ProjectId, ProjectProgress>> }) {
   const mainline = PROJECTS.filter((p) => p.category !== "spinoff");
   const spinoffs = PROJECTS.filter((p) => p.category === "spinoff");
@@ -168,18 +287,27 @@ export default function Progress({ progress }: { progress: Partial<Record<Projec
       <div className="space-y-12">
         <div>
           <div className="mb-5 flex flex-wrap items-center justify-between gap-2">
-            <h3 className="flex items-center gap-2.5 font-orbitron text-lg font-bold tracking-wide text-lav sm:text-xl">
-              <span className="size-2.5 rounded-full bg-brand" />
-              Mainline Trilogy
-            </h3>
+            <div>
+              <h3 className="flex items-center gap-2.5 font-orbitron text-lg font-bold tracking-wide text-lav sm:text-xl">
+                <span className="size-2.5 rounded-full bg-brand" />
+                Original Trilogy &amp; Deadlocked
+              </h3>
+              <p className="mt-1 text-xs text-dim sm:text-sm">
+                The four Insomniac PlayStation 2 releases, from the 2002 debut to the combat arena of Deadlocked.
+              </p>
+            </div>
             <span className="rounded-full border border-lav/20 bg-lav/5 px-3 py-1 font-orbitron text-xs text-dim">
               PlayStation 2
             </span>
           </div>
           <div className="grid gap-7">
-            {mainline.map((g) => (
-              <Card key={g.id} project={g} progress={progress[g.id]} />
-            ))}
+            {mainline.map((g) =>
+              g.id === "deadlocked" ? (
+                <DeadlockedCard key={g.id} project={g} progress={progress[g.id]} />
+              ) : (
+                <Card key={g.id} project={g} progress={progress[g.id]} />
+              )
+            )}
           </div>
         </div>
 

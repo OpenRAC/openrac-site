@@ -1,4 +1,4 @@
-export type ProjectId = "rac1" | "gc" | "uya" | "gm";
+export type ProjectId = "rac1" | "gc" | "uya" | "deadlocked" | "gm";
 
 export type ProjectCategory = "mainline" | "spinoff";
 
@@ -60,6 +60,19 @@ export const PROJECTS: readonly Project[] = [
     category: "mainline",
     platform: "PlayStation 2",
     tag: "UYA",
+  },
+  {
+    id: "deadlocked",
+    name: "Ratchet: Deadlocked",
+    year: 2005,
+    repo: "Lynder063/rac-deadlocked-decomp",
+    fontClass: "font-orbitron font-bold",
+    theme: { box: "#12151b", border: "#b91c1c", text: "#f3f4f6", text2: "#ef4444", from: "#7f1d1d", to: "#0f1115" },
+    image: "/img/deadlocked-bg.webp",
+    category: "mainline",
+    platform: "PlayStation 2",
+    subtitle: "decompilation · 2005 · PlayStation 2",
+    tag: "DL",
   },
   {
     id: "gm",
