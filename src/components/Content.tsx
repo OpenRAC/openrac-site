@@ -105,7 +105,6 @@ const TOOLS: Resource[] = [
 const COMMUNITY: Resource[] = [
   { title: "Wrench", href: "https://github.com/chaoticgd/wrench", text: "Level editor and modding tools for the PlayStation 2 games, and years of format research." },
   { title: "ReRAC", href: "https://github.com/re-rac/rerac", text: "A native PC rewrite of Ratchet & Clank in Rust." },
-  { title: "Sly Cooper decomp", href: "https://github.com/TheOnlyZac/sly1", text: "A PS2 decompilation with thorough guides on the practical side of matching." },
   { title: "Himuro", href: "https://github.com/Mikompilation/Himuro", text: "Fatal Frame decompilation, with PS2 compiler research many projects build on." },
 ];
 
