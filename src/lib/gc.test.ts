@@ -49,7 +49,6 @@ test("parseGcReport parses repository progress/report.json with default fallback
   assert.equal(p.code.total, GC_TOTAL_CODE_FALLBACK);
   assert.equal(p.functions.done, 56); // 26 + 15 + 15
   assert.equal(p.functions.total, GC_TOTAL_UNITS_FALLBACK);
-  assert.equal(p.note, `56 of ${GC_TOTAL_UNITS_FALLBACK} units complete`);
   assert.equal(p.source, "progress/report.json");
 });
 
@@ -76,7 +75,6 @@ test("parseGcReport computes total code and units dynamically when scope is prov
   assert.equal(p.code.total, 3000);
   assert.equal(p.functions.done, 56);
   assert.equal(p.functions.total, 3);
-  assert.equal(p.note, "56 of 3 units complete");
 });
 
 test("parseGcReport correctly parses objdiff v2 camelCase measures", () => {
@@ -85,7 +83,6 @@ test("parseGcReport correctly parses objdiff v2 camelCase measures", () => {
   assert.equal(p.code.total, 48788176);
   assert.equal(p.functions.done, 427);
   assert.equal(p.functions.total, 603);
-  assert.equal(p.note, "427 of 603 units complete");
 });
 
 test("parseGcReport correctly parses objdiff snake_case measures", () => {
@@ -94,7 +91,6 @@ test("parseGcReport correctly parses objdiff snake_case measures", () => {
   assert.equal(p.code.total, 48788176);
   assert.equal(p.functions.done, 427);
   assert.equal(p.functions.total, 603);
-  assert.equal(p.note, "427 of 603 units complete");
 });
 
 test("parseGcReport correctly parses JSON string", () => {
@@ -130,7 +126,6 @@ test("parseGcReport handles full rac2-decomp report values accurately", () => {
   assert.equal(p.code.total, 48788176);
   assert.equal(p.functions.done, 427); // 26 + (25*15 + 2*14 = 401) = 427
   assert.equal(p.functions.total, 603);
-  assert.equal(p.note, "427 of 603 units complete");
   assert.equal(p.source, "progress/report.json");
 });
 

@@ -3,10 +3,18 @@ import type { CSSProperties } from "react";
 import { PROJECTS, type Project, type ProjectId } from "@/lib/projects";
 import { percent } from "@/lib/types";
 import type { ProjectProgress } from "@/lib/progress";
+import GameTabs from "./GameTabs";
 import Section from "./Section";
 
 /** Two decimals, like decomp.dev. */
 const pct = (p: number) => `${p.toFixed(2).replace(".", ",")} %`;
+
+/** Thin-space groups, so they cannot be mistaken for the decimal comma above. */
+const bytes = (n: number) => n.toLocaleString("en-US").replace(/,/g, "\u202f");
+
+/** The line under every bar: the same measure as the percentage, for every project. */
+const matchedLine = (p: ProjectProgress) =>
+  `${bytes(p.code.done)} of ${bytes(p.code.total)} code bytes matched${p.stale ? " · snapshot, live numbers unavailable" : ""}`;
 
 const GITHUB = (
   <svg viewBox="0 0 16 16" aria-hidden="true" className="size-7 flex-none fill-current sm:size-9">
@@ -27,7 +35,7 @@ function Card({ project: g, progress: p }: { project: Project; progress?: Projec
 
   return (
     <section
-      aria-label={`${g.name} progress`}
+      aria-label={`${g.name}${g.region ? ` (${g.region})` : ""} progress`}
       style={style}
       className={`relative flex min-h-[560px] flex-col items-center justify-center gap-5 overflow-hidden rounded-[30px] bg-ink px-3.5 py-8 shadow-[0_18px_50px_rgb(0_0_0/0.45)] sm:h-[600px] sm:px-6 sm:py-10 ${g.fontClass}`}
     >
@@ -36,7 +44,7 @@ function Card({ project: g, progress: p }: { project: Project; progress?: Projec
       <div aria-hidden className="absolute inset-0 bg-black/20" />
       <div className={`${box} relative w-full max-w-[640px] text-[clamp(24px,4.5vw,44px)] leading-tight sm:px-10 sm:py-6`}>
         {g.name}
-        <small className="mt-1.5 block text-[.5em] tracking-wide text-(--tx2)">{g.subtitle ?? `decompilation · ${g.year}`}</small>
+        <small className="mt-1.5 block text-[.5em] tracking-wide text-(--tx2)">{g.subtitle ?? `decompilation · ${g.year}${g.region ? ` · ${g.region}` : ""}`}</small>
       </div>
 
       {p ? (
@@ -70,7 +78,7 @@ function Card({ project: g, progress: p }: { project: Project; progress?: Projec
               <span className="truncate">{g.repo}</span>
             </a>
           )}
-          {p.note && <p className="relative px-2 text-center text-[13px] text-(--tx2)">{p.note}{p.stale ? " · snapshot, live numbers unavailable" : ""}</p>}
+          <p className="relative px-2 text-center text-[13px] text-(--tx2)">{matchedLine(p)}</p>
         </>
       ) : (
         <>
@@ -86,7 +94,8 @@ function Card({ project: g, progress: p }: { project: Project; progress?: Projec
 }
 
 function MobileCard({ project: g, progress: p }: { project: Project; progress?: ProjectProgress }) {
-  const codePct = p ? percent(p.code) : 100;
+  const codePct = p ? percent(p.code) : 0;
+  const lit = Math.floor(codePct / 10);
 
   return (
     <section
@@ -131,7 +140,7 @@ function MobileCard({ project: g, progress: p }: { project: Project; progress?: 
             {[...Array(10)].map((_, i) => (
               <span
                 key={i}
-                className="h-full flex-1 rounded-xs bg-gradient-to-t from-[#00b4d8] to-[#00f0ff]"
+                className={`h-full flex-1 rounded-xs ${i < lit ? "bg-gradient-to-t from-[#00b4d8] to-[#00f0ff]" : "bg-[#00f0ff]/10"}`}
               />
             ))}
           </div>
@@ -150,110 +159,35 @@ function MobileCard({ project: g, progress: p }: { project: Project; progress?: 
       )}
 
       {/* Note */}
-      {p?.note && (
+      {p && (
         <p className="relative px-2 text-center text-[9px] tracking-wider text-[#7dd3fc] sm:text-[11px]">
-          {p.note}
+          {matchedLine(p)}
         </p>
       )}
     </section>
   );
 }
 
-function DeadlockedCard({ project: g, progress: p }: { project: Project; progress?: ProjectProgress }) {
-  const codePct = p ? percent(p.code) : 0;
-
+/** A game's card, or a tab per project when more than one project decompiles it. */
+function Game({ project: g, progress }: { project: Project; progress: Partial<Record<ProjectId, ProjectProgress>> }) {
+  const others = PROJECTS.filter((p) => p.sameGameAs === g.id);
+  if (others.length === 0) return <Card project={g} progress={progress[g.id]} />;
   return (
-    <section
-      aria-label={`${g.name} progress`}
-      className="relative flex min-h-[560px] flex-col items-center justify-center gap-5 overflow-hidden rounded-[30px] bg-[#0c0d12] px-3.5 py-8 shadow-[0_18px_50px_rgb(0_0_0/0.5)] sm:h-[600px] sm:px-6 sm:py-10 font-orbitron"
-    >
-      {/* Battledome arena backdrop */}
-      <Image
-        src={g.image}
-        alt=""
-        fill
-        sizes="(min-width: 1080px) 1048px, 100vw"
-        quality={85}
-        className="object-cover"
-      />
-      <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/45 to-black/65" />
-
-      {/* DreadZone combat terminal box inspired by Deadlocked menu */}
-      <div className="relative w-full max-w-[640px]">
-        {/* Outer terminal frame */}
-        <div className="overflow-hidden rounded-xl border-2 border-[#b91c1c] bg-[#12151c]/95 p-2 shadow-2xl backdrop-blur-md">
-          <div className="flex flex-col gap-2 rounded-lg border border-white/10 bg-[#161a22]/90 p-2 sm:p-2.5">
-            
-            {/* Active Header item (inspired by 'SINGLE PLAYER' active row in images.jpeg) */}
-            <div className="relative flex flex-col items-center justify-center rounded-md border border-[#ff6b6b]/40 bg-gradient-to-r from-[#991b1b] via-[#dc2626] to-[#991b1b] px-4 py-3 text-center text-white shadow-[inset_0_1px_2px_rgba(255,255,255,0.4),0_4px_12px_rgba(0,0,0,0.6)]">
-              <h2 className="px-2 text-[clamp(18px,3.5vw,32px)] font-black tracking-wider text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.7)]">
-                {g.name.toUpperCase()}
-              </h2>
-              <small className="mt-1 block text-[10px] font-semibold tracking-widest text-red-100 uppercase sm:text-xs">
-                {g.subtitle ?? "PlayStation 2 · 2005"}
-              </small>
-            </div>
-
-            {/* Menu item 1: Progress */}
-            <div className="flex items-center justify-between rounded-md border border-white/5 bg-[#1b202a]/95 px-5 py-3 text-center shadow-[inset_0_1px_0_rgba(255,255,255,0.05)]">
-              <span className="text-[clamp(12px,2vw,16px)] font-bold tracking-widest text-[#9ca3af]">
-                PROGRESS
-              </span>
-              <span className="text-[clamp(16px,2.8vw,24px)] font-black tabular-nums tracking-wider text-white">
-                {pct(codePct)}
-              </span>
-            </div>
-
-            {/* DreadZone energy / progress meter */}
-            <div className="px-0.5">
-              <div
-                role="progressbar"
-                aria-label={`${g.name} code matched`}
-                aria-valuenow={Math.round(codePct * 10) / 10}
-                aria-valuemin={0}
-                aria-valuemax={100}
-                className="h-4 overflow-hidden rounded-md border border-[#dc2626]/60 bg-black/70 p-0.5 shadow-[inset_0_2px_4px_rgba(0,0,0,0.9)]"
-              >
-                <i
-                  style={{ "--w": `${codePct}%` } as CSSProperties}
-                  className="bar-fill relative block h-full overflow-hidden rounded-xs bg-gradient-to-r from-[#991b1b] via-[#dc2626] to-[#f87171]"
-                >
-                  <span aria-hidden className="absolute inset-0 animate-sweep bg-gradient-to-r from-transparent via-white/45 to-transparent" />
-                </i>
-              </div>
-            </div>
-
-            {/* Menu item 2: GitHub Repository (interactive hover state) */}
-            {g.repo && (
-              <a
-                href={`https://github.com/${g.repo}`}
-                className="group relative flex items-center justify-center gap-3 rounded-md border border-white/5 bg-[#1b202a]/95 px-5 py-3 text-[#d1d5db] no-underline shadow-[inset_0_1px_0_rgba(255,255,255,0.05)] transition hover:border-[#dc2626] hover:bg-gradient-to-r hover:from-[#7f1d1d]/90 hover:via-[#991b1b]/90 hover:to-[#7f1d1d]/90 hover:text-white"
-              >
-                {GITHUB}
-                <span className="truncate text-[clamp(12px,2vw,17px)] font-bold tracking-wide">
-                  {g.repo}
-                </span>
-              </a>
-            )}
-
-            {/* Menu item 3: Status / Note */}
-            <div className="flex items-center justify-center rounded-md border border-white/5 bg-[#12151b]/90 px-4 py-2.5 text-center">
-              <p className="text-[11px] font-medium tracking-wide text-[#9ca3af] sm:text-xs">
-                {p?.note ?? "Decompilation initialized · Initial symbol & function mapping in progress"}
-                {p?.stale ? " · snapshot" : ""}
-              </p>
-            </div>
-
-          </div>
-        </div>
-      </div>
-    </section>
+    <GameTabs
+      game={g.name}
+      tabs={[g, ...others].map((p) => ({
+        id: p.id,
+        region: p.region ?? p.platform ?? "",
+        project: p.repo?.split("/")[1] ?? p.name,
+        panel: <Card project={p} progress={progress[p.id]} />,
+      }))}
+    />
   );
 }
 
 export default function Progress({ progress }: { progress: Partial<Record<ProjectId, ProjectProgress>> }) {
-  const mainline = PROJECTS.filter((p) => p.category !== "spinoff");
-  const spinoffs = PROJECTS.filter((p) => p.category === "spinoff");
+  const mainline = PROJECTS.filter((p) => p.category !== "spinoff" && !p.sameGameAs);
+  const spinoffs = PROJECTS.filter((p) => p.category === "spinoff" && !p.sameGameAs);
 
   return (
     <Section id="progress" title="Progress" sub="Every title gets its own menu. The percentage is the share of the game's code that compiles to exactly the retail bytes.">
@@ -263,10 +197,10 @@ export default function Progress({ progress }: { progress: Partial<Record<Projec
             <div>
               <h3 className="flex items-center gap-2.5 font-orbitron text-lg font-bold tracking-wide text-lav sm:text-xl">
                 <span className="size-2.5 rounded-full bg-brand" />
-                Original Trilogy &amp; Deadlocked
+                Original Trilogy
               </h3>
               <p className="mt-1 text-xs text-dim sm:text-sm">
-                The four Insomniac PlayStation 2 releases, from the 2002 debut to the combat arena of Deadlocked.
+                The three PlayStation 2 games that started the series, from 2002 to 2004.
               </p>
             </div>
             <span className="rounded-full border border-lav/20 bg-lav/5 px-3 py-1 font-orbitron text-xs text-dim">
@@ -274,13 +208,9 @@ export default function Progress({ progress }: { progress: Partial<Record<Projec
             </span>
           </div>
           <div className="grid gap-7">
-            {mainline.map((g) =>
-              g.id === "deadlocked" ? (
-                <DeadlockedCard key={g.id} project={g} progress={progress[g.id]} />
-              ) : (
-                <Card key={g.id} project={g} progress={progress[g.id]} />
-              )
-            )}
+            {mainline.map((g) => (
+              <Game key={g.id} project={g} progress={progress} />
+            ))}
           </div>
         </div>
 

@@ -39,8 +39,6 @@ export function parseUyaReport(report: unknown): Progress {
   const totalFuncs = n("total_functions");
   const doneCode = n("matched_code");
   const totalCode = n("total_code");
-  const completeUnits = m?.complete_units != null ? Number(m.complete_units) : 0;
-  const totalUnits = n("total_units");
 
   if (
     ![doneFuncs, totalFuncs, doneCode, totalCode].every((v) => Number.isFinite(v) && v >= 0) ||
@@ -50,15 +48,9 @@ export function parseUyaReport(report: unknown): Progress {
     throw new Error("uya report has an unexpected shape");
   }
 
-  const p: Progress = {
+  return {
     functions: { done: doneFuncs, total: totalFuncs },
     code: { done: doneCode, total: totalCode },
     source: "progress_report.json",
   };
-
-  if (totalUnits > 0) {
-    p.note = `${completeUnits} of ${totalUnits} source files complete`;
-  }
-
-  return p;
 }

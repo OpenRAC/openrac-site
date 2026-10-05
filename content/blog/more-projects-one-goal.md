@@ -16,7 +16,7 @@ We think that is wonderful news, and we want to say clearly where we stand.
 
 We are not the only ones, and we are happy to point you to the others:
 
-- **[Lombyte](https://github.com/mateuszklysz/Lombyte)**, by our friend
+- **[Lombyte](https://github.com/lombyte-project/Lombyte)**, by our friend
   [mateuszklysz](https://github.com/mateuszklysz). It is a byte-matching decompilation of the **NTSC-U**
   release of Ratchet & Clank, with the same aim as ours: readable C that compiles back to exactly the original
   bytes. Ours follows the **PAL** release, so between us both versions of the game are covered.

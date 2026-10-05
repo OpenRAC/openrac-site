@@ -15,8 +15,6 @@ export const percent = (r: Ratio): number => (r.total > 0 ? (r.done / r.total) *
 export interface Progress {
   functions: Ratio;
   code: Ratio;
-  /** Short extra line shown under the numbers, e.g. how the count is made up. */
-  note?: string;
   /** Where the numbers come from. */
   source: string;
 }

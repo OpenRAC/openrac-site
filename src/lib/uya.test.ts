@@ -27,7 +27,6 @@ test("parseUyaReport correctly parses valid objdiff report object", () => {
   assert.equal(p.code.done, 164764);
   assert.equal(p.code.total, 12838776);
   assert.equal(p.source, "progress_report.json");
-  assert.equal(p.note, "0 of 114 source files complete");
 });
 
 test("parseUyaReport correctly parses JSON string", () => {
@@ -36,17 +35,6 @@ test("parseUyaReport correctly parses JSON string", () => {
   assert.equal(p.functions.total, 31316);
   assert.equal(p.code.done, 164764);
   assert.equal(p.code.total, 12838776);
-});
-
-test("parseUyaReport includes complete_units when present in measures", () => {
-  const custom = {
-    measures: {
-      ...sampleReport.measures,
-      complete_units: 12,
-    },
-  };
-  const p = parseUyaReport(custom);
-  assert.equal(p.note, "12 of 114 source files complete");
 });
 
 test("parseUyaReport refuses input it does not understand", () => {

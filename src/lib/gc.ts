@@ -112,17 +112,11 @@ export function parseGcReport(report: unknown, scope?: unknown): Progress {
       throw new Error("gc report has an unexpected shape");
     }
 
-    const p: Progress = {
+    return {
       functions: { done: doneFuncs, total: totalFuncs },
       code: { done: doneCode, total: totalCode },
       source: "progress/report.json",
     };
-
-    if (totalUnits > 0) {
-      p.note = `${completeUnits} of ${totalUnits} units complete`;
-    }
-
-    return p;
   }
 
   // Case 2: rac2-decomp repository progress/report.json
@@ -198,7 +192,6 @@ export function parseGcReport(report: unknown, scope?: unknown): Progress {
   return {
     functions: { done: doneFuncs, total: totalFuncs },
     code: { done: doneCode, total: totalCode },
-    note: `${doneFuncs} of ${totalUnits} units complete`,
     source: "progress/report.json",
   };
 }

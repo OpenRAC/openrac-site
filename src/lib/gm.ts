@@ -42,7 +42,6 @@ export function parseGmReadme(readme: string): Progress {
   return {
     functions: { done: doneMethods, total: totalMethods },
     code: { done: doneCode, total: GM_TOTAL_CODE_BYTES },
-    note: `${doneClasses} of ${totalClasses} class files byte-identical · ${doneMethods}/${totalMethods} methods exact`,
     source: "README.md",
   };
 }
