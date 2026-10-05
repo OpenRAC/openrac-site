@@ -27,6 +27,7 @@ Sources (see `src/lib/progress.ts`):
 - **Ratchet & Clank (NTSC-U)**: `report.json` (objdiff report) on the `progress` branch of [`lombyte-project/Lombyte`](https://github.com/lombyte-project/Lombyte).
 - **Going Commando**: `progress/report.json` and `config/progress-scope.json` of [`llesieur99/rac2-decomp`](https://github.com/llesieur99/rac2-decomp), branch `RAC2`. The percentage uses integrated C bytes over all executable bytes in the boot and 27 level overlays. Placements are occurrences across programs, not unique algorithms. The scope lists ELF sections, so it cannot supply a total function count; that denominator stays unknown. Exported objdiff unit counts remain report units, not source-file or function totals.
 - **Up Your Arsenal**: `progress_report.json` (objdiff report) of [`OpenRAC/rac3-uya-decomp`](https://github.com/OpenRAC/rac3-uya-decomp).
+- **Ratchet: Deadlocked (NTSC-U)**: `progress/report.json` (objdiff report) of [`OpenRAC/rac-deadlocked-decomp`](https://github.com/OpenRAC/rac-deadlocked-decomp). The project is in its research phase, which its card says; it is measured like the others.
 - **Going Mobile**: the verified method count in the `README.md` of [`Clank700/going-mobile-decomp`](https://github.com/Clank700/going-mobile-decomp), applied to the size of the reconstructed source.
 
 If GitHub cannot be reached, the last known snapshot (in `progress.ts`) is shown and labelled as such.
@@ -72,12 +73,12 @@ rate limit for the activity feed; it stays on the server.
 
 ### Card backdrops
 
-The title cards can show a backdrop image named `rac1-bg.webp`, `gc-bg.webp`, `uya-bg.webp` and `going-mobile-bg.webp` (WebP, about
+The title cards can show a backdrop image named `rac1-bg.webp`, `gc-bg.webp`, `uya-bg.webp`, `deadlocked-bg.webp` and `going-mobile-bg.webp` (WebP, about
 1600 px wide). Those would be screenshots from the games, which are copyrighted, so **they are not part of this
 repository**. Without them the cards use a colour gradient.
 
 The images are read from a folder, set by `IMAGE_DIR` (default `public/img`, which is git-ignored), on every
-request. Drop a file in and it is used at once, with no rebuild or restart. Only those four names are ever
+request. Drop a file in and it is used at once, with no rebuild or restart. Only those five names are ever
 served. Resized copies are cached for a day, so a replaced image can take up to a day to show (or restart
 the service after clearing the cache volume).
 
@@ -86,6 +87,9 @@ the service after clearing the cache volume).
 Add an entry to `PROJECTS` in `src/lib/projects.ts`. If the project publishes progress, add a loader to
 `src/lib/progress.ts`; a title without one is shown as "Not started". A second project for a game that is already
 listed (another release, say) gets `sameGameAs` and a `region`: it becomes a tab on that game's card.
+`phase: "research"` marks a project that is still mapping its game (shown on its card and in the FAQ; its
+progress is tracked as usual). `contributing` and `guide` link the project's own contributing guide and best
+introduction for newcomers; they feed the "Contribute" buttons and the "Project guides" under Resources.
 
 ## Deploy with Podman and Quadlet
 
@@ -103,7 +107,7 @@ systemctl --user start openrac.service
 loginctl enable-linger "$USER"      # once, so it starts at boot without a login
 
 # 4. card backdrops: copy your images into the folder the unit mounts (no restart needed)
-cp rac1-bg.webp gc-bg.webp uya-bg.webp going-mobile-bg.webp ~/openrac-img/
+cp rac1-bg.webp gc-bg.webp uya-bg.webp deadlocked-bg.webp going-mobile-bg.webp ~/openrac-img/
 ```
 
 The container listens on `127.0.0.1:3000`; put your reverse proxy in front of it. It runs as a non-root user with

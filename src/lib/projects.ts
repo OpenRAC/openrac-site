@@ -1,4 +1,4 @@
-export type ProjectId = "rac1" | "lombyte" | "gc" | "uya" | "gm";
+export type ProjectId = "rac1" | "lombyte" | "gc" | "uya" | "deadlocked" | "gm";
 
 export type ProjectCategory = "mainline" | "spinoff";
 
@@ -29,7 +29,18 @@ export interface Project {
    * on that card instead of a card of its own, and the game is counted once.
    */
   sameGameAs?: ProjectId;
+  /**
+   * "research": the project is still mapping the game and setting up its toolchain. Its card says so,
+   * but its progress is read and shown exactly like every other project's.
+   */
+  phase?: "research";
+  /** Where to start contributing (the "Contribute" buttons). Defaults to the repository. */
+  contributing?: string;
+  /** The project's own best introduction for newcomers, listed under Resources. */
+  guide?: { label: string; url: string };
 }
+
+const GH = "https://github.com";
 
 export const PROJECTS: readonly Project[] = [
   {
@@ -44,6 +55,8 @@ export const PROJECTS: readonly Project[] = [
     platform: "PlayStation 2",
     tag: "RaC1",
     region: "PAL",
+    contributing: `${GH}/OpenRAC/rac1-decomp/blob/main/CONTRIBUTING.md`,
+    guide: { label: "From assembly to a match", url: `${GH}/OpenRAC/rac1-decomp/blob/main/docs/WORKFLOW.md` },
   },
   {
     id: "lombyte",
@@ -58,6 +71,8 @@ export const PROJECTS: readonly Project[] = [
     tag: "Lombyte",
     region: "NTSC-U",
     sameGameAs: "rac1",
+    contributing: `${GH}/lombyte-project/Lombyte/blob/main/CONTRIBUTING.md`,
+    guide: { label: "Decompilation tips", url: `${GH}/lombyte-project/Lombyte/blob/main/docs/decompilation-tips.md` },
   },
   {
     id: "gc",
@@ -70,6 +85,8 @@ export const PROJECTS: readonly Project[] = [
     category: "mainline",
     platform: "PlayStation 2",
     tag: "GC",
+    contributing: `${GH}/llesieur99/rac2-decomp/blob/RAC2/CONTRIBUTING.md`,
+    guide: { label: "Start here", url: `${GH}/llesieur99/rac2-decomp/blob/RAC2/docs/START-HERE.md` },
   },
   {
     id: "uya",
@@ -82,6 +99,24 @@ export const PROJECTS: readonly Project[] = [
     category: "mainline",
     platform: "PlayStation 2",
     tag: "UYA",
+    contributing: `${GH}/OpenRAC/rac3-uya-decomp/blob/main/CONTRIBUTING.md`,
+    guide: { label: "Full match roadmap", url: `${GH}/OpenRAC/rac3-uya-decomp/blob/main/docs/full_match_roadmap.md` },
+  },
+  {
+    id: "deadlocked",
+    name: "Ratchet: Deadlocked",
+    year: 2005,
+    repo: "OpenRAC/rac-deadlocked-decomp",
+    fontClass: "font-orbitron font-bold",
+    theme: { box: "#12151b", border: "#b91c1c", text: "#f3f4f6", text2: "#ef4444", from: "#7f1d1d", to: "#0f1115" },
+    image: "/img/deadlocked-bg.webp",
+    category: "mainline",
+    platform: "PlayStation 2",
+    tag: "DL",
+    region: "NTSC-U",
+    phase: "research",
+    contributing: `${GH}/OpenRAC/rac-deadlocked-decomp/blob/main/CONTRIBUTING.md`,
+    guide: { label: "Research notes", url: `${GH}/OpenRAC/rac-deadlocked-decomp/blob/main/docs/RESEARCH.md` },
   },
   {
     id: "gm",
@@ -95,6 +130,7 @@ export const PROJECTS: readonly Project[] = [
     platform: "Mobile (J2ME)",
     subtitle: "Java reconstruction · 2005 · J2ME",
     tag: "GM",
+    guide: { label: "Build and verify", url: `${GH}/Clank700/going-mobile-decomp#readme` },
   },
 ];
 

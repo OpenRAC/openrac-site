@@ -1,7 +1,16 @@
+# Only what `npm run build` needs goes into the build context.
 node_modules
 .next
 .git
 .github
 .env*
 deploy
+scripts
+coverage
+*.log
 *.md
+Containerfile
+.containerignore
+.dockerignore
+# Card backdrops are game screenshots: never baked into the image, mounted at /data/img instead.
+public/img

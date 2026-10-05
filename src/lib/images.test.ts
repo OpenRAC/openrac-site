@@ -6,6 +6,7 @@ test("resolveImage serves only the backdrops the cards ask for", () => {
   assert.deepEqual(resolveImage("rac1-bg.webp", "/data/img"), { file: "/data/img/rac1-bg.webp", type: "image/webp" });
   assert.equal(resolveImage("gc-bg.webp", "/d")?.file, "/d/gc-bg.webp");
   assert.equal(resolveImage("uya-bg.webp", "/d")?.file, "/d/uya-bg.webp");
+  assert.equal(resolveImage("deadlocked-bg.webp", "/d")?.file, "/d/deadlocked-bg.webp");
   assert.equal(resolveImage("going-mobile-bg.webp", "/d")?.file, "/d/going-mobile-bg.webp");
 });
 

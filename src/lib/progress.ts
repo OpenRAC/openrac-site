@@ -40,6 +40,9 @@ const loadRac1 = () => loadObjdiff(`${RAW}/OpenRAC/rac1-decomp/main/progress/rep
 /** Ratchet & Clank (NTSC-U), Lombyte: CI publishes its objdiff report on the `progress` branch. */
 const loadLombyte = () => loadObjdiff(`${RAW}/lombyte-project/Lombyte/progress/report.json`, "lombyte");
 
+/** Ratchet: Deadlocked (NTSC-U): read from the project's own objdiff progress report. */
+const loadDeadlocked = () => loadObjdiff(`${RAW}/OpenRAC/rac-deadlocked-decomp/main/progress/report.json`, "deadlocked");
+
 /** Going Commando: read from the project's own progress report and scope. */
 async function loadGc(): Promise<Progress> {
   const [reportRes, scopeRes] = await Promise.allSettled([
@@ -69,6 +72,7 @@ const cached = {
   lombyte: unstable_cache(loadLombyte, ["progress-lombyte"], { revalidate: REVALIDATE_SECONDS }),
   gc: unstable_cache(loadGc, ["progress-gc"], { revalidate: REVALIDATE_SECONDS }),
   uya: unstable_cache(loadUya, ["progress-uya"], { revalidate: REVALIDATE_SECONDS }),
+  deadlocked: unstable_cache(loadDeadlocked, ["progress-deadlocked"], { revalidate: REVALIDATE_SECONDS }),
   gm: unstable_cache(loadGm, ["progress-gm"], { revalidate: REVALIDATE_SECONDS }),
 };
 
@@ -78,6 +82,7 @@ const FALLBACK: Record<ProjectId, Progress> = {
   lombyte: { functions: { done: 2658, total: 4107 }, code: { done: 796784, total: 3493132 }, source: "snapshot 2026-10-05" },
   gc: { functions: { done: 5269, total: null }, code: { done: 308608, total: 48788176 }, source: "snapshot 2026-10-05" },
   uya: { functions: { done: 1292, total: 31316 }, code: { done: 164764, total: 12838776 }, source: "snapshot 2026-10-05" },
+  deadlocked: { functions: { done: 243, total: 15056 }, code: { done: 26572, total: 5175440 }, source: "snapshot 2026-10-05" },
   gm: { functions: { done: 351, total: 351 }, code: { done: 545639, total: 545639 }, source: "snapshot 2026-10-05" },
 };
 
@@ -87,11 +92,12 @@ export interface ProjectProgress extends Progress {
 }
 
 export async function getProgress(): Promise<Partial<Record<ProjectId, ProjectProgress>>> {
-  const [rac1, lombyte, gc, uya, gm] = await Promise.allSettled([
+  const [rac1, lombyte, gc, uya, deadlocked, gm] = await Promise.allSettled([
     cached.rac1(),
     cached.lombyte(),
     cached.gc(),
     cached.uya(),
+    cached.deadlocked(),
     cached.gm(),
   ]);
   const pick = (r: PromiseSettledResult<Progress>, fb: Progress): ProjectProgress =>
@@ -101,6 +107,7 @@ export async function getProgress(): Promise<Partial<Record<ProjectId, ProjectPr
     lombyte: pick(lombyte, FALLBACK.lombyte),
     gc: pick(gc, FALLBACK.gc),
     uya: pick(uya, FALLBACK.uya),
+    deadlocked: pick(deadlocked, FALLBACK.deadlocked),
     gm: pick(gm, FALLBACK.gm),
   };
 }

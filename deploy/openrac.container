@@ -28,7 +28,7 @@ Environment=SITE_URL=https://openrac.dev
 # Create it first (the unit does not start if the file is missing), then uncomment:
 #EnvironmentFile=%h/.config/openrac/openrac.env
 
-# Card backdrops: a folder on this machine with rac1-bg.webp, gc-bg.webp, uya-bg.webp, and going-mobile-bg.webp.
+# Card backdrops: a folder on this machine with rac1-bg.webp, gc-bg.webp, uya-bg.webp, deadlocked-bg.webp and going-mobile-bg.webp.
 # Drop files in (or replace them); no rebuild or restart is needed. They are not in the
 # repository because they are game screenshots. ":z" lets SELinux (Fedora, RHEL) allow the read.
 Volume=%h/openrac-img:/data/img:ro,z

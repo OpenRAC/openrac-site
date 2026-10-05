@@ -20,6 +20,9 @@ function Cards({ items }: { items: readonly (readonly [string, string])[] }) {
   );
 }
 
+/** Whether another listed project decompiles the same game (then the project's own name tells them apart). */
+const sharesGame = (p: (typeof PROJECTS)[number]) => PROJECTS.some((o) => o.id !== p.id && (o.sameGameAs ?? o.id) === (p.sameGameAs ?? p.id));
+
 const btn = "rounded-full border border-lav/40 bg-white/[0.03] px-5 py-2.5 font-semibold text-[#e8f0ff] transition hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgb(0_0_0/0.4)]";
 
 export function Contribute() {
@@ -36,11 +39,11 @@ export function Contribute() {
         <a href={DISCORD_URL} className="rounded-full border border-amber bg-gradient-to-b from-amber to-[#ff8a00] px-5 py-2.5 font-semibold text-[#1a0d00] shadow-[0_6px_24px_rgb(255_138_0/0.35)] transition hover:-translate-y-0.5 hover:brightness-110">
           Join our Discord
         </a>
-        <a href="https://github.com/OpenRAC/rac1-decomp/blob/main/CONTRIBUTING.md" className={btn}>Contribute to Ratchet &amp; Clank (PAL)</a>
-        <a href="https://github.com/lombyte-project/Lombyte/blob/main/CONTRIBUTING.md" className={btn}>Contribute to Lombyte (Ratchet &amp; Clank, NTSC-U)</a>
-        <a href="https://github.com/llesieur99/rac2-decomp" className={btn}>Contribute to Going Commando</a>
-        <a href="https://github.com/OpenRAC/rac3-uya-decomp/blob/main/CONTRIBUTING.md" className={btn}>Contribute to Up Your Arsenal</a>
-        <a href="https://github.com/Clank700/going-mobile-decomp" className={btn}>Contribute to Going Mobile</a>
+        {PROJECTS.filter((p) => p.repo).map((p) => (
+          <a key={p.id} href={p.contributing ?? `https://github.com/${p.repo}`} className={btn}>
+            Contribute to {sharesGame(p) ? `${p.repo!.split("/")[1]} (${p.name}, ${p.region})` : p.name}
+          </a>
+        ))}
       </div>
     </Section>
   );
@@ -64,7 +67,7 @@ export function Activity({ commits }: { commits: Commit[] }) {
         <ul className="grid grid-cols-[minmax(0,1fr)] gap-2.5">
           {commits.map((c) => (
             <li key={c.url} className="flex min-w-0 flex-wrap items-center gap-x-3.5 gap-y-1.5 rounded-xl border border-line bg-panel px-4 py-3">
-              <span className={`flex-none rounded-full px-2.5 py-1 font-orbitron text-[11px] font-semibold tracking-wider ${c.projectId === "uya" ? "bg-brand/20 text-[#ffc35a]" : c.projectId === "gc" ? "bg-[#5a7fa6]/25 text-[#9fd3ff]" : c.projectId === "gm" ? "bg-[#00b4d8]/25 text-[#7dd3fc]" : "bg-lav/15 text-lav"}`}>{c.project}</span>
+              <span className={`flex-none rounded-full px-2.5 py-1 font-orbitron text-[11px] font-semibold tracking-wider ${c.projectId === "deadlocked" ? "border border-red-500/40 bg-red-950/60 text-[#ff6b6b]" : c.projectId === "uya" ? "bg-brand/20 text-[#ffc35a]" : c.projectId === "gc" ? "bg-[#5a7fa6]/25 text-[#9fd3ff]" : c.projectId === "gm" ? "bg-[#00b4d8]/25 text-[#7dd3fc]" : "bg-lav/15 text-lav"}`}>{c.project}</span>
               <a href={c.url} className="order-3 min-w-0 basis-full truncate text-[#e3e9ff] no-underline hover:text-amber sm:order-none sm:basis-0 sm:flex-1">{c.message}</a>
               <time dateTime={c.date} className="flex-none text-[13px] text-dim">{ago(c.date)}</time>
             </li>
@@ -89,25 +92,54 @@ export function HowItWorks() {
   );
 }
 
-const RESOURCES = [
-  ["decomp.dev", "https://decomp.dev", "Progress tracking for decompilation projects."],
-  ["decomp.me", "https://decomp.me", "Collaborative platform for matching single functions."],
-  ["objdiff", "https://github.com/encounter/objdiff", "Compares compiled output against the original, instruction by instruction."],
-  ["splat", "https://github.com/ethteck/splat", "Splits a binary into code and data segments."],
-  ["RaC1 workflow", "https://github.com/OpenRAC/rac1-decomp/blob/main/docs/WORKFLOW.md", "How a function goes from assembly to a match in this project."],
-  ["Legal scope", "https://github.com/OpenRAC/rac1-decomp/blob/main/LEGAL.md", "Exactly what the repositories do and do not contain."],
-] as const;
+type Resource = { title: string; href: string; text: string };
 
-export function Resources() {
+const TOOLS: Resource[] = [
+  { title: "decomp.dev", href: "https://decomp.dev", text: "Progress tracking for decompilation projects, the same numbers shown here." },
+  { title: "decomp.me", href: "https://decomp.me", text: "Match a single function together, right in the browser." },
+  { title: "objdiff", href: "https://github.com/encounter/objdiff", text: "Compares compiled output against the original, instruction by instruction." },
+  { title: "splat", href: "https://github.com/ethteck/splat", text: "Splits a binary into code and data segments." },
+  { title: "spimdisasm", href: "https://github.com/Decompollaborate/spimdisasm", text: "The MIPS disassembler behind splat; the PS2's main CPU is MIPS." },
+  { title: "m2c", href: "https://github.com/matt-kempster/m2c", text: "Turns MIPS assembly into a first draft of C to start a match from." },
+  { title: "Ghidra", href: "https://github.com/NationalSecurityAgency/ghidra", text: "Reverse engineering suite for exploring code, data and call graphs." },
+  { title: "PCSX2", href: "https://pcsx2.net", text: "PlayStation 2 emulator with a debugger, for watching the code run." },
+];
+
+const COMMUNITY: Resource[] = [
+  { title: "Wrench", href: "https://github.com/chaoticgd/wrench", text: "Level editor and modding tools for the PlayStation 2 games, and years of format research." },
+  { title: "ReRAC", href: "https://github.com/re-rac/rerac", text: "A native PC rewrite of Ratchet & Clank in Rust." },
+  { title: "bordplate/RC1", href: "https://github.com/bordplate/RC1", text: "An early RaC1 decompilation setup that others have learned from." },
+  { title: "Sly Cooper decomp", href: "https://github.com/TheOnlyZac/sly1", text: "A PS2 decompilation with thorough guides on the practical side of matching." },
+  { title: "Himuro", href: "https://github.com/Mikompilation/Himuro", text: "Fatal Frame decompilation, with PS2 compiler research many projects build on." },
+];
+
+function ResourceGrid({ title, items }: { title: string; items: Resource[] }) {
   return (
-    <Section id="resources" title="Resources" sub="Tools and reading that decompilation projects like ours rely on.">
+    <div>
+      <h3 className="mb-3 font-orbitron text-sm font-bold uppercase tracking-[.2em] text-lav">{title}</h3>
       <div className="grid gap-3.5 sm:grid-cols-[repeat(auto-fit,minmax(250px,1fr))]">
-        {RESOURCES.map(([title, href, text]) => (
-          <a key={title} href={href} className="block rounded-[14px] border border-line bg-gradient-to-br from-[#20202c] to-ink px-5 py-[18px] no-underline transition hover:-translate-y-0.5 hover:border-brand">
+        {items.map(({ title, href, text }) => (
+          <a key={href} href={href} className="block rounded-[14px] border border-line bg-gradient-to-br from-[#20202c] to-ink px-5 py-[18px] no-underline transition hover:-translate-y-0.5 hover:border-brand">
             <b className="mb-1 block font-orbitron text-base font-bold text-gold">{title}</b>
             <span className="text-sm text-soft">{text}</span>
           </a>
         ))}
+      </div>
+    </div>
+  );
+}
+
+export function Resources() {
+  // Each project's own introduction, so newcomers start from the people who know that game best.
+  const guides = PROJECTS.flatMap((p) =>
+    p.guide && p.repo ? [{ title: p.guide.label, href: p.guide.url, text: `${p.name}${sharesGame(p) ? ` (${p.region})` : ""} · ${p.repo.split("/")[1]}` }] : [],
+  );
+  return (
+    <Section id="resources" title="Resources" sub="Tools, guides and related work that decompilation projects like these rely on.">
+      <div className="grid gap-9">
+        <ResourceGrid title="Project guides" items={guides} />
+        <ResourceGrid title="Tools" items={TOOLS} />
+        <ResourceGrid title="Related community work" items={COMMUNITY} />
       </div>
     </Section>
   );
@@ -127,6 +159,9 @@ function OtherTitles() {
           <li key={game.id} className="flex flex-wrap items-baseline gap-x-3 gap-y-1 rounded-xl border border-line bg-ink/60 px-4 py-2.5">
             <span className="font-orbitron text-[15px] font-bold text-gold">{game.name}</span>
             <span className="text-[13px] text-dim">{game.year}</span>
+            {game.phase === "research" && (
+              <span className="rounded-full border border-amber/40 px-2 py-0.5 font-orbitron text-[10px] uppercase tracking-[.15em] text-amber">research phase</span>
+            )}
             <span className="flex flex-wrap gap-x-3 gap-y-1 sm:ml-auto">
               {projects.map((p) =>
                 p.repo ? (
