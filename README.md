@@ -26,7 +26,7 @@ Sources (see `src/lib/progress.ts`):
 - **Ratchet & Clank (PAL)**: `progress/report.json` (objdiff report) of [`OpenRAC/rac1-decomp`](https://github.com/OpenRAC/rac1-decomp).
 - **Ratchet & Clank (NTSC-U)**: `report.json` (objdiff report) on the `progress` branch of [`lombyte-project/Lombyte`](https://github.com/lombyte-project/Lombyte).
 - **Going Commando**: `progress/report.json` and `config/progress-scope.json` of [`llesieur99/rac2-decomp`](https://github.com/llesieur99/rac2-decomp), branch `RAC2`. The percentage uses integrated C bytes over all executable bytes in the boot and 27 level overlays. Placements are occurrences across programs, not unique algorithms. The scope lists ELF sections, so it cannot supply a total function count; that denominator stays unknown. Exported objdiff unit counts remain report units, not source-file or function totals.
-- **Up Your Arsenal**: `progress_report.json` (objdiff report) of [`vetusmagnus/ratchet-uya-decomp`](https://github.com/vetusmagnus/ratchet-uya-decomp).
+- **Up Your Arsenal**: `progress_report.json` (objdiff report) of [`OpenRAC/rac3-uya-decomp`](https://github.com/OpenRAC/rac3-uya-decomp).
 - **Going Mobile**: the verified method count in the `README.md` of [`Clank700/going-mobile-decomp`](https://github.com/Clank700/going-mobile-decomp), applied to the size of the reconstructed source.
 
 If GitHub cannot be reached, the last known snapshot (in `progress.ts`) is shown and labelled as such.

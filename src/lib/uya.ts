@@ -2,7 +2,7 @@ import type { Progress } from "./types";
 
 /**
  * Up Your Arsenal publishes an objdiff progress report (progress_report.json):
- * https://raw.githubusercontent.com/vetusmagnus/ratchet-uya-decomp/refs/heads/main/progress_report.json
+ * https://raw.githubusercontent.com/OpenRAC/rac3-uya-decomp/refs/heads/main/progress_report.json
  */
 export interface ObjdiffReport {
   measures?: Record<string, string | number>;

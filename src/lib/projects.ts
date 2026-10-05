@@ -75,7 +75,7 @@ export const PROJECTS: readonly Project[] = [
     id: "uya",
     name: "Up Your Arsenal",
     year: 2004,
-    repo: "vetusmagnus/ratchet-uya-decomp",
+    repo: "OpenRAC/rac3-uya-decomp",
     fontClass: "font-orbitron font-semibold",
     theme: { box: "rgba(98,66,27,.8)", border: "#a0742e", text: "#ebbe67", text2: "#c99a45", from: "#25514f", to: "#0d1f24" },
     image: "/img/uya-bg.webp",

@@ -54,7 +54,7 @@ async function loadGc(): Promise<Progress> {
 
 /** Up Your Arsenal: read from the project's own objdiff progress report. */
 async function loadUya(): Promise<Progress> {
-  const report = await (await get(`${RAW}/vetusmagnus/ratchet-uya-decomp/main/progress_report.json`)).json();
+  const report = await (await get(`${RAW}/OpenRAC/rac3-uya-decomp/main/progress_report.json`)).json();
   return parseUyaReport(report);
 }
 
