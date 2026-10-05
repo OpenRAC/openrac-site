@@ -32,6 +32,21 @@ Sources (see `src/lib/progress.ts`):
 
 If GitHub cannot be reached, the last known snapshot (in `progress.ts`) is shown and labelled as such.
 
+## For scripts, search engines and AI
+
+We use AI ourselves, so we do not block crawlers; we make the site easy to read instead. All of it is built from
+the same data as the page (`src/lib/machine.ts`), so it never says anything the page does not:
+
+| Address | What |
+|---|---|
+| `/progress.json` | every project and its numbers as JSON, open to any origin (CORS) |
+| `/llms.txt` | a short Markdown map of the site for AI tools ([llmstxt.org](https://llmstxt.org)) |
+| `/llms-full.txt` | the same, plus the FAQ and every blog post in full |
+| `/robots.txt` | allows everything; `Content-Signal: search=yes, ai-input=yes, ai-train=yes` says so explicitly |
+
+The home page and every blog post also carry schema.org JSON-LD (the projects as `SoftwareSourceCode`, posts as
+`BlogPosting`), and the page head links the JSON, RSS and llms.txt versions.
+
 ## Blog
 
 The blog lives at `/blog`. Posts are Markdown files in `content/blog/`, added through pull requests:

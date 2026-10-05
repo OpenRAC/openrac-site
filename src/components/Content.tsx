@@ -191,7 +191,8 @@ function OtherTitles() {
   );
 }
 
-const FAQ: readonly (readonly [string, ReactNode])[] = [
+/** Also served as text in /llms-full.txt (the plain-text answers). */
+export const FAQ: readonly (readonly [string, ReactNode])[] = [
   ["Is this a port or a way to play the game for free?", "No. OpenRAC contains no game assets, no game code and no game binaries. To build anything you need your own legally obtained copy of the game."],
   ["How is this different from OpenGOAL?", "OpenGOAL targets a different game and toolchain. OpenRAC follows the same spirit: understand a classic game, document it, and make it possible to study and preserve. Our method is byte-matching decompilation."],
   ["Will there be a PC port?", "That is a possible long-term outcome of a finished decompilation, but it is not a current goal. Right now the goal is a complete, accurate source reconstruction of each game, one title at a time."],

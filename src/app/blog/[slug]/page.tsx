@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import Markdown from "@/components/Markdown";
 import { getPost, getPosts } from "@/lib/blog";
+import { ldJson, postLd, siteUrl } from "@/lib/machine";
 
 // Known posts are built ahead; any other address is looked up and answered with a 404 (notFound below).
 export async function generateStaticParams() {
@@ -28,6 +29,7 @@ export default async function PostPage({ params }: PageProps<"/blog/[slug]">) {
 
   return (
     <main className="mx-auto max-w-[760px] px-4 pb-20 pt-10 sm:pt-14">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: ldJson(postLd(siteUrl(), post)) }} />
       <Link href="/blog" className="text-sm text-amber no-underline hover:underline">← All posts</Link>
       <article>
         <header className="mb-8 mt-5">

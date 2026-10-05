@@ -18,6 +18,8 @@ export const metadata: Metadata = {
   title: "OpenRAC",
   description,
   openGraph: { title: "OpenRAC", description, type: "website" },
+  // Lets feed readers, scripts and AI tools find the machine-readable versions on their own.
+  alternates: { types: { "application/rss+xml": "/blog/rss.xml", "application/json": "/progress.json", "text/plain": "/llms.txt" } },
 };
 
 export const viewport: Viewport = {
