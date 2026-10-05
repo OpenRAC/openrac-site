@@ -1,9 +1,9 @@
 import Image from "next/image";
 import type { CSSProperties } from "react";
+import { getGithubAvatar } from "@/lib/github";
 import { PROJECTS, type Project, type ProjectId } from "@/lib/projects";
 import { percent } from "@/lib/types";
 import type { ProjectProgress } from "@/lib/progress";
-import GameTabs from "./GameTabs";
 import Section from "./Section";
 
 /** Two decimals, like decomp.dev. */
@@ -25,6 +25,23 @@ function ResearchBadge({ className = "" }: { className?: string }) {
       <i aria-hidden className="size-1.5 animate-pulse rounded-full bg-current" />
       Research phase
     </span>
+  );
+}
+
+/** "maintained by" with each maintainer's GitHub picture: the work on every card is theirs. */
+async function Maintainers({ users, className = "" }: { users?: string[]; className?: string }) {
+  if (!users?.length) return null;
+  const avatars = await Promise.all(users.map(getGithubAvatar));
+  return (
+    <p className={`relative flex flex-wrap items-center justify-center gap-x-2.5 gap-y-1.5 ${className}`}>
+      <span className="opacity-80">maintained by</span>
+      {users.map((u, i) => (
+        <a key={u} href={`https://github.com/${u}`} className="inline-flex items-center gap-1.5 font-semibold no-underline hover:underline">
+          {avatars[i] && <Image src={avatars[i]} alt="" width={22} height={22} className="size-[22px] rounded-full border border-current/40" />}
+          @{u}
+        </a>
+      ))}
+    </p>
   );
 }
 
@@ -91,6 +108,7 @@ function Card({ project: g, progress: p }: { project: Project; progress?: Projec
               <span className="truncate">{g.repo}</span>
             </a>
           )}
+          <Maintainers users={g.maintainers} className="px-2 text-[13px] text-(--tx)" />
           <p className="relative px-2 text-center text-[13px] text-(--tx2)">
             {matchedLine(p)}
             {g.phase === "research" && <span className="mt-1 block">{RESEARCH_TEXT}</span>}
@@ -173,6 +191,8 @@ function MobileCard({ project: g, progress: p }: { project: Project; progress?: 
           <span className="truncate">{g.repo}</span>
         </a>
       )}
+
+      <Maintainers users={g.maintainers} className="px-2 text-[9px] tracking-wider text-[#e0f2fe] sm:text-[11px]" />
 
       {/* Note */}
       {p && (
@@ -264,6 +284,7 @@ function DeadlockedCard({ project: g, progress: p }: { project: Project; progres
 
             {/* Menu item 3: Status */}
             <div className="flex flex-col items-center justify-center gap-1 rounded-md border border-white/5 bg-[#12151b]/90 px-4 py-2.5 text-center">
+              <Maintainers users={g.maintainers} className="text-[11px] tracking-wide text-white sm:text-xs" />
               {p && <p className="text-[11px] font-medium tracking-wide text-[#d1d5db] sm:text-xs">{matchedLine(p)}</p>}
               {g.phase === "research" && <p className="text-[11px] tracking-wide text-[#9ca3af] sm:text-xs">{RESEARCH_TEXT}</p>}
             </div>
@@ -282,26 +303,9 @@ function ProjectCard({ project, progress }: { project: Project; progress?: Proje
   return <Card project={project} progress={progress} />;
 }
 
-/** A game's card, or a tab per project when more than one project decompiles it. */
-function Game({ project: g, progress }: { project: Project; progress: Partial<Record<ProjectId, ProjectProgress>> }) {
-  const others = PROJECTS.filter((p) => p.sameGameAs === g.id);
-  if (others.length === 0) return <ProjectCard project={g} progress={progress[g.id]} />;
-  return (
-    <GameTabs
-      game={g.name}
-      tabs={[g, ...others].map((p) => ({
-        id: p.id,
-        region: p.region ?? p.platform ?? "",
-        project: p.repo?.split("/")[1] ?? p.name,
-        panel: <ProjectCard project={p} progress={progress[p.id]} />,
-      }))}
-    />
-  );
-}
-
 export default function Progress({ progress }: { progress: Partial<Record<ProjectId, ProjectProgress>> }) {
-  const mainline = PROJECTS.filter((p) => p.category !== "spinoff" && !p.sameGameAs);
-  const spinoffs = PROJECTS.filter((p) => p.category === "spinoff" && !p.sameGameAs);
+  const mainline = PROJECTS.filter((p) => p.category !== "spinoff");
+  const spinoffs = PROJECTS.filter((p) => p.category === "spinoff");
 
   return (
     <Section id="progress" title="Progress" sub="Every title gets its own menu. The percentage is the share of the game's code that compiles to exactly the retail bytes.">
@@ -323,7 +327,7 @@ export default function Progress({ progress }: { progress: Partial<Record<Projec
           </div>
           <div className="grid gap-7">
             {mainline.map((g) => (
-              <Game key={g.id} project={g} progress={progress} />
+              <ProjectCard key={g.id} project={g} progress={progress[g.id]} />
             ))}
           </div>
         </div>
@@ -346,7 +350,7 @@ export default function Progress({ progress }: { progress: Partial<Record<Projec
             </div>
             <div className="grid gap-7">
               {spinoffs.map((g) => (
-                <Game key={g.id} project={g} progress={progress} />
+                <ProjectCard key={g.id} project={g} progress={progress[g.id]} />
               ))}
             </div>
           </div>

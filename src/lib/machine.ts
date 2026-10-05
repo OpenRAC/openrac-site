@@ -39,7 +39,7 @@ export function progressJson(progress: ProgressMap) {
         platform: p.platform ?? null,
         region: p.region ?? null,
         phase: p.phase ?? "active",
-        sameGameAs: p.sameGameAs ?? null,
+        maintainers: p.maintainers ?? [],
         repository: p.repo ? `https://github.com/${p.repo}` : null,
         contributing: p.contributing ?? null,
         progress: pr
@@ -66,7 +66,8 @@ function projectLines(progress: ProgressMap): string[] {
     const done = pr
       ? ` ${round(percent(pr.code)).toFixed(2)}% of code matched (${num(pr.code.done)} of ${num(pr.code.total)} bytes)${pr.stale ? ", last known snapshot" : ""}.`
       : "";
-    return `- [${p.repo!.split("/")[1]}](https://github.com/${p.repo}): ${what}.${done}`;
+    const who = p.maintainers?.length ? ` Maintained by ${p.maintainers.map((u) => `[@${u}](https://github.com/${u})`).join(", ")}.` : "";
+    return `- [${p.repo!.split("/")[1]}](https://github.com/${p.repo}): ${what}.${done}${who}`;
   });
 }
 

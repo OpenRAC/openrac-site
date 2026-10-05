@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { DISCORD_URL, PROJECTS } from "@/lib/projects";
+import { ALSO_WORKED_ON, DISCORD_URL, PROJECTS } from "@/lib/projects";
 import type { Commit } from "@/lib/activity";
 import Section from "./Section";
 
@@ -20,9 +20,6 @@ function Cards({ items }: { items: readonly (readonly [string, string])[] }) {
   );
 }
 
-/** Whether another listed project decompiles the same game (then the project's own name tells them apart). */
-const sharesGame = (p: (typeof PROJECTS)[number]) => PROJECTS.some((o) => o.id !== p.id && (o.sameGameAs ?? o.id) === (p.sameGameAs ?? p.id));
-
 const btn = "rounded-full border border-lav/40 bg-white/[0.03] px-5 py-2.5 font-semibold text-[#e8f0ff] transition hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgb(0_0_0/0.4)]";
 
 export function Contribute() {
@@ -41,7 +38,7 @@ export function Contribute() {
         </a>
         {PROJECTS.filter((p) => p.repo).map((p) => (
           <a key={p.id} href={p.contributing ?? `https://github.com/${p.repo}`} className={btn}>
-            Contribute to {sharesGame(p) ? `${p.repo!.split("/")[1]} (${p.name}, ${p.region})` : p.name}
+            Contribute to {p.name}
           </a>
         ))}
       </div>
@@ -132,7 +129,7 @@ function ResourceGrid({ title, items }: { title: string; items: Resource[] }) {
 export function Resources() {
   // Each project's own introduction, so newcomers start from the people who know that game best.
   const guides = PROJECTS.flatMap((p) =>
-    p.guide && p.repo ? [{ title: p.guide.label, href: p.guide.url, text: `${p.name}${sharesGame(p) ? ` (${p.region})` : ""} · ${p.repo.split("/")[1]}` }] : [],
+    p.guide && p.repo ? [{ title: p.guide.label, href: p.guide.url, text: `${p.name} · ${p.repo.split("/")[1]}` }] : [],
   );
   return (
     <Section id="resources" title="Resources" sub="Tools, guides and related work that decompilation projects like these rely on.">
@@ -145,9 +142,12 @@ export function Resources() {
   );
 }
 
-/** Every listed game with the projects working on it, straight from PROJECTS so it never goes stale. */
+/** Every listed game with the projects working on it (from PROJECTS and ALSO_WORKED_ON), so it never goes stale. */
 function OtherTitles() {
-  const games = PROJECTS.filter((p) => !p.sameGameAs).map((g) => ({ game: g, projects: [g, ...PROJECTS.filter((p) => p.sameGameAs === g.id)] }));
+  const games = PROJECTS.map((g) => ({
+    game: g,
+    projects: [{ repo: g.repo, region: g.region }, ...ALSO_WORKED_ON.filter((o) => o.game === g.id)],
+  }));
   return (
     <div className="grid gap-4 pb-5 text-soft">
       <p>
@@ -165,7 +165,7 @@ function OtherTitles() {
             <span className="flex flex-wrap gap-x-3 gap-y-1 sm:ml-auto">
               {projects.map((p) =>
                 p.repo ? (
-                  <a key={p.id} href={`https://github.com/${p.repo}`} className="text-[15px] text-amber no-underline hover:underline">
+                  <a key={p.repo} href={`https://github.com/${p.repo}`} className="text-[15px] text-amber no-underline hover:underline">
                     {p.repo.split("/")[1]}
                     {p.region && <span className="text-dim"> · {p.region}</span>}
                   </a>

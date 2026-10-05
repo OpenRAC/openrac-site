@@ -24,7 +24,6 @@ weighted by size because small functions are matched first, and it is the figure
 Sources (see `src/lib/progress.ts`):
 
 - **Ratchet & Clank (PAL)**: `progress/report.json` (objdiff report) of [`OpenRAC/rac1-decomp`](https://github.com/OpenRAC/rac1-decomp).
-- **Ratchet & Clank (NTSC-U)**: `report.json` (objdiff report) on the `progress` branch of [`lombyte-project/Lombyte`](https://github.com/lombyte-project/Lombyte).
 - **Going Commando**: `progress/report.json` and `config/progress-scope.json` of [`llesieur99/rac2-decomp`](https://github.com/llesieur99/rac2-decomp), branch `RAC2`. The percentage uses integrated C bytes over all executable bytes in the boot and 27 level overlays. Placements are occurrences across programs, not unique algorithms. The scope lists ELF sections, so it cannot supply a total function count; that denominator stays unknown. Exported objdiff unit counts remain report units, not source-file or function totals.
 - **Up Your Arsenal**: `progress_report.json` (objdiff report) of [`OpenRAC/rac3-uya-decomp`](https://github.com/OpenRAC/rac3-uya-decomp).
 - **Ratchet: Deadlocked (NTSC-U)**: `progress/report.json` (objdiff report) of [`OpenRAC/rac-deadlocked-decomp`](https://github.com/OpenRAC/rac-deadlocked-decomp). The project is in its research phase, which its card says; it is measured like the others.
@@ -100,8 +99,9 @@ the service after clearing the cache volume).
 ### Adding a title
 
 Add an entry to `PROJECTS` in `src/lib/projects.ts`. If the project publishes progress, add a loader to
-`src/lib/progress.ts`; a title without one is shown as "Not started". A second project for a game that is already
-listed (another release, say) gets `sameGameAs` and a `region`: it becomes a tab on that game's card.
+`src/lib/progress.ts`; a title without one is shown as "Not started". `maintainers` (GitHub user names) puts
+"maintained by" with their pictures on the card. Another project for a game that is already listed can be named
+in the FAQ without a card of its own: add it to `ALSO_WORKED_ON`.
 `phase: "research"` marks a project that is still mapping its game (shown on its card and in the FAQ; its
 progress is tracked as usual). `contributing` and `guide` link the project's own contributing guide and best
 introduction for newcomers; they feed the "Contribute" buttons and the "Project guides" under Resources.

@@ -1,4 +1,4 @@
-export type ProjectId = "rac1" | "lombyte" | "gc" | "uya" | "deadlocked" | "gm";
+export type ProjectId = "rac1" | "gc" | "uya" | "deadlocked" | "gm";
 
 export type ProjectCategory = "mainline" | "spinoff";
 
@@ -22,13 +22,10 @@ export interface Project {
   subtitle?: string;
   /** Short tag used in activity feeds and badges. */
   tag?: string;
-  /** Release the project works from, e.g. "PAL". Shown when a game has more than one project. */
+  /** Release the project works from, e.g. "PAL". */
   region?: string;
-  /**
-   * Set on another project for a game that already has a card: it is shown as a second tab
-   * on that card instead of a card of its own, and the game is counted once.
-   */
-  sameGameAs?: ProjectId;
+  /** GitHub user names of the people who run the project, shown on its card: the work is theirs. */
+  maintainers?: string[];
   /**
    * "research": the project is still mapping the game and setting up its toolchain. Its card says so,
    * but its progress is read and shown exactly like every other project's.
@@ -54,25 +51,10 @@ export const PROJECTS: readonly Project[] = [
     category: "mainline",
     platform: "PlayStation 2",
     tag: "RaC1",
+    maintainers: ["Lynder063", "Veradictus"],
     region: "PAL",
     contributing: `${GH}/OpenRAC/rac1-decomp/blob/main/CONTRIBUTING.md`,
     guide: { label: "From assembly to a match", url: `${GH}/OpenRAC/rac1-decomp/blob/main/docs/WORKFLOW.md` },
-  },
-  {
-    id: "lombyte",
-    name: "Ratchet & Clank",
-    year: 2002,
-    repo: "lombyte-project/Lombyte",
-    fontClass: "font-audiowide",
-    theme: { box: "#181820", border: "#747669", text: "#c8d2ff", text2: "#9ca1d4", from: "#3c7a3a", to: "#12331f" },
-    image: "/img/rac1-bg.webp",
-    category: "mainline",
-    platform: "PlayStation 2",
-    tag: "Lombyte",
-    region: "NTSC-U",
-    sameGameAs: "rac1",
-    contributing: `${GH}/lombyte-project/Lombyte/blob/main/CONTRIBUTING.md`,
-    guide: { label: "Decompilation tips", url: `${GH}/lombyte-project/Lombyte/blob/main/docs/decompilation-tips.md` },
   },
   {
     id: "gc",
@@ -85,6 +67,7 @@ export const PROJECTS: readonly Project[] = [
     category: "mainline",
     platform: "PlayStation 2",
     tag: "GC",
+    maintainers: ["llesieur99"],
     contributing: `${GH}/llesieur99/rac2-decomp/blob/RAC2/CONTRIBUTING.md`,
     guide: { label: "Start here", url: `${GH}/llesieur99/rac2-decomp/blob/RAC2/docs/START-HERE.md` },
   },
@@ -99,6 +82,7 @@ export const PROJECTS: readonly Project[] = [
     category: "mainline",
     platform: "PlayStation 2",
     tag: "UYA",
+    maintainers: ["vetusmagnus"],
     contributing: `${GH}/OpenRAC/rac3-uya-decomp/blob/main/CONTRIBUTING.md`,
     guide: { label: "Full match roadmap", url: `${GH}/OpenRAC/rac3-uya-decomp/blob/main/docs/full_match_roadmap.md` },
   },
@@ -113,6 +97,7 @@ export const PROJECTS: readonly Project[] = [
     category: "mainline",
     platform: "PlayStation 2",
     tag: "DL",
+    maintainers: ["Lynder063"],
     region: "NTSC-U",
     phase: "research",
     contributing: `${GH}/OpenRAC/rac-deadlocked-decomp/blob/main/CONTRIBUTING.md`,
@@ -130,8 +115,17 @@ export const PROJECTS: readonly Project[] = [
     platform: "Mobile (J2ME)",
     subtitle: "Java reconstruction · 2005 · J2ME",
     tag: "GM",
+    maintainers: ["Clank700"],
     guide: { label: "Build and verify", url: `${GH}/Clank700/going-mobile-decomp#readme` },
   },
+];
+
+/**
+ * Other community projects for a game listed above. They are named in the FAQ ("Are the other titles
+ * being worked on?") but have no card and are not tracked on the page.
+ */
+export const ALSO_WORKED_ON: readonly { game: ProjectId; repo: string; region?: string }[] = [
+  { game: "rac1", repo: "lombyte-project/Lombyte", region: "NTSC-U" },
 ];
 
 export const DISCORD_URL = "https://discord.gg/Sfd2B54PDG";
