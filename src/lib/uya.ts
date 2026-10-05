@@ -1,8 +1,9 @@
 import type { Progress } from "./types";
 
 /**
- * Up Your Arsenal publishes an objdiff progress report (progress_report.json):
- * https://raw.githubusercontent.com/OpenRAC/rac3-uya-decomp/refs/heads/main/progress_report.json
+ * Up Your Arsenal's CI builds an objdiff report on every push and hands it to decomp.dev; it is not
+ * committed (the progress_report.json in the repository is an old copy). decomp.dev serves it as JSON
+ * with the same `measures`: https://decomp.dev/OpenRAC/rac3-uya-decomp.json
  */
 export interface ObjdiffReport {
   measures?: Record<string, string | number>;
@@ -51,6 +52,6 @@ export function parseUyaReport(report: unknown): Progress {
   return {
     functions: { done: doneFuncs, total: totalFuncs },
     code: { done: doneCode, total: totalCode },
-    source: "progress_report.json",
+    source: "decomp.dev",
   };
 }

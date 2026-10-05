@@ -26,7 +26,7 @@ test("parseUyaReport correctly parses valid objdiff report object", () => {
   assert.equal(p.functions.total, 31316);
   assert.equal(p.code.done, 164764);
   assert.equal(p.code.total, 12838776);
-  assert.equal(p.source, "progress_report.json");
+  assert.equal(p.source, "decomp.dev");
 });
 
 test("parseUyaReport correctly parses JSON string", () => {

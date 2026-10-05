@@ -52,9 +52,9 @@ async function loadGc(): Promise<Progress> {
   return parseGcReport(report, scope);
 }
 
-/** Up Your Arsenal: read from the project's own objdiff progress report. */
+/** Up Your Arsenal: its CI sends the objdiff report to decomp.dev only, so read it from there. */
 async function loadUya(): Promise<Progress> {
-  const report = await (await get(`${RAW}/OpenRAC/rac3-uya-decomp/main/progress_report.json`)).json();
+  const report = await (await get("https://decomp.dev/OpenRAC/rac3-uya-decomp.json")).json();
   return parseUyaReport(report);
 }
 
@@ -76,7 +76,7 @@ const cached = {
 const FALLBACK: Record<ProjectId, Progress> = {
   rac1: { functions: { done: 2974, total: 5109 }, code: { done: 838628, total: 3712808 }, source: "snapshot 2026-10-05" },
   gc: { functions: { done: 5269, total: null }, code: { done: 308608, total: 48788176 }, source: "snapshot 2026-10-05" },
-  uya: { functions: { done: 1292, total: 31316 }, code: { done: 164764, total: 12838776 }, source: "snapshot 2026-10-05" },
+  uya: { functions: { done: 1549, total: 31316 }, code: { done: 223880, total: 12838776 }, source: "snapshot 2026-10-05" },
   deadlocked: { functions: { done: 243, total: 15056 }, code: { done: 26572, total: 5175440 }, source: "snapshot 2026-10-05" },
   gm: { functions: { done: 351, total: 351 }, code: { done: 545639, total: 545639 }, source: "snapshot 2026-10-05" },
 };
