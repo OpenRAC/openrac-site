@@ -7,7 +7,7 @@ export default function SiteFooter() {
       <div className="mx-auto max-w-[1080px] px-4">
         <p className="max-w-[820px]">
           OpenRAC · unofficial community project · <Link className="text-amber" href="/blog">Blog</Link> · <Link className="text-amber" href="/#legal">Legal</Link> ·{" "}
-          <a className="text-amber" href="https://github.com/Lynder063/rac1-decomp">GitHub</a> · <a className="text-amber" href={DISCORD_URL}>Discord</a>
+          <a className="text-amber" href="https://github.com/OpenRAC">GitHub</a> · <a className="text-amber" href={DISCORD_URL}>Discord</a>
         </p>
         <p className="mt-2 max-w-[820px]">Progress is read from the projects&apos; repositories on the server and refreshed every ten minutes.</p>
       </div>

@@ -50,7 +50,6 @@ test("parseGcReport parses repository progress/report.json with default fallback
   assert.equal(p.code.total, GC_TOTAL_CODE_FALLBACK);
   assert.equal(p.functions.done, 56); // 26 + 15 + 15
   assert.equal(p.functions.total, null);
-  assert.equal(p.note, "2,876 / 48,788,176 code bytes integrated · 26 boot functions · 30 level placements · verified 2026-10-01");
   assert.equal(p.source, "progress/report.json");
 });
 
@@ -77,7 +76,6 @@ test("ELF sections set the byte denominator without becoming a function denomina
   assert.equal(p.code.total, 3000);
   assert.equal(p.functions.done, 56);
   assert.equal(p.functions.total, null);
-  assert.equal(p.note, "2,876 / 3,000 code bytes integrated · 26 boot functions · 30 level placements · verified 2026-10-01");
 });
 
 test("parseGcReport correctly parses objdiff v2 camelCase measures", () => {
@@ -86,7 +84,6 @@ test("parseGcReport correctly parses objdiff v2 camelCase measures", () => {
   assert.equal(p.code.total, 48788176);
   assert.equal(p.functions.done, null);
   assert.equal(p.functions.total, null);
-  assert.equal(p.note, "427 of 603 units complete");
 });
 
 test("parseGcReport correctly parses objdiff snake_case measures", () => {
@@ -95,7 +92,6 @@ test("parseGcReport correctly parses objdiff snake_case measures", () => {
   assert.equal(p.code.total, 48788176);
   assert.equal(p.functions.done, 427);
   assert.equal(p.functions.total, 603);
-  assert.equal(p.note, "427 of 603 units complete");
 });
 
 test("parseGcReport correctly parses JSON string", () => {
@@ -131,7 +127,6 @@ test("parseGcReport handles full rac2-decomp report values accurately", () => {
   assert.equal(p.code.total, 48788176);
   assert.equal(p.functions.done, 427); // 26 boot + 23*15 + 4*14 level placements.
   assert.equal(p.functions.total, null);
-  assert.equal(p.note, "25,312 / 48,788,176 code bytes integrated · 26 boot functions · 401 level placements · verified 2026-10-01");
   assert.equal(p.source, "progress/report.json");
 });
 
@@ -150,20 +145,16 @@ test("RAC2's percentage is unchanged when function counts exceed the section cou
   const p = parseGcReport(report, scope);
   assert.equal(percent(p.code).toFixed(2), "0.50");
   assert.deepEqual(p.functions, { done: 4785, total: null });
-  assert.equal(p.note, "242,732 / 48,788,176 code bytes integrated · 178 boot functions · 4,607 level placements · verified 2026-10-04");
-  assert.doesNotMatch(p.note!, /units complete|of 176/);
 });
 
 test("boot-only reports and missing verification dates do not invent level counts", () => {
   const p = parseGcReport({ g1: { integrated_c_functions: 26, integrated_c_bytes: 1076 } });
   assert.deepEqual(p.functions, { done: 26, total: null });
-  assert.equal(p.note, "1,076 / 48,788,176 code bytes integrated · 26 boot functions");
 });
 
 test("byte-only reports do not invent a function count", () => {
   const p = parseGcReport({ integrated_code_bytes: 1076, verified_at: "invalid date" });
   assert.deepEqual(p.functions, { done: null, total: null });
-  assert.equal(p.note, "1,076 / 48,788,176 code bytes integrated");
 });
 
 test("a measured zero function count stays zero rather than falling back to complete units", () => {

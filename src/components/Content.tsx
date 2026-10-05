@@ -35,10 +35,10 @@ export function Contribute() {
         <a href={DISCORD_URL} className="rounded-full border border-amber bg-gradient-to-b from-amber to-[#ff8a00] px-5 py-2.5 font-semibold text-[#1a0d00] shadow-[0_6px_24px_rgb(255_138_0/0.35)] transition hover:-translate-y-0.5 hover:brightness-110">
           Join our Discord
         </a>
-        <a href="https://github.com/Lynder063/rac1-decomp/blob/main/CONTRIBUTING.md" className={btn}>Contribute to Ratchet &amp; Clank</a>
+        <a href="https://github.com/OpenRAC/rac1-decomp/blob/main/CONTRIBUTING.md" className={btn}>Contribute to Ratchet &amp; Clank (PAL)</a>
+        <a href="https://github.com/lombyte-project/Lombyte/blob/main/CONTRIBUTING.md" className={btn}>Contribute to Lombyte (Ratchet &amp; Clank, NTSC-U)</a>
         <a href="https://github.com/llesieur99/rac2-decomp" className={btn}>Contribute to Going Commando</a>
         <a href="https://github.com/vetusmagnus/ratchet-uya-decomp/blob/main/CONTRIBUTING.md" className={btn}>Contribute to Up Your Arsenal</a>
-        <a href="https://github.com/Lynder063/rac-deadlocked-decomp" className={btn}>Contribute to Ratchet: Deadlocked</a>
         <a href="https://github.com/Clank700/going-mobile-decomp" className={btn}>Contribute to Going Mobile</a>
       </div>
     </Section>
@@ -63,7 +63,7 @@ export function Activity({ commits }: { commits: Commit[] }) {
         <ul className="grid grid-cols-[minmax(0,1fr)] gap-2.5">
           {commits.map((c) => (
             <li key={c.url} className="flex min-w-0 flex-wrap items-center gap-x-3.5 gap-y-1.5 rounded-xl border border-line bg-panel px-4 py-3">
-              <span className={`flex-none rounded-full px-2.5 py-1 font-orbitron text-[11px] font-semibold tracking-wider ${c.projectId === "deadlocked" ? "border border-red-500/40 bg-red-950/60 text-[#ff6b6b]" : c.projectId === "uya" ? "bg-brand/20 text-[#ffc35a]" : c.projectId === "gc" ? "bg-[#5a7fa6]/25 text-[#9fd3ff]" : c.projectId === "gm" ? "bg-[#00b4d8]/25 text-[#7dd3fc]" : "bg-lav/15 text-lav"}`}>{c.project}</span>
+              <span className={`flex-none rounded-full px-2.5 py-1 font-orbitron text-[11px] font-semibold tracking-wider ${c.projectId === "uya" ? "bg-brand/20 text-[#ffc35a]" : c.projectId === "gc" ? "bg-[#5a7fa6]/25 text-[#9fd3ff]" : c.projectId === "gm" ? "bg-[#00b4d8]/25 text-[#7dd3fc]" : "bg-lav/15 text-lav"}`}>{c.project}</span>
               <a href={c.url} className="order-3 min-w-0 basis-full truncate text-[#e3e9ff] no-underline hover:text-amber sm:order-none sm:basis-0 sm:flex-1">{c.message}</a>
               <time dateTime={c.date} className="flex-none text-[13px] text-dim">{ago(c.date)}</time>
             </li>
@@ -93,8 +93,8 @@ const RESOURCES = [
   ["decomp.me", "https://decomp.me", "Collaborative platform for matching single functions."],
   ["objdiff", "https://github.com/encounter/objdiff", "Compares compiled output against the original, instruction by instruction."],
   ["splat", "https://github.com/ethteck/splat", "Splits a binary into code and data segments."],
-  ["RaC1 workflow", "https://github.com/Lynder063/rac1-decomp/blob/main/docs/WORKFLOW.md", "How a function goes from assembly to a match in this project."],
-  ["Legal scope", "https://github.com/Lynder063/rac1-decomp/blob/main/LEGAL.md", "Exactly what the repositories do and do not contain."],
+  ["RaC1 workflow", "https://github.com/OpenRAC/rac1-decomp/blob/main/docs/WORKFLOW.md", "How a function goes from assembly to a match in this project."],
+  ["Legal scope", "https://github.com/OpenRAC/rac1-decomp/blob/main/LEGAL.md", "Exactly what the repositories do and do not contain."],
 ] as const;
 
 export function Resources() {
@@ -118,7 +118,7 @@ const FAQ = [
   ["Will there be a PC port?", "That is a possible long-term outcome of a finished decompilation, but it is not a current goal. Right now the goal is a complete, accurate source reconstruction of each game, one title at a time."],
   ["Will there be mod support on release, or will it be added later?", "Our main priority is to decompile the entire game first. Once that is done, we will look into adding extras and new features, so mod support would be explored after the decompilation is complete."],
   ["What do “matched” and “percent” mean?", "A function or method is matched when the reconstructed code compiles to exactly the same instructions or bytecode as the retail build. The percentages reflect verified code and functions divided by the totals."],
-  ["Are the other titles being worked on?", "Ratchet & Clank and Up Your Arsenal have active community C decompilations. Going Commando and Ratchet: Deadlocked are tracked as PlayStation 2 projects. Meanwhile, Going Mobile (the 2005 J2ME mobile title) has achieved a verified 100% byte-matched Java reconstruction. More titles will be added as projects appear."],
+  ["Are the other titles being worked on?", "Ratchet & Clank has two independent community decompilations: rac1-decomp works from the PAL release and Lombyte from the NTSC-U release. Going Commando and Up Your Arsenal have community decompilations of their own, and Going Mobile (the 2005 J2ME title) has a verified, 100% byte-matched Java reconstruction. Each project is run by its own people. If you work on a decompilation of any Ratchet & Clank game, tell us and we will gladly list it here."],
   ["How can I help?", "Read CONTRIBUTING.md on GitHub. Reviewing, documenting function behavior, and improving tooling all help, not just writing matches."],
   ["Do you accept assets or dumps from the game?", "No. Please do not upload or link game files, dumps or other copyrighted material to issues, pull requests or the community channels."],
 ] as const;

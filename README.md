@@ -16,18 +16,18 @@ cached for 10 minutes.
 
 ### How progress is counted
 
-Every project is measured the same way, so the bars can be compared:
-
-| Number | Meaning |
-|---|---|
-| **Functions matched** | functions whose code is verified identical to the retail build, out of all functions |
-| **Code matched** | the same, weighted by size in bytes. The honest figure, because small functions are matched first |
+Every project is shown with one and the same measure: **code matched**, the bytes of code verified identical to
+the retail build out of all code bytes the project counts. The percentage on each card and the line under its bar
+(`838 628 of 3 712 808 code bytes matched`) are both this number; no card shows a project-specific extra. It is
+weighted by size because small functions are matched first, and it is the figure decomp.dev shows.
 
 Sources (see `src/lib/progress.ts`):
 
-- **Ratchet & Clank**: `progress/report.json` (objdiff report) of [`Lynder063/rac1-decomp`](https://github.com/Lynder063/rac1-decomp).
-- **Going Commando**: `progress/report.json` and `config/progress-scope.json` of [`llesieur99/rac2-decomp`](https://github.com/llesieur99/rac2-decomp), branch `RAC2`. The percentage uses integrated C bytes over all executable bytes in the boot and 27 level overlays. The detail line separates boot functions from level placements and shows the report's verification date when available. Placements are occurrences across programs, not unique algorithms. The scope lists ELF sections, so it cannot supply a total function count; that denominator stays unknown. Exported objdiff unit counts remain report units, not source-file or function totals.
+- **Ratchet & Clank (PAL)**: `progress/report.json` (objdiff report) of [`OpenRAC/rac1-decomp`](https://github.com/OpenRAC/rac1-decomp).
+- **Ratchet & Clank (NTSC-U)**: `report.json` (objdiff report) on the `progress` branch of [`lombyte-project/Lombyte`](https://github.com/lombyte-project/Lombyte).
+- **Going Commando**: `progress/report.json` and `config/progress-scope.json` of [`llesieur99/rac2-decomp`](https://github.com/llesieur99/rac2-decomp), branch `RAC2`. The percentage uses integrated C bytes over all executable bytes in the boot and 27 level overlays. Placements are occurrences across programs, not unique algorithms. The scope lists ELF sections, so it cannot supply a total function count; that denominator stays unknown. Exported objdiff unit counts remain report units, not source-file or function totals.
 - **Up Your Arsenal**: `progress_report.json` (objdiff report) of [`vetusmagnus/ratchet-uya-decomp`](https://github.com/vetusmagnus/ratchet-uya-decomp).
+- **Going Mobile**: the verified method count in the `README.md` of [`Clank700/going-mobile-decomp`](https://github.com/Clank700/going-mobile-decomp), applied to the size of the reconstructed source.
 
 If GitHub cannot be reached, the last known snapshot (in `progress.ts`) is shown and labelled as such.
 
@@ -72,19 +72,20 @@ rate limit for the activity feed; it stays on the server.
 
 ### Card backdrops
 
-The title cards can show a backdrop image named `rac1-bg.webp`, `gc-bg.webp`, `uya-bg.webp`, `deadlocked-bg.webp` and `going-mobile-bg.webp` (WebP, about
+The title cards can show a backdrop image named `rac1-bg.webp`, `gc-bg.webp`, `uya-bg.webp` and `going-mobile-bg.webp` (WebP, about
 1600 px wide). Those would be screenshots from the games, which are copyrighted, so **they are not part of this
 repository**. Without them the cards use a colour gradient.
 
 The images are read from a folder, set by `IMAGE_DIR` (default `public/img`, which is git-ignored), on every
-request. Drop a file in and it is used at once, with no rebuild or restart. Only those five names are ever
+request. Drop a file in and it is used at once, with no rebuild or restart. Only those four names are ever
 served. Resized copies are cached for a day, so a replaced image can take up to a day to show (or restart
 the service after clearing the cache volume).
 
 ### Adding a title
 
 Add an entry to `PROJECTS` in `src/lib/projects.ts`. If the project publishes progress, add a loader to
-`src/lib/progress.ts`; a title without one is shown as "Not started".
+`src/lib/progress.ts`; a title without one is shown as "Not started". A second project for a game that is already
+listed (another release, say) gets `sameGameAs` and a `region`: it becomes a tab on that game's card.
 
 ## Deploy with Podman and Quadlet
 
@@ -102,7 +103,7 @@ systemctl --user start openrac.service
 loginctl enable-linger "$USER"      # once, so it starts at boot without a login
 
 # 4. card backdrops: copy your images into the folder the unit mounts (no restart needed)
-cp rac1-bg.webp gc-bg.webp uya-bg.webp deadlocked-bg.webp going-mobile-bg.webp ~/openrac-img/
+cp rac1-bg.webp gc-bg.webp uya-bg.webp going-mobile-bg.webp ~/openrac-img/
 ```
 
 The container listens on `127.0.0.1:3000`; put your reverse proxy in front of it. It runs as a non-root user with

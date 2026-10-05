@@ -17,7 +17,6 @@ test("parseGmReadme parses README with exact matches correctly", () => {
   assert.equal(p.functions.total, 351);
   assert.equal(p.code.done, GM_TOTAL_CODE_BYTES);
   assert.equal(p.code.total, GM_TOTAL_CODE_BYTES);
-  assert.equal(p.note, "10 of 10 class files byte-identical · 351/351 methods exact");
   assert.equal(p.source, "README.md");
 });
 
@@ -28,7 +27,6 @@ test("parseGmReadme calculates partial matches proportionally", () => {
   assert.equal(p.functions.total, 200);
   assert.equal(p.code.done, Math.round(GM_TOTAL_CODE_BYTES * 0.5));
   assert.equal(p.code.total, GM_TOTAL_CODE_BYTES);
-  assert.equal(p.note, "5 of 10 class files byte-identical · 100/200 methods exact");
 });
 
 test("parseGmReadme rejects empty or invalid text", () => {

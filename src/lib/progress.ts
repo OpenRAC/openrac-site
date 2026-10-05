@@ -1,7 +1,6 @@
 import { unstable_cache } from "next/cache";
 import { parseUyaReport } from "./uya";
 import { parseGcReport } from "./gc";
-import { parseDeadlockedReport } from "./deadlocked";
 import { parseGmReadme } from "./gm";
 import type { Progress } from "./types";
 import type { ProjectId } from "./projects";
@@ -12,31 +11,34 @@ export const REVALIDATE_SECONDS = 600;
 const RAW = "https://raw.githubusercontent.com";
 
 async function get(url: string): Promise<Response> {
-  // `no-store` on purpose: the RaC1 report is over 1 MB, too big for the fetch cache.
+  // `no-store` on purpose: the RaC1 reports are over 1 MB, too big for the fetch cache.
   // The small derived result is cached below instead.
   const res = await fetch(url, { cache: "no-store", signal: AbortSignal.timeout(10_000) });
   if (!res.ok) throw new Error(`${url} -> ${res.status}`);
   return res;
 }
 
-/** Ratchet & Clank: read from the project's own objdiff progress report. */
-async function loadRac1(): Promise<Progress> {
-  const report = (await (await get(`${RAW}/Lynder063/rac1-decomp/main/progress/report.json`)).json()) as {
-    measures?: Record<string, string | number>;
-  };
+/** Reads a plain objdiff progress report (the same file decomp.dev reads). */
+async function loadObjdiff(url: string, name: string): Promise<Progress> {
+  const report = (await (await get(url)).json()) as { measures?: Record<string, string | number> };
   const m = report.measures;
   const n = (key: string): number => Number(m?.[key] ?? 0);
-  const p: Progress = {
-    functions: { done: n("matched_functions"), total: n("total_functions") },
-    code: { done: n("matched_code"), total: n("total_code") },
-    note: `${m?.complete_units != null ? Number(m.complete_units) : 0} of ${n("total_units")} source files complete`,
+  const [doneFuncs, totalFuncs, doneCode, totalCode] = [n("matched_functions"), n("total_functions"), n("matched_code"), n("total_code")];
+  if (![doneFuncs, totalFuncs, doneCode, totalCode].every((v) => Number.isFinite(v) && v >= 0) || totalFuncs <= 0 || totalCode <= 0) {
+    throw new Error(`${name} report has an unexpected shape`);
+  }
+  return {
+    functions: { done: doneFuncs, total: totalFuncs },
+    code: { done: doneCode, total: totalCode },
     source: "progress/report.json",
   };
-  if (![p.functions.done, p.functions.total, p.code.done, p.code.total].every((v) => typeof v === "number" && Number.isFinite(v) && v >= 0) || p.functions.total == null || p.functions.total <= 0 || p.code.total <= 0) {
-    throw new Error("rac1 report has an unexpected shape");
-  }
-  return p;
 }
+
+/** Ratchet & Clank (PAL): read from the project's own objdiff progress report. */
+const loadRac1 = () => loadObjdiff(`${RAW}/OpenRAC/rac1-decomp/main/progress/report.json`, "rac1");
+
+/** Ratchet & Clank (NTSC-U), Lombyte: CI publishes its objdiff report on the `progress` branch. */
+const loadLombyte = () => loadObjdiff(`${RAW}/lombyte-project/Lombyte/progress/report.json`, "lombyte");
 
 /** Going Commando: read from the project's own progress report and scope. */
 async function loadGc(): Promise<Progress> {
@@ -56,12 +58,6 @@ async function loadUya(): Promise<Progress> {
   return parseUyaReport(report);
 }
 
-/** Ratchet: Deadlocked: read from the project's own objdiff progress report. */
-async function loadDeadlocked(): Promise<Progress> {
-  const report = await (await get(`${RAW}/Lynder063/rac-deadlocked-decomp/main/progress/report.json`)).json();
-  return parseDeadlockedReport(report);
-}
-
 /** Going Mobile: read from the project's verified README output. */
 async function loadGm(): Promise<Progress> {
   const readme = await (await get(`${RAW}/Clank700/going-mobile-decomp/main/README.md`)).text();
@@ -70,19 +66,19 @@ async function loadGm(): Promise<Progress> {
 
 const cached = {
   rac1: unstable_cache(loadRac1, ["progress-rac1"], { revalidate: REVALIDATE_SECONDS }),
+  lombyte: unstable_cache(loadLombyte, ["progress-lombyte"], { revalidate: REVALIDATE_SECONDS }),
   gc: unstable_cache(loadGc, ["progress-gc"], { revalidate: REVALIDATE_SECONDS }),
   uya: unstable_cache(loadUya, ["progress-uya"], { revalidate: REVALIDATE_SECONDS }),
-  deadlocked: unstable_cache(loadDeadlocked, ["progress-deadlocked"], { revalidate: REVALIDATE_SECONDS }),
   gm: unstable_cache(loadGm, ["progress-gm"], { revalidate: REVALIDATE_SECONDS }),
 };
 
 /** Last numbers known to be good. Used only if GitHub cannot be reached at all. */
 const FALLBACK: Record<ProjectId, Progress> = {
-  rac1: { functions: { done: 1777, total: 5111 }, code: { done: 323648, total: 3713628 }, source: "snapshot 2026-09-30" },
-  gc: { functions: { done: 427, total: null }, code: { done: 25312, total: 48788176 }, note: "25,312 / 48,788,176 code bytes integrated · 427 function placements · snapshot 2026-10-01", source: "snapshot 2026-10-01" },
-  uya: { functions: { done: 1292, total: 31316 }, code: { done: 164764, total: 12838776 }, note: "0 of 114 source files complete", source: "snapshot 2026-10-01" },
-  deadlocked: { functions: { done: 0, total: 0 }, code: { done: 0, total: 0 }, note: "Repository initialized · Analysis in progress", source: "snapshot 2026-10-04" },
-  gm: { functions: { done: 351, total: 351 }, code: { done: 545639, total: 545639 }, note: "10 of 10 class files byte-identical · 351/351 methods exact", source: "snapshot 2026-10-03" },
+  rac1: { functions: { done: 2974, total: 5109 }, code: { done: 838628, total: 3712808 }, source: "snapshot 2026-10-05" },
+  lombyte: { functions: { done: 2658, total: 4107 }, code: { done: 796784, total: 3493132 }, source: "snapshot 2026-10-05" },
+  gc: { functions: { done: 5269, total: null }, code: { done: 308608, total: 48788176 }, source: "snapshot 2026-10-05" },
+  uya: { functions: { done: 1292, total: 31316 }, code: { done: 164764, total: 12838776 }, source: "snapshot 2026-10-05" },
+  gm: { functions: { done: 351, total: 351 }, code: { done: 545639, total: 545639 }, source: "snapshot 2026-10-05" },
 };
 
 export interface ProjectProgress extends Progress {
@@ -91,20 +87,20 @@ export interface ProjectProgress extends Progress {
 }
 
 export async function getProgress(): Promise<Partial<Record<ProjectId, ProjectProgress>>> {
-  const [rac1, gc, uya, deadlocked, gm] = await Promise.allSettled([
+  const [rac1, lombyte, gc, uya, gm] = await Promise.allSettled([
     cached.rac1(),
+    cached.lombyte(),
     cached.gc(),
     cached.uya(),
-    cached.deadlocked(),
     cached.gm(),
   ]);
   const pick = (r: PromiseSettledResult<Progress>, fb: Progress): ProjectProgress =>
     r.status === "fulfilled" ? { ...r.value, stale: false } : { ...fb, stale: true };
   return {
     rac1: pick(rac1, FALLBACK.rac1),
+    lombyte: pick(lombyte, FALLBACK.lombyte),
     gc: pick(gc, FALLBACK.gc),
     uya: pick(uya, FALLBACK.uya),
-    deadlocked: pick(deadlocked, FALLBACK.deadlocked),
     gm: pick(gm, FALLBACK.gm),
   };
 }

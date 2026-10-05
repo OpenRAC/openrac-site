@@ -1,4 +1,4 @@
-export type ProjectId = "rac1" | "gc" | "uya" | "deadlocked" | "gm";
+export type ProjectId = "rac1" | "lombyte" | "gc" | "uya" | "gm";
 
 export type ProjectCategory = "mainline" | "spinoff";
 
@@ -22,6 +22,13 @@ export interface Project {
   subtitle?: string;
   /** Short tag used in activity feeds and badges. */
   tag?: string;
+  /** Release the project works from, e.g. "PAL". Shown when a game has more than one project. */
+  region?: string;
+  /**
+   * Set on another project for a game that already has a card: it is shown as a second tab
+   * on that card instead of a card of its own, and the game is counted once.
+   */
+  sameGameAs?: ProjectId;
 }
 
 export const PROJECTS: readonly Project[] = [
@@ -29,13 +36,28 @@ export const PROJECTS: readonly Project[] = [
     id: "rac1",
     name: "Ratchet & Clank",
     year: 2002,
-    repo: "Lynder063/rac1-decomp",
+    repo: "OpenRAC/rac1-decomp",
     fontClass: "font-audiowide",
     theme: { box: "#181820", border: "#747669", text: "#c8d2ff", text2: "#9ca1d4", from: "#3c7a3a", to: "#12331f" },
     image: "/img/rac1-bg.webp",
     category: "mainline",
     platform: "PlayStation 2",
     tag: "RaC1",
+    region: "PAL",
+  },
+  {
+    id: "lombyte",
+    name: "Ratchet & Clank",
+    year: 2002,
+    repo: "lombyte-project/Lombyte",
+    fontClass: "font-audiowide",
+    theme: { box: "#181820", border: "#747669", text: "#c8d2ff", text2: "#9ca1d4", from: "#3c7a3a", to: "#12331f" },
+    image: "/img/rac1-bg.webp",
+    category: "mainline",
+    platform: "PlayStation 2",
+    tag: "Lombyte",
+    region: "NTSC-U",
+    sameGameAs: "rac1",
   },
   {
     id: "gc",
@@ -60,19 +82,6 @@ export const PROJECTS: readonly Project[] = [
     category: "mainline",
     platform: "PlayStation 2",
     tag: "UYA",
-  },
-  {
-    id: "deadlocked",
-    name: "Ratchet: Deadlocked",
-    year: 2005,
-    repo: "Lynder063/rac-deadlocked-decomp",
-    fontClass: "font-orbitron font-bold",
-    theme: { box: "#12151b", border: "#b91c1c", text: "#f3f4f6", text2: "#ef4444", from: "#7f1d1d", to: "#0f1115" },
-    image: "/img/deadlocked-bg.webp",
-    category: "mainline",
-    platform: "PlayStation 2",
-    subtitle: "decompilation · 2005 · PlayStation 2",
-    tag: "DL",
   },
   {
     id: "gm",

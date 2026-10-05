@@ -16,8 +16,6 @@ export interface Progress {
   /** Null means the report does not provide that count; never infer it from sections or units. */
   functions: { done: number | null; total: number | null };
   code: Ratio;
-  /** Short extra line shown under the numbers, e.g. how the count is made up. */
-  note?: string;
   /** Where the numbers come from. */
   source: string;
 }

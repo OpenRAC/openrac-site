@@ -42,7 +42,7 @@ export default function Hero({ progress }: { progress: Partial<Record<ProjectId,
 
       <div className="mt-11 grid max-w-[760px] animate-rise grid-cols-1 gap-3.5 min-[520px]:grid-cols-3 [animation-delay:.6s]">
         {[
-          [<CountUp key="t" value={PROJECTS.length} />, "titles tracked"],
+          [<CountUp key="t" value={PROJECTS.filter((p) => !p.sameGameAs).length} />, "titles tracked"],
           [<CountUp key="a" value={active.length} />, "active projects"],
           [<span key="b">{fmtBytes(bytes)}</span>, "of code verified across projects"],
         ].map(([value, label], i) => (
