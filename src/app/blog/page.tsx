@@ -1,11 +1,26 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { getPosts } from "@/lib/blog";
+import { blogIndexLd, ldJson, siteUrl } from "@/lib/machine";
 
 export const metadata: Metadata = {
-  title: "Blog · OpenRAC",
+  title: "Blog",
   description: "News and notes from the OpenRAC community decompilation projects.",
-  alternates: { types: { "application/rss+xml": "/blog/rss.xml" } },
+  alternates: {
+    canonical: "/blog",
+    types: { "application/rss+xml": "/blog/rss.xml" },
+  },
+  openGraph: {
+    title: "Blog · OpenRAC",
+    description: "News and notes from the OpenRAC community decompilation projects.",
+    url: "/blog",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Blog · OpenRAC",
+    description: "News and notes from the OpenRAC community decompilation projects.",
+  },
 };
 
 const fmtDate = (iso: string) => new Date(`${iso}T00:00:00Z`).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" });
@@ -15,6 +30,7 @@ export default async function BlogIndex() {
 
   return (
     <main className="mx-auto max-w-[820px] px-4 pb-20 pt-12 sm:pt-16">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: ldJson(blogIndexLd(siteUrl())) }} />
       <span className="font-orbitron text-[13px] font-bold tracking-[.3em] text-brand">NEWS AND NOTES</span>
       <h1 className="mb-2 mt-2 font-audiowide text-[clamp(32px,6vw,52px)] leading-tight">Blog</h1>
       <p className="mb-10 text-soft">

@@ -1,6 +1,6 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { homeLd, ldJson, llmsFullTxt, llmsTxt, postLd, progressJson } from "./machine.ts";
+import { blogIndexLd, breadcrumbLd, homeLd, ldJson, llmsFullTxt, llmsTxt, postLd, progressJson } from "./machine.ts";
 import { PROJECTS } from "./projects.ts";
 
 const SITE = "https://openrac.dev";
@@ -46,6 +46,19 @@ test("JSON-LD describes the projects and cannot close its script tag", () => {
   const home = homeLd(SITE);
   const list = home["@graph"][1] as { itemListElement: unknown[] };
   assert.equal(list.itemListElement.length, PROJECTS.filter((p) => p.repo).length);
-  assert.equal(postLd(SITE, post).headline, "Welcome");
+  const pLd = postLd(SITE, post);
+  assert.equal(pLd.headline, "Welcome");
+  assert.equal(pLd.image, `${SITE}/opengraph-image.png`);
+  assert.equal(pLd.mainEntityOfPage["@id"], `${SITE}/blog/welcome`);
+
+  const blog = blogIndexLd(SITE);
+  assert.equal(blog["@graph"][0]["@type"], "Blog");
+  assert.equal(blog["@graph"][1]["@type"], "BreadcrumbList");
+
+  const crumbs = breadcrumbLd([{ name: "A", url: "https://a" }, { name: "B", url: "https://b" }]);
+  assert.equal(crumbs.itemListElement.length, 2);
+  assert.equal(crumbs.itemListElement[0].position, 1);
+  assert.equal(crumbs.itemListElement[1].name, "B");
+
   assert.ok(!ldJson({ x: "</script><script>alert(1)</script>" }).includes("<"));
 });

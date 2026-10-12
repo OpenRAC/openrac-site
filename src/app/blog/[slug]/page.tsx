@@ -3,7 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import Markdown from "@/components/Markdown";
 import { getPost, getPosts } from "@/lib/blog";
-import { ldJson, postLd, siteUrl } from "@/lib/machine";
+import { breadcrumbLd, ldJson, postLd, siteUrl } from "@/lib/machine";
 
 // Known posts are built ahead; any other address is looked up and answered with a 404 (notFound below).
 export async function generateStaticParams() {
@@ -14,10 +14,23 @@ export async function generateMetadata({ params }: PageProps<"/blog/[slug]">): P
   const post = await getPost((await params).slug);
   if (!post) return {};
   return {
-    title: `${post.title} · OpenRAC`,
+    title: post.title,
     description: post.summary,
     alternates: { canonical: `/blog/${post.slug}` },
-    openGraph: { type: "article", title: post.title, description: post.summary, publishedTime: post.date, tags: post.tags },
+    openGraph: {
+      type: "article",
+      title: post.title,
+      description: post.summary,
+      url: `/blog/${post.slug}`,
+      publishedTime: post.date,
+      tags: post.tags,
+      authors: post.author ? [post.author] : undefined,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description: post.summary,
+    },
   };
 }
 
@@ -27,9 +40,17 @@ export default async function PostPage({ params }: PageProps<"/blog/[slug]">) {
   const post = await getPost((await params).slug);
   if (!post) notFound();
 
+  const site = siteUrl();
+  const breadcrumbs = [
+    { name: "Home", url: `${site}/` },
+    { name: "Blog", url: `${site}/blog` },
+    { name: post.title, url: `${site}/blog/${post.slug}` },
+  ];
+
   return (
     <main className="mx-auto max-w-[760px] px-4 pb-20 pt-10 sm:pt-14">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: ldJson(postLd(siteUrl(), post)) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: ldJson(postLd(site, post)) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: ldJson(breadcrumbLd(breadcrumbs)) }} />
       <Link href="/blog" className="text-sm text-amber no-underline hover:underline">← All posts</Link>
       <article>
         <header className="mb-8 mt-5">

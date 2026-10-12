@@ -156,6 +156,13 @@ export function homeLd(site: string) {
           },
         })),
       },
+      {
+        "@type": "Organization",
+        name: "OpenRAC",
+        url: `${site}/`,
+        logo: `${site}/icon.png`,
+        sameAs: ["https://github.com/OpenRAC", DISCORD_URL],
+      },
     ],
   };
 }
@@ -169,7 +176,46 @@ export function postLd(site: string, post: Omit<PostText, "body">) {
     description: post.summary,
     datePublished: post.date,
     url: `${site}/blog/${post.slug}`,
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `${site}/blog/${post.slug}`,
+    },
+    image: `${site}/opengraph-image.png`,
     ...(post.author && { author: { "@type": "Person", name: post.author } }),
     publisher: { "@type": "Organization", name: "OpenRAC", url: `${site}/` },
+  };
+}
+
+/** schema.org BreadcrumbList representation. */
+export function breadcrumbLd(items: { name: string; url: string }[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: items.map((item, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: item.name,
+      item: item.url,
+    })),
+  };
+}
+
+/** schema.org description of the blog index page. */
+export function blogIndexLd(site: string) {
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Blog",
+        name: "OpenRAC Blog",
+        description: "News and notes from the OpenRAC community decompilation projects.",
+        url: `${site}/blog`,
+        publisher: { "@type": "Organization", name: "OpenRAC", url: `${site}/` },
+      },
+      breadcrumbLd([
+        { name: "Home", url: `${site}/` },
+        { name: "Blog", url: `${site}/blog` },
+      ]),
+    ],
   };
 }

@@ -15,11 +15,60 @@ const description =
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.SITE_URL ?? "https://openrac.dev"),
-  title: "OpenRAC",
+  title: {
+    default: "OpenRAC · Ratchet & Clank Decompilation Hub",
+    template: "%s · OpenRAC",
+  },
   description,
-  openGraph: { title: "OpenRAC", description, type: "website" },
+  keywords: [
+    "Ratchet & Clank",
+    "OpenRAC",
+    "decompilation",
+    "reverse engineering",
+    "PlayStation 2",
+    "PS2",
+    "Insomniac Games",
+    "matching decompilation",
+    "game preservation",
+  ],
+  authors: [{ name: "OpenRAC Community", url: "https://openrac.dev" }],
+  creator: "OpenRAC Community",
+  publisher: "OpenRAC",
+  applicationName: "OpenRAC",
+  category: "technology",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  openGraph: {
+    title: "OpenRAC · Ratchet & Clank Decompilation Hub",
+    description,
+    type: "website",
+    url: "/",
+    siteName: "OpenRAC",
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "OpenRAC · Ratchet & Clank Decompilation Hub",
+    description,
+  },
   // Lets feed readers, scripts and AI tools find the machine-readable versions on their own.
-  alternates: { types: { "application/rss+xml": "/blog/rss.xml", "application/json": "/progress.json", "text/plain": "/llms.txt" } },
+  alternates: {
+    canonical: "/",
+    types: {
+      "application/rss+xml": "/blog/rss.xml",
+      "application/json": "/progress.json",
+      "text/plain": "/llms.txt",
+    },
+  },
 };
 
 export const viewport: Viewport = {
