@@ -1,4 +1,4 @@
-import { DISCORD_URL, PROJECTS, type ProjectId } from "./projects.ts";
+import { DISCORD_URL, DOWNLOAD_URL, PROJECTS, type ProjectId } from "./projects.ts";
 import { percent, type Progress } from "./types.ts";
 
 /**
@@ -123,6 +123,7 @@ ${posts.map((p) => `- [${p.title}](${site}/blog/${p.slug}) (${p.date}): ${p.summ
 
 ## Optional
 
+- [Download](${DOWNLOAD_URL}): the latest release of the OpenRAC launcher, the desktop app that sets a game up from your own disc and builds the PC port
 - [Discord](${DISCORD_URL}): the community chat, open to everyone
 - [Website source](https://github.com/OpenRAC/openrac-site): this site, MIT licensed
 `;

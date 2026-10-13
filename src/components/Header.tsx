@@ -5,7 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { HAS_CREDITS } from "@/lib/credits";
-import { DISCORD_URL } from "@/lib/projects";
+import { DISCORD_URL, DOWNLOAD_URL } from "@/lib/projects";
 
 /** Sections of the home page. Plain anchors: on the home page they scroll, elsewhere they go home first. */
 const SECTIONS = ([
@@ -99,7 +99,14 @@ export default function Header() {
               {!inBlog && <span className={underline} />}
             </Link>
           </div>
-          <div className="min-[821px]:ml-auto">
+          <div className="flex flex-col gap-2 min-[821px]:ml-auto min-[821px]:flex-row min-[821px]:items-center">
+            <a
+              href={DOWNLOAD_URL}
+              onClick={() => setOpen(false)}
+              className="flex justify-center rounded-full border border-black/25 bg-[#2a1800] px-4 py-3 text-sm font-semibold text-white no-underline transition-colors hover:bg-white hover:text-[#2a1800] min-[821px]:inline-flex min-[821px]:py-2"
+            >
+              Download
+            </a>
             <a
               href={DISCORD_URL}
               onClick={() => setOpen(false)}

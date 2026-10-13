@@ -129,3 +129,6 @@ export const ALSO_WORKED_ON: readonly { game: ProjectId; repo: string; region?: 
 ];
 
 export const DISCORD_URL = "https://discord.gg/Sfd2B54PDG";
+
+/** The launcher's newest release: GitHub sends this address on to whichever one is latest, so it never needs changing. */
+export const DOWNLOAD_URL = "https://github.com/OpenRAC/OpenRAC/releases/latest";

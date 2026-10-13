@@ -1,4 +1,4 @@
-import { DISCORD_URL, PROJECTS } from "@/lib/projects";
+import { DISCORD_URL, DOWNLOAD_URL, PROJECTS } from "@/lib/projects";
 import type { ProjectProgress } from "@/lib/progress";
 import type { ProjectId } from "@/lib/projects";
 import CountUp from "./CountUp";
@@ -34,6 +34,9 @@ export default function Hero({ progress }: { progress: Partial<Record<ProjectId,
       <div className="mt-6 flex animate-rise flex-wrap gap-3 [animation-delay:.45s]">
         <a href="#progress" className="rounded-full border border-amber bg-gradient-to-b from-amber to-[#ff8a00] px-5 py-2.5 font-semibold text-[#1a0d00] shadow-[0_6px_24px_rgb(255_138_0/0.35)] transition hover:-translate-y-0.5 hover:brightness-110">
           See progress
+        </a>
+        <a href={DOWNLOAD_URL} className="rounded-full border border-lav/40 bg-white/[0.03] px-5 py-2.5 font-semibold text-[#e8f0ff] transition hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgb(0_0_0/0.4)]">
+          Download the launcher
         </a>
         <a href={DISCORD_URL} className="rounded-full border border-lav/40 bg-white/[0.03] px-5 py-2.5 font-semibold text-[#e8f0ff] transition hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgb(0_0_0/0.4)]">
           Join our Discord
