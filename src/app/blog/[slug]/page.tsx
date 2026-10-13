@@ -3,7 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import Markdown from "@/components/Markdown";
 import { getPost, getPosts } from "@/lib/blog";
-import { breadcrumbLd, ldJson, postLd, siteUrl } from "@/lib/machine";
+import { breadcrumbLd, ldJson, postLd, SHARE_IMAGE, siteUrl } from "@/lib/machine";
 
 // Known posts are built ahead; any other address is looked up and answered with a 404 (notFound below).
 export async function generateStaticParams() {
@@ -25,11 +25,14 @@ export async function generateMetadata({ params }: PageProps<"/blog/[slug]">): P
       publishedTime: post.date,
       tags: post.tags,
       authors: post.author ? [post.author] : undefined,
+      siteName: "OpenRAC",
+      images: [SHARE_IMAGE],
     },
     twitter: {
       card: "summary_large_image",
       title: post.title,
       description: post.summary,
+      images: [SHARE_IMAGE],
     },
   };
 }

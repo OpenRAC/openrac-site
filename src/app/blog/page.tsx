@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { getPosts } from "@/lib/blog";
-import { blogIndexLd, ldJson, siteUrl } from "@/lib/machine";
+import { blogIndexLd, ldJson, SHARE_IMAGE, siteUrl } from "@/lib/machine";
 
 export const metadata: Metadata = {
   title: "Blog",
@@ -15,11 +15,14 @@ export const metadata: Metadata = {
     description: "News and notes from the OpenRAC community decompilation projects.",
     url: "/blog",
     type: "website",
+    siteName: "OpenRAC",
+    images: [SHARE_IMAGE],
   },
   twitter: {
     card: "summary_large_image",
     title: "Blog · OpenRAC",
     description: "News and notes from the OpenRAC community decompilation projects.",
+    images: [SHARE_IMAGE],
   },
 };
 

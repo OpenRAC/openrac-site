@@ -9,6 +9,24 @@ import { percent, type Progress } from "./types.ts";
 
 export const siteUrl = () => (process.env.SITE_URL ?? "https://openrac.dev").replace(/\/$/, "");
 
+/**
+ * The share picture, for pages that set their own openGraph or twitter block: a page's block replaces
+ * the layout's whole, picture included, so each has to name it again.
+ */
+export const SHARE_IMAGE = { url: "/opengraph-image.png", width: 1280, height: 640, alt: "OpenRAC: community decompilation projects of the Ratchet & Clank series" };
+
+/** The one Organization every page's JSON-LD points at, so search engines join them into a single entity. */
+const orgLd = (site: string) => ({
+  "@type": "Organization",
+  "@id": `${site}/#organization`,
+  name: "OpenRAC",
+  alternateName: ["Open RAC", "OpenRAC Community"],
+  url: `${site}/`,
+  // Google wants a logo of at least 112 px; the 64 px icon is too small.
+  logo: `${site}/apple-icon.png`,
+  sameAs: ["https://github.com/OpenRAC", DISCORD_URL],
+});
+
 type Shown = Progress & { stale: boolean };
 type ProgressMap = Partial<Record<ProjectId, Shown>>;
 
@@ -137,9 +155,14 @@ export function homeLd(site: string) {
     "@graph": [
       {
         "@type": "WebSite",
+        "@id": `${site}/#website`,
         name: "OpenRAC",
+        // The names people type; tells Google which site name to show and that "Open RAC" means us.
+        alternateName: ["Open RAC", "openrac.dev"],
         url: `${site}/`,
         description: "An unofficial hub for the independent community decompilation projects of the Ratchet & Clank series.",
+        inLanguage: "en",
+        publisher: { "@id": `${site}/#organization` },
       },
       {
         "@type": "ItemList",
@@ -156,13 +179,7 @@ export function homeLd(site: string) {
           },
         })),
       },
-      {
-        "@type": "Organization",
-        name: "OpenRAC",
-        url: `${site}/`,
-        logo: `${site}/icon.png`,
-        sameAs: ["https://github.com/OpenRAC", DISCORD_URL],
-      },
+      orgLd(site),
     ],
   };
 }
@@ -181,8 +198,10 @@ export function postLd(site: string, post: Omit<PostText, "body">) {
       "@id": `${site}/blog/${post.slug}`,
     },
     image: `${site}/opengraph-image.png`,
-    ...(post.author && { author: { "@type": "Person", name: post.author } }),
-    publisher: { "@type": "Organization", name: "OpenRAC", url: `${site}/` },
+    dateModified: post.date,
+    // Google asks for an author on every article; unsigned posts are the community's.
+    author: post.author ? { "@type": "Person", name: post.author } : { "@id": `${site}/#organization` },
+    publisher: orgLd(site),
   };
 }
 
@@ -210,7 +229,7 @@ export function blogIndexLd(site: string) {
         name: "OpenRAC Blog",
         description: "News and notes from the OpenRAC community decompilation projects.",
         url: `${site}/blog`,
-        publisher: { "@type": "Organization", name: "OpenRAC", url: `${site}/` },
+        publisher: orgLd(site),
       },
       breadcrumbLd([
         { name: "Home", url: `${site}/` },
