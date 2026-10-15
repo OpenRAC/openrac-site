@@ -6,6 +6,7 @@
   --font-audiowide: var(--font-audiowide), var(--font-inter), sans-serif;
   --font-orbitron: var(--font-orbitron), var(--font-inter), sans-serif;
   --font-pixel: var(--font-pixel), monospace;
+  --font-chakra: var(--font-chakra), var(--font-orbitron), sans-serif;
 }
 
 @theme {

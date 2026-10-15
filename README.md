@@ -28,6 +28,7 @@ Sources (see `src/lib/progress.ts`):
 - **Up Your Arsenal**: the objdiff report of [`OpenRAC/rac3-uya-decomp`](https://github.com/OpenRAC/rac3-uya-decomp), read from [ByteMatch](https://bytematch.dev/OpenRAC/rac3-uya-decomp) (`/OpenRAC/rac3-uya-decomp.json`). Its CI publishes the report as an artifact, rather than committing it; the `progress_report.json` in the repository is an old copy.
 - **Ratchet: Deadlocked (NTSC-U)**: `progress/report.json` (objdiff report) of [`OpenRAC/rac-deadlocked-decomp`](https://github.com/OpenRAC/rac-deadlocked-decomp). The project is in its research phase, which its card says; it is measured like the others.
 - **Going Mobile**: the verified method count in the `README.md` of [`Clank700/going-mobile-decomp`](https://github.com/Clank700/going-mobile-decomp), applied to the size of the reconstructed source.
+- **Size Matters (PS2, NTSC-U)**: `progress/report.json` of [`OpenRAC/rac5-sm-decomp`](https://github.com/OpenRAC/rac5-sm-decomp). The project is in its research phase mapping the boot loader, SNR2 relocation and assembly baseline.
 
 If GitHub cannot be reached, the last known snapshot (in `progress.ts`) is shown and labelled as such.
 
@@ -87,12 +88,12 @@ rate limit for the activity feed; it stays on the server.
 
 ### Card backdrops
 
-The title cards can show a backdrop image named `rac1-bg.webp`, `gc-bg.webp`, `uya-bg.webp`, `deadlocked-bg.webp` and `going-mobile-bg.webp` (WebP, about
+The title cards can show a backdrop image named `rac1-bg.webp`, `gc-bg.webp`, `uya-bg.webp`, `deadlocked-bg.webp`, `going-mobile-bg.webp` and `size-matters-bg.webp` (WebP, about
 1600 px wide). Those would be screenshots from the games, which are copyrighted, so **they are not part of this
 repository**. Without them the cards use a colour gradient.
 
 The images are read from a folder, set by `IMAGE_DIR` (default `public/img`, which is git-ignored), on every
-request. Drop a file in and it is used at once, with no rebuild or restart. Only those five names are ever
+request. Drop a file in and it is used at once, with no rebuild or restart. Only those six names are ever
 served. Resized copies are cached for a day, so a replaced image can take up to a day to show (or restart
 the service after clearing the cache volume).
 
@@ -122,7 +123,7 @@ systemctl --user start openrac.service
 loginctl enable-linger "$USER"      # once, so it starts at boot without a login
 
 # 4. card backdrops: copy your images into the folder the unit mounts (no restart needed)
-cp rac1-bg.webp gc-bg.webp uya-bg.webp deadlocked-bg.webp going-mobile-bg.webp ~/openrac-img/
+cp rac1-bg.webp gc-bg.webp uya-bg.webp deadlocked-bg.webp going-mobile-bg.webp size-matters-bg.webp ~/openrac-img/
 ```
 
 The container listens on `127.0.0.1:3000`; put your reverse proxy in front of it. It runs as a non-root user with

@@ -1,4 +1,4 @@
-export type ProjectId = "rac1" | "gc" | "uya" | "deadlocked" | "gm";
+export type ProjectId = "rac1" | "gc" | "uya" | "deadlocked" | "gm" | "sm";
 
 export type ProjectCategory = "mainline" | "spinoff";
 
@@ -117,6 +117,24 @@ export const PROJECTS: readonly Project[] = [
     tag: "GM",
     maintainers: ["Clank700"],
     guide: { label: "Build and verify", url: `${GH}/Clank700/going-mobile-decomp#readme` },
+  },
+  {
+    id: "sm",
+    name: "Size Matters",
+    year: 2008,
+    repo: "OpenRAC/rac5-sm-decomp",
+    fontClass: "font-chakra font-semibold",
+    theme: { box: "rgba(4, 22, 36, 0.92)", border: "#00e5ff", text: "#e0f7fa", text2: "#22d3ee", from: "#083344", to: "#02141e" },
+    image: "/img/size-matters-bg.webp",
+    category: "spinoff",
+    platform: "PlayStation 2",
+    subtitle: "decompilation · 2008 · NTSC-U · PS2 port",
+    tag: "SM",
+    maintainers: ["llesieur99"],
+    region: "NTSC-U",
+    phase: "research",
+    contributing: `${GH}/OpenRAC/rac5-sm-decomp/blob/master/CONTRIBUTING.md`,
+    guide: { label: "Roadmap and status", url: `${GH}/OpenRAC/rac5-sm-decomp/blob/master/docs/ROADMAP.md` },
   },
 ];
 

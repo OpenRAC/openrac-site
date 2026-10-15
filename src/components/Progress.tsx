@@ -296,10 +296,114 @@ function DeadlockedCard({ project: g, progress: p }: { project: Project; progres
   );
 }
 
+function SizeMattersCard({ project: g, progress: p }: { project: Project; progress?: ProjectProgress }) {
+  const codePct = p ? percent(p.code) : 0;
+
+  return (
+    <section
+      aria-label={`${g.name}${g.phase === "research" ? " (research phase)" : ""} progress`}
+      className="relative flex min-h-[560px] flex-col items-center justify-center gap-5 overflow-hidden rounded-[30px] bg-[#021019] px-3.5 py-8 shadow-[0_18px_50px_rgb(0_0_0/0.5)] sm:h-[600px] sm:px-6 sm:py-10 font-chakra"
+    >
+      {/* Jowai Resort / Pokitaru beach backdrop */}
+      <Image
+        src={g.image}
+        alt=""
+        fill
+        sizes="(min-width: 1080px) 1048px, 100vw"
+        quality={85}
+        className="object-cover"
+      />
+      <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-[#021019]/90 via-[#031d2c]/65 to-[#021019]/75" />
+
+      {/* High Impact Games techno HUD terminal box inspired by Size Matters menu */}
+      <div className="relative w-full max-w-[640px]">
+        {/* Outer terminal frame */}
+        <div className="overflow-hidden rounded-2xl border-2 border-[#00e5ff]/70 bg-[#041624]/92 p-2 shadow-[0_0_35px_rgba(0,229,255,0.22)] backdrop-blur-md sm:p-2.5">
+          <div className="flex flex-col gap-2 rounded-xl border border-cyan-400/20 bg-[#061d2d]/85 p-2 sm:p-2.5">
+            
+            {/* Tech HUD status strip */}
+            <div className="flex items-center justify-between px-2 pt-0.5 text-[9px] font-semibold tracking-widest text-cyan-300/80 uppercase sm:text-[10px]">
+              <span>[ SYS // HIGH IMPACT GAMES ]</span>
+              <span>PS2 · SCUS-97615</span>
+            </div>
+
+            {/* Active Header item (inspired by selected menu capsule in Size Matters) */}
+            <div className="relative flex flex-col items-center justify-center rounded-lg border border-[#67e8f9]/70 bg-gradient-to-r from-[#0891b2] via-[#06b6d4] to-[#0891b2] px-4 py-3 text-center text-white shadow-[inset_0_1px_2px_rgba(255,255,255,0.5),0_0_20px_rgba(0,229,255,0.4)]">
+              {g.phase === "research" && <ResearchBadge className="mb-2 border-white/50 bg-black/35 text-cyan-100" />}
+              <h2 className="px-2 text-[clamp(18px,3.5vw,32px)] font-bold tracking-wider text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+                {g.name.toUpperCase()}
+              </h2>
+              <small className="mt-1 block text-[10px] font-semibold tracking-widest text-cyan-100 uppercase sm:text-xs">
+                {g.subtitle ?? `decompilation · ${g.year}${g.region ? ` · ${g.region}` : ""}`}
+              </small>
+            </div>
+
+            {/* Menu item 1: Progress */}
+            <div className="flex items-center justify-between rounded-lg border border-cyan-400/25 bg-[#072437]/90 px-5 py-3 text-center shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]">
+              <span className="flex items-center gap-2 text-[clamp(12px,2vw,16px)] font-bold tracking-widest text-cyan-300">
+                <i aria-hidden className="text-xs text-[#00f5d4]">►</i> PROGRESS
+              </span>
+              <span className="text-[clamp(16px,2.8vw,24px)] font-bold tabular-nums tracking-wider text-white drop-shadow-[0_0_8px_rgba(0,229,255,0.5)]">
+                {pct(codePct)}
+              </span>
+            </div>
+
+            {/* Size Matters Nanotech-inspired energy meter */}
+            <div className="px-0.5">
+              <div
+                role="progressbar"
+                aria-label={`${g.name} code matched`}
+                aria-valuenow={Math.round(codePct * 10) / 10}
+                aria-valuemin={0}
+                aria-valuemax={100}
+                className="h-4 overflow-hidden rounded-md border border-[#00e5ff]/60 bg-[#020e17] p-0.5 shadow-[inset_0_2px_5px_rgba(0,0,0,0.9)]"
+              >
+                <i
+                  style={{ "--w": `${codePct}%` } as CSSProperties}
+                  className="bar-fill relative block h-full overflow-hidden rounded-xs bg-gradient-to-r from-[#0891b2] via-[#06b6d4] to-[#22d3ee] shadow-[0_0_12px_rgba(0,229,255,0.7)]"
+                >
+                  <span aria-hidden className="absolute inset-0 animate-sweep bg-gradient-to-r from-transparent via-white/50 to-transparent" />
+                </i>
+              </div>
+            </div>
+
+            {/* Menu item 2: GitHub Repository (interactive hover state) */}
+            {g.repo && (
+              <a
+                href={`https://github.com/${g.repo}`}
+                className="group relative flex items-center justify-between rounded-lg border border-cyan-400/25 bg-[#072437]/90 px-5 py-3 text-cyan-100 no-underline shadow-[inset_0_1px_0_rgba(255,255,255,0.06)] transition hover:border-[#00e5ff] hover:bg-gradient-to-r hover:from-[#0891b2]/85 hover:via-[#06b6d4]/90 hover:to-[#0891b2]/85 hover:text-white hover:shadow-[0_0_22px_rgba(0,229,255,0.5)]"
+              >
+                <div className="flex items-center gap-3 truncate">
+                  {GITHUB}
+                  <span className="truncate text-[clamp(12px,2vw,17px)] font-semibold tracking-wide">
+                    {g.repo}
+                  </span>
+                </div>
+                <span className="hidden text-xs font-semibold tracking-widest text-cyan-300 opacity-80 group-hover:text-white group-hover:opacity-100 sm:inline-block">
+                  [ REPOSITORY ]
+                </span>
+              </a>
+            )}
+
+            {/* Menu item 3: Status */}
+            <div className="flex flex-col items-center justify-center gap-1 rounded-lg border border-cyan-400/15 bg-[#041624]/90 px-4 py-2.5 text-center">
+              <Maintainers users={g.maintainers} className="text-[11px] tracking-wide text-cyan-100 sm:text-xs" />
+              {p && <p className="text-[11px] font-medium tracking-wide text-cyan-200/90 sm:text-xs">{matchedLine(p)}</p>}
+              {g.phase === "research" && <p className="text-[11px] tracking-wide text-cyan-300/70 sm:text-xs">{RESEARCH_TEXT}</p>}
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 /** The card that fits the project: most use the shared one, a few have their game's own menu. */
 function ProjectCard({ project, progress }: { project: Project; progress?: ProjectProgress }) {
   if (project.id === "deadlocked") return <DeadlockedCard project={project} progress={progress} />;
   if (project.id === "gm") return <MobileCard project={project} progress={progress} />;
+  if (project.id === "sm") return <SizeMattersCard project={project} progress={progress} />;
   return <Card project={project} progress={progress} />;
 }
 
@@ -341,11 +445,11 @@ export default function Progress({ progress }: { progress: Partial<Record<Projec
                   Spin-offs &amp; Handhelds
                 </h3>
                 <p className="mt-1 text-xs text-dim sm:text-sm">
-                  Mobile entries and side projects in the Ratchet &amp; Clank universe.
+                  Handheld and spin-off entries in the Ratchet &amp; Clank universe.
                 </p>
               </div>
               <span className="rounded-full border border-[#00b4d8]/40 bg-[#00b4d8]/10 px-3 py-1 font-orbitron text-xs text-[#7dd3fc]">
-                J2ME / Mobile
+                PSP / PS2 / Mobile
               </span>
             </div>
             <div className="grid gap-7">
