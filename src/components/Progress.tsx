@@ -286,7 +286,6 @@ function DeadlockedCard({ project: g, progress: p }: { project: Project; progres
             <div className="flex flex-col items-center justify-center gap-1 rounded-md border border-white/5 bg-[#12151b]/90 px-4 py-2.5 text-center">
               <Maintainers users={g.maintainers} className="text-[11px] tracking-wide text-white sm:text-xs" />
               {p && <p className="text-[11px] font-medium tracking-wide text-[#d1d5db] sm:text-xs">{matchedLine(p)}</p>}
-              {g.phase === "research" && <p className="text-[11px] tracking-wide text-[#9ca3af] sm:text-xs">{RESEARCH_TEXT}</p>}
             </div>
 
           </div>
@@ -296,13 +295,74 @@ function DeadlockedCard({ project: g, progress: p }: { project: Project; progres
   );
 }
 
+/** Authentic Size Matters beveled menu button with yellow border and cut corners */
+function SmButton({
+  children,
+  active = false,
+  className = "",
+  as: Component = "div",
+  ...props
+}: {
+  children: React.ReactNode;
+  active?: boolean;
+  className?: string;
+  as?: React.ElementType;
+  href?: string;
+}) {
+  return (
+    <Component
+      {...props}
+      className={`group relative flex w-full max-w-[560px] items-center justify-between px-7 py-3 sm:px-9 sm:py-3.5 no-underline transition-all ${className}`}
+    >
+      {/* SVG Beveled Button Frame */}
+      <svg
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 size-full overflow-visible drop-shadow-[0_4px_8px_rgba(0,0,0,0.55)]"
+        viewBox="0 0 500 58"
+        preserveAspectRatio="none"
+      >
+        <polygon
+          points="24,2 496,2 496,32 474,54 2,54 2,24"
+          fill={active ? "url(#sm-btn-active)" : "url(#sm-btn-idle)"}
+          stroke={active ? "#facc15" : "#eab308"}
+          strokeWidth="2.5"
+          vectorEffect="non-scaling-stroke"
+          className={active ? "" : "transition-all group-hover:fill-[url(#sm-btn-active)] group-hover:stroke-[#facc15]"}
+        />
+        {/* Top-left tab */}
+        <polyline
+          points="24,3 24,0 75,0 75,3"
+          fill="none"
+          stroke={active ? "#facc15" : "#eab308"}
+          strokeWidth="2.5"
+          vectorEffect="non-scaling-stroke"
+          className={active ? "" : "transition-all group-hover:stroke-[#facc15]"}
+        />
+        {/* Bottom-right tab */}
+        <polyline
+          points="474,53 474,56 423,56 423,53"
+          fill="none"
+          stroke={active ? "#facc15" : "#eab308"}
+          strokeWidth="2.5"
+          vectorEffect="non-scaling-stroke"
+          className={active ? "" : "transition-all group-hover:stroke-[#facc15]"}
+        />
+      </svg>
+
+      <div className="relative z-10 flex w-full items-center justify-between">
+        {children}
+      </div>
+    </Component>
+  );
+}
+
 function SizeMattersCard({ project: g, progress: p }: { project: Project; progress?: ProjectProgress }) {
   const codePct = p ? percent(p.code) : 0;
 
   return (
     <section
       aria-label={`${g.name}${g.phase === "research" ? " (research phase)" : ""} progress`}
-      className="relative flex min-h-[560px] flex-col items-center justify-center gap-5 overflow-hidden rounded-[30px] bg-[#021019] px-3.5 py-8 shadow-[0_18px_50px_rgb(0_0_0/0.5)] sm:h-[600px] sm:px-6 sm:py-10 font-chakra"
+      className="relative flex min-h-[560px] flex-col items-center justify-center gap-3.5 overflow-hidden rounded-[30px] bg-[#0c1622] px-3.5 py-8 shadow-[0_18px_50px_rgb(0_0_0/0.5)] sm:h-[600px] sm:px-6 sm:py-10 font-chakra"
     >
       {/* Jowai Resort / Pokitaru beach backdrop */}
       <Image
@@ -313,88 +373,93 @@ function SizeMattersCard({ project: g, progress: p }: { project: Project; progre
         quality={85}
         className="object-cover"
       />
-      <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-[#021019]/90 via-[#031d2c]/65 to-[#021019]/75" />
+      <div aria-hidden className="absolute inset-0 bg-black/40" />
 
-      {/* High Impact Games techno HUD terminal box inspired by Size Matters menu */}
-      <div className="relative w-full max-w-[640px]">
-        {/* Outer terminal frame */}
-        <div className="overflow-hidden rounded-2xl border-2 border-[#00e5ff]/70 bg-[#041624]/92 p-2 shadow-[0_0_35px_rgba(0,229,255,0.22)] backdrop-blur-md sm:p-2.5">
-          <div className="flex flex-col gap-2 rounded-xl border border-cyan-400/20 bg-[#061d2d]/85 p-2 sm:p-2.5">
-            
-            {/* Tech HUD status strip */}
-            <div className="flex items-center justify-between px-2 pt-0.5 text-[9px] font-semibold tracking-widest text-cyan-300/80 uppercase sm:text-[10px]">
-              <span>[ SYS // HIGH IMPACT GAMES ]</span>
-              <span>PS2 · SCUS-97615</span>
-            </div>
+      {/* SVG Definitions for the beveled menu buttons */}
+      <svg className="absolute size-0" aria-hidden="true">
+        <defs>
+          <linearGradient id="sm-btn-idle" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stopColor="#364b5e" />
+            <stop offset="50%" stopColor="#223240" />
+            <stop offset="100%" stopColor="#15212c" />
+          </linearGradient>
+          <linearGradient id="sm-btn-active" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stopColor="#7a8c9e" />
+            <stop offset="50%" stopColor="#5b6c7b" />
+            <stop offset="100%" stopColor="#43525f" />
+          </linearGradient>
+        </defs>
+      </svg>
 
-            {/* Active Header item (inspired by selected menu capsule in Size Matters) */}
-            <div className="relative flex flex-col items-center justify-center rounded-lg border border-[#67e8f9]/70 bg-gradient-to-r from-[#0891b2] via-[#06b6d4] to-[#0891b2] px-4 py-3 text-center text-white shadow-[inset_0_1px_2px_rgba(255,255,255,0.5),0_0_20px_rgba(0,229,255,0.4)]">
-              {g.phase === "research" && <ResearchBadge className="mb-2 border-white/50 bg-black/35 text-cyan-100" />}
-              <h2 className="px-2 text-[clamp(18px,3.5vw,32px)] font-bold tracking-wider text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
-                {g.name.toUpperCase()}
-              </h2>
-              <small className="mt-1 block text-[10px] font-semibold tracking-widest text-cyan-100 uppercase sm:text-xs">
-                {g.subtitle ?? `decompilation · ${g.year}${g.region ? ` · ${g.region}` : ""}`}
-              </small>
-            </div>
+      {/* Title / Active menu button */}
+      <SmButton active className="cursor-default">
+        <div className="flex w-full flex-col items-center justify-center text-center">
+          {g.phase === "research" && (
+            <span className="mb-1 inline-flex items-center gap-1.5 rounded-full border border-yellow-400/40 bg-black/40 px-2.5 py-0.5 text-[9px] font-bold uppercase tracking-widest text-yellow-200">
+              <i aria-hidden className="size-1.5 rounded-full bg-yellow-300" />
+              Research phase
+            </span>
+          )}
+          <h2 className="text-[clamp(16px,3vw,28px)] font-bold tracking-wider text-white">
+            {g.name.toUpperCase()}
+          </h2>
+          <small className="block text-[10px] font-semibold tracking-widest uppercase text-yellow-100 sm:text-xs">
+            {g.subtitle ?? `decompilation · ${g.year}${g.region ? ` · ${g.region}` : ""}`}
+          </small>
+        </div>
+      </SmButton>
 
-            {/* Menu item 1: Progress */}
-            <div className="flex items-center justify-between rounded-lg border border-cyan-400/25 bg-[#072437]/90 px-5 py-3 text-center shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]">
-              <span className="flex items-center gap-2 text-[clamp(12px,2vw,16px)] font-bold tracking-widest text-cyan-300">
-                <i aria-hidden className="text-xs text-[#00f5d4]">►</i> PROGRESS
-              </span>
-              <span className="text-[clamp(16px,2.8vw,24px)] font-bold tabular-nums tracking-wider text-white drop-shadow-[0_0_8px_rgba(0,229,255,0.5)]">
-                {pct(codePct)}
-              </span>
-            </div>
+      {/* Progress button */}
+      <SmButton className="cursor-default">
+        <span className="text-[clamp(13px,2vw,17px)] font-bold tracking-widest text-[#c2d7eb]">
+          PROGRESS
+        </span>
+        <span className="text-[clamp(15px,2.4vw,22px)] font-bold tabular-nums tracking-wider text-white">
+          {pct(codePct)}
+        </span>
+      </SmButton>
 
-            {/* Size Matters Nanotech-inspired energy meter */}
-            <div className="px-0.5">
-              <div
-                role="progressbar"
-                aria-label={`${g.name} code matched`}
-                aria-valuenow={Math.round(codePct * 10) / 10}
-                aria-valuemin={0}
-                aria-valuemax={100}
-                className="h-4 overflow-hidden rounded-md border border-[#00e5ff]/60 bg-[#020e17] p-0.5 shadow-[inset_0_2px_5px_rgba(0,0,0,0.9)]"
-              >
-                <i
-                  style={{ "--w": `${codePct}%` } as CSSProperties}
-                  className="bar-fill relative block h-full overflow-hidden rounded-xs bg-gradient-to-r from-[#0891b2] via-[#06b6d4] to-[#22d3ee] shadow-[0_0_12px_rgba(0,229,255,0.7)]"
-                >
-                  <span aria-hidden className="absolute inset-0 animate-sweep bg-gradient-to-r from-transparent via-white/50 to-transparent" />
-                </i>
-              </div>
-            </div>
-
-            {/* Menu item 2: GitHub Repository (interactive hover state) */}
-            {g.repo && (
-              <a
-                href={`https://github.com/${g.repo}`}
-                className="group relative flex items-center justify-between rounded-lg border border-cyan-400/25 bg-[#072437]/90 px-5 py-3 text-cyan-100 no-underline shadow-[inset_0_1px_0_rgba(255,255,255,0.06)] transition hover:border-[#00e5ff] hover:bg-gradient-to-r hover:from-[#0891b2]/85 hover:via-[#06b6d4]/90 hover:to-[#0891b2]/85 hover:text-white hover:shadow-[0_0_22px_rgba(0,229,255,0.5)]"
-              >
-                <div className="flex items-center gap-3 truncate">
-                  {GITHUB}
-                  <span className="truncate text-[clamp(12px,2vw,17px)] font-semibold tracking-wide">
-                    {g.repo}
-                  </span>
-                </div>
-                <span className="hidden text-xs font-semibold tracking-widest text-cyan-300 opacity-80 group-hover:text-white group-hover:opacity-100 sm:inline-block">
-                  [ REPOSITORY ]
-                </span>
-              </a>
-            )}
-
-            {/* Menu item 3: Status */}
-            <div className="flex flex-col items-center justify-center gap-1 rounded-lg border border-cyan-400/15 bg-[#041624]/90 px-4 py-2.5 text-center">
-              <Maintainers users={g.maintainers} className="text-[11px] tracking-wide text-cyan-100 sm:text-xs" />
-              {p && <p className="text-[11px] font-medium tracking-wide text-cyan-200/90 sm:text-xs">{matchedLine(p)}</p>}
-              {g.phase === "research" && <p className="text-[11px] tracking-wide text-cyan-300/70 sm:text-xs">{RESEARCH_TEXT}</p>}
-            </div>
-
-          </div>
+      {/* Progress Bar Gauge */}
+      <div className="relative w-full max-w-[560px] px-2">
+        <div
+          role="progressbar"
+          aria-label={`${g.name} code matched`}
+          aria-valuenow={Math.round(codePct * 10) / 10}
+          aria-valuemin={0}
+          aria-valuemax={100}
+          className="h-4 overflow-hidden rounded-md border-2 border-[#eab308] bg-[#0c1620] p-0.5 shadow-[inset_0_2px_4px_rgba(0,0,0,0.8)]"
+        >
+          <i
+            style={{ "--w": `${codePct}%` } as CSSProperties}
+            className="bar-fill relative block h-full overflow-hidden rounded-xs bg-gradient-to-r from-[#ca8a04] via-[#eab308] to-[#fde047]"
+          >
+            <span aria-hidden className="absolute inset-0 animate-sweep bg-gradient-to-r from-transparent via-white/40 to-transparent" />
+          </i>
         </div>
       </div>
+
+      {/* GitHub Repository button */}
+      {g.repo && (
+        <SmButton as="a" href={`https://github.com/${g.repo}`}>
+          <div className="flex items-center gap-3 truncate">
+            {GITHUB}
+            <span className="truncate text-[clamp(13px,2vw,17px)] font-bold tracking-wide text-[#c2d7eb] transition-colors group-hover:text-white">
+              {g.repo}
+            </span>
+          </div>
+          <span className="text-xs font-bold tracking-widest text-[#eab308] transition-colors group-hover:text-white">
+            [ REPOSITORY ]
+          </span>
+        </SmButton>
+      )}
+
+      {/* Status button */}
+      <SmButton className="cursor-default">
+        <div className="flex w-full flex-col items-center justify-center gap-1 text-center">
+          <Maintainers users={g.maintainers} className="text-[11px] tracking-wide text-white sm:text-xs" />
+          {p && <p className="text-[11px] font-medium tracking-wide text-[#c2d7eb] sm:text-xs">{matchedLine(p)}</p>}
+        </div>
+      </SmButton>
     </section>
   );
 }

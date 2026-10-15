@@ -124,7 +124,7 @@ export const PROJECTS: readonly Project[] = [
     year: 2008,
     repo: "OpenRAC/rac5-sm-decomp",
     fontClass: "font-chakra font-semibold",
-    theme: { box: "rgba(4, 22, 36, 0.92)", border: "#00e5ff", text: "#e0f7fa", text2: "#22d3ee", from: "#083344", to: "#02141e" },
+    theme: { box: "#1b2936", border: "#eab308", text: "#f8fafc", text2: "#facc15", from: "#223342", to: "#131d26" },
     image: "/img/size-matters-bg.webp",
     category: "spinoff",
     platform: "PlayStation 2",
