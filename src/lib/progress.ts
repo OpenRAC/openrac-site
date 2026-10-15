@@ -40,7 +40,7 @@ const loadRac1 = () => loadObjdiff(`${RAW}/OpenRAC/rac1-decomp/main/progress/rep
 /** Ratchet: Deadlocked (NTSC-U): read from the project's own objdiff progress report. */
 const loadDeadlocked = () => loadObjdiff(`${RAW}/OpenRAC/rac-deadlocked-decomp/main/progress/report.json`, "deadlocked");
 
-/** Going Commando: decomp.dev reads this committed project-wide objdiff report too. */
+/** Going Commando: read the project's own progress report, including its measured scope. */
 async function loadGc(): Promise<Progress> {
   const report = await (await get(`${RAW}/OpenRAC/rac2-gc-decomp/master/progress/report.json`)).json();
   return parseGcReport(report);
