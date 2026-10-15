@@ -40,16 +40,10 @@ const loadRac1 = () => loadObjdiff(`${RAW}/OpenRAC/rac1-decomp/main/progress/rep
 /** Ratchet: Deadlocked (NTSC-U): read from the project's own objdiff progress report. */
 const loadDeadlocked = () => loadObjdiff(`${RAW}/OpenRAC/rac-deadlocked-decomp/main/progress/report.json`, "deadlocked");
 
-/** Going Commando: read from the project's own progress report and scope. */
+/** Going Commando: decomp.dev reads this committed project-wide objdiff report too. */
 async function loadGc(): Promise<Progress> {
-  const [reportRes, scopeRes] = await Promise.allSettled([
-    get(`${RAW}/OpenRAC/rac2-gc-decomp/RAC2/progress/report.json`),
-    get(`${RAW}/OpenRAC/rac2-gc-decomp/RAC2/config/progress-scope.json`),
-  ]);
-  if (reportRes.status !== "fulfilled") throw reportRes.reason;
-  const report = await reportRes.value.json();
-  const scope = scopeRes.status === "fulfilled" ? await scopeRes.value.json() : undefined;
-  return parseGcReport(report, scope);
+  const report = await (await get(`${RAW}/OpenRAC/rac2-gc-decomp/master/progress/report.json`)).json();
+  return parseGcReport(report);
 }
 
 /** Up Your Arsenal: its CI sends the objdiff report to decomp.dev only, so read it from there. */
@@ -75,7 +69,7 @@ const cached = {
 /** Last numbers known to be good. Used only if GitHub cannot be reached at all. */
 const FALLBACK: Record<ProjectId, Progress> = {
   rac1: { functions: { done: 2974, total: 5109 }, code: { done: 838628, total: 3712808 }, source: "snapshot 2026-10-05" },
-  gc: { functions: { done: 5324, total: null }, code: { done: 311500, total: 48788176 }, source: "snapshot 2026-10-05" },
+  gc: { functions: { done: 2881, total: 9100 }, code: { done: 309824, total: 5533600 }, source: "snapshot 2026-10-14" },
   uya: { functions: { done: 1549, total: 31316 }, code: { done: 223880, total: 12838776 }, source: "snapshot 2026-10-05" },
   deadlocked: { functions: { done: 243, total: 15056 }, code: { done: 26572, total: 5175440 }, source: "snapshot 2026-10-05" },
   gm: { functions: { done: 351, total: 351 }, code: { done: 545639, total: 545639 }, source: "snapshot 2026-10-05" },
