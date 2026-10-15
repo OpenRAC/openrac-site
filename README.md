@@ -19,13 +19,13 @@ cached for 10 minutes.
 Every project is shown with one and the same measure: **code matched**, the bytes of code verified identical to
 the retail build out of all code bytes the project counts. The percentage on each card and the line under its bar
 (`838 628 of 3 712 808 code bytes matched`) are both this number; no card shows a project-specific extra. It is
-weighted by size because small functions are matched first, and it is the figure decomp.dev shows.
+weighted by size because small functions are matched first, and it is the figure ByteMatch shows.
 
 Sources (see `src/lib/progress.ts`):
 
 - **Ratchet & Clank (PAL)**: `progress/report.json` (objdiff report) of [`OpenRAC/rac1-decomp`](https://github.com/OpenRAC/rac1-decomp).
-- **Going Commando**: the committed `progress/report.json` on the `master` branch of [`OpenRAC/rac2-gc-decomp`](https://github.com/OpenRAC/rac2-gc-decomp), which is also the report [decomp.dev](https://decomp.dev/OpenRAC/rac2-gc-decomp) reads. The site uses its matched code and total code bytes directly, so the percentage and function counts match decomp.dev. Shared level code is counted in the report's scope, rather than once per overlay placement.
-- **Up Your Arsenal**: the objdiff report of [`OpenRAC/rac3-uya-decomp`](https://github.com/OpenRAC/rac3-uya-decomp), read from [decomp.dev](https://decomp.dev/OpenRAC/rac3-uya-decomp) (`/OpenRAC/rac3-uya-decomp.json`). Its CI sends the report there on every push and does not commit it; the `progress_report.json` in the repository is an old copy.
+- **Going Commando**: the committed `progress/report.json` on the `master` branch of [`OpenRAC/rac2-gc-decomp`](https://github.com/OpenRAC/rac2-gc-decomp), which is also the report [ByteMatch](https://bytematch.dev/OpenRAC/rac2-gc-decomp) reads. The site uses its matched code and total code bytes directly, so the percentage and function counts match ByteMatch. Shared level code is counted in the report's scope, rather than once per overlay placement.
+- **Up Your Arsenal**: the objdiff report of [`OpenRAC/rac3-uya-decomp`](https://github.com/OpenRAC/rac3-uya-decomp), read from [ByteMatch](https://bytematch.dev/OpenRAC/rac3-uya-decomp) (`/OpenRAC/rac3-uya-decomp.json`). Its CI publishes the report as an artifact, rather than committing it; the `progress_report.json` in the repository is an old copy.
 - **Ratchet: Deadlocked (NTSC-U)**: `progress/report.json` (objdiff report) of [`OpenRAC/rac-deadlocked-decomp`](https://github.com/OpenRAC/rac-deadlocked-decomp). The project is in its research phase, which its card says; it is measured like the others.
 - **Going Mobile**: the verified method count in the `README.md` of [`Clank700/going-mobile-decomp`](https://github.com/Clank700/going-mobile-decomp), applied to the size of the reconstructed source.
 

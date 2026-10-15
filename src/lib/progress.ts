@@ -18,7 +18,7 @@ async function get(url: string): Promise<Response> {
   return res;
 }
 
-/** Reads a plain objdiff progress report (the same file decomp.dev reads). */
+/** Reads a plain objdiff progress report (the same file ByteMatch reads). */
 async function loadObjdiff(url: string, name: string): Promise<Progress> {
   const report = (await (await get(url)).json()) as { measures?: Record<string, string | number> };
   const m = report.measures;
@@ -46,9 +46,9 @@ async function loadGc(): Promise<Progress> {
   return parseGcReport(report);
 }
 
-/** Up Your Arsenal: its CI sends the objdiff report to decomp.dev only, so read it from there. */
+/** Up Your Arsenal: its CI publishes an objdiff artifact; ByteMatch serves it as JSON. */
 async function loadUya(): Promise<Progress> {
-  const report = await (await get("https://decomp.dev/OpenRAC/rac3-uya-decomp.json")).json();
+  const report = await (await get("https://bytematch.dev/OpenRAC/rac3-uya-decomp.json")).json();
   return parseUyaReport(report);
 }
 
@@ -69,8 +69,8 @@ const cached = {
 /** Last numbers known to be good. Used only if GitHub cannot be reached at all. */
 const FALLBACK: Record<ProjectId, Progress> = {
   rac1: { functions: { done: 2974, total: 5109 }, code: { done: 838628, total: 3712808 }, source: "snapshot 2026-10-05" },
-  gc: { functions: { done: 2881, total: 9100 }, code: { done: 309824, total: 5533600 }, source: "snapshot 2026-10-14" },
-  uya: { functions: { done: 1549, total: 31316 }, code: { done: 223880, total: 12838776 }, source: "snapshot 2026-10-05" },
+  gc: { functions: { done: 2941, total: 9100 }, code: { done: 318088, total: 5533600 }, source: "snapshot 2026-10-14" },
+  uya: { functions: { done: 4496, total: 31400 }, code: { done: 894864, total: 12838884 }, source: "snapshot 2026-10-14" },
   deadlocked: { functions: { done: 243, total: 15056 }, code: { done: 26572, total: 5175440 }, source: "snapshot 2026-10-05" },
   gm: { functions: { done: 351, total: 351 }, code: { done: 545639, total: 545639 }, source: "snapshot 2026-10-05" },
 };

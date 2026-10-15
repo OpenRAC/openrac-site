@@ -6,7 +6,7 @@ import { percent } from "@/lib/types";
 import type { ProjectProgress } from "@/lib/progress";
 import Section from "./Section";
 
-/** Two decimals, like decomp.dev. */
+/** Two decimals, like ByteMatch. */
 const pct = (p: number) => `${p.toFixed(2).replace(".", ",")} %`;
 
 /** Thin-space groups, so they cannot be mistaken for the decimal comma above. */
@@ -357,7 +357,7 @@ export default function Progress({ progress }: { progress: Partial<Record<Projec
         )}
       </div>
       <p className="mt-6 text-[13px] text-dim">
-        The figure is matched code, weighted by size, the same number decomp.dev shows. Each title links to its own community repository, and a title
+        The figure is matched code, weighted by size, the same number ByteMatch shows. Each title links to its own community repository, and a title
         without a link has not been started. A title marked research phase is still mapping its game, but is measured the same way. Numbers are read from the repositories on the server and refreshed every ten minutes. Roadmap entries are
         not a promise.
       </p>

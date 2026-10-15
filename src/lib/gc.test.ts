@@ -94,17 +94,17 @@ test("parseGcReport correctly parses objdiff snake_case measures", () => {
   assert.equal(p.functions.total, 603);
 });
 
-test("Going Commando's decomp.dev project-wide measures give its displayed percentage", () => {
+test("Going Commando's ByteMatch project-wide measures give its displayed percentage", () => {
   const p = parseGcReport({
     measures: {
-      matched_code: 309824,
+      matched_code: 318088,
       total_code: 5533600,
-      matched_functions: 2881,
+      matched_functions: 2941,
       total_functions: 9100,
     },
   });
-  assert.equal(percent(p.code).toFixed(2), "5.60");
-  assert.deepEqual(p.functions, { done: 2881, total: 9100 });
+  assert.equal(percent(p.code).toFixed(2), "5.75");
+  assert.deepEqual(p.functions, { done: 2941, total: 9100 });
 });
 
 test("parseGcReport correctly parses JSON string", () => {
