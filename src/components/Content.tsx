@@ -92,7 +92,7 @@ export function HowItWorks() {
 type Resource = { title: string; href: string; text: string };
 
 const TOOLS: Resource[] = [
-  { title: "decomp.dev", href: "https://decomp.dev", text: "Progress tracking for decompilation projects, the same numbers shown here." },
+  { title: "ByteMatch", href: "https://bytematch.dev", text: "Progress tracking for decompilation projects, the same numbers shown here." },
   { title: "decomp.me", href: "https://decomp.me", text: "Match a single function together, right in the browser." },
   { title: "objdiff", href: "https://github.com/encounter/objdiff", text: "Compares compiled output against the original, instruction by instruction." },
   { title: "splat", href: "https://github.com/ethteck/splat", text: "Splits a binary into code and data segments." },

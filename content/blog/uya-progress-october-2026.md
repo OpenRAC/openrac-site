@@ -41,7 +41,7 @@ Counted on the repository's `main` branch on October 8:
 routines, startup code) and the leftover bytes of functions the original linker removed. Those are finished as
 assembly, because that is what they were. Weighted by size, about four fifths of the menu's code is done; the
 functions that are left are the big ones. The live numbers, with a separate **Menu** progress bar, are on the
-project's [decomp.dev](https://decomp.dev/OpenRAC/rac3-uya-decomp) page.
+project's [ByteMatch](https://bytematch.dev/OpenRAC/rac3-uya-decomp) page.
 
 ## What we learned on the way
 

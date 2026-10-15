@@ -14,7 +14,7 @@ matched, what turned out to be hard, and how the tools work.
 Every project is measured the same way, so the bars can be compared:
 
 - **Code matched** is the share of the game's code, weighted by size in bytes, that compiles to exactly the
-  retail bytes. This is the headline number, and it is the same figure [decomp.dev](https://decomp.dev) shows.
+  retail bytes. This is the headline number, and it is the same figure [ByteMatch](https://bytematch.dev) shows.
 - **Functions matched** is the share of functions. It always looks bigger, because small functions get
   matched first.
 

@@ -47,7 +47,7 @@ export function progressJson(progress: ProgressMap) {
   return {
     about: "Progress of the community decompilation projects of the Ratchet & Clank series, as shown on openrac.dev.",
     measure:
-      "code: bytes of code verified identical to the retail build, out of all code bytes the project counts (the figure decomp.dev shows). functions: null where the project does not publish that count.",
+      "code: bytes of code verified identical to the retail build, out of all code bytes the project counts (the figure ByteMatch shows). functions: null where the project does not publish that count.",
     projects: PROJECTS.map((p) => {
       const pr = progress[p.id];
       return {
@@ -94,7 +94,7 @@ function intro(site: string, progress: ProgressMap): string {
 
 > OpenRAC (${site}) is an unofficial, community-run hub that shows the progress of the independent decompilation projects of the Ratchet & Clank games in one place. Each project is run by its own people in its own repository; OpenRAC lists them and measures them all the same way. Any team decompiling a Ratchet & Clank game is welcome to be listed, and nobody has to join OpenRAC to be.
 
-- Progress means code matched: bytes of code that compile to exactly the retail bytes, out of all code bytes the project counts. It is the same figure decomp.dev shows.
+- Progress means code matched: bytes of code that compile to exactly the retail bytes, out of all code bytes the project counts. It is the same figure ByteMatch shows.
 - Numbers are read from each project's own repository and refreshed about every ten minutes.
 - A project in its research phase is still mapping its game and toolchain; it is measured the same way.
 - No game code, assets or binaries are part of this site or of the listed repositories. A legally obtained copy of a game is needed to build anything.
