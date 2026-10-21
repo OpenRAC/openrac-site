@@ -1,5 +1,5 @@
 import { unstable_cache } from "next/cache";
-import { parseUyaReport } from "./uya";
+import { parseSmStatus } from "./sm";
 import { parseGcReport } from "./gc";
 import { parseGmReadme } from "./gm";
 import type { Progress } from "./types";
@@ -46,11 +46,8 @@ async function loadGc(): Promise<Progress> {
   return parseGcReport(report);
 }
 
-/** Up Your Arsenal: its CI publishes an objdiff artifact; ByteMatch serves it as JSON. */
-async function loadUya(): Promise<Progress> {
-  const report = await (await get("https://bytematch.dev/OpenRAC/rac3-uya-decomp.json")).json();
-  return parseUyaReport(report);
-}
+/** Up Your Arsenal (PAL): read the project's own objdiff progress report. */
+const loadUya = () => loadObjdiff(`${RAW}/OpenRAC/rac3-uya-decomp-pal/master/progress/report.json`, "uya");
 
 /** Going Mobile: read from the project's verified README output. */
 async function loadGm(): Promise<Progress> {
@@ -58,8 +55,11 @@ async function loadGm(): Promise<Progress> {
   return parseGmReadme(readme);
 }
 
-/** Size Matters (PS2, NTSC-U): read from the project's own objdiff progress report when published. */
-const loadSm = () => loadObjdiff(`${RAW}/OpenRAC/rac5-sm-decomp/master/progress/report.json`, "sm");
+/** Size Matters (PS2, NTSC-U): read the project's own scoped progress snapshot. */
+async function loadSm(): Promise<Progress> {
+  const status = await (await get(`${RAW}/OpenRAC/rac5-sm-decomp/master/progress/status.json`)).json();
+  return parseSmStatus(status);
+}
 
 const cached = {
   rac1: unstable_cache(loadRac1, ["progress-rac1"], { revalidate: REVALIDATE_SECONDS }),
@@ -74,10 +74,10 @@ const cached = {
 const FALLBACK: Record<ProjectId, Progress> = {
   rac1: { functions: { done: 2974, total: 5109 }, code: { done: 838628, total: 3712808 }, source: "snapshot 2026-10-05" },
   gc: { functions: { done: 2941, total: 9100 }, code: { done: 318088, total: 5533600 }, source: "snapshot 2026-10-14" },
-  uya: { functions: { done: 4496, total: 31400 }, code: { done: 894864, total: 12838884 }, source: "snapshot 2026-10-14" },
+  uya: { functions: { done: 5192, total: 16163 }, code: { done: 632620, total: 7546920 }, source: "snapshot 2026-10-21" },
   deadlocked: { functions: { done: 243, total: 15056 }, code: { done: 26572, total: 5175440 }, source: "snapshot 2026-10-05" },
   gm: { functions: { done: 351, total: 351 }, code: { done: 545639, total: 545639 }, source: "snapshot 2026-10-05" },
-  sm: { functions: { done: null, total: null }, code: { done: 0, total: 498900 }, source: "snapshot 2026-10-15" },
+  sm: { functions: { done: 647, total: null }, code: { done: 87784, total: 6418204 }, source: "snapshot 2026-10-21" },
 };
 
 export interface ProjectProgress extends Progress {

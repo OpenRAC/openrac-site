@@ -21,7 +21,16 @@ test("progress.json lists every project with the shared measure", () => {
   assert.equal(j.projects.find((p) => p.id === "gc")!.progress?.functions.total, null);
   assert.equal(j.projects.find((p) => p.id === "gc")!.progress?.snapshot, true);
   assert.equal(j.projects.find((p) => p.id === "deadlocked")!.phase, "research");
+  assert.equal(j.projects.find((p) => p.id === "sm")!.phase, "active");
   assert.equal(j.projects.find((p) => p.id === "uya")!.progress, null); // not loaded: no invented numbers
+});
+
+test("Up Your Arsenal is listed as the PAL project of Lynder063 and Veradictus", () => {
+  const uya = PROJECTS.find((p) => p.id === "uya")!;
+  assert.equal(uya.repo, "OpenRAC/rac3-uya-decomp-pal");
+  assert.equal(uya.region, "PAL");
+  assert.deepEqual(uya.maintainers, ["Lynder063", "Veradictus"]);
+  assert.equal(uya.contributing, "https://github.com/OpenRAC/rac3-uya-decomp-pal/blob/master/CONTRIBUTING.md");
 });
 
 test("llms.txt names every project, its numbers and the posts", () => {
