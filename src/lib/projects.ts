@@ -100,7 +100,6 @@ export const PROJECTS: readonly Project[] = [
     tag: "DL",
     maintainers: ["Lynder063"],
     region: "NTSC-U",
-    phase: "research",
     contributing: `${GH}/OpenRAC/rac-deadlocked-decomp/blob/main/CONTRIBUTING.md`,
     guide: { label: "Research notes", url: `${GH}/OpenRAC/rac-deadlocked-decomp/blob/main/docs/RESEARCH.md` },
   },

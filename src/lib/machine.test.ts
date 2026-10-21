@@ -20,7 +20,7 @@ test("progress.json lists every project with the shared measure", () => {
   assert.equal(rac1.progress?.codePercent, 22.59);
   assert.equal(j.projects.find((p) => p.id === "gc")!.progress?.functions.total, null);
   assert.equal(j.projects.find((p) => p.id === "gc")!.progress?.snapshot, true);
-  assert.equal(j.projects.find((p) => p.id === "deadlocked")!.phase, "research");
+  assert.equal(j.projects.find((p) => p.id === "deadlocked")!.phase, "active");
   assert.equal(j.projects.find((p) => p.id === "sm")!.phase, "active");
   assert.equal(j.projects.find((p) => p.id === "uya")!.progress, null); // not loaded: no invented numbers
 });
@@ -39,7 +39,7 @@ test("llms.txt names every project, its numbers and the posts", () => {
   for (const p of PROJECTS) if (p.repo) assert.ok(t.includes(`https://github.com/${p.repo}`), p.id);
   assert.ok(t.includes("22.59% of code matched (838,628 of 3,712,808 bytes)."));
   assert.ok(t.includes("last known snapshot"));
-  assert.ok(t.includes("research phase"));
+  assert.ok(!t.includes("research phase")); // no project is in its research phase any more
   assert.ok(t.includes("Maintained by [@Lynder063](https://github.com/Lynder063), [@Veradictus](https://github.com/Veradictus)."));
   assert.ok(t.includes(`[Welcome](${SITE}/blog/welcome) (2026-09-30): What this blog is for.`));
 });
