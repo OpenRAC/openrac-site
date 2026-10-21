@@ -38,7 +38,7 @@ async function loadObjdiff(url: string, name: string): Promise<Progress> {
 const loadRac1 = () => loadObjdiff(`${RAW}/OpenRAC/rac1-decomp/main/progress/report.json`, "rac1");
 
 /** Ratchet: Deadlocked (NTSC-U): read from the project's own objdiff progress report. */
-const loadDeadlocked = () => loadObjdiff(`${RAW}/OpenRAC/rac-deadlocked-decomp/main/progress/report.json`, "deadlocked");
+const loadDeadlocked = () => loadObjdiff(`${RAW}/OpenRAC/rac4-decomp/main/progress/report.json`, "deadlocked");
 
 /** Going Commando: read the project's own progress report, including its measured scope. */
 async function loadGc(): Promise<Progress> {
@@ -47,7 +47,7 @@ async function loadGc(): Promise<Progress> {
 }
 
 /** Up Your Arsenal (PAL): read the project's own objdiff progress report. */
-const loadUya = () => loadObjdiff(`${RAW}/OpenRAC/rac3-uya-decomp-pal/master/progress/report.json`, "uya");
+const loadUya = () => loadObjdiff(`${RAW}/OpenRAC/rac3-decomp/master/progress/report.json`, "uya");
 
 /** Going Mobile: read from the project's verified README output. */
 async function loadGm(): Promise<Progress> {

@@ -27,10 +27,16 @@ test("progress.json lists every project with the shared measure", () => {
 
 test("Up Your Arsenal is listed as the PAL project of Lynder063 and Veradictus", () => {
   const uya = PROJECTS.find((p) => p.id === "uya")!;
-  assert.equal(uya.repo, "OpenRAC/rac3-uya-decomp-pal");
+  assert.equal(uya.repo, "OpenRAC/rac3-decomp");
   assert.equal(uya.region, "PAL");
   assert.deepEqual(uya.maintainers, ["Lynder063", "Veradictus"]);
-  assert.equal(uya.contributing, "https://github.com/OpenRAC/rac3-uya-decomp-pal/blob/master/CONTRIBUTING.md");
+  assert.equal(uya.contributing, "https://github.com/OpenRAC/rac3-decomp/blob/master/CONTRIBUTING.md");
+});
+
+test("Deadlocked is listed under its new repository name", () => {
+  const dl = PROJECTS.find((p) => p.id === "deadlocked")!;
+  assert.equal(dl.repo, "OpenRAC/rac4-decomp");
+  assert.equal(dl.contributing, "https://github.com/OpenRAC/rac4-decomp/blob/main/CONTRIBUTING.md");
 });
 
 test("llms.txt names every project, its numbers and the posts", () => {
