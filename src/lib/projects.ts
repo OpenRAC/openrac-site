@@ -1,4 +1,4 @@
-export type ProjectId = "rac1" | "gc" | "uya" | "deadlocked" | "gm" | "sm";
+export type ProjectId = "rac1" | "gc" | "uya" | "deadlocked" | "gm" | "sm" | "sac";
 
 export type ProjectCategory = "mainline" | "spinoff";
 
@@ -134,6 +134,23 @@ export const PROJECTS: readonly Project[] = [
     region: "NTSC-U",
     contributing: `${GH}/OpenRAC/rac5-sm-decomp/blob/master/CONTRIBUTING.md`,
     guide: { label: "Roadmap and status", url: `${GH}/OpenRAC/rac5-sm-decomp/blob/master/docs/ROADMAP.md` },
+  },
+  {
+    id: "sac",
+    name: "Secret Agent Clank",
+    year: 2009,
+    repo: "OpenRAC/rac-sac-decomp",
+    fontClass: "font-orbitron font-semibold",
+    theme: { box: "#111827", border: "#38bdf8", text: "#f0f9ff", text2: "#38bdf8", from: "#0369a1", to: "#082f49" },
+    image: "/img/sac-bg.webp",
+    category: "spinoff",
+    platform: "PlayStation 2",
+    subtitle: "decompilation · 2009 · NTSC-U · PS2 port",
+    tag: "SAC",
+    maintainers: ["llesieur99"],
+    region: "NTSC-U",
+    contributing: `${GH}/OpenRAC/rac-sac-decomp/blob/main/CONTRIBUTING.md`,
+    guide: { label: "Start here", url: `${GH}/OpenRAC/rac-sac-decomp/blob/main/README.md` },
   },
 ];
 

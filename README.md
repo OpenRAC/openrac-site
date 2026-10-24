@@ -29,6 +29,7 @@ Sources (see `src/lib/progress.ts`):
 - **Ratchet: Deadlocked (NTSC-U)**: `progress/report.json` (objdiff report) of [`OpenRAC/rac4-decomp`](https://github.com/OpenRAC/rac4-decomp).
 - **Going Mobile**: the verified method count in the `README.md` of [`Clank700/going-mobile-decomp`](https://github.com/Clank700/going-mobile-decomp), applied to the size of the reconstructed source.
 - **Size Matters (PS2, NTSC-U)**: `progress/status.json` of [`OpenRAC/rac5-sm-decomp`](https://github.com/OpenRAC/rac5-sm-decomp), the project's scoped progress snapshot. It has no qualified game-wide percentage yet, so the number is the one the project itself publishes: the measured boot `.text`, the frontend's candidate code interval and the levels' optimistic masked-shape scenario, which is the arithmetic of its `tools/bytematch_estimate.py` and the figure [ByteMatch](https://bytematch.dev/OpenRAC/rac5-sm-decomp) shows.
+- **Secret Agent Clank (PS2, NTSC-U)**: placement and code tables of [`OpenRAC/rac-sac-decomp`](https://github.com/OpenRAC/rac-sac-decomp), measuring proved body placements against candidate code intervals.
 
 If GitHub cannot be reached, the last known snapshot (in `progress.ts`) is shown and labelled as such.
 
@@ -88,7 +89,7 @@ rate limit for the activity feed; it stays on the server.
 
 ### Card backdrops
 
-The title cards can show a backdrop image named `rac1-bg.webp`, `gc-bg.webp`, `uya-bg.webp`, `deadlocked-bg.webp`, `going-mobile-bg.webp` and `size-matters-bg.webp` (WebP, about
+The title cards can show a backdrop image named `rac1-bg.webp`, `gc-bg.webp`, `uya-bg.webp`, `deadlocked-bg.webp`, `going-mobile-bg.webp`, `size-matters-bg.webp` and `sac-bg.webp` (WebP, about
 1600 px wide). Those would be screenshots from the games, which are copyrighted, so **they are not part of this
 repository**. Without them the cards use a colour gradient.
 
@@ -123,7 +124,7 @@ systemctl --user start openrac.service
 loginctl enable-linger "$USER"      # once, so it starts at boot without a login
 
 # 4. card backdrops: copy your images into the folder the unit mounts (no restart needed)
-cp rac1-bg.webp gc-bg.webp uya-bg.webp deadlocked-bg.webp going-mobile-bg.webp size-matters-bg.webp ~/openrac-img/
+cp rac1-bg.webp gc-bg.webp uya-bg.webp deadlocked-bg.webp going-mobile-bg.webp size-matters-bg.webp sac-bg.webp ~/openrac-img/
 ```
 
 The container listens on `127.0.0.1:3000`; put your reverse proxy in front of it. It runs as a non-root user with

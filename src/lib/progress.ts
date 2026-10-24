@@ -2,6 +2,7 @@ import { unstable_cache } from "next/cache";
 import { parseSmStatus } from "./sm";
 import { parseGcReport } from "./gc";
 import { parseGmReadme } from "./gm";
+import { parseSacBodies, parseSacReport } from "./sac";
 import type { Progress } from "./types";
 import type { ProjectId } from "./projects";
 
@@ -61,6 +62,36 @@ async function loadSm(): Promise<Progress> {
   return parseSmStatus(status);
 }
 
+/** Secret Agent Clank (PS2, NTSC-U): read from placement tables and candidate summaries. */
+async function loadSac(): Promise<Progress> {
+  try {
+    const res = await get(`${RAW}/OpenRAC/rac-sac-decomp/main/progress/report.json`);
+    return parseSacReport(await res.json());
+  } catch {
+    // Report file does not exist yet; fall through
+  }
+  try {
+    const res = await get(`${RAW}/OpenRAC/rac-sac-decomp/main/progress/status.json`);
+    return parseSacReport(await res.json());
+  } catch {
+    // Status file does not exist yet; fall through
+  }
+
+  const [levelsBodiesRes, bootBodiesRes, levelsSummaryRes, bootSummaryRes] = await Promise.all([
+    get(`${RAW}/OpenRAC/rac-sac-decomp/main/config/levels/bodies.tsv`),
+    get(`${RAW}/OpenRAC/rac-sac-decomp/main/config/boot/bodies.tsv`),
+    get(`${RAW}/OpenRAC/rac-sac-decomp/main/config/levels/function_inventory_summary.json`),
+    get(`${RAW}/OpenRAC/rac-sac-decomp/main/config/boot/summary.json`),
+  ]);
+  const [levelsBodies, bootBodies, levelsSummary, bootSummary] = await Promise.all([
+    levelsBodiesRes.text(),
+    bootBodiesRes.text(),
+    levelsSummaryRes.json(),
+    bootSummaryRes.json(),
+  ]);
+  return parseSacBodies(levelsBodies, bootBodies, levelsSummary, bootSummary);
+}
+
 const cached = {
   rac1: unstable_cache(loadRac1, ["progress-rac1"], { revalidate: REVALIDATE_SECONDS }),
   gc: unstable_cache(loadGc, ["progress-gc"], { revalidate: REVALIDATE_SECONDS }),
@@ -68,16 +99,18 @@ const cached = {
   deadlocked: unstable_cache(loadDeadlocked, ["progress-deadlocked"], { revalidate: REVALIDATE_SECONDS }),
   gm: unstable_cache(loadGm, ["progress-gm"], { revalidate: REVALIDATE_SECONDS }),
   sm: unstable_cache(loadSm, ["progress-sm"], { revalidate: REVALIDATE_SECONDS }),
+  sac: unstable_cache(loadSac, ["progress-sac"], { revalidate: REVALIDATE_SECONDS }),
 };
 
 /** Last numbers known to be good. Used only if GitHub cannot be reached at all. */
 const FALLBACK: Record<ProjectId, Progress> = {
-  rac1: { functions: { done: 2974, total: 5109 }, code: { done: 838628, total: 3712808 }, source: "snapshot 2026-10-05" },
-  gc: { functions: { done: 2941, total: 9100 }, code: { done: 318088, total: 5533600 }, source: "snapshot 2026-10-14" },
-  uya: { functions: { done: 5192, total: 16163 }, code: { done: 632620, total: 7546920 }, source: "snapshot 2026-10-21" },
-  deadlocked: { functions: { done: 243, total: 15056 }, code: { done: 26572, total: 5175440 }, source: "snapshot 2026-10-05" },
-  gm: { functions: { done: 351, total: 351 }, code: { done: 545639, total: 545639 }, source: "snapshot 2026-10-05" },
-  sm: { functions: { done: 647, total: null }, code: { done: 87784, total: 6418204 }, source: "snapshot 2026-10-21" },
+  rac1: { functions: { done: 5089, total: 5120 }, code: { done: 3656816, total: 3713416 }, source: "snapshot 2026-10-24" },
+  gc: { functions: { done: 4351, total: 8601 }, code: { done: 776368, total: 5529148 }, source: "snapshot 2026-10-24" },
+  uya: { functions: { done: 5807, total: 16164 }, code: { done: 657780, total: 7546948 }, source: "snapshot 2026-10-24" },
+  deadlocked: { functions: { done: 3598, total: 18085 }, code: { done: 262428, total: 5782424 }, source: "snapshot 2026-10-24" },
+  gm: { functions: { done: 351, total: 351 }, code: { done: 545639, total: 545639 }, source: "snapshot 2026-10-24" },
+  sm: { functions: { done: 647, total: null }, code: { done: 87784, total: 6418204 }, source: "snapshot 2026-10-24" },
+  sac: { functions: { done: 395, total: null }, code: { done: 31104, total: 7192780 }, source: "snapshot 2026-10-24" },
 };
 
 export interface ProjectProgress extends Progress {
@@ -86,13 +119,14 @@ export interface ProjectProgress extends Progress {
 }
 
 export async function getProgress(): Promise<Partial<Record<ProjectId, ProjectProgress>>> {
-  const [rac1, gc, uya, deadlocked, gm, sm] = await Promise.allSettled([
+  const [rac1, gc, uya, deadlocked, gm, sm, sac] = await Promise.allSettled([
     cached.rac1(),
     cached.gc(),
     cached.uya(),
     cached.deadlocked(),
     cached.gm(),
     cached.sm(),
+    cached.sac(),
   ]);
   const pick = (r: PromiseSettledResult<Progress>, fb: Progress): ProjectProgress =>
     r.status === "fulfilled" ? { ...r.value, stale: false } : { ...fb, stale: true };
@@ -103,5 +137,6 @@ export async function getProgress(): Promise<Partial<Record<ProjectId, ProjectPr
     deadlocked: pick(deadlocked, FALLBACK.deadlocked),
     gm: pick(gm, FALLBACK.gm),
     sm: pick(sm, FALLBACK.sm),
+    sac: pick(sac, FALLBACK.sac),
   };
 }

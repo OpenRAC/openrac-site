@@ -9,6 +9,7 @@ test("resolveImage serves only the backdrops the cards ask for", () => {
   assert.equal(resolveImage("deadlocked-bg.webp", "/d")?.file, "/d/deadlocked-bg.webp");
   assert.equal(resolveImage("going-mobile-bg.webp", "/d")?.file, "/d/going-mobile-bg.webp");
   assert.equal(resolveImage("size-matters-bg.webp", "/d")?.file, "/d/size-matters-bg.webp");
+  assert.equal(resolveImage("sac-bg.webp", "/d")?.file, "/d/sac-bg.webp");
 });
 
 test("resolveImage refuses anything else, including path tricks", () => {
