@@ -1,9 +1,9 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import Logo from "./Logo";
 import { HAS_CREDITS } from "@/lib/credits";
 import { DISCORD_URL, DOWNLOAD_URL } from "@/lib/projects";
 
@@ -58,18 +58,16 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-20 border-b border-black/30 bg-gradient-to-b from-[#e5a013] to-[#cd8300] text-black shadow-[inset_0_1px_0_rgb(255_255_255/0.35),0_4px_24px_rgb(0_0_0/0.45)]">
       <div className={`mx-auto flex max-w-[1080px] items-center gap-7 px-4 transition-[height] duration-300 ${small ? "h-[46px]" : "h-[60px]"}`}>
-        <Link href="/" onClick={() => setOpen(false)} className="group flex items-center gap-2 font-audiowide text-[26px] no-underline">
-          <Image
-            src="/wrench.webp"
-            alt=""
-            width={80}
-            height={80}
-            priority
-            className="size-10 transition-transform duration-500 group-hover:-rotate-[25deg] group-hover:scale-110"
+        <Link
+          href="/"
+          onClick={() => setOpen(false)}
+          className="group flex items-center text-[#1b1206] no-underline transition-opacity hover:opacity-85"
+          aria-label="OpenRAC"
+        >
+          <Logo
+            height={small ? 26 : 32}
+            className="transition-transform duration-300 group-hover:scale-[1.02]"
           />
-          <span>
-            Open<b>RAC</b>
-          </span>
         </Link>
 
         <button

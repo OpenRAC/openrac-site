@@ -21,7 +21,7 @@ const nextConfig: NextConfig = {
     return [
       {
         // Files in /public are not fingerprinted; let browsers and proxies reuse them for a day.
-        source: "/:file(wrench.webp|img/.*)",
+        source: "/:file(openrac-.*\\.svg|wrench.webp|img/.*)",
         headers: [{ key: "Cache-Control", value: "public, max-age=86400" }],
       },
       {
