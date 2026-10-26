@@ -53,10 +53,10 @@ export function parseSacBodies(
   };
 
   const ls = parseJson(levelsSummary) as { relocation_masked_candidate_bytes?: number } | null;
-  const bs = parseJson(bootSummary) as { bounded_candidate_body_bytes?: number } | null;
+  const bs = parseJson(bootSummary) as { bounded_candidate_body_bytes?: number; text_bytes?: number } | null;
 
   const levelsTotal = Number(ls?.relocation_masked_candidate_bytes ?? 6628908);
-  const bootTotal = Number(bs?.bounded_candidate_body_bytes ?? 563872);
+  const bootTotal = Number(bs?.text_bytes ?? bs?.bounded_candidate_body_bytes ?? 650932);
   const totalBytes = levelsTotal + bootTotal;
 
   if (doneBytes <= 0 || totalBytes <= 0) {
@@ -81,6 +81,7 @@ export function parseSacReport(report: unknown): Progress {
   }
   if (!r || typeof r !== "object") throw new Error("sac report is not an object");
   const s = r as {
+    measures?: Record<string, string | number>;
     functions?: { done?: number; total?: number; matched?: number };
     code?: { done?: number; total?: number; matched?: number };
     bytes_by_placement?: number;
@@ -90,6 +91,41 @@ export function parseSacReport(report: unknown): Progress {
     boot_candidate_bytes?: number;
     sources?: number;
   };
+
+  if (s.measures && typeof s.measures === "object") {
+    const m = s.measures;
+    const n = (val: string | number | undefined): number => (val != null ? Number(val) : 0);
+    const doneCode = n(m.matched_code ?? m.matchedCode);
+    const totalCode = n(m.total_code ?? m.totalCode);
+    const doneFuncs =
+      m.matched_functions != null
+        ? Number(m.matched_functions)
+        : m.matchedFunctions != null
+          ? Number(m.matchedFunctions)
+          : null;
+    const totalFuncs =
+      m.total_functions != null
+        ? Number(m.total_functions)
+        : m.totalFunctions != null
+          ? Number(m.totalFunctions)
+          : null;
+
+    if (
+      ![doneCode, totalCode].every((v) => Number.isFinite(v) && v >= 0) ||
+      ![doneFuncs, totalFuncs].every((v) => v == null || (Number.isSafeInteger(v) && v >= 0)) ||
+      (totalFuncs != null && doneFuncs != null && doneFuncs > totalFuncs) ||
+      doneCode > totalCode ||
+      totalCode <= 0
+    ) {
+      throw new Error("sac report has an unexpected shape");
+    }
+
+    return {
+      functions: { done: doneFuncs, total: totalFuncs },
+      code: { done: doneCode, total: totalCode },
+      source: "progress/report.json",
+    };
+  }
 
   if (s.code?.total && s.code.total > 0) {
     return {
@@ -107,7 +143,7 @@ export function parseSacReport(report: unknown): Progress {
 
   if (s.relocation_masked_candidate_bytes !== undefined || s.bytes_by_placement !== undefined) {
     const done = Number(s.bytes_by_source_and_module ?? s.bytes_by_placement ?? 31104);
-    const total = Number((s.relocation_masked_candidate_bytes ?? 6628908) + (s.boot_candidate_bytes ?? 563872));
+    const total = Number((s.relocation_masked_candidate_bytes ?? 6628908) + (s.boot_candidate_bytes ?? 650932));
     return {
       functions: { done: s.sources ? Number(s.sources) : null, total: null },
       code: { done, total },

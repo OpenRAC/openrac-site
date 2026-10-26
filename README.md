@@ -29,7 +29,7 @@ Sources (see `src/lib/progress.ts`):
 - **Ratchet: Deadlocked (NTSC-U)**: `progress/report.json` (objdiff report) of [`OpenRAC/rac4-decomp`](https://github.com/OpenRAC/rac4-decomp).
 - **Going Mobile**: the verified method count in the `README.md` of [`Clank700/going-mobile-decomp`](https://github.com/Clank700/going-mobile-decomp), applied to the size of the reconstructed source.
 - **Size Matters (PS2, NTSC-U)**: `progress/status.json` of [`OpenRAC/rac5-sm-decomp`](https://github.com/OpenRAC/rac5-sm-decomp), the project's scoped progress snapshot. It has no qualified game-wide percentage yet, so the number is the one the project itself publishes: the measured boot `.text`, the frontend's candidate code interval and the levels' optimistic masked-shape scenario, which is the arithmetic of its `tools/bytematch_estimate.py` and the figure [ByteMatch](https://bytematch.dev/OpenRAC/rac5-sm-decomp) shows.
-- **Secret Agent Clank (PS2, NTSC-U)**: placement and code tables of [`OpenRAC/rac-sac-decomp`](https://github.com/OpenRAC/rac-sac-decomp), measuring proved body placements against candidate code intervals.
+- **Secret Agent Clank (PS2, NTSC-U)**: `progress/report.json` of [`OpenRAC/rac-sac-decomp`](https://github.com/OpenRAC/rac-sac-decomp) (objdiff report), deduplicating shared level code and matching [ByteMatch](https://bytematch.dev/OpenRAC/rac-sac-decomp). If the report is unavailable, candidate tables are read as a fallback.
 
 If GitHub cannot be reached, the last known snapshot (in `progress.ts`) is shown and labelled as such.
 

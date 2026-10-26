@@ -109,8 +109,8 @@ const FALLBACK: Record<ProjectId, Progress> = {
   uya: { functions: { done: 5807, total: 16164 }, code: { done: 657780, total: 7546948 }, source: "snapshot 2026-10-24" },
   deadlocked: { functions: { done: 3598, total: 18085 }, code: { done: 262428, total: 5782424 }, source: "snapshot 2026-10-24" },
   gm: { functions: { done: 351, total: 351 }, code: { done: 545639, total: 545639 }, source: "snapshot 2026-10-24" },
-  sm: { functions: { done: 647, total: null }, code: { done: 87784, total: 6418204 }, source: "snapshot 2026-10-24" },
-  sac: { functions: { done: 395, total: null }, code: { done: 31104, total: 7192780 }, source: "snapshot 2026-10-24" },
+  sm: { functions: { done: 9531, total: null }, code: { done: 618320, total: 6418204 }, source: "snapshot 2026-10-26" },
+  sac: { functions: { done: 395, total: 427 }, code: { done: 31104, total: 7279840 }, source: "snapshot 2026-10-26" },
 };
 
 export interface ProjectProgress extends Progress {

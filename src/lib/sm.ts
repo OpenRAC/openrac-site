@@ -34,6 +34,8 @@ export interface SmStatus {
     accepted_c_bytes_per_unique_source?: number;
     accepted_frontend_functions?: string[];
     accepted_shared_functions?: string[];
+    accepted_level_body_unique_source_bytes?: number;
+    accepted_level_body_unique_sources?: number;
   };
   optimistic_shape_scenario?: {
     masked_max_per_module_bytes?: number;
@@ -73,11 +75,19 @@ export function parseSmStatus(report: unknown): Progress {
     throw new Error("sm status has an unexpected shape");
   }
 
+  const levelBodies = Number(levels.accepted_level_body_unique_source_bytes ?? 0);
+  if (!Number.isFinite(levelBodies) || levelBodies < 0) {
+    throw new Error("sm status has an unexpected shape");
+  }
+
   // The three scopes the snapshot measures: what is done, and what there is to do.
   const scopes = [
     { done: Number(boot.accepted_c_bytes), total: Number(boot.code_bytes) },
     { done: Number(frontend.accepted_c_bytes), total: Number(frontend.candidate_code_bytes_by_placement) },
-    { done: Number(levels.accepted_c_bytes_per_unique_source), total: Number(shape.masked_max_per_module_bytes) },
+    {
+      done: Number(levels.accepted_c_bytes_per_unique_source) + levelBodies,
+      total: Number(shape.masked_max_per_module_bytes),
+    },
   ];
 
   if (
@@ -92,7 +102,9 @@ export function parseSmStatus(report: unknown): Progress {
 
   // The functions accepted in the same scopes. The project publishes no total, so none is claimed.
   const lists = [boot.accepted_functions, levels.accepted_frontend_functions, levels.accepted_shared_functions];
-  const functions = lists.reduce((n, list) => n + (Array.isArray(list) ? list.length : 0), 0);
+  const listCount = lists.reduce((n, list) => n + (Array.isArray(list) ? list.length : 0), 0);
+  const levelBodySources = Number(levels.accepted_level_body_unique_sources ?? 0);
+  const functions = listCount + (Number.isFinite(levelBodySources) && levelBodySources >= 0 ? levelBodySources : 0);
 
   return {
     functions: { done: functions, total: null },

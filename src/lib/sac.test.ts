@@ -16,6 +16,27 @@ test("parseSacBodies calculates unique proved body sources and deduplicated cand
   assert.equal(p.source, "config/levels/bodies.tsv");
 });
 
+test("parseSacReport handles objdiff v2 report measures", () => {
+  const report = {
+    version: 2,
+    measures: {
+      fuzzy_match_percent: 0.42726213762939846,
+      total_code: "7279840",
+      matched_code: "31104",
+      matched_code_percent: 0.42726213762939846,
+      total_functions: 427,
+      matched_functions: 395,
+      matched_functions_percent: 92.50585480093677,
+    },
+  };
+  const p = parseSacReport(report);
+  assert.equal(p.code.done, 31104);
+  assert.equal(p.code.total, 7279840);
+  assert.equal(p.functions.done, 395);
+  assert.equal(p.functions.total, 427);
+  assert.equal(p.source, "progress/report.json");
+});
+
 test("parseSacReport handles status and report shapes", () => {
   const report = {
     functions: { done: 10, total: 100 },
