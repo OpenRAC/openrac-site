@@ -19,7 +19,7 @@ const SECTIONS = ([
 ] as const).filter(([id]) => id !== "credits" || HAS_CREDITS);
 
 const link =
-  "group/l relative flex min-h-11 items-center rounded-full px-3.5 text-[17px] font-semibold no-underline transition-colors min-[821px]:min-h-9 min-[821px]:text-[15px]";
+  "group/l relative flex min-h-11 items-center rounded-full px-3.5 text-[17px] font-bold no-underline transition-colors min-[821px]:min-h-9 min-[821px]:text-[15px]";
 // The open mobile menu sits on the page's colour, the bar on its stripes: light text there, dark here.
 const linkOn = "bg-white/[.06] text-amber min-[821px]:bg-[#1b1206]";
 const linkOff = "text-hi hover:bg-white/5 min-[821px]:text-[#2a1800] min-[821px]:hover:bg-black/10";
