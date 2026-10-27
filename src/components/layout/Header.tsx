@@ -20,13 +20,19 @@ const SECTIONS = ([
 
 const link =
   "group/l relative flex min-h-11 items-center rounded-full px-3.5 text-[17px] font-semibold no-underline transition-colors min-[821px]:min-h-9 min-[821px]:text-[15px]";
-const linkOn = "bg-[#1b1206] text-amber";
-const linkOff = "text-[#2a1800] hover:bg-black/10";
+// The open mobile menu sits on the page's colour, the bar on its stripes: light text there, dark here.
+const linkOn = "bg-white/[.06] text-amber min-[821px]:bg-[#1b1206]";
+const linkOff = "text-hi hover:bg-white/5 min-[821px]:text-[#2a1800] min-[821px]:hover:bg-black/10";
 const underline =
   "absolute inset-x-3.5 bottom-1 hidden h-0.5 origin-left scale-x-0 rounded bg-current transition-transform group-hover/l:scale-x-100 min-[821px]:block";
 const pill = "flex min-h-11 items-center justify-center rounded-full px-4 text-sm font-semibold no-underline transition-colors min-[821px]:min-h-9";
 
-/** Discord's own mark, on its blue: the one coloured button on the bar, so it reads at a glance. */
+/** Discord's blue on the wide bar, so it reads at a glance among the links. */
+const discordBlue = "bg-[#4651b8] text-white hover:bg-[#3b449c]";
+/** The bar's own dark and gold on a phone, beside the menu button, so the two read as a pair. */
+const filled = "bg-[#1b1206] text-amber hover:bg-[#2a1800]";
+
+/** Discord's own mark in a round button; `className` gives its colours. */
 function DiscordButton({ onClick, className = "" }: { onClick?: () => void; className?: string }) {
   return (
     <a
@@ -34,7 +40,7 @@ function DiscordButton({ onClick, className = "" }: { onClick?: () => void; clas
       onClick={onClick}
       aria-label="Discord"
       title="Discord"
-      className={`flex size-11 flex-none items-center justify-center rounded-full bg-[#4651b8] text-white transition-colors hover:bg-[#3b449c] min-[821px]:size-9 ${className}`}
+      className={`flex size-11 flex-none items-center justify-center rounded-full transition-colors min-[821px]:size-9 ${className}`}
     >
       <DiscordIcon className="size-[20px] min-[821px]:size-[18px]" />
     </a>
@@ -96,24 +102,24 @@ export default function Header() {
             <Logo height={34} label="" className="transition-opacity group-hover:opacity-85" />
           </Link>
 
-          <DiscordButton onClick={close} className="ml-auto min-[821px]:hidden" />
+          <DiscordButton onClick={close} className={`${filled} ml-auto min-[821px]:hidden`} />
           <button
             type="button"
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
             aria-controls="nav"
             onClick={() => setOpen((o) => !o)}
-            className="relative -ml-3 size-11 flex-none rounded-full border border-black/30 bg-black/10 min-[821px]:hidden"
+            className={`${filled} relative -ml-3 size-11 flex-none rounded-full transition-colors min-[821px]:hidden`}
           >
             <span
               aria-hidden
-              className={`absolute left-[12px] top-[20px] h-0.5 w-[18px] rounded bg-[#1b1206] transition before:absolute before:left-0 before:top-[-6px] before:h-0.5 before:w-[18px] before:rounded before:bg-[#1b1206] before:transition before:content-[''] after:absolute after:left-0 after:top-[6px] after:h-0.5 after:w-[18px] after:rounded after:bg-[#1b1206] after:transition after:content-[''] ${open ? "bg-transparent before:translate-y-[6px] before:rotate-45 after:-translate-y-[6px] after:-rotate-45" : ""}`}
+              className={`absolute left-[12px] top-[20px] h-0.5 w-[18px] rounded bg-amber transition before:absolute before:left-0 before:top-[-6px] before:h-0.5 before:w-[18px] before:rounded before:bg-amber before:transition before:content-[''] after:absolute after:left-0 after:top-[6px] after:h-0.5 after:w-[18px] after:rounded after:bg-amber after:transition after:content-[''] ${open ? "bg-transparent before:translate-y-[6px] before:rotate-45 after:-translate-y-[6px] after:-rotate-45" : ""}`}
             />
           </button>
 
           <nav
             id="nav"
-            className={`absolute inset-x-0 top-full flex max-h-[calc(100dvh-50px)] flex-col gap-3 overflow-y-auto overscroll-contain border-b border-black/30 bar-stripes px-4 pb-[18px] pt-3.5 shadow-[0_20px_30px_rgb(0_0_0/0.4)] transition duration-200 max-[821px]:origin-top ${open ? "" : "max-[821px]:pointer-events-none max-[821px]:invisible max-[821px]:-translate-y-2 max-[821px]:opacity-0"} min-[821px]:static min-[821px]:max-h-none min-[821px]:flex-1 min-[821px]:flex-row min-[821px]:items-center min-[821px]:gap-[18px] min-[821px]:overflow-visible min-[821px]:border-0 min-[821px]:bg-none min-[821px]:p-0 min-[821px]:shadow-none`}
+            className={`absolute inset-x-0 top-full flex max-h-[calc(100dvh-50px)] flex-col gap-3 overflow-y-auto overscroll-contain border-b border-white/10 bg-ink px-4 pb-[18px] pt-3.5 shadow-[0_20px_30px_rgb(0_0_0/0.4)] transition duration-200 max-[821px]:origin-top ${open ? "" : "max-[821px]:pointer-events-none max-[821px]:invisible max-[821px]:-translate-y-2 max-[821px]:opacity-0"} min-[821px]:static min-[821px]:max-h-none min-[821px]:flex-1 min-[821px]:flex-row min-[821px]:items-center min-[821px]:gap-[18px] min-[821px]:overflow-visible min-[821px]:border-0 min-[821px]:bg-transparent min-[821px]:p-0 min-[821px]:shadow-none`}
           >
             <div className="flex flex-col gap-1 min-[821px]:ml-2 min-[821px]:flex-row">
               {SECTIONS.map(([id, label]) => (
@@ -128,10 +134,10 @@ export default function Header() {
               </Link>
             </div>
             <div className="grid gap-2 min-[821px]:ml-auto min-[821px]:flex min-[821px]:items-center">
-              <a href={DOWNLOAD_URL} onClick={close} className={`${pill} border border-black/25 bg-[#1b1206] text-amber hover:bg-[#2a1800]`}>
+              <a href={DOWNLOAD_URL} onClick={close} className={`${pill} border border-amber bg-amber text-[#1a0d00] hover:brightness-110 min-[821px]:border-black/25 min-[821px]:bg-[#1b1206] min-[821px]:text-amber min-[821px]:hover:bg-[#2a1800] min-[821px]:hover:brightness-100`}>
                 Download
               </a>
-              <DiscordButton onClick={close} className="max-[821px]:hidden" />
+              <DiscordButton onClick={close} className={`${discordBlue} max-[821px]:hidden`} />
             </div>
           </nav>
         </div>
