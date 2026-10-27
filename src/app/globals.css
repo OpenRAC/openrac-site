@@ -16,9 +16,9 @@
   --color-panel: #1d1d27;
   --color-panel-hi: #23232f;
   --color-surface: #1d1d27;
-  --color-brand: #d58a00;
-  --color-amber: #ffb443;
-  --color-gold: #ffd08a;
+  --color-brand: #d6a020;
+  --color-amber: #f5c040;
+  --color-gold: #ffe08f;
   /* Text, light to quiet. Neutral rather than blue, so the gold is the only accent. */
   --color-hi: #e6e6ec;
   --color-soft: #b4b4bf;
@@ -80,9 +80,9 @@
   }
   .btn-primary {
     border-color: var(--color-amber);
-    background: linear-gradient(to bottom, var(--color-amber), #ff8a00);
+    background: linear-gradient(to bottom, var(--color-amber), #e8a317);
     color: #1a0d00;
-    box-shadow: 0 6px 24px rgb(255 138 0 / 0.3);
+    box-shadow: 0 6px 24px rgb(232 163 23 / 0.3);
   }
   .btn-sm {
     min-height: 2.5rem;
@@ -93,7 +93,7 @@
   .btn-discord { color: var(--color-discord); }
   @media (hover: hover) {
     .btn:hover { transform: translateY(-2px); border-color: var(--color-amber); box-shadow: 0 8px 24px rgb(0 0 0 / 0.4); }
-    .btn-primary:hover { filter: brightness(1.08); box-shadow: 0 8px 28px rgb(255 138 0 / 0.4); }
+    .btn-primary:hover { filter: brightness(1.08); box-shadow: 0 8px 28px rgb(232 163 23 / 0.4); }
     .btn-discord:hover { border-color: var(--color-discord); }
   }
 
@@ -143,7 +143,7 @@ html {
   background: var(--color-ink);
 }
 body { background: var(--color-ink); color: var(--color-text); }
-::selection { background: rgb(255 180 67 / 0.35); color: #fff; }
+::selection { background: rgb(245 192 64 / 0.35); color: #fff; }
 :focus-visible { outline: 2px solid var(--color-amber); outline-offset: 3px; }
 
 /* Sections fade in once scrolled to. Only hidden when scripting is available,

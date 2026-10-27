@@ -14,7 +14,7 @@ export default function Hero({ progress }: { progress: Partial<Record<ProjectId,
     <div className="relative isolate pb-8 pt-12 sm:pb-16 sm:pt-24">
       <Particles />
       {/* A soft gold glow on the right: a radial gradient moved by transform only, so it costs no repaint (a CSS blur filter would, every frame). */}
-      <div aria-hidden className="absolute -right-56 -top-24 -z-10 size-[680px] bg-[radial-gradient(closest-side,rgb(213_138_0/0.3),transparent)] will-change-transform sm:animate-drift" />
+      <div aria-hidden className="absolute -right-56 -top-24 -z-10 size-[680px] bg-[radial-gradient(closest-side,rgb(214_160_32/0.3),transparent)] will-change-transform sm:animate-drift" />
 
       {/* The same eyebrow as every section's number below. */}
       <p className="mb-4 font-orbitron text-[11px] font-bold uppercase tracking-[.28em] text-brand after:mt-2 after:block after:h-[3px] after:w-11 after:rounded-sm after:bg-brand after:content-[''] sm:text-[13px]">
@@ -22,7 +22,7 @@ export default function Hero({ progress }: { progress: Partial<Record<ProjectId,
       </p>
       {/* Balanced lines: no word is ever left alone on the last line, whatever the width. */}
       <h1 className="max-w-[860px] text-balance font-audiowide text-[clamp(32px,6.6vw,68px)] leading-[1.06]">
-        <span className="animate-shine bg-gradient-to-r from-amber via-[#ff8a00] to-gold bg-[length:220%_100%] bg-clip-text text-transparent">
+        <span className="animate-shine bg-gradient-to-r from-amber via-[#e8a317] to-gold bg-[length:220%_100%] bg-clip-text text-transparent">
           Ratchet &amp; Clank
         </span>{" "}
         series, rebuilt from the original bytes.
