@@ -168,7 +168,9 @@ function Card({ project: g, progress: p, release = false }: { project: Project; 
 
         <Bar value={value} name={g.name} look={look} />
 
-        <div className={`flex min-w-0 flex-wrap items-center gap-x-5 gap-y-2.5 text-(--tx) ${SIZES.small}`}>
+        {/* Narrow card: repository, maintainers and size each on a line of their own, so every card
+            reads the same whatever the names' lengths; wide card: one row. */}
+        <div className={`flex min-w-0 flex-col items-start gap-2.5 text-(--tx) @xl:flex-row @xl:flex-wrap @xl:items-center @xl:gap-x-5 ${SIZES.small}`}>
           {g.repo && (
             <a href={`https://github.com/${g.repo}`} className={`${box} inline-flex min-h-10 min-w-0 max-w-full items-center gap-2.5 px-3.5 py-1.5 no-underline transition hover:brightness-125`}>
               <GithubIcon />
