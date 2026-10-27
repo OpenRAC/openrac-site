@@ -24,7 +24,7 @@ export default function Particles() {
       canvas.width = Math.round(w * dpr);
       canvas.height = Math.round(h * dpr);
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      ctx.fillStyle = "#ffb443";
+      ctx.fillStyle = "#f5c040";
       dots = Array.from({ length: Math.min(46, Math.floor(w / 24)) }, () => ({
         x: Math.random() * w, y: Math.random() * h,
         r: Math.random() * 1.8 + 0.6, v: Math.random() * 0.25 + 0.08, a: Math.random() * 0.5 + 0.2,

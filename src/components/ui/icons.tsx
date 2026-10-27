@@ -1,3 +1,4 @@
+import type { PlatformId } from "@/lib/releases";
 /** Small inline icons used in several places. Decorative: screen readers skip them, the link text names the target. */
 
 /** Discord's mark. */
@@ -21,4 +22,42 @@ export function GithubIcon({ className = "size-5" }: { className?: string }) {
 /** The arrow at the end of a link row; it nudges right when its row (a `group`) is hovered. */
 export function Arrow() {
   return <span aria-hidden className="ml-auto flex-none text-brand transition-transform group-hover:translate-x-0.5">→</span>;
+}
+
+/** The mark of each system the launcher is built for, one colour each (the text colour). */
+export function SystemIcon({ id, className = "size-7" }: { id: PlatformId; className?: string }) {
+  const svg = `flex-none fill-current ${className}`;
+  switch (id) {
+    case "windows":
+      return (
+        <svg viewBox="0 0 24 24" aria-hidden="true" className={svg}>
+          <path d="M3 5.6 10.4 4.6v7H3zM11.4 4.4 21 3v8.6h-9.6zM3 12.6h7.4v7L3 18.4zM11.4 12.6H21V21l-9.6-1.4z" />
+        </svg>
+      );
+    case "macos":
+      return (
+        <svg viewBox="0 0 24 24" aria-hidden="true" className={svg}>
+          <path d="M16.4 12.7c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.8-1.4-.2-2.8.9-3.5.9-.8 0-1.9-.8-3.1-.8-1.6 0-3 .9-3.8 2.3-1.6 2.8-.4 7 1.2 9.3.8 1.1 1.7 2.4 2.9 2.3 1.2 0 1.6-.7 3-.7s1.8.7 3 .7c1.3 0 2.1-1.1 2.8-2.3.9-1.3 1.3-2.6 1.3-2.6s-2.4-1-2.4-3.8zM14.1 5.8c.6-.8 1.1-1.9 1-3-1 0-2.1.6-2.7 1.4-.6.7-1.1 1.8-1 2.9 1 .1 2.1-.5 2.7-1.3z" />
+        </svg>
+      );
+    case "linux":
+      // Tux in one colour like the other marks, with some attitude: narrowed eyes, a grin, flippers out.
+      return (
+        <svg viewBox="0 0 24 24" aria-hidden="true" className={svg}>
+          <path
+            fillRule="evenodd"
+            d="M12 1.6c-2.8 0-4.4 2.2-4.4 5v2.2c0 1-.5 1.8-1.2 2.8-1.1 1.6-2.3 3.6-2.3 6 0 2.6 3.2 4.6 7.9 4.6s7.9-2 7.9-4.6c0-2.4-1.2-4.4-2.3-6-.7-1-1.2-1.8-1.2-2.8V6.6c0-2.8-1.6-5-4.4-5zM12 11c-2.2 0-3.9 2.2-3.9 4.9s1.7 4.9 3.9 4.9 3.9-2.2 3.9-4.9S14.2 11 12 11zM8.7 5.5l2.7 1.1-.2 1.6-1.9-.1c-.5-.6-.7-1.6-.6-2.6zm6.6 0-2.7 1.1.2 1.6 1.9-.1c.5-.6.7-1.6.6-2.6zM10.2 9.1h3.6L12 10.4z"
+          />
+          <circle cx="10.2" cy="7" r=".55" />
+          <circle cx="13.8" cy="7" r=".55" />
+          <path d="M5.9 12.4c-1.9.9-3.3 2.8-3.7 5 1.2-.8 2.5-1.3 3.6-1.4zM18.1 12.4c1.9.9 3.3 2.8 3.7 5-1.2-.8-2.5-1.3-3.6-1.4zM4.4 20.7c.2-1.4 1.4-2.2 2.6-1.8l1.8.7c.8.3.9 1.3.2 1.8-1.1.8-2.6 1.1-3.8.6-.6-.2-.9-.7-.8-1.3zM19.6 20.7c-.2-1.4-1.4-2.2-2.6-1.8l-1.8.7c-.8.3-.9 1.3-.2 1.8 1.1.8 2.6 1.1 3.8.6.6-.2.9-.7.8-1.3z" />
+        </svg>
+      );
+    case "android":
+      return (
+        <svg viewBox="0 0 24 24" aria-hidden="true" className={svg}>
+          <path fillRule="evenodd" d="M7.2 4.1a.6.6 0 0 1 .8.2l1.4 2.4A9 9 0 0 1 12 6.3c.9 0 1.8.1 2.6.4L16 4.3a.6.6 0 1 1 1 .6l-1.3 2.3A8 8 0 0 1 20.6 14H3.4a8 8 0 0 1 4.9-6.8L7 4.9a.6.6 0 0 1 .2-.8zM8.3 10.2a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm7.4 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z" transform="translate(-2.4 2.2) scale(1.2)" />
+        </svg>
+      );
+  }
 }

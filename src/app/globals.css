@@ -15,10 +15,9 @@
   --color-ink-deep: #0c0c12;
   --color-panel: #1d1d27;
   --color-panel-hi: #23232f;
-  --color-surface: #1d1d27;
-  --color-brand: #d58a00;
-  --color-amber: #ffb443;
-  --color-gold: #ffd08a;
+  --color-brand: #d6a020;
+  --color-amber: #f5c040;
+  --color-gold: #ffe08f;
   /* Text, light to quiet. Neutral rather than blue, so the gold is the only accent. */
   --color-hi: #e6e6ec;
   --color-soft: #b4b4bf;
@@ -26,12 +25,13 @@
   --color-text: #efeff3;
   --color-body: #cacad3;
   --color-line: rgb(255 255 255 / 0.09);
+  /* Discord's blurple, a touch lighter so it reads on the dark page and bar. */
+  --color-discord: #6f7af5;
 
   --animate-rise: rise 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) both;
   --animate-drift: drift 16s ease-in-out infinite alternate;
   --animate-pulse-dot: pulse-dot 2s infinite;
   --animate-shine: shine 6s linear infinite;
-  --animate-sweep: sweep 2.6s ease-in-out 1.6s infinite;
 
   @keyframes rise {
     from { opacity: 0; transform: translateY(26px); }
@@ -46,10 +46,6 @@
   }
   @keyframes shine {
     to { background-position: 220% 0; }
-  }
-  @keyframes sweep {
-    from { transform: translateX(-100%); }
-    to { transform: translateX(100%); }
   }
 }
 
@@ -68,7 +64,8 @@
     min-height: 2.75rem;
     border-radius: 9999px;
     border: 1px solid rgb(255 255 255 / 0.18);
-    background: rgb(255 255 255 / 0.03);
+    /* opaque, the page's ink a shade lighter: the hero's embers pass under a button, never over it */
+    background: color-mix(in srgb, white 3%, var(--color-ink));
     padding: 0.625rem 1.25rem;
     font-weight: 600;
     line-height: 1.25;
@@ -78,33 +75,29 @@
   }
   .btn-primary {
     border-color: var(--color-amber);
-    background: linear-gradient(to bottom, var(--color-amber), #ff8a00);
+    background: linear-gradient(to bottom, var(--color-amber), #e8a317);
     color: #1a0d00;
-    box-shadow: 0 6px 24px rgb(255 138 0 / 0.3);
+    box-shadow: 0 6px 24px rgb(232 163 23 / 0.3);
   }
   .btn-sm {
     min-height: 2.5rem;
     padding: 0.5rem 1rem;
     font-size: 0.875rem;
   }
-  /* Discord's blue, a shade darker to sit with the gold and the dark page; flat, it never lifts. */
-  .btn-discord {
-    border-color: #4651b8;
-    background: #4651b8;
-    color: #fff;
-    transition: background-color 0.2s ease;
-  }
+  /* A plain button whose text and mark are Discord's blue. */
+  .btn-discord { color: var(--color-discord); }
   @media (hover: hover) {
     .btn:hover { transform: translateY(-2px); border-color: var(--color-amber); box-shadow: 0 8px 24px rgb(0 0 0 / 0.4); }
-    .btn-primary:hover { filter: brightness(1.08); box-shadow: 0 8px 28px rgb(255 138 0 / 0.4); }
-    .btn-discord:hover { transform: none; box-shadow: none; border-color: #3b449c; background: #3b449c; }
+    .btn-primary:hover { filter: brightness(1.08); box-shadow: 0 8px 28px rgb(232 163 23 / 0.4); }
+    .btn-discord:hover { border-color: var(--color-discord); }
   }
 
   /* A raised panel: info cards, resources, blog posts. */
   .surface {
     border-radius: 1rem;
     border: 1px solid var(--color-line);
-    background: linear-gradient(to bottom right, var(--color-surface), var(--color-ink));
+    /* barely lifted from the page, the border does the framing; opaque, so the hero's embers pass under it */
+    background: color-mix(in srgb, white 1.8%, var(--color-ink));
     transition: transform 0.2s ease, border-color 0.2s ease;
   }
   @media (hover: hover) {
@@ -146,7 +139,7 @@ html {
   background: var(--color-ink);
 }
 body { background: var(--color-ink); color: var(--color-text); }
-::selection { background: rgb(255 180 67 / 0.35); color: #fff; }
+::selection { background: rgb(245 192 64 / 0.35); color: #fff; }
 :focus-visible { outline: 2px solid var(--color-amber); outline-offset: 3px; }
 
 /* Sections fade in once scrolled to. Only hidden when scripting is available,
@@ -161,9 +154,6 @@ body { background: var(--color-ink); color: var(--color-text); }
 /* The bar grows with a transform (no layout work while it moves). */
 .bar-fill { width: var(--w); transform-origin: left; transition: transform 1.4s cubic-bezier(0.2, 0.8, 0.2, 1) 0.15s; }
 
-/* Section numbers count up automatically: 01, 02, ... */
-main { counter-reset: sec; }
-.sec-num::before { counter-increment: sec; content: "0" counter(sec); }
 
 details[open] > summary .plus { transform: rotate(45deg); }
 details[open] > :not(summary) { animation: rise 0.35s ease both; }
@@ -186,6 +176,62 @@ summary::-webkit-details-marker { display: none; }
 
 /* Without scripts a backdrop cannot report that it loaded: show it as it is. */
 @media (scripting: none) { .backdrop { opacity: 1 !important; } }
+
+/* The Download panel (DownloadPanel.tsx): folded to no height until opened. The row grows from 0fr
+   to 1fr, so it opens to its own height with no number to keep in step; hidden while folded, so
+   neither Tab nor a screen reader finds its links. */
+.dl {
+  display: grid;
+  grid-template-rows: 0fr;
+  visibility: hidden;
+  transition: grid-template-rows 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), visibility 0s linear 0.6s;
+}
+.dl[data-open="true"] {
+  grid-template-rows: 1fr;
+  visibility: visible;
+  transition: grid-template-rows 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), visibility 0s;
+}
+/* Room at the sides for the glow of the visitor's card; the page's own wrapper clips what reaches past the screen. */
+.dl-clip { min-height: 0; overflow: hidden; margin-inline: -24px; padding-inline: 24px; }
+.dl-inner { opacity: 0; transform: translateY(-14px); transition: opacity 0.35s ease, transform 0.35s ease; }
+.dl[data-open="true"] .dl-inner { opacity: 1; transform: none; transition: opacity 0.5s ease 0.1s, transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) 0.1s; }
+/* The cards come in one after another, left to right. They move with `translate` and `scale`, not
+   `transform`, so the hover lift (a transform) is never overridden by the entrance and never jumps
+   when it ends; nothing is kept after it ends (fill backwards). */
+.dl[data-open="true"] .dl-card { animation: dl-card 0.7s cubic-bezier(0.2, 0.8, 0.2, 1) backwards; animation-delay: calc(0.15s + var(--i) * 0.08s); }
+@keyframes dl-card {
+  from { opacity: 0; translate: 0 22px; scale: 0.98; }
+}
+/* The visitor's own system: a soft gold glow. */
+.dl-mine { box-shadow: 0 0 0 1px rgb(245 192 64 / 0.2), 0 18px 50px -18px rgb(232 163 23 / 0.45); }
+/* Corner brackets, like a game's target frame: on the visitor's card, and on the card under the pointer. */
+.dl-card::before,
+.dl-card::after {
+  content: "";
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border: 2px solid var(--color-brand);
+  opacity: 0;
+  pointer-events: none;
+  transition: width 0.25s ease, height 0.25s ease, opacity 0.25s ease;
+}
+.dl-card::before { top: -1px; left: -1px; border-width: 2px 0 0 2px; border-top-left-radius: 1rem; }
+.dl-card::after { bottom: -1px; right: -1px; border-width: 0 2px 2px 0; border-bottom-right-radius: 1rem; }
+.dl-mine::before,
+.dl-mine::after { border-color: var(--color-amber); opacity: 1; }
+.dl-tile { transition: transform 0.25s ease, box-shadow 0.25s ease; }
+@media (hover: hover) {
+  .dl-card:hover::before,
+  .dl-card:hover::after { width: 30px; height: 30px; opacity: 1; }
+  .dl-card:hover .dl-tile { transform: scale(1.06); box-shadow: 0 0 18px rgb(245 192 64 / 0.2); }
+}
+
+/* Without scripts the Download links still open it. */
+@media (scripting: none) {
+  .dl:target { grid-template-rows: 1fr; visibility: visible; }
+  .dl:target .dl-inner { opacity: 1; transform: none; }
+}
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }

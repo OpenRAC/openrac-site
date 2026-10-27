@@ -1,5 +1,5 @@
 import { formatSize } from "@/lib/format";
-import { DOWNLOAD_URL, PROJECTS } from "@/lib/projects";
+import { PROJECTS } from "@/lib/projects";
 import type { ProjectProgress } from "@/lib/progress";
 import type { ProjectId } from "@/lib/projects";
 import CountUp from "@/components/ui/CountUp";
@@ -14,15 +14,15 @@ export default function Hero({ progress }: { progress: Partial<Record<ProjectId,
     <div className="relative isolate pb-8 pt-12 sm:pb-16 sm:pt-24">
       <Particles />
       {/* A soft gold glow on the right: a radial gradient moved by transform only, so it costs no repaint (a CSS blur filter would, every frame). */}
-      <div aria-hidden className="absolute -right-56 -top-24 -z-10 size-[680px] bg-[radial-gradient(closest-side,rgb(213_138_0/0.3),transparent)] will-change-transform sm:animate-drift" />
+      <div aria-hidden className="absolute -right-56 -top-24 -z-10 size-[680px] bg-[radial-gradient(closest-side,rgb(214_160_32/0.3),transparent)] will-change-transform sm:animate-drift" />
 
-      {/* The same eyebrow as every section's number below. */}
-      <p className="mb-4 font-orbitron text-[11px] font-bold uppercase tracking-[.28em] text-brand after:mt-2 after:block after:h-[3px] after:w-11 after:rounded-sm after:bg-brand after:content-[''] sm:text-[13px]">
+      {/* One line at every width: on a phone the letters shrink with the screen rather than wrap. */}
+      <p className="mb-4 whitespace-nowrap font-orbitron text-[clamp(7px,2.35vw,11px)] font-bold uppercase tracking-[.2em] text-brand sm:tracking-[.28em] after:mt-2 after:block after:h-[3px] after:w-11 after:rounded-sm after:bg-brand after:content-[''] sm:text-[13px]">
         Unofficial · open source · community driven
       </p>
       {/* Balanced lines: no word is ever left alone on the last line, whatever the width. */}
       <h1 className="max-w-[860px] text-balance font-audiowide text-[clamp(32px,6.6vw,68px)] leading-[1.06]">
-        <span className="animate-shine bg-gradient-to-r from-amber via-[#ff8a00] to-gold bg-[length:220%_100%] bg-clip-text text-transparent">
+        <span className="animate-shine bg-gradient-to-r from-amber via-[#e8a317] to-gold bg-[length:220%_100%] bg-clip-text text-transparent">
           Ratchet &amp; Clank
         </span>{" "}
         series, rebuilt from the original bytes.
@@ -32,11 +32,15 @@ export default function Hero({ progress }: { progress: Partial<Record<ProjectId,
         same bytes as the original game, one function at a time, in the open.
       </p>
       <div className="mt-7 grid animate-rise gap-3 [animation-delay:.45s] min-[560px]:flex min-[560px]:flex-wrap">
-        <a href="#progress" className="btn btn-primary">
-          See progress
-        </a>
-        <a href={DOWNLOAD_URL} className="btn">
+        {/* The main thing a visitor comes for, so it leads; it opens the Download panel right under the hero (DownloadPanel.tsx). */}
+        <a id="download-button" href="#download" aria-controls="download" className="btn btn-primary">
+          <svg viewBox="0 0 16 16" aria-hidden="true" className="size-4 flex-none fill-none stroke-current stroke-2">
+            <path d="M8 2v8m-3.5-3.5L8 10l3.5-3.5M3 13.5h10" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
           Download the launcher
+        </a>
+        <a href="#progress" className="btn">
+          See progress
         </a>
       </div>
 

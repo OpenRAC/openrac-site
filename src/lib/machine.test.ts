@@ -61,6 +61,22 @@ test("JSON-LD describes the projects and cannot close its script tag", () => {
   const home = homeLd(SITE);
   const list = home["@graph"][1] as { itemListElement: unknown[] };
   assert.equal(list.itemListElement.length, PROJECTS.filter((p) => p.repo).length);
+  assert.equal(home["@graph"].length, 3);
+
+  const withLauncher = homeLd(SITE, {
+    version: "0.9.0",
+    date: "2026-10-25T14:55:38Z",
+    url: "https://github.com/OpenRAC/OpenRAC/releases/tag/launcher-v0.9.0",
+    platforms: [
+      { id: "windows", name: "Windows", supports: [], main: { label: "Installer (.exe)", url: "https://x/a.exe", size: 1 }, others: [] },
+      { id: "macos", name: "macOS", supports: [], main: null, others: [] },
+      { id: "linux", name: "Linux", supports: [], main: { label: "AppImage", url: "https://x/a.AppImage", size: 1 }, others: [] },
+    ],
+  });
+  const app = withLauncher["@graph"][3] as Record<string, unknown>;
+  assert.equal(app["@type"], "SoftwareApplication");
+  assert.equal(app.softwareVersion, "0.9.0");
+  assert.equal(app.operatingSystem, "Windows, Linux");
   const pLd = postLd(SITE, post);
   assert.equal(pLd.headline, "Welcome");
   assert.equal(pLd.image, `${SITE}/opengraph-image.png`);
