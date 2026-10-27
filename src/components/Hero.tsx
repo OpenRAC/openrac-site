@@ -1,4 +1,4 @@
-import { DISCORD_URL, DOWNLOAD_URL, PROJECTS } from "@/lib/projects";
+import { DOWNLOAD_URL, PROJECTS } from "@/lib/projects";
 import type { ProjectProgress } from "@/lib/progress";
 import type { ProjectId } from "@/lib/projects";
 import CountUp from "./CountUp";
@@ -17,16 +17,16 @@ export default function Hero({ progress }: { progress: Partial<Record<ProjectId,
       <div aria-hidden className="absolute -left-48 -top-32 -z-10 size-[620px] bg-[radial-gradient(closest-side,rgb(213_138_0/0.28),transparent)] will-change-transform sm:animate-drift" />
       <div aria-hidden className="absolute -right-56 -top-12 -z-10 size-[680px] bg-[radial-gradient(closest-side,rgb(58_79_184/0.5),transparent)] will-change-transform sm:animate-drift [animation-delay:-8s]" />
 
-      <span className="mb-5 inline-flex items-center gap-2.5 rounded-full border border-lav/35 bg-lav/10 px-3.5 py-1.5 text-[13px] tracking-wide text-lav">
-        <i className="size-2 animate-pulse-dot rounded-full bg-[#5be38a] shadow-[0_0_0_0_rgb(91_227_138/0.6)]" />
+      {/* The same eyebrow as every section's number below. */}
+      <p className="mb-4 font-orbitron text-[11px] font-bold uppercase tracking-[.28em] text-brand after:mt-2 after:block after:h-[3px] after:w-11 after:rounded-sm after:bg-brand after:content-[''] sm:text-[13px]">
         Unofficial · open source · community driven
-      </span>
-      <h1 className="max-w-[900px] font-audiowide text-[clamp(36px,7.2vw,72px)] leading-[1.04]">
-        Understanding the{" "}
+      </p>
+      {/* Balanced lines: no word is ever left alone on the last line, whatever the width. */}
+      <h1 className="max-w-[860px] text-balance font-audiowide text-[clamp(32px,6.6vw,68px)] leading-[1.06]">
         <span className="animate-shine bg-gradient-to-r from-amber via-[#ff8a00] to-gold bg-[length:220%_100%] bg-clip-text text-transparent">
           Ratchet &amp; Clank
-        </span>{" "}
-        series from the inside out.
+        </span>
+        , rebuilt from the original bytes.
       </h1>
       <p className="mt-5 max-w-[660px] text-[17px] text-soft sm:text-[19px]">
         OpenRAC is a hub for community decompilation projects of the Ratchet &amp; Clank series. Each project reconstructs readable source code that compiles to the
@@ -38,9 +38,6 @@ export default function Hero({ progress }: { progress: Partial<Record<ProjectId,
         </a>
         <a href={DOWNLOAD_URL} className="btn">
           Download the launcher
-        </a>
-        <a href={DISCORD_URL} className="btn">
-          Join our Discord
         </a>
       </div>
 
