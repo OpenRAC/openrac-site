@@ -189,7 +189,7 @@ export const listName = (p: Project): string =>
 
 export const DISCORD_URL = "https://discord.gg/Sfd2B54PDG";
 
-/** The OpenRAC organisation on GitHub, home of the projects' repositories. */
+/** The main OpenRAC repository on GitHub: the launcher, the port and the docs. */
 export const GITHUB_URL = "https://github.com/OpenRAC/OpenRAC";
 
 /** The launcher's newest release: GitHub sends this address on to whichever one is latest, so it never needs changing. */
