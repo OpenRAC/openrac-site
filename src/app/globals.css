@@ -141,6 +141,8 @@ html {
 body { background: var(--color-ink); color: var(--color-text); }
 ::selection { background: rgb(245 192 64 / 0.35); color: #fff; }
 :focus-visible { outline: 2px solid var(--color-amber); outline-offset: 3px; }
+/* An element focused only by script (tabindex="-1", such as the Download panel's heading) takes no ring: the reader did not move there with the keyboard. */
+[tabindex="-1"]:focus { outline: none; }
 
 /* Sections fade in once scrolled to. Only hidden when scripting is available,
    so the page stays fully readable without JavaScript. */
