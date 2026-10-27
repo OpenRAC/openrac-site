@@ -15,7 +15,6 @@
   --color-ink-deep: #0c0c12;
   --color-panel: #1d1d27;
   --color-panel-hi: #23232f;
-  --color-surface: #1d1d27;
   --color-brand: #d6a020;
   --color-amber: #f5c040;
   --color-gold: #ffe08f;
@@ -149,8 +148,7 @@ body { background: var(--color-ink); color: var(--color-text); }
   [data-reveal]:not(.in) { opacity: 0; transform: translateY(18px); }
   /* Whole sections only fade: a link scrolls to where a section is drawn, and a moving one would be missed by 18 px. */
   [data-reveal="fade"]:not(.in) { transform: none; }
-  /* box-shadow too: this rule replaces a card's own transition, and the progress cards ease their shadow on hover */
-  [data-reveal] { transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.5s ease; }
+  [data-reveal] { transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1); }
   [data-reveal]:not(.in) .bar-fill { transform: scaleX(0); }
 }
 /* The bar grows with a transform (no layout work while it moves). */
