@@ -93,7 +93,7 @@ export default function Header() {
       <header className="bar-stripes fixed inset-x-0 top-0 z-30 border-b border-black/30 text-black shadow-[inset_0_1px_0_rgb(255_255_255/0.35),0_4px_24px_rgb(0_0_0/0.45)]">
         <div className="mx-auto flex h-[50px] max-w-[1080px] items-center gap-6 px-4">
           <Link href="/" onClick={close} className="group flex items-center text-[#1b1206] no-underline" aria-label="OpenRAC home">
-            <Logo height={28} label="" className="transition-opacity group-hover:opacity-85" />
+            <Logo height={29} label="" className="transition-opacity group-hover:opacity-85" />
           </Link>
 
           <DiscordButton onClick={close} className="ml-auto min-[821px]:hidden" />
