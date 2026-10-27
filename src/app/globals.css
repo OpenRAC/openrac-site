@@ -65,7 +65,8 @@
     min-height: 2.75rem;
     border-radius: 9999px;
     border: 1px solid rgb(255 255 255 / 0.18);
-    background: rgb(255 255 255 / 0.03);
+    /* opaque, the page's ink a shade lighter: the hero's embers pass under a button, never over it */
+    background: color-mix(in srgb, white 3%, var(--color-ink));
     padding: 0.625rem 1.25rem;
     font-weight: 600;
     line-height: 1.25;
@@ -96,8 +97,8 @@
   .surface {
     border-radius: 1rem;
     border: 1px solid var(--color-line);
-    /* barely lifted from the page: the border does the framing */
-    background: rgb(255 255 255 / 0.018);
+    /* barely lifted from the page, the border does the framing; opaque, so the hero's embers pass under it */
+    background: color-mix(in srgb, white 1.8%, var(--color-ink));
     transition: transform 0.2s ease, border-color 0.2s ease;
   }
   @media (hover: hover) {
