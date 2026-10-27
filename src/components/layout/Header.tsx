@@ -34,7 +34,7 @@ function DiscordButton({ onClick, className = "" }: { onClick?: () => void; clas
       onClick={onClick}
       aria-label="Discord"
       title="Discord"
-      className={`flex size-11 flex-none items-center justify-center rounded-full bg-[#5865f2] text-white transition-colors hover:bg-[#4752c4] min-[821px]:size-9 ${className}`}
+      className={`flex size-11 flex-none items-center justify-center rounded-full bg-[#4651b8] text-white transition-colors hover:bg-[#3b449c] min-[821px]:size-9 ${className}`}
     >
       <DiscordIcon className="size-[20px] min-[821px]:size-[18px]" />
     </a>
