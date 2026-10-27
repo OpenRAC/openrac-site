@@ -32,12 +32,15 @@ export default function Hero({ progress }: { progress: Partial<Record<ProjectId,
         same bytes as the original game, one function at a time, in the open.
       </p>
       <div className="mt-7 grid animate-rise gap-3 [animation-delay:.45s] min-[560px]:flex min-[560px]:flex-wrap">
-        <a href="#progress" className="btn btn-primary">
-          See progress
-        </a>
-        {/* Opens the Download panel right under the hero (DownloadPanel.tsx). */}
-        <a id="download-button" href="#download" aria-controls="download" className="btn">
+        {/* The main thing a visitor comes for, so it leads; it opens the Download panel right under the hero (DownloadPanel.tsx). */}
+        <a id="download-button" href="#download" aria-controls="download" className="btn btn-primary">
+          <svg viewBox="0 0 16 16" aria-hidden="true" className="size-4 flex-none fill-none stroke-current stroke-2">
+            <path d="M8 2v8m-3.5-3.5L8 10l3.5-3.5M3 13.5h10" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
           Download the launcher
+        </a>
+        <a href="#progress" className="btn">
+          See progress
         </a>
       </div>
 
