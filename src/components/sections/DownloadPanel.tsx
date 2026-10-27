@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import { SystemIcon } from "@/components/ui/icons";
+import SectionArt from "@/components/ui/SectionArt";
 import { formatSize } from "@/lib/format";
 import { detectPlatform } from "@/lib/platform";
 import type { DevBuild, Download, LauncherRelease, Platform, PlatformId } from "@/lib/releases";
@@ -209,41 +210,34 @@ export default function DownloadPanel({ release, dev, platforms, fallback }: {
     >
       <div className="dl-clip">
         <div className="dl-inner relative pb-10 pt-4 sm:pb-14">
-          {/* A framed panel of its own, with the version large and faint behind the heading. */}
-          <div className="dl-frame relative isolate overflow-hidden rounded-[26px] border border-brand/30 px-4 pb-5 pt-7 sm:px-7 sm:pb-7 sm:pt-9">
-            <div aria-hidden className="pointer-events-none absolute -left-40 -top-40 -z-10 size-[520px] bg-[radial-gradient(closest-side,rgb(214_160_32/0.18),transparent)]" />
-            {release && (
-              <span aria-hidden className="dl-watermark pointer-events-none absolute -right-2 top-3 -z-10 font-audiowide text-[clamp(84px,13vw,170px)] leading-none max-sm:hidden">
-                {release.version}
-              </span>
-            )}
-            <div className="mb-6 flex items-start gap-4 sm:mb-8">
-              <div className="min-w-0">
-                <p className="mb-1.5 font-orbitron text-[13px] font-bold uppercase tracking-[.3em] text-brand after:mt-2 after:block after:h-[3px] after:w-11 after:rounded-sm after:bg-brand after:content-['']">
-                  Download
-                </p>
-                <h2
-                  id="download-title"
-                  ref={heading}
-                  tabIndex={-1}
-                  className="bg-gradient-to-r from-text to-soft bg-clip-text font-audiowide text-[clamp(26px,4vw,38px)] leading-tight text-transparent outline-none"
-                >
-                  Get the{" "}
-                  <span className="bg-gradient-to-r from-amber to-gold bg-clip-text">launcher</span>
-                </h2>
-                <p className="mt-2 max-w-[760px] text-dim">Pick your system: the launcher sets each game up from your own disc. No game is downloaded.</p>
+          <div>
+            <div className="mb-2 flex items-start gap-4">
+              <div className="flex min-w-0 items-center gap-3 sm:gap-5">
+                <SectionArt id="download" className="h-[72px] w-auto sm:h-[100px]" />
+                <div className="min-w-0">
+                  <h2
+                    id="download-title"
+                    ref={heading}
+                    tabIndex={-1}
+                    className="bg-gradient-to-r from-text to-soft bg-clip-text font-audiowide text-[clamp(26px,4vw,38px)] leading-tight text-transparent outline-none"
+                  >
+                    Get the launcher
+                  </h2>
+                </div>
               </div>
               <button
                 type="button"
                 onClick={close}
                 aria-label="Close downloads"
-                className="ml-auto grid size-11 flex-none place-items-center rounded-full border border-line bg-ink/60 text-soft transition-colors hover:border-amber hover:text-amber"
+                className="ml-auto grid size-11 flex-none place-items-center rounded-full border border-line text-soft transition-colors hover:border-amber hover:text-amber"
               >
                 <svg viewBox="0 0 16 16" aria-hidden="true" className="size-4 fill-none stroke-current stroke-2">
                   <path d="M3.5 3.5l9 9m0-9-9 9" strokeLinecap="round" />
                 </svg>
               </button>
             </div>
+
+            <p className="mb-6 max-w-[760px] text-dim sm:mb-8">Pick your system: the launcher sets each game up from your own disc. No game is downloaded.</p>
 
             <div className="grid gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-4">
               {platforms.map((p, i) => (

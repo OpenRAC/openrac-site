@@ -101,7 +101,8 @@
   .surface {
     border-radius: 1rem;
     border: 1px solid var(--color-line);
-    background: linear-gradient(to bottom right, var(--color-surface), var(--color-ink));
+    /* barely lifted from the page: the border does the framing */
+    background: rgb(255 255 255 / 0.018);
     transition: transform 0.2s ease, border-color 0.2s ease;
   }
   @media (hover: hover) {
@@ -159,9 +160,6 @@ body { background: var(--color-ink); color: var(--color-text); }
 /* The bar grows with a transform (no layout work while it moves). */
 .bar-fill { width: var(--w); transform-origin: left; transition: transform 1.4s cubic-bezier(0.2, 0.8, 0.2, 1) 0.15s; }
 
-/* Section numbers count up automatically: 01, 02, ... */
-main { counter-reset: sec; }
-.sec-num::before { counter-increment: sec; content: "0" counter(sec); }
 
 details[open] > summary .plus { transform: rotate(45deg); }
 details[open] > :not(summary) { animation: rise 0.35s ease both; }
@@ -212,13 +210,7 @@ summary::-webkit-details-marker { display: none; }
 }
 /* The visitor's own system: a soft gold glow. */
 .dl-mine { box-shadow: 0 0 0 1px rgb(245 192 64 / 0.2), 0 18px 50px -18px rgb(232 163 23 / 0.45); }
-/* The panel's frame: the panel colour, a little lighter at the top left. */
-.dl-frame {
-  background: linear-gradient(to bottom right, var(--color-panel), var(--color-ink-deep));
-  box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.05), 0 30px 80px -40px rgb(0 0 0 / 0.8);
-}
-.dl-watermark { color: transparent; -webkit-text-stroke: 1px rgb(245 192 64 / 0.09); }
-/* Corner brackets on every card, like a game's target frame; they reach further on hover. */
+/* Corner brackets, like a game's target frame: on the visitor's card, and on the card under the pointer. */
 .dl-card::before,
 .dl-card::after {
   content: "";
@@ -226,7 +218,7 @@ summary::-webkit-details-marker { display: none; }
   width: 14px;
   height: 14px;
   border: 2px solid var(--color-brand);
-  opacity: 0.55;
+  opacity: 0;
   pointer-events: none;
   transition: width 0.25s ease, height 0.25s ease, opacity 0.25s ease;
 }
