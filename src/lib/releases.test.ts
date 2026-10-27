@@ -1,7 +1,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { detectPlatform } from "./platform.ts";
-import { classify, pickLatest, toDevBuild, toLauncherRelease, type GithubRelease } from "./releases.ts";
+import { classify, devFromManifest, pickLatest, toLauncherRelease, type GithubRelease } from "./releases.ts";
 
 // The files of a launcher build, as its workflow names them.
 const NAMES = [
@@ -90,10 +90,27 @@ test("detectPlatform", () => {
   assert.equal(detectPlatform("curl/8.0"), null);
 });
 
-test("toDevBuild takes each system's main file and the version from the title", () => {
-  const dev = toDevBuild(release({ tag_name: "launcher-dev-master", name: "v0.9.1-dev.86 (master)", prerelease: true }));
-  assert.equal(dev.version, "0.9.1-dev.86");
+test("devFromManifest takes this build's version, time and main files from its updater manifest", () => {
+  const at = (name: string) => ({ url: `https://github.com/OpenRAC/OpenRAC/releases/download/launcher-dev-master/${name}` });
+  const dev = devFromManifest({
+    version: "0.9.1-dev.488",
+    pub_date: "2026-10-27T18:26:14Z",
+    platforms: {
+      "linux-x86_64-rpm": at("OpenRAC.Launcher-0.9.1-1.x86_64.rpm"),
+      "android-aarch64": at("OpenRAC.Launcher_0.9.1-dev.488_android-arm64-debug.apk"),
+      "linux-aarch64-appimage": at("OpenRAC.Launcher_0.9.1_aarch64.AppImage"),
+      "linux-x86_64-appimage": at("OpenRAC.Launcher_0.9.1_amd64.AppImage"),
+      "darwin-aarch64-app": at("OpenRAC.Launcher.app.tar.gz"),
+      "windows-x86_64-nsis": at("OpenRAC.Launcher_0.9.1_x64-setup.exe"),
+      "windows-x86_64-msi": at("OpenRAC.Launcher_0.9.1_x64_en-US.msi"),
+    },
+  });
+  assert.equal(dev.version, "0.9.1-dev.488");
+  assert.equal(dev.date, "2026-10-27T18:26:14Z");
   assert.equal(dev.files.windows?.url.split("/").pop(), "OpenRAC.Launcher_0.9.1_x64-setup.exe");
-  assert.equal(dev.files.android?.label, "APK · 64-bit ARM");
-  assert.equal(toDevBuild(release({ assets: [] })).files.linux, undefined);
+  assert.equal(dev.files.linux?.url.split("/").pop(), "OpenRAC.Launcher_0.9.1_amd64.AppImage");
+  assert.equal(dev.files.android?.url.split("/").pop(), "OpenRAC.Launcher_0.9.1-dev.488_android-arm64-debug.apk");
+  assert.equal(dev.files.macos?.url.split("/").pop(), "OpenRAC.Launcher_0.9.1_universal.dmg");
+  // a system whose build failed is left out of the manifest, and so of the panel
+  assert.equal(devFromManifest({ version: "0.9.1-dev.1", platforms: {} }).files.macos, undefined);
 });
