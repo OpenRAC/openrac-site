@@ -1,5 +1,38 @@
 import type { NextConfig } from "next";
 
+/**
+ * Content Security Policy: what a page may load, and from where. Everything comes from this site;
+ * the only outside address is the YouTube player, loaded when a visitor presses play.
+ * Scripts and styles must allow 'unsafe-inline': Next writes its page data as inline scripts that
+ * change on every build, and a per-request nonce would turn every cached page into a dynamic one.
+ * Development is left without it, since the dev server evaluates code on the fly.
+ */
+const CSP = [
+  "default-src 'self'",
+  "script-src 'self' 'unsafe-inline'",
+  "style-src 'self' 'unsafe-inline'",
+  "img-src 'self' data: blob:",
+  "font-src 'self'",
+  "connect-src 'self'",
+  "frame-src https://www.youtube-nocookie.com",
+  "object-src 'none'",
+  "base-uri 'self'",
+  "form-action 'self'",
+  "frame-ancestors 'none'",
+].join("; ");
+
+const SECURITY_HEADERS = [
+  { key: "X-Content-Type-Options", value: "nosniff" },
+  { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
+  { key: "X-Frame-Options", value: "DENY" },
+  // Browsers keep to HTTPS for a year once they have seen the site over it (ignored on plain http://localhost).
+  { key: "Strict-Transport-Security", value: "max-age=31536000" },
+  // The site needs none of these; a page can never ask for them.
+  { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=(), payment=(), usb=(), browsing-topics=()" },
+  { key: "Cross-Origin-Opener-Policy", value: "same-origin" },
+  ...(process.env.NODE_ENV === "production" ? [{ key: "Content-Security-Policy", value: CSP }] : []),
+];
+
 const nextConfig: NextConfig = {
   // Minimal self-contained server in .next/standalone, used by the container image.
   output: "standalone",
@@ -26,11 +59,7 @@ const nextConfig: NextConfig = {
       },
       {
         source: "/:path*",
-        headers: [
-          { key: "X-Content-Type-Options", value: "nosniff" },
-          { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
-          { key: "X-Frame-Options", value: "DENY" },
-        ],
+        headers: SECURITY_HEADERS,
       },
     ];
   },
