@@ -4,17 +4,18 @@ import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import { SystemIcon } from "@/components/ui/icons";
 import { formatSize } from "@/lib/format";
 import { detectPlatform } from "@/lib/platform";
-import type { LauncherRelease, Platform, PlatformId } from "@/lib/releases";
+import type { DevBuild, Download, LauncherRelease, Platform, PlatformId } from "@/lib/releases";
 
 /** "25 October 2026", the same on the server and in the browser (UTC, one locale), so it never changes on hydration. */
 const longDate = (iso: string) => new Date(iso).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" });
 
-/** "today", "yesterday", "3 days ago", "2 months ago": filled in the browser only, after the page is shown. */
+/** "5 minutes ago", "3 hours ago", "yesterday", "2 months ago": filled in the browser only, after the page is shown. */
 function ago(iso: string): string {
-  const days = Math.floor((Date.now() - Date.parse(iso)) / 86_400_000);
-  if (days < 1) return "today";
-  if (days < 2) return "yesterday";
+  const minutes = Math.max(1, Math.floor((Date.now() - Date.parse(iso)) / 60_000));
+  const days = Math.floor(minutes / 1440);
   const rtf = new Intl.RelativeTimeFormat("en", { numeric: "auto" });
+  if (minutes < 60) return rtf.format(-minutes, "minute");
+  if (minutes < 1440) return rtf.format(-Math.floor(minutes / 60), "hour");
   if (days < 30) return rtf.format(-days, "day");
   if (days < 365) return rtf.format(-Math.round(days / 30), "month");
   return rtf.format(-Math.round(days / 365), "year");
@@ -34,12 +35,20 @@ const Check = () => (
 );
 
 /** One system: its version, what it runs on, and one button; the other formats folded under it. */
-function SystemCard({ p, i, mine, release, fallback }: { p: Platform; i: number; mine: boolean; release: LauncherRelease | null; fallback: string }) {
+function SystemCard({ p, i, mine, release, dev, devAgo, fallback }: {
+  p: Platform;
+  i: number;
+  mine: boolean;
+  release: LauncherRelease | null;
+  dev: { build: DevBuild; file: Download } | null;
+  devAgo: string;
+  fallback: string;
+}) {
   return (
     // Four rows shared with the cards beside it (subgrid), so their buttons line up whatever the text above.
     <article
       style={{ "--i": i } as React.CSSProperties}
-      className={`dl-card group surface surface-link relative row-span-4 grid grid-rows-subgrid gap-0 p-5 sm:p-6 ${mine ? "dl-mine border-brand/70 max-sm:order-first" : ""}`}
+      className={`dl-card group surface surface-link relative row-span-4 grid grid-cols-[minmax(0,1fr)] grid-rows-subgrid gap-0 p-5 sm:p-6 ${mine ? "dl-mine border-brand/70 max-sm:order-first" : ""}`}
     >
       <div className="flex items-center gap-3.5">
         <span
@@ -94,6 +103,18 @@ function SystemCard({ p, i, mine, release, fallback }: { p: Platform; i: number;
         <p className="mt-2 text-center text-[12px] text-dim">
           {p.main ? `${p.main.label} · ${formatSize(p.main.size)}` : release ? "Not part of this release" : "Files are listed on GitHub"}
         </p>
+        {/* The newest build of master, for those who want what was merged today. */}
+        {dev && (
+          <a
+            href={dev.file.url}
+            download
+            className="mt-3 flex flex-wrap items-center justify-center gap-x-2 gap-y-0.5 rounded-lg border border-dashed border-line px-3 py-2 text-[12px] text-soft no-underline transition-colors hover:border-amber/60 hover:text-amber"
+          >
+            <span className="rounded border border-amber/40 px-1.5 py-px font-orbitron text-[9px] font-bold tracking-[.12em] text-amber">DEV</span>
+            <span>{dev.build.version ? `v${dev.build.version}` : "Latest build"}</span>
+            {devAgo && <span className="text-dim">{devAgo}</span>}
+          </a>
+        )}
       </div>
       <div>
         {p.others.length > 0 && (
@@ -124,14 +145,19 @@ function SystemCard({ p, i, mine, release, fallback }: { p: Platform; i: number;
  * hero's button, the bar's), then it opens in place and the page scrolls to it. Without scripts
  * the link still opens it (CSS :target).
  */
-export default function DownloadPanel({ release, platforms, fallback }: { release: LauncherRelease | null; platforms: Platform[]; fallback: string }) {
+export default function DownloadPanel({ release, dev, platforms, fallback }: {
+  release: LauncherRelease | null;
+  dev: DevBuild | null;
+  platforms: Platform[];
+  fallback: string;
+}) {
   const ref = useRef<HTMLElement>(null);
   const heading = useRef<HTMLHeadingElement>(null);
   const [open, setOpen] = useState(false);
   // Known only in the browser: the server renders no system as the visitor's and no "3 days ago".
   const mine = useSyncExternalStore(noChange, browserPlatform, () => null);
-  const date = release?.date ?? "";
-  const since = useSyncExternalStore(noChange, () => (date ? ago(date) : ""), () => "");
+  const devDate = dev?.date ?? "";
+  const devAgo = useSyncExternalStore(noChange, () => (devDate ? ago(devDate) : ""), () => "");
 
   useEffect(() => {
     const show = () => {
@@ -205,19 +231,7 @@ export default function DownloadPanel({ release, platforms, fallback }: { releas
                   Get the{" "}
                   <span className="bg-gradient-to-r from-amber to-gold bg-clip-text">launcher</span>
                 </h2>
-                {release && (
-                  <p className="mt-2 text-dim">
-                    Version <b className="font-semibold text-hi">{release.version}</b>
-                    {release.date && (
-                      <>
-                        , released <time dateTime={release.date}>{longDate(release.date)}</time>
-                        {since && <span> ({since})</span>}
-                      </>
-                    )}
-                    .
-                  </p>
-                )}
-                <p className={`max-w-[760px] text-dim ${release ? "mt-1" : "mt-2"}`}>Pick your system: the launcher sets each game up from your own disc. No game is downloaded.</p>
+                <p className="mt-2 max-w-[760px] text-dim">Pick your system: the launcher sets each game up from your own disc. No game is downloaded.</p>
               </div>
               <button
                 type="button"
@@ -233,7 +247,16 @@ export default function DownloadPanel({ release, platforms, fallback }: { releas
 
             <div className="grid gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-4">
               {platforms.map((p, i) => (
-                <SystemCard key={p.id} p={p} i={i} mine={p.id === mine} release={release} fallback={fallback} />
+                <SystemCard
+                  key={p.id}
+                  p={p}
+                  i={i}
+                  mine={p.id === mine}
+                  release={release}
+                  dev={dev?.files[p.id] ? { build: dev, file: dev.files[p.id]! } : null}
+                  devAgo={devAgo}
+                  fallback={fallback}
+                />
               ))}
             </div>
 
@@ -241,7 +264,7 @@ export default function DownloadPanel({ release, platforms, fallback }: { releas
               <a href={release?.url || fallback} className="text-amber no-underline hover:underline">
                 Release notes and every file on GitHub →
               </a>
-              <span>Updates install from inside the launcher.</span>
+              <span>Updates install from inside the launcher. DEV builds come from every merge to master and can be unstable.</span>
             </p>
           </div>
         </div>

@@ -12,20 +12,20 @@ import Resources from "@/components/sections/Resources";
 import { getActivity } from "@/lib/activity";
 import { homeLd, ldJson, siteUrl } from "@/lib/machine";
 import { getProgress } from "@/lib/progress";
-import { getLauncherRelease } from "@/lib/releases";
+import { getDevBuild, getLauncherRelease } from "@/lib/releases";
 
 // Rendered on the server and cached; rebuilt in the background at most every 5 minutes.
 export const revalidate = 300;
 
-/** The home page: every section in order, with the progress, activity and latest launcher loaded on the server. */
+/** The home page: every section in order, with the progress, activity and latest launcher builds loaded on the server. */
 export default async function Home() {
-  const [progress, commits, release] = await Promise.all([getProgress(), getActivity(), getLauncherRelease()]);
+  const [progress, commits, release, dev] = await Promise.all([getProgress(), getActivity(), getLauncherRelease(), getDevBuild()]);
 
   return (
     <main className="mx-auto max-w-[1080px] px-4">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: ldJson(homeLd(siteUrl())) }} />
       <Hero progress={progress} />
-      <Download release={release} />
+      <Download release={release} dev={dev} />
       <Progress progress={progress} />
       <Contribute />
       <Activity commits={commits} />

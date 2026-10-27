@@ -1,7 +1,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { detectPlatform } from "./platform.ts";
-import { classify, pickLatest, toLauncherRelease, type GithubRelease } from "./releases.ts";
+import { classify, pickLatest, toDevBuild, toLauncherRelease, type GithubRelease } from "./releases.ts";
 
 // The files of a launcher build, as its workflow names them.
 const NAMES = [
@@ -88,4 +88,12 @@ test("detectPlatform", () => {
   assert.equal(detectPlatform("Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X)"), null);
   assert.equal(detectPlatform("", "Windows"), "windows");
   assert.equal(detectPlatform("curl/8.0"), null);
+});
+
+test("toDevBuild takes each system's main file and the version from the title", () => {
+  const dev = toDevBuild(release({ tag_name: "launcher-dev-master", name: "v0.9.1-dev.86 (master)", prerelease: true }));
+  assert.equal(dev.version, "0.9.1-dev.86");
+  assert.equal(dev.files.windows?.url.split("/").pop(), "OpenRAC.Launcher_0.9.1_x64-setup.exe");
+  assert.equal(dev.files.android?.label, "APK · 64-bit ARM");
+  assert.equal(toDevBuild(release({ assets: [] })).files.linux, undefined);
 });

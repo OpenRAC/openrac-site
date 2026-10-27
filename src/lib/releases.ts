@@ -32,6 +32,7 @@ export interface LauncherRelease {
 /** The part of GitHub's release object that is read here. */
 export interface GithubRelease {
   tag_name: string;
+  name?: string | null;
   html_url: string;
   published_at: string | null;
   draft: boolean;
@@ -104,26 +105,52 @@ export function toLauncherRelease(release: GithubRelease): LauncherRelease {
   };
 }
 
+/** The newest development build: what CI publishes from every merge to master, one main file per system. */
+export interface DevBuild {
+  version: string;
+  /** When it was published, ISO 8601. */
+  date: string;
+  url: string;
+  files: Partial<Record<PlatformId, Download>>;
+}
+
+/** The pre-release the launcher workflow replaces on every push to master (its docs/RELEASING.md). */
+export const DEV_TAG = "launcher-dev-master";
+
+/** A development pre-release as the panel shows it: each system's main file, and the version from its title ("v0.9.1-dev.86 (master)"). */
+export function toDevBuild(release: GithubRelease): DevBuild {
+  const stable = toLauncherRelease(release);
+  const version = /\d+\.\d+\.\d+-dev\.\d+/.exec(release.name ?? "")?.[0] ?? "";
+  const files: DevBuild["files"] = {};
+  for (const p of stable.platforms) if (p.main) files[p.id] = p.main;
+  return { version, date: stable.date, url: stable.url, files };
+}
+
 /** Every system with no file: what the panel shows when GitHub cannot be reached. */
 export const noFiles = (): Platform[] =>
   toLauncherRelease({ tag_name: "", html_url: "", published_at: null, draft: false, prerelease: false, assets: [] }).platforms;
 
-/** The latest launcher release, read on the server and cached for ten minutes. Null if GitHub is unreachable. */
-export async function getLauncherRelease(): Promise<LauncherRelease | null> {
+/** GitHub's API, read on the server and cached for five minutes (the home page is rebuilt as often), so a new build shows without redeploying the site. Null if unreachable. */
+async function github<T>(path: string): Promise<T | null> {
   const headers: HeadersInit = { Accept: "application/vnd.github+json" };
   // Optional, only raises the rate limit. Never sent to the browser.
   if (process.env.GITHUB_TOKEN) headers.Authorization = `Bearer ${process.env.GITHUB_TOKEN}`;
   try {
-    const res = await fetch(`https://api.github.com/repos/${LAUNCHER_REPO}/releases?per_page=30`, {
-      headers,
-      next: { revalidate: 600 },
-      signal: AbortSignal.timeout(10_000),
-    });
-    if (!res.ok) return null;
-    const release = pickLatest((await res.json()) as GithubRelease[]);
-    if (!release) return null;
-    return toLauncherRelease(release);
+    const res = await fetch(`https://api.github.com/repos/${LAUNCHER_REPO}/${path}`, { headers, next: { revalidate: 300 }, signal: AbortSignal.timeout(10_000) });
+    return res.ok ? ((await res.json()) as T) : null;
   } catch {
     return null;
   }
+}
+
+/** The latest launcher release, or null. */
+export async function getLauncherRelease(): Promise<LauncherRelease | null> {
+  const release = pickLatest((await github<GithubRelease[]>("releases?per_page=30")) ?? []);
+  return release ? toLauncherRelease(release) : null;
+}
+
+/** The latest development build from master, or null. */
+export async function getDevBuild(): Promise<DevBuild | null> {
+  const release = await github<GithubRelease>(`releases/tags/${DEV_TAG}`);
+  return release && !release.draft ? toDevBuild(release) : null;
 }
