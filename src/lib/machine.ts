@@ -1,5 +1,6 @@
 import { DISCORD_URL, DOWNLOAD_URL, PROJECTS, type ProjectId } from "./projects.ts";
 import { percent, type Progress } from "./progress/types.ts";
+import type { LauncherRelease } from "./releases.ts";
 
 /**
  * The site for machines: search engines, AI assistants and anyone's scripts. Everything here is
@@ -149,7 +150,26 @@ ${postText}
 export const ldJson = (data: object) => JSON.stringify(data).replace(/</g, "\\u003c");
 
 /** schema.org description of the home page: the site and the projects it lists. */
-export function homeLd(site: string) {
+/** schema.org description of the launcher's latest release: free, and which systems it has a file for. */
+export function launcherLd(site: string, release: LauncherRelease) {
+  return {
+    "@type": "SoftwareApplication",
+    "@id": `${site}/#launcher`,
+    name: "OpenRAC Launcher",
+    description: "The desktop and Android app that sets each Ratchet & Clank game up from your own disc and builds its native port.",
+    url: `${site}/#download`,
+    applicationCategory: "GameApplication",
+    operatingSystem: release.platforms.filter((p) => p.main).map((p) => p.name).join(", "),
+    softwareVersion: release.version,
+    ...(release.date && { datePublished: release.date }),
+    downloadUrl: release.url,
+    offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+    publisher: { "@id": `${site}/#organization` },
+  };
+}
+
+/** schema.org description of the home page; with the launcher's latest release when it is known. */
+export function homeLd(site: string, release?: LauncherRelease | null) {
   return {
     "@context": "https://schema.org",
     "@graph": [
@@ -180,6 +200,7 @@ export function homeLd(site: string) {
         })),
       },
       orgLd(site),
+      ...(release ? [launcherLd(site, release)] : []),
     ],
   };
 }

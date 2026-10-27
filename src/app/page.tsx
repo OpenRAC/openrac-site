@@ -23,7 +23,7 @@ export default async function Home() {
 
   return (
     <main className="mx-auto max-w-[1080px] px-4">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: ldJson(homeLd(siteUrl())) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: ldJson(homeLd(siteUrl(), release)) }} />
       <Hero progress={progress} />
       <Download release={release} dev={dev} />
       <Progress progress={progress} />

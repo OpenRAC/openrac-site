@@ -22,7 +22,7 @@ const chakra = Chakra_Petch({
 
 const title = "OpenRAC · Ratchet & Clank Decompilation Hub";
 const description =
-  "OpenRAC is an unofficial hub for community decompilation projects of the Ratchet & Clank series. Track progress for every title.";
+  "OpenRAC is an unofficial hub for community decompilation projects of the Ratchet & Clank series. Track progress for every title and download the OpenRAC launcher.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl()),
