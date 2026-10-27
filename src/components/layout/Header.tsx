@@ -113,7 +113,7 @@ export default function Header() {
 
           <nav
             id="nav"
-            className={`absolute inset-x-0 top-full flex max-h-[calc(100dvh-50px)] flex-col gap-3 overflow-y-auto overscroll-contain border-b border-black/30 bar-stripes px-4 pb-[18px] pt-3.5 shadow-[0_20px_30px_rgb(0_0_0/0.4)] transition duration-200 max-[820px]:origin-top ${open ? "" : "max-[820px]:pointer-events-none max-[820px]:invisible max-[820px]:-translate-y-2 max-[820px]:opacity-0"} min-[821px]:static min-[821px]:max-h-none min-[821px]:flex-1 min-[821px]:flex-row min-[821px]:items-center min-[821px]:gap-[18px] min-[821px]:overflow-visible min-[821px]:border-0 min-[821px]:bg-none min-[821px]:p-0 min-[821px]:shadow-none`}
+            className={`absolute inset-x-0 top-full flex max-h-[calc(100dvh-50px)] flex-col gap-3 overflow-y-auto overscroll-contain border-b border-black/30 bar-stripes px-4 pb-[18px] pt-3.5 shadow-[0_20px_30px_rgb(0_0_0/0.4)] transition duration-200 max-[821px]:origin-top ${open ? "" : "max-[821px]:pointer-events-none max-[821px]:invisible max-[821px]:-translate-y-2 max-[821px]:opacity-0"} min-[821px]:static min-[821px]:max-h-none min-[821px]:flex-1 min-[821px]:flex-row min-[821px]:items-center min-[821px]:gap-[18px] min-[821px]:overflow-visible min-[821px]:border-0 min-[821px]:bg-none min-[821px]:p-0 min-[821px]:shadow-none`}
           >
             <div className="flex flex-col gap-1 min-[821px]:ml-2 min-[821px]:flex-row">
               {SECTIONS.map(([id, label]) => (
@@ -131,7 +131,7 @@ export default function Header() {
               <a href={DOWNLOAD_URL} onClick={close} className={`${pill} border border-black/25 bg-[#1b1206] text-amber hover:bg-[#2a1800]`}>
                 Download
               </a>
-              <DiscordButton onClick={close} className="max-[820px]:hidden" />
+              <DiscordButton onClick={close} className="max-[821px]:hidden" />
             </div>
           </nav>
         </div>
