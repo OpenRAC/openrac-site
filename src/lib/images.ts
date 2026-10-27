@@ -1,3 +1,4 @@
+import { access } from "node:fs/promises";
 import path from "node:path";
 import { PROJECTS } from "./projects.ts";
 
@@ -18,8 +19,25 @@ export const IMAGE_TYPES: Record<string, string> = {
 export const IMAGE_NAMES: ReadonlySet<string> = new Set(PROJECTS.map((p) => p.image.replace(/^\/img\//, "")));
 
 /** Full path of a backdrop, or null if the name is not one of the known files. Never follows a path. */
-export function resolveImage(name: string, dir: string = process.env.IMAGE_DIR ?? path.join(process.cwd(), "public", "img")): { file: string; type: string } | null {
+export function resolveImage(name: string, dir: string = process.env.IMAGE_DIR ?? path.join(/*turbopackIgnore: true*/ process.cwd(), "public", "img")): { file: string; type: string } | null {
   if (!IMAGE_NAMES.has(name)) return null;
   const type = IMAGE_TYPES[path.extname(name)];
-  return type ? { file: path.join(dir, name), type } : null;
+  // The folder is chosen at run time (IMAGE_DIR): keep the bundler from tracing it.
+  return type ? { file: path.join(/*turbopackIgnore: true*/ dir, name), type } : null;
+}
+
+/**
+ * Whether a card's backdrop (its `/img/...` address) is in the folder. A card renders the image only
+ * if it is, so a missing file shows the gradient instead of a broken picture. The page is rebuilt
+ * every 5 minutes, so an added or removed file shows up by then.
+ */
+export async function hasImage(src: string): Promise<boolean> {
+  const image = resolveImage(src.replace(/^\/img\//, ""));
+  if (!image) return false;
+  try {
+    await access(image.file);
+    return true;
+  } catch {
+    return false;
+  }
 }
