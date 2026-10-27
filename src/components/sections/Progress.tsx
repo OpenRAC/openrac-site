@@ -52,6 +52,15 @@ async function Maintainers({ users, className = "" }: { users?: string[]; classN
 /** Type sizes on every card, scaled to the card's own width (cqi), so a half card is not crowded. */
 const SIZES = { name: "text-[clamp(20px,5cqi,28px)]", pct: "text-[clamp(20px,5cqi,28px)]", small: "text-[12px] @xl:text-[13px]" };
 
+/** How colourful a hex colour is: its strongest channel minus its weakest, 0 for a grey. */
+const chroma = (hex: string) => {
+  const c = [1, 3, 5].map((i) => parseInt(hex.slice(i, i + 2), 16));
+  return Math.max(...c) - Math.min(...c);
+};
+
+/** A title's accent: its text colour, or its second one where the text is near white (Deadlocked, Size Matters, Secret Agent Clank), so every card keeps a colour of its own. */
+const accent = (t: Project["theme"]) => (chroma(t.text) < 40 ? t.text2 : t.text);
+
 /** A thin bar in the title's own accent, the one colour on the card. */
 function Bar({ value, name }: { value: number; name: string }) {
   return (
@@ -85,7 +94,7 @@ function Card({ project: g, progress: p, release = false }: { project: Project; 
   return (
     <section
       aria-label={`${g.name}${g.region ? ` (${g.region})` : ""}${g.phase === "research" ? ", research phase" : ""} progress`}
-      style={{ "--tx": g.theme.text } as CSSProperties}
+      style={{ "--tx": accent(g.theme) } as CSSProperties}
       data-reveal
       className="group/card @container relative isolate overflow-hidden rounded-2xl bg-ink"
     >
