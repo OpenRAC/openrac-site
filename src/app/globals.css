@@ -51,6 +51,11 @@
   }
 }
 
+/* The header bar: wide stripes of two close golds, as the launcher draws it. */
+@utility bar-stripes {
+  background: repeating-linear-gradient(35deg, #c99222 0 20px, #bd8619 20px 40px);
+}
+
 /* The shared pieces every section is built from, so buttons and panels look the same everywhere. */
 @layer components {
   .btn {
@@ -151,6 +156,9 @@ main { counter-reset: sec; }
 details[open] > summary .plus { transform: rotate(45deg); }
 details[open] > :not(summary) { animation: rise 0.35s ease both; }
 summary::-webkit-details-marker { display: none; }
+
+/* Without scripts a backdrop cannot report that it loaded: show it as it is. */
+@media (scripting: none) { .backdrop { opacity: 1 !important; } }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }

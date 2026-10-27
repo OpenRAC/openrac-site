@@ -94,9 +94,8 @@ The title cards can show a backdrop image named `rac1-bg.webp`, `gc-bg.webp`, `u
 repository**. Without them the cards use a colour gradient.
 
 The images are read from a folder, set by `IMAGE_DIR` (default `public/img`, which is git-ignored), on every
-request. Drop a file in and the card shows it within 5 minutes (the next page rebuild; a card only draws a backdrop
-whose file is there, so a missing one never shows as a broken picture), with no rebuild or restart. Only those
-seven names are ever served. Resized copies are cached for a day, so a replaced image can take up to a day to show (or restart
+request. Drop a file in and it is used at once, with no rebuild or restart; a missing one leaves the card's
+gradient (never a broken picture). Only those seven names are ever served. Resized copies are cached for a day, so a replaced image can take up to a day to show (or restart
 the service after clearing the cache volume).
 
 ### Adding a title

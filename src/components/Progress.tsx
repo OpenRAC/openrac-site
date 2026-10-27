@@ -1,10 +1,10 @@
 import Image from "next/image";
-import type { CSSProperties, ElementType, ReactNode } from "react";
+import type { CSSProperties } from "react";
 import { getGithubAvatar } from "@/lib/github";
-import { hasImage } from "@/lib/images";
 import { PROJECTS, type Project, type ProjectId } from "@/lib/projects";
 import { percent } from "@/lib/types";
 import type { ProjectProgress } from "@/lib/progress";
+import Backdrop from "./Backdrop";
 import Section from "./Section";
 
 /** Two decimals, like ByteMatch. */
@@ -34,7 +34,7 @@ async function Maintainers({ users, className = "" }: { users?: string[]; classN
   if (!users?.length) return null;
   const avatars = await Promise.all(users.map(getGithubAvatar));
   return (
-    <p className={`relative flex flex-wrap items-center justify-center gap-x-2.5 gap-y-1.5 ${className}`}>
+    <p className={`relative flex flex-wrap items-center gap-x-2.5 gap-y-1.5 ${className}`}>
       <span className="opacity-80">maintained by</span>
       {users.map((u, i) => (
         <a key={u} href={`https://github.com/${u}`} className="inline-flex items-center gap-1.5 font-semibold no-underline hover:underline">
@@ -47,437 +47,140 @@ async function Maintainers({ users, className = "" }: { users?: string[]; classN
 }
 
 const GITHUB = (
-  <svg viewBox="0 0 16 16" aria-hidden="true" className="size-7 flex-none fill-current sm:size-9">
+  <svg viewBox="0 0 16 16" aria-hidden="true" className="size-5 flex-none fill-current">
     <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38v-1.33c-2.23.48-2.7-1.07-2.7-1.07-.36-.92-.89-1.17-.89-1.17-.73-.5.05-.49.05-.49.8.06 1.23.83 1.23.83.71 1.22 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.6 7.6 0 0 1 4 0c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.28.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48v2.2c0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z" />
   </svg>
 );
 
-/** The frame all cards share: size, corners, shadow, and the optional backdrop under its tint. */
-async function Shell({
-  project: g,
-  label,
-  className,
-  style,
-  tint = "bg-black/20",
-  quality = 70,
-  children,
-}: {
-  project: Project;
-  label: string;
-  className: string;
-  style?: CSSProperties;
-  tint?: string;
-  quality?: 70 | 75;
-  children: ReactNode;
-}) {
-  // Backdrops are not in the repository: drawn only when the file is there, else the card's own colours show.
-  const backdrop = await hasImage(g.image);
+/**
+ * What sets each title's card apart, on top of its colours and typeface (Project.theme, fontClass):
+ * the shape of its boxes, its title plate and its bar, after the game's own menus.
+ */
+interface Look {
+  /** Shape of every box on the card. */
+  box: string;
+  /** Extra classes for the title plate. */
+  title?: string;
+  /** The bar's fill; default: the card's two text colours. */
+  fill?: string;
+  /** Ten lit segments instead of a smooth bar (Going Mobile's pixel meter). */
+  segments?: boolean;
+  /** Type sizes for the name and the percentage, for a typeface wider than the rest. */
+  sizes?: { name: string; pct: string; small: string };
+}
+
+const SIZES = { name: "text-[clamp(20px,3.2vw,30px)]", pct: "text-[clamp(20px,3.4vw,32px)]", small: "text-[11px] sm:text-[13px]" };
+
+const BEVEL = "[clip-path:polygon(14px_0,100%_0,100%_calc(100%-14px),calc(100%-14px)_100%,0_100%,0_14px)]";
+
+const LOOKS: Partial<Record<ProjectId, Look>> = {
+  deadlocked: {
+    box: "rounded-md border border-white/15",
+    title: "border-[#ff6b6b]/50! bg-gradient-to-r from-[#991b1b] via-[#dc2626] to-[#991b1b] text-white uppercase tracking-wider",
+    fill: "from-[#991b1b] via-[#dc2626] to-[#f87171]",
+  },
+  gm: {
+    box: "rounded-xl border-[3px] border-(--bd)",
+    segments: true,
+    sizes: { name: "text-[clamp(14px,2.4vw,24px)]", pct: "text-[clamp(14px,2.2vw,22px)]", small: "text-[8px] leading-relaxed sm:text-[10px]" },
+  },
+  sm: { box: `${BEVEL} border-2 border-(--bd)`, title: "uppercase tracking-wider", fill: "from-[#ca8a04] via-[#eab308] to-[#fde047]" },
+  sac: { box: "rounded-lg border-[3px] border-(--bd)" },
+};
+const DEFAULT_LOOK: Look = { box: "border-[3px] border-(--bd)" };
+
+function Bar({ value, name, look }: { value: number; name: string; look: Look }) {
+  const lit = Math.floor(value / 10);
   return (
-    <section
-      aria-label={label}
-      style={style}
-      data-reveal
-      className={`relative flex flex-col items-center justify-center overflow-hidden rounded-[22px] px-3.5 py-10 shadow-[0_18px_50px_rgb(0_0_0/0.45)] sm:min-h-[600px] sm:rounded-[30px] sm:px-6 sm:py-10 ${className}`}
+    <div
+      role="progressbar"
+      aria-label={`${name} code matched`}
+      aria-valuenow={Math.round(value * 10) / 10}
+      aria-valuemin={0}
+      aria-valuemax={100}
+      className="relative h-3.5 overflow-hidden rounded-[7px] border-2 border-(--bd) bg-black/50 p-px"
     >
-      {backdrop && <Image src={g.image} alt="" fill sizes="(min-width: 1080px) 1048px, 100vw" quality={quality} className="object-cover" />}
-      <div aria-hidden className={`absolute inset-0 ${tint}`} />
-      {children}
-    </section>
+      {look.segments ? (
+        <div className="flex h-full gap-1">
+          {Array.from({ length: 10 }, (_, i) => (
+            <span key={i} className={`h-full flex-1 rounded-[2px] ${i < lit ? "bg-(--tx)" : "bg-(--tx)/12"}`} />
+          ))}
+        </div>
+      ) : (
+        <i
+          style={{ "--w": `${value}%` } as CSSProperties}
+          className={`bar-fill relative block h-full overflow-hidden rounded-[5px] bg-gradient-to-r ${look.fill ?? "from-(--tx2) to-(--tx)"}`}
+        >
+          <span aria-hidden className="absolute inset-0 animate-sweep bg-gradient-to-r from-transparent via-white/45 to-transparent" />
+        </i>
+      )}
+    </div>
   );
 }
 
-/** One title, styled like its own menu. Rendered on the server. */
+/**
+ * One title, in the colours, typeface and box shapes of its own menus, over its backdrop. All
+ * cards share one layout (name and percentage, the bar, then the repository, the maintainers and
+ * the bytes), so they read alike and only their accents differ. Rendered on the server.
+ */
 function Card({ project: g, progress: p }: { project: Project; progress?: ProjectProgress }) {
   const t = g.theme;
+  const look = LOOKS[g.id] ?? DEFAULT_LOOK;
+  const value = p ? percent(p.code) : 0;
   const style = {
     "--box": t.box, "--bd": t.border, "--tx": t.text, "--tx2": t.text2,
-    // the gradient is the card's own background; the optional backdrop image is laid over it
-    backgroundImage: `radial-gradient(90% 70% at 70% 0, ${t.from}, transparent 70%), linear-gradient(160deg, ${t.from}, ${t.to})`,
+    backgroundImage: `radial-gradient(90% 90% at 85% 0, ${t.from}, transparent 70%), linear-gradient(160deg, ${t.from}, ${t.to})`,
   } as CSSProperties;
-  const box = "border-[7px] border-(--bd) bg-(--box) px-5 py-3 text-center text-(--tx) shadow-[0_8px_24px_rgb(0_0_0/0.35)] sm:px-6 sm:py-3.5";
-  const codePct = p ? percent(p.code) : 0;
+  const size = look.sizes ?? SIZES;
+  const box = `${look.box} bg-(--box) text-(--tx) shadow-[0_6px_18px_rgb(0_0_0/0.35)]`;
 
   return (
-    <Shell project={g} label={`${g.name}${g.region ? ` (${g.region})` : ""} progress`} style={style} className={`gap-5 bg-ink ${g.fontClass}`}>
-      {g.phase === "research" && <ResearchBadge className="relative border-(--bd) bg-(--box) text-(--tx)" />}
-      <div className={`${box} relative w-full max-w-[640px] text-[clamp(24px,4.5vw,44px)] leading-tight sm:px-10 sm:py-6`}>
-        {g.name}
-        <small className="mt-1.5 block text-[.5em] tracking-wide text-(--tx2)">{g.subtitle ?? `decompilation · ${g.year}${g.region ? ` · ${g.region}` : ""}`}</small>
-      </div>
+    <section
+      aria-label={`${g.name}${g.region ? ` (${g.region})` : ""}${g.phase === "research" ? ", research phase" : ""} progress`}
+      style={style}
+      data-reveal
+      className={`relative isolate overflow-hidden rounded-[22px] border border-white/10 bg-ink shadow-[0_14px_40px_rgb(0_0_0/0.4)] ${g.fontClass}`}
+    >
+      <Backdrop src={g.image} quality={g.id === "rac1" || g.id === "gc" || g.id === "uya" ? 70 : 75} />
+      {/* Darker where the text sits, so every backdrop reads the same. */}
+      <div aria-hidden className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/45 to-black/25 max-sm:bg-black/55" />
 
-      {p ? (
-        <>
-          <div className="relative flex w-full max-w-[640px] flex-wrap justify-center gap-4">
-            <div className={`${box} flex-1 text-[clamp(18px,3vw,26px)]`}>Progress</div>
-            <div className={`${box} flex-[2] text-[clamp(20px,3.4vw,32px)] tabular-nums`}>{pct(codePct)}</div>
+      <div className="relative grid gap-4 p-4 sm:gap-5 sm:p-6">
+        <div className="flex flex-wrap items-stretch gap-3 sm:flex-nowrap sm:gap-4">
+          <div className={`${box} ${look.title ?? ""} min-w-0 flex-[1_1_100%] px-4 py-3 sm:flex-1 sm:px-5`}>
+            <h3 className={`${size.name} leading-tight`}>{g.name}</h3>
+            <p className={`mt-1 tracking-wide opacity-80 ${size.small}`}>
+              {g.subtitle ?? `decompilation · ${g.year}${g.region ? ` · ${g.region}` : ""}`}
+            </p>
           </div>
-
-          <div className="relative w-full max-w-[640px]">
-            <div
-              role="progressbar"
-              aria-label={`${g.name} code matched`}
-              aria-valuenow={Math.round(codePct * 10) / 10}
-              aria-valuemin={0}
-              aria-valuemax={100}
-              className="h-3.5 overflow-hidden rounded-[7px] border-2 border-(--bd) bg-black/45"
-            >
-              <i
-                style={{ "--w": `${codePct}%` } as CSSProperties}
-                className="bar-fill relative block h-full overflow-hidden rounded-md bg-gradient-to-r from-(--tx2) to-(--tx)"
-              >
-                <span aria-hidden className="absolute inset-0 animate-sweep bg-gradient-to-r from-transparent via-white/45 to-transparent" />
-              </i>
-            </div>
+          {/* On a phone a single row (label, figure) under the name; beside it on wider screens. */}
+          <div className={`${box} flex flex-[1_1_100%] items-center justify-between gap-3 px-4 py-2.5 sm:flex-[0_1_220px] sm:flex-col sm:items-end sm:justify-center sm:gap-0 sm:px-5 sm:py-3 sm:text-right`}>
+            <span className="text-[10px] uppercase tracking-[.2em] text-(--tx2) sm:text-[11px]">Progress</span>
+            <b className={`${size.pct} whitespace-nowrap font-[inherit] leading-tight tabular-nums`}>{p ? pct(value) : "Not started"}</b>
           </div>
+        </div>
 
+        <Bar value={value} name={g.name} look={look} />
+
+        <div className={`flex min-w-0 flex-wrap items-center gap-x-5 gap-y-2.5 text-(--tx) ${look.sizes ? look.sizes.small : "text-[12px] sm:text-[13px]"}`}>
           {g.repo && (
-            <a href={`https://github.com/${g.repo}`} className={`${box} relative inline-flex max-w-full items-center gap-3.5 text-[clamp(14px,2.4vw,22px)] no-underline transition hover:brightness-125`}>
+            <a href={`https://github.com/${g.repo}`} className={`${box} inline-flex min-h-10 min-w-0 max-w-full items-center gap-2.5 px-3.5 py-1.5 no-underline transition hover:brightness-125`}>
               {GITHUB}
               <span className="truncate">{g.repo}</span>
             </a>
           )}
-          <Maintainers users={g.maintainers} className="px-2 text-[13px] text-(--tx)" />
-          <p className="relative px-2 text-center text-[13px] text-(--tx2)">
-            {matchedLine(p)}
-            {g.phase === "research" && <span className="mt-1 block">{RESEARCH_TEXT}</span>}
+          <Maintainers users={g.maintainers} />
+          {p && <p className="text-(--tx2) sm:ml-auto">{matchedLine(p)}</p>}
+        </div>
+        {g.phase === "research" && (
+          <p className="-mt-1 flex flex-wrap items-center gap-2.5 text-[12px] text-(--tx2)">
+            <ResearchBadge className="border-(--bd) bg-(--box) text-(--tx)" />
+            <span>{RESEARCH_TEXT}</span>
           </p>
-        </>
-      ) : (
-        <>
-          <div className="relative flex w-full max-w-[640px] flex-wrap justify-center gap-4 opacity-85">
-            <div className={`${box} flex-1 text-[clamp(18px,3vw,26px)]`}>Progress</div>
-            <div className={`${box} flex-[2] text-[clamp(16px,2.6vw,24px)]`}>Not started</div>
-          </div>
-          <div className="relative h-3.5 w-full max-w-[640px] rounded-[7px] border-2 border-(--bd) bg-black/45" />
-        </>
-      )}
-    </Shell>
+        )}
+      </div>
+    </section>
   );
-}
-
-function MobileCard({ project: g, progress: p }: { project: Project; progress?: ProjectProgress }) {
-  const codePct = p ? percent(p.code) : 0;
-  const lit = Math.floor(codePct / 10);
-
-  return (
-    <Shell project={g} label={`${g.name} progress`} quality={75} tint="bg-black/35" className="gap-5 bg-[#020b14] font-pixel">
-
-      {/* Main Title Box in Pixel Styling */}
-      <div className="relative w-full max-w-[640px] rounded-xl border-4 border-[#00f0ff] bg-[#002433]/92 px-4 py-5 text-center text-[#e0f2fe] shadow-[0_8px_24px_rgba(0,0,0,0.45)] sm:px-8 sm:py-6">
-        <h2 className="text-[clamp(16px,2.8vw,28px)] font-normal tracking-wide text-[#00f0ff]">
-          {g.name}
-        </h2>
-        <small className="mt-2.5 block text-[9px] tracking-wider text-[#7dd3fc] sm:text-[11px]">
-          {g.subtitle ?? "Java reconstruction · 2005 · J2ME"}
-        </small>
-      </div>
-
-      {/* Progress Box in Pixel Styling */}
-      <div className="relative flex w-full max-w-[640px] flex-wrap justify-center gap-3">
-        <div className="flex-1 rounded-xl border-4 border-[#00f0ff] bg-[#002433]/92 px-4 py-3 text-center text-[clamp(11px,1.8vw,16px)] text-[#00f0ff] shadow-[0_8px_24px_rgba(0,0,0,0.35)]">
-          PROGRESS
-        </div>
-        <div className="flex-[2] rounded-xl border-4 border-[#00f0ff] bg-[#002433]/92 px-4 py-3 text-center text-[clamp(13px,2.2vw,22px)] text-[#00f0ff] shadow-[0_8px_24px_rgba(0,0,0,0.35)]">
-          {pct(codePct)}
-        </div>
-      </div>
-
-      {/* Segmented Pixel Progress Bar */}
-      <div className="relative w-full max-w-[640px]">
-        <div
-          role="progressbar"
-          aria-label={`${g.name} code matched`}
-          aria-valuenow={Math.round(codePct * 10) / 10}
-          aria-valuemin={0}
-          aria-valuemax={100}
-          className="h-5 overflow-hidden rounded-lg border-2 border-[#00f0ff] bg-[#001018] p-0.5 shadow-[0_4px_12px_rgba(0,0,0,0.45)]"
-        >
-          <div className="flex h-full w-full gap-1">
-            {[...Array(10)].map((_, i) => (
-              <span
-                key={i}
-                className={`h-full flex-1 rounded-xs ${i < lit ? "bg-gradient-to-t from-[#00b4d8] to-[#00f0ff]" : "bg-[#00f0ff]/10"}`}
-              />
-            ))}
-          </div>
-        </div>
-      </div>
-
-      {/* GitHub Repo Link in Pixel Style */}
-      {g.repo && (
-        <a
-          href={`https://github.com/${g.repo}`}
-          className="relative inline-flex max-w-full items-center gap-3 rounded-xl border-4 border-[#00f0ff] bg-[#002433]/92 px-5 py-3 text-[10px] text-[#e0f2fe] no-underline shadow-[0_8px_24px_rgba(0,0,0,0.35)] transition hover:bg-[#00384d] hover:brightness-125 sm:text-xs"
-        >
-          {GITHUB}
-          <span className="truncate">{g.repo}</span>
-        </a>
-      )}
-
-      <Maintainers users={g.maintainers} className="px-2 text-[9px] tracking-wider text-[#e0f2fe] sm:text-[11px]" />
-
-      {/* Note */}
-      {p && (
-        <p className="relative px-2 text-center text-[9px] tracking-wider text-[#7dd3fc] sm:text-[11px]">
-          {matchedLine(p)}
-        </p>
-      )}
-    </Shell>
-  );
-}
-
-function DeadlockedCard({ project: g, progress: p }: { project: Project; progress?: ProjectProgress }) {
-  const codePct = p ? percent(p.code) : 0;
-
-  return (
-    <Shell
-      project={g}
-      label={`${g.name}${g.phase === "research" ? " (research phase)" : ""} progress`}
-      quality={75}
-      tint="bg-gradient-to-t from-black/85 via-black/45 to-black/65"
-      className="gap-5 bg-[#0c0d12] font-orbitron"
-    >
-
-      {/* DreadZone combat terminal box inspired by Deadlocked menu */}
-      <div className="relative w-full max-w-[640px]">
-        {/* Outer terminal frame */}
-        <div className="overflow-hidden rounded-xl border-2 border-[#b91c1c] bg-[#12151c]/95 p-2 shadow-2xl backdrop-blur-md">
-          <div className="flex flex-col gap-2 rounded-lg border border-white/10 bg-[#161a22]/90 p-2 sm:p-2.5">
-            
-            {/* Active Header item (inspired by 'SINGLE PLAYER' active row in images.jpeg) */}
-            <div className="relative flex flex-col items-center justify-center rounded-md border border-[#ff6b6b]/40 bg-gradient-to-r from-[#991b1b] via-[#dc2626] to-[#991b1b] px-4 py-3 text-center text-white shadow-[inset_0_1px_2px_rgba(255,255,255,0.4),0_4px_12px_rgba(0,0,0,0.6)]">
-              {g.phase === "research" && <ResearchBadge className="mb-2 border-white/45 bg-black/35 text-white" />}
-              <h2 className="px-2 text-[clamp(18px,3.5vw,32px)] font-black tracking-wider text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.7)]">
-                {g.name.toUpperCase()}
-              </h2>
-              <small className="mt-1 block text-[10px] font-semibold tracking-widest text-red-100 uppercase sm:text-xs">
-                {g.subtitle ?? `decompilation · ${g.year}${g.region ? ` · ${g.region}` : ""}`}
-              </small>
-            </div>
-
-            {/* Menu item 1: Progress */}
-            <div className="flex items-center justify-between rounded-md border border-white/5 bg-[#1b202a]/95 px-5 py-3 text-center shadow-[inset_0_1px_0_rgba(255,255,255,0.05)]">
-              <span className="text-[clamp(12px,2vw,16px)] font-bold tracking-widest text-[#9ca3af]">
-                PROGRESS
-              </span>
-              <span className="text-[clamp(16px,2.8vw,24px)] font-black tabular-nums tracking-wider text-white">
-                {pct(codePct)}
-              </span>
-            </div>
-
-            {/* DreadZone energy / progress meter */}
-            <div className="px-0.5">
-              <div
-                role="progressbar"
-                aria-label={`${g.name} code matched`}
-                aria-valuenow={Math.round(codePct * 10) / 10}
-                aria-valuemin={0}
-                aria-valuemax={100}
-                className="h-4 overflow-hidden rounded-md border border-[#dc2626]/60 bg-black/70 p-0.5 shadow-[inset_0_2px_4px_rgba(0,0,0,0.9)]"
-              >
-                <i
-                  style={{ "--w": `${codePct}%` } as CSSProperties}
-                  className="bar-fill relative block h-full overflow-hidden rounded-xs bg-gradient-to-r from-[#991b1b] via-[#dc2626] to-[#f87171]"
-                >
-                  <span aria-hidden className="absolute inset-0 animate-sweep bg-gradient-to-r from-transparent via-white/45 to-transparent" />
-                </i>
-              </div>
-            </div>
-
-            {/* Menu item 2: GitHub Repository (interactive hover state) */}
-            {g.repo && (
-              <a
-                href={`https://github.com/${g.repo}`}
-                className="group relative flex items-center justify-center gap-3 rounded-md border border-white/5 bg-[#1b202a]/95 px-5 py-3 text-[#d1d5db] no-underline shadow-[inset_0_1px_0_rgba(255,255,255,0.05)] transition hover:border-[#dc2626] hover:bg-gradient-to-r hover:from-[#7f1d1d]/90 hover:via-[#991b1b]/90 hover:to-[#7f1d1d]/90 hover:text-white"
-              >
-                {GITHUB}
-                <span className="truncate text-[clamp(12px,2vw,17px)] font-bold tracking-wide">
-                  {g.repo}
-                </span>
-              </a>
-            )}
-
-            {/* Menu item 3: Status */}
-            <div className="flex flex-col items-center justify-center gap-1 rounded-md border border-white/5 bg-[#12151b]/90 px-4 py-2.5 text-center">
-              <Maintainers users={g.maintainers} className="text-[11px] tracking-wide text-white sm:text-xs" />
-              {p && <p className="text-[11px] font-medium tracking-wide text-[#d1d5db] sm:text-xs">{matchedLine(p)}</p>}
-            </div>
-
-          </div>
-        </div>
-      </div>
-    </Shell>
-  );
-}
-
-/** Authentic Size Matters beveled menu button with yellow border and cut corners */
-function SmButton({
-  children,
-  active = false,
-  className = "",
-  as: Component = "div",
-  ...props
-}: {
-  children: ReactNode;
-  active?: boolean;
-  className?: string;
-  as?: ElementType;
-  href?: string;
-}) {
-  return (
-    <Component
-      {...props}
-      className={`group relative flex w-full max-w-[560px] items-center justify-between px-7 py-3 sm:px-9 sm:py-3.5 no-underline transition-all ${className}`}
-    >
-      {/* SVG Beveled Button Frame */}
-      <svg
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 size-full overflow-visible drop-shadow-[0_4px_8px_rgba(0,0,0,0.55)]"
-        viewBox="0 0 500 58"
-        preserveAspectRatio="none"
-      >
-        <polygon
-          points="24,2 496,2 496,32 474,54 2,54 2,24"
-          fill={active ? "url(#sm-btn-active)" : "url(#sm-btn-idle)"}
-          stroke={active ? "#facc15" : "#eab308"}
-          strokeWidth="2.5"
-          vectorEffect="non-scaling-stroke"
-          className={active ? "" : "transition-all group-hover:fill-[url(#sm-btn-active)] group-hover:stroke-[#facc15]"}
-        />
-        {/* Top-left tab */}
-        <polyline
-          points="24,3 24,0 75,0 75,3"
-          fill="none"
-          stroke={active ? "#facc15" : "#eab308"}
-          strokeWidth="2.5"
-          vectorEffect="non-scaling-stroke"
-          className={active ? "" : "transition-all group-hover:stroke-[#facc15]"}
-        />
-        {/* Bottom-right tab */}
-        <polyline
-          points="474,53 474,56 423,56 423,53"
-          fill="none"
-          stroke={active ? "#facc15" : "#eab308"}
-          strokeWidth="2.5"
-          vectorEffect="non-scaling-stroke"
-          className={active ? "" : "transition-all group-hover:stroke-[#facc15]"}
-        />
-      </svg>
-
-      <div className="relative z-10 flex w-full items-center justify-between">
-        {children}
-      </div>
-    </Component>
-  );
-}
-
-function SizeMattersCard({ project: g, progress: p }: { project: Project; progress?: ProjectProgress }) {
-  const codePct = p ? percent(p.code) : 0;
-
-  return (
-    <Shell
-      project={g}
-      label={`${g.name}${g.phase === "research" ? " (research phase)" : ""} progress`}
-      quality={75}
-      tint="bg-black/40"
-      className="gap-3.5 bg-[#0c1622] font-chakra"
-    >
-
-      {/* SVG Definitions for the beveled menu buttons */}
-      <svg className="absolute size-0" aria-hidden="true">
-        <defs>
-          <linearGradient id="sm-btn-idle" x1="0%" y1="0%" x2="0%" y2="100%">
-            <stop offset="0%" stopColor="#364b5e" />
-            <stop offset="50%" stopColor="#223240" />
-            <stop offset="100%" stopColor="#15212c" />
-          </linearGradient>
-          <linearGradient id="sm-btn-active" x1="0%" y1="0%" x2="0%" y2="100%">
-            <stop offset="0%" stopColor="#7a8c9e" />
-            <stop offset="50%" stopColor="#5b6c7b" />
-            <stop offset="100%" stopColor="#43525f" />
-          </linearGradient>
-        </defs>
-      </svg>
-
-      {/* Title / Active menu button */}
-      <SmButton active className="cursor-default">
-        <div className="flex w-full flex-col items-center justify-center text-center">
-          {g.phase === "research" && (
-            <span className="mb-1 inline-flex items-center gap-1.5 rounded-full border border-yellow-400/40 bg-black/40 px-2.5 py-0.5 text-[9px] font-bold uppercase tracking-widest text-yellow-200">
-              <i aria-hidden className="size-1.5 rounded-full bg-yellow-300" />
-              Research phase
-            </span>
-          )}
-          <h2 className="text-[clamp(16px,3vw,28px)] font-bold tracking-wider text-white">
-            {g.name.toUpperCase()}
-          </h2>
-          <small className="block text-[10px] font-semibold tracking-widest uppercase text-yellow-100 sm:text-xs">
-            {g.subtitle ?? `decompilation · ${g.year}${g.region ? ` · ${g.region}` : ""}`}
-          </small>
-        </div>
-      </SmButton>
-
-      {/* Progress button */}
-      <SmButton className="cursor-default">
-        <span className="text-[clamp(13px,2vw,17px)] font-bold tracking-widest text-[#c2d7eb]">
-          PROGRESS
-        </span>
-        <span className="text-[clamp(15px,2.4vw,22px)] font-bold tabular-nums tracking-wider text-white">
-          {pct(codePct)}
-        </span>
-      </SmButton>
-
-      {/* Progress Bar Gauge */}
-      <div className="relative w-full max-w-[560px] px-2">
-        <div
-          role="progressbar"
-          aria-label={`${g.name} code matched`}
-          aria-valuenow={Math.round(codePct * 10) / 10}
-          aria-valuemin={0}
-          aria-valuemax={100}
-          className="h-4 overflow-hidden rounded-md border-2 border-[#eab308] bg-[#0c1620] p-0.5 shadow-[inset_0_2px_4px_rgba(0,0,0,0.8)]"
-        >
-          <i
-            style={{ "--w": `${codePct}%` } as CSSProperties}
-            className="bar-fill relative block h-full overflow-hidden rounded-xs bg-gradient-to-r from-[#ca8a04] via-[#eab308] to-[#fde047]"
-          >
-            <span aria-hidden className="absolute inset-0 animate-sweep bg-gradient-to-r from-transparent via-white/40 to-transparent" />
-          </i>
-        </div>
-      </div>
-
-      {/* GitHub Repository button */}
-      {g.repo && (
-        <SmButton as="a" href={`https://github.com/${g.repo}`}>
-          <div className="flex min-w-0 items-center gap-3">
-            {GITHUB}
-            <span className="truncate text-[clamp(13px,2vw,17px)] font-bold tracking-wide text-[#c2d7eb] transition-colors group-hover:text-white">
-              {g.repo}
-            </span>
-          </div>
-          <span className="hidden flex-none text-xs font-bold tracking-widest text-[#eab308] transition-colors group-hover:text-white min-[480px]:inline">
-            [ REPOSITORY ]
-          </span>
-        </SmButton>
-      )}
-
-      {/* Status button */}
-      <SmButton className="cursor-default">
-        <div className="flex w-full flex-col items-center justify-center gap-1 text-center">
-          <Maintainers users={g.maintainers} className="text-[11px] tracking-wide text-white sm:text-xs" />
-          {p && <p className="text-[11px] font-medium tracking-wide text-[#c2d7eb] sm:text-xs">{matchedLine(p)}</p>}
-        </div>
-      </SmButton>
-    </Shell>
-  );
-}
-
-/** The card that fits the project: most use the shared one, a few have their game's own menu. */
-function ProjectCard({ project, progress }: { project: Project; progress?: ProjectProgress }) {
-  if (project.id === "deadlocked") return <DeadlockedCard project={project} progress={progress} />;
-  if (project.id === "gm") return <MobileCard project={project} progress={progress} />;
-  if (project.id === "sm") return <SizeMattersCard project={project} progress={progress} />;
-  return <Card project={project} progress={progress} />;
 }
 
 /** A group of cards under its own heading and platform tag. */
@@ -487,7 +190,7 @@ function Group({ title, text, platforms, dot, tag, projects, progress }: {
   platforms: string;
   dot: string;
   tag: string;
-  projects: Project[];
+  projects: readonly Project[];
   progress: Partial<Record<ProjectId, ProjectProgress>>;
 }) {
   return (
@@ -502,9 +205,9 @@ function Group({ title, text, platforms, dot, tag, projects, progress }: {
         </div>
         <span className={`rounded-full border px-3 py-1 font-orbitron text-xs ${tag}`}>{platforms}</span>
       </div>
-      <div className="grid gap-5 sm:gap-7">
+      <div className="grid gap-4 sm:gap-5">
         {projects.map((g) => (
-          <ProjectCard key={g.id} project={g} progress={progress[g.id]} />
+          <Card key={g.id} project={g} progress={progress[g.id]} />
         ))}
       </div>
     </div>
@@ -517,10 +220,10 @@ export default function Progress({ progress }: { progress: Partial<Record<Projec
 
   return (
     <Section id="progress" title="Progress" sub="Every title gets its own menu. The percentage is the share of the game's code that compiles to exactly the retail bytes.">
-      <div className="space-y-12 sm:space-y-14">
+      <div className="space-y-12">
         <Group
           title="Original Trilogy & Deadlocked"
-          text="The four Insomniac PlayStation 2 releases, from the 2002 debut to the combat arena of Deadlocked."
+          text="The four PlayStation 2 releases of the main series, from the 2002 debut to the combat arena of Deadlocked."
           platforms="PlayStation 2"
           dot="bg-brand"
           tag="border-lav/20 bg-lav/5 text-dim"
