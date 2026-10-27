@@ -193,7 +193,7 @@ function Card({ project: g, progress: p, release = false }: { project: Project; 
         )}
       </div>
       {/* The frame, drawn over everything: the picture under it never shows past its line or its corners. */}
-      <div aria-hidden className="pointer-events-none absolute inset-0 rounded-[inherit] border border-white/10 transition-colors duration-500 group-hover/card:border-(--bd)/60" />
+      <div aria-hidden className="pointer-events-none absolute inset-0 rounded-[inherit] border-2 border-white/10 transition-colors duration-500 group-hover/card:border-(--bd)/60" />
     </section>
   );
 }
