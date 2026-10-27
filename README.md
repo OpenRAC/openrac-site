@@ -90,13 +90,14 @@ rate limit for the activity feed; it stays on the server.
 
 ### Card backdrops
 
-The title cards can show a backdrop image named `rac1-bg.webp`, `gc-bg.webp`, `uya-bg.webp`, `deadlocked-bg.webp`, `going-mobile-bg.webp`, `size-matters-bg.webp` and `sac-bg.webp` (WebP, about
+The title cards can show a backdrop image named `rac1-bg.webp`, `rac1us-bg.webp`, `gc-bg.webp`, `uya-bg.webp`, `deadlocked-bg.webp`, `going-mobile-bg.webp`, `size-matters-bg.webp` and `sac-bg.webp` (WebP, about
 1600 px wide). Those would be screenshots from the games, which are copyrighted, so **they are not part of this
-repository**. Without them the cards use a colour gradient.
+repository**. Without them the cards use a colour gradient. `rac1us-bg.webp` (the
+NTSC-U card) falls back to `rac1-bg.webp` mirrored until it is added.
 
 The images are read from a folder, set by `IMAGE_DIR` (default `public/img`, which is git-ignored), on every
 request. Drop a file in and it is used at once, with no rebuild or restart; a missing one leaves the card's
-gradient (never a broken picture). Only those seven names are ever served. Resized copies are cached for a day, so a replaced image can take up to a day to show (or restart
+gradient (never a broken picture). Only those eight names are ever served. Resized copies are cached for a day, so a replaced image can take up to a day to show (or restart
 the service after clearing the cache volume).
 
 ### Adding a title
@@ -125,7 +126,7 @@ systemctl --user start openrac.service
 loginctl enable-linger "$USER"      # once, so it starts at boot without a login
 
 # 4. card backdrops: copy your images into the folder the unit mounts (no restart needed)
-cp rac1-bg.webp gc-bg.webp uya-bg.webp deadlocked-bg.webp going-mobile-bg.webp size-matters-bg.webp sac-bg.webp ~/openrac-img/
+cp rac1-bg.webp rac1us-bg.webp gc-bg.webp uya-bg.webp deadlocked-bg.webp going-mobile-bg.webp size-matters-bg.webp sac-bg.webp ~/openrac-img/
 ```
 
 The container listens on `127.0.0.1:3000`; put your reverse proxy in front of it. It runs as a non-root user with

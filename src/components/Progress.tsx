@@ -75,11 +75,11 @@ const BEVEL = "[clip-path:polygon(14px_0,100%_0,100%_calc(100%-14px),calc(100%-1
 const LOOKS: Partial<Record<ProjectId, Look>> = {
   deadlocked: {
     box: "rounded-md border border-white/15",
-    title: "border-[#ff6b6b]/50! bg-gradient-to-r from-[#991b1b] via-[#dc2626] to-[#991b1b] text-white uppercase tracking-wider",
-    fill: "from-[#991b1b] via-[#dc2626] to-[#f87171]",
+    title: "border-[#c05050]/40! bg-gradient-to-r from-[#3d1212] via-[#5e1919] to-[#3d1212] text-[#f1e8e8] uppercase tracking-wider",
+    fill: "from-[#5c1717] via-[#8f2424] to-[#c05454]",
   },
   gm: { box: "rounded-xl border-[3px] border-(--bd)", segments: true },
-  sm: { box: `${BEVEL} border-2 border-(--bd)`, title: "uppercase tracking-wider", fill: "from-[#ca8a04] via-[#eab308] to-[#fde047]" },
+  sm: { box: `${BEVEL} border-2 border-(--bd)`, title: "uppercase tracking-wider", fill: "from-[#7d6015] via-[#a8842e] to-[#d2ae58]" },
   sac: { box: "rounded-lg border-[3px] border-(--bd)" },
 };
 const DEFAULT_LOOK: Look = { box: "border-[3px] border-(--bd)" };
@@ -142,7 +142,7 @@ function Card({ project: g, progress: p, release = false }: { project: Project; 
       className={`group/card @container relative isolate overflow-hidden rounded-[22px] border border-white/10 bg-ink shadow-[0_14px_40px_rgb(0_0_0/0.4)] transition-[border-color,box-shadow] duration-500 hover:border-(--bd)/60 hover:shadow-[0_18px_48px_rgb(0_0_0/0.5)] ${g.fontClass}`}
     >
       {/* The backdrop leans in a little under the pointer (hover only: never on touch screens). */}
-      <Backdrop src={g.image} className="transition-[opacity,transform] duration-700 ease-out group-hover/card:scale-[1.05]" />
+      <Backdrop src={g.image} fallback={g.fallbackImage} zoom="group-hover/card:scale-[1.05]" />
       {/* Darker where the text sits, so every backdrop reads the same. */}
       <div aria-hidden className="absolute inset-0 bg-black/40 @xl:bg-transparent @xl:bg-gradient-to-r @xl:from-black/70 @xl:via-black/40 @xl:to-black/20" />
 

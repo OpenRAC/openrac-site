@@ -38,7 +38,7 @@ export function Contribute() {
           [
             "Say hello",
             "Join the Discord, tell us what you are curious about and pick a starting point with people who have done it before.",
-            <a key="d" href={DISCORD_URL} className="btn btn-sm border-[#5865f2] bg-[#5865f2] text-white">
+            <a key="d" href={DISCORD_URL} className="btn btn-sm btn-discord">
               {DISCORD_ICON}
               Discord
             </a>,
@@ -81,10 +81,10 @@ const TAG: Record<ProjectId, string> = {
   rac1us: "border-hi/30 bg-hi/15 text-hi",
   gc: "border-[#5a7fa6]/40 bg-[#5a7fa6]/25 text-[#9fd3ff]",
   uya: "border-brand/40 bg-brand/20 text-[#ffc35a]",
-  deadlocked: "border-red-500/40 bg-red-950/60 text-[#ff6b6b]",
-  gm: "border-[#00b4d8]/40 bg-[#00b4d8]/25 text-[#7dd3fc]",
-  sm: "border-yellow-500/40 bg-yellow-950/60 text-[#facc15]",
-  sac: "border-sky-500/40 bg-sky-950/60 text-[#38bdf8]",
+  deadlocked: "border-[#8a2a2a]/50 bg-[#4a1616]/60 text-[#d07070]",
+  gm: "border-[#2f8f9a]/50 bg-[#0b2430]/70 text-[#8fd3da]",
+  sm: "border-[#a8842e]/50 bg-[#3a2e10]/60 text-[#d2ae58]",
+  sac: "border-[#3b7f9e]/50 bg-[#17435a]/50 text-[#72a8c0]",
 };
 
 export function Activity({ commits }: { commits: Commit[] }) {

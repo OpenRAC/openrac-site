@@ -87,9 +87,17 @@
     padding: 0.5rem 1rem;
     font-size: 0.875rem;
   }
+  /* Discord's blue, flat: it never lifts like the other buttons. */
+  .btn-discord {
+    border-color: #5865f2;
+    background: #5865f2;
+    color: #fff;
+    transition: background-color 0.2s ease;
+  }
   @media (hover: hover) {
     .btn:hover { transform: translateY(-2px); border-color: var(--color-amber); box-shadow: 0 8px 24px rgb(0 0 0 / 0.4); }
     .btn-primary:hover { filter: brightness(1.08); box-shadow: 0 8px 28px rgb(255 138 0 / 0.4); }
+    .btn-discord:hover { transform: none; box-shadow: none; border-color: #4752c4; background: #4752c4; }
   }
 
   /* A raised panel: info cards, resources, blog posts. */

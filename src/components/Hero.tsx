@@ -24,8 +24,8 @@ export default function Hero({ progress }: { progress: Partial<Record<ProjectId,
       <h1 className="max-w-[860px] text-balance font-audiowide text-[clamp(32px,6.6vw,68px)] leading-[1.06]">
         <span className="animate-shine bg-gradient-to-r from-amber via-[#ff8a00] to-gold bg-[length:220%_100%] bg-clip-text text-transparent">
           Ratchet &amp; Clank
-        </span>
-        , rebuilt from the original bytes.
+        </span>{" "}
+        series, rebuilt from the original bytes.
       </h1>
       <p className="mt-5 max-w-[600px] text-[15px] leading-relaxed text-soft sm:text-[17px]">
         OpenRAC is a hub for community decompilation projects of the Ratchet &amp; Clank series. Each project reconstructs readable source code that compiles to the
