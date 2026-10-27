@@ -64,8 +64,8 @@ interface Look {
   segments?: boolean;
 }
 
-/** Type sizes on every card. */
-const SIZES = { name: "text-[clamp(20px,3.2vw,30px)]", pct: "text-[clamp(20px,3.4vw,32px)]", small: "text-[12px] @xl:text-[13px]" };
+/** Type sizes on every card, scaled to the card's own width (cqi), so a half card is not crowded. */
+const SIZES = { name: "text-[clamp(20px,5.2cqi,30px)]", pct: "text-[clamp(20px,5.6cqi,32px)]", small: "text-[12px] @xl:text-[13px]" };
 
 const BEVEL = "[clip-path:polygon(14px_0,100%_0,100%_calc(100%-14px),calc(100%-14px)_100%,0_100%,0_14px)]";
 
@@ -144,23 +144,21 @@ function Card({ project: g, progress: p, release = false }: { project: Project; 
       <div aria-hidden className="absolute inset-0 bg-black/40 @xl:bg-transparent @xl:bg-gradient-to-r @xl:from-black/70 @xl:via-black/40 @xl:to-black/20" />
 
       <div className="relative grid gap-4 p-4 @xl:gap-5 @xl:p-6">
-        <div className="flex flex-wrap items-stretch gap-3 @xl:flex-nowrap @xl:gap-4">
-          {/* wrap-reverse: where the region badge has no room beside the name, it moves above it. */}
-          <div className={`${box} ${look.title ?? ""} flex min-w-0 flex-[1_1_100%] flex-wrap-reverse items-start justify-between gap-x-3 gap-y-2 px-4 py-3 @xl:flex-1 @xl:px-5`}>
-            <div className="min-w-0 flex-[1_1_14rem]">
-              <h4 className={`${SIZES.name} leading-tight`}>{g.name}</h4>
-              <p className={`mt-1 tracking-wide opacity-80 ${SIZES.small}`}>
-                {g.subtitle ?? `decompilation · ${g.year}${g.region ? ` · ${g.region}` : ""}`}
-              </p>
-            </div>
-            {release && g.region && (
-              <span className="flex-none rounded-full border border-(--bd) bg-black/30 px-2.5 py-1 text-[10px] uppercase tracking-[.15em] text-(--tx2) @xl:text-[11px]">
-                {REGION_NAME[g.region] ?? g.region}
-              </span>
-            )}
+        <div className="flex flex-wrap items-stretch gap-3 @md:flex-nowrap @xl:gap-4">
+          <div className={`${box} ${look.title ?? ""} flex min-w-0 flex-[1_1_100%] flex-col justify-center px-4 py-3 @md:flex-1 @xl:px-5`}>
+            <h4 className={`${SIZES.name} leading-tight`}>{g.name}</h4>
+            {/* A card of one release (PAL, NTSC-U) shows its region as a badge on the line under the name. */}
+            <p className={`mt-1 flex flex-wrap items-center gap-x-2.5 gap-y-1 tracking-wide ${SIZES.small}`}>
+              <span className="opacity-80">{g.subtitle ?? `decompilation · ${g.year}${g.region && !release ? ` · ${g.region}` : ""}`}</span>
+              {release && g.region && (
+                <span className="rounded-full border border-(--bd) bg-black/30 px-2 py-0.5 text-[10px] uppercase tracking-[.15em] text-(--tx2) @xl:text-[11px]">
+                  {REGION_NAME[g.region] ?? g.region}
+                </span>
+              )}
+            </p>
           </div>
-          {/* Narrow: one row (label, figure) under the name; wide: beside it. */}
-          <div className={`${box} flex flex-[1_1_100%] items-center justify-between gap-3 px-4 py-2.5 @xl:flex-[0_1_220px] @xl:flex-col @xl:items-end @xl:justify-center @xl:gap-0 @xl:px-5 @xl:py-3 @xl:text-right`}>
+          {/* Beside the name from a medium width on (half cards too); on a phone, one row under it. */}
+          <div className={`${box} flex flex-[1_1_100%] items-center justify-between gap-3 px-4 py-2.5 @md:flex-none @md:flex-col @md:items-end @md:justify-center @md:gap-0 @md:py-3 @md:text-right @xl:flex-[0_1_220px] @xl:px-5`}>
             <span className="text-[10px] uppercase tracking-[.2em] text-(--tx2) @xl:text-[11px]">Progress</span>
             <b className={`${SIZES.pct} whitespace-nowrap font-[inherit] leading-tight tabular-nums`}>{p ? pct(value) : "Not started"}</b>
           </div>
