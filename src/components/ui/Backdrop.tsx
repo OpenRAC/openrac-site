@@ -9,8 +9,11 @@ import { useState } from "react";
  * `fallback` (mirrored, so two cards of one game never show the same picture), and with nothing
  * left the card keeps its own gradient instead of a broken-image icon.
  *
- * `zoom`: classes for the hover zoom. It runs on its own compositor layer, so it stays smooth.
+ * `zoom`: classes that set `--zoom` for the hover zoom (one transform, so it stays smooth).
  * `className`: extra classes for the outer box, such as a clip to the card's corners.
+ *
+ * The mirror and the zoom are one transform on one box: a second transform on the picture itself
+ * made a layer of its own, which WebKit drew past the card's rounded corners.
  */
 export default function Backdrop({ src, fallback, zoom = "", className = "" }: { src: string; fallback?: string; zoom?: string; className?: string }) {
   const [current, setCurrent] = useState(src);
@@ -19,7 +22,9 @@ export default function Backdrop({ src, fallback, zoom = "", className = "" }: {
   const mirrored = current !== src;
   return (
     <div aria-hidden className={`backdrop absolute inset-0 overflow-hidden transition-opacity duration-700 ${shown ? "opacity-100" : "opacity-0"} ${className}`}>
-      <div className={`absolute inset-0 transform-gpu transition-transform duration-[1400ms] ease-[cubic-bezier(.22,.61,.36,1)] will-change-transform ${zoom}`}>
+      <div
+        className={`absolute inset-0 transition-transform duration-[1400ms] ease-[cubic-bezier(.22,.61,.36,1)] [transform:scale(calc(var(--flip,1)*var(--zoom,1)),var(--zoom,1))] ${mirrored ? "[--flip:-1]" : ""} ${zoom}`}
+      >
         <Image
           key={current}
           src={current}
@@ -29,7 +34,7 @@ export default function Backdrop({ src, fallback, zoom = "", className = "" }: {
           quality={70}
           onLoad={() => setShown(true)}
           onError={() => setCurrent(mirrored || !fallback ? "" : fallback)}
-          className={`object-cover ${mirrored ? "-scale-x-100" : ""}`}
+          className="object-cover"
         />
       </div>
     </div>
