@@ -3,10 +3,10 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { DiscordIcon } from "@/components/ui/icons";
+import { DiscordIcon, GithubIcon } from "@/components/ui/icons";
 import Logo from "@/components/ui/Logo";
 import { HAS_CREDITS } from "@/lib/credits";
-import { DISCORD_URL } from "@/lib/projects";
+import { DISCORD_URL, GITHUB_URL } from "@/lib/projects";
 
 /** Sections of the home page. Plain anchors: on the home page they scroll, elsewhere they go home first. */
 const SECTIONS = ([
@@ -29,20 +29,23 @@ const pill = "flex min-h-11 items-center justify-center rounded-full px-4 text-s
 
 /** The bar's own dark and gold, like the Download button, so the buttons on the bar read as a set. */
 const filled = "bg-[#1b1206] text-amber hover:bg-[#2a1800]";
-/** The same dark, with Discord's mark in Discord's blue. */
+/** The same dark, with Discord's mark in Discord's blue and GitHub's in white. */
 const discord = "bg-[#1b1206] text-discord hover:bg-[#2a1800]";
+const github = "bg-[#1b1206] text-text hover:bg-[#2a1800]";
 
-/** Discord's own mark in a round button; `className` gives its colours. */
-function DiscordButton({ onClick, className = "" }: { onClick?: () => void; className?: string }) {
+/** A site's own mark in a round button (GitHub, Discord); `className` gives its colours. */
+function MarkButton({ site, onClick, className = "" }: { site: "github" | "discord"; onClick?: () => void; className?: string }) {
+  const Icon = site === "github" ? GithubIcon : DiscordIcon;
+  const label = site === "github" ? "GitHub" : "Discord";
   return (
     <a
-      href={DISCORD_URL}
+      href={site === "github" ? GITHUB_URL : DISCORD_URL}
       onClick={onClick}
-      aria-label="Discord"
-      title="Discord"
+      aria-label={label}
+      title={label}
       className={`flex size-11 flex-none items-center justify-center rounded-full transition-colors min-[821px]:size-9 ${className}`}
     >
-      <DiscordIcon className="size-[20px] min-[821px]:size-[18px]" />
+      <Icon className="size-[20px] min-[821px]:size-[18px]" />
     </a>
   );
 }
@@ -102,7 +105,8 @@ export default function Header() {
             <Logo height={34} label="" className="transition-opacity group-hover:opacity-85" />
           </Link>
 
-          <DiscordButton onClick={close} className={`${discord} ml-auto min-[821px]:hidden`} />
+          <MarkButton site="github" onClick={close} className={`${github} ml-auto min-[821px]:hidden`} />
+          <MarkButton site="discord" onClick={close} className={`${discord} -ml-3 min-[821px]:hidden`} />
           <button
             type="button"
             aria-label={open ? "Close menu" : "Open menu"}
@@ -138,7 +142,8 @@ export default function Header() {
               <Link href="/#download" onClick={close} className={`${pill} border border-amber bg-amber text-[#1a0d00] hover:brightness-110 min-[821px]:border-black/25 min-[821px]:bg-[#1b1206] min-[821px]:text-amber min-[821px]:hover:bg-[#2a1800] min-[821px]:hover:brightness-100`}>
                 Download
               </Link>
-              <DiscordButton onClick={close} className={`${discord} max-[821px]:hidden`} />
+              <MarkButton site="github" onClick={close} className={`${github} max-[821px]:hidden`} />
+              <MarkButton site="discord" onClick={close} className={`${discord} max-[821px]:hidden`} />
             </div>
           </nav>
         </div>

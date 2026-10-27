@@ -213,7 +213,7 @@ export default function DownloadPanel({ release, dev, platforms, fallback }: {
           <div>
             <div className="mb-2 flex items-start gap-4">
               <div className="flex min-w-0 items-center gap-3 sm:gap-5">
-                <SectionArt id="download" className="h-[72px] w-auto sm:h-[100px]" />
+                <SectionArt id="download" className="h-14 w-auto sm:h-[76px]" />
                 <div className="min-w-0">
                   <h2
                     id="download-title"
