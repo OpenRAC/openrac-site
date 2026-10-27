@@ -30,9 +30,6 @@ function burst(cx: number, cy: number, r: number, n: number, turn = 0): string {
 /** The jagged backdrop: a faint gold fill with a stronger edge. */
 const Burst = ({ d }: { d: string }) => <path d={d} fill={GOLD} fillOpacity={0.1} stroke={GOLD_DARK} strokeOpacity={0.55} strokeWidth={1.5} strokeLinejoin="round" />;
 
-/** A four-pointed sparkle. */
-const spark = (x: number, y: number, s: number) =>
-  `M${x} ${y - s}Q${x + s * 0.18} ${y - s * 0.18} ${x + s} ${y}Q${x + s * 0.18} ${y + s * 0.18} ${x} ${y + s}Q${x - s * 0.18} ${y + s * 0.18} ${x - s} ${y}Q${x - s * 0.18} ${y - s * 0.18} ${x} ${y - s}Z`;
 
 /** A line drawn as an outlined stroke: dark underneath, colour on top. */
 function Bar({ d, color, w = 8 }: { d: string; color: string; w?: number }) {
@@ -58,7 +55,6 @@ const ART: Record<string, ReactNode> = {
       <rect x="48" y="46" width="16" height="34" rx="2" fill={GOLD} {...line} />
       <rect x="70" y="30" width="16" height="50" rx="2" fill={GOLD_LIGHT} {...line} />
       <path d="M16 80H98" {...line} strokeWidth={3} />
-      <path d={spark(28, 30, 7)} fill={GOLD_LIGHT} {...line} strokeWidth={2} />
     </>
   ),
   // a wrench and a speech bubble
@@ -73,7 +69,6 @@ const ART: Record<string, ReactNode> = {
       <circle cx="74" cy="30" r="3" fill={WHITE} />
       <circle cx="83" cy="30" r="3" fill={WHITE} />
       <circle cx="92" cy="30" r="3" fill={WHITE} />
-      <path d={spark(22, 22, 6)} fill={GOLD_LIGHT} {...line} strokeWidth={2} />
     </>
   ),
   // a feed of recent commits, with a clock
@@ -149,7 +144,6 @@ const ART: Record<string, ReactNode> = {
       <rect x="28" y="18" width="64" height="64" rx="8" fill={PANEL} {...line} />
       <rect x="40" y="30" width="40" height="40" rx="5" fill={GOLD} {...line} />
       <path d="M48 50l8 8 16-17" fill="none" stroke={INK} strokeWidth={5} strokeLinecap="round" strokeLinejoin="round" />
-      <path d={spark(100, 20, 7)} fill={GOLD_LIGHT} {...line} strokeWidth={2} />
     </>
   ),
   // a trophy
@@ -160,8 +154,6 @@ const ART: Record<string, ReactNode> = {
       <path d="M38 18h44v18c0 14-10 24-22 24S38 50 38 36z" fill={GOLD} {...line} />
       <path d="M54 60h12l2 10H52z" fill={GOLD_DARK} {...line} />
       <rect x="42" y="70" width="36" height="10" rx="2" fill={PANEL} {...line} />
-      <path d={spark(60, 36, 8)} fill={GOLD_LIGHT} {...line} strokeWidth={2} />
-      <path d={spark(98, 18, 6)} fill={GOLD_LIGHT} {...line} strokeWidth={2} />
     </>
   ),
   // an arrow into a tray
@@ -172,7 +164,6 @@ const ART: Record<string, ReactNode> = {
       <path d="M18 54h26l4 8h24l4-8h26" fill="none" {...line} />
       <circle cx="90" cy="72" r="3" fill={GOLD} />
       <path d="M51 8h18v26h13L60 60 38 34h13z" fill={GOLD} {...line} />
-      <path d={spark(98, 22, 7)} fill={GOLD_LIGHT} {...line} strokeWidth={2} />
     </>
   ),
 };
