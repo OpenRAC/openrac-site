@@ -103,7 +103,8 @@ function Bar({ value, name, look }: { value: number; name: string; look: Look })
           style={{ "--w": `${value}%` } as CSSProperties}
           className={`bar-fill relative block h-full overflow-hidden rounded-[5px] bg-gradient-to-r ${look.fill ?? "from-(--tx2) to-(--tx)"}`}
         >
-          <span aria-hidden className="absolute inset-0 animate-sweep bg-gradient-to-r from-transparent via-white/45 to-transparent" />
+          {/* Starts off the bar: before its first run (the animation's delay) it would sit still in the middle. */}
+          <span aria-hidden className="absolute inset-0 animate-sweep bg-gradient-to-r [transform:translateX(-100%)] from-transparent via-white/45 to-transparent" />
         </i>
       )}
     </div>

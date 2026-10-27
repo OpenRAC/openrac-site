@@ -39,11 +39,11 @@ function SystemCard({ p, i, mine, release, fallback }: { p: Platform; i: number;
     // Four rows shared with the cards beside it (subgrid), so their buttons line up whatever the text above.
     <article
       style={{ "--i": i } as React.CSSProperties}
-      className={`dl-card surface relative row-span-4 grid grid-rows-subgrid gap-0 p-5 sm:p-6 ${mine ? "dl-mine border-brand/70 max-sm:order-first" : ""}`}
+      className={`dl-card group surface surface-link relative row-span-4 grid grid-rows-subgrid gap-0 p-5 sm:p-6 ${mine ? "dl-mine border-brand/70 max-sm:order-first" : ""}`}
     >
       <div className="flex items-center gap-3.5">
         <span
-          className={`grid size-12 flex-none place-items-center rounded-xl border ${mine ? "border-amber/50 bg-amber/10 text-amber" : "border-line bg-white/[.03] text-hi"}`}
+          className={`dl-tile grid size-12 flex-none place-items-center rounded-xl border ${mine ? "border-amber/50 bg-amber/10 text-amber" : "border-line bg-white/[.03] text-hi"}`}
         >
           <SystemIcon id={p.id} />
         </span>
@@ -80,7 +80,7 @@ function SystemCard({ p, i, mine, release, fallback }: { p: Platform; i: number;
       <div className="self-end pt-5">
         {p.main ? (
           <a href={p.main.url} className={`btn dl-btn w-full ${mine ? "btn-primary" : ""}`} download>
-            <svg viewBox="0 0 16 16" aria-hidden="true" className="size-4 flex-none fill-none stroke-current stroke-2">
+            <svg viewBox="0 0 16 16" aria-hidden="true" className="dl-arrow size-4 flex-none fill-none stroke-current stroke-2">
               <path d="M8 2v8m-3.5-3.5L8 10l3.5-3.5M3 13.5h10" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
             Download
@@ -166,7 +166,10 @@ export default function DownloadPanel({ release, platforms, fallback }: { releas
   const close = () => {
     setOpen(false);
     history.replaceState(null, "", location.pathname + location.search);
-    document.getElementById("download-button")?.focus({ preventScroll: true });
+    // back to the button that opened it, so the page does not slide away under the reader
+    const button = document.getElementById("download-button");
+    button?.focus({ preventScroll: true });
+    if (button && button.getBoundingClientRect().top < 50) button.scrollIntoView({ block: "center" });
   };
 
   return (
@@ -180,23 +183,31 @@ export default function DownloadPanel({ release, platforms, fallback }: { releas
     >
       <div className="dl-clip">
         <div className="dl-inner relative pb-10 pt-4 sm:pb-14">
-          <div aria-hidden className="pointer-events-none absolute -left-40 top-0 -z-10 size-[520px] bg-[radial-gradient(closest-side,rgb(213_138_0/0.16),transparent)]" />
-          <div className="mb-6 flex items-start gap-4 sm:mb-8">
-            <div className="min-w-0">
-              <p className="mb-1.5 font-orbitron text-[13px] font-bold uppercase tracking-[.3em] text-brand after:mt-2 after:block after:h-[3px] after:w-11 after:rounded-sm after:bg-brand after:content-['']">
-                Download
-              </p>
-              <h2
-                id="download-title"
-                ref={heading}
-                tabIndex={-1}
-                className="bg-gradient-to-r from-text to-soft bg-clip-text font-audiowide text-[clamp(26px,4vw,38px)] leading-tight text-transparent outline-none"
-              >
-                Get the launcher
-              </h2>
-              <p className="mt-2 max-w-[640px] text-dim">
-                {release ? (
-                  <>
+          {/* A console of its own: the bar's gold stripes along the top, faint stripes inside, the version large behind the heading. */}
+          <div className="dl-frame relative isolate overflow-hidden rounded-[26px] border border-brand/30 px-4 pb-5 pt-7 sm:px-7 sm:pb-7 sm:pt-9">
+            <div aria-hidden className="bar-stripes absolute inset-x-0 top-0 h-[6px]" />
+            <div aria-hidden className="pointer-events-none absolute -left-40 -top-40 -z-10 size-[520px] bg-[radial-gradient(closest-side,rgb(213_138_0/0.18),transparent)]" />
+            {release && (
+              <span aria-hidden className="dl-watermark pointer-events-none absolute -right-2 top-3 -z-10 font-audiowide text-[clamp(84px,13vw,170px)] leading-none max-sm:hidden">
+                {release.version}
+              </span>
+            )}
+            <div className="mb-6 flex items-start gap-4 sm:mb-8">
+              <div className="min-w-0">
+                <p className="mb-1.5 font-orbitron text-[13px] font-bold uppercase tracking-[.3em] text-brand after:mt-2 after:block after:h-[3px] after:w-11 after:rounded-sm after:bg-brand after:content-['']">
+                  Download
+                </p>
+                <h2
+                  id="download-title"
+                  ref={heading}
+                  tabIndex={-1}
+                  className="bg-gradient-to-r from-text to-soft bg-clip-text font-audiowide text-[clamp(26px,4vw,38px)] leading-tight text-transparent outline-none"
+                >
+                  Get the{" "}
+                  <span className="animate-shine bg-gradient-to-r from-amber via-[#ff8a00] to-gold bg-[length:220%_100%] bg-clip-text">launcher</span>
+                </h2>
+                {release && (
+                  <p className="mt-2 text-dim">
                     Version <b className="font-semibold text-hi">{release.version}</b>
                     {release.date && (
                       <>
@@ -204,37 +215,36 @@ export default function DownloadPanel({ release, platforms, fallback }: { releas
                         {since && <span> ({since})</span>}
                       </>
                     )}
-                    . Pick your system: the launcher sets each game up from your own disc. No game is downloaded.
-                  </>
-                ) : (
-                  <>The launcher sets each game up from your own disc. No game is downloaded.</>
+                    .
+                  </p>
                 )}
-              </p>
+                <p className={`max-w-[760px] text-dim ${release ? "mt-1" : "mt-2"}`}>Pick your system: the launcher sets each game up from your own disc. No game is downloaded.</p>
+              </div>
+              <button
+                type="button"
+                onClick={close}
+                aria-label="Close downloads"
+                className="dl-close ml-auto grid size-11 flex-none place-items-center rounded-full border border-line bg-ink/60 text-soft hover:border-amber hover:text-amber"
+              >
+                <svg viewBox="0 0 16 16" aria-hidden="true" className="size-4 fill-none stroke-current stroke-2">
+                  <path d="M3.5 3.5l9 9m0-9-9 9" strokeLinecap="round" />
+                </svg>
+              </button>
             </div>
-            <button
-              type="button"
-              onClick={close}
-              aria-label="Close downloads"
-              className="ml-auto grid size-11 flex-none place-items-center rounded-full border border-line text-soft transition-colors hover:border-amber hover:text-amber"
-            >
-              <svg viewBox="0 0 16 16" aria-hidden="true" className="size-4 fill-none stroke-current stroke-2">
-                <path d="M3.5 3.5l9 9m0-9-9 9" strokeLinecap="round" />
-              </svg>
-            </button>
-          </div>
 
-          <div className="grid gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-4">
-            {platforms.map((p, i) => (
-              <SystemCard key={p.id} p={p} i={i} mine={p.id === mine} release={release} fallback={fallback} />
-            ))}
-          </div>
+            <div className="grid gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-4">
+              {platforms.map((p, i) => (
+                <SystemCard key={p.id} p={p} i={i} mine={p.id === mine} release={release} fallback={fallback} />
+              ))}
+            </div>
 
-          <p className="mt-5 flex flex-wrap items-center gap-x-4 gap-y-1 text-[13px] text-dim">
-            <a href={release?.url || fallback} className="text-amber no-underline hover:underline">
-              Release notes and every file on GitHub →
-            </a>
-            <span>Updates install from inside the launcher.</span>
-          </p>
+            <p className="mt-5 flex flex-wrap items-center gap-x-4 gap-y-1 text-[13px] text-dim">
+              <a href={release?.url || fallback} className="text-amber no-underline hover:underline">
+                Release notes and every file on GitHub →
+              </a>
+              <span>Updates install from inside the launcher.</span>
+            </p>
+          </div>
         </div>
       </div>
     </section>
