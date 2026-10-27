@@ -79,8 +79,8 @@ function SystemCard({ p, i, mine, release, fallback }: { p: Platform; i: number;
 
       <div className="self-end pt-5">
         {p.main ? (
-          <a href={p.main.url} className={`btn dl-btn w-full ${mine ? "btn-primary" : ""}`} download>
-            <svg viewBox="0 0 16 16" aria-hidden="true" className="dl-arrow size-4 flex-none fill-none stroke-current stroke-2">
+          <a href={p.main.url} className={`btn w-full ${mine ? "btn-primary" : ""}`} download>
+            <svg viewBox="0 0 16 16" aria-hidden="true" className="size-4 flex-none fill-none stroke-current stroke-2">
               <path d="M8 2v8m-3.5-3.5L8 10l3.5-3.5M3 13.5h10" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
             Download
@@ -183,10 +183,9 @@ export default function DownloadPanel({ release, platforms, fallback }: { releas
     >
       <div className="dl-clip">
         <div className="dl-inner relative pb-10 pt-4 sm:pb-14">
-          {/* A console of its own: the bar's gold stripes along the top, faint stripes inside, the version large behind the heading. */}
+          {/* A framed panel of its own, with the version large and faint behind the heading. */}
           <div className="dl-frame relative isolate overflow-hidden rounded-[26px] border border-brand/30 px-4 pb-5 pt-7 sm:px-7 sm:pb-7 sm:pt-9">
-            <div aria-hidden className="bar-stripes absolute inset-x-0 top-0 h-[6px]" />
-            <div aria-hidden className="pointer-events-none absolute -left-40 -top-40 -z-10 size-[520px] bg-[radial-gradient(closest-side,rgb(213_138_0/0.18),transparent)]" />
+            <div aria-hidden className="pointer-events-none absolute -left-40 -top-40 -z-10 size-[520px] bg-[radial-gradient(closest-side,rgb(214_160_32/0.18),transparent)]" />
             {release && (
               <span aria-hidden className="dl-watermark pointer-events-none absolute -right-2 top-3 -z-10 font-audiowide text-[clamp(84px,13vw,170px)] leading-none max-sm:hidden">
                 {release.version}
@@ -204,7 +203,7 @@ export default function DownloadPanel({ release, platforms, fallback }: { releas
                   className="bg-gradient-to-r from-text to-soft bg-clip-text font-audiowide text-[clamp(26px,4vw,38px)] leading-tight text-transparent outline-none"
                 >
                   Get the{" "}
-                  <span className="animate-shine bg-gradient-to-r from-amber via-[#ff8a00] to-gold bg-[length:220%_100%] bg-clip-text">launcher</span>
+                  <span className="bg-gradient-to-r from-amber to-gold bg-clip-text">launcher</span>
                 </h2>
                 {release && (
                   <p className="mt-2 text-dim">
@@ -224,7 +223,7 @@ export default function DownloadPanel({ release, platforms, fallback }: { releas
                 type="button"
                 onClick={close}
                 aria-label="Close downloads"
-                className="dl-close ml-auto grid size-11 flex-none place-items-center rounded-full border border-line bg-ink/60 text-soft hover:border-amber hover:text-amber"
+                className="ml-auto grid size-11 flex-none place-items-center rounded-full border border-line bg-ink/60 text-soft transition-colors hover:border-amber hover:text-amber"
               >
                 <svg viewBox="0 0 16 16" aria-hidden="true" className="size-4 fill-none stroke-current stroke-2">
                   <path d="M3.5 3.5l9 9m0-9-9 9" strokeLinecap="round" />
