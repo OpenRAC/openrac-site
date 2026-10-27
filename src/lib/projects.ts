@@ -75,7 +75,7 @@ export const PROJECTS: readonly Project[] = [
     platform: "PlayStation 2",
     tag: "RaC1 US",
     region: "NTSC-U",
-    maintainers: ["mateuszklysz", "pezzadev"],
+    maintainers: ["mateuszklysz"],
     contributing: `${GH}/lombyte-project/Lombyte/blob/main/CONTRIBUTING.md`,
     guide: { label: "Build guide", url: `${GH}/lombyte-project/Lombyte/blob/main/docs/build/building.md` },
   },
