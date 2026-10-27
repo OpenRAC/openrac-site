@@ -8,7 +8,7 @@ export default function SiteFooter() {
   return (
     <footer className="border-t border-line bg-ink-deep py-10 text-[13px] text-dim">
       <div className="mx-auto grid max-w-[1080px] gap-5 px-4 sm:grid-cols-[auto_1fr] sm:gap-x-10">
-        <Link href="/" aria-label="OpenRAC home" className="w-fit text-lav no-underline opacity-90 hover:opacity-100">
+        <Link href="/" aria-label="OpenRAC home" className="w-fit text-hi no-underline opacity-90 hover:opacity-100">
           <Logo height={26} label="" accent />
         </Link>
         <div className="grid gap-2">

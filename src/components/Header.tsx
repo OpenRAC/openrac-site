@@ -43,26 +43,16 @@ function DiscordButton({ onClick, className = "" }: { onClick?: () => void; clas
 }
 
 /**
- * Orange bar fixed to the top, striped like the launcher's. Client-side for the mobile menu, shrink on scroll and scroll-spy.
- * Both watch the page with IntersectionObservers, so scrolling runs no script and reads no layout.
- * The bar is fixed rather than sticky, so its shrinking never moves the page under the reader.
+ * Orange bar fixed to the top, striped like the launcher's, one height at every scroll position.
+ * Client-side for the mobile menu and scroll-spy; the spy watches the page with an
+ * IntersectionObserver, so scrolling runs no script and reads no layout.
  */
 export default function Header() {
   const pathname = usePathname();
   const home = pathname === "/";
   const inBlog = pathname.startsWith("/blog");
   const [open, setOpen] = useState(false);
-  const [small, setSmall] = useState(false);
   const [active, setActive] = useState<string | null>(null);
-
-  // Shrink once the top 40 px of the page have scrolled away.
-  useEffect(() => {
-    const probe = document.getElementById("top-probe");
-    if (!probe) return;
-    const io = new IntersectionObserver(([e]) => setSmall(!e.isIntersecting));
-    io.observe(probe);
-    return () => io.disconnect();
-  }, []);
 
   // Scroll-spy: the section crossing the middle of the screen is the current one.
   useEffect(() => {
@@ -101,15 +91,10 @@ export default function Header() {
 
   return (
     <>
-      <div id="top-probe" aria-hidden className="pointer-events-none absolute inset-x-0 top-0 h-10" />
       <header className="bar-stripes fixed inset-x-0 top-0 z-30 border-b border-black/30 text-black shadow-[inset_0_1px_0_rgb(255_255_255/0.35),0_4px_24px_rgb(0_0_0/0.45)]">
-        <div className={`mx-auto flex max-w-[1080px] items-center gap-6 px-4 transition-[height] duration-300 ${small ? "h-[50px]" : "h-[60px]"}`}>
+        <div className="mx-auto flex h-[50px] max-w-[1080px] items-center gap-6 px-4">
           <Link href="/" onClick={close} className="group flex items-center text-[#1b1206] no-underline" aria-label="OpenRAC home">
-            <Logo
-              height={26}
-              label=""
-              className={`origin-left transition-transform duration-300 ${small ? "scale-[.9]" : ""} group-hover:opacity-85`}
-            />
+            <Logo height={28} label="" className="transition-opacity group-hover:opacity-85" />
           </Link>
 
           <DiscordButton onClick={close} className="ml-auto min-[821px]:hidden" />
@@ -129,7 +114,7 @@ export default function Header() {
 
           <nav
             id="nav"
-            className={`absolute inset-x-0 top-full flex max-h-[calc(100dvh-60px)] flex-col gap-3 overflow-y-auto overscroll-contain border-b border-black/30 bar-stripes px-4 pb-[18px] pt-3.5 shadow-[0_20px_30px_rgb(0_0_0/0.4)] transition duration-200 max-[820px]:origin-top ${open ? "" : "max-[820px]:pointer-events-none max-[820px]:invisible max-[820px]:-translate-y-2 max-[820px]:opacity-0"} min-[821px]:static min-[821px]:max-h-none min-[821px]:flex-1 min-[821px]:flex-row min-[821px]:items-center min-[821px]:gap-[18px] min-[821px]:overflow-visible min-[821px]:border-0 min-[821px]:bg-none min-[821px]:p-0 min-[821px]:shadow-none`}
+            className={`absolute inset-x-0 top-full flex max-h-[calc(100dvh-50px)] flex-col gap-3 overflow-y-auto overscroll-contain border-b border-black/30 bar-stripes px-4 pb-[18px] pt-3.5 shadow-[0_20px_30px_rgb(0_0_0/0.4)] transition duration-200 max-[820px]:origin-top ${open ? "" : "max-[820px]:pointer-events-none max-[820px]:invisible max-[820px]:-translate-y-2 max-[820px]:opacity-0"} min-[821px]:static min-[821px]:max-h-none min-[821px]:flex-1 min-[821px]:flex-row min-[821px]:items-center min-[821px]:gap-[18px] min-[821px]:overflow-visible min-[821px]:border-0 min-[821px]:bg-none min-[821px]:p-0 min-[821px]:shadow-none`}
           >
             <div className="flex flex-col gap-1 min-[821px]:ml-2 min-[821px]:flex-row">
               {SECTIONS.map(([id, label]) => (
@@ -153,7 +138,7 @@ export default function Header() {
         </div>
       </header>
       {/* Holds the bar's place in the page. */}
-      <div aria-hidden className="h-[60px]" />
+      <div aria-hidden className="h-[50px]" />
     </>
   );
 }

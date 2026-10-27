@@ -10,20 +10,22 @@
 }
 
 @theme {
-  --color-ink: #181820;
-  --color-ink-deep: #12121a;
-  --color-panel: #1d1d28;
-  --color-panel-hi: #22222f;
-  --color-surface: #20202c;
+  /* Neutral darks with a hair of violet: the page, raised panels, the footer. */
+  --color-ink: #12121a;
+  --color-ink-deep: #0c0c12;
+  --color-panel: #1d1d27;
+  --color-panel-hi: #23232f;
+  --color-surface: #1d1d27;
   --color-brand: #d58a00;
   --color-amber: #ffb443;
   --color-gold: #ffd08a;
-  --color-lav: #c8d2ff;
-  --color-soft: #aab6dc;
-  --color-dim: #8f9ac4;
-  --color-text: #e8f0ff;
-  --color-body: #c3cdea;
-  --color-line: rgb(156 161 212 / 0.22);
+  /* Text, light to quiet. Neutral rather than blue, so the gold is the only accent. */
+  --color-hi: #e6e6ec;
+  --color-soft: #b4b4bf;
+  --color-dim: #8b8b98;
+  --color-text: #efeff3;
+  --color-body: #cacad3;
+  --color-line: rgb(255 255 255 / 0.09);
 
   --animate-rise: rise 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) both;
   --animate-drift: drift 16s ease-in-out infinite alternate;
@@ -65,7 +67,7 @@
     gap: 0.5rem;
     min-height: 2.75rem;
     border-radius: 9999px;
-    border: 1px solid rgb(200 210 255 / 0.4);
+    border: 1px solid rgb(255 255 255 / 0.18);
     background: rgb(255 255 255 / 0.03);
     padding: 0.625rem 1.25rem;
     font-weight: 600;
@@ -111,15 +113,15 @@
   --tw-prose-bold: var(--color-text);
   --tw-prose-counters: var(--color-dim);
   --tw-prose-bullets: var(--color-brand);
-  --tw-prose-hr: rgb(156 161 212 / 0.25);
-  --tw-prose-quotes: var(--color-lav);
+  --tw-prose-hr: var(--color-line);
+  --tw-prose-quotes: var(--color-hi);
   --tw-prose-quote-borders: var(--color-brand);
   --tw-prose-captions: var(--color-dim);
   --tw-prose-code: var(--color-gold);
-  --tw-prose-pre-code: #e3e9ff;
+  --tw-prose-pre-code: var(--color-text);
   --tw-prose-pre-bg: var(--color-ink-deep);
-  --tw-prose-th-borders: rgb(156 161 212 / 0.35);
-  --tw-prose-td-borders: rgb(156 161 212 / 0.2);
+  --tw-prose-th-borders: rgb(255 255 255 / 0.18);
+  --tw-prose-td-borders: var(--color-line);
 }
 .prose-openrac :where(h1, h2, h3, h4) { font-family: var(--font-orbitron); }
 .prose-openrac :where(code):not(:where(pre *))::before,
@@ -128,8 +130,8 @@
 
 html {
   scroll-behavior: smooth;
-  /* The fixed header covers the top of the page; anchors stop below it. */
-  scroll-padding-top: 4.75rem;
+  /* The fixed header (50 px) covers the top of the page; anchors stop below it. */
+  scroll-padding-top: 50px;
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
   -webkit-tap-highlight-color: transparent;
@@ -143,6 +145,8 @@ body { background: var(--color-ink); color: var(--color-text); }
    so the page stays fully readable without JavaScript. */
 @media (scripting: enabled) {
   [data-reveal]:not(.in) { opacity: 0; transform: translateY(18px); }
+  /* Whole sections only fade: a link scrolls to where a section is drawn, and a moving one would be missed by 18 px. */
+  [data-reveal="fade"]:not(.in) { transform: none; }
   [data-reveal] { transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1); }
   [data-reveal]:not(.in) .bar-fill { transform: scaleX(0); }
 }
@@ -156,6 +160,21 @@ main { counter-reset: sec; }
 details[open] > summary .plus { transform: rotate(45deg); }
 details[open] > :not(summary) { animation: rise 0.35s ease both; }
 summary::-webkit-details-marker { display: none; }
+
+/* The loading screen (layout.tsx): the logo breathing on the page colour, faded out once ready. */
+.splash {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  display: grid;
+  place-items: center;
+  background: var(--color-ink);
+  transition: opacity 0.45s ease, visibility 0s linear 0.45s;
+}
+.splash svg { animation: splash-logo 0.9s ease-in-out infinite alternate; }
+.ready .splash { opacity: 0; visibility: hidden; }
+@media (scripting: none) { .splash { display: none; } }
+@keyframes splash-logo { from { opacity: 0.6; transform: scale(0.97); } }
 
 /* Without scripts a backdrop cannot report that it loaded: show it as it is. */
 @media (scripting: none) { .backdrop { opacity: 1 !important; } }

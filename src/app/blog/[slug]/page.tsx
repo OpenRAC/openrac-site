@@ -66,7 +66,7 @@ export default async function PostPage({ params }: PageProps<"/blog/[slug]">) {
           {post.tags.length > 0 && (
             <p className="mt-4 flex flex-wrap gap-2">
               {post.tags.map((t) => (
-                <span key={t} className="rounded-full bg-lav/10 px-2.5 py-0.5 text-xs text-lav">{t}</span>
+                <span key={t} className="rounded-full bg-hi/10 px-2.5 py-0.5 text-xs text-hi">{t}</span>
               ))}
             </p>
           )}

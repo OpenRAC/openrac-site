@@ -1,7 +1,8 @@
 import type { Metadata, Viewport } from "next";
-import { Audiowide, Chakra_Petch, Inter, Orbitron, Press_Start_2P } from "next/font/google";
+import { Audiowide, Chakra_Petch, Inter, Orbitron, Pixelify_Sans } from "next/font/google";
 import SiteFooter from "@/components/Footer";
 import Header from "@/components/Header";
+import Logo from "@/components/Logo";
 import RevealObserver from "@/components/RevealObserver";
 import "./globals.css";
 
@@ -9,7 +10,7 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-inter", display: "sw
 const audiowide = Audiowide({ subsets: ["latin"], weight: "400", variable: "--font-audiowide", display: "swap" });
 const orbitron = Orbitron({ subsets: ["latin"], variable: "--font-orbitron", display: "swap" });
 // The two below only dress single cards far down the page: not preloaded, so they never delay the first paint.
-const pixel = Press_Start_2P({ subsets: ["latin"], weight: "400", variable: "--font-pixel", display: "swap", preload: false });
+const pixel = Pixelify_Sans({ subsets: ["latin"], variable: "--font-pixel", display: "swap", preload: false });
 const chakra = Chakra_Petch({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
@@ -88,8 +89,20 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${inter.variable} ${audiowide.variable} ${orbitron.variable} ${pixel.variable} ${chakra.variable}`}>
+    // suppressHydrationWarning: the splash script below adds "ready" to <html> before React hydrates.
+    <html lang="en" suppressHydrationWarning className={`${inter.variable} ${audiowide.variable} ${orbitron.variable} ${pixel.variable} ${chakra.variable}`}>
       <body className="font-sans text-base leading-relaxed antialiased">
+        {/* The logo over a blank page until the fonts are in, then a fade: the page never pops in
+            half-styled. A timer lifts it anyway; without scripts there is none (globals.css). */}
+        <div id="splash" aria-hidden className="splash">
+          <Logo height={44} label="" accent className="text-text" />
+        </div>
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              "(function(){var d=document.documentElement,r=function(){d.classList.add('ready')};setTimeout(r,1500);if(document.fonts)document.fonts.ready.then(r);})()",
+          }}
+        />
         {/* Glows in the hero reach past the viewport; clip them so phones never scroll sideways.
             `clip` (unlike `hidden`) keeps the sticky header working. */}
         <div className="overflow-x-clip">
