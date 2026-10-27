@@ -136,10 +136,12 @@ function Card({ project: g, progress: p, release = false }: { project: Project; 
       aria-label={`${g.name}${g.region ? ` (${g.region})` : ""}${g.phase === "research" ? ", research phase" : ""} progress`}
       style={style}
       data-reveal
-      className={`group/card @container relative isolate overflow-hidden rounded-[22px] border border-white/10 bg-ink shadow-[0_14px_40px_rgb(0_0_0/0.4)] transition-[border-color,box-shadow] duration-500 hover:border-(--bd)/60 hover:shadow-[0_18px_48px_rgb(0_0_0/0.5)] ${g.fontClass}`}
+      className={`group/card @container relative isolate overflow-hidden rounded-[22px] bg-ink shadow-[0_14px_40px_rgb(0_0_0/0.4)] transition-shadow duration-500 hover:shadow-[0_18px_48px_rgb(0_0_0/0.5)] ${g.fontClass}`}
     >
-      {/* The backdrop leans in a little under the pointer (hover only: never on touch screens). */}
-      <Backdrop src={g.image} fallback={g.fallbackImage} zoom="group-hover/card:scale-[1.05]" />
+      {/* The backdrop leans in a little under the pointer (hover only: never on touch screens). Its
+          zoom runs on a layer of its own, which a rounded overflow does not always clip (square
+          corners in Chrome and Safari), so the backdrop is cut to the card's corners itself. */}
+      <Backdrop src={g.image} fallback={g.fallbackImage} zoom="group-hover/card:scale-[1.05]" className="[clip-path:inset(0_round_22px)]" />
       {/* Darker where the text sits, so every backdrop reads the same. */}
       <div aria-hidden className="absolute inset-0 bg-black/40 @xl:bg-transparent @xl:bg-gradient-to-r @xl:from-black/70 @xl:via-black/40 @xl:to-black/20" />
 
@@ -186,6 +188,8 @@ function Card({ project: g, progress: p, release = false }: { project: Project; 
           </p>
         )}
       </div>
+      {/* The frame, drawn over everything: the picture under it never shows past its line or its corners. */}
+      <div aria-hidden className="pointer-events-none absolute inset-0 rounded-[inherit] border border-white/10 transition-colors duration-500 group-hover/card:border-(--bd)/60" />
     </section>
   );
 }
