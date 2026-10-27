@@ -143,7 +143,7 @@ function Card({ project: g, progress: p }: { project: Project; progress?: Projec
     >
       <Backdrop src={g.image} quality={g.id === "rac1" || g.id === "gc" || g.id === "uya" ? 70 : 75} />
       {/* Darker where the text sits, so every backdrop reads the same. */}
-      <div aria-hidden className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/45 to-black/25 max-sm:bg-black/55" />
+      <div aria-hidden className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-black/20 max-sm:bg-none max-sm:bg-black/40" />
 
       <div className="relative grid gap-4 p-4 sm:gap-5 sm:p-6">
         <div className="flex flex-wrap items-stretch gap-3 sm:flex-nowrap sm:gap-4">
