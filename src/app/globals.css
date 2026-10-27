@@ -33,7 +33,6 @@
   --animate-drift: drift 16s ease-in-out infinite alternate;
   --animate-pulse-dot: pulse-dot 2s infinite;
   --animate-shine: shine 6s linear infinite;
-  --animate-sweep: sweep 2.6s ease-in-out 1.6s infinite;
 
   @keyframes rise {
     from { opacity: 0; transform: translateY(26px); }
@@ -48,10 +47,6 @@
   }
   @keyframes shine {
     to { background-position: 220% 0; }
-  }
-  @keyframes sweep {
-    from { transform: translateX(-100%); }
-    to { transform: translateX(100%); }
   }
 }
 
