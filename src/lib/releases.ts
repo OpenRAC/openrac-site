@@ -143,14 +143,22 @@ async function github<T>(path: string): Promise<T | null> {
   }
 }
 
-/** The latest launcher release, or null. */
+// The last answers GitHub gave, kept by the running server: a refresh that fails (the API's rate
+// limit, a timeout) shows them again instead of a panel with no files until the next refresh.
+let lastRelease: LauncherRelease | null = null;
+let lastDev: DevBuild | null = null;
+
+/** The latest launcher release; the last one read if GitHub does not answer now; null before any. */
 export async function getLauncherRelease(): Promise<LauncherRelease | null> {
-  const release = pickLatest((await github<GithubRelease[]>("releases?per_page=30")) ?? []);
-  return release ? toLauncherRelease(release) : null;
+  const releases = await github<GithubRelease[]>("releases?per_page=30");
+  const release = releases && pickLatest(releases);
+  if (release) lastRelease = toLauncherRelease(release);
+  return lastRelease;
 }
 
-/** The latest development build from master, or null. */
+/** The latest development build from master; the last one read if GitHub does not answer now; null before any. */
 export async function getDevBuild(): Promise<DevBuild | null> {
   const release = await github<GithubRelease>(`releases/tags/${DEV_TAG}`);
-  return release && !release.draft ? toDevBuild(release) : null;
+  if (release && !release.draft) lastDev = toDevBuild(release);
+  return lastDev;
 }
