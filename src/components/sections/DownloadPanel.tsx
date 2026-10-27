@@ -4,7 +4,7 @@ import { useEffect, useRef, useState, useSyncExternalStore, type CSSProperties, 
 import { SystemIcon } from "@/components/ui/icons";
 import { formatSize } from "@/lib/format";
 import { detectPlatform } from "@/lib/platform";
-import type { DevBuild, Download, LauncherRelease, Platform, PlatformId } from "@/lib/releases";
+import type { DevBuild, LauncherRelease, Platform, PlatformId } from "@/lib/releases";
 
 /** "25 October 2026", the same on the server and in the browser (UTC, one locale), so it never changes on hydration. */
 const longDate = (iso: string) => new Date(iso).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" });
@@ -40,7 +40,7 @@ function SystemCard({ p, i, mine, release, dev, devAgo, fallback }: {
   i: number;
   mine: boolean;
   release: LauncherRelease | null;
-  dev: { build: DevBuild; file: Download } | null;
+  dev: { version: string; url: string } | null;
   devAgo: string;
   fallback: string;
 }) {
@@ -103,15 +103,15 @@ function SystemCard({ p, i, mine, release, dev, devAgo, fallback }: {
         <p className="mt-2 text-center text-[12px] text-dim">
           {p.main ? `${p.main.label} · ${formatSize(p.main.size)}` : release ? "Not part of this release" : "Files are listed on GitHub"}
         </p>
-        {/* The newest build of master, for those who want what was merged today. */}
+        {/* The newest build of master, for those who want what was merged today. Through the site's own
+            redirect (app/download/dev), which finds the current file when it is followed. */}
         {dev && (
           <a
-            href={dev.file.url}
-            download
+            href={dev.url}
             className="mt-3 flex flex-wrap items-center justify-center gap-x-2 gap-y-0.5 rounded-lg border border-dashed border-line px-3 py-2 text-[12px] text-soft no-underline transition-colors hover:border-amber/60 hover:text-amber"
           >
             <span className="rounded border border-amber/40 px-1.5 py-px font-orbitron text-[9px] font-bold tracking-[.12em] text-amber">DEV</span>
-            <span>{dev.build.version ? `v${dev.build.version}` : "Latest build"}</span>
+            <span>{dev.version ? `v${dev.version}` : "Latest build"}</span>
             {devAgo && <span className="text-dim">{devAgo}</span>}
           </a>
         )}
@@ -158,7 +158,10 @@ export default function DownloadPanel({ release, dev, platforms, fallback, art }
   const [open, setOpen] = useState(false);
   // Known only in the browser: the server renders no system as the visitor's and no "3 days ago".
   const mine = useSyncExternalStore(noChange, browserPlatform, () => null);
-  const devDate = dev?.date ?? "";
+  // The build may be newer than this page: the panel asks the server again when it opens.
+  const [latest, setLatest] = useState<{ version: string; date: string } | null>(null);
+  const devVersion = latest?.version ?? dev?.version ?? "";
+  const devDate = latest?.date ?? dev?.date ?? "";
   const devAgo = useSyncExternalStore(noChange, () => (devDate ? ago(devDate) : ""), () => "");
 
   useEffect(() => {
@@ -190,6 +193,16 @@ export default function DownloadPanel({ release, dev, platforms, fallback, art }
       window.removeEventListener("hashchange", onHash);
     };
   }, []);
+
+  useEffect(() => {
+    if (!open || !dev) return;
+    const ask = new AbortController();
+    fetch("/download/dev", { signal: ask.signal })
+      .then((r) => (r.ok ? r.json() : null))
+      .then((d: { version: string; date: string } | null) => d && setLatest(d))
+      .catch(() => {});
+    return () => ask.abort();
+  }, [open, dev]);
 
   const close = () => {
     setOpen(false);
@@ -243,7 +256,7 @@ export default function DownloadPanel({ release, dev, platforms, fallback, art }
                 i={i}
                 mine={p.id === mine}
                 release={release}
-                dev={dev?.files[p.id] ? { build: dev, file: dev.files[p.id]! } : null}
+                dev={dev?.files[p.id] ? { version: devVersion, url: `/download/dev/${p.id}` } : null}
                 devAgo={devAgo}
                 fallback={fallback}
               />

@@ -27,7 +27,11 @@ export function commitTitle(message: string): string {
   );
 }
 
-/** Latest commits of every tracked project, newest first. Empty if GitHub is unreachable. */
+/** The last commits read per repository, kept by the running server: a refresh that fails (the
+ * API's rate limit, a timeout) shows them again instead of an empty feed. */
+const lastCommits = new Map<string, Commit[]>();
+
+/** Latest commits of every tracked project, newest first. Empty if GitHub has never answered. */
 export async function getActivity(limit = 8): Promise<Commit[]> {
   const headers: HeadersInit = { Accept: "application/vnd.github+json" };
   // Optional, only raises the rate limit. Never sent to the browser.
@@ -41,17 +45,19 @@ export async function getActivity(limit = 8): Promise<Commit[]> {
           next: { revalidate: 300 },
           signal: AbortSignal.timeout(10_000),
         });
-        if (!res.ok) return [];
+        if (!res.ok) return lastCommits.get(p.repo!) ?? [];
         const commits = (await res.json()) as GithubCommit[];
-        return commits.map<Commit>((c) => ({
+        const list = commits.map<Commit>((c) => ({
           project: p.tag ?? p.name,
           projectId: p.id,
           message: commitTitle(c.commit.message),
           date: c.commit.author.date,
           url: c.html_url,
         }));
+        lastCommits.set(p.repo!, list);
+        return list;
       } catch {
-        return [];
+        return lastCommits.get(p.repo!) ?? [];
       }
     }),
   );

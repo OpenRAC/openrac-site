@@ -101,8 +101,10 @@ content/blog/             the blog posts (Markdown)
 deploy/                   the Podman Quadlet unit
 ```
 
-Copy `.env.example` to `.env.local` to change settings. `GITHUB_TOKEN` is optional and only raises the GitHub API
-rate limit for the activity feed and the Download panel; it stays on the server.
+Copy `.env.example` to `.env.local` to change settings. `GITHUB_TOKEN` stays on the server and raises the GitHub API
+rate limit for the activity feed and the Download panel. Set it in production: without it GitHub allows 60 requests
+an hour per address, and every five-minute refresh of the home page makes about ten (one per project's commits, one
+for the launcher's releases). A fine-grained token with no permissions is enough, since all the repositories are public.
 
 ### Card backdrops
 

@@ -115,15 +115,40 @@ export interface DevBuild {
 }
 
 /** The pre-release the launcher workflow replaces on every push to master (its docs/RELEASING.md). */
-export const DEV_TAG = "launcher-dev-master";
+const DEV_TAG = "launcher-dev-master";
+export const DEV_PAGE = `https://github.com/${LAUNCHER_REPO}/releases/tag/${DEV_TAG}`;
 
-/** A development pre-release as the panel shows it: each system's main file, and the version from its title ("v0.9.1-dev.86 (master)"). */
-export function toDevBuild(release: GithubRelease): DevBuild {
-  const stable = toLauncherRelease(release);
-  const version = /\d+\.\d+\.\d+-dev\.\d+/.exec(release.name ?? "")?.[0] ?? "";
+/** The updater's manifest each launcher build publishes beside its files (OpenRAC's tools/updater_manifest.py). */
+export interface UpdaterManifest {
+  version: string;
+  pub_date?: string;
+  platforms: Record<string, { url: string }>;
+}
+
+/** The manifest's entry for each system's main file. */
+const MANIFEST_KEYS: [PlatformId, string][] = [
+  ["windows", "windows-x86_64-nsis"],
+  ["linux", "linux-x86_64-appimage"],
+  ["android", "android-aarch64"],
+];
+
+/**
+ * The development build as the panel shows it, from its updater manifest: the version and time of
+ * this very build, and each system's main file. The manifest is rewritten with every build, while
+ * the release's own date stays the day it was first made, and the APK's name changes with every
+ * build ("…_0.9.1-dev.488_android-arm64-debug.apk").
+ */
+export function devFromManifest(manifest: UpdaterManifest): DevBuild {
   const files: DevBuild["files"] = {};
-  for (const p of stable.platforms) if (p.main) files[p.id] = p.main;
-  return { version, date: stable.date, url: stable.url, files };
+  for (const [id, key] of MANIFEST_KEYS) {
+    const url = manifest.platforms[key]?.url;
+    const c = url ? classify(decodeURIComponent(url.split("/").pop() ?? "")) : null;
+    if (url && c) files[id] = { label: c.label, url, size: 0 };
+  }
+  // A Mac updates from the app archive; a player wants the disk image beside it, which keeps the build's X.Y.Z in its name.
+  const mac = manifest.platforms["darwin-aarch64-app"]?.url;
+  if (mac) files.macos = { label: "Disk image (.dmg)", url: mac.replace(/[^/]+$/, `OpenRAC.Launcher_${manifest.version.replace(/-.*/, "")}_universal.dmg`), size: 0 };
+  return { version: manifest.version, date: manifest.pub_date ?? "", url: DEV_PAGE, files };
 }
 
 /** Every system with no file: what the panel shows when GitHub cannot be reached. */
@@ -143,14 +168,33 @@ async function github<T>(path: string): Promise<T | null> {
   }
 }
 
-/** The latest launcher release, or null. */
+// The last answers GitHub gave, kept by the running server: a refresh that fails (the API's rate
+// limit, a timeout) shows them again instead of a panel with no files until the next refresh.
+let lastRelease: LauncherRelease | null = null;
+let lastDev: DevBuild | null = null;
+
+/** The latest launcher release; the last one read if GitHub does not answer now; null before any. */
 export async function getLauncherRelease(): Promise<LauncherRelease | null> {
-  const release = pickLatest((await github<GithubRelease[]>("releases?per_page=30")) ?? []);
-  return release ? toLauncherRelease(release) : null;
+  const releases = await github<GithubRelease[]>("releases?per_page=30");
+  const release = releases && pickLatest(releases);
+  if (release) lastRelease = toLauncherRelease(release);
+  return lastRelease;
 }
 
-/** The latest development build from master, or null. */
+/**
+ * The latest development build from master, read from its updater manifest (a release download, not
+ * the API, so no rate limit) and cached for a minute; the last one read if GitHub does not answer
+ * now; null before any.
+ */
 export async function getDevBuild(): Promise<DevBuild | null> {
-  const release = await github<GithubRelease>(`releases/tags/${DEV_TAG}`);
-  return release && !release.draft ? toDevBuild(release) : null;
+  try {
+    const res = await fetch(`https://github.com/${LAUNCHER_REPO}/releases/download/${DEV_TAG}/latest.json`, {
+      next: { revalidate: 60 },
+      signal: AbortSignal.timeout(10_000),
+    });
+    if (res.ok) lastDev = devFromManifest((await res.json()) as UpdaterManifest);
+  } catch {
+    // keep the last one
+  }
+  return lastDev;
 }
