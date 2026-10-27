@@ -14,7 +14,7 @@ const pct = (p: number) => `${p.toFixed(2).replace(".", ",")} %`;
 
 /** The line under every bar: the same measure as the percentage, in KB or MB as fits the game. */
 const matchedLine = (p: ProjectProgress) =>
-  `${formatSize(p.code.done)} of ${formatSize(p.code.total)} of code matched${p.stale ? " · snapshot, live numbers unavailable" : ""}`;
+  `${formatSize(p.code.done)} of ${formatSize(p.code.total)} code matched${p.stale ? " · snapshot, live numbers unavailable" : ""}`;
 
 /** The exact figures, shown on hover. */
 const exactLine = (p: ProjectProgress) =>
