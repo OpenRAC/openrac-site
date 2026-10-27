@@ -1,3 +1,4 @@
+import type { PlatformId } from "@/lib/releases";
 /** Small inline icons used in several places. Decorative: screen readers skip them, the link text names the target. */
 
 /** Discord's mark. */
@@ -24,7 +25,7 @@ export function Arrow() {
 }
 
 /** The mark of each system the launcher is built for, one colour each (the text colour). */
-export function SystemIcon({ id, className = "size-7" }: { id: "windows" | "macos" | "linux" | "android"; className?: string }) {
+export function SystemIcon({ id, className = "size-7" }: { id: PlatformId; className?: string }) {
   const svg = `flex-none fill-current ${className}`;
   switch (id) {
     case "windows":
