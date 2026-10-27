@@ -22,3 +22,41 @@ export function GithubIcon({ className = "size-5" }: { className?: string }) {
 export function Arrow() {
   return <span aria-hidden className="ml-auto flex-none text-brand transition-transform group-hover:translate-x-0.5">→</span>;
 }
+
+/** The mark of each system the launcher is built for, in the text colour (Tux keeps his belly, beak and feet). */
+export function SystemIcon({ id, className = "size-7" }: { id: "windows" | "macos" | "linux" | "android"; className?: string }) {
+  const svg = `flex-none fill-current ${className}`;
+  switch (id) {
+    case "windows":
+      return (
+        <svg viewBox="0 0 24 24" aria-hidden="true" className={svg}>
+          <path d="M3 5.6 10.4 4.6v7H3zM11.4 4.4 21 3v8.6h-9.6zM3 12.6h7.4v7L3 18.4zM11.4 12.6H21V21l-9.6-1.4z" />
+        </svg>
+      );
+    case "macos":
+      return (
+        <svg viewBox="0 0 24 24" aria-hidden="true" className={svg}>
+          <path d="M16.4 12.7c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.8-1.4-.2-2.8.9-3.5.9-.8 0-1.9-.8-3.1-.8-1.6 0-3 .9-3.8 2.3-1.6 2.8-.4 7 1.2 9.3.8 1.1 1.7 2.4 2.9 2.3 1.2 0 1.6-.7 3-.7s1.8.7 3 .7c1.3 0 2.1-1.1 2.8-2.3.9-1.3 1.3-2.6 1.3-2.6s-2.4-1-2.4-3.8zM14.1 5.8c.6-.8 1.1-1.9 1-3-1 0-2.1.6-2.7 1.4-.6.7-1.1 1.8-1 2.9 1 .1 2.1-.5 2.7-1.3z" />
+        </svg>
+      );
+    case "linux":
+      return (
+        <svg viewBox="0 0 24 24" aria-hidden="true" className={`flex-none ${className}`}>
+          <path className="fill-current" d="M12 1.8c-2.7 0-4.3 2.2-4.3 5v2.1c0 1-.5 1.8-1.2 2.8-1.1 1.6-2.3 3.6-2.3 6 0 2.6 3.2 4.5 7.8 4.5s7.8-1.9 7.8-4.5c0-2.4-1.2-4.4-2.3-6-.7-1-1.2-1.8-1.2-2.8V6.8c0-2.8-1.6-5-4.3-5z" />
+          <ellipse cx="12" cy="15.6" rx="3.9" ry="5" fill="#f4efe6" />
+          <circle cx="10.4" cy="6.6" r="1.1" fill="#f4efe6" />
+          <circle cx="13.6" cy="6.6" r="1.1" fill="#f4efe6" />
+          <circle cx="10.6" cy="6.8" r=".5" fill="#12121a" />
+          <circle cx="13.4" cy="6.8" r=".5" fill="#12121a" />
+          <path d="M10.3 8.7c.5-.6 1-.8 1.7-.8s1.2.2 1.7.8c-.4.7-1 1.1-1.7 1.1s-1.3-.4-1.7-1.1z" fill="#ffb443" />
+          <path d="M4.4 20.4c.2-1.4 1.4-2.2 2.6-1.8l1.8.7c.8.3.9 1.3.2 1.8-1.1.8-2.6 1.1-3.8.6-.6-.2-.9-.7-.8-1.3zM19.6 20.4c-.2-1.4-1.4-2.2-2.6-1.8l-1.8.7c-.8.3-.9 1.3-.2 1.8 1.1.8 2.6 1.1 3.8.6.6-.2.9-.7.8-1.3z" fill="#ffb443" />
+        </svg>
+      );
+    case "android":
+      return (
+        <svg viewBox="0 0 24 24" aria-hidden="true" className={svg}>
+          <path fillRule="evenodd" d="M7.2 4.1a.6.6 0 0 1 .8.2l1.4 2.4A9 9 0 0 1 12 6.3c.9 0 1.8.1 2.6.4L16 4.3a.6.6 0 1 1 1 .6l-1.3 2.3A8 8 0 0 1 20.6 14H3.4a8 8 0 0 1 4.9-6.8L7 4.9a.6.6 0 0 1 .2-.8zM8.3 10.2a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm7.4 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2zM3.4 15.4h17.2v2.2a2.4 2.4 0 0 1-2.4 2.4H5.8a2.4 2.4 0 0 1-2.4-2.4z" />
+        </svg>
+      );
+  }
+}

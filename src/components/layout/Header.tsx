@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import { DiscordIcon } from "@/components/ui/icons";
 import Logo from "@/components/ui/Logo";
 import { HAS_CREDITS } from "@/lib/credits";
-import { DISCORD_URL, DOWNLOAD_URL } from "@/lib/projects";
+import { DISCORD_URL } from "@/lib/projects";
 
 /** Sections of the home page. Plain anchors: on the home page they scroll, elsewhere they go home first. */
 const SECTIONS = ([
@@ -134,9 +134,10 @@ export default function Header() {
               </Link>
             </div>
             <div className="grid gap-2 min-[821px]:ml-auto min-[821px]:flex min-[821px]:items-center">
-              <a href={DOWNLOAD_URL} onClick={close} className={`${pill} border border-amber bg-amber text-[#1a0d00] hover:brightness-110 min-[821px]:border-black/25 min-[821px]:bg-[#1b1206] min-[821px]:text-amber min-[821px]:hover:bg-[#2a1800] min-[821px]:hover:brightness-100`}>
+              {/* The home page's Download panel; elsewhere it goes home and opens it there. */}
+              <Link href="/#download" onClick={close} className={`${pill} border border-amber bg-amber text-[#1a0d00] hover:brightness-110 min-[821px]:border-black/25 min-[821px]:bg-[#1b1206] min-[821px]:text-amber min-[821px]:hover:bg-[#2a1800] min-[821px]:hover:brightness-100`}>
                 Download
-              </a>
+              </Link>
               <DiscordButton onClick={close} className={`${discordBlue} max-[821px]:hidden`} />
             </div>
           </nav>

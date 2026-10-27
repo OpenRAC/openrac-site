@@ -187,6 +187,49 @@ summary::-webkit-details-marker { display: none; }
 /* Without scripts a backdrop cannot report that it loaded: show it as it is. */
 @media (scripting: none) { .backdrop { opacity: 1 !important; } }
 
+/* The Download panel (DownloadPanel.tsx): folded to no height until opened. The row grows from 0fr
+   to 1fr, so it opens to its own height with no number to keep in step; hidden while folded, so
+   neither Tab nor a screen reader finds its links. */
+.dl {
+  display: grid;
+  grid-template-rows: 0fr;
+  visibility: hidden;
+  transition: grid-template-rows 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), visibility 0s linear 0.6s;
+}
+.dl[data-open="true"] {
+  grid-template-rows: 1fr;
+  visibility: visible;
+  transition: grid-template-rows 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), visibility 0s;
+}
+.dl-clip { min-height: 0; overflow: hidden; }
+.dl-inner { opacity: 0; transform: translateY(-14px); transition: opacity 0.35s ease, transform 0.35s ease; }
+.dl[data-open="true"] .dl-inner { opacity: 1; transform: none; transition: opacity 0.5s ease 0.1s, transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) 0.1s; }
+/* The cards come in one after another, left to right. */
+.dl[data-open="true"] .dl-card { animation: dl-card 0.7s cubic-bezier(0.2, 0.8, 0.2, 1) both; animation-delay: calc(0.15s + var(--i) * 0.08s); }
+@keyframes dl-card {
+  from { opacity: 0; transform: translateY(22px) scale(0.98); }
+}
+/* The visitor's own system: a soft gold glow, and a light sweeping over its button. */
+.dl-mine { box-shadow: 0 0 0 1px rgb(255 180 67 / 0.2), 0 18px 50px -18px rgb(255 138 0 / 0.45); }
+.dl-btn { position: relative; overflow: hidden; }
+.dl-mine .dl-btn::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(100deg, transparent 30%, rgb(255 255 255 / 0.45) 50%, transparent 70%);
+  animation: var(--animate-sweep);
+  pointer-events: none;
+}
+@media (hover: hover) {
+  .dl-card { transition: transform 0.25s ease, border-color 0.25s ease; }
+  .dl-card:hover { transform: translateY(-3px); border-color: var(--color-brand); }
+}
+/* Without scripts the Download links still open it. */
+@media (scripting: none) {
+  .dl:target { grid-template-rows: 1fr; visibility: visible; }
+  .dl:target .dl-inner { opacity: 1; transform: none; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation: none !important; transition: none !important; }

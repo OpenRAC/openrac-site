@@ -95,13 +95,14 @@ src/components/ui/        small shared pieces (Section heading, Cards, Backdrop,
 src/lib/projects.ts       the list of titles: names, repositories, colours, maintainers
 src/lib/progress/         reading each project's progress from GitHub (one parser per format, with tests)
 src/lib/blog/, youtube/   blog posts from content/blog, video titles for Credits
+src/lib/releases.ts       the launcher's latest release for the Download panel, a card per system
 src/lib/machine.ts        progress.json, llms.txt and the structured data for search engines
 content/blog/             the blog posts (Markdown)
 deploy/                   the Podman Quadlet unit
 ```
 
 Copy `.env.example` to `.env.local` to change settings. `GITHUB_TOKEN` is optional and only raises the GitHub API
-rate limit for the activity feed; it stays on the server.
+rate limit for the activity feed and the Download panel; it stays on the server.
 
 ### Card backdrops
 

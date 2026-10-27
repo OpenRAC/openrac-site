@@ -2,6 +2,7 @@ import Activity from "@/components/sections/Activity";
 import AiView from "@/components/sections/AiView";
 import Contribute from "@/components/sections/Contribute";
 import Credits from "@/components/sections/Credits";
+import Download from "@/components/sections/Download";
 import Faq from "@/components/sections/Faq";
 import Hero from "@/components/sections/Hero";
 import HowItWorks from "@/components/sections/HowItWorks";
@@ -11,18 +12,20 @@ import Resources from "@/components/sections/Resources";
 import { getActivity } from "@/lib/activity";
 import { homeLd, ldJson, siteUrl } from "@/lib/machine";
 import { getProgress } from "@/lib/progress";
+import { getLauncherRelease } from "@/lib/releases";
 
 // Rendered on the server and cached; rebuilt in the background at most every 5 minutes.
 export const revalidate = 300;
 
-/** The home page: every section in order, with the progress and activity loaded on the server. */
+/** The home page: every section in order, with the progress, activity and latest launcher loaded on the server. */
 export default async function Home() {
-  const [progress, commits] = await Promise.all([getProgress(), getActivity()]);
+  const [progress, commits, release] = await Promise.all([getProgress(), getActivity(), getLauncherRelease()]);
 
   return (
     <main className="mx-auto max-w-[1080px] px-4">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: ldJson(homeLd(siteUrl())) }} />
       <Hero progress={progress} />
+      <Download release={release} />
       <Progress progress={progress} />
       <Contribute />
       <Activity commits={commits} />

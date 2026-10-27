@@ -1,5 +1,5 @@
 import { formatSize } from "@/lib/format";
-import { DOWNLOAD_URL, PROJECTS } from "@/lib/projects";
+import { PROJECTS } from "@/lib/projects";
 import type { ProjectProgress } from "@/lib/progress";
 import type { ProjectId } from "@/lib/projects";
 import CountUp from "@/components/ui/CountUp";
@@ -35,7 +35,8 @@ export default function Hero({ progress }: { progress: Partial<Record<ProjectId,
         <a href="#progress" className="btn btn-primary">
           See progress
         </a>
-        <a href={DOWNLOAD_URL} className="btn">
+        {/* Opens the Download panel right under the hero (DownloadPanel.tsx). */}
+        <a id="download-button" href="#download" aria-controls="download" className="btn">
           Download the launcher
         </a>
       </div>
