@@ -65,11 +65,10 @@ interface Look {
   fill?: string;
   /** Ten lit segments instead of a smooth bar (Going Mobile's pixel meter). */
   segments?: boolean;
-  /** Type sizes for the name and the percentage, for a typeface wider than the rest. */
-  sizes?: { name: string; pct: string; small: string };
 }
 
-const SIZES = { name: "text-[clamp(20px,3.2vw,30px)]", pct: "text-[clamp(20px,3.4vw,32px)]", small: "text-[11px] sm:text-[13px]" };
+/** Type sizes on every card. */
+const SIZES = { name: "text-[clamp(20px,3.2vw,30px)]", pct: "text-[clamp(20px,3.4vw,32px)]", small: "text-[12px] @xl:text-[13px]" };
 
 const BEVEL = "[clip-path:polygon(14px_0,100%_0,100%_calc(100%-14px),calc(100%-14px)_100%,0_100%,0_14px)]";
 
@@ -79,11 +78,7 @@ const LOOKS: Partial<Record<ProjectId, Look>> = {
     title: "border-[#ff6b6b]/50! bg-gradient-to-r from-[#991b1b] via-[#dc2626] to-[#991b1b] text-white uppercase tracking-wider",
     fill: "from-[#991b1b] via-[#dc2626] to-[#f87171]",
   },
-  gm: {
-    box: "rounded-xl border-[3px] border-(--bd)",
-    segments: true,
-    sizes: { name: "text-[clamp(14px,2.4vw,24px)]", pct: "text-[clamp(14px,2.2vw,22px)]", small: "text-[8px] leading-relaxed sm:text-[10px]" },
-  },
+  gm: { box: "rounded-xl border-[3px] border-(--bd)", segments: true },
   sm: { box: `${BEVEL} border-2 border-(--bd)`, title: "uppercase tracking-wider", fill: "from-[#ca8a04] via-[#eab308] to-[#fde047]" },
   sac: { box: "rounded-lg border-[3px] border-(--bd)" },
 };
@@ -118,12 +113,18 @@ function Bar({ value, name, look }: { value: number; name: string; look: Look })
   );
 }
 
+/** The region as people say it: the badge on a game with a card per release. */
+const REGION_NAME: Record<string, string> = { PAL: "PAL · Europe", "NTSC-U": "NTSC-U · USA" };
+
 /**
  * One title, in the colours, typeface and box shapes of its own menus, over its backdrop. All
  * cards share one layout (name and percentage, the bar, then the repository, the maintainers and
- * the bytes), so they read alike and only their accents differ. Rendered on the server.
+ * the bytes), so they read alike and only their accents differ. It lays itself out by its own
+ * width (container queries), so a card in a pair of releases stacks like one on a phone.
+ * `release`: the card is one of several for the same game, so its region is shown as a badge.
+ * Rendered on the server.
  */
-function Card({ project: g, progress: p }: { project: Project; progress?: ProjectProgress }) {
+function Card({ project: g, progress: p, release = false }: { project: Project; progress?: ProjectProgress; release?: boolean }) {
   const t = g.theme;
   const look = LOOKS[g.id] ?? DEFAULT_LOOK;
   const value = p ? percent(p.code) : 0;
@@ -131,7 +132,6 @@ function Card({ project: g, progress: p }: { project: Project; progress?: Projec
     "--box": t.box, "--bd": t.border, "--tx": t.text, "--tx2": t.text2,
     backgroundImage: `radial-gradient(90% 90% at 85% 0, ${t.from}, transparent 70%), linear-gradient(160deg, ${t.from}, ${t.to})`,
   } as CSSProperties;
-  const size = look.sizes ?? SIZES;
   const box = `${look.box} bg-(--box) text-(--tx) shadow-[0_6px_18px_rgb(0_0_0/0.35)]`;
 
   return (
@@ -139,30 +139,39 @@ function Card({ project: g, progress: p }: { project: Project; progress?: Projec
       aria-label={`${g.name}${g.region ? ` (${g.region})` : ""}${g.phase === "research" ? ", research phase" : ""} progress`}
       style={style}
       data-reveal
-      className={`relative isolate overflow-hidden rounded-[22px] border border-white/10 bg-ink shadow-[0_14px_40px_rgb(0_0_0/0.4)] ${g.fontClass}`}
+      className={`group/card @container relative isolate overflow-hidden rounded-[22px] border border-white/10 bg-ink shadow-[0_14px_40px_rgb(0_0_0/0.4)] transition-[border-color,box-shadow] duration-500 hover:border-(--bd)/60 hover:shadow-[0_18px_48px_rgb(0_0_0/0.5)] ${g.fontClass}`}
     >
-      <Backdrop src={g.image} quality={g.id === "rac1" || g.id === "gc" || g.id === "uya" ? 70 : 75} />
+      {/* The backdrop leans in a little under the pointer (hover only: never on touch screens). */}
+      <Backdrop src={g.image} className="transition-[opacity,transform] duration-700 ease-out group-hover/card:scale-[1.05]" />
       {/* Darker where the text sits, so every backdrop reads the same. */}
-      <div aria-hidden className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-black/20 max-sm:bg-none max-sm:bg-black/40" />
+      <div aria-hidden className="absolute inset-0 bg-black/40 @xl:bg-transparent @xl:bg-gradient-to-r @xl:from-black/70 @xl:via-black/40 @xl:to-black/20" />
 
-      <div className="relative grid gap-4 p-4 sm:gap-5 sm:p-6">
-        <div className="flex flex-wrap items-stretch gap-3 sm:flex-nowrap sm:gap-4">
-          <div className={`${box} ${look.title ?? ""} min-w-0 flex-[1_1_100%] px-4 py-3 sm:flex-1 sm:px-5`}>
-            <h3 className={`${size.name} leading-tight`}>{g.name}</h3>
-            <p className={`mt-1 tracking-wide opacity-80 ${size.small}`}>
-              {g.subtitle ?? `decompilation · ${g.year}${g.region ? ` · ${g.region}` : ""}`}
-            </p>
+      <div className="relative grid gap-4 p-4 @xl:gap-5 @xl:p-6">
+        <div className="flex flex-wrap items-stretch gap-3 @xl:flex-nowrap @xl:gap-4">
+          {/* wrap-reverse: where the region badge has no room beside the name, it moves above it. */}
+          <div className={`${box} ${look.title ?? ""} flex min-w-0 flex-[1_1_100%] flex-wrap-reverse items-start justify-between gap-x-3 gap-y-2 px-4 py-3 @xl:flex-1 @xl:px-5`}>
+            <div className="min-w-0 flex-[1_1_14rem]">
+              <h3 className={`${SIZES.name} leading-tight`}>{g.name}</h3>
+              <p className={`mt-1 tracking-wide opacity-80 ${SIZES.small}`}>
+                {g.subtitle ?? `decompilation · ${g.year}${g.region ? ` · ${g.region}` : ""}`}
+              </p>
+            </div>
+            {release && g.region && (
+              <span className="flex-none rounded-full border border-(--bd) bg-black/30 px-2.5 py-1 text-[10px] uppercase tracking-[.15em] text-(--tx2) @xl:text-[11px]">
+                {REGION_NAME[g.region] ?? g.region}
+              </span>
+            )}
           </div>
-          {/* On a phone a single row (label, figure) under the name; beside it on wider screens. */}
-          <div className={`${box} flex flex-[1_1_100%] items-center justify-between gap-3 px-4 py-2.5 sm:flex-[0_1_220px] sm:flex-col sm:items-end sm:justify-center sm:gap-0 sm:px-5 sm:py-3 sm:text-right`}>
-            <span className="text-[10px] uppercase tracking-[.2em] text-(--tx2) sm:text-[11px]">Progress</span>
-            <b className={`${size.pct} whitespace-nowrap font-[inherit] leading-tight tabular-nums`}>{p ? pct(value) : "Not started"}</b>
+          {/* Narrow: one row (label, figure) under the name; wide: beside it. */}
+          <div className={`${box} flex flex-[1_1_100%] items-center justify-between gap-3 px-4 py-2.5 @xl:flex-[0_1_220px] @xl:flex-col @xl:items-end @xl:justify-center @xl:gap-0 @xl:px-5 @xl:py-3 @xl:text-right`}>
+            <span className="text-[10px] uppercase tracking-[.2em] text-(--tx2) @xl:text-[11px]">Progress</span>
+            <b className={`${SIZES.pct} whitespace-nowrap font-[inherit] leading-tight tabular-nums`}>{p ? pct(value) : "Not started"}</b>
           </div>
         </div>
 
         <Bar value={value} name={g.name} look={look} />
 
-        <div className={`flex min-w-0 flex-wrap items-center gap-x-5 gap-y-2.5 text-(--tx) ${look.sizes ? look.sizes.small : "text-[12px] sm:text-[13px]"}`}>
+        <div className={`flex min-w-0 flex-wrap items-center gap-x-5 gap-y-2.5 text-(--tx) ${SIZES.small}`}>
           {g.repo && (
             <a href={`https://github.com/${g.repo}`} className={`${box} inline-flex min-h-10 min-w-0 max-w-full items-center gap-2.5 px-3.5 py-1.5 no-underline transition hover:brightness-125`}>
               {GITHUB}
@@ -170,10 +179,11 @@ function Card({ project: g, progress: p }: { project: Project; progress?: Projec
             </a>
           )}
           <Maintainers users={g.maintainers} />
-          {p && <p className="text-(--tx2) sm:ml-auto">{matchedLine(p)}</p>}
+          {/* In the card's main text colour, softened: the second colour can vanish on its backdrop (Deadlocked's red). */}
+          {p && <p className="opacity-80 @xl:ml-auto">{matchedLine(p)}</p>}
         </div>
         {g.phase === "research" && (
-          <p className="-mt-1 flex flex-wrap items-center gap-2.5 text-[12px] text-(--tx2)">
+          <p className="-mt-1 flex flex-wrap items-center gap-2.5 text-[12px] text-(--tx)/80">
             <ResearchBadge className="border-(--bd) bg-(--box) text-(--tx)" />
             <span>{RESEARCH_TEXT}</span>
           </p>
@@ -183,13 +193,23 @@ function Card({ project: g, progress: p }: { project: Project; progress?: Projec
   );
 }
 
+/** Consecutive cards of the same game (its releases) go in one row, side by side. */
+function rows(projects: readonly Project[]): Project[][] {
+  const out: Project[][] = [];
+  for (const g of projects) {
+    const last = out.at(-1);
+    if (last && last[0].name === g.name) last.push(g);
+    else out.push([g]);
+  }
+  return out;
+}
+
 /** A group of cards under its own heading and platform tag. */
-function Group({ title, text, platforms, dot, tag, projects, progress }: {
+function Group({ title, text, platforms, dot, projects, progress }: {
   title: string;
   text: string;
   platforms: string;
   dot: string;
-  tag: string;
   projects: readonly Project[];
   progress: Partial<Record<ProjectId, ProjectProgress>>;
 }) {
@@ -197,18 +217,26 @@ function Group({ title, text, platforms, dot, tag, projects, progress }: {
     <div>
       <div className="mb-5 flex flex-wrap items-end justify-between gap-x-4 gap-y-2">
         <div>
-          <h3 className="flex items-center gap-2.5 font-orbitron text-lg font-bold tracking-wide text-lav sm:text-xl">
+          <h3 className="flex items-center gap-2.5 font-orbitron text-lg font-bold tracking-wide text-hi sm:text-xl">
             <span aria-hidden className={`size-2.5 rounded-full ${dot}`} />
             {title}
           </h3>
           <p className="mt-1 text-sm text-dim">{text}</p>
         </div>
-        <span className={`rounded-full border px-3 py-1 font-orbitron text-xs ${tag}`}>{platforms}</span>
+        <span className="rounded-full border border-hi/20 bg-hi/5 px-3 py-1 font-orbitron text-xs text-dim">{platforms}</span>
       </div>
       <div className="grid gap-4 sm:gap-5">
-        {projects.map((g) => (
-          <Card key={g.id} project={g} progress={progress[g.id]} />
-        ))}
+        {rows(projects).map((row) =>
+          row.length === 1 ? (
+            <Card key={row[0].id} project={row[0]} progress={progress[row[0].id]} />
+          ) : (
+            <div key={row[0].id} className="grid gap-4 sm:gap-5 md:grid-cols-2">
+              {row.map((g) => (
+                <Card key={g.id} project={g} progress={progress[g.id]} release />
+              ))}
+            </div>
+          ),
+        )}
       </div>
     </div>
   );
@@ -226,7 +254,6 @@ export default function Progress({ progress }: { progress: Partial<Record<Projec
           text="The four PlayStation 2 releases of the main series, from the 2002 debut to the combat arena of Deadlocked."
           platforms="PlayStation 2"
           dot="bg-brand"
-          tag="border-lav/20 bg-lav/5 text-dim"
           projects={mainline}
           progress={progress}
         />
@@ -235,9 +262,8 @@ export default function Progress({ progress }: { progress: Partial<Record<Projec
             title="Spin-offs & Handhelds"
             text="Handheld and spin-off entries in the Ratchet & Clank universe."
             platforms="PSP / PS2 / Mobile"
-            dot="bg-[#00b4d8]"
-            tag="border-[#00b4d8]/40 bg-[#00b4d8]/10 text-[#7dd3fc]"
-            projects={spinoffs}
+            dot="bg-gold"
+              projects={spinoffs}
             progress={progress}
           />
         )}

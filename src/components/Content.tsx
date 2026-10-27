@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { ALSO_WORKED_ON, DISCORD_URL, PROJECTS, type ProjectId } from "@/lib/projects";
+import { ALSO_WORKED_ON, DISCORD_URL, listName, PROJECTS, type ProjectId } from "@/lib/projects";
 import type { Commit } from "@/lib/activity";
 import Section from "./Section";
 
@@ -13,7 +13,7 @@ export const DISCORD_ICON = (
 const ARROW = <span aria-hidden className="ml-auto flex-none text-brand transition-transform group-hover:translate-x-0.5">→</span>;
 
 /** The small uppercase heading over a list or panel. */
-const listTitle = "mb-2 font-orbitron text-[12px] font-bold uppercase tracking-[.2em] text-lav";
+const listTitle = "mb-2 font-orbitron text-[12px] font-bold uppercase tracking-[.2em] text-hi";
 
 function Cards({ items }: { items: readonly (readonly [string, string, ReactNode?])[] }) {
   return (
@@ -55,7 +55,7 @@ export function Contribute() {
             <li key={p.id} className="border-t border-line first:border-0 min-[480px]:[&:nth-child(2)]:border-0 lg:[&:nth-child(-n+4)]:border-0">
               <a href={p.contributing ?? `https://github.com/${p.repo}`} className="group flex min-h-11 items-center gap-2.5 py-2 font-semibold text-text no-underline hover:text-amber">
                 <i aria-hidden className="size-2 flex-none rounded-full" style={{ background: p.theme.text2 }} />
-                <span className="min-w-0 truncate">{p.name}</span>
+                <span className="min-w-0 truncate">{listName(p)}</span>
                 {ARROW}
               </a>
             </li>
@@ -77,7 +77,8 @@ const ago = (iso: string): string => {
 
 /** The project's colour on its activity tag, close to its card. */
 const TAG: Record<ProjectId, string> = {
-  rac1: "border-lav/30 bg-lav/15 text-lav",
+  rac1: "border-hi/30 bg-hi/15 text-hi",
+  rac1us: "border-hi/30 bg-hi/15 text-hi",
   gc: "border-[#5a7fa6]/40 bg-[#5a7fa6]/25 text-[#9fd3ff]",
   uya: "border-brand/40 bg-brand/20 text-[#ffc35a]",
   deadlocked: "border-red-500/40 bg-red-950/60 text-[#ff6b6b]",
@@ -96,7 +97,7 @@ export function Activity({ commits }: { commits: Commit[] }) {
           {commits.map((c) => (
             <li key={c.url} className="flex min-w-0 flex-wrap items-center gap-x-3.5 gap-y-1.5 rounded-xl border border-line bg-panel px-4 py-3">
               <span className={`flex-none rounded-full border px-2.5 py-1 font-orbitron text-[11px] font-semibold tracking-wider ${TAG[c.projectId]}`}>{c.project}</span>
-              <a href={c.url} className="order-3 min-w-0 basis-full truncate text-[#e3e9ff] no-underline hover:text-amber sm:order-none sm:basis-0 sm:flex-1">{c.message}</a>
+              <a href={c.url} className="order-3 min-w-0 basis-full truncate text-text no-underline hover:text-amber sm:order-none sm:basis-0 sm:flex-1">{c.message}</a>
               <time dateTime={c.date} className="flex-none text-[13px] text-dim">{ago(c.date)}</time>
             </li>
           ))}
@@ -164,7 +165,7 @@ function ResourceList({ title, items }: { title: string; items: Resource[] }) {
 export function Resources() {
   // Each project's own introduction, so newcomers start from the people who know that game best.
   const guides = PROJECTS.flatMap((p) =>
-    p.guide && p.repo ? [{ title: p.name, href: p.guide.url, text: `${p.guide.label} · ${p.repo.split("/")[1]}` }] : [],
+    p.guide && p.repo ? [{ title: listName(p), href: p.guide.url, text: `${p.guide.label} · ${p.repo.split("/")[1]}` }] : [],
   );
   return (
     <Section id="resources" title="Resources" sub="Tools, guides and related work that decompilation projects like these rely on.">
@@ -179,14 +180,19 @@ export function Resources() {
 
 /** Every listed game with the projects working on it (from PROJECTS and ALSO_WORKED_ON), so it never goes stale. */
 function OtherTitles() {
-  const games = PROJECTS.map((g) => ({
-    game: g,
-    projects: [{ repo: g.repo, region: g.region }, ...ALSO_WORKED_ON.filter((o) => o.game === g.id)],
-  }));
+  // One row per game: a game with projects for several releases (Ratchet & Clank: PAL and NTSC-U) lists them all.
+  const names = [...new Set(PROJECTS.map((g) => g.name))];
+  const games = names.map((name) => {
+    const own = PROJECTS.filter((g) => g.name === name);
+    return {
+      game: own[0],
+      projects: [...own.map((g) => ({ repo: g.repo, region: g.region })), ...ALSO_WORKED_ON.filter((o) => own.some((g) => g.id === o.game))],
+    };
+  });
   return (
     <div className="grid gap-4 pb-5 text-soft">
       <p>
-        Yes, and every one of them by an <b className="font-semibold text-lav">independent team</b>. Each project has its own people, its own
+        Yes, and every one of them by an <b className="font-semibold text-hi">independent team</b>. Each project has its own people, its own
         repository and its own way of working. This page only gathers them in one place.
       </p>
       <ul className="grid gap-2">
@@ -265,7 +271,7 @@ export function Faq() {
 export function AiView() {
   return (
     <Section id="ai" title="Our view on AI">
-      <aside className="mb-8 mt-5 max-w-[760px] border-l-4 border-brand py-1.5 pl-5 font-audiowide text-[clamp(22px,3.4vw,32px)] leading-tight text-lav">
+      <aside className="mb-8 mt-5 max-w-[760px] border-l-4 border-brand py-1.5 pl-5 font-audiowide text-[clamp(22px,3.4vw,32px)] leading-tight text-hi">
         A wrong guess costs nothing and never ships. <em className="not-italic text-amber">The compiler is the judge.</em>
       </aside>
       <article className="max-w-[760px] text-base text-body sm:text-[17px] [&_h3]:mb-1 [&_h3]:mt-7 [&_h3]:font-orbitron [&_h3]:text-lg [&_h3]:font-bold [&_h3]:text-gold [&_p]:mb-3.5">
@@ -287,7 +293,7 @@ export function Legal() {
   return (
     <section id="legal" className="pb-16 pt-4">
       <div data-reveal className="surface p-5 text-[15px] text-body sm:p-6">
-        <h2 className="mb-2 font-audiowide text-[22px] text-lav">Legal</h2>
+        <h2 className="mb-2 font-audiowide text-[22px] text-hi">Legal</h2>
         <p className="mb-3">
           OpenRAC is an independent, unofficial fan project. It is not affiliated with, endorsed by or sponsored by the owners of the games or their publishers.
           &quot;Ratchet &amp; Clank&quot; and related names, characters and logos are trademarks of their respective owners and are used here only to identify the games this project studies.

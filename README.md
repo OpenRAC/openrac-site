@@ -24,6 +24,7 @@ weighted by size because small functions are matched first, and it is the figure
 Sources (see `src/lib/progress.ts`):
 
 - **Ratchet & Clank (PAL)**: `progress/report.json` (objdiff report) of [`OpenRAC/rac1-decomp`](https://github.com/OpenRAC/rac1-decomp).
+- **Ratchet & Clank (NTSC-U)**: `report.json` (objdiff report) on the `progress` branch of [`lombyte-project/Lombyte`](https://github.com/lombyte-project/Lombyte), which the project's own workflow publishes and [ByteMatch](https://bytematch.dev/lombyte-project/Lombyte) reads. Shown beside the PAL card.
 - **Going Commando**: the committed `progress/report.json` on the `master` branch of [`OpenRAC/rac2-gc-decomp`](https://github.com/OpenRAC/rac2-gc-decomp), which is also the report [ByteMatch](https://bytematch.dev/OpenRAC/rac2-gc-decomp) reads. The site uses its matched code and total code bytes directly, so the percentage and function counts match ByteMatch. Shared level code is counted in the report's scope, rather than once per overlay placement.
 - **Up Your Arsenal (PAL)**: `progress/report.json` (objdiff report) of [`OpenRAC/rac3-decomp`](https://github.com/OpenRAC/rac3-decomp), which the project commits and refreshes with its own tooling (`python3 tools/progress.py --write`). It is the same figure [ByteMatch](https://bytematch.dev/OpenRAC/rac3-decomp) shows.
 - **Ratchet: Deadlocked (NTSC-U)**: `progress/report.json` (objdiff report) of [`OpenRAC/rac4-decomp`](https://github.com/OpenRAC/rac4-decomp).

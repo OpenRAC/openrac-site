@@ -38,6 +38,9 @@ async function loadObjdiff(url: string, name: string): Promise<Progress> {
 /** Ratchet & Clank (PAL): read from the project's own objdiff progress report. */
 const loadRac1 = () => loadObjdiff(`${RAW}/OpenRAC/rac1-decomp/main/progress/report.json`, "rac1");
 
+/** Ratchet & Clank (NTSC-U), Lombyte: its objdiff report, published on the repository's `progress` branch (what ByteMatch reads). */
+const loadRac1Us = () => loadObjdiff(`${RAW}/lombyte-project/Lombyte/progress/report.json`, "rac1us");
+
 /** Ratchet: Deadlocked (NTSC-U): read from the project's own objdiff progress report. */
 const loadDeadlocked = () => loadObjdiff(`${RAW}/OpenRAC/rac4-decomp/main/progress/report.json`, "deadlocked");
 
@@ -94,6 +97,7 @@ async function loadSac(): Promise<Progress> {
 
 const cached = {
   rac1: unstable_cache(loadRac1, ["progress-rac1"], { revalidate: REVALIDATE_SECONDS }),
+  rac1us: unstable_cache(loadRac1Us, ["progress-rac1us"], { revalidate: REVALIDATE_SECONDS }),
   gc: unstable_cache(loadGc, ["progress-gc"], { revalidate: REVALIDATE_SECONDS }),
   uya: unstable_cache(loadUya, ["progress-uya"], { revalidate: REVALIDATE_SECONDS }),
   deadlocked: unstable_cache(loadDeadlocked, ["progress-deadlocked"], { revalidate: REVALIDATE_SECONDS }),
@@ -105,6 +109,7 @@ const cached = {
 /** Last numbers known to be good. Used only if GitHub cannot be reached at all. */
 const FALLBACK: Record<ProjectId, Progress> = {
   rac1: { functions: { done: 5089, total: 5120 }, code: { done: 3656816, total: 3713416 }, source: "snapshot 2026-10-24" },
+  rac1us: { functions: { done: 4230, total: 4244 }, code: { done: 3533752, total: 3547932 }, source: "snapshot 2026-10-27" },
   gc: { functions: { done: 4351, total: 8601 }, code: { done: 776368, total: 5529148 }, source: "snapshot 2026-10-24" },
   uya: { functions: { done: 5807, total: 16164 }, code: { done: 657780, total: 7546948 }, source: "snapshot 2026-10-24" },
   deadlocked: { functions: { done: 3598, total: 18085 }, code: { done: 262428, total: 5782424 }, source: "snapshot 2026-10-24" },
@@ -119,8 +124,9 @@ export interface ProjectProgress extends Progress {
 }
 
 export async function getProgress(): Promise<Partial<Record<ProjectId, ProjectProgress>>> {
-  const [rac1, gc, uya, deadlocked, gm, sm, sac] = await Promise.allSettled([
+  const [rac1, rac1us, gc, uya, deadlocked, gm, sm, sac] = await Promise.allSettled([
     cached.rac1(),
+    cached.rac1us(),
     cached.gc(),
     cached.uya(),
     cached.deadlocked(),
@@ -132,6 +138,7 @@ export async function getProgress(): Promise<Partial<Record<ProjectId, ProjectPr
     r.status === "fulfilled" ? { ...r.value, stale: false } : { ...fb, stale: true };
   return {
     rac1: pick(rac1, FALLBACK.rac1),
+    rac1us: pick(rac1us, FALLBACK.rac1us),
     gc: pick(gc, FALLBACK.gc),
     uya: pick(uya, FALLBACK.uya),
     deadlocked: pick(deadlocked, FALLBACK.deadlocked),

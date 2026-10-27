@@ -1,4 +1,4 @@
-export type ProjectId = "rac1" | "gc" | "uya" | "deadlocked" | "gm" | "sm" | "sac";
+export type ProjectId = "rac1" | "rac1us" | "gc" | "uya" | "deadlocked" | "gm" | "sm" | "sac";
 
 export type ProjectCategory = "mainline" | "spinoff";
 
@@ -55,6 +55,22 @@ export const PROJECTS: readonly Project[] = [
     region: "PAL",
     contributing: `${GH}/OpenRAC/rac1-decomp/blob/main/CONTRIBUTING.md`,
     guide: { label: "From assembly to a match", url: `${GH}/OpenRAC/rac1-decomp/blob/main/docs/WORKFLOW.md` },
+  },
+  {
+    // The same game from the North American disc, by its own team; shown beside the PAL card.
+    id: "rac1us",
+    name: "Ratchet & Clank",
+    year: 2002,
+    repo: "lombyte-project/Lombyte",
+    fontClass: "font-audiowide",
+    theme: { box: "#181820", border: "#747669", text: "#c8d2ff", text2: "#9ca1d4", from: "#3c7a3a", to: "#12331f" },
+    image: "/img/rac1-bg.webp",
+    category: "mainline",
+    platform: "PlayStation 2",
+    tag: "RaC1 US",
+    region: "NTSC-U",
+    contributing: `${GH}/lombyte-project/Lombyte/blob/main/CONTRIBUTING.md`,
+    guide: { label: "Build guide", url: `${GH}/lombyte-project/Lombyte/blob/main/docs/build/building.md` },
   },
   {
     id: "gc",
@@ -158,9 +174,11 @@ export const PROJECTS: readonly Project[] = [
  * Other community projects for a game listed above. They are named in the FAQ ("Are the other titles
  * being worked on?") but have no card and are not tracked on the page.
  */
-export const ALSO_WORKED_ON: readonly { game: ProjectId; repo: string; region?: string }[] = [
-  { game: "rac1", repo: "lombyte-project/Lombyte", region: "NTSC-U" },
-];
+export const ALSO_WORKED_ON: readonly { game: ProjectId; repo: string; region?: string }[] = [];
+
+/** The project's name in a list: with its region when another project works on the same game. */
+export const listName = (p: Project): string =>
+  p.region && PROJECTS.some((o) => o !== p && o.name === p.name) ? `${p.name} (${p.region})` : p.name;
 
 export const DISCORD_URL = "https://discord.gg/Sfd2B54PDG";
 
