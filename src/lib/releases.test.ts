@@ -1,7 +1,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { detectPlatform } from "./platform.ts";
-import { androidVersion, classify, pickLatest, toLauncherRelease, type GithubRelease } from "./releases.ts";
+import { classify, pickLatest, toLauncherRelease, type GithubRelease } from "./releases.ts";
 
 // The files of a launcher build, as its workflow names them.
 const NAMES = [
@@ -39,7 +39,7 @@ test("classify skips signatures, the manifest and the updater's archives", () =>
 });
 
 test("every system gets its main installer first", () => {
-  const r = toLauncherRelease(release(), "Android 9 or newer");
+  const r = toLauncherRelease(release());
   assert.equal(r.version, "0.9.1");
   assert.deepEqual(r.platforms.map((p) => p.id), ["windows", "linux", "macos", "android"]);
   const main = Object.fromEntries(r.platforms.map((p) => [p.id, p.main?.url.split("/").pop()]));
@@ -66,7 +66,6 @@ test("a system without files in the release still has its entry", () => {
   const r = toLauncherRelease(release({ assets: [] }));
   assert.equal(r.platforms.length, 4);
   assert.ok(r.platforms.every((p) => p.main === null && p.others.length === 0));
-  assert.ok(r.platforms[3].supports.every((l) => !/Android \d/.test(l)));
 });
 
 test("pickLatest takes the newest published launcher release", () => {
@@ -79,13 +78,6 @@ test("pickLatest takes the newest published launcher release", () => {
   ];
   assert.equal(pickLatest(list)?.tag_name, "launcher-v0.9.0");
   assert.equal(pickLatest([]), null);
-});
-
-test("androidVersion reads minSdk from the build script", () => {
-  assert.equal(androidVersion("        minSdk = 29\n        targetSdk = 37"), "Android 10 or newer");
-  assert.equal(androidVersion("minSdk = 28"), "Android 9 or newer");
-  assert.equal(androidVersion("minSdk = 99"), null);
-  assert.equal(androidVersion("no such line"), null);
 });
 
 test("detectPlatform", () => {

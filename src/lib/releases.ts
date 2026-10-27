@@ -49,24 +49,14 @@ const PLATFORMS: { id: PlatformId; name: string }[] = [
 /**
  * What each system needs, from the launcher's build (OpenRAC's .github/workflows/launcher.yml):
  * Windows x64; Linux built on Ubuntu 22.04, so glibc 2.35 or later; the macOS game is Apple
- * silicon's. Android's version comes from the release itself (`androidVersion`).
+ * silicon's; Android 9 (minSdk 28) is the launcher's floor.
  */
 const SUPPORTS: Record<PlatformId, string[]> = {
   windows: ["Windows 10 and 11", "64-bit PCs (x64)"],
   linux: ["Ubuntu 22.04, Debian 12, Fedora 36, SteamOS or newer", "x86-64 and ARM64"],
   macos: ["Macs with Apple silicon (M1 or newer)"],
-  android: ["64-bit ARM phones and handhelds", "Mali or Adreno GPU with OpenGL ES 3.2"],
+  android: ["Android 9 or newer", "64-bit ARM phones and handhelds", "Mali or Adreno GPU with OpenGL ES 3.2"],
 };
-
-/** Android's version for an API level, the way its settings name it. */
-const ANDROID_VERSIONS: Record<number, string> = { 26: "8", 27: "8.1", 28: "9", 29: "10", 30: "11", 31: "12", 32: "12L", 33: "13", 34: "14", 35: "15", 36: "16" };
-
-/** "Android 10 or newer" from the `minSdk` line of the Android build script; null when it has none. */
-export function androidVersion(gradle: string): string | null {
-  const api = Number(/\bminSdk\s*=\s*(\d+)/.exec(gradle)?.[1]);
-  const name = ANDROID_VERSIONS[api];
-  return name ? `Android ${name} or newer` : null;
-}
 
 const arch = (name: string) => (/aarch64|arm64/i.test(name) ? "ARM64" : "x86-64");
 
@@ -96,7 +86,7 @@ export function pickLatest(releases: GithubRelease[]): GithubRelease | null {
 }
 
 /** A release as the Download panel shows it: one entry per system, in a fixed order, even one without files. */
-export function toLauncherRelease(release: GithubRelease, android: string | null = null): LauncherRelease {
+export function toLauncherRelease(release: GithubRelease): LauncherRelease {
   const files = release.assets
     .flatMap((a) => {
       const c = classify(a.name);
@@ -109,8 +99,7 @@ export function toLauncherRelease(release: GithubRelease, android: string | null
     url: release.html_url,
     platforms: PLATFORMS.map(({ id, name }) => {
       const [main = null, ...others] = files.filter((f) => f.platform === id).map((f) => f.download);
-      const supports = id === "android" && android ? [android, ...SUPPORTS.android] : SUPPORTS[id];
-      return { id, name, supports, main, others };
+      return { id, name, supports: SUPPORTS[id], main, others };
     }),
   };
 }
@@ -133,20 +122,7 @@ export async function getLauncherRelease(): Promise<LauncherRelease | null> {
     if (!res.ok) return null;
     const release = pickLatest((await res.json()) as GithubRelease[]);
     if (!release) return null;
-    return toLauncherRelease(release, await getAndroidVersion(release.tag_name));
-  } catch {
-    return null;
-  }
-}
-
-/** The Android version a release needs, from its own build script; a tag never changes, so it is kept a day. */
-async function getAndroidVersion(tag: string): Promise<string | null> {
-  try {
-    const res = await fetch(`https://raw.githubusercontent.com/${LAUNCHER_REPO}/${encodeURIComponent(tag)}/launcher/src-tauri/gen/android/app/build.gradle.kts`, {
-      next: { revalidate: 86_400 },
-      signal: AbortSignal.timeout(8_000),
-    });
-    return res.ok ? androidVersion(await res.text()) : null;
+    return toLauncherRelease(release);
   } catch {
     return null;
   }
