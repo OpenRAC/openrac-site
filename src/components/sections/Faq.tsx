@@ -58,9 +58,9 @@ function OtherTitles() {
 
 /** Also served as text in /llms-full.txt (the plain-text answers). */
 export const FAQ: readonly (readonly [string, ReactNode])[] = [
-  ["Is this a port or a way to play the game for free?", "No. OpenRAC contains no game assets, no game code and no game binaries. To build anything you need your own legally obtained copy of the game."],
+  ["Is this a way to play the game for free?", "No. OpenRAC contains no game assets, no game code and no game binaries. To build anything, the PC port included, you need your own legally obtained copy of the game."],
   ["How is this different from OpenGOAL?", "OpenGOAL targets a different game and toolchain. OpenRAC follows the same spirit: understand a classic game, document it, and make it possible to study and preserve. Our method is byte-matching decompilation."],
-  ["Will there be a PC port?", "That is a possible long-term outcome of a finished decompilation, but it is not a current goal. Right now the goal is a complete, accurate source reconstruction of each game, one title at a time."],
+  ["Is there a PC port?", "Yes. A native PC port is built from the decompiled code, and the launcher sets it up from your own disc. It is a result of the decompilation and a way to show how the reconstructed code runs, not the main focus. The goal stays a complete, accurate source reconstruction of each game, one title at a time."],
   ["Will there be mod support on release, or will it be added later?", "Our main priority is to decompile the entire game first. Once that is done, we will look into adding extras and new features, so mod support would be explored after the decompilation is complete."],
   ["What do “matched” and “percent” mean?", "A function or method is matched when the reconstructed code compiles to exactly the same instructions or bytecode as the retail build. The percentages reflect verified code and functions divided by the totals."],
   ["Are the other titles being worked on?", <OtherTitles key="other" />],
