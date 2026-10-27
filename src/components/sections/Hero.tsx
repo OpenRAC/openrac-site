@@ -16,8 +16,8 @@ export default function Hero({ progress }: { progress: Partial<Record<ProjectId,
       {/* A soft gold glow on the right: a radial gradient moved by transform only, so it costs no repaint (a CSS blur filter would, every frame). */}
       <div aria-hidden className="absolute -right-56 -top-24 -z-10 size-[680px] bg-[radial-gradient(closest-side,rgb(214_160_32/0.3),transparent)] will-change-transform sm:animate-drift" />
 
-      {/* The same eyebrow as every section's number below. */}
-      <p className="mb-4 font-orbitron text-[11px] font-bold uppercase tracking-[.28em] text-brand after:mt-2 after:block after:h-[3px] after:w-11 after:rounded-sm after:bg-brand after:content-[''] sm:text-[13px]">
+      {/* One line at every width: on a phone the letters shrink with the screen rather than wrap. */}
+      <p className="mb-4 whitespace-nowrap font-orbitron text-[clamp(7px,2.35vw,11px)] font-bold uppercase tracking-[.2em] text-brand sm:tracking-[.28em] after:mt-2 after:block after:h-[3px] after:w-11 after:rounded-sm after:bg-brand after:content-[''] sm:text-[13px]">
         Unofficial · open source · community driven
       </p>
       {/* Balanced lines: no word is ever left alone on the last line, whatever the width. */}

@@ -4,7 +4,7 @@ import Section from "@/components/ui/Section";
 export default function AiView() {
   return (
     <Section id="ai" title="Our view on AI">
-      <aside className="mb-8 mt-5 max-w-[760px] border-l-4 border-brand py-1.5 pl-5 font-audiowide text-[clamp(22px,3.4vw,32px)] leading-tight text-hi">
+      <aside className="mb-8 mt-5 max-w-[760px] border-l-4 border-brand py-1.5 pl-5 font-audiowide text-[clamp(18px,2.6vw,24px)] leading-snug text-hi">
         A wrong guess costs nothing and never ships. <em className="not-italic text-amber">The compiler is the judge.</em>
       </aside>
       <article className="max-w-[760px] text-base text-body sm:text-[17px] [&_h3]:mb-1 [&_h3]:mt-7 [&_h3]:font-orbitron [&_h3]:text-lg [&_h3]:font-bold [&_h3]:text-gold [&_p]:mb-3.5">
