@@ -70,6 +70,7 @@ export function parseSacBodies(
   };
 }
 
+/** Secret Agent Clank's progress from its own report or status file, once the project publishes one. */
 export function parseSacReport(report: unknown): Progress {
   let r = report;
   if (typeof r === "string") {

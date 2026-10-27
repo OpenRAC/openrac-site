@@ -1,28 +1,33 @@
 import type { Metadata, Viewport } from "next";
-import { Audiowide, Chakra_Petch, Inter, Orbitron, Press_Start_2P } from "next/font/google";
-import SiteFooter from "@/components/Footer";
-import Header from "@/components/Header";
-import RevealObserver from "@/components/RevealObserver";
+import { Audiowide, Chakra_Petch, Inter, Orbitron, Pixelify_Sans } from "next/font/google";
+import SiteFooter from "@/components/layout/Footer";
+import Header from "@/components/layout/Header";
+import Logo from "@/components/ui/Logo";
+import RevealObserver from "@/components/layout/RevealObserver";
+import { SHARE_IMAGE, siteUrl } from "@/lib/machine";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter", display: "swap" });
 const audiowide = Audiowide({ subsets: ["latin"], weight: "400", variable: "--font-audiowide", display: "swap" });
 const orbitron = Orbitron({ subsets: ["latin"], variable: "--font-orbitron", display: "swap" });
-const pixel = Press_Start_2P({ subsets: ["latin"], weight: "400", variable: "--font-pixel", display: "swap" });
+// The two below only dress single cards far down the page: not preloaded, so they never delay the first paint.
+const pixel = Pixelify_Sans({ subsets: ["latin"], variable: "--font-pixel", display: "swap", preload: false });
 const chakra = Chakra_Petch({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
   variable: "--font-chakra",
   display: "swap",
+  preload: false,
 });
 
+const title = "OpenRAC · Ratchet & Clank Decompilation Hub";
 const description =
   "OpenRAC is an unofficial hub for community decompilation projects of the Ratchet & Clank series. Track progress for every title.";
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.SITE_URL ?? "https://openrac.dev"),
+  metadataBase: new URL(siteUrl()),
   title: {
-    default: "OpenRAC · Ratchet & Clank Decompilation Hub",
+    default: title,
     template: "%s · OpenRAC",
   },
   description,
@@ -33,7 +38,6 @@ export const metadata: Metadata = {
     "reverse engineering",
     "PlayStation 2",
     "PS2",
-    "Insomniac Games",
     "matching decompilation",
     "game preservation",
   ],
@@ -54,7 +58,7 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "OpenRAC · Ratchet & Clank Decompilation Hub",
+    title,
     description,
     type: "website",
     url: "/",
@@ -63,8 +67,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "OpenRAC · Ratchet & Clank Decompilation Hub",
+    title,
     description,
+    images: [SHARE_IMAGE],
   },
   // Lets feed readers, scripts and AI tools find the machine-readable versions on their own.
   alternates: {
@@ -79,14 +84,29 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   themeColor: "#d58a00",
+  colorScheme: "dark",
   width: "device-width",
   initialScale: 1,
+  viewportFit: "cover",
 };
 
+/** The frame of every page: fonts, metadata, the loading screen, header and footer. */
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${inter.variable} ${audiowide.variable} ${orbitron.variable} ${pixel.variable} ${chakra.variable}`}>
+    // suppressHydrationWarning: the splash script below adds "ready" to <html> before React hydrates.
+    <html lang="en" suppressHydrationWarning className={`${inter.variable} ${audiowide.variable} ${orbitron.variable} ${pixel.variable} ${chakra.variable}`}>
       <body className="font-sans text-base leading-relaxed antialiased">
+        {/* The logo over a blank page until the fonts are in, then a fade: the page never pops in
+            half-styled. A timer lifts it anyway; without scripts there is none (globals.css). */}
+        <div id="splash" aria-hidden className="splash">
+          <Logo height={44} label="" accent className="text-text" />
+        </div>
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              "(function(){var d=document.documentElement,r=function(){d.classList.add('ready')};setTimeout(r,1500);if(document.fonts)document.fonts.ready.then(r);})()",
+          }}
+        />
         {/* Glows in the hero reach past the viewport; clip them so phones never scroll sideways.
             `clip` (unlike `hidden`) keeps the sticky header working. */}
         <div className="overflow-x-clip">

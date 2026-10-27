@@ -1,6 +1,6 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { parseVideoId } from "./youtube-parse.ts";
+import { parseVideoId } from "./parse.ts";
 
 const ID = "dQw4w9WgXcQ";
 

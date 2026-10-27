@@ -21,9 +21,10 @@ the retail build out of all code bytes the project counts. The percentage on eac
 (`838 628 of 3 712 808 code bytes matched`) are both this number; no card shows a project-specific extra. It is
 weighted by size because small functions are matched first, and it is the figure ByteMatch shows.
 
-Sources (see `src/lib/progress.ts`):
+Sources (see `src/lib/progress/`):
 
 - **Ratchet & Clank (PAL)**: `progress/report.json` (objdiff report) of [`OpenRAC/rac1-decomp`](https://github.com/OpenRAC/rac1-decomp).
+- **Ratchet & Clank (NTSC-U)**: `report.json` (objdiff report) on the `progress` branch of [`lombyte-project/Lombyte`](https://github.com/lombyte-project/Lombyte), which the project's own workflow publishes and [ByteMatch](https://bytematch.dev/lombyte-project/Lombyte) reads. Shown beside the PAL card.
 - **Going Commando**: the committed `progress/report.json` on the `master` branch of [`OpenRAC/rac2-gc-decomp`](https://github.com/OpenRAC/rac2-gc-decomp), which is also the report [ByteMatch](https://bytematch.dev/OpenRAC/rac2-gc-decomp) reads. The site uses its matched code and total code bytes directly, so the percentage and function counts match ByteMatch. Shared level code is counted in the report's scope, rather than once per overlay placement.
 - **Up Your Arsenal (PAL)**: `progress/report.json` (objdiff report) of [`OpenRAC/rac3-decomp`](https://github.com/OpenRAC/rac3-decomp), which the project commits and refreshes with its own tooling (`python3 tools/progress.py --write`). It is the same figure [ByteMatch](https://bytematch.dev/OpenRAC/rac3-decomp) shows.
 - **Ratchet: Deadlocked (NTSC-U)**: `progress/report.json` (objdiff report) of [`OpenRAC/rac4-decomp`](https://github.com/OpenRAC/rac4-decomp).
@@ -31,7 +32,7 @@ Sources (see `src/lib/progress.ts`):
 - **Size Matters (PS2, NTSC-U)**: `progress/status.json` of [`OpenRAC/rac5-sm-decomp`](https://github.com/OpenRAC/rac5-sm-decomp), the project's scoped progress snapshot. It has no qualified game-wide percentage yet, so the number is the one the project itself publishes: the measured boot `.text`, the frontend's candidate code interval and the levels' optimistic masked-shape scenario, which is the arithmetic of its `tools/bytematch_estimate.py` and the figure [ByteMatch](https://bytematch.dev/OpenRAC/rac5-sm-decomp) shows.
 - **Secret Agent Clank (PS2, NTSC-U)**: `progress/report.json` of [`OpenRAC/rac-sac-decomp`](https://github.com/OpenRAC/rac-sac-decomp) (objdiff report), deduplicating shared level code and matching [ByteMatch](https://bytematch.dev/OpenRAC/rac-sac-decomp). If the report is unavailable, candidate tables are read as a fallback.
 
-If GitHub cannot be reached, the last known snapshot (in `progress.ts`) is shown and labelled as such.
+If GitHub cannot be reached, the last known snapshot (`FALLBACK` in `src/lib/progress/index.ts`) is shown and labelled as such.
 
 ## For scripts, search engines and AI
 
@@ -79,9 +80,24 @@ reaches Google before that.
 ```sh
 npm install
 npm run dev        # http://localhost:3000
-npm test           # unit tests of the progress parser
+npm test           # unit tests (progress parsers, blog, machine-readable files)
 npm run lint
 npm run build
+```
+
+### Where things are
+
+```
+src/app/                  pages and routes (home, blog, /img, progress.json, llms.txt, robots, sitemap, rss)
+src/components/layout/    the header, footer and the scroll-reveal helper, on every page
+src/components/sections/  the home page's sections, one file each, in page order in src/app/page.tsx
+src/components/ui/        small shared pieces (Section heading, Cards, Backdrop, Logo, icons, ...)
+src/lib/projects.ts       the list of titles: names, repositories, colours, maintainers
+src/lib/progress/         reading each project's progress from GitHub (one parser per format, with tests)
+src/lib/blog/, youtube/   blog posts from content/blog, video titles for Credits
+src/lib/machine.ts        progress.json, llms.txt and the structured data for search engines
+content/blog/             the blog posts (Markdown)
+deploy/                   the Podman Quadlet unit
 ```
 
 Copy `.env.example` to `.env.local` to change settings. `GITHUB_TOKEN` is optional and only raises the GitHub API
@@ -89,19 +105,20 @@ rate limit for the activity feed; it stays on the server.
 
 ### Card backdrops
 
-The title cards can show a backdrop image named `rac1-bg.webp`, `gc-bg.webp`, `uya-bg.webp`, `deadlocked-bg.webp`, `going-mobile-bg.webp`, `size-matters-bg.webp` and `sac-bg.webp` (WebP, about
+The title cards can show a backdrop image named `rac1-bg.webp`, `rac1us-bg.webp`, `gc-bg.webp`, `uya-bg.webp`, `deadlocked-bg.webp`, `going-mobile-bg.webp`, `size-matters-bg.webp` and `sac-bg.webp` (WebP, about
 1600 px wide). Those would be screenshots from the games, which are copyrighted, so **they are not part of this
-repository**. Without them the cards use a colour gradient.
+repository**. Without them the cards use a colour gradient. `rac1us-bg.webp` (the
+NTSC-U card) falls back to `rac1-bg.webp` mirrored until it is added.
 
 The images are read from a folder, set by `IMAGE_DIR` (default `public/img`, which is git-ignored), on every
-request. Drop a file in and it is used at once, with no rebuild or restart. Only those six names are ever
-served. Resized copies are cached for a day, so a replaced image can take up to a day to show (or restart
+request. Drop a file in and it is used at once, with no rebuild or restart; a missing one leaves the card's
+gradient (never a broken picture). Only those eight names are ever served. Resized copies are cached for a day, so a replaced image can take up to a day to show (or restart
 the service after clearing the cache volume).
 
 ### Adding a title
 
-Add an entry to `PROJECTS` in `src/lib/projects.ts`. If the project publishes progress, add a loader to
-`src/lib/progress.ts`; a title without one is shown as "Not started". `maintainers` (GitHub user names) puts
+Add an entry to `PROJECTS` in `src/lib/projects.ts`. If the project publishes progress, add a loader and a
+snapshot to `LOADERS` and `FALLBACK` in `src/lib/progress/index.ts`; a title without one is shown as "Not started". `maintainers` (GitHub user names) puts
 "maintained by" with their pictures on the card. Another project for a game that is already listed can be named
 in the FAQ without a card of its own: add it to `ALSO_WORKED_ON`.
 `phase: "research"` marks a project that is still mapping its game (shown on its card and in the FAQ; its
@@ -124,7 +141,7 @@ systemctl --user start openrac.service
 loginctl enable-linger "$USER"      # once, so it starts at boot without a login
 
 # 4. card backdrops: copy your images into the folder the unit mounts (no restart needed)
-cp rac1-bg.webp gc-bg.webp uya-bg.webp deadlocked-bg.webp going-mobile-bg.webp size-matters-bg.webp sac-bg.webp ~/openrac-img/
+cp rac1-bg.webp rac1us-bg.webp gc-bg.webp uya-bg.webp deadlocked-bg.webp going-mobile-bg.webp size-matters-bg.webp sac-bg.webp ~/openrac-img/
 ```
 
 The container listens on `127.0.0.1:3000`; put your reverse proxy in front of it. It runs as a non-root user with
@@ -136,6 +153,6 @@ To update: `git pull && podman build -t localhost/openrac:latest . && systemctl 
 
 ## Legal
 
-OpenRAC is an independent fan project, not affiliated with or endorsed by Sony Interactive Entertainment or
-Insomniac Games. "Ratchet & Clank" and related names are trademarks of their owners and are used only to
+OpenRAC is an independent fan project, not affiliated with or endorsed by the owners or publishers of the games.
+"Ratchet & Clank" and related names are trademarks of their owners and are used only to
 identify the games the linked projects study. This repository contains no game assets, code or binaries.

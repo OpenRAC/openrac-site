@@ -28,6 +28,7 @@ export const metadata: Metadata = {
 
 const fmtDate = (iso: string) => new Date(`${iso}T00:00:00Z`).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" });
 
+/** The list of blog posts, newest first. */
 export default async function BlogIndex() {
   const posts = await getPosts();
 
@@ -49,7 +50,7 @@ export default async function BlogIndex() {
             <li key={p.slug}>
               <Link
                 href={`/blog/${p.slug}`}
-                className="block rounded-2xl border border-line bg-gradient-to-br from-[#20202c] to-ink p-6 no-underline transition hover:-translate-y-0.5 hover:border-brand"
+                className="surface surface-link block p-5 no-underline sm:p-6"
               >
                 <p className="text-[13px] text-dim">
                   <time dateTime={p.date}>{fmtDate(p.date)}</time> · {p.minutes} min read{p.draft ? " · DRAFT" : ""}
@@ -59,7 +60,7 @@ export default async function BlogIndex() {
                 {p.tags.length > 0 && (
                   <p className="mt-3 flex flex-wrap gap-2">
                     {p.tags.map((t) => (
-                      <span key={t} className="rounded-full bg-lav/10 px-2.5 py-0.5 text-xs text-lav">{t}</span>
+                      <span key={t} className="rounded-full bg-hi/10 px-2.5 py-0.5 text-xs text-hi">{t}</span>
                     ))}
                   </p>
                 )}

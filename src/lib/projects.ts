@@ -1,4 +1,4 @@
-export type ProjectId = "rac1" | "gc" | "uya" | "deadlocked" | "gm" | "sm" | "sac";
+export type ProjectId = "rac1" | "rac1us" | "gc" | "uya" | "deadlocked" | "gm" | "sm" | "sac";
 
 export type ProjectCategory = "mainline" | "spinoff";
 
@@ -12,8 +12,13 @@ export interface Project {
   fontClass: string;
   /** Card colours, exposed to CSS as custom properties. */
   theme: { box: string; border: string; text: string; text2: string; from: string; to: string };
-  /** Optional backdrop in /public/img (not shipped in the repository, see README). */
+  /** Backdrop served from /img (the files are not in the repository, see README). */
   image: string;
+  /**
+   * Shown, mirrored, while `image` is missing: for a second card of the same game, so the pair
+   * never shows one picture twice.
+   */
+  fallbackImage?: string;
   /** Mainline console entry vs handheld/mobile spin-off. */
   category?: ProjectCategory;
   /** Primary platform of the original release. */
@@ -57,6 +62,24 @@ export const PROJECTS: readonly Project[] = [
     guide: { label: "From assembly to a match", url: `${GH}/OpenRAC/rac1-decomp/blob/main/docs/WORKFLOW.md` },
   },
   {
+    // The same game from the North American disc, by its own team; shown beside the PAL card.
+    id: "rac1us",
+    name: "Ratchet & Clank",
+    year: 2002,
+    repo: "lombyte-project/Lombyte",
+    fontClass: "font-audiowide",
+    theme: { box: "#181820", border: "#747669", text: "#c8d2ff", text2: "#9ca1d4", from: "#3c7a3a", to: "#12331f" },
+    image: "/img/rac1us-bg.webp",
+    fallbackImage: "/img/rac1-bg.webp",
+    category: "mainline",
+    platform: "PlayStation 2",
+    tag: "RaC1 US",
+    region: "NTSC-U",
+    maintainers: ["mateuszklysz"],
+    contributing: `${GH}/lombyte-project/Lombyte/blob/main/CONTRIBUTING.md`,
+    guide: { label: "Build guide", url: `${GH}/lombyte-project/Lombyte/blob/main/docs/build/building.md` },
+  },
+  {
     id: "gc",
     name: "Going Commando",
     year: 2003,
@@ -93,7 +116,7 @@ export const PROJECTS: readonly Project[] = [
     year: 2005,
     repo: "OpenRAC/rac4-decomp",
     fontClass: "font-orbitron font-bold",
-    theme: { box: "#12151b", border: "#b91c1c", text: "#f3f4f6", text2: "#ef4444", from: "#7f1d1d", to: "#0f1115" },
+    theme: { box: "#16141a", border: "#8a2a2a", text: "#e9e2e2", text2: "#d07070", from: "#4a1616", to: "#100f13" },
     image: "/img/deadlocked-bg.webp",
     category: "mainline",
     platform: "PlayStation 2",
@@ -109,7 +132,7 @@ export const PROJECTS: readonly Project[] = [
     year: 2005,
     repo: "Clank700/going-mobile-decomp",
     fontClass: "font-pixel",
-    theme: { box: "rgba(0, 36, 51, 0.92)", border: "#00f0ff", text: "#00f0ff", text2: "#7dd3fc", from: "#021c2d", to: "#010811" },
+    theme: { box: "rgba(8, 30, 38, 0.9)", border: "#2f8f9a", text: "#8fd3da", text2: "#68adb6", from: "#0b2430", to: "#050d12" },
     image: "/img/going-mobile-bg.webp",
     category: "spinoff",
     platform: "Mobile (J2ME)",
@@ -124,7 +147,7 @@ export const PROJECTS: readonly Project[] = [
     year: 2008,
     repo: "OpenRAC/rac5-sm-decomp",
     fontClass: "font-chakra font-semibold",
-    theme: { box: "#1b2936", border: "#eab308", text: "#f8fafc", text2: "#facc15", from: "#223342", to: "#131d26" },
+    theme: { box: "#1a2530", border: "#a8842e", text: "#ebe6da", text2: "#d2ae58", from: "#223040", to: "#121a22" },
     image: "/img/size-matters-bg.webp",
     category: "spinoff",
     platform: "PlayStation 2",
@@ -141,7 +164,7 @@ export const PROJECTS: readonly Project[] = [
     year: 2009,
     repo: "OpenRAC/rac-sac-decomp",
     fontClass: "font-orbitron font-semibold",
-    theme: { box: "#111827", border: "#38bdf8", text: "#f0f9ff", text2: "#38bdf8", from: "#0369a1", to: "#082f49" },
+    theme: { box: "#121a22", border: "#3b7f9e", text: "#dbe8ef", text2: "#72a8c0", from: "#17435a", to: "#0b1f2c" },
     image: "/img/sac-bg.webp",
     category: "spinoff",
     platform: "PlayStation 2",
@@ -158,9 +181,11 @@ export const PROJECTS: readonly Project[] = [
  * Other community projects for a game listed above. They are named in the FAQ ("Are the other titles
  * being worked on?") but have no card and are not tracked on the page.
  */
-export const ALSO_WORKED_ON: readonly { game: ProjectId; repo: string; region?: string }[] = [
-  { game: "rac1", repo: "lombyte-project/Lombyte", region: "NTSC-U" },
-];
+export const ALSO_WORKED_ON: readonly { game: ProjectId; repo: string; region?: string }[] = [];
+
+/** The project's name in a list: with its region when another project works on the same game. */
+export const listName = (p: Project): string =>
+  p.region && PROJECTS.some((o) => o !== p && o.name === p.name) ? `${p.name} (${p.region})` : p.name;
 
 export const DISCORD_URL = "https://discord.gg/Sfd2B54PDG";
 

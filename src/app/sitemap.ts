@@ -1,8 +1,10 @@
 import type { MetadataRoute } from "next";
 import { getPosts } from "@/lib/blog";
+import { siteUrl } from "@/lib/machine";
 
+/** Every page a search engine should know: the home page, the blog and each post. */
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const site = (process.env.SITE_URL ?? "https://openrac.dev").replace(/\/$/, "");
+  const site = siteUrl();
   const posts = await getPosts();
   return [
     {

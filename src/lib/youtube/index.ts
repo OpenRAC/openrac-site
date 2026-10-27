@@ -1,4 +1,4 @@
-import { parseVideoId } from "./youtube-parse";
+import { parseVideoId } from "./parse";
 
 export interface VideoInfo {
   id: string;

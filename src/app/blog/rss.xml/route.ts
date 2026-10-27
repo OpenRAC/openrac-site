@@ -1,10 +1,13 @@
 import { getPosts } from "@/lib/blog";
-import { xmlEscape } from "@/lib/blog-parse";
+import { xmlEscape } from "@/lib/blog/parse";
+import { siteUrl } from "@/lib/machine";
 
 export const dynamic = "force-static";
 
+/** The blog as an RSS 2.0 feed, newest post first. */
+
 export async function GET() {
-  const site = (process.env.SITE_URL ?? "https://openrac.dev").replace(/\/$/, "");
+  const site = siteUrl();
   const posts = await getPosts();
   const items = posts
     .map(

@@ -1,8 +1,9 @@
-import { PROJECTS } from "./projects";
+import { PROJECTS, type ProjectId } from "./projects";
 
+/** One commit in the "Recent activity" feed. */
 export interface Commit {
   project: string;
-  projectId: string;
+  projectId: ProjectId;
   message: string;
   date: string;
   url: string;
@@ -13,6 +14,7 @@ interface GithubCommit {
   commit: { message: string; author: { date: string } };
 }
 
+/** Trailer lines that are never a commit's title. */
 const SKIP_LINE = /^(signed-off-by|co-authored-by)/i;
 
 /** First meaningful line of a commit message. */
@@ -42,7 +44,7 @@ export async function getActivity(limit = 8): Promise<Commit[]> {
         if (!res.ok) return [];
         const commits = (await res.json()) as GithubCommit[];
         return commits.map<Commit>((c) => ({
-          project: p.tag ?? (p.id === "rac1" ? "RaC1" : p.id.toUpperCase()),
+          project: p.tag ?? p.name,
           projectId: p.id,
           message: commitTitle(c.commit.message),
           date: c.commit.author.date,

@@ -1,7 +1,7 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 import matter from "gray-matter";
-import { byNewest, readingMinutes, SLUG, toMeta, type PostMeta } from "./blog-parse";
+import { byNewest, readingMinutes, SLUG, toMeta, type PostMeta } from "./parse";
 
 /** Posts are Markdown files in content/blog, so they go through normal pull requests. */
 const DIR = path.join(process.cwd(), "content", "blog");
@@ -31,6 +31,7 @@ export async function getPosts(): Promise<Post[]> {
   return posts.filter((p) => showDrafts() || !p.draft).sort(byNewest);
 }
 
+/** One post by its slug, or null if there is none (or it is a draft in production). */
 export async function getPost(slug: string): Promise<Post | null> {
   if (!SLUG.test(slug)) return null; // also keeps the slug from ever reaching the file system as a path
   const post = await readPost(`${slug}.md`).catch(() => null);
