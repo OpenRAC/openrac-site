@@ -35,7 +35,6 @@ export const metadata: Metadata = {
     "reverse engineering",
     "PlayStation 2",
     "PS2",
-    "Insomniac Games",
     "matching decompilation",
     "game preservation",
   ],

@@ -3,14 +3,27 @@ import { ALSO_WORKED_ON, DISCORD_URL, PROJECTS, type ProjectId } from "@/lib/pro
 import type { Commit } from "@/lib/activity";
 import Section from "./Section";
 
-function Cards({ items }: { items: readonly (readonly [string, string])[] }) {
+/** Discord's mark (also on the header's button). */
+export const DISCORD_ICON = (
+  <svg viewBox="0 0 24 24" aria-hidden="true" className="size-[18px] flex-none fill-current">
+    <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z" />
+  </svg>
+);
+
+const ARROW = <span aria-hidden className="ml-auto flex-none text-brand transition-transform group-hover:translate-x-0.5">→</span>;
+
+/** The small uppercase heading over a list or panel. */
+const listTitle = "mb-2 font-orbitron text-[12px] font-bold uppercase tracking-[.2em] text-lav";
+
+function Cards({ items }: { items: readonly (readonly [string, string, ReactNode?])[] }) {
   return (
     <div className="grid gap-4 sm:grid-cols-[repeat(auto-fit,minmax(240px,1fr))] sm:gap-5">
-      {items.map(([title, text], i) => (
-        <div key={title} className="surface relative overflow-hidden p-5 sm:p-6">
+      {items.map(([title, text, action], i) => (
+        <div key={title} className="surface relative flex flex-col overflow-hidden p-5 sm:p-6">
           <span aria-hidden className="absolute -top-1.5 right-3.5 font-orbitron text-[72px] font-bold leading-none text-brand/15 sm:text-[84px]">{i + 1}</span>
           <h3 className="relative mb-2 font-orbitron text-[19px] font-bold text-gold">{title}</h3>
           <p className="relative text-soft">{text}</p>
+          {action && <div className="relative mt-auto pt-4">{action}</div>}
         </div>
       ))}
     </div>
@@ -22,20 +35,32 @@ export function Contribute() {
     <Section id="contribute" title="Get involved" sub="You do not need to be a reverse engineer. Every project here welcomes newcomers.">
       <Cards
         items={[
-          ["Say hello", "Join the Discord, tell us what you are curious about and pick a starting point with people who have done it before."],
+          [
+            "Say hello",
+            "Join the Discord, tell us what you are curious about and pick a starting point with people who have done it before.",
+            <a key="d" href={DISCORD_URL} className="btn btn-sm border-[#5865f2] bg-[#5865f2] text-white">
+              {DISCORD_ICON}
+              Discord
+            </a>,
+          ],
           ["Set up", "Follow the setup guide of the project you like. You will need your own legally obtained copy of the game, we never provide one."],
           ["Pick a function", "Take a small one, get it to compile to the same bytes and open a pull request. Reviews, notes and tooling help just as much."],
         ]}
       />
-      <div className="mt-7 grid gap-2.5 sm:flex sm:flex-wrap sm:gap-3">
-        <a href={DISCORD_URL} className="btn btn-primary">
-          Join our Discord
-        </a>
-        {PROJECTS.filter((p) => p.repo).map((p) => (
-          <a key={p.id} href={p.contributing ?? `https://github.com/${p.repo}`} className="btn btn-sm justify-start sm:justify-center">
-            Contribute to {p.name}
-          </a>
-        ))}
+      {/* Every project's contributing guide, as one list rather than a wall of buttons. */}
+      <div className="surface mt-5 px-5 pb-2 pt-4 sm:px-6">
+        <h3 className={listTitle}>Contribute to</h3>
+        <ul className="grid gap-x-8 min-[480px]:grid-cols-2 lg:grid-cols-4">
+          {PROJECTS.filter((p) => p.repo).map((p) => (
+            <li key={p.id} className="border-t border-line first:border-0 min-[480px]:[&:nth-child(2)]:border-0 lg:[&:nth-child(-n+4)]:border-0">
+              <a href={p.contributing ?? `https://github.com/${p.repo}`} className="group flex min-h-11 items-center gap-2.5 py-2 font-semibold text-text no-underline hover:text-amber">
+                <i aria-hidden className="size-2 flex-none rounded-full" style={{ background: p.theme.text2 }} />
+                <span className="min-w-0 truncate">{p.name}</span>
+                {ARROW}
+              </a>
+            </li>
+          ))}
+        </ul>
       </div>
     </Section>
   );
@@ -114,18 +139,24 @@ const COMMUNITY: Resource[] = [
   { title: "Himuro", href: "https://github.com/Mikompilation/Himuro", text: "Fatal Frame decompilation, with PS2 compiler research many projects build on." },
 ];
 
-function ResourceGrid({ title, items }: { title: string; items: Resource[] }) {
+/** A column of links with a line about each: easier to scan than a grid of tiles. */
+function ResourceList({ title, items }: { title: string; items: Resource[] }) {
   return (
-    <div>
-      <h3 className="mb-3 font-orbitron text-sm font-bold uppercase tracking-[.2em] text-lav">{title}</h3>
-      <div className="grid gap-3 min-[480px]:grid-cols-2 lg:grid-cols-[repeat(auto-fit,minmax(230px,1fr))] sm:gap-3.5">
+    <div className="surface px-5 pb-2 pt-4 sm:px-6">
+      <h3 className={listTitle}>{title}</h3>
+      <ul>
         {items.map(({ title, href, text }) => (
-          <a key={href} href={href} className="surface surface-link block px-5 py-4 no-underline sm:py-[18px]">
-            <b className="mb-1 block font-orbitron text-base font-bold text-gold">{title}</b>
-            <span className="text-sm text-soft">{text}</span>
-          </a>
+          <li key={href} className="border-t border-line first:border-0">
+            <a href={href} className="group flex items-start gap-3 py-3 no-underline">
+              <span className="min-w-0">
+                <b className="block font-orbitron text-[15px] font-bold text-gold transition-colors group-hover:text-amber">{title}</b>
+                <span className="mt-0.5 block text-sm leading-snug text-soft">{text}</span>
+              </span>
+              {ARROW}
+            </a>
+          </li>
         ))}
-      </div>
+      </ul>
     </div>
   );
 }
@@ -133,14 +164,14 @@ function ResourceGrid({ title, items }: { title: string; items: Resource[] }) {
 export function Resources() {
   // Each project's own introduction, so newcomers start from the people who know that game best.
   const guides = PROJECTS.flatMap((p) =>
-    p.guide && p.repo ? [{ title: p.guide.label, href: p.guide.url, text: `${p.name} · ${p.repo.split("/")[1]}` }] : [],
+    p.guide && p.repo ? [{ title: p.name, href: p.guide.url, text: `${p.guide.label} · ${p.repo.split("/")[1]}` }] : [],
   );
   return (
     <Section id="resources" title="Resources" sub="Tools, guides and related work that decompilation projects like these rely on.">
-      <div className="grid gap-9">
-        <ResourceGrid title="Project guides" items={guides} />
-        <ResourceGrid title="Tools" items={TOOLS} />
-        <ResourceGrid title="Related community work" items={COMMUNITY} />
+      <div className="grid items-start gap-4 sm:gap-5 lg:grid-cols-3">
+        <ResourceList title="Project guides" items={guides} />
+        <ResourceList title="Tools" items={TOOLS} />
+        <ResourceList title="Related community work" items={COMMUNITY} />
       </div>
     </Section>
   );
@@ -212,12 +243,18 @@ export function Faq() {
     <Section id="faq" title="FAQ" sub="The short answers.">
       <div className="grid gap-2.5">
         {FAQ.map(([q, a]) => (
-          <details key={q} className="rounded-2xl border border-line bg-panel px-4 transition-colors open:border-brand open:bg-panel-hi sm:px-5">
-            <summary className="flex min-h-14 cursor-pointer list-none items-center justify-between gap-4 py-3.5 font-semibold">
+          <details key={q} className="group surface px-4 open:border-brand open:bg-panel-hi hover:border-brand/70 sm:px-5">
+            <summary className="flex min-h-16 cursor-pointer list-none items-center justify-between gap-4 py-3.5 text-[16px] font-semibold text-text sm:text-[17px]">
               {q}
-              <span aria-hidden className="plus flex-none font-orbitron text-[26px] leading-none text-brand transition-transform">+</span>
+              {/* A real button-looking control, so it is plain that the row opens. */}
+              <span
+                aria-hidden
+                className="plus flex size-9 flex-none items-center justify-center rounded-full border border-brand/50 bg-brand/15 font-orbitron text-[20px] leading-none text-amber transition group-hover:bg-brand group-hover:text-[#1a0d00] group-open:bg-brand group-open:text-[#1a0d00]"
+              >
+                +
+              </span>
             </summary>
-            {typeof a === "string" ? <p className="pb-4 text-soft">{a}</p> : a}
+            {typeof a === "string" ? <p className="pb-5 text-soft">{a}</p> : a}
           </details>
         ))}
       </div>
@@ -249,10 +286,10 @@ export function AiView() {
 export function Legal() {
   return (
     <section id="legal" className="pb-16 pt-4">
-      <div data-reveal className="rounded-2xl border border-brand/70 bg-gradient-to-br from-brand/10 to-brand/[0.03] p-5 text-body sm:p-6">
-        <h2 className="mb-2 font-audiowide text-[22px]">Legal</h2>
+      <div data-reveal className="surface p-5 text-[15px] text-body sm:p-6">
+        <h2 className="mb-2 font-audiowide text-[22px] text-lav">Legal</h2>
         <p className="mb-3">
-          OpenRAC is an independent, unofficial fan project. It is not affiliated with, endorsed by or sponsored by Sony Interactive Entertainment or Insomniac Games.
+          OpenRAC is an independent, unofficial fan project. It is not affiliated with, endorsed by or sponsored by the owners of the games or their publishers.
           &quot;Ratchet &amp; Clank&quot; and related names, characters and logos are trademarks of their respective owners and are used here only to identify the games this project studies.
         </p>
         <p>

@@ -97,7 +97,7 @@ function intro(site: string, progress: ProgressMap): string {
 - Progress means code matched: bytes of code that compile to exactly the retail bytes, out of all code bytes the project counts. It is the same figure ByteMatch shows.
 - Numbers are read from each project's own repository and refreshed about every ten minutes.
 - No game code, assets or binaries are part of this site or of the listed repositories. A legally obtained copy of a game is needed to build anything.
-- Not affiliated with, endorsed or sponsored by Sony Interactive Entertainment or Insomniac Games.
+- Not affiliated with, endorsed or sponsored by the owners or publishers of the games.
 - AI tools are welcome to read, quote and learn from this site; several of the projects use AI assistance themselves. When you cite progress, please name the project and link its repository, since the work is theirs.
 
 ## Projects
