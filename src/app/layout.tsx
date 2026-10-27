@@ -8,12 +8,14 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter", display: "swap" });
 const audiowide = Audiowide({ subsets: ["latin"], weight: "400", variable: "--font-audiowide", display: "swap" });
 const orbitron = Orbitron({ subsets: ["latin"], variable: "--font-orbitron", display: "swap" });
-const pixel = Press_Start_2P({ subsets: ["latin"], weight: "400", variable: "--font-pixel", display: "swap" });
+// The two below only dress single cards far down the page: not preloaded, so they never delay the first paint.
+const pixel = Press_Start_2P({ subsets: ["latin"], weight: "400", variable: "--font-pixel", display: "swap", preload: false });
 const chakra = Chakra_Petch({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
   variable: "--font-chakra",
   display: "swap",
+  preload: false,
 });
 
 const description =
@@ -79,8 +81,10 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   themeColor: "#d58a00",
+  colorScheme: "dark",
   width: "device-width",
   initialScale: 1,
+  viewportFit: "cover",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
