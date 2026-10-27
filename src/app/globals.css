@@ -26,6 +26,8 @@
   --color-text: #efeff3;
   --color-body: #cacad3;
   --color-line: rgb(255 255 255 / 0.09);
+  /* Discord's blurple, a touch lighter so it reads on the dark page and bar. */
+  --color-discord: #6f7af5;
 
   --animate-rise: rise 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) both;
   --animate-drift: drift 16s ease-in-out infinite alternate;
@@ -87,17 +89,12 @@
     padding: 0.5rem 1rem;
     font-size: 0.875rem;
   }
-  /* Discord's blue, a shade darker to sit with the gold and the dark page; flat, it never lifts. */
-  .btn-discord {
-    border-color: #4651b8;
-    background: #4651b8;
-    color: #fff;
-    transition: background-color 0.2s ease;
-  }
+  /* A plain button whose text and mark are Discord's blue. */
+  .btn-discord { color: var(--color-discord); }
   @media (hover: hover) {
     .btn:hover { transform: translateY(-2px); border-color: var(--color-amber); box-shadow: 0 8px 24px rgb(0 0 0 / 0.4); }
     .btn-primary:hover { filter: brightness(1.08); box-shadow: 0 8px 28px rgb(255 138 0 / 0.4); }
-    .btn-discord:hover { transform: none; box-shadow: none; border-color: #3b449c; background: #3b449c; }
+    .btn-discord:hover { border-color: var(--color-discord); }
   }
 
   /* A raised panel: info cards, resources, blog posts. */

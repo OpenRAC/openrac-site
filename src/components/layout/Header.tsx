@@ -27,10 +27,10 @@ const underline =
   "absolute inset-x-3.5 bottom-1 hidden h-0.5 origin-left scale-x-0 rounded bg-current transition-transform group-hover/l:scale-x-100 min-[821px]:block";
 const pill = "flex min-h-11 items-center justify-center rounded-full px-4 text-sm font-semibold no-underline transition-colors min-[821px]:min-h-9";
 
-/** Discord's blue on the wide bar, so it reads at a glance among the links. */
-const discordBlue = "bg-[#4651b8] text-white hover:bg-[#3b449c]";
-/** The bar's own dark and gold on a phone, beside the menu button, so the two read as a pair. */
+/** The bar's own dark and gold, like the Download button, so the buttons on the bar read as a set. */
 const filled = "bg-[#1b1206] text-amber hover:bg-[#2a1800]";
+/** The same dark, with Discord's mark in Discord's blue. */
+const discord = "bg-[#1b1206] text-discord hover:bg-[#2a1800]";
 
 /** Discord's own mark in a round button; `className` gives its colours. */
 function DiscordButton({ onClick, className = "" }: { onClick?: () => void; className?: string }) {
@@ -102,7 +102,7 @@ export default function Header() {
             <Logo height={34} label="" className="transition-opacity group-hover:opacity-85" />
           </Link>
 
-          <DiscordButton onClick={close} className={`${filled} ml-auto min-[821px]:hidden`} />
+          <DiscordButton onClick={close} className={`${discord} ml-auto min-[821px]:hidden`} />
           <button
             type="button"
             aria-label={open ? "Close menu" : "Open menu"}
@@ -138,7 +138,7 @@ export default function Header() {
               <Link href="/#download" onClick={close} className={`${pill} border border-amber bg-amber text-[#1a0d00] hover:brightness-110 min-[821px]:border-black/25 min-[821px]:bg-[#1b1206] min-[821px]:text-amber min-[821px]:hover:bg-[#2a1800] min-[821px]:hover:brightness-100`}>
                 Download
               </Link>
-              <DiscordButton onClick={close} className={`${discordBlue} max-[821px]:hidden`} />
+              <DiscordButton onClick={close} className={`${discord} max-[821px]:hidden`} />
             </div>
           </nav>
         </div>
