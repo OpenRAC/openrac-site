@@ -65,7 +65,7 @@ interface Look {
 }
 
 /** Type sizes on every card, scaled to the card's own width (cqi), so a half card is not crowded. */
-const SIZES = { name: "text-[clamp(20px,5.2cqi,30px)]", pct: "text-[clamp(20px,5.6cqi,32px)]", small: "text-[12px] @xl:text-[13px]" };
+const SIZES = { name: "text-[clamp(20px,5.2cqi,30px)]", pct: "text-[clamp(18px,4.8cqi,28px)]", small: "text-[12px] @xl:text-[13px]" };
 
 const BEVEL = "[clip-path:polygon(14px_0,100%_0,100%_calc(100%-14px),calc(100%-14px)_100%,0_100%,0_14px)]";
 
@@ -141,7 +141,7 @@ function Card({ project: g, progress: p, release = false }: { project: Project; 
       {/* The backdrop leans in a little under the pointer (hover only: never on touch screens). Its
           zoom runs on a layer of its own, which a rounded overflow does not always clip (square
           corners in Chrome and Safari), so the backdrop is cut to the card's corners itself. */}
-      <Backdrop src={g.image} fallback={g.fallbackImage} zoom="group-hover/card:scale-[1.05]" className="[clip-path:inset(0_round_22px)]" />
+      <Backdrop src={g.image} fallback={g.fallbackImage} zoom="group-hover/card:[--zoom:1.05]" className="rounded-[inherit] [clip-path:inset(0_round_22px)] [mask-image:linear-gradient(#000,#000)]" />
       {/* Darker where the text sits, so every backdrop reads the same. */}
       <div aria-hidden className="absolute inset-0 bg-black/40 @xl:bg-transparent @xl:bg-gradient-to-r @xl:from-black/70 @xl:via-black/40 @xl:to-black/20" />
 
@@ -162,7 +162,11 @@ function Card({ project: g, progress: p, release = false }: { project: Project; 
           {/* Beside the name from a medium width on (half cards too); on a phone, one row under it. */}
           <div className={`${box} flex flex-[1_1_100%] items-center justify-between gap-3 px-4 py-2.5 @md:flex-none @md:flex-col @md:items-end @md:justify-center @md:gap-0 @md:py-3 @md:text-right @xl:flex-[0_1_220px] @xl:px-5`}>
             <span className="text-[10px] uppercase tracking-[.2em] text-(--tx2) @xl:text-[11px]">Progress</span>
-            <b className={`${SIZES.pct} whitespace-nowrap font-[inherit] leading-tight tabular-nums`}>{p ? pct(value) : "Not started"}</b>
+            {/* As wide as "100,00 %" whatever the figure, so the card keeps its layout and height as it grows. */}
+            <b className={`${SIZES.pct} grid justify-items-end whitespace-nowrap font-[inherit] leading-tight tabular-nums`}>
+              <span className="col-start-1 row-start-1">{p ? pct(value) : "Not started"}</span>
+              <span aria-hidden className="invisible col-start-1 row-start-1">{pct(100)}</span>
+            </b>
           </div>
         </div>
 
