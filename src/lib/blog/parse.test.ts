@@ -1,6 +1,6 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { byNewest, readingMinutes, toMeta, xmlEscape } from "./blog-parse.ts";
+import { byNewest, readingMinutes, toMeta, xmlEscape } from "./parse.ts";
 
 const ok = { title: "Hello", summary: "A post", date: "2026-09-30" };
 

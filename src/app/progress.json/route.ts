@@ -5,6 +5,7 @@ import { getProgress } from "@/lib/progress";
 export const dynamic = "force-static";
 export const revalidate = 300;
 
+/** Every project's progress as JSON (built in lib/machine). */
 export async function GET() {
   // Anyone may read it from a browser too: other dashboards, project READMEs, scripts.
   return Response.json(progressJson(await getProgress()), { headers: { "Access-Control-Allow-Origin": "*" } });

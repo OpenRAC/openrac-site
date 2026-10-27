@@ -48,6 +48,7 @@ const FRONTEND_MODULE = "FRONTEND.REL";
 /** The format the project's own tools write. Anything else is not read. */
 const FORMAT = "rac5-scoped-progress-v1";
 
+/** Size Matters' progress from its scoped status file (progress/status.json). */
 export function parseSmStatus(report: unknown): Progress {
   let r = report;
   if (typeof r === "string") {

@@ -1,10 +1,15 @@
+/**
+ * Progress of every project, read on the server from the projects' own repositories on GitHub.
+ * Most publish an objdiff report (the same file ByteMatch reads); the others publish their own
+ * format, parsed in this folder (gc.ts, gm.ts, sm.ts, sac.ts, each with tests).
+ */
 import { unstable_cache } from "next/cache";
 import { parseSmStatus } from "./sm";
 import { parseGcReport } from "./gc";
 import { parseGmReadme } from "./gm";
 import { parseSacBodies, parseSacReport } from "./sac";
 import type { Progress } from "./types";
-import type { ProjectId } from "./projects";
+import type { ProjectId } from "@/lib/projects";
 
 /** How long a fetched number may be reused before the server asks GitHub again. */
 export const REVALIDATE_SECONDS = 600;
@@ -71,13 +76,13 @@ async function loadSac(): Promise<Progress> {
     const res = await get(`${RAW}/OpenRAC/rac-sac-decomp/main/progress/report.json`);
     return parseSacReport(await res.json());
   } catch {
-    // Report file does not exist yet; fall through
+    // no report yet: try the next source
   }
   try {
     const res = await get(`${RAW}/OpenRAC/rac-sac-decomp/main/progress/status.json`);
     return parseSacReport(await res.json());
   } catch {
-    // Status file does not exist yet; fall through
+    // no status file yet: build the numbers from the placement tables
   }
 
   const [levelsBodiesRes, bootBodiesRes, levelsSummaryRes, bootSummaryRes] = await Promise.all([
@@ -95,19 +100,27 @@ async function loadSac(): Promise<Progress> {
   return parseSacBodies(levelsBodies, bootBodies, levelsSummary, bootSummary);
 }
 
-const cached = {
-  rac1: unstable_cache(loadRac1, ["progress-rac1"], { revalidate: REVALIDATE_SECONDS }),
-  rac1us: unstable_cache(loadRac1Us, ["progress-rac1us"], { revalidate: REVALIDATE_SECONDS }),
-  gc: unstable_cache(loadGc, ["progress-gc"], { revalidate: REVALIDATE_SECONDS }),
-  uya: unstable_cache(loadUya, ["progress-uya"], { revalidate: REVALIDATE_SECONDS }),
-  deadlocked: unstable_cache(loadDeadlocked, ["progress-deadlocked"], { revalidate: REVALIDATE_SECONDS }),
-  gm: unstable_cache(loadGm, ["progress-gm"], { revalidate: REVALIDATE_SECONDS }),
-  sm: unstable_cache(loadSm, ["progress-sm"], { revalidate: REVALIDATE_SECONDS }),
-  sac: unstable_cache(loadSac, ["progress-sac"], { revalidate: REVALIDATE_SECONDS }),
+/** Where each project's numbers come from. Adding a title: add its loader here and a snapshot below. */
+const LOADERS: Partial<Record<ProjectId, () => Promise<Progress>>> = {
+  rac1: loadRac1,
+  rac1us: loadRac1Us,
+  gc: loadGc,
+  uya: loadUya,
+  deadlocked: loadDeadlocked,
+  gm: loadGm,
+  sm: loadSm,
+  sac: loadSac,
 };
 
+const IDS = Object.keys(LOADERS) as ProjectId[];
+
+/** Each loader wrapped in Next's data cache: GitHub is asked at most once per REVALIDATE_SECONDS. */
+const cached = Object.fromEntries(
+  IDS.map((id) => [id, unstable_cache(LOADERS[id]!, [`progress-${id}`], { revalidate: REVALIDATE_SECONDS })]),
+) as Record<ProjectId, () => Promise<Progress>>;
+
 /** Last numbers known to be good. Used only if GitHub cannot be reached at all. */
-const FALLBACK: Record<ProjectId, Progress> = {
+const FALLBACK: Partial<Record<ProjectId, Progress>> = {
   rac1: { functions: { done: 5089, total: 5120 }, code: { done: 3656816, total: 3713416 }, source: "snapshot 2026-10-24" },
   rac1us: { functions: { done: 4230, total: 4244 }, code: { done: 3533752, total: 3547932 }, source: "snapshot 2026-10-27" },
   gc: { functions: { done: 4351, total: 8601 }, code: { done: 776368, total: 5529148 }, source: "snapshot 2026-10-24" },
@@ -123,27 +136,15 @@ export interface ProjectProgress extends Progress {
   stale: boolean;
 }
 
+/** Progress of every project: live where GitHub answers, otherwise the last snapshot, marked stale. */
 export async function getProgress(): Promise<Partial<Record<ProjectId, ProjectProgress>>> {
-  const [rac1, rac1us, gc, uya, deadlocked, gm, sm, sac] = await Promise.allSettled([
-    cached.rac1(),
-    cached.rac1us(),
-    cached.gc(),
-    cached.uya(),
-    cached.deadlocked(),
-    cached.gm(),
-    cached.sm(),
-    cached.sac(),
-  ]);
-  const pick = (r: PromiseSettledResult<Progress>, fb: Progress): ProjectProgress =>
-    r.status === "fulfilled" ? { ...r.value, stale: false } : { ...fb, stale: true };
-  return {
-    rac1: pick(rac1, FALLBACK.rac1),
-    rac1us: pick(rac1us, FALLBACK.rac1us),
-    gc: pick(gc, FALLBACK.gc),
-    uya: pick(uya, FALLBACK.uya),
-    deadlocked: pick(deadlocked, FALLBACK.deadlocked),
-    gm: pick(gm, FALLBACK.gm),
-    sm: pick(sm, FALLBACK.sm),
-    sac: pick(sac, FALLBACK.sac),
-  };
+  const results = await Promise.allSettled(IDS.map((id) => cached[id]()));
+  const out: Partial<Record<ProjectId, ProjectProgress>> = {};
+  IDS.forEach((id, i) => {
+    const r = results[i];
+    const snapshot = FALLBACK[id];
+    if (r.status === "fulfilled") out[id] = { ...r.value, stale: false };
+    else if (snapshot) out[id] = { ...snapshot, stale: true };
+  });
+  return out;
 }

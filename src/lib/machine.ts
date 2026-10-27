@@ -1,5 +1,5 @@
 import { DISCORD_URL, DOWNLOAD_URL, PROJECTS, type ProjectId } from "./projects.ts";
-import { percent, type Progress } from "./types.ts";
+import { percent, type Progress } from "./progress/types.ts";
 
 /**
  * The site for machines: search engines, AI assistants and anyone's scripts. Everything here is

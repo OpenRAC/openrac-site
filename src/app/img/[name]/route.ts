@@ -4,6 +4,7 @@ import { resolveImage } from "@/lib/images";
 // Read from disk on every request, so a file dropped into the folder shows up without a restart.
 export const dynamic = "force-dynamic";
 
+/** Serves a card backdrop from IMAGE_DIR; only the names the cards use (see lib/images). */
 export async function GET(_req: Request, { params }: RouteContext<"/img/[name]">) {
   const image = resolveImage((await params).name);
   if (!image) return new Response("Not found", { status: 404 });

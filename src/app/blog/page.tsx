@@ -28,6 +28,7 @@ export const metadata: Metadata = {
 
 const fmtDate = (iso: string) => new Date(`${iso}T00:00:00Z`).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" });
 
+/** The list of blog posts, newest first. */
 export default async function BlogIndex() {
   const posts = await getPosts();
 

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import Markdown from "@/components/Markdown";
+import Markdown from "@/components/ui/Markdown";
 import { getPost, getPosts } from "@/lib/blog";
 import { breadcrumbLd, ldJson, postLd, SHARE_IMAGE, siteUrl } from "@/lib/machine";
 
@@ -39,6 +39,7 @@ export async function generateMetadata({ params }: PageProps<"/blog/[slug]">): P
 
 const fmtDate = (iso: string) => new Date(`${iso}T00:00:00Z`).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" });
 
+/** One blog post, rendered from its Markdown file. */
 export default async function PostPage({ params }: PageProps<"/blog/[slug]">) {
   const post = await getPost((await params).slug);
   if (!post) notFound();

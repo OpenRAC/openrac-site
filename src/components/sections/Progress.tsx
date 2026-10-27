@@ -2,10 +2,11 @@ import Image from "next/image";
 import type { CSSProperties } from "react";
 import { getGithubAvatar } from "@/lib/github";
 import { PROJECTS, type Project, type ProjectId } from "@/lib/projects";
-import { percent } from "@/lib/types";
+import { percent } from "@/lib/progress/types";
 import type { ProjectProgress } from "@/lib/progress";
-import Backdrop from "./Backdrop";
-import Section from "./Section";
+import Backdrop from "@/components/ui/Backdrop";
+import { GithubIcon } from "@/components/ui/icons";
+import Section from "@/components/ui/Section";
 
 /** Two decimals, like ByteMatch. */
 const pct = (p: number) => `${p.toFixed(2).replace(".", ",")} %`;
@@ -45,12 +46,6 @@ async function Maintainers({ users, className = "" }: { users?: string[]; classN
     </p>
   );
 }
-
-const GITHUB = (
-  <svg viewBox="0 0 16 16" aria-hidden="true" className="size-5 flex-none fill-current">
-    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38v-1.33c-2.23.48-2.7-1.07-2.7-1.07-.36-.92-.89-1.17-.89-1.17-.73-.5.05-.49.05-.49.8.06 1.23.83 1.23.83.71 1.22 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.6 7.6 0 0 1 4 0c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.28.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48v2.2c0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z" />
-  </svg>
-);
 
 /**
  * What sets each title's card apart, on top of its colours and typeface (Project.theme, fontClass):
@@ -151,7 +146,7 @@ function Card({ project: g, progress: p, release = false }: { project: Project; 
           {/* wrap-reverse: where the region badge has no room beside the name, it moves above it. */}
           <div className={`${box} ${look.title ?? ""} flex min-w-0 flex-[1_1_100%] flex-wrap-reverse items-start justify-between gap-x-3 gap-y-2 px-4 py-3 @xl:flex-1 @xl:px-5`}>
             <div className="min-w-0 flex-[1_1_14rem]">
-              <h3 className={`${SIZES.name} leading-tight`}>{g.name}</h3>
+              <h4 className={`${SIZES.name} leading-tight`}>{g.name}</h4>
               <p className={`mt-1 tracking-wide opacity-80 ${SIZES.small}`}>
                 {g.subtitle ?? `decompilation · ${g.year}${g.region ? ` · ${g.region}` : ""}`}
               </p>
@@ -174,7 +169,7 @@ function Card({ project: g, progress: p, release = false }: { project: Project; 
         <div className={`flex min-w-0 flex-wrap items-center gap-x-5 gap-y-2.5 text-(--tx) ${SIZES.small}`}>
           {g.repo && (
             <a href={`https://github.com/${g.repo}`} className={`${box} inline-flex min-h-10 min-w-0 max-w-full items-center gap-2.5 px-3.5 py-1.5 no-underline transition hover:brightness-125`}>
-              {GITHUB}
+              <GithubIcon />
               <span className="truncate">{g.repo}</span>
             </a>
           )}
@@ -242,6 +237,7 @@ function Group({ title, text, platforms, dot, projects, progress }: {
   );
 }
 
+/** "Progress": a card per title, the main series first, then the spin-offs. */
 export default function Progress({ progress }: { progress: Partial<Record<ProjectId, ProjectProgress>> }) {
   const mainline = PROJECTS.filter((p) => p.category !== "spinoff");
   const spinoffs = PROJECTS.filter((p) => p.category === "spinoff");
@@ -263,7 +259,7 @@ export default function Progress({ progress }: { progress: Partial<Record<Projec
             text="Handheld and spin-off entries in the Ratchet & Clank universe."
             platforms="PSP / PS2 / Mobile"
             dot="bg-gold"
-              projects={spinoffs}
+            projects={spinoffs}
             progress={progress}
           />
         )}

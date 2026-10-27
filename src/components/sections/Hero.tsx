@@ -1,11 +1,12 @@
 import { DOWNLOAD_URL, PROJECTS } from "@/lib/projects";
 import type { ProjectProgress } from "@/lib/progress";
 import type { ProjectId } from "@/lib/projects";
-import CountUp from "./CountUp";
-import Particles from "./Particles";
+import CountUp from "@/components/ui/CountUp";
+import Particles from "@/components/ui/Particles";
 
 const fmtBytes = (n: number) => (n >= 1_000_000 ? `${(n / 1_000_000).toFixed(2)} MB` : `${Math.round(n / 1024).toLocaleString("en-US")} KB`);
 
+/** The top of the home page: headline, the two main buttons and three headline numbers. */
 export default function Hero({ progress }: { progress: Partial<Record<ProjectId, ProjectProgress>> }) {
   const active = Object.values(progress);
   const bytes = active.reduce((sum, p) => sum + (p?.code.done ?? 0), 0);

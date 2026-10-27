@@ -2,8 +2,8 @@ import Image from "next/image";
 import { CREDITS, type CreditVideo } from "@/lib/credits";
 import { getGithubAvatar } from "@/lib/github";
 import { getVideoInfo, type VideoInfo } from "@/lib/youtube";
-import Section from "./Section";
-import YouTubeFacade from "./YouTubeFacade";
+import Section from "@/components/ui/Section";
+import YouTubeFacade from "@/components/ui/YouTubeFacade";
 
 type ShownVideo = VideoInfo & { label?: string };
 

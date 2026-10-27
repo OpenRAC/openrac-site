@@ -1,7 +1,13 @@
-import { Activity, AiView, Contribute, Faq, HowItWorks, Legal, Resources } from "@/components/Content";
-import Credits from "@/components/Credits";
-import Hero from "@/components/Hero";
-import Progress from "@/components/Progress";
+import Activity from "@/components/sections/Activity";
+import AiView from "@/components/sections/AiView";
+import Contribute from "@/components/sections/Contribute";
+import Credits from "@/components/sections/Credits";
+import Faq from "@/components/sections/Faq";
+import Hero from "@/components/sections/Hero";
+import HowItWorks from "@/components/sections/HowItWorks";
+import Legal from "@/components/sections/Legal";
+import Progress from "@/components/sections/Progress";
+import Resources from "@/components/sections/Resources";
 import { getActivity } from "@/lib/activity";
 import { homeLd, ldJson, siteUrl } from "@/lib/machine";
 import { getProgress } from "@/lib/progress";
@@ -9,6 +15,7 @@ import { getProgress } from "@/lib/progress";
 // Rendered on the server and cached; rebuilt in the background at most every 5 minutes.
 export const revalidate = 300;
 
+/** The home page: every section in order, with the progress and activity loaded on the server. */
 export default async function Home() {
   const [progress, commits] = await Promise.all([getProgress(), getActivity()]);
 

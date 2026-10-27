@@ -1,5 +1,8 @@
 import type { ReactNode } from "react";
 
+/** The small uppercase heading over a list or panel inside a section. */
+export const SUBHEADING = "mb-2 font-orbitron text-[12px] font-bold uppercase tracking-[.2em] text-hi";
+
 /**
  * Numbered section with the shared heading style. Reveals on scroll. A link to it stops with its
  * number 20 px under the header, not at the top of its padding (the negative scroll margin).

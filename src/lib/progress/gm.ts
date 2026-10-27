@@ -9,6 +9,7 @@ import type { Progress } from "./types";
  */
 export const GM_TOTAL_CODE_BYTES = 545_639;
 
+/** Going Mobile's progress, read from the verified figures in its README. */
 export function parseGmReadme(readme: string): Progress {
   if (typeof readme !== "string" || !readme.trim()) {
     throw new Error("going-mobile readme content is empty or invalid");

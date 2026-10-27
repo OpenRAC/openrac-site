@@ -1,9 +1,10 @@
 import type { Metadata, Viewport } from "next";
 import { Audiowide, Chakra_Petch, Inter, Orbitron, Pixelify_Sans } from "next/font/google";
-import SiteFooter from "@/components/Footer";
-import Header from "@/components/Header";
-import Logo from "@/components/Logo";
-import RevealObserver from "@/components/RevealObserver";
+import SiteFooter from "@/components/layout/Footer";
+import Header from "@/components/layout/Header";
+import Logo from "@/components/ui/Logo";
+import RevealObserver from "@/components/layout/RevealObserver";
+import { SHARE_IMAGE, siteUrl } from "@/lib/machine";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter", display: "swap" });
@@ -19,13 +20,14 @@ const chakra = Chakra_Petch({
   preload: false,
 });
 
+const title = "OpenRAC · Ratchet & Clank Decompilation Hub";
 const description =
   "OpenRAC is an unofficial hub for community decompilation projects of the Ratchet & Clank series. Track progress for every title.";
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.SITE_URL ?? "https://openrac.dev"),
+  metadataBase: new URL(siteUrl()),
   title: {
-    default: "OpenRAC · Ratchet & Clank Decompilation Hub",
+    default: title,
     template: "%s · OpenRAC",
   },
   description,
@@ -56,7 +58,7 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "OpenRAC · Ratchet & Clank Decompilation Hub",
+    title,
     description,
     type: "website",
     url: "/",
@@ -65,8 +67,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "OpenRAC · Ratchet & Clank Decompilation Hub",
+    title,
     description,
+    images: [SHARE_IMAGE],
   },
   // Lets feed readers, scripts and AI tools find the machine-readable versions on their own.
   alternates: {
@@ -87,6 +90,7 @@ export const viewport: Viewport = {
   viewportFit: "cover",
 };
 
+/** The frame of every page: fonts, metadata, the loading screen, header and footer. */
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     // suppressHydrationWarning: the splash script below adds "ready" to <html> before React hydrates.

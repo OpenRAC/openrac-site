@@ -1,9 +1,10 @@
 import Link from "next/link";
-import Logo from "./Logo";
+import Logo from "@/components/ui/Logo";
 import { DISCORD_URL } from "@/lib/projects";
 
 const a = "text-amber no-underline hover:underline";
 
+/** The footer on every page: the logo, the main links and the machine-readable files. */
 export default function SiteFooter() {
   return (
     <footer className="border-t border-line bg-ink-deep py-10 text-[13px] text-dim">

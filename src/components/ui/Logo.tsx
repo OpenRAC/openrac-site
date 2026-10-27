@@ -32,6 +32,7 @@ const VIEW = {
   mark: [62, 220, 415, 334],
 } as const;
 
+/** The OpenRAC logo (mark and name) as inline SVG, drawn in the current text colour; `accent` paints the mark gold. */
 export default function Logo({
   mark = false,
   height = 32,

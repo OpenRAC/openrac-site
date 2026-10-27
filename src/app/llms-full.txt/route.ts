@@ -1,4 +1,4 @@
-import { FAQ } from "@/components/Content";
+import { FAQ } from "@/components/sections/Faq";
 import { getPosts } from "@/lib/blog";
 import { llmsFullTxt, siteUrl } from "@/lib/machine";
 import { getProgress } from "@/lib/progress";
@@ -7,6 +7,7 @@ import { getProgress } from "@/lib/progress";
 export const dynamic = "force-static";
 export const revalidate = 300;
 
+/** llms.txt plus the FAQ and every blog post in full. */
 export async function GET() {
   const [progress, posts] = await Promise.all([getProgress(), getPosts()]);
   // Answers that are plain text; the one built from the project list is covered by "Projects" above.

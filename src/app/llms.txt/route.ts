@@ -6,6 +6,7 @@ import { getProgress } from "@/lib/progress";
 export const dynamic = "force-static";
 export const revalidate = 300;
 
+/** A short Markdown map of the site for AI tools (https://llmstxt.org). */
 export async function GET() {
   const [progress, posts] = await Promise.all([getProgress(), getPosts()]);
   return new Response(llmsTxt(siteUrl(), progress, posts), { headers: { "Content-Type": "text/plain; charset=utf-8" } });
