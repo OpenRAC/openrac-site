@@ -1,5 +1,5 @@
 /** The launcher's repository: its releases are what the Download panel offers. */
-export const LAUNCHER_REPO = "OpenRAC/OpenRAC";
+const LAUNCHER_REPO = "OpenRAC/OpenRAC";
 
 export type PlatformId = "windows" | "macos" | "linux" | "android";
 

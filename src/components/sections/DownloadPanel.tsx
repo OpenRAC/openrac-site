@@ -1,8 +1,7 @@
 "use client";
 
-import { useEffect, useRef, useState, useSyncExternalStore } from "react";
+import { useEffect, useRef, useState, useSyncExternalStore, type CSSProperties, type ReactNode } from "react";
 import { SystemIcon } from "@/components/ui/icons";
-import SectionArt from "@/components/ui/SectionArt";
 import { formatSize } from "@/lib/format";
 import { detectPlatform } from "@/lib/platform";
 import type { DevBuild, Download, LauncherRelease, Platform, PlatformId } from "@/lib/releases";
@@ -48,8 +47,8 @@ function SystemCard({ p, i, mine, release, dev, devAgo, fallback }: {
   return (
     // Four rows shared with the cards beside it (subgrid), so their buttons line up whatever the text above.
     <article
-      style={{ "--i": i } as React.CSSProperties}
-      className={`dl-card group surface surface-link relative row-span-4 grid grid-cols-[minmax(0,1fr)] grid-rows-subgrid gap-0 p-5 sm:p-6 ${mine ? "dl-mine border-brand/70 max-sm:order-first" : ""}`}
+      style={{ "--i": i } as CSSProperties}
+      className={`dl-card surface surface-link relative row-span-4 grid grid-cols-[minmax(0,1fr)] grid-rows-subgrid gap-0 p-5 sm:p-6 ${mine ? "dl-mine border-brand/70 max-sm:order-first" : ""}`}
     >
       <div className="flex items-center gap-3.5">
         <span
@@ -144,13 +143,15 @@ function SystemCard({ p, i, mine, release, dev, devAgo, fallback }: {
 /**
  * The Download panel under the hero: folded away until a link to #download is followed (the
  * hero's button, the bar's), then it opens in place and the page scrolls to it. Without scripts
- * the link still opens it (CSS :target).
+ * the link still opens it (CSS :target). `art`: the heading's drawing, drawn on the server so its
+ * shapes never ship in this component's script.
  */
-export default function DownloadPanel({ release, dev, platforms, fallback }: {
+export default function DownloadPanel({ release, dev, platforms, fallback, art }: {
   release: LauncherRelease | null;
   dev: DevBuild | null;
   platforms: Platform[];
   fallback: string;
+  art: ReactNode;
 }) {
   const ref = useRef<HTMLElement>(null);
   const heading = useRef<HTMLHeadingElement>(null);
@@ -210,57 +211,51 @@ export default function DownloadPanel({ release, dev, platforms, fallback }: {
     >
       <div className="dl-clip">
         <div className="dl-inner relative pb-10 pt-4 sm:pb-14">
-          <div>
-            <div className="mb-2 flex items-start gap-4">
-              <div className="flex min-w-0 items-center gap-3 sm:gap-5">
-                <SectionArt id="download" className="h-14 w-auto sm:h-[76px]" />
-                <div className="min-w-0">
-                  <h2
-                    id="download-title"
-                    ref={heading}
-                    tabIndex={-1}
-                    className="bg-gradient-to-r from-text to-soft bg-clip-text font-audiowide text-[clamp(26px,4vw,38px)] leading-tight text-transparent outline-none"
-                  >
-                    Get the launcher
-                  </h2>
-                </div>
-              </div>
-              <button
-                type="button"
-                onClick={close}
-                aria-label="Close downloads"
-                className="ml-auto grid size-11 flex-none place-items-center rounded-full border border-line text-soft transition-colors hover:border-amber hover:text-amber"
-              >
-                <svg viewBox="0 0 16 16" aria-hidden="true" className="size-4 fill-none stroke-current stroke-2">
-                  <path d="M3.5 3.5l9 9m0-9-9 9" strokeLinecap="round" />
-                </svg>
-              </button>
-            </div>
-
-            <p className="mb-6 max-w-[760px] text-dim sm:mb-8">Pick your system: the launcher sets each game up from your own disc. No game is downloaded.</p>
-
-            <div className="grid gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-4">
-              {platforms.map((p, i) => (
-                <SystemCard
-                  key={p.id}
-                  p={p}
-                  i={i}
-                  mine={p.id === mine}
-                  release={release}
-                  dev={dev?.files[p.id] ? { build: dev, file: dev.files[p.id]! } : null}
-                  devAgo={devAgo}
-                  fallback={fallback}
-                />
-              ))}
-            </div>
-
-            <p className="mt-5 flex flex-wrap items-center gap-x-4 gap-y-1 text-[13px] text-dim">
-              <a href={release?.url || fallback} className="text-amber no-underline hover:underline">
-                Release notes and every file on GitHub →
-              </a>
-              <span>Updates install from inside the launcher. DEV builds come from every merge to master and can be unstable.</span>
-            </p>
+          <div className="mb-2 flex items-center gap-3 sm:gap-5">
+            {art}
+            <h2
+              id="download-title"
+              ref={heading}
+              tabIndex={-1}
+              className="min-w-0 bg-gradient-to-r from-text to-soft bg-clip-text font-audiowide text-[clamp(26px,4vw,38px)] leading-tight text-transparent outline-none"
+            >
+              Get the launcher
+            </h2>
+            <button
+              type="button"
+              onClick={close}
+              aria-label="Close downloads"
+              className="ml-auto grid size-11 flex-none place-items-center rounded-full border border-line text-soft transition-colors hover:border-amber hover:text-amber"
+            >
+              <svg viewBox="0 0 16 16" aria-hidden="true" className="size-4 fill-none stroke-current stroke-2">
+                <path d="M3.5 3.5l9 9m0-9-9 9" strokeLinecap="round" />
+              </svg>
+            </button>
           </div>
+
+          <p className="mb-6 max-w-[760px] text-dim sm:mb-8">Pick your system: the launcher sets each game up from your own disc. No game is downloaded.</p>
+
+          <div className="grid gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-4">
+            {platforms.map((p, i) => (
+              <SystemCard
+                key={p.id}
+                p={p}
+                i={i}
+                mine={p.id === mine}
+                release={release}
+                dev={dev?.files[p.id] ? { build: dev, file: dev.files[p.id]! } : null}
+                devAgo={devAgo}
+                fallback={fallback}
+              />
+            ))}
+          </div>
+
+          <p className="mt-5 flex flex-wrap items-center gap-x-4 gap-y-1 text-[13px] text-dim">
+            <a href={release?.url || fallback} className="text-amber no-underline hover:underline">
+              Release notes and every file on GitHub →
+            </a>
+            <span>Updates install from inside the launcher. DEV builds come from every merge to master and can be unstable.</span>
+          </p>
         </div>
       </div>
     </section>
