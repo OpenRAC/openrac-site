@@ -2,7 +2,7 @@ import type { ReactNode } from "react";
 
 /**
  * The small drawings beside each section's heading, in place of a number: flat shapes with a dark
- * outline over a spiky gold burst, the jagged edge of the logo's lombax, with three claw marks.
+ * outline over a spiky gold burst, the jagged edge of the logo's lombax.
  * Decorative only: screen readers skip them, the heading names the section.
  */
 
@@ -46,28 +46,19 @@ function Bar({ d, color, w = 8 }: { d: string; color: string; w?: number }) {
 
 const line = { stroke: INK, strokeWidth: 2.5, strokeLinejoin: "round" as const, strokeLinecap: "round" as const };
 
-/** Three claw marks in a corner: slashes that taper at both ends. */
-const Claws = ({ x = 92, y = 8 }: { x?: number; y?: number }) => (
-  <g fill={GOLD_LIGHT} opacity={0.9}>
-    {[0, 6, 12].map((dx) => (
-      <path key={dx} d={`M${x + dx} ${y + dx * 0.3}Q${x + dx + 6} ${y + dx * 0.3 + 9} ${x + dx + 4} ${y + dx * 0.3 + 22}Q${x + dx + 3.4} ${y + dx * 0.3 + 9} ${x + dx} ${y + dx * 0.3}Z`} stroke={GOLD_LIGHT} strokeWidth={1.2} strokeLinejoin="round" />
-    ))}
-  </g>
-);
 
 const ART: Record<string, ReactNode> = {
-  // bars rising to a star
+  // bars rising to a flag
   progress: (
     <>
       <Burst d={burst(58, 50, 40, 11, 0.2)} />
-      <path d="M18 80H100" {...line} strokeWidth={3} />
-      <rect x="27" y="56" width="16" height="24" rx="2" fill={GOLD_DARK} {...line} />
-      <rect x="49" y="42" width="16" height="38" rx="2" fill={GOLD} {...line} />
-      <rect x="71" y="26" width="16" height="54" rx="2" fill={GOLD_LIGHT} {...line} />
-      <path d="M30 46 54 32 64 37 84 14" fill="none" stroke={INK} strokeWidth={7} strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M30 46 54 32 64 37 84 14" fill="none" stroke={WHITE} strokeWidth={3} strokeLinecap="round" strokeLinejoin="round" />
-      <path d={spark(84, 14, 8)} fill={GOLD_LIGHT} {...line} strokeWidth={2} />
-      <Claws x={8} y={10} />
+      <path d="M78 30V10" {...line} />
+      <path d="M78 10h18l-5 6 5 6H78z" fill={BLUE} {...line} />
+      <rect x="26" y="60" width="16" height="20" rx="2" fill={GOLD_DARK} {...line} />
+      <rect x="48" y="46" width="16" height="34" rx="2" fill={GOLD} {...line} />
+      <rect x="70" y="30" width="16" height="50" rx="2" fill={GOLD_LIGHT} {...line} />
+      <path d="M16 80H98" {...line} strokeWidth={3} />
+      <path d={spark(28, 30, 7)} fill={GOLD_LIGHT} {...line} strokeWidth={2} />
     </>
   ),
   // a wrench and a speech bubble
@@ -83,21 +74,21 @@ const ART: Record<string, ReactNode> = {
       <circle cx="83" cy="30" r="3" fill={WHITE} />
       <circle cx="92" cy="30" r="3" fill={WHITE} />
       <path d={spark(22, 22, 6)} fill={GOLD_LIGHT} {...line} strokeWidth={2} />
-      <Claws x={94} y={58} />
     </>
   ),
-  // commits on a branch that merges back
+  // a feed of recent commits, with a clock
   activity: (
     <>
       <Burst d={burst(60, 48, 40, 10, 0.4)} />
-      <Bar d="M14 62H106" color={PANEL_LIGHT} w={6} />
-      <Bar d="M28 62C40 62 40 30 60 30S80 62 92 62" color={PANEL_LIGHT} w={6} />
-      {[14, 50, 106].map((x) => (
-        <circle key={x} cx={x} cy="62" r="8" fill={GOLD} {...line} />
+      <rect x="20" y="14" width="66" height="66" rx="6" fill={PANEL} {...line} />
+      {[30, 46, 62].map((y, i) => (
+        <g key={y}>
+          <circle cx="32" cy={y} r="4" fill={GOLD} {...line} strokeWidth={2} />
+          <path d={`M42 ${y}h${[32, 24, 28][i]}`} stroke={WHITE} strokeWidth={3} strokeLinecap="round" />
+        </g>
       ))}
-      <circle cx="60" cy="30" r="8" fill={BLUE} {...line} />
-      <circle cx="106" cy="62" r="3" fill={INK} />
-      <Claws x={8} y={8} />
+      <circle cx="88" cy="68" r="17" fill={BLUE} {...line} />
+      <path d="M88 58v10l7 5" fill="none" stroke={WHITE} strokeWidth={3.5} strokeLinecap="round" strokeLinejoin="round" />
     </>
   ),
   // a disc turned into code
@@ -112,7 +103,6 @@ const ART: Record<string, ReactNode> = {
       <rect x="78" y="28" width="34" height="46" rx="5" fill={PANEL} {...line} />
       <path d="M86 40h12M86 48h18M90 56h10M86 64h14" stroke={GOLD} strokeWidth={3} strokeLinecap="round" />
       <path d="M86 48h0" stroke={BLUE} strokeWidth={3} />
-      <Claws x={88} y={4} />
     </>
   ),
   // an open toolbox
@@ -128,7 +118,6 @@ const ART: Record<string, ReactNode> = {
       <path d="M22 44h76l-4 36H26z" fill={GOLD} {...line} />
       <path d="M22 44h76v10H22z" fill={GOLD_DARK} {...line} />
       <rect x="53" y="50" width="14" height="9" rx="2" fill={PANEL} {...line} />
-      <Claws x={6} y={14} />
     </>
   ),
   // a question and an answer
@@ -141,7 +130,6 @@ const ART: Record<string, ReactNode> = {
       <path d="M62 44h40a7 7 0 0 1 7 7v18a7 7 0 0 1-7 7h-4l2 10-12-10H62a7 7 0 0 1-7-7V51a7 7 0 0 1 7-7z" fill={PANEL} {...line} />
       <path d="M82 52v10" stroke={GOLD} strokeWidth={4} strokeLinecap="round" />
       <circle cx="82" cy="69" r="2.4" fill={GOLD} />
-      <Claws x={86} y={6} />
     </>
   ),
   // a chip with a tick: the compiler decides
@@ -160,9 +148,8 @@ const ART: Record<string, ReactNode> = {
       </g>
       <rect x="28" y="18" width="64" height="64" rx="8" fill={PANEL} {...line} />
       <rect x="40" y="30" width="40" height="40" rx="5" fill={GOLD} {...line} />
-      <path d="M49 50l7 7 13-14" fill="none" stroke={INK} strokeWidth={5} strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M48 50l8 8 16-17" fill="none" stroke={INK} strokeWidth={5} strokeLinecap="round" strokeLinejoin="round" />
       <path d={spark(100, 20, 7)} fill={GOLD_LIGHT} {...line} strokeWidth={2} />
-      <Claws x={6} y={56} />
     </>
   ),
   // a trophy
@@ -175,18 +162,17 @@ const ART: Record<string, ReactNode> = {
       <rect x="42" y="70" width="36" height="10" rx="2" fill={PANEL} {...line} />
       <path d={spark(60, 36, 8)} fill={GOLD_LIGHT} {...line} strokeWidth={2} />
       <path d={spark(98, 18, 6)} fill={GOLD_LIGHT} {...line} strokeWidth={2} />
-      <Claws x={8} y={10} />
     </>
   ),
   // an arrow into a tray
   download: (
     <>
       <Burst d={burst(60, 50, 40, 12, 0.05)} />
-      <path d="M24 60v14a6 6 0 0 0 6 6h60a6 6 0 0 0 6-6V60" fill="none" stroke={INK} strokeWidth={11} strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M24 60v14a6 6 0 0 0 6 6h60a6 6 0 0 0 6-6V60" fill="none" stroke={PANEL_LIGHT} strokeWidth={6} strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M52 12h16v28h12L60 64 40 40h12z" fill={GOLD} {...line} />
-      <path d={spark(92, 22, 7)} fill={GOLD_LIGHT} {...line} strokeWidth={2} />
-      <Claws x={8} y={10} />
+      <path d="M18 54h84v20a8 8 0 0 1-8 8H26a8 8 0 0 1-8-8z" fill={PANEL} {...line} />
+      <path d="M18 54h26l4 8h24l4-8h26" fill="none" {...line} />
+      <circle cx="90" cy="72" r="3" fill={GOLD} />
+      <path d="M51 8h18v26h13L60 60 38 34h13z" fill={GOLD} {...line} />
+      <path d={spark(98, 22, 7)} fill={GOLD_LIGHT} {...line} strokeWidth={2} />
     </>
   ),
 };
