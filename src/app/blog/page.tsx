@@ -49,7 +49,7 @@ export default async function BlogIndex() {
             <li key={p.slug}>
               <Link
                 href={`/blog/${p.slug}`}
-                className="block rounded-2xl border border-line bg-gradient-to-br from-[#20202c] to-ink p-6 no-underline transition hover:-translate-y-0.5 hover:border-brand"
+                className="surface surface-link block p-5 no-underline sm:p-6"
               >
                 <p className="text-[13px] text-dim">
                   <time dateTime={p.date}>{fmtDate(p.date)}</time> · {p.minutes} min read{p.draft ? " · DRAFT" : ""}

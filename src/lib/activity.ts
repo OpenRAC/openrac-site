@@ -1,8 +1,8 @@
-import { PROJECTS } from "./projects";
+import { PROJECTS, type ProjectId } from "./projects";
 
 export interface Commit {
   project: string;
-  projectId: string;
+  projectId: ProjectId;
   message: string;
   date: string;
   url: string;

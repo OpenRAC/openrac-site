@@ -1,17 +1,14 @@
 import type { ReactNode } from "react";
-import { ALSO_WORKED_ON, DISCORD_URL, PROJECTS } from "@/lib/projects";
+import { ALSO_WORKED_ON, DISCORD_URL, PROJECTS, type ProjectId } from "@/lib/projects";
 import type { Commit } from "@/lib/activity";
 import Section from "./Section";
 
-const card =
-  "group relative overflow-hidden rounded-2xl border border-line bg-gradient-to-br from-[#20202c] to-ink p-6 transition hover:-translate-y-1 hover:border-brand";
-
 function Cards({ items }: { items: readonly (readonly [string, string])[] }) {
   return (
-    <div className="grid gap-5 sm:grid-cols-[repeat(auto-fit,minmax(240px,1fr))]">
+    <div className="grid gap-4 sm:grid-cols-[repeat(auto-fit,minmax(240px,1fr))] sm:gap-5">
       {items.map(([title, text], i) => (
-        <div key={title} className={card}>
-          <span aria-hidden className="absolute -top-1.5 right-3.5 font-orbitron text-[84px] font-bold leading-none text-brand/15">{i + 1}</span>
+        <div key={title} className="surface relative overflow-hidden p-5 sm:p-6">
+          <span aria-hidden className="absolute -top-1.5 right-3.5 font-orbitron text-[72px] font-bold leading-none text-brand/15 sm:text-[84px]">{i + 1}</span>
           <h3 className="relative mb-2 font-orbitron text-[19px] font-bold text-gold">{title}</h3>
           <p className="relative text-soft">{text}</p>
         </div>
@@ -19,8 +16,6 @@ function Cards({ items }: { items: readonly (readonly [string, string])[] }) {
     </div>
   );
 }
-
-const btn = "rounded-full border border-lav/40 bg-white/[0.03] px-5 py-2.5 font-semibold text-[#e8f0ff] transition hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgb(0_0_0/0.4)]";
 
 export function Contribute() {
   return (
@@ -32,12 +27,12 @@ export function Contribute() {
           ["Pick a function", "Take a small one, get it to compile to the same bytes and open a pull request. Reviews, notes and tooling help just as much."],
         ]}
       />
-      <div className="mt-6 flex flex-wrap gap-3">
-        <a href={DISCORD_URL} className="rounded-full border border-amber bg-gradient-to-b from-amber to-[#ff8a00] px-5 py-2.5 font-semibold text-[#1a0d00] shadow-[0_6px_24px_rgb(255_138_0/0.35)] transition hover:-translate-y-0.5 hover:brightness-110">
+      <div className="mt-7 grid gap-2.5 sm:flex sm:flex-wrap sm:gap-3">
+        <a href={DISCORD_URL} className="btn btn-primary">
           Join our Discord
         </a>
         {PROJECTS.filter((p) => p.repo).map((p) => (
-          <a key={p.id} href={p.contributing ?? `https://github.com/${p.repo}`} className={btn}>
+          <a key={p.id} href={p.contributing ?? `https://github.com/${p.repo}`} className="btn btn-sm justify-start sm:justify-center">
             Contribute to {p.name}
           </a>
         ))}
@@ -55,6 +50,17 @@ const ago = (iso: string): string => {
   return `${d} ${d === 1 ? "day" : "days"} ago`;
 };
 
+/** The project's colour on its activity tag, close to its card. */
+const TAG: Record<ProjectId, string> = {
+  rac1: "border-lav/30 bg-lav/15 text-lav",
+  gc: "border-[#5a7fa6]/40 bg-[#5a7fa6]/25 text-[#9fd3ff]",
+  uya: "border-brand/40 bg-brand/20 text-[#ffc35a]",
+  deadlocked: "border-red-500/40 bg-red-950/60 text-[#ff6b6b]",
+  gm: "border-[#00b4d8]/40 bg-[#00b4d8]/25 text-[#7dd3fc]",
+  sm: "border-yellow-500/40 bg-yellow-950/60 text-[#facc15]",
+  sac: "border-sky-500/40 bg-sky-950/60 text-[#38bdf8]",
+};
+
 export function Activity({ commits }: { commits: Commit[] }) {
   return (
     <Section id="activity" title="Recent activity" sub="The latest commits across the tracked projects, straight from GitHub.">
@@ -64,7 +70,7 @@ export function Activity({ commits }: { commits: Commit[] }) {
         <ul className="grid grid-cols-[minmax(0,1fr)] gap-2.5">
           {commits.map((c) => (
             <li key={c.url} className="flex min-w-0 flex-wrap items-center gap-x-3.5 gap-y-1.5 rounded-xl border border-line bg-panel px-4 py-3">
-              <span className={`flex-none rounded-full px-2.5 py-1 font-orbitron text-[11px] font-semibold tracking-wider ${c.projectId === "deadlocked" ? "border border-red-500/40 bg-red-950/60 text-[#ff6b6b]" : c.projectId === "uya" ? "bg-brand/20 text-[#ffc35a]" : c.projectId === "gc" ? "bg-[#5a7fa6]/25 text-[#9fd3ff]" : c.projectId === "gm" ? "bg-[#00b4d8]/25 text-[#7dd3fc]" : c.projectId === "sm" ? "border border-yellow-500/40 bg-yellow-950/60 text-[#facc15]" : c.projectId === "sac" ? "border border-sky-500/40 bg-sky-950/60 text-[#38bdf8]" : "bg-lav/15 text-lav"}`}>{c.project}</span>
+              <span className={`flex-none rounded-full border px-2.5 py-1 font-orbitron text-[11px] font-semibold tracking-wider ${TAG[c.projectId]}`}>{c.project}</span>
               <a href={c.url} className="order-3 min-w-0 basis-full truncate text-[#e3e9ff] no-underline hover:text-amber sm:order-none sm:basis-0 sm:flex-1">{c.message}</a>
               <time dateTime={c.date} className="flex-none text-[13px] text-dim">{ago(c.date)}</time>
             </li>
@@ -112,9 +118,9 @@ function ResourceGrid({ title, items }: { title: string; items: Resource[] }) {
   return (
     <div>
       <h3 className="mb-3 font-orbitron text-sm font-bold uppercase tracking-[.2em] text-lav">{title}</h3>
-      <div className="grid gap-3.5 sm:grid-cols-[repeat(auto-fit,minmax(250px,1fr))]">
+      <div className="grid gap-3 min-[480px]:grid-cols-2 lg:grid-cols-[repeat(auto-fit,minmax(230px,1fr))] sm:gap-3.5">
         {items.map(({ title, href, text }) => (
-          <a key={href} href={href} className="block rounded-[14px] border border-line bg-gradient-to-br from-[#20202c] to-ink px-5 py-[18px] no-underline transition hover:-translate-y-0.5 hover:border-brand">
+          <a key={href} href={href} className="surface surface-link block px-5 py-4 no-underline sm:py-[18px]">
             <b className="mb-1 block font-orbitron text-base font-bold text-gold">{title}</b>
             <span className="text-sm text-soft">{text}</span>
           </a>
@@ -206,8 +212,8 @@ export function Faq() {
     <Section id="faq" title="FAQ" sub="The short answers.">
       <div className="grid gap-2.5">
         {FAQ.map(([q, a]) => (
-          <details key={q} className="rounded-[14px] border border-line bg-panel px-5 transition open:border-brand open:bg-panel-hi">
-            <summary className="flex cursor-pointer list-none items-center justify-between gap-4 py-[18px] font-semibold">
+          <details key={q} className="rounded-2xl border border-line bg-panel px-4 transition-colors open:border-brand open:bg-panel-hi sm:px-5">
+            <summary className="flex min-h-14 cursor-pointer list-none items-center justify-between gap-4 py-3.5 font-semibold">
               {q}
               <span aria-hidden className="plus flex-none font-orbitron text-[26px] leading-none text-brand transition-transform">+</span>
             </summary>
@@ -225,7 +231,7 @@ export function AiView() {
       <aside className="mb-8 mt-5 max-w-[760px] border-l-4 border-brand py-1.5 pl-5 font-audiowide text-[clamp(22px,3.4vw,32px)] leading-tight text-lav">
         A wrong guess costs nothing and never ships. <em className="not-italic text-amber">The compiler is the judge.</em>
       </aside>
-      <article className="max-w-[760px] text-[17px] text-[#c3cdea] [&_h3]:mb-1 [&_h3]:mt-7 [&_h3]:font-orbitron [&_h3]:text-lg [&_h3]:font-bold [&_h3]:text-gold [&_p]:mb-3.5">
+      <article className="max-w-[760px] text-base text-body sm:text-[17px] [&_h3]:mb-1 [&_h3]:mt-7 [&_h3]:font-orbitron [&_h3]:text-lg [&_h3]:font-bold [&_h3]:text-gold [&_p]:mb-3.5">
         <p>Parts of this project are built with the help of AI coding assistants. We think that should be stated plainly rather than hidden, so here is how we use it and where we draw the line.</p>
         <h3>What it does here</h3>
         <p>Matching decompilation is unusually well suited to machine help because success is objective. A function either compiles to the original bytes or it does not. An assistant proposes C, the compiler judges it, and that result is the only thing that counts. A wrong guess costs nothing and never ships.</p>
@@ -242,8 +248,8 @@ export function AiView() {
 
 export function Legal() {
   return (
-    <section id="legal" className="pb-16">
-      <div data-reveal className="rounded-2xl border border-brand bg-gradient-to-br from-brand/10 to-brand/[0.03] p-[18px] sm:p-6">
+    <section id="legal" className="pb-16 pt-4">
+      <div data-reveal className="rounded-2xl border border-brand/70 bg-gradient-to-br from-brand/10 to-brand/[0.03] p-5 text-body sm:p-6">
         <h2 className="mb-2 font-audiowide text-[22px]">Legal</h2>
         <p className="mb-3">
           OpenRAC is an independent, unofficial fan project. It is not affiliated with, endorsed by or sponsored by Sony Interactive Entertainment or Insomniac Games.

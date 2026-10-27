@@ -1,6 +1,7 @@
 import Image from "next/image";
-import type { CSSProperties } from "react";
+import type { CSSProperties, ElementType, ReactNode } from "react";
 import { getGithubAvatar } from "@/lib/github";
+import { hasImage } from "@/lib/images";
 import { PROJECTS, type Project, type ProjectId } from "@/lib/projects";
 import { percent } from "@/lib/types";
 import type { ProjectProgress } from "@/lib/progress";
@@ -51,6 +52,40 @@ const GITHUB = (
   </svg>
 );
 
+/** The frame all cards share: size, corners, shadow, and the optional backdrop under its tint. */
+async function Shell({
+  project: g,
+  label,
+  className,
+  style,
+  tint = "bg-black/20",
+  quality = 70,
+  children,
+}: {
+  project: Project;
+  label: string;
+  className: string;
+  style?: CSSProperties;
+  tint?: string;
+  quality?: 70 | 75;
+  children: ReactNode;
+}) {
+  // Backdrops are not in the repository: drawn only when the file is there, else the card's own colours show.
+  const backdrop = await hasImage(g.image);
+  return (
+    <section
+      aria-label={label}
+      style={style}
+      data-reveal
+      className={`relative flex flex-col items-center justify-center overflow-hidden rounded-[22px] px-3.5 py-10 shadow-[0_18px_50px_rgb(0_0_0/0.45)] sm:min-h-[600px] sm:rounded-[30px] sm:px-6 sm:py-10 ${className}`}
+    >
+      {backdrop && <Image src={g.image} alt="" fill sizes="(min-width: 1080px) 1048px, 100vw" quality={quality} className="object-cover" />}
+      <div aria-hidden className={`absolute inset-0 ${tint}`} />
+      {children}
+    </section>
+  );
+}
+
 /** One title, styled like its own menu. Rendered on the server. */
 function Card({ project: g, progress: p }: { project: Project; progress?: ProjectProgress }) {
   const t = g.theme;
@@ -63,14 +98,7 @@ function Card({ project: g, progress: p }: { project: Project; progress?: Projec
   const codePct = p ? percent(p.code) : 0;
 
   return (
-    <section
-      aria-label={`${g.name}${g.region ? ` (${g.region})` : ""} progress`}
-      style={style}
-      className={`relative flex min-h-[560px] flex-col items-center justify-center gap-5 overflow-hidden rounded-[30px] bg-ink px-3.5 py-8 shadow-[0_18px_50px_rgb(0_0_0/0.45)] sm:h-[600px] sm:px-6 sm:py-10 ${g.fontClass}`}
-    >
-      {/* Optional backdrop (not in the repository). If the file is missing, the gradient above shows. */}
-      <Image src={g.image} alt="" fill sizes="(min-width: 1080px) 1048px, 100vw" quality={70} className="object-cover" />
-      <div aria-hidden className="absolute inset-0 bg-black/20" />
+    <Shell project={g} label={`${g.name}${g.region ? ` (${g.region})` : ""} progress`} style={style} className={`gap-5 bg-ink ${g.fontClass}`}>
       {g.phase === "research" && <ResearchBadge className="relative border-(--bd) bg-(--box) text-(--tx)" />}
       <div className={`${box} relative w-full max-w-[640px] text-[clamp(24px,4.5vw,44px)] leading-tight sm:px-10 sm:py-6`}>
         {g.name}
@@ -123,7 +151,7 @@ function Card({ project: g, progress: p }: { project: Project; progress?: Projec
           <div className="relative h-3.5 w-full max-w-[640px] rounded-[7px] border-2 border-(--bd) bg-black/45" />
         </>
       )}
-    </section>
+    </Shell>
   );
 }
 
@@ -132,13 +160,7 @@ function MobileCard({ project: g, progress: p }: { project: Project; progress?: 
   const lit = Math.floor(codePct / 10);
 
   return (
-    <section
-      aria-label={`${g.name} progress`}
-      className="relative flex min-h-[560px] flex-col items-center justify-center gap-5 overflow-hidden rounded-[30px] bg-[#020b14] px-3.5 py-8 shadow-[0_18px_50px_rgb(0_0_0/0.45)] sm:h-[600px] sm:px-6 sm:py-10 font-pixel"
-    >
-      {/* Authentic Going Mobile starfield backdrop with Ratchet */}
-      <Image src={g.image} alt="" fill sizes="(min-width: 1080px) 1048px, 100vw" quality={90} className="object-cover opacity-90" />
-      <div aria-hidden className="absolute inset-0 bg-black/35" />
+    <Shell project={g} label={`${g.name} progress`} quality={75} tint="bg-black/35" className="gap-5 bg-[#020b14] font-pixel">
 
       {/* Main Title Box in Pixel Styling */}
       <div className="relative w-full max-w-[640px] rounded-xl border-4 border-[#00f0ff] bg-[#002433]/92 px-4 py-5 text-center text-[#e0f2fe] shadow-[0_8px_24px_rgba(0,0,0,0.45)] sm:px-8 sm:py-6">
@@ -200,7 +222,7 @@ function MobileCard({ project: g, progress: p }: { project: Project; progress?: 
           {matchedLine(p)}
         </p>
       )}
-    </section>
+    </Shell>
   );
 }
 
@@ -208,20 +230,13 @@ function DeadlockedCard({ project: g, progress: p }: { project: Project; progres
   const codePct = p ? percent(p.code) : 0;
 
   return (
-    <section
-      aria-label={`${g.name}${g.phase === "research" ? " (research phase)" : ""} progress`}
-      className="relative flex min-h-[560px] flex-col items-center justify-center gap-5 overflow-hidden rounded-[30px] bg-[#0c0d12] px-3.5 py-8 shadow-[0_18px_50px_rgb(0_0_0/0.5)] sm:h-[600px] sm:px-6 sm:py-10 font-orbitron"
+    <Shell
+      project={g}
+      label={`${g.name}${g.phase === "research" ? " (research phase)" : ""} progress`}
+      quality={75}
+      tint="bg-gradient-to-t from-black/85 via-black/45 to-black/65"
+      className="gap-5 bg-[#0c0d12] font-orbitron"
     >
-      {/* Battledome arena backdrop */}
-      <Image
-        src={g.image}
-        alt=""
-        fill
-        sizes="(min-width: 1080px) 1048px, 100vw"
-        quality={85}
-        className="object-cover"
-      />
-      <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/45 to-black/65" />
 
       {/* DreadZone combat terminal box inspired by Deadlocked menu */}
       <div className="relative w-full max-w-[640px]">
@@ -291,7 +306,7 @@ function DeadlockedCard({ project: g, progress: p }: { project: Project; progres
           </div>
         </div>
       </div>
-    </section>
+    </Shell>
   );
 }
 
@@ -303,10 +318,10 @@ function SmButton({
   as: Component = "div",
   ...props
 }: {
-  children: React.ReactNode;
+  children: ReactNode;
   active?: boolean;
   className?: string;
-  as?: React.ElementType;
+  as?: ElementType;
   href?: string;
 }) {
   return (
@@ -360,20 +375,13 @@ function SizeMattersCard({ project: g, progress: p }: { project: Project; progre
   const codePct = p ? percent(p.code) : 0;
 
   return (
-    <section
-      aria-label={`${g.name}${g.phase === "research" ? " (research phase)" : ""} progress`}
-      className="relative flex min-h-[560px] flex-col items-center justify-center gap-3.5 overflow-hidden rounded-[30px] bg-[#0c1622] px-3.5 py-8 shadow-[0_18px_50px_rgb(0_0_0/0.5)] sm:h-[600px] sm:px-6 sm:py-10 font-chakra"
+    <Shell
+      project={g}
+      label={`${g.name}${g.phase === "research" ? " (research phase)" : ""} progress`}
+      quality={75}
+      tint="bg-black/40"
+      className="gap-3.5 bg-[#0c1622] font-chakra"
     >
-      {/* Jowai Resort / Pokitaru beach backdrop */}
-      <Image
-        src={g.image}
-        alt=""
-        fill
-        sizes="(min-width: 1080px) 1048px, 100vw"
-        quality={85}
-        className="object-cover"
-      />
-      <div aria-hidden className="absolute inset-0 bg-black/40" />
 
       {/* SVG Definitions for the beveled menu buttons */}
       <svg className="absolute size-0" aria-hidden="true">
@@ -441,13 +449,13 @@ function SizeMattersCard({ project: g, progress: p }: { project: Project; progre
       {/* GitHub Repository button */}
       {g.repo && (
         <SmButton as="a" href={`https://github.com/${g.repo}`}>
-          <div className="flex items-center gap-3 truncate">
+          <div className="flex min-w-0 items-center gap-3">
             {GITHUB}
             <span className="truncate text-[clamp(13px,2vw,17px)] font-bold tracking-wide text-[#c2d7eb] transition-colors group-hover:text-white">
               {g.repo}
             </span>
           </div>
-          <span className="text-xs font-bold tracking-widest text-[#eab308] transition-colors group-hover:text-white">
+          <span className="hidden flex-none text-xs font-bold tracking-widest text-[#eab308] transition-colors group-hover:text-white min-[480px]:inline">
             [ REPOSITORY ]
           </span>
         </SmButton>
@@ -460,7 +468,7 @@ function SizeMattersCard({ project: g, progress: p }: { project: Project; progre
           {p && <p className="text-[11px] font-medium tracking-wide text-[#c2d7eb] sm:text-xs">{matchedLine(p)}</p>}
         </div>
       </SmButton>
-    </section>
+    </Shell>
   );
 }
 
@@ -472,60 +480,66 @@ function ProjectCard({ project, progress }: { project: Project; progress?: Proje
   return <Card project={project} progress={progress} />;
 }
 
+/** A group of cards under its own heading and platform tag. */
+function Group({ title, text, platforms, dot, tag, projects, progress }: {
+  title: string;
+  text: string;
+  platforms: string;
+  dot: string;
+  tag: string;
+  projects: Project[];
+  progress: Partial<Record<ProjectId, ProjectProgress>>;
+}) {
+  return (
+    <div>
+      <div className="mb-5 flex flex-wrap items-end justify-between gap-x-4 gap-y-2">
+        <div>
+          <h3 className="flex items-center gap-2.5 font-orbitron text-lg font-bold tracking-wide text-lav sm:text-xl">
+            <span aria-hidden className={`size-2.5 rounded-full ${dot}`} />
+            {title}
+          </h3>
+          <p className="mt-1 text-sm text-dim">{text}</p>
+        </div>
+        <span className={`rounded-full border px-3 py-1 font-orbitron text-xs ${tag}`}>{platforms}</span>
+      </div>
+      <div className="grid gap-5 sm:gap-7">
+        {projects.map((g) => (
+          <ProjectCard key={g.id} project={g} progress={progress[g.id]} />
+        ))}
+      </div>
+    </div>
+  );
+}
+
 export default function Progress({ progress }: { progress: Partial<Record<ProjectId, ProjectProgress>> }) {
   const mainline = PROJECTS.filter((p) => p.category !== "spinoff");
   const spinoffs = PROJECTS.filter((p) => p.category === "spinoff");
 
   return (
     <Section id="progress" title="Progress" sub="Every title gets its own menu. The percentage is the share of the game's code that compiles to exactly the retail bytes.">
-      <div className="space-y-12">
-        <div>
-          <div className="mb-5 flex flex-wrap items-center justify-between gap-2">
-            <div>
-              <h3 className="flex items-center gap-2.5 font-orbitron text-lg font-bold tracking-wide text-lav sm:text-xl">
-                <span className="size-2.5 rounded-full bg-brand" />
-                Original Trilogy &amp; Deadlocked
-              </h3>
-              <p className="mt-1 text-xs text-dim sm:text-sm">
-                The four Insomniac PlayStation 2 releases, from the 2002 debut to the combat arena of Deadlocked.
-              </p>
-            </div>
-            <span className="rounded-full border border-lav/20 bg-lav/5 px-3 py-1 font-orbitron text-xs text-dim">
-              PlayStation 2
-            </span>
-          </div>
-          <div className="grid gap-7">
-            {mainline.map((g) => (
-              <ProjectCard key={g.id} project={g} progress={progress[g.id]} />
-            ))}
-          </div>
-        </div>
-
+      <div className="space-y-12 sm:space-y-14">
+        <Group
+          title="Original Trilogy & Deadlocked"
+          text="The four Insomniac PlayStation 2 releases, from the 2002 debut to the combat arena of Deadlocked."
+          platforms="PlayStation 2"
+          dot="bg-brand"
+          tag="border-lav/20 bg-lav/5 text-dim"
+          projects={mainline}
+          progress={progress}
+        />
         {spinoffs.length > 0 && (
-          <div>
-            <div className="mb-5 flex flex-wrap items-center justify-between gap-2">
-              <div>
-                <h3 className="flex items-center gap-2.5 font-orbitron text-lg font-bold tracking-wide text-lav sm:text-xl">
-                  <span className="size-2.5 rounded-full bg-[#00b4d8]" />
-                  Spin-offs &amp; Handhelds
-                </h3>
-                <p className="mt-1 text-xs text-dim sm:text-sm">
-                  Handheld and spin-off entries in the Ratchet &amp; Clank universe.
-                </p>
-              </div>
-              <span className="rounded-full border border-[#00b4d8]/40 bg-[#00b4d8]/10 px-3 py-1 font-orbitron text-xs text-[#7dd3fc]">
-                PSP / PS2 / Mobile
-              </span>
-            </div>
-            <div className="grid gap-7">
-              {spinoffs.map((g) => (
-                <ProjectCard key={g.id} project={g} progress={progress[g.id]} />
-              ))}
-            </div>
-          </div>
+          <Group
+            title="Spin-offs & Handhelds"
+            text="Handheld and spin-off entries in the Ratchet & Clank universe."
+            platforms="PSP / PS2 / Mobile"
+            dot="bg-[#00b4d8]"
+            tag="border-[#00b4d8]/40 bg-[#00b4d8]/10 text-[#7dd3fc]"
+            projects={spinoffs}
+            progress={progress}
+          />
         )}
       </div>
-      <p className="mt-6 text-[13px] text-dim">
+      <p className="mt-8 max-w-[860px] text-[13px] text-dim">
         The figure is matched code, weighted by size, the same number ByteMatch shows. Each title links to its own community repository, and a title
         without a link has not been started. Numbers are read from the repositories on the server and refreshed every ten minutes. Roadmap entries are
         not a promise.
