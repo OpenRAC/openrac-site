@@ -1,10 +1,9 @@
+import { formatSize } from "@/lib/format";
 import { DOWNLOAD_URL, PROJECTS } from "@/lib/projects";
 import type { ProjectProgress } from "@/lib/progress";
 import type { ProjectId } from "@/lib/projects";
 import CountUp from "@/components/ui/CountUp";
 import Particles from "@/components/ui/Particles";
-
-const fmtBytes = (n: number) => (n >= 1_000_000 ? `${(n / 1_000_000).toFixed(2)} MB` : `${Math.round(n / 1024).toLocaleString("en-US")} KB`);
 
 /** The top of the home page: headline, the two main buttons and three headline numbers. */
 export default function Hero({ progress }: { progress: Partial<Record<ProjectId, ProjectProgress>> }) {
@@ -45,7 +44,7 @@ export default function Hero({ progress }: { progress: Partial<Record<ProjectId,
         {[
           [<CountUp key="t" value={new Set(PROJECTS.map((p) => p.name)).size} />, "titles tracked"],
           [<CountUp key="a" value={active.length} />, "active projects"],
-          [<span key="b">{fmtBytes(bytes)}</span>, "of code verified across projects"],
+          [<span key="b">{formatSize(bytes)}</span>, "of code verified across projects"],
         ].map(([value, label], i) => (
           <div key={i} className="surface px-3 py-3 sm:px-[18px] sm:py-4">
             <b className="block font-orbitron whitespace-nowrap text-[clamp(15px,4.2vw,26px)] font-bold leading-tight tabular-nums text-gold">{value}</b>

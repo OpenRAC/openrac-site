@@ -1,5 +1,6 @@
 import Image from "next/image";
 import type { CSSProperties } from "react";
+import { formatSize } from "@/lib/format";
 import { getGithubAvatar } from "@/lib/github";
 import { PROJECTS, type Project, type ProjectId } from "@/lib/projects";
 import { percent } from "@/lib/progress/types";
@@ -11,12 +12,13 @@ import Section from "@/components/ui/Section";
 /** Two decimals, like ByteMatch. */
 const pct = (p: number) => `${p.toFixed(2).replace(".", ",")} %`;
 
-/** Thin-space groups, so they cannot be mistaken for the decimal comma above. */
-const bytes = (n: number) => n.toLocaleString("en-US").replace(/,/g, "\u202f");
-
-/** The line under every bar: the same measure as the percentage, for every project. */
+/** The line under every bar: the same measure as the percentage, in KB or MB as fits the game. */
 const matchedLine = (p: ProjectProgress) =>
-  `${bytes(p.code.done)} of ${bytes(p.code.total)} code bytes matched${p.stale ? " · snapshot, live numbers unavailable" : ""}`;
+  `${formatSize(p.code.done)} of ${formatSize(p.code.total)} of code matched${p.stale ? " · snapshot, live numbers unavailable" : ""}`;
+
+/** The exact figures, shown on hover. */
+const exactLine = (p: ProjectProgress) =>
+  `${p.code.done.toLocaleString("en-US")} of ${p.code.total.toLocaleString("en-US")} bytes`;
 
 const RESEARCH_TEXT = "Research phase: the game and its toolchain are still being mapped. Progress is tracked like every other project.";
 
@@ -175,7 +177,7 @@ function Card({ project: g, progress: p, release = false }: { project: Project; 
           )}
           <Maintainers users={g.maintainers} />
           {/* In the card's main text colour, softened: the second colour can vanish on its backdrop (Deadlocked's red). */}
-          {p && <p className="opacity-80 @xl:ml-auto">{matchedLine(p)}</p>}
+          {p && <p title={exactLine(p)} className="opacity-80 @xl:ml-auto">{matchedLine(p)}</p>}
         </div>
         {g.phase === "research" && (
           <p className="-mt-1 flex flex-wrap items-center gap-2.5 text-[12px] text-(--tx)/80">
