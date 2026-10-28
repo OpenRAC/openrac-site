@@ -67,18 +67,23 @@ const chroma = (hex: string) => {
 /** A title's accent: its text colour, or its second one where the text is near white (Deadlocked, Size Matters, Secret Agent Clank), so every card keeps a colour of its own. */
 const accent = (t: Project["theme"]) => (chroma(t.text) < 40 ? t.text2 : t.text);
 
-/** A thin bar in the title's own accent, the one colour on the card. */
-function Bar({ value, name }: { value: number; name: string }) {
+/**
+ * A thin bar in the title's own accent, the one colour on the card. The data bar under the code bar is
+ * thinner and a fainter shade of the same accent; without a data measure only its track is drawn.
+ */
+function Bar({ value, name, data = false }: { value: number | null; name: string; data?: boolean }) {
   return (
     <div
       role="progressbar"
-      aria-label={`${name} code matched`}
-      aria-valuenow={Math.round(value * 10) / 10}
+      aria-label={`${name} ${data ? "data" : "code"} matched${value == null ? ", not measured" : ""}`}
+      aria-valuenow={value == null ? undefined : Math.round(value * 10) / 10}
       aria-valuemin={0}
       aria-valuemax={100}
-      className="h-1.5 overflow-hidden rounded-full bg-white/10"
+      className={`${data ? "h-1" : "h-1.5"} overflow-hidden rounded-full bg-white/10`}
     >
-      <i style={{ "--w": `${value}%` } as CSSProperties} className="bar-fill block h-full rounded-full bg-(--tx)" />
+      {value != null && (
+        <i style={{ "--w": `${value}%` } as CSSProperties} className={`bar-fill block h-full rounded-full ${data ? "bg-(--tx)/45" : "bg-(--tx)"}`} />
+      )}
     </div>
   );
 }
@@ -141,7 +146,10 @@ function Card({ project: g, progress: p, release = false }: { project: Project; 
           </div>
         </div>
 
-        <Bar value={value} name={g.name} />
+        <div className="grid gap-1.5">
+          <Bar value={value} name={g.name} />
+          <Bar value={p?.data ? percent(p.data) : null} name={g.name} data />
+        </div>
 
         {/* Narrow card: repository, maintainers and size each on a line of their own; wide card: one row. */}
         <div className={`flex min-w-0 flex-col items-start gap-2 text-dim @xl:flex-row @xl:flex-wrap @xl:items-center @xl:gap-x-5 ${SIZES.small}`}>
@@ -240,8 +248,8 @@ export default function Progress({ progress }: { progress: Partial<Record<Projec
         )}
       </div>
       <p className="mt-8 max-w-[860px] text-[13px] text-dim">
-        The figure is matched code, weighted by size, the same number ByteMatch shows; the data line under it is the share of the game&apos;s
-        data that matches, where the project&apos;s report measures it. Each title links to its own community repository, and a title
+        The figure is matched code, weighted by size, the same number ByteMatch shows; the data figure and the fainter bar under it are the share
+        of the game&apos;s data that matches, where the project&apos;s report measures it. Each title links to its own community repository, and a title
         without a link has not been started. Numbers are read from the repositories on the server and refreshed every ten minutes. Roadmap entries are
         not a promise.
       </p>
