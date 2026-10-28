@@ -48,7 +48,7 @@ export function progressJson(progress: ProgressMap) {
   return {
     about: "Progress of the community decompilation projects of the Ratchet & Clank series, as shown on openrac.dev.",
     measure:
-      "code: bytes of code verified identical to the retail build, out of all code bytes the project counts (the figure ByteMatch shows). functions: null where the project does not publish that count.",
+      "code: bytes of code verified identical to the retail build, out of all code bytes the project counts (the figure ByteMatch shows). data: the same for the game's data, null where the project's report does not measure it. functions: null where the project does not publish that count.",
     projects: PROJECTS.map((p) => {
       const pr = progress[p.id];
       return {
@@ -65,6 +65,8 @@ export function progressJson(progress: ProgressMap) {
           ? {
               codePercent: round(percent(pr.code)),
               code: pr.code,
+              dataPercent: pr.data ? round(percent(pr.data)) : null,
+              data: pr.data ?? null,
               functions: pr.functions,
               source: pr.source,
               snapshot: pr.stale,
@@ -83,7 +85,7 @@ function projectLines(progress: ProgressMap): string[] {
       .filter(Boolean)
       .join(", ");
     const done = pr
-      ? ` ${round(percent(pr.code)).toFixed(2)}% of code matched (${num(pr.code.done)} of ${num(pr.code.total)} bytes)${pr.stale ? ", last known snapshot" : ""}.`
+      ? ` ${round(percent(pr.code)).toFixed(2)}% of code matched (${num(pr.code.done)} of ${num(pr.code.total)} bytes)${pr.data ? `, ${round(percent(pr.data)).toFixed(2)}% of data matched` : ""}${pr.stale ? ", last known snapshot" : ""}.`
       : "";
     const who = p.maintainers?.length ? ` Maintained by ${p.maintainers.map((u) => `[@${u}](https://github.com/${u})`).join(", ")}.` : "";
     return `- [${p.repo!.split("/")[1]}](https://github.com/${p.repo}): ${what}.${done}${who}`;

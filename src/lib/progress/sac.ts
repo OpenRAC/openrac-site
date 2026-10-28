@@ -1,4 +1,4 @@
-import type { Progress } from "./types";
+import { objdiffData, type Progress } from "./types.ts";
 
 /**
  * Ratchet & Clank: Secret Agent Clank (PS2, NTSC-U) tracks proved body placements
@@ -121,9 +121,11 @@ export function parseSacReport(report: unknown): Progress {
       throw new Error("sac report has an unexpected shape");
     }
 
+    const data = objdiffData(m);
     return {
       functions: { done: doneFuncs, total: totalFuncs },
       code: { done: doneCode, total: totalCode },
+      ...(data && { data }),
       source: "progress/report.json",
     };
   }

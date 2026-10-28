@@ -20,6 +20,12 @@ const matchedLine = (p: ProjectProgress) =>
 const exactLine = (p: ProjectProgress) =>
   `${p.code.done.toLocaleString("en-US")} of ${p.code.total.toLocaleString("en-US")} bytes`;
 
+/** The data counter's hover text: its size and exact bytes, or why there is no figure. */
+const dataTitle = (p?: ProjectProgress) =>
+  p?.data
+    ? `${formatSize(p.data.done)} of ${formatSize(p.data.total)} data matched (${p.data.done.toLocaleString("en-US")} of ${p.data.total.toLocaleString("en-US")} bytes)`
+    : "This project's report does not measure data yet";
+
 const RESEARCH_TEXT = "Research phase: the game and its toolchain are still being mapped. Progress is tracked like every other project.";
 
 /** Marks a project that is still in its research phase. */
@@ -119,11 +125,20 @@ function Card({ project: g, progress: p, release = false }: { project: Project; 
               )}
             </p>
           </div>
-          {/* As wide as "100,00 %" whatever the figure, so the card keeps its layout as it grows. */}
-          <b className={`${SIZES.pct} ${g.fontClass} grid flex-none justify-items-end whitespace-nowrap leading-tight tabular-nums text-(--tx)`}>
-            <span className="col-start-1 row-start-1">{p ? pct(value) : "Not started"}</span>
-            <span aria-hidden className="invisible col-start-1 row-start-1">{pct(100)}</span>
-          </b>
+          {/* The code percentage and, under it, the data counter. Each is as wide as "100,00 %" whatever
+              the figure, and the data line is there even without a figure, so every card keeps its layout. */}
+          <div className="grid flex-none justify-items-end">
+            <b className={`${SIZES.pct} ${g.fontClass} grid justify-items-end whitespace-nowrap leading-tight tabular-nums text-(--tx)`}>
+              <span className="col-start-1 row-start-1">{p ? pct(value) : "Not started"}</span>
+              <span aria-hidden className="invisible col-start-1 row-start-1">{pct(100)}</span>
+            </b>
+            <p title={dataTitle(p)} className={`mt-1 grid justify-items-end whitespace-nowrap tabular-nums text-dim ${SIZES.small}`}>
+              <span className="col-start-1 row-start-1">
+                data <span className="text-text">{p?.data ? pct(percent(p.data)) : "–"}</span>
+              </span>
+              <span aria-hidden className="invisible col-start-1 row-start-1">data {pct(100)}</span>
+            </p>
+          </div>
         </div>
 
         <Bar value={value} name={g.name} />
@@ -225,7 +240,8 @@ export default function Progress({ progress }: { progress: Partial<Record<Projec
         )}
       </div>
       <p className="mt-8 max-w-[860px] text-[13px] text-dim">
-        The figure is matched code, weighted by size, the same number ByteMatch shows. Each title links to its own community repository, and a title
+        The figure is matched code, weighted by size, the same number ByteMatch shows; the data line under it is the share of the game&apos;s
+        data that matches, where the project&apos;s report measures it. Each title links to its own community repository, and a title
         without a link has not been started. Numbers are read from the repositories on the server and refreshed every ten minutes. Roadmap entries are
         not a promise.
       </p>

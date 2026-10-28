@@ -1,4 +1,4 @@
-import type { Progress } from "./types";
+import { objdiffData, type Progress } from "./types.ts";
 
 export interface GcReportMeasures {
   totalCode?: string | number;
@@ -115,9 +115,11 @@ export function parseGcReport(report: unknown, scope?: unknown): Progress {
       throw new Error("gc report has an unexpected shape");
     }
 
+    const data = objdiffData(m as Record<string, unknown>);
     return {
       functions: { done: doneFuncs, total: totalFuncs },
       code: { done: doneCode, total: totalCode },
+      ...(data && { data }),
       source: "progress/report.json",
     };
   }

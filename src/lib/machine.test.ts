@@ -5,7 +5,7 @@ import { PROJECTS } from "./projects.ts";
 
 const SITE = "https://openrac.dev";
 const progress = {
-  rac1: { functions: { done: 2974, total: 5109 }, code: { done: 838628, total: 3712808 }, source: "progress/report.json", stale: false },
+  rac1: { functions: { done: 2974, total: 5109 }, code: { done: 838628, total: 3712808 }, data: { done: 3984, total: 699072 }, source: "progress/report.json", stale: false },
   gc: { functions: { done: 5269, total: null }, code: { done: 308608, total: 48788176 }, source: "snapshot 2026-10-05", stale: true },
 };
 const post = { slug: "welcome", title: "Welcome", date: "2026-09-30", summary: "What this blog is for.", body: "## How we count\n\nText." };
@@ -18,6 +18,8 @@ test("progress.json lists every project with the shared measure", () => {
   assert.equal(rac1.region, "PAL");
   assert.deepEqual(rac1.maintainers, ["Lynder063", "Veradictus"]);
   assert.equal(rac1.progress?.codePercent, 22.59);
+  assert.equal(rac1.progress?.dataPercent, 0.57);
+  assert.equal(j.projects.find((p) => p.id === "gc")!.progress?.data, null); // no data measure: null, not 0
   assert.equal(j.projects.find((p) => p.id === "gc")!.progress?.functions.total, null);
   assert.equal(j.projects.find((p) => p.id === "gc")!.progress?.snapshot, true);
   assert.equal(j.projects.find((p) => p.id === "deadlocked")!.phase, "active");
@@ -43,7 +45,7 @@ test("llms.txt names every project, its numbers and the posts", () => {
   const t = llmsTxt(SITE, progress, [post]);
   assert.match(t, /^# OpenRAC\n\n> /);
   for (const p of PROJECTS) if (p.repo) assert.ok(t.includes(`https://github.com/${p.repo}`), p.id);
-  assert.ok(t.includes("22.59% of code matched (838,628 of 3,712,808 bytes)."));
+  assert.ok(t.includes("22.59% of code matched (838,628 of 3,712,808 bytes), 0.57% of data matched."));
   assert.ok(t.includes("last known snapshot"));
   assert.ok(!t.includes("research phase")); // no project is in its research phase any more
   assert.ok(t.includes("Maintained by [@Lynder063](https://github.com/Lynder063), [@Veradictus](https://github.com/Veradictus)."));

@@ -11,11 +11,25 @@ export const percent = (r: Ratio): number => (r.total > 0 ? (r.done / r.total) *
  *  - `functions`: functions whose code is verified identical to the retail build
  *  - `code`: the same thing weighted by size in bytes (the honest number, since
  *    the small functions get matched first)
+ *  - `data`: bytes of initialised data verified identical, the second bar ByteMatch shows
  */
 export interface Progress {
   /** Null means the report does not provide that count; never infer it from sections or units. */
   functions: { done: number | null; total: number | null };
   code: Ratio;
+  /** Absent when the project does not publish a data measure; never inferred from code. */
+  data?: Ratio;
   /** Where the numbers come from. */
   source: string;
+}
+
+/**
+ * The data measure of an objdiff report (`matched_data` of `total_data`), or undefined when the report
+ * has none: older objdiff versions and projects that do not split data out leave both keys away.
+ */
+export function objdiffData(m: Record<string, unknown> | undefined): Ratio | undefined {
+  if (m?.total_data == null) return undefined;
+  const [done, total] = [Number(m.matched_data ?? 0), Number(m.total_data)];
+  if (![done, total].every((v) => Number.isFinite(v) && v >= 0) || done > total || total <= 0) return undefined;
+  return { done, total };
 }
