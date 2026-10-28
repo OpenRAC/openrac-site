@@ -1,4 +1,5 @@
-import { objdiffData, type Progress } from "./types.ts";
+import { objdiffData } from "./objdiff.ts";
+import type { Progress } from "./types";
 
 /**
  * Ratchet & Clank: Secret Agent Clank (PS2, NTSC-U) tracks proved body placements

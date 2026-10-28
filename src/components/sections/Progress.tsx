@@ -94,13 +94,15 @@ const REGION_NAME: Record<string, string> = { PAL: "PAL · Europe", "NTSC-U": "N
 /**
  * One title over its own backdrop, darkened so the text reads the same on every card. The title's
  * typeface and one accent (the percentage and the bar) set the cards apart; everything else is the
- * site's own neutral text. All cards share one layout (name and percentage, the bar, then the
- * repository, the maintainers and the bytes), laid out by the card's own width (container queries).
+ * site's own neutral text. All cards share one layout (name, percentage and data figure, the code and
+ * data bars, then the repository, the maintainers and the bytes), laid out by the card's own width
+ * (container queries).
  * `release`: the card is one of several for the same game, so its region is shown as a badge.
  * Rendered on the server.
  */
 function Card({ project: g, progress: p, release = false }: { project: Project; progress?: ProjectProgress; release?: boolean }) {
   const value = p ? percent(p.code) : 0;
+  const dataValue = p?.data ? percent(p.data) : null;
 
   return (
     <section
@@ -139,7 +141,7 @@ function Card({ project: g, progress: p, release = false }: { project: Project; 
             </b>
             <p title={dataTitle(p)} className={`mt-1 grid justify-items-end whitespace-nowrap tabular-nums text-dim ${SIZES.small}`}>
               <span className="col-start-1 row-start-1">
-                data <span className="text-text">{p?.data ? pct(percent(p.data)) : "–"}</span>
+                data <span className="text-text">{dataValue == null ? "–" : pct(dataValue)}</span>
               </span>
               <span aria-hidden className="invisible col-start-1 row-start-1">data {pct(100)}</span>
             </p>
@@ -148,7 +150,7 @@ function Card({ project: g, progress: p, release = false }: { project: Project; 
 
         <div className="grid gap-1.5">
           <Bar value={value} name={g.name} />
-          <Bar value={p?.data ? percent(p.data) : null} name={g.name} data />
+          <Bar value={dataValue} name={g.name} data />
         </div>
 
         {/* Narrow card: repository, maintainers and size each on a line of their own; wide card: one row. */}
