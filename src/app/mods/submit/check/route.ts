@@ -24,7 +24,7 @@ const github: GitHubGet = async (path) => {
     },
   });
   if (res.status === 404) return null;
-  if (!res.ok) throw new Error(`github ${res.status}`);
+  if (!res.ok) throw Object.assign(new Error("github"), { status: res.status, path: path.split("?")[0] });
   return res.json();
 };
 
@@ -50,8 +50,13 @@ export async function GET(req: Request) {
     cache.set(key, { at: Date.now(), value });
     if (cache.size > 500) cache.delete(cache.keys().next().value!);
     return json(value);
-  } catch {
+  } catch (e) {
     breaker.failure();
-    return json({ error: "GitHub did not answer. Try again in a minute." }, 502);
+    // One line in the server log with GitHub's answer (never the token): 401 is a bad or expired
+    // GITHUB_TOKEN, 403 or 429 the rate limit, 5xx GitHub itself.
+    const { status, path } = e as { status?: number; path?: string };
+    console.error(JSON.stringify({ level: "error", code: "submit_check_github", status: status ?? null, path: path ?? null, token: Boolean(process.env.GITHUB_TOKEN), error: status ? undefined : String((e as Error).name) }));
+    const hint = status === 401 ? "The site's GitHub token was refused." : status === 403 || status === 429 ? "GitHub's rate limit was reached." : "GitHub did not answer.";
+    return json({ error: `${hint} Try again in a minute.` }, 503);
   }
 }
