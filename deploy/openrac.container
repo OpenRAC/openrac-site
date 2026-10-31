@@ -43,6 +43,9 @@ Volume=%h/openrac-mods-media:/data/mods-media:rw,Z,U
 # Hardening: nothing in the image needs to be writable except the page cache and the mod pictures.
 ReadOnly=true
 Tmpfs=/tmp
+# Pages Next rebuilds in the background (every few minutes) are saved here. In memory: a restart after
+# a new build must start from that build's pages, never from an older build's saved copies.
+Tmpfs=/app/.next/server/route-cache:rw,mode=1777
 Volume=openrac-cache:/app/.next/cache
 NoNewPrivileges=true
 DropCapability=ALL

@@ -1,3 +1,4 @@
+import { githubToken } from "./mods/guard.ts";
 /** The launcher's repository: its releases are what the Download panel offers. */
 const LAUNCHER_REPO = "OpenRAC/OpenRAC";
 
@@ -159,7 +160,7 @@ export const noFiles = (): Platform[] =>
 async function github<T>(path: string): Promise<T | null> {
   const headers: HeadersInit = { Accept: "application/vnd.github+json" };
   // Optional, only raises the rate limit. Never sent to the browser.
-  if (process.env.GITHUB_TOKEN) headers.Authorization = `Bearer ${process.env.GITHUB_TOKEN}`;
+  if (githubToken()) headers.Authorization = `Bearer ${githubToken()}`;
   try {
     const res = await fetch(`https://api.github.com/repos/${LAUNCHER_REPO}/${path}`, { headers, next: { revalidate: 300 }, signal: AbortSignal.timeout(10_000) });
     return res.ok ? ((await res.json()) as T) : null;
