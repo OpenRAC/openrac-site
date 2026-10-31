@@ -35,6 +35,6 @@
     "@tailwindcss/typography": {
       "postcss-selector-parser": "^6.1.5"
     },
-    "playwright-core": "1.56.1"
+    "playwright-core": "$@playwright/test"
   }
 }
