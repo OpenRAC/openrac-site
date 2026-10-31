@@ -286,3 +286,8 @@ test("media folder: written once, read back, names outside the pattern never tou
   assert.equal(await readCached(dir, "../escape-960.webp"), null);
   assert.equal(await readCached(undefined, name), null); // no folder set: never cached
 });
+
+test("Next's own render signals pass through; only real failures fall back", async () => {
+  const signal = Object.assign(new Error("Dynamic server usage"), { digest: "DYNAMIC_SERVER_USAGE" });
+  await assert.rejects(loadCatalog(["u"], async () => { throw signal; }, NOW, new Map()), (e) => e === signal);
+});

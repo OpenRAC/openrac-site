@@ -5,9 +5,11 @@ import type { ListedMod, ModCatalog, ModIndex, Port } from "./types.ts";
  * separated). Today that is rac1-mods' signed release file; later games add their own, and a renamed
  * repository keeps working through GitHub's redirect.
  *
- * The index can grow past Next's 2 MB fetch cache, so it is fetched uncached and kept here in memory
- * for CACHE_MS, like the progress reports. If GitHub cannot be reached, the last good copy is served
- * and marked stale; with none, the list is empty and the page says so. This never throws.
+ * The index is fetched with a revalidate time like the other feeds, so static pages can use it (a
+ * `no-store` fetch would make Next treat each page as dynamic), and it is kept here in memory for
+ * CACHE_MS. Past Next's 2 MB fetch cache it is simply not cached there, and the memory copy still
+ * holds. If GitHub cannot be reached, the last good copy is served and marked stale; with none, the
+ * list is empty and the page says so. Our own failures never throw; Next's internal signals pass through.
  */
 
 export const DEFAULT_INDEX = "https://github.com/OpenRAC/rac1-mods/releases/download/index/index.json";
@@ -23,6 +25,12 @@ export const indexUrls = (env = process.env.MOD_INDEXES) =>
 export type Fetcher = (url: string) => Promise<unknown>;
 
 export type IndexError = "timeout" | "http" | "parse";
+
+/**
+ * Next signals things during a render by throwing (a page turning dynamic, a redirect, notFound):
+ * those carry a `digest` and must reach Next, never be taken for an unreachable index.
+ */
+export const isNextSignal = (e: unknown) => typeof (e as { digest?: unknown } | null)?.digest === "string";
 
 // A plain field, not a constructor parameter property: Node runs the tests with type stripping only.
 class FetchError extends Error {
@@ -43,8 +51,9 @@ export const defaultFetcher: Fetcher = async (url) => {
   return withRetry(async () => {
     let res: Response;
     try {
-      res = await fetch(url, { cache: "no-store", signal: AbortSignal.timeout(TIMEOUT_MS) });
+      res = await fetch(url, { next: { revalidate: CACHE_MS / 1000 }, signal: AbortSignal.timeout(TIMEOUT_MS) });
     } catch (e) {
+      if (isNextSignal(e)) throw e;
       throw new FetchError((e as Error).name === "TimeoutError" ? "timeout" : "http");
     }
     if (!res.ok) throw new FetchError(res.status === 429 || res.status >= 500 ? "timeout" : "http");
@@ -124,6 +133,7 @@ export async function loadCatalog(urls: string[], fetcher: Fetcher, now: number,
         memory.set(url, { index: use, at: now });
         indexes[i] = use;
       } catch (e) {
+        if (isNextSignal(e)) throw e;
         error = e instanceof FetchError ? e.kind : "parse";
         const prev = memory.get(url);
         if (prev) {

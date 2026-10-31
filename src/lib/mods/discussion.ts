@@ -1,4 +1,5 @@
 import { Breaker } from "./guard.ts";
+import { isNextSignal } from "./index.ts";
 
 /**
  * A mod's comments: the latest few of its GitHub Discussion (one per mod, in the index repository),
@@ -31,7 +32,7 @@ export type GraphQL = (query: string, variables: Record<string, unknown>) => Pro
 const github: GraphQL = async (query, variables) => {
   const res = await fetch("https://api.github.com/graphql", {
     method: "POST",
-    cache: "no-store",
+    // Not `no-store`: on a static page that makes Next treat the page as dynamic. Kept fresh by our own cache below.
     signal: AbortSignal.timeout(8_000),
     headers: { Authorization: `Bearer ${process.env.GITHUB_TOKEN}`, "Content-Type": "application/json" },
     body: JSON.stringify({ query, variables }),
@@ -69,7 +70,8 @@ export async function getDiscussion(indexSource: string, n: number | undefined, 
     breaker.success();
     cache.set(key, { at: now, value });
     return value;
-  } catch {
+  } catch (e) {
+    if (isNextSignal(e)) throw e;
     breaker.failure(now);
     return hit?.value ?? null;
   }
