@@ -30,9 +30,9 @@ const NOW = Date.parse("2026-10-31T12:00:00Z");
 const catalog = merge([fixture], NOW);
 const mod = (id: string) => catalog.mods.find((m) => m.id === id)!;
 
-test("the fixture is the shared one (same bytes as rac1-mods/tools/fixtures/index/index.json)", () => {
-  // Change the fixture in rac1-mods first, then copy it here and update this hash.
-  assert.equal(createHash("sha256").update(raw).digest("hex"), "4ad53617a6afcc503c6f74a9234f5bb7944aae0c9c3231bc12fbb7f59ab142fa");
+test("the fixture is the shared one (same bytes as openrac-mods/tools/fixtures/index/index.json)", () => {
+  // Change the fixture in openrac-mods first, then copy it here and update this hash.
+  assert.equal(createHash("sha256").update(raw).digest("hex"), "21de4c77ac2ef827eb295b9b930a30cb2b2e792c0648acb4cbbff29fdb78a6bd");
 });
 
 test("semver: order, pre-releases first, constraints", () => {
@@ -190,7 +190,7 @@ test("merge: first index keeps an id; media base travels with the mod", () => {
 });
 
 test("MOD_INDEXES is a comma list with a default", () => {
-  assert.deepEqual(indexUrls(undefined), ["https://github.com/OpenRAC/rac1-mods/releases/download/index/index.json"]);
+  assert.deepEqual(indexUrls(undefined), ["https://github.com/OpenRAC/openrac-mods/releases/download/index/index.json"]);
   assert.deepEqual(indexUrls(" a , ,b"), ["a", "b"]);
 });
 
@@ -250,7 +250,7 @@ test("discussion: latest comments shaped, hidden ones left out, failures quiet",
     data: {
       repository: {
         discussion: {
-          url: "https://github.com/OpenRAC/rac1-mods/discussions/12",
+          url: "https://github.com/OpenRAC/openrac-mods/discussions/12",
           comments: {
             totalCount: 3,
             nodes: [
@@ -266,9 +266,9 @@ test("discussion: latest comments shaped, hidden ones left out, failures quiet",
   const d = toDiscussion(raw)!;
   assert.deepEqual(d.comments.map((c) => c.body), ["latest", "first"]); // newest first, hidden one gone
   assert.equal(d.comments[0].avatar, undefined); // only GitHub's avatar host
-  assert.equal(await getDiscussion("https://github.com/OpenRAC/rac1-mods", 12, async () => raw), (await getDiscussion("https://github.com/OpenRAC/rac1-mods", 12, async () => raw)));
-  assert.equal(await getDiscussion("https://github.com/OpenRAC/rac1-mods", 99, async () => { throw new Error("down"); }), null);
-  assert.equal(await getDiscussion("https://github.com/OpenRAC/rac1-mods", undefined, async () => raw), null);
+  assert.equal(await getDiscussion("https://github.com/OpenRAC/openrac-mods", 12, async () => raw), (await getDiscussion("https://github.com/OpenRAC/openrac-mods", 12, async () => raw)));
+  assert.equal(await getDiscussion("https://github.com/OpenRAC/openrac-mods", 99, async () => { throw new Error("down"); }), null);
+  assert.equal(await getDiscussion("https://github.com/OpenRAC/openrac-mods", undefined, async () => raw), null);
 });
 
 test("media folder: written once, read back, names outside the pattern never touch disk", async () => {

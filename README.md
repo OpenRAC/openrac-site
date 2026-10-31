@@ -53,11 +53,11 @@ The home page and every mod page also carry schema.org JSON-LD (the projects as 
 ## Mods
 
 `/mods` lists the community mods of the PC port, read on the server from the signed mod index that
-[rac1-mods](https://github.com/OpenRAC/rac1-mods) publishes (`MOD_INDEXES` in `.env.example`). **Install** opens
+[openrac-mods](https://github.com/OpenRAC/openrac-mods) publishes (`MOD_INDEXES` in `.env.example`). **Install** opens
 the launcher through its `openrac://` link, which installs the mod with its dependencies. Pictures are resized by
 the index build and served from this site (`/mods/media/...`), so visitors never load anything from GitHub.
 
-- `/mods/submit` checks a repository against the listing rules and opens rac1-mods' submission form filled in.
+- `/mods/submit` checks a repository against the listing rules and opens openrac-mods' submission form filled in.
 - `/mods/set?m=id@1.2.0,...` is a "Share my setup" link from the launcher: a friend's mods at exact versions.
 - Mod pages show the latest comments of the mod's GitHub Discussion (needs `GITHUB_TOKEN`); commenting happens on GitHub.
 

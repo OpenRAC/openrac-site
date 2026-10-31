@@ -2,7 +2,7 @@ import type { ListedMod, ModCatalog, ModIndex, Port } from "./types.ts";
 
 /**
  * The mod list, read on the server from each index the site is told about (MOD_INDEXES, comma
- * separated). Today that is rac1-mods' signed release file; later games add their own, and a renamed
+ * separated). Today that is openrac-mods' signed release file; later games add their own, and a renamed
  * repository keeps working through GitHub's redirect.
  *
  * The index is fetched with a revalidate time like the other feeds, so static pages can use it (a
@@ -12,7 +12,7 @@ import type { ListedMod, ModCatalog, ModIndex, Port } from "./types.ts";
  * list is empty and the page says so. Our own failures never throw; Next's internal signals pass through.
  */
 
-export const DEFAULT_INDEX = "https://github.com/OpenRAC/rac1-mods/releases/download/index/index.json";
+export const DEFAULT_INDEX = "https://github.com/OpenRAC/openrac-mods/releases/download/index/index.json";
 const CACHE_MS = 300_000;
 const TIMEOUT_MS = 10_000;
 

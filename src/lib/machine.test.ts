@@ -84,7 +84,7 @@ test("JSON-LD describes the projects and cannot close its script tag", () => {
   assert.equal(app.operatingSystem, "Windows, Linux");
   const m = modLd(SITE, {
     ...mod,
-    repo: "https://github.com/OpenRAC/rac1-mods",
+    repo: "https://github.com/OpenRAC/openrac-mods",
     created: "2026-09-15T12:00:00Z",
     updated: "2026-10-20T12:00:00Z",
     version: "1.2.0",

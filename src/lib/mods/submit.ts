@@ -2,7 +2,7 @@ import type { ListedMod } from "./types.ts";
 
 /**
  * The checks behind /mods/submit: is this GitHub repository ready to be listed? The same rules the
- * index build applies (rac1-mods' tools/build_index.py) and the launcher enforces, asked early so an
+ * index build applies (openrac-mods' tools/build_index.py) and the launcher enforces, asked early so an
  * author sees every problem with its fix before opening the submission. Only GitHub's API is ever
  * called, and only for a repository address that matches a strict pattern (no other host can be
  * reached through here).
