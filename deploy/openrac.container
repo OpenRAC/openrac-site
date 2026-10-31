@@ -24,10 +24,15 @@ PublishPort=127.0.0.1:3000:3000
 
 # Public address, used for absolute URLs in page metadata.
 Environment=SITE_URL=https://openrac.dev
-# Optional: a file with GITHUB_TOKEN=... raises the GitHub API rate limit (activity feed, Download panel,
-# /mods/submit checks) and lets mod pages show their latest comments.
-# Create it first (the unit does not start if the file is missing), then uncomment:
+# GitHub access (activity feed, Download panel, /mods/submit checks, mod comments). Best: the OpenRAC
+# GitHub App, which needs no renewing (README, "GitHub access"). Its settings go in the env file
+# (GITHUB_APP_ID, optionally GITHUB_APP_INSTALLATION_ID) and its private key in a Podman secret:
+#   podman secret create openrac-github-app ~/openrac-github-app.pem   (then delete the .pem)
+# Without the app, GITHUB_TOKEN=... in the env file works too. Create the file first (the unit does not
+# start if it is missing), then uncomment what you use:
 #EnvironmentFile=%h/.config/openrac/openrac.env
+#Secret=openrac-github-app,type=mount,target=/run/secrets/github-app.pem,mode=0400,uid=1000
+#Environment=GITHUB_APP_PRIVATE_KEY_FILE=/run/secrets/github-app.pem
 
 # Card backdrops: a folder on this machine with rac1-bg.webp, rac1us-bg.webp, gc-bg.webp, uya-bg.webp, deadlocked-bg.webp, going-mobile-bg.webp, size-matters-bg.webp and sac-bg.webp.
 # Drop files in (or replace them); no rebuild or restart is needed. They are not in the

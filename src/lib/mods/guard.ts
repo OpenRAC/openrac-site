@@ -1,3 +1,5 @@
+import { appToken } from "../githubApp.ts";
+
 /**
  * Small guards for the routes that call GitHub on a visitor's behalf. Both live in this server's
  * memory: one site process behind one proxy, so nothing has to be shared.
@@ -9,6 +11,11 @@
  */
 export const githubToken = () => process.env.GITHUB_TOKEN?.trim() || undefined;
 
+/** The token for GitHub calls: the OpenRAC GitHub App's when it is set up, else GITHUB_TOKEN, else none. */
+export async function serverToken(): Promise<string | undefined> {
+  return (await appToken()) ?? githubToken();
+}
+
 let refusedUntil = 0;
 
 /**
@@ -19,7 +26,7 @@ let refusedUntil = 0;
  * is logged once per window (it never contains the token).
  */
 export async function githubApi(url: string, init: RequestInit & { next?: { revalidate?: number } } = {}, now = Date.now()): Promise<Response> {
-  const token = now < refusedUntil ? undefined : githubToken();
+  const token = now < refusedUntil ? undefined : await serverToken();
   const withAuth = (t?: string) => ({ ...init, headers: { ...(init.headers as Record<string, string>), ...(t && { Authorization: `Bearer ${t}` }) } });
   const res = await fetch(url, withAuth(token));
   const refused = token && (res.status === 401 || (res.status === 403 && res.headers.get("x-ratelimit-remaining") !== "0"));

@@ -1,5 +1,5 @@
 import { getMods } from "@/lib/mods";
-import { Breaker, RateLimiter, clientKey, githubApi, githubToken } from "@/lib/mods/guard";
+import { Breaker, RateLimiter, clientKey, githubApi } from "@/lib/mods/guard";
 import { checkSubmission, parseRepo, type GitHubGet, type SubmitCheck } from "@/lib/mods/submit";
 
 export const dynamic = "force-dynamic";
@@ -54,7 +54,7 @@ export async function GET(req: Request) {
     // One line in the server log with GitHub's answer (never the token): 401 is a bad or expired
     // GITHUB_TOKEN, 403 or 429 the rate limit, 5xx GitHub itself.
     const { status, path } = e as { status?: number; path?: string };
-    console.error(JSON.stringify({ level: "error", code: "submit_check_github", status: status ?? null, path: path ?? null, token: Boolean(githubToken()), error: status ? undefined : `${(e as Error).name}: ${(e as Error).message}`.slice(0, 200) }));
+    console.error(JSON.stringify({ level: "error", code: "submit_check_github", status: status ?? null, path: path ?? null, app: Boolean(process.env.GITHUB_APP_ID), token: Boolean(process.env.GITHUB_TOKEN), error: status ? undefined : `${(e as Error).name}: ${(e as Error).message}`.slice(0, 200) }));
     // The token being refused is handled in githubApi (it retries without), so a 403/429 here is the limit.
     const hint = status === 403 || status === 429 ? "GitHub's rate limit was reached." : "GitHub did not answer.";
     return json({ error: `${hint} Try again in a minute.` }, 503);
