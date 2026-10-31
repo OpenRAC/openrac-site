@@ -92,7 +92,7 @@
     .btn-discord:hover { border-color: var(--color-discord); }
   }
 
-  /* A raised panel: info cards, resources, blog posts. */
+  /* A raised panel: info cards, resources, mod panels. */
   .surface {
     border-radius: 1rem;
     border: 1px solid var(--color-line);
@@ -105,7 +105,7 @@
   }
 }
 
-/* Blog typography, tuned to the site colours. */
+/* Mod README typography, tuned to the site colours. */
 .prose-openrac {
   --tw-prose-body: var(--color-body);
   --tw-prose-headings: var(--color-gold);

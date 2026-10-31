@@ -166,6 +166,49 @@ const ART: Record<string, ReactNode> = {
       <path d="M51 8h18v26h13L60 60 38 34h13z" fill={GOLD} {...line} />
     </>
   ),
+  // a bolt and a wrench crossed: the mod list
+  mods: (
+    <>
+      <Burst d={burst(60, 50, 40, 12, 0.12)} />
+      <g transform="rotate(40 60 50)">
+        <Bar d="M60 46V86" color={GOLD} w={9} />
+        <Bar d="M52.5 24.5A12 12 0 1 0 67.5 24.5" color={GOLD} w={8} />
+      </g>
+      <path d="M38 22l10-6 10 6v12l-10 6-10-6z" fill={GOLD_LIGHT} {...line} />
+      <circle cx="48" cy="28" r="4" fill={PANEL} {...line} />
+      <path d="M78 58l8-5 8 5v10l-8 5-8-5z" fill={GOLD_DARK} {...line} />
+      <circle cx="86" cy="63" r="3" fill={PANEL} {...line} />
+    </>
+  ),
+  // a star with a spark: the picked mods
+  featured: (
+    <>
+      <Burst d={burst(58, 50, 40, 11, 0.3)} />
+      <path d="M58 16l9 19 21 2-16 14 5 21-19-11-19 11 5-21-16-14 21-2z" fill={GOLD} {...line} />
+      <path d="M58 30l4 9 10 1-8 7 2 10-8-5" fill={GOLD_LIGHT} />
+      <path d="M96 18v12M90 24h12" {...line} stroke={BLUE} strokeWidth={4} />
+    </>
+  ),
+  // a box with a ribbon: new and updated
+  fresh: (
+    <>
+      <Burst d={burst(60, 52, 40, 12, 0.08)} />
+      <rect x="28" y="40" width="64" height="40" rx="4" fill={PANEL} {...line} />
+      <rect x="22" y="30" width="76" height="14" rx="3" fill={PANEL_LIGHT} {...line} />
+      <path d="M60 30v50" {...line} stroke={GOLD} strokeWidth={8} />
+      <path d="M60 30c-8-12-24-12-20-2s20 2 20 2c8-12 24-12 20-2s-20 2-20 2z" fill={GOLD} {...line} />
+      <path d="M98 12l3 7 7 3-7 3-3 7-3-7-7-3 7-3z" fill={GOLD_LIGHT} {...line} />
+    </>
+  ),
+  // an arrow out of a tray: publish a mod
+  publish: (
+    <>
+      <Burst d={burst(60, 50, 40, 12, 0.18)} />
+      <path d="M18 54h84v20a8 8 0 0 1-8 8H26a8 8 0 0 1-8-8z" fill={PANEL} {...line} />
+      <path d="M18 54h26l4 8h24l4-8h26" fill="none" {...line} />
+      <path d="M51 58h18V32h13L60 6 38 32h13z" fill={GOLD} {...line} />
+    </>
+  ),
 };
 
 /** The drawing for a section, by its id; nothing for a section without one. */

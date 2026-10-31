@@ -1,0 +1,184 @@
+{
+ "format": 1,
+ "serial": 1,
+ "generated": "2026-10-31T10:00:00Z",
+ "expires": "2026-11-07T10:00:00Z",
+ "source": "https://github.com/OpenRAC/rac1-mods",
+ "media": "https://example.invalid/media/",
+ "ports": {
+  "stable": {
+   "launcher": "0.10.1",
+   "api": "1.10"
+  },
+  "dev": {
+   "launcher": "0.11.0-dev.42",
+   "api": "1.11"
+  }
+ },
+ "tags": [
+  "gameplay",
+  "controls",
+  "cosmetic",
+  "qol",
+  "speedrun",
+  "randomizer",
+  "multiplayer",
+  "accessibility",
+  "camera",
+  "audio",
+  "ui",
+  "tools"
+ ],
+ "mods": [
+  {
+   "id": "evil-readme",
+   "name": "Evil readme",
+   "author": "OpenRAC contributors",
+   "description": "A test mod whose README tries every trick.",
+   "license": "MIT",
+   "homepage": "https://github.com/OpenRAC/rac1-mods/tree/master/camera-base",
+   "repo": "https://github.com/OpenRAC/rac1-mods",
+   "path": "camera-base",
+   "type": "script",
+   "games": {
+    "rac1": [
+     "pal",
+     "ntsc"
+    ]
+   },
+   "tags": [
+    "camera",
+    "tools"
+   ],
+   "impact": [
+    "cosmetic"
+   ],
+   "aliases": [],
+   "links": {
+    "bugs": "https://github.com/OpenRAC/rac1-mods/issues"
+   },
+   "downloads": 900,
+   "downloads7d": 40,
+   "created": "2026-08-01T12:00:00Z",
+   "updated": "2026-09-10T12:00:00Z",
+   "featured": false,
+   "recommends": [],
+   "suggests": [],
+   "readme": "# Evil\n\n<script>window.__pwned=1</script>\n\n<img src=x onerror=\"window.__pwned=2\">\n\n[click](javascript:window.__pwned=3)\n\n![tracker](https://evil.example/pixel.png)\n\n[ok](https://example.com)\n\n<b>raw html</b>\n\n[docs](docs/setup.md)\n",
+   "media": {
+    "icon": {
+     "hash": "c6bf3d641933",
+     "widths": [
+      256
+     ],
+     "width": 256,
+     "height": 256,
+     "thumbhash": "3OcRJYB4d3h/iIeHeEh3eIhw+j3A",
+     "alt": "Camera base icon"
+    },
+    "banner": {
+     "hash": "a26a765ffc4f",
+     "widths": [
+      480,
+      960,
+      1600
+     ],
+     "width": 1600,
+     "height": 686,
+     "thumbhash": "3OcRJYB4d3h/iIeHeEh3eIhw+j3A",
+     "alt": "Camera base banner"
+    },
+    "screenshots": [
+     {
+      "hash": "327741f6d320",
+      "widths": [
+       480,
+       960,
+       1600
+      ],
+      "width": 1600,
+      "height": 900,
+      "thumbhash": "3OcRJYB4d3h/iIeHeEh3eIhw+j3A",
+      "alt": "Camera base screenshot 1",
+      "caption": "Camera base in action 1"
+     },
+     {
+      "hash": "bef8bb0e6777",
+      "widths": [
+       480,
+       960,
+       1600
+      ],
+      "width": 1600,
+      "height": 900,
+      "thumbhash": "3OcRJYB4d3h/iIeHeEh3eIhw+j3A",
+      "alt": "Camera base screenshot 2",
+      "caption": "Camera base in action 2"
+     }
+    ],
+    "videos": []
+   },
+   "versions": [
+    {
+     "version": "1.2.0",
+     "api": "1.1",
+     "games": {
+      "rac1": [
+       "pal",
+       "ntsc"
+      ]
+     },
+     "requires": [],
+     "conflicts": [],
+     "hooks": [],
+     "tag": "evil-readme-v1.2.0",
+     "released": "2026-09-10T12:00:00Z",
+     "prerelease": false,
+     "changelog": "## 1.2.0\n\n- Changes for 1.2.0.",
+     "size": 12000,
+     "files": [
+      "openrac-mod.json",
+      "main.luau"
+     ],
+     "platforms": {
+      "any": {
+       "asset": "camera-base-1.2.0.zip",
+       "sha256": "207e82b780454f99a1397cd37d0b47f7a7cf19a0aee287e987eac2397373a389",
+       "size": 12000
+      }
+     }
+    },
+    {
+     "version": "1.1.0",
+     "api": "1.1",
+     "games": {
+      "rac1": [
+       "pal",
+       "ntsc"
+      ]
+     },
+     "requires": [],
+     "conflicts": [],
+     "hooks": [],
+     "tag": "evil-readme-v1.1.0",
+     "released": "2026-08-01T12:00:00Z",
+     "prerelease": false,
+     "changelog": "## 1.1.0\n\n- Changes for 1.1.0.",
+     "size": 12000,
+     "files": [
+      "openrac-mod.json",
+      "main.luau"
+     ],
+     "platforms": {
+      "any": {
+       "asset": "camera-base-1.1.0.zip",
+       "sha256": "e936b842d562cd65b68d85c9b150e5e7de0de60ce9553347957e459cabbb2bbe",
+       "size": 12000
+      }
+     }
+    }
+   ]
+  }
+ ],
+ "revoked": []
+}

@@ -1,6 +1,6 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { blogIndexLd, breadcrumbLd, homeLd, ldJson, llmsFullTxt, llmsTxt, postLd, progressJson } from "./machine.ts";
+import { breadcrumbLd, homeLd, ldJson, llmsFullTxt, llmsTxt, modLd, modsIndexLd, progressJson } from "./machine.ts";
 import { PROJECTS } from "./projects.ts";
 
 const SITE = "https://openrac.dev";
@@ -8,7 +8,7 @@ const progress = {
   rac1: { functions: { done: 2974, total: 5109 }, code: { done: 838628, total: 3712808 }, data: { done: 3984, total: 699072 }, source: "progress/report.json", stale: false },
   gc: { functions: { done: 5269, total: null }, code: { done: 308608, total: 48788176 }, source: "snapshot 2026-10-05", stale: true },
 };
-const post = { slug: "welcome", title: "Welcome", date: "2026-09-30", summary: "What this blog is for.", body: "## How we count\n\nText." };
+const mod = { id: "lock-strafe", name: "Lock-strafe", author: "OpenRAC contributors", description: "Strafe as in the later games." };
 
 test("progress.json lists every project with the shared measure", () => {
   const j = progressJson(progress);
@@ -41,22 +41,25 @@ test("Deadlocked is listed under its new repository name", () => {
   assert.equal(dl.contributing, "https://github.com/OpenRAC/rac4-decomp/blob/main/CONTRIBUTING.md");
 });
 
-test("llms.txt names every project, its numbers and the posts", () => {
-  const t = llmsTxt(SITE, progress, [post]);
+test("llms.txt names every project, its numbers and the mods", () => {
+  const t = llmsTxt(SITE, progress, [mod]);
   assert.match(t, /^# OpenRAC\n\n> /);
   for (const p of PROJECTS) if (p.repo) assert.ok(t.includes(`https://github.com/${p.repo}`), p.id);
   assert.ok(t.includes("22.59% of code matched (838,628 of 3,712,808 bytes), 0.57% of data matched."));
   assert.ok(t.includes("last known snapshot"));
   assert.ok(!t.includes("research phase")); // no project is in its research phase any more
   assert.ok(t.includes("Maintained by [@Lynder063](https://github.com/Lynder063), [@Veradictus](https://github.com/Veradictus)."));
-  assert.ok(t.includes(`[Welcome](${SITE}/blog/welcome) (2026-09-30): What this blog is for.`));
+  assert.ok(t.includes(`- [Lock-strafe](${SITE}/mods/lock-strafe) by OpenRAC contributors: Strafe as in the later games.`));
+  assert.ok(t.includes(`[Mods](${SITE}/mods)`));
+  assert.ok(!t.includes("/blog"));
+  assert.ok(!llmsTxt(SITE, progress, []).includes("## Mods"));
 });
 
-test("llms-full.txt carries the FAQ and posts, with post headings nested under the post", () => {
-  const t = llmsFullTxt(SITE, progress, [post], [["Is this a port?", "No."]]);
+test("llms-full.txt carries the FAQ and the mods", () => {
+  const t = llmsFullTxt(SITE, progress, [["Is this a port?", "No."]], [mod]);
   assert.ok(t.includes("### Is this a port?\n\nNo."));
-  assert.ok(t.includes("### Welcome\n\n"));
-  assert.ok(t.includes("\n#### How we count\n"));
+  assert.ok(t.includes("## Mods"));
+  assert.ok(!t.includes("/blog"));
 });
 
 test("JSON-LD describes the projects and cannot close its script tag", () => {
@@ -79,14 +82,28 @@ test("JSON-LD describes the projects and cannot close its script tag", () => {
   assert.equal(app["@type"], "SoftwareApplication");
   assert.equal(app.softwareVersion, "0.9.0");
   assert.equal(app.operatingSystem, "Windows, Linux");
-  const pLd = postLd(SITE, post);
-  assert.equal(pLd.headline, "Welcome");
-  assert.equal(pLd.image, `${SITE}/opengraph-image.png`);
-  assert.equal(pLd.mainEntityOfPage["@id"], `${SITE}/blog/welcome`);
+  const m = modLd(SITE, {
+    ...mod,
+    repo: "https://github.com/OpenRAC/rac1-mods",
+    created: "2026-09-15T12:00:00Z",
+    updated: "2026-10-20T12:00:00Z",
+    version: "1.2.0",
+    platforms: ["linux-x86_64", "windows-x86_64", "macos-arm64"],
+    screenshots: ["https://openrac.dev/mods/media/a-960.webp"],
+    videos: [{ youtube: "dQw4w9WgXcQ", caption: "Trailer" }],
+    game: "Ratchet & Clank",
+  });
+  const modApp = m["@graph"][0] as Record<string, unknown>;
+  assert.equal(modApp["@type"], "SoftwareApplication");
+  assert.equal(modApp.operatingSystem, "Linux, Windows, macOS");
+  assert.ok(!("aggregateRating" in modApp)); // no invented ratings
+  const video = m["@graph"][1] as Record<string, unknown>;
+  assert.equal(video["@type"], "VideoObject");
+  assert.equal(video.embedUrl, "https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ");
+  assert.equal(m["@graph"][2]["@type"], "BreadcrumbList");
 
-  const blog = blogIndexLd(SITE);
-  assert.equal(blog["@graph"][0]["@type"], "Blog");
-  assert.equal(blog["@graph"][1]["@type"], "BreadcrumbList");
+  const modList = modsIndexLd(SITE, [mod]);
+  assert.equal(modList["@graph"][0]["@type"], "CollectionPage");
 
   const crumbs = breadcrumbLd([{ name: "A", url: "https://a" }, { name: "B", url: "https://b" }]);
   assert.equal(crumbs.itemListElement.length, 2);

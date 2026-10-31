@@ -43,30 +43,25 @@ the same data as the page (`src/lib/machine.ts`), so it never says anything the 
 |---|---|
 | `/progress.json` | every project and its numbers as JSON, open to any origin (CORS) |
 | `/llms.txt` | a short Markdown map of the site for AI tools ([llmstxt.org](https://llmstxt.org)) |
-| `/llms-full.txt` | the same, plus the FAQ and every blog post in full |
+| `/llms-full.txt` | the same, plus the FAQ in full |
+| `/mods.json` | every listed mod as JSON, open to any origin (CORS) |
 | `/robots.txt` | allows everything; `Content-Signal: search=yes, ai-input=yes, ai-train=yes` says so explicitly |
 
-The home page and every blog post also carry schema.org JSON-LD (the projects as `SoftwareSourceCode`, posts as
-`BlogPosting`), and the page head links the JSON, RSS and llms.txt versions.
+The home page and every mod page also carry schema.org JSON-LD (the projects as `SoftwareSourceCode`, mods as
+`SoftwareApplication`), and the page head links the JSON and llms.txt versions.
 
-## Blog
+## Mods
 
-The blog lives at `/blog`. Posts are Markdown files in `content/blog/`, added through pull requests:
+`/mods` lists the community mods of the PC port, read on the server from the signed mod index that
+[rac1-mods](https://github.com/OpenRAC/rac1-mods) publishes (`MOD_INDEXES` in `.env.example`). **Install** opens
+the launcher through its `openrac://` link, which installs the mod with its dependencies. Pictures are resized by
+the index build and served from this site (`/mods/media/...`), so visitors never load anything from GitHub.
 
-```yaml
----
-title: A short title
-date: 2026-09-30            # YYYY-MM-DD
-summary: One or two sentences for the list page and link previews.
-tags: [news]                # optional
-author: Name                # optional
-draft: true                 # optional, hides the post from the published site
----
-```
+- `/mods/submit` checks a repository against the listing rules and opens rac1-mods' submission form filled in.
+- `/mods/set?m=id@1.2.0,...` is a "Share my setup" link from the launcher: a friend's mods at exact versions.
+- Mod pages show the latest comments of the mod's GitHub Discussion (needs `GITHUB_TOKEN`); commenting happens on GitHub.
 
-The file name is the address (`my-post.md` becomes `/blog/my-post`). A bad header fails the build and names the file.
-Raw HTML in posts is ignored and images must be files in `public/blog/` (remote images are dropped), so a post
-cannot load anything from another server. There is an RSS feed at `/blog/rss.xml`, plus `sitemap.xml` and `robots.txt`.
+Browser tests: `npm run test:e2e` (Playwright) builds the site against the shared fixture index and runs `e2e/`.
 
 ## Credits
 
@@ -80,7 +75,7 @@ reaches Google before that.
 ```sh
 npm install
 npm run dev        # http://localhost:3000
-npm test           # unit tests (progress parsers, blog, machine-readable files)
+npm test           # unit tests (progress parsers, mods, machine-readable files)
 npm run lint
 npm run build
 ```
@@ -88,16 +83,17 @@ npm run build
 ### Where things are
 
 ```
-src/app/                  pages and routes (home, blog, /img, progress.json, llms.txt, robots, sitemap, rss)
+src/app/                  pages and routes (home, mods, /img, progress.json, mods.json, llms.txt, robots, sitemap)
 src/components/layout/    the header, footer and the scroll-reveal helper, on every page
 src/components/sections/  the home page's sections, one file each, in page order in src/app/page.tsx
 src/components/ui/        small shared pieces (Section heading, Cards, Backdrop, Logo, icons, ...)
 src/lib/projects.ts       the list of titles: names, repositories, colours, maintainers
 src/lib/progress/         reading each project's progress from GitHub (one parser per format, with tests)
-src/lib/blog/, youtube/   blog posts from content/blog, video titles for Credits
+src/lib/mods/              the mod index: loading, versions, dependencies, search (with tests)
+src/lib/youtube/          video titles for Credits
 src/lib/releases.ts       the launcher's latest release for the Download panel, a card per system
 src/lib/machine.ts        progress.json, llms.txt and the structured data for search engines
-content/blog/             the blog posts (Markdown)
+src/components/mods/      the mod list and mod pages
 deploy/                   the Podman Quadlet unit
 ```
 

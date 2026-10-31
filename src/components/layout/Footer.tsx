@@ -2,7 +2,8 @@ import Link from "next/link";
 import Logo from "@/components/ui/Logo";
 import { DISCORD_URL } from "@/lib/projects";
 
-const a = "text-amber no-underline hover:underline";
+// Underlined, not only coloured: a link must stand out from the text around it without relying on colour (WCAG 1.4.1).
+const a = "text-amber underline decoration-amber/40 underline-offset-2 hover:decoration-amber";
 
 /** The footer on every page: the logo, the main links and the machine-readable files. */
 export default function SiteFooter() {
@@ -14,7 +15,7 @@ export default function SiteFooter() {
         </Link>
         <div className="grid gap-2">
           <p className="max-w-[820px]">
-            OpenRAC · unofficial community project · <Link className={a} href="/blog">Blog</Link> · <Link className={a} href="/#legal">Legal</Link> ·{" "}
+            OpenRAC · unofficial community project · <Link className={a} href="/mods">Mods</Link> · <Link className={a} href="/#legal">Legal</Link> ·{" "}
             <a className={a} href="https://github.com/OpenRAC">GitHub</a> · <a className={a} href={DISCORD_URL}>Discord</a>
           </p>
           <p className="max-w-[820px]">
