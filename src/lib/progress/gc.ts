@@ -1,3 +1,4 @@
+import { objdiffData } from "./objdiff.ts";
 import type { Progress } from "./types";
 
 export interface GcReportMeasures {
@@ -13,6 +14,8 @@ export interface GcReportMeasures {
   matchedFunctions?: string | number;
   total_functions?: string | number;
   matched_functions?: string | number;
+  total_data?: string | number;
+  matched_data?: string | number;
 }
 
 export interface ProgressScopeSection {
@@ -115,9 +118,11 @@ export function parseGcReport(report: unknown, scope?: unknown): Progress {
       throw new Error("gc report has an unexpected shape");
     }
 
+    const data = objdiffData(m);
     return {
       functions: { done: doneFuncs, total: totalFuncs },
       code: { done: doneCode, total: totalCode },
+      ...(data && { data }),
       source: "progress/report.json",
     };
   }

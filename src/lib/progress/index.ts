@@ -1,12 +1,13 @@
 /**
  * Progress of every project, read on the server from the projects' own repositories on GitHub.
  * Most publish an objdiff report (the same file ByteMatch reads); the others publish their own
- * format, parsed in this folder (gc.ts, gm.ts, sm.ts, sac.ts, each with tests).
+ * format, parsed in this folder (objdiff.ts, gc.ts, gm.ts, sm.ts, sac.ts, each with tests).
  */
 import { unstable_cache } from "next/cache";
 import { parseSmStatus } from "./sm";
 import { parseGcReport } from "./gc";
 import { parseGmReadme } from "./gm";
+import { parseObjdiff } from "./objdiff";
 import { parseSacBodies, parseSacReport } from "./sac";
 import type { Progress } from "./types";
 import type { ProjectId } from "@/lib/projects";
@@ -25,20 +26,7 @@ async function get(url: string): Promise<Response> {
 }
 
 /** Reads a plain objdiff progress report (the same file ByteMatch reads). */
-async function loadObjdiff(url: string, name: string): Promise<Progress> {
-  const report = (await (await get(url)).json()) as { measures?: Record<string, string | number> };
-  const m = report.measures;
-  const n = (key: string): number => Number(m?.[key] ?? 0);
-  const [doneFuncs, totalFuncs, doneCode, totalCode] = [n("matched_functions"), n("total_functions"), n("matched_code"), n("total_code")];
-  if (![doneFuncs, totalFuncs, doneCode, totalCode].every((v) => Number.isFinite(v) && v >= 0) || totalFuncs <= 0 || totalCode <= 0) {
-    throw new Error(`${name} report has an unexpected shape`);
-  }
-  return {
-    functions: { done: doneFuncs, total: totalFuncs },
-    code: { done: doneCode, total: totalCode },
-    source: "progress/report.json",
-  };
-}
+const loadObjdiff = async (url: string, name: string): Promise<Progress> => parseObjdiff(await (await get(url)).json(), name);
 
 /** Ratchet & Clank (PAL): read from the project's own objdiff progress report. */
 const loadRac1 = () => loadObjdiff(`${RAW}/OpenRAC/rac1-decomp/main/progress/report.json`, "rac1");
@@ -121,9 +109,9 @@ const cached = Object.fromEntries(
 
 /** Last numbers known to be good. Used only if GitHub cannot be reached at all. */
 const FALLBACK: Partial<Record<ProjectId, Progress>> = {
-  rac1: { functions: { done: 5089, total: 5120 }, code: { done: 3656816, total: 3713416 }, source: "snapshot 2026-10-24" },
-  rac1us: { functions: { done: 4230, total: 4244 }, code: { done: 3533752, total: 3547932 }, source: "snapshot 2026-10-27" },
-  gc: { functions: { done: 4351, total: 8601 }, code: { done: 776368, total: 5529148 }, source: "snapshot 2026-10-24" },
+  rac1: { functions: { done: 5116, total: 5116 }, code: { done: 3713096, total: 3713096 }, data: { done: 3984, total: 699072 }, source: "snapshot 2026-10-28" },
+  rac1us: { functions: { done: 4243, total: 4244 }, code: { done: 3547708, total: 3547932 }, data: { done: 5418333, total: 12433372 }, source: "snapshot 2026-10-28" },
+  gc: { functions: { done: 5623, total: 8584 }, code: { done: 2488920, total: 5525916 }, data: { done: 0, total: 383391 }, source: "snapshot 2026-10-28" },
   uya: { functions: { done: 5807, total: 16164 }, code: { done: 657780, total: 7546948 }, source: "snapshot 2026-10-24" },
   deadlocked: { functions: { done: 3598, total: 18085 }, code: { done: 262428, total: 5782424 }, source: "snapshot 2026-10-24" },
   gm: { functions: { done: 351, total: 351 }, code: { done: 545639, total: 545639 }, source: "snapshot 2026-10-24" },

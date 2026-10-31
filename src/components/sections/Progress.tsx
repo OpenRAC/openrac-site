@@ -20,6 +20,12 @@ const matchedLine = (p: ProjectProgress) =>
 const exactLine = (p: ProjectProgress) =>
   `${p.code.done.toLocaleString("en-US")} of ${p.code.total.toLocaleString("en-US")} bytes`;
 
+/** The data counter's hover text: its size and exact bytes, or why there is no figure. */
+const dataTitle = (p?: ProjectProgress) =>
+  p?.data
+    ? `${formatSize(p.data.done)} of ${formatSize(p.data.total)} data matched (${p.data.done.toLocaleString("en-US")} of ${p.data.total.toLocaleString("en-US")} bytes)`
+    : "This project's report does not measure data yet";
+
 const RESEARCH_TEXT = "Research phase: the game and its toolchain are still being mapped. Progress is tracked like every other project.";
 
 /** Marks a project that is still in its research phase. */
@@ -61,18 +67,23 @@ const chroma = (hex: string) => {
 /** A title's accent: its text colour, or its second one where the text is near white (Deadlocked, Size Matters, Secret Agent Clank), so every card keeps a colour of its own. */
 const accent = (t: Project["theme"]) => (chroma(t.text) < 40 ? t.text2 : t.text);
 
-/** A thin bar in the title's own accent, the one colour on the card. */
-function Bar({ value, name }: { value: number; name: string }) {
+/**
+ * A thin bar in the title's own accent, the one colour on the card. The data bar under the code bar is
+ * thinner and a fainter shade of the same accent; without a data measure only its track is drawn.
+ */
+function Bar({ value, name, data = false }: { value: number | null; name: string; data?: boolean }) {
   return (
     <div
       role="progressbar"
-      aria-label={`${name} code matched`}
-      aria-valuenow={Math.round(value * 10) / 10}
+      aria-label={`${name} ${data ? "data" : "code"} matched${value == null ? ", not measured" : ""}`}
+      aria-valuenow={value == null ? undefined : Math.round(value * 10) / 10}
       aria-valuemin={0}
       aria-valuemax={100}
-      className="h-1.5 overflow-hidden rounded-full bg-white/10"
+      className={`${data ? "h-1" : "h-1.5"} overflow-hidden rounded-full bg-white/10`}
     >
-      <i style={{ "--w": `${value}%` } as CSSProperties} className="bar-fill block h-full rounded-full bg-(--tx)" />
+      {value != null && (
+        <i style={{ "--w": `${value}%` } as CSSProperties} className={`bar-fill block h-full rounded-full ${data ? "bg-(--tx)/45" : "bg-(--tx)"}`} />
+      )}
     </div>
   );
 }
@@ -83,13 +94,15 @@ const REGION_NAME: Record<string, string> = { PAL: "PAL · Europe", "NTSC-U": "N
 /**
  * One title over its own backdrop, darkened so the text reads the same on every card. The title's
  * typeface and one accent (the percentage and the bar) set the cards apart; everything else is the
- * site's own neutral text. All cards share one layout (name and percentage, the bar, then the
- * repository, the maintainers and the bytes), laid out by the card's own width (container queries).
+ * site's own neutral text. All cards share one layout (name, percentage and data figure, the code and
+ * data bars, then the repository, the maintainers and the bytes), laid out by the card's own width
+ * (container queries).
  * `release`: the card is one of several for the same game, so its region is shown as a badge.
  * Rendered on the server.
  */
 function Card({ project: g, progress: p, release = false }: { project: Project; progress?: ProjectProgress; release?: boolean }) {
   const value = p ? percent(p.code) : 0;
+  const dataValue = p?.data ? percent(p.data) : null;
 
   return (
     <section
@@ -119,14 +132,26 @@ function Card({ project: g, progress: p, release = false }: { project: Project; 
               )}
             </p>
           </div>
-          {/* As wide as "100,00 %" whatever the figure, so the card keeps its layout as it grows. */}
-          <b className={`${SIZES.pct} ${g.fontClass} grid flex-none justify-items-end whitespace-nowrap leading-tight tabular-nums text-(--tx)`}>
-            <span className="col-start-1 row-start-1">{p ? pct(value) : "Not started"}</span>
-            <span aria-hidden className="invisible col-start-1 row-start-1">{pct(100)}</span>
-          </b>
+          {/* The code percentage and, under it, the data counter. Each is as wide as "100,00 %" whatever
+              the figure, and the data line is there even without a figure, so every card keeps its layout. */}
+          <div className="grid flex-none justify-items-end">
+            <b className={`${SIZES.pct} ${g.fontClass} grid justify-items-end whitespace-nowrap leading-tight tabular-nums text-(--tx)`}>
+              <span className="col-start-1 row-start-1">{p ? pct(value) : "Not started"}</span>
+              <span aria-hidden className="invisible col-start-1 row-start-1">{pct(100)}</span>
+            </b>
+            <p title={dataTitle(p)} className={`mt-1 grid justify-items-end whitespace-nowrap tabular-nums text-dim ${SIZES.small}`}>
+              <span className="col-start-1 row-start-1">
+                data <span className="text-text">{dataValue == null ? "–" : pct(dataValue)}</span>
+              </span>
+              <span aria-hidden className="invisible col-start-1 row-start-1">data {pct(100)}</span>
+            </p>
+          </div>
         </div>
 
-        <Bar value={value} name={g.name} />
+        <div className="grid gap-1.5">
+          <Bar value={value} name={g.name} />
+          <Bar value={dataValue} name={g.name} data />
+        </div>
 
         {/* Narrow card: repository, maintainers and size each on a line of their own; wide card: one row. */}
         <div className={`flex min-w-0 flex-col items-start gap-2 text-dim @xl:flex-row @xl:flex-wrap @xl:items-center @xl:gap-x-5 ${SIZES.small}`}>
@@ -225,7 +250,8 @@ export default function Progress({ progress }: { progress: Partial<Record<Projec
         )}
       </div>
       <p className="mt-8 max-w-[860px] text-[13px] text-dim">
-        The figure is matched code, weighted by size, the same number ByteMatch shows. Each title links to its own community repository, and a title
+        The figure is matched code, weighted by size, the same number ByteMatch shows; the data figure and the fainter bar under it are the share
+        of the game&apos;s data that matches, where the project&apos;s report measures it. Each title links to its own community repository, and a title
         without a link has not been started. Numbers are read from the repositories on the server and refreshed every ten minutes. Roadmap entries are
         not a promise.
       </p>

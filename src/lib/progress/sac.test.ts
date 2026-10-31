@@ -64,3 +64,8 @@ test("parseSacReport handles status and report shapes", () => {
 test("parseSacBodies rejects invalid or empty input", () => {
   assert.throws(() => parseSacBodies("", ""), /sac progress could not be computed/);
 });
+
+test("parseSacReport keeps the objdiff data measure when the report has one", () => {
+  const p = parseSacReport({ measures: { total_code: "1000", matched_code: "10", total_functions: 4, matched_functions: 1, total_data: "200", matched_data: "50" } });
+  assert.deepEqual(p.data, { done: 50, total: 200 });
+});

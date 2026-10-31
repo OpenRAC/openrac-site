@@ -1,3 +1,4 @@
+import { objdiffData } from "./objdiff.ts";
 import type { Progress } from "./types";
 
 /**
@@ -121,9 +122,11 @@ export function parseSacReport(report: unknown): Progress {
       throw new Error("sac report has an unexpected shape");
     }
 
+    const data = objdiffData(m);
     return {
       functions: { done: doneFuncs, total: totalFuncs },
       code: { done: doneCode, total: totalCode },
+      ...(data && { data }),
       source: "progress/report.json",
     };
   }

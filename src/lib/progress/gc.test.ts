@@ -208,3 +208,8 @@ test("parseGcReport rejects invalid input", () => {
   );
 });
 
+
+test("parseGcReport keeps the objdiff data measure", () => {
+  const p = parseGcReport({ measures: { total_code: "5525916", matched_code: "2488920", total_units: 734, complete_units: 618, total_functions: 8584, matched_functions: 5623, total_data: "383391", matched_data: "0" } });
+  assert.deepEqual(p.data, { done: 0, total: 383391 });
+});
