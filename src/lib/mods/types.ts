@@ -1,5 +1,5 @@
 /**
- * The mod index, format 1: what rac1-mods' tools/build_index.py publishes and both this site and the
+ * The mod index, format 1: what openrac-mods' tools/build_index.py publishes and both this site and the
  * launcher read. Fields not listed here are ignored, so a newer index still loads.
  */
 

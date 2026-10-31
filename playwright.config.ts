@@ -4,7 +4,7 @@ import { defineConfig, devices } from "@playwright/test";
 
 /**
  * Browser tests against the production build, fed by the shared fixture index (the same file the
- * launcher and rac1-mods test with) plus a second, hostile index. `file:` indexes are only read when
+ * launcher and openrac-mods test with) plus a second, hostile index. `file:` indexes are only read when
  * MODS_ALLOW_FILE is set, as here.
  */
 const PORT = 3200;

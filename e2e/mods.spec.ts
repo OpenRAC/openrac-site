@@ -118,7 +118,7 @@ test("README from a second index renders inert", async ({ page }) => {
   await expect(page.locator('#about a[href="https://example.com"]')).toHaveAttribute("rel", "nofollow ugc noopener noreferrer");
   expect(requests.some((u) => u.includes("evil.example"))).toBe(false); // the tracker picture is a link, not a load
   // A relative link points into the mod's repository at its release, never at this site.
-  await expect(page.locator('#about a', { hasText: "docs" })).toHaveAttribute("href", /^https:\/\/github\.com\/OpenRAC\/rac1-mods\/blob\/evil-readme-v1\.2\.0\/camera-base\/docs\/setup\.md$/);
+  await expect(page.locator('#about a', { hasText: "docs" })).toHaveAttribute("href", /^https:\/\/github\.com\/OpenRAC\/openrac-mods\/blob\/evil-readme-v1\.2\.0\/camera-base\/docs\/setup\.md$/);
 });
 
 test("SEO: title, canonical, share card, JSON-LD, robots and sitemap", async ({ page, request }) => {
@@ -216,7 +216,7 @@ test("submit: a bad address is refused with a plain answer", async ({ page, requ
   await page.getByRole("button", { name: "Open the submission on GitHub" }).click();
   await expect.poll(() => opened).not.toBe("");
   const url = new URL(opened);
-  expect(url.pathname).toBe("/OpenRAC/rac1-mods/issues/new");
+  expect(url.pathname).toBe("/OpenRAC/openrac-mods/issues/new");
   expect(url.searchParams.get("kind")).toBe("Modpack");
   expect(url.searchParams.get("mods")).toContain("lock-strafe@>=1.2.0");
 });

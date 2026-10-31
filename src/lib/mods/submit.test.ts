@@ -76,8 +76,8 @@ test("a private or missing repository stops early", async () => {
 });
 
 test("the submission form opens filled in, empty fields left out", () => {
-  const u = new URL(issueUrl("https://github.com/OpenRAC/rac1-mods", { kind: "Mod", repo: "https://github.com/you/big-jump", mods: "big-jump", tags: "", title: "Submit mod: big-jump" }));
-  assert.equal(u.pathname, "/OpenRAC/rac1-mods/issues/new");
+  const u = new URL(issueUrl("https://github.com/OpenRAC/openrac-mods", { kind: "Mod", repo: "https://github.com/you/big-jump", mods: "big-jump", tags: "", title: "Submit mod: big-jump" }));
+  assert.equal(u.pathname, "/OpenRAC/openrac-mods/issues/new");
   assert.equal(u.searchParams.get("template"), "submit-mod.yml");
   assert.equal(u.searchParams.get("repo"), "https://github.com/you/big-jump");
   assert.equal(u.searchParams.has("tags"), false);
@@ -122,7 +122,7 @@ test("a token GitHub refuses is dropped: the request is made again without it", 
   }) as typeof fetch;
   try {
     resetGithubToken();
-    const res = await githubApi("https://api.github.com/repos/OpenRAC/rac1-mods", {}, 1000);
+    const res = await githubApi("https://api.github.com/repos/OpenRAC/openrac-mods", {}, 1000);
     assert.equal(res.status, 200);
     assert.deepEqual(seen, ["Bearer github_pat_test", undefined]); // trimmed, then without
     assert.match(errors[0], /github_token_refused.*forbids access/);
