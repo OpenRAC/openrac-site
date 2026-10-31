@@ -34,7 +34,13 @@ Environment=SITE_URL=https://openrac.dev
 # repository because they are game screenshots. ":z" lets SELinux (Fedora, RHEL) allow the read.
 Volume=%h/openrac-img:/data/img:ro,z
 
-# Hardening: nothing in the image needs to be writable except the page cache.
+# Mod pictures (screenshots, banners, icons of the listed mods): fetched once from the mod index's
+# release and kept here, so later visits are served from disk and keep working if GitHub is down.
+# Writable by the app. Every file is named by its content hash and never changes; the folder can be
+# emptied at any time (pictures are fetched again as visitors need them).
+Volume=%h/openrac-mods-media:/data/mods-media:rw,Z,U
+
+# Hardening: nothing in the image needs to be writable except the page cache and the mod pictures.
 ReadOnly=true
 Tmpfs=/tmp
 Volume=openrac-cache:/app/.next/cache
@@ -49,7 +55,7 @@ HealthOnFailure=restart
 
 [Service]
 # The folder must exist before the container starts.
-ExecStartPre=/usr/bin/mkdir -p %h/openrac-img
+ExecStartPre=/usr/bin/mkdir -p %h/openrac-img %h/openrac-mods-media
 Restart=always
 TimeoutStartSec=300
 

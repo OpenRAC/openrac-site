@@ -270,3 +270,19 @@ test("discussion: latest comments shaped, hidden ones left out, failures quiet",
   assert.equal(await getDiscussion("https://github.com/OpenRAC/rac1-mods", 99, async () => { throw new Error("down"); }), null);
   assert.equal(await getDiscussion("https://github.com/OpenRAC/rac1-mods", undefined, async () => raw), null);
 });
+
+test("media folder: written once, read back, names outside the pattern never touch disk", async () => {
+  const { readCached, writeCached } = await import("./media.ts");
+  const { mkdtemp, readdir } = await import("node:fs/promises");
+  const { tmpdir } = await import("node:os");
+  const { join } = await import("node:path");
+  const dir = await mkdtemp(join(tmpdir(), "mods-media-"));
+  const name = "a1b2c3d4e5f6-960.webp";
+  assert.equal(await readCached(dir, name), null);
+  await writeCached(dir, name, new Uint8Array([1, 2, 3]));
+  assert.deepEqual([...(await readCached(dir, name))!], [1, 2, 3]);
+  assert.deepEqual(await readdir(dir), [name]); // no temporary file left behind
+  await writeCached(dir, "../escape-960.webp", new Uint8Array([9]));
+  assert.equal(await readCached(dir, "../escape-960.webp"), null);
+  assert.equal(await readCached(undefined, name), null); // no folder set: never cached
+});
