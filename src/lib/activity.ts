@@ -1,5 +1,5 @@
 import { PROJECTS, type ProjectId } from "./projects";
-import { githubToken } from "./mods/guard.ts";
+import { githubApi } from "./mods/guard.ts";
 
 /** One commit in the "Recent activity" feed. */
 export interface Commit {
@@ -36,12 +36,11 @@ const lastCommits = new Map<string, Commit[]>();
 export async function getActivity(limit = 8): Promise<Commit[]> {
   const headers: HeadersInit = { Accept: "application/vnd.github+json" };
   // Optional, only raises the rate limit. Never sent to the browser.
-  if (githubToken()) headers.Authorization = `Bearer ${githubToken()}`;
 
   const lists = await Promise.all(
     PROJECTS.filter((p) => p.repo).map(async (p) => {
       try {
-        const res = await fetch(`https://api.github.com/repos/${p.repo}/commits?per_page=6`, {
+        const res = await githubApi(`https://api.github.com/repos/${p.repo}/commits?per_page=6`, {
           headers,
           next: { revalidate: 300 },
           signal: AbortSignal.timeout(10_000),

@@ -9,6 +9,33 @@
  */
 export const githubToken = () => process.env.GITHUB_TOKEN?.trim() || undefined;
 
+let refusedUntil = 0;
+
+/**
+ * A request to GitHub's API with the server's token, when it has one. If GitHub refuses the token
+ * itself (401, or 403 while requests are left: expired, revoked, or not allowed by an organization's
+ * rules), the request is made again without it and the token is left out for ten minutes, so a token
+ * problem degrades to the lower anonymous rate limit instead of breaking every feed. GitHub's reason
+ * is logged once per window (it never contains the token).
+ */
+export async function githubApi(url: string, init: RequestInit & { next?: { revalidate?: number } } = {}, now = Date.now()): Promise<Response> {
+  const token = now < refusedUntil ? undefined : githubToken();
+  const withAuth = (t?: string) => ({ ...init, headers: { ...(init.headers as Record<string, string>), ...(t && { Authorization: `Bearer ${t}` }) } });
+  const res = await fetch(url, withAuth(token));
+  const refused = token && (res.status === 401 || (res.status === 403 && res.headers.get("x-ratelimit-remaining") !== "0"));
+  if (!refused) return res;
+  refusedUntil = now + 600_000;
+  let reason = "";
+  try {
+    reason = String(((await res.json()) as { message?: unknown }).message ?? "").slice(0, 300);
+  } catch {}
+  console.error(JSON.stringify({ level: "error", code: "github_token_refused", status: res.status, reason }));
+  return fetch(url, withAuth(undefined));
+}
+
+/** For tests: forget a refused token. */
+export const resetGithubToken = () => void (refusedUntil = 0);
+
 /** A token bucket per key (an IP): `burst` at once, then one more every `refillMs`. */
 export class RateLimiter {
   private buckets = new Map<string, { tokens: number; at: number }>();
