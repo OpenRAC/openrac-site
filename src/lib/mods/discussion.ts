@@ -1,4 +1,4 @@
-import { Breaker } from "./guard.ts";
+import { Breaker, githubToken } from "./guard.ts";
 import { isNextSignal } from "./index.ts";
 
 /**
@@ -34,7 +34,7 @@ const github: GraphQL = async (query, variables) => {
     method: "POST",
     // Not `no-store`: on a static page that makes Next treat the page as dynamic. Kept fresh by our own cache below.
     signal: AbortSignal.timeout(8_000),
-    headers: { Authorization: `Bearer ${process.env.GITHUB_TOKEN}`, "Content-Type": "application/json" },
+    headers: { Authorization: `Bearer ${githubToken()}`, "Content-Type": "application/json" },
     body: JSON.stringify({ query, variables }),
   });
   if (!res.ok) throw new Error(`graphql ${res.status}`);
@@ -60,7 +60,7 @@ export function toDiscussion(raw: unknown): Discussion | null {
 /** The discussion of a mod, or null when there is none, no token, or GitHub fails (the page then links only). */
 export async function getDiscussion(indexSource: string, n: number | undefined, query: GraphQL = github, now = Date.now()): Promise<Discussion | null> {
   const repo = /^https:\/\/github\.com\/([^/]+)\/([^/]+?)\/?$/.exec(indexSource);
-  if (!n || !repo || (query === github && !process.env.GITHUB_TOKEN)) return null;
+  if (!n || !repo || (query === github && !githubToken())) return null;
   const key = `${indexSource}#${n}`;
   const hit = cache.get(key);
   if (hit && now - hit.at < CACHE_MS) return hit.value;

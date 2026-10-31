@@ -3,6 +3,12 @@
  * memory: one site process behind one proxy, so nothing has to be shared.
  */
 
+/**
+ * The server's GitHub token, or none. Trimmed: an env file written on another system can leave a
+ * trailing space or "\r", which Node's fetch refuses as a header value before anything is sent.
+ */
+export const githubToken = () => process.env.GITHUB_TOKEN?.trim() || undefined;
+
 /** A token bucket per key (an IP): `burst` at once, then one more every `refillMs`. */
 export class RateLimiter {
   private buckets = new Map<string, { tokens: number; at: number }>();
