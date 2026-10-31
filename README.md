@@ -63,6 +63,27 @@ the index build and served from this site (`/mods/media/...`), so visitors never
 
 Browser tests: `npm run test:e2e` (Playwright) builds the site against the shared fixture index and runs `e2e/`.
 
+## GitHub access
+
+The server reads GitHub for the activity feed, the Download panel, the `/mods/submit` checks and mod
+comments. It signs in as the **OpenRAC GitHub App** (`src/lib/githubApp.ts`), owned by the
+organization, so nothing expires or depends on one person: its private key gets a fresh one-hour token
+whenever needed. Without the app it uses `GITHUB_TOKEN`; if GitHub refuses a token, it goes on without
+one (60 requests an hour) and logs why.
+
+Setting the app up, once (an organization owner):
+
+1. github.com/organizations/OpenRAC/settings/apps/new: name `OpenRAC website`, homepage
+   `https://openrac.dev`, **Webhook: off**. Repository permissions: **Contents: read**, **Metadata: read**,
+   **Discussions: read**. Nothing else. "Only on this account".
+2. Create it, note the **App ID**, then **Generate a private key** (a `.pem` downloads).
+3. **Install App** → OpenRAC → All repositories (or the public ones the site reads).
+4. On the server: `podman secret create openrac-github-app ~/openrac-github-app.pem`, delete the `.pem`,
+   put `GITHUB_APP_ID=<id>` in `~/.config/openrac/openrac.env`, uncomment the three lines in
+   `deploy/openrac.container`, then `systemctl daemon-reload && systemctl restart openrac.service`.
+
+`podman logs` shows `github_app_token_failed` (with GitHub's status) if the app is refused.
+
 ## Credits
 
 `src/lib/credits.ts` lists the people credited on the front page and their YouTube videos (links or video ids).
