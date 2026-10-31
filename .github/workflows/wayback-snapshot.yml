@@ -15,7 +15,7 @@ jobs:
         run: |
           URLS=(
             "https://openrac.dev/"
-            "https://openrac.dev/blog"
+            "https://openrac.dev/mods"
           )
           
           echo "## Wayback Machine Snapshots" >> $GITHUB_STEP_SUMMARY

@@ -50,3 +50,7 @@ next-env.d.ts
 
 # Re-created by `next dev`; not part of the project
 /CLAUDE.md
+
+# Playwright
+/test-results/
+/playwright-report/

@@ -58,7 +58,7 @@ function MarkButton({ site, onClick, className = "" }: { site: "github" | "disco
 export default function Header() {
   const pathname = usePathname();
   const home = pathname === "/";
-  const inBlog = pathname.startsWith("/blog");
+  const inMods = pathname === "/mods" || pathname.startsWith("/mods/");
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState<string | null>(null);
 
@@ -132,9 +132,9 @@ export default function Header() {
                   {active !== id && <span className={underline} />}
                 </a>
               ))}
-              <Link href="/blog" onClick={close} aria-current={inBlog ? "page" : undefined} className={`${link} ${inBlog ? linkOn : linkOff}`}>
-                Blog
-                {!inBlog && <span className={underline} />}
+              <Link href="/mods" onClick={close} aria-current={inMods ? "page" : undefined} className={`${link} ${inMods ? linkOn : linkOff}`}>
+                Mods
+                {!inMods && <span className={underline} />}
               </Link>
             </div>
             <div className="grid gap-2 min-[821px]:ml-auto min-[821px]:flex min-[821px]:items-center">

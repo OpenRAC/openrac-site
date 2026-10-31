@@ -31,13 +31,12 @@ const orgLd = (site: string) => ({
 type Shown = Progress & { stale: boolean };
 type ProgressMap = Partial<Record<ProjectId, Shown>>;
 
-export interface PostText {
-  slug: string;
-  title: string;
-  date: string;
-  summary: string;
-  author?: string;
-  body: string;
+/** What the machine-readable files say about one mod: enough to find it, nothing that changes by the minute. */
+export interface ModText {
+  id: string;
+  name: string;
+  author: string;
+  description: string;
 }
 
 const round = (n: number) => Math.round(n * 100) / 100;
@@ -108,19 +107,17 @@ ${projectLines(progress).join("\n")}
 }
 
 /** llms.txt (https://llmstxt.org): a short Markdown map of the site. */
-export function llmsTxt(site: string, progress: ProgressMap, posts: PostText[]): string {
+export function llmsTxt(site: string, progress: ProgressMap, mods: ModText[]): string {
   return `${intro(site, progress)}
 ## Site
 
 - [Home](${site}/): progress of every project, how matching decompilation works, FAQ and the projects' guides
 - [Progress data](${site}/progress.json): the numbers above as JSON, refreshed with the page
-- [Full text](${site}/llms-full.txt): this file plus the FAQ and every blog post in full
-- [Blog](${site}/blog): news and notes ([RSS](${site}/blog/rss.xml))
+- [Mods](${site}/mods): community mods for the PC port, installed into the launcher in one click with their dependencies
+- [Mod list data](${site}/mods.json): every listed mod as JSON
+- [Full text](${site}/llms-full.txt): this file plus the FAQ in full
 
-## Blog
-
-${posts.map((p) => `- [${p.title}](${site}/blog/${p.slug}) (${p.date}): ${p.summary}`).join("\n")}
-
+${modsSection(site, mods)}
 ## Optional
 
 - [Download](${DOWNLOAD_URL}): the latest release of the OpenRAC launcher, the desktop app that sets a game up from your own disc and builds the PC port
@@ -129,20 +126,23 @@ ${posts.map((p) => `- [${p.title}](${site}/blog/${p.slug}) (${p.date}): ${p.summ
 `;
 }
 
-/** llms-full.txt: the same map, then the FAQ and every blog post as Markdown. */
-export function llmsFullTxt(site: string, progress: ProgressMap, posts: PostText[], faq: readonly (readonly [string, string])[]): string {
+/** The mods, one line each; nothing when none are listed yet. */
+function modsSection(site: string, mods: ModText[]): string {
+  if (!mods.length) return "";
+  return `## Mods
+
+${mods.map((m) => `- [${m.name}](${site}/mods/${m.id}) by ${m.author}: ${m.description}`).join("\n")}
+`;
+}
+
+/** llms-full.txt: the same map, then the FAQ as Markdown. */
+export function llmsFullTxt(site: string, progress: ProgressMap, faq: readonly (readonly [string, string])[], mods: ModText[] = []): string {
   const faqText = faq.map(([q, a]) => `### ${q}\n\n${a}`).join("\n\n");
-  const postText = posts
-    .map((p) => `### ${p.title}\n\n${site}/blog/${p.slug} · ${p.date}${p.author ? ` · ${p.author}` : ""}\n\n${p.body.replace(/^(#{1,4}) /gm, "##$1 ")}`)
-    .join("\n\n---\n\n");
   return `${intro(site, progress)}
+${modsSection(site, mods)}
 ## FAQ
 
 ${faqText}
-
-## Blog
-
-${postText}
 `;
 }
 
@@ -205,27 +205,6 @@ export function homeLd(site: string, release?: LauncherRelease | null) {
   };
 }
 
-/** schema.org description of one blog post. */
-export function postLd(site: string, post: Omit<PostText, "body">) {
-  return {
-    "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    headline: post.title,
-    description: post.summary,
-    datePublished: post.date,
-    url: `${site}/blog/${post.slug}`,
-    mainEntityOfPage: {
-      "@type": "WebPage",
-      "@id": `${site}/blog/${post.slug}`,
-    },
-    image: `${site}/opengraph-image.png`,
-    dateModified: post.date,
-    // Google asks for an author on every article; unsigned posts are the community's.
-    author: post.author ? { "@type": "Person", name: post.author } : { "@id": `${site}/#organization` },
-    publisher: orgLd(site),
-  };
-}
-
 /** schema.org BreadcrumbList representation. */
 export function breadcrumbLd(items: { name: string; url: string }[]) {
   return {
@@ -240,21 +219,95 @@ export function breadcrumbLd(items: { name: string; url: string }[]) {
   };
 }
 
-/** schema.org description of the blog index page. */
-export function blogIndexLd(site: string) {
+const MOD_OS: Record<string, string> = { "linux-x86_64": "Linux", "linux-aarch64": "Linux", "windows-x86_64": "Windows", "windows-arm64": "Windows", "macos-arm64": "macOS", "macos-x86_64": "macOS", "android-arm64": "Android" };
+
+/** The parts of a mod its schema.org description needs. */
+export interface ModLdInput {
+  id: string;
+  name: string;
+  author: string;
+  description: string;
+  license?: string;
+  repo: string;
+  created: string;
+  updated: string;
+  version?: string;
+  platforms: string[];
+  image?: string;
+  screenshots: string[];
+  videos: { youtube: string; title?: string; caption?: string; uploaded?: string }[];
+  game: string;
+}
+
+/**
+ * schema.org description of one mod page: the mod as a free SoftwareApplication, its videos and the
+ * breadcrumb. No rating: there is none to give, and Google's rich result would need a real one.
+ */
+export function modLd(site: string, m: ModLdInput) {
+  const url = `${site}/mods/${m.id}`;
+  const os = [...new Set(m.platforms.map((p) => MOD_OS[p] ?? (p === "any" ? "Windows, macOS, Linux" : p)))];
   return {
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "Blog",
-        name: "OpenRAC Blog",
-        description: "News and notes from the OpenRAC community decompilation projects.",
-        url: `${site}/blog`,
-        publisher: orgLd(site),
+        "@type": "SoftwareApplication",
+        "@id": `${url}#mod`,
+        name: m.name,
+        description: m.description,
+        url,
+        applicationCategory: "GameApplication",
+        applicationSubCategory: "Game mod",
+        ...(os.length && { operatingSystem: os.join(", ") }),
+        ...(m.version && { softwareVersion: m.version }),
+        datePublished: m.created,
+        dateModified: m.updated,
+        author: { "@type": "Person", name: m.author },
+        ...(m.license && { license: m.license }),
+        ...(m.image && { image: m.image }),
+        ...(m.screenshots.length && { screenshot: m.screenshots }),
+        sameAs: [m.repo],
+        isAccessibleForFree: true,
+        offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+        about: { "@type": "VideoGame", name: m.game },
+        publisher: { "@id": `${site}/#organization` },
+      },
+      ...m.videos.map((v) => ({
+        "@type": "VideoObject",
+        name: v.title ?? `${m.name}: ${v.caption ?? "video"}`,
+        description: v.caption ?? m.description,
+        thumbnailUrl: `https://i.ytimg.com/vi/${v.youtube}/hqdefault.jpg`,
+        uploadDate: v.uploaded ?? m.created,
+        embedUrl: `https://www.youtube-nocookie.com/embed/${v.youtube}`,
+      })),
+      breadcrumbLd([
+        { name: "Home", url: `${site}/` },
+        { name: "Mods", url: `${site}/mods` },
+        { name: m.name, url },
+      ]),
+      orgLd(site),
+    ],
+  };
+}
+
+/** schema.org description of the mod list: a collection page with each mod in order. */
+export function modsIndexLd(site: string, mods: { id: string; name: string }[]) {
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "CollectionPage",
+        "@id": `${site}/mods#page`,
+        name: "Mods for Ratchet & Clank",
+        url: `${site}/mods`,
+        isPartOf: { "@id": `${site}/#website` },
+        mainEntity: {
+          "@type": "ItemList",
+          itemListElement: mods.map((m, i) => ({ "@type": "ListItem", position: i + 1, url: `${site}/mods/${m.id}`, name: m.name })),
+        },
       },
       breadcrumbLd([
         { name: "Home", url: `${site}/` },
-        { name: "Blog", url: `${site}/blog` },
+        { name: "Mods", url: `${site}/mods` },
       ]),
     ],
   };

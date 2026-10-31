@@ -71,11 +71,10 @@ export const metadata: Metadata = {
     description,
     images: [SHARE_IMAGE],
   },
-  // Lets feed readers, scripts and AI tools find the machine-readable versions on their own.
+  // Lets scripts and AI tools find the machine-readable versions on their own.
   alternates: {
     canonical: "/",
     types: {
-      "application/rss+xml": "/blog/rss.xml",
       "application/json": "/progress.json",
       "text/plain": "/llms.txt",
     },

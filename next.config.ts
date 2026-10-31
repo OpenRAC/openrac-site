@@ -1,8 +1,9 @@
 import type { NextConfig } from "next";
 
 /**
- * Content Security Policy: what a page may load, and from where. Everything comes from this site;
- * the only outside address is the YouTube player, loaded when a visitor presses play.
+ * Content Security Policy: what a page may load, and from where. Everything comes from this site
+ * (mod pictures too, through /mods/media); the only outside address is the YouTube player, loaded
+ * when a visitor presses play.
  * Scripts and styles must allow 'unsafe-inline': Next writes its page data as inline scripts that
  * change on every build, and a per-request nonce would turn every cached page into a dynamic one.
  * Development is left without it, since the dev server evaluates code on the fly.
@@ -15,6 +16,8 @@ const CSP = [
   "font-src 'self'",
   "connect-src 'self'",
   "frame-src https://www.youtube-nocookie.com",
+  // No audio or video is ever served from here: mod videos are YouTube's, played in its frame.
+  "media-src 'none'",
   "object-src 'none'",
   "base-uri 'self'",
   "form-action 'self'",
@@ -37,8 +40,6 @@ const nextConfig: NextConfig = {
   // Minimal self-contained server in .next/standalone, used by the container image.
   output: "standalone",
   poweredByHeader: false,
-  // The blog reads Markdown files at build and revalidation time; make sure the standalone output carries them.
-  outputFileTracingIncludes: { "/blog": ["./content/blog/**/*"], "/blog/[slug]": ["./content/blog/**/*"], "/blog/rss.xml": ["./content/blog/**/*"], "/sitemap.xml": ["./content/blog/**/*"] },
   images: {
     formats: ["image/avif", "image/webp"],
     qualities: [70, 75],

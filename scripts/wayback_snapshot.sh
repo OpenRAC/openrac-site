@@ -2,11 +2,11 @@
 #
 # Saves snapshots of the OpenRAC website to the Wayback Machine (Internet Archive).
 # Usage: ./wayback_snapshot.sh [URL ...]
-# If no URLs are passed, defaults to the main site and blog.
+# If no URLs are passed, defaults to the main site and the mod list.
 #
 set -euo pipefail
 
-URLS=("${@:-https://openrac.dev/ https://openrac.dev/blog}")
+URLS=("${@:-https://openrac.dev/ https://openrac.dev/mods}")
 MAX_RETRIES=3
 RETRY_DELAY=10
 

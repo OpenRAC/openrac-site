@@ -6,7 +6,8 @@ export const dynamic = "force-static";
 /**
  * Everyone may crawl everything. Content-Signal (https://contentsignals.org) says so explicitly
  * for search, for AI answers and for AI training: we use AI ourselves, so we do not block it.
- * /llms.txt is the short map for AI tools.
+ * /llms.txt is the short map for AI tools. The mod list's filtered views (/mods?game=…) are the same
+ * page in another order, so they are kept out of the crawl (Google's faceted-navigation guidance).
  */
 export function GET() {
   const site = siteUrl();
@@ -14,6 +15,7 @@ export function GET() {
 User-agent: *
 Content-Signal: search=yes, ai-input=yes, ai-train=yes
 Allow: /
+Disallow: /mods?
 
 Sitemap: ${site}/sitemap.xml
 `;

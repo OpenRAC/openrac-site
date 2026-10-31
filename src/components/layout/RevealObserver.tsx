@@ -5,7 +5,7 @@ import { useEffect } from "react";
 
 /**
  * Adds `.in` to every `[data-reveal]` element when it scrolls into view. Renders nothing.
- * It lives in the layout, so it looks again after every client-side navigation (blog to home).
+ * It lives in the layout, so it looks again after every client-side navigation (mods to home).
  */
 export default function RevealObserver() {
   const pathname = usePathname();
