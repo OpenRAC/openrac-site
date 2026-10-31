@@ -1,19 +1,32 @@
 import { getModCatalog } from "@/lib/mods";
-import { findMedia, MEDIA_MAX_BYTES } from "@/lib/mods/media";
+import { findMedia, MEDIA_MAX_BYTES, readCached, writeCached } from "@/lib/mods/media";
 
 export const dynamic = "force-dynamic";
+
+/** The same headers whether the file came from disk or from GitHub. */
+const HEADERS = (type: string) => ({
+  "Content-Type": type,
+  "Cache-Control": "public, max-age=31536000, immutable",
+  "X-Content-Type-Options": "nosniff",
+  "Cross-Origin-Resource-Policy": "same-origin",
+  "Content-Security-Policy": "default-src 'none'; sandbox",
+});
 
 /**
  * A mod picture, by its index name (`<hash>-<width>.<avif|webp>`), fetched from the index's release
  * and passed on. Only names the index lists are served, at a capped size, with the type taken from
  * the name (never from upstream). Names are content hashes, so browsers and proxies may keep each
- * file for a year (`immutable`); visitors never contact GitHub themselves.
+ * file for a year (`immutable`); visitors never contact GitHub themselves. With MEDIA_DIR set (the
+ * container's /data/mods-media), each picture is fetched once and served from that folder after.
  */
 export async function GET(_req: Request, ctx: RouteContext<"/mods/media/[name]">) {
   const { name } = await ctx.params;
   const { catalog } = await getModCatalog();
   const found = findMedia(catalog.mods, name);
   if (!found) return new Response("Not found", { status: 404 });
+  const dir = process.env.MEDIA_DIR;
+  const cached = await readCached(dir, name);
+  if (cached) return new Response(cached as BlobPart, { headers: HEADERS(found.type) });
 
   let res: Response;
   try {
@@ -38,13 +51,12 @@ export async function GET(_req: Request, ctx: RouteContext<"/mods/media/[name]">
     }
     parts.push(value);
   }
-  return new Response(new Blob(parts as BlobPart[]), {
-    headers: {
-      "Content-Type": found.type,
-      "Cache-Control": "public, max-age=31536000, immutable",
-      "X-Content-Type-Options": "nosniff",
-      "Cross-Origin-Resource-Policy": "same-origin",
-      "Content-Security-Policy": "default-src 'none'; sandbox",
-    },
-  });
+  const bytes = new Uint8Array(size);
+  let at = 0;
+  for (const p of parts) {
+    bytes.set(p, at);
+    at += p.byteLength;
+  }
+  await writeCached(dir, name, bytes);
+  return new Response(bytes as BlobPart, { headers: HEADERS(found.type) });
 }

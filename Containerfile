@@ -29,15 +29,17 @@ LABEL org.opencontainers.image.title="OpenRAC website" \
 ENV NODE_ENV=production \
     PORT=3000 \
     HOSTNAME=0.0.0.0 \
-    IMAGE_DIR=/data/img
+    IMAGE_DIR=/data/img \
+    MEDIA_DIR=/data/mods-media
 # The standalone server needs only node itself: drop npm, npx, corepack and yarn from the
 # final image (smaller, and fewer packages for scanners to flag).
 # `.next/cache` holds the server-side page cache, so it must stay writable
 # (the Quadlet unit mounts a volume there and runs the rest read-only).
 # `/data/img` is where the card backdrops are read from; mount a folder there (see deploy/openrac.container).
+# `/data/mods-media` keeps the mod pictures once fetched from the mod index; it must be writable.
 RUN rm -rf /usr/local/lib/node_modules/npm /usr/local/lib/node_modules/corepack \
            /usr/local/bin/npm /usr/local/bin/npx /usr/local/bin/corepack /opt/yarn* /usr/local/bin/yarn /usr/local/bin/yarnpkg \
- && mkdir -p .next/cache /data/img \
+ && mkdir -p .next/cache /data/img /data/mods-media \
  && chown -R node:node /app /data
 COPY --from=build --chown=node:node /app/.next/standalone ./
 COPY --from=build --chown=node:node /app/.next/static ./.next/static
