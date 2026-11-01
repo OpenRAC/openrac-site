@@ -42,7 +42,8 @@ function fakeGitHub(manifest: object, assets: string[], repo: object = { private
   return { get, calls };
 }
 
-const good = { id: "big-jump", name: "Big jump", version: "1.0.0", api: "1.0", games: { rac1: ["pal"] }, plugin: { "linux-x86_64": "lib/x.so" }, requires: [{ id: "camera-base" }] };
+// As a repository has it: no "plugin", which packaging adds.
+const good = { id: "big-jump", name: "Big jump", version: "1.0.0", api: "1.0", games: { rac1: ["pal"] }, requires: [{ id: "camera-base" }] };
 
 test("a ready repository passes every check", async () => {
   const { get, calls } = fakeGitHub(good, ["big-jump-1.0.0-linux-x86_64.zip", "SHA256SUMS"]);
@@ -64,6 +65,20 @@ test("each problem comes with its fix", async () => {
   assert.ok(failed.some((c) => c.fix?.includes("nope")));
   assert.ok(failed.some((c) => c.label.includes("archives")));
   assert.ok(failed.every((c) => c.fix));
+});
+
+test("a release's problems are named one by one: a v in the file's name, no SHA256SUMS", async () => {
+  const { get } = fakeGitHub(good, ["big-jump-v1.0.0-linux-x86_64.zip"]);
+  const r = await checkSubmission("https://github.com/you/big-jump", get, listed);
+  assert.ok(!("error" in r));
+  assert.equal(r.ready, false);
+  const failed = r.mods[0].checks.filter((c) => !c.ok);
+  assert.deepEqual(failed.map((c) => c.label), ["The latest release has its archives", "The latest release has SHA256SUMS"]);
+  assert.match(failed[0].fix ?? "", /big-jump-v1\.0\.0-linux-x86_64\.zip must be named big-jump-1\.0\.0-linux-x86_64\.zip/);
+  // Archives but no SHA256SUMS: only that one fails.
+  const noSums = await checkSubmission("https://github.com/you/big-jump", fakeGitHub(good, ["big-jump-1.0.0-linux-x86_64.zip"]).get, listed);
+  assert.ok(!("error" in noSums));
+  assert.deepEqual(noSums.mods[0].checks.filter((c) => !c.ok).map((c) => c.label), ["The latest release has SHA256SUMS"]);
 });
 
 test("a private or missing repository stops early", async () => {
