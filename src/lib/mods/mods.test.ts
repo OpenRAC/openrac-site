@@ -32,7 +32,7 @@ const mod = (id: string) => catalog.mods.find((m) => m.id === id)!;
 
 test("the fixture is the shared one (same bytes as openrac-mods/tools/fixtures/index/index.json)", () => {
   // Change the fixture in openrac-mods first, then copy it here and update this hash.
-  assert.equal(createHash("sha256").update(raw).digest("hex"), "21de4c77ac2ef827eb295b9b930a30cb2b2e792c0648acb4cbbff29fdb78a6bd");
+  assert.equal(createHash("sha256").update(raw).digest("hex"), "f000bb611b66edeeac6b48113b491225796f4b397ca055c988473ff4098fa0d9");
 });
 
 test("semver: order, pre-releases first, constraints", () => {
@@ -216,6 +216,14 @@ test("media: only names the index lists, never a path", async () => {
   assert.equal(findMedia(catalog.mods, "000000000000-480.webp"), undefined);
   assert.equal(findMedia(catalog.mods, `..%2f${shot.hash}-480.webp`), undefined);
   assert.equal(findMedia(catalog.mods, `${shot.hash}-480.svg`), undefined);
+});
+
+test("slim: only a stated yes reaches the card as AI-assisted", async () => {
+  const { slim } = await import("./slim.ts");
+  const byId = new Map(catalog.mods.map((m) => [m.id, slim(m, catalog)]));
+  assert.equal(byId.get("lock-strafe")?.aiAssisted, true);
+  assert.equal("aiAssisted" in byId.get("xbox-icons")!, false); // stated no
+  assert.equal("aiAssisted" in byId.get("ammo-max")!, false); // not stated
 });
 
 test("slim: small per mod, no versions, files or README", async () => {

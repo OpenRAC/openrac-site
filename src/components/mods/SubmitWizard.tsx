@@ -62,6 +62,7 @@ export default function SubmitWizard({ indexRepo, tags, mods }: { indexRepo: str
   const [picked, setPicked] = useState<string[]>([]);
   const [tagOn, setTagOn] = useState<string[]>([]);
   const [impact, setImpact] = useState<Impact[]>([]);
+  const [ai, setAi] = useState<"" | "Yes" | "No">("");
   const [description, setDescription] = useState("");
   const [name, setName] = useState("");
   const [video, setVideo] = useState("");
@@ -90,7 +91,7 @@ export default function SubmitWizard({ indexRepo, tags, mods }: { indexRepo: str
     }
   };
 
-  const ready = kind === "Modpack" ? name.trim() && picked.length >= 2 && description.trim() : result?.ready && picked.length > 0;
+  const ready = kind === "Modpack" ? name.trim() && picked.length >= 2 && description.trim() : result?.ready && picked.length > 0 && ai;
   const submit = () => {
     const fields: Record<string, string> = {
       kind,
@@ -101,6 +102,7 @@ export default function SubmitWizard({ indexRepo, tags, mods }: { indexRepo: str
       description: description.trim(),
       tags: tagOn.join(","),
       impact: impact.join(","),
+      ai: kind === "Mod" ? ai : "",
       video: video.trim(),
       bugs: bugs.trim(),
       discord: discord.trim(),
@@ -196,6 +198,19 @@ export default function SubmitWizard({ indexRepo, tags, mods }: { indexRepo: str
             ))}
           </div>
         </fieldset>
+        {kind === "Mod" && (
+          <fieldset className="mb-4">
+            <legend className={label}>Did AI tools help make this mod?</legend>
+            <div className="flex flex-wrap gap-1.5">
+              {(["Yes", "No"] as const).map((a) => (
+                <button key={a} type="button" aria-pressed={ai === a} onClick={() => setAi(a)} className="chip">
+                  {a}
+                </button>
+              ))}
+            </div>
+            <p className="mt-1.5 text-[14px] text-dim">Your answer shows on the mod&apos;s page. Using AI is fine; players just get to know.</p>
+          </fieldset>
+        )}
         <div className="grid gap-4 sm:grid-cols-3">
           <label>
             <span className={label}>YouTube video</span>
@@ -219,7 +234,7 @@ export default function SubmitWizard({ indexRepo, tags, mods }: { indexRepo: str
         <button type="button" className="btn btn-primary" disabled={!ready} onClick={submit}>
           Open the submission on GitHub
         </button>
-        {!ready && <p className="mt-3 text-[14px] text-dim">{kind === "Mod" ? "Check your repository first; every check of at least one mod must pass." : "Give it a name, a line about it, and at least two mods."}</p>}
+        {!ready && <p className="mt-3 text-[14px] text-dim">{kind === "Mod" ? (result?.ready && picked.length > 0 ? "Say whether AI tools helped make this mod." : "Check your repository first; every check of at least one mod must pass.") : "Give it a name, a line about it, and at least two mods."}</p>}
       </Step>
     </div>
   );

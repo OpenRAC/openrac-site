@@ -5,7 +5,7 @@ import { useEffect, useState, ViewTransition, type ReactNode } from "react";
 import { ago, formatCount } from "@/lib/mods/logic";
 import type { SlimMod } from "@/lib/mods/slim";
 import { highlight } from "@/lib/mods/search";
-import { DiscBadges, ImpactBadges, TypeBadge, WorksBadge } from "./Badges";
+import { AiBadge, DiscBadges, ImpactBadges, TypeBadge, WorksBadge } from "./Badges";
 import ModImage from "./ModImage";
 
 /** Text with the search words marked. */
@@ -137,6 +137,8 @@ export default function ModCard({
           <span className="flex gap-1">
             <DiscBadges games={mod.games} />
           </span>
+          {/* In this row, which wraps, not on the picture's one line: it never cuts the mod's state short. */}
+          {mod.aiAssisted && <AiBadge />}
         </div>
         {actions && <div className="relative z-10 flex flex-wrap items-center gap-2 pt-1">{actions}</div>}
       </div>
