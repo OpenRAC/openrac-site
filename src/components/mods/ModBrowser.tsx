@@ -1,8 +1,8 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { useDeferredValue, useEffect, useMemo, useRef, useState, useTransition, type ReactNode } from "react";
+import { usePathname, useSearchParams } from "next/navigation";
+import { useDeferredValue, useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import { GAME_LABEL, IMPACT_LABEL, SORTS, TYPE_LABEL, sortMods, type Sort } from "@/lib/mods/logic";
 import { closest, prepare, search } from "@/lib/mods/search";
 import type { SlimMod } from "@/lib/mods/slim";
@@ -65,10 +65,8 @@ function Chips<T extends string>({ legend, items, on, label, toggle }: { legend:
  * it answers as you type. Picked mods gather in the change set at the bottom, kept across visits.
  */
 export default function ModBrowser({ mods, tags, now }: { mods: SlimMod[]; tags: string[]; now: number }) {
-  const router = useRouter();
   const pathname = usePathname();
   const params = useSearchParams();
-  const [, startTransition] = useTransition();
 
   const [q, setQ] = useState(params.get("q") ?? "");
   const query = useDeferredValue(q);
@@ -90,15 +88,15 @@ export default function ModBrowser({ mods, tags, now }: { mods: SlimMod[]; tags:
   const searchBox = useRef<HTMLInputElement>(null);
   const more = useRef<HTMLDivElement>(null);
 
-  /** Writes one setting to the address without scrolling or adding a history entry. It starts from
-   * the address as it is now, not from this render's copy: the delayed search write would otherwise
-   * undo a filter picked while it waited. */
+  /** Writes one setting to the address without scrolling or adding a history entry. Straight through
+   * the History API, which Next follows: the address changes at once, so the next write (the delayed
+   * search one) starts from it and cannot undo a filter picked while it waited. */
   const setParam = (key: string, value: string | null) => {
     const next = new URLSearchParams(location.search);
     if (value) next.set(key, value);
     else next.delete(key);
     const s = next.toString();
-    startTransition(() => router.replace(s ? `${pathname}?${s}` : pathname, { scroll: false }));
+    history.replaceState(null, "", s ? `${pathname}?${s}` : pathname);
     setShown(PAGE);
   };
   const toggleIn = (key: string, set: Set<string>, value: string) => {
@@ -165,7 +163,7 @@ export default function ModBrowser({ mods, tags, now }: { mods: SlimMod[]; tags:
   const active = types.size + impacts.size + tagOn.size + (game ? 1 : 0);
   const clearAll = () => {
     setQ("");
-    startTransition(() => router.replace(pathname, { scroll: false }));
+    history.replaceState(null, "", pathname);
   };
   const chooseView = (v: "grid" | "list") => {
     storeView(v);
