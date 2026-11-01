@@ -24,8 +24,7 @@ export default function Particles() {
       canvas.width = Math.round(w * dpr);
       canvas.height = Math.round(h * dpr);
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      // The embers take the accent (the canvas's text colour); set again here, since a resized canvas forgets it.
-      ctx.fillStyle = getComputedStyle(canvas).color;
+      ctx.fillStyle = "#f5c040";
       dots = Array.from({ length: Math.min(46, Math.floor(w / 24)) }, () => ({
         x: Math.random() * w, y: Math.random() * h,
         r: Math.random() * 1.8 + 0.6, v: Math.random() * 0.25 + 0.08, a: Math.random() * 0.5 + 0.2,
@@ -64,5 +63,5 @@ export default function Particles() {
     };
   }, []);
 
-  return <canvas ref={ref} aria-hidden="true" className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[640px] w-full text-amber" />;
+  return <canvas ref={ref} aria-hidden="true" className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[640px] w-full" />;
 }
