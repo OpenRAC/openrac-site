@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { type MouseEvent, useEffect, useState } from "react";
 import { PAGE_TRANSITION } from "@/components/layout/PageTransition";
 import { DiscordIcon, GithubIcon } from "@/components/ui/icons";
 import Logo from "@/components/ui/Logo";
@@ -113,11 +113,21 @@ export default function Header() {
 
   const close = () => setOpen(false);
 
+  // On the home page the router has nowhere to go, so the logo would do nothing: scroll to the top
+  // ourselves, and drop a #section from the address.
+  const toTop = (e: MouseEvent<HTMLAnchorElement>) => {
+    close();
+    if (!home || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
+    e.preventDefault();
+    if (location.hash) history.replaceState(history.state, "", "/");
+    window.scrollTo({ top: 0 });
+  };
+
   return (
     <>
       <header style={{ viewTransitionName: "site-header" }} className="bar-stripes fixed inset-x-0 top-0 z-30 border-b border-black/30 text-black shadow-[inset_0_1px_0_rgb(255_255_255/0.35),0_4px_24px_rgb(0_0_0/0.45)]">
         <div className="mx-auto flex h-[50px] max-w-[1080px] items-center gap-6 px-4 min-[821px]:max-[1023px]:gap-4 min-[821px]:max-[900px]:gap-2">
-          <Link href="/" transitionTypes={PAGE_TRANSITION} onClick={close} className="group flex items-center text-[#1b1206] no-underline" aria-label="OpenRAC home">
+          <Link href="/" transitionTypes={PAGE_TRANSITION} onClick={toTop} className="group flex items-center text-[#1b1206] no-underline" aria-label="OpenRAC home">
             <Logo height={34} label="" className="transition-opacity group-hover:opacity-85" />
           </Link>
 
