@@ -16,8 +16,8 @@ export default async function ModsTeaser() {
   return (
     <Section id="mods" title="Mods" sub={`${mods.length} community mods for the PC port. Install one and the launcher adds everything it needs.`}>
       <div className="grid gap-4 min-[480px]:grid-cols-2 min-[821px]:grid-cols-3 sm:gap-5">
-        {picked.map((m, i) => (
-          <ModCard key={m.id} mod={m} now={now} index={i} />
+        {picked.map((m) => (
+          <ModCard key={m.id} mod={m} now={now} />
         ))}
       </div>
       <div className="mt-6 flex flex-wrap gap-3">

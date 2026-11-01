@@ -30,11 +30,11 @@ const PAGE = 48;
 
 const list = (v: string | null) => (v ? v.split(",").filter(Boolean) : []);
 
-/** A filter in use: pressed, and a press takes it off. */
+/** A filter in use, drawn as an "on" chip; a press takes it off. */
 function Active({ label, onRemove }: { label: string; onRemove: () => void }) {
   return (
     <li>
-      <button type="button" aria-pressed="true" onClick={onRemove} className="chip" aria-label={`Remove filter: ${label}`}>
+      <button type="button" onClick={onRemove} className="chip" data-on aria-label={`Remove filter: ${label}`}>
         {label}
         <span aria-hidden className="text-[15px] leading-none">×</span>
       </button>
@@ -191,13 +191,13 @@ export default function ModBrowser({ mods, tags, now }: { mods: SlimMod[]; tags:
 
       {/* Presets: one at a time, like a radio group; a row to swipe on a narrow phone. */}
       <div className="mb-3 overflow-x-auto [scrollbar-width:none]">
-      <div role="radiogroup" aria-label="Show" className="seg">
-        {PRESETS.map((p) => (
-          <button key={p.id} type="button" role="radio" aria-checked={preset === p.id} title={p.hint} onClick={() => setParam("preset", p.id === "release" ? null : p.id)}>
-            {p.label}
-          </button>
-        ))}
-      </div>
+        <div role="radiogroup" aria-label="Show" className="seg">
+          {PRESETS.map((p) => (
+            <button key={p.id} type="button" role="radio" aria-checked={preset === p.id} title={p.hint} onClick={() => setParam("preset", p.id === "release" ? null : p.id)}>
+              {p.label}
+            </button>
+          ))}
+        </div>
       </div>
 
       <div className="mb-3 flex flex-wrap items-center gap-2">
@@ -229,7 +229,7 @@ export default function ModBrowser({ mods, tags, now }: { mods: SlimMod[]; tags:
             <path d="M2 4h12M4.5 8h7M7 12h2" />
           </svg>
           Filters
-          {active > 0 && <span className="grid min-w-5 place-items-center rounded-full bg-amber px-1.5 text-[12px] font-bold leading-5 text-on-accent">{active}</span>}
+          {active > 0 && <span className="grid min-w-5 place-items-center rounded-full bg-amber px-1.5 text-[12px] font-bold leading-5 text-[#1a0d00]">{active}</span>}
         </button>
         <label className="flex items-center gap-2 text-[14px] text-dim">
           <span>Sort</span>
@@ -308,13 +308,12 @@ export default function ModBrowser({ mods, tags, now }: { mods: SlimMod[]; tags:
           <ModTable mods={results.slice(0, shown)} now={now} query={query} sort={sort} onSort={(s) => setParam("sort", s === "trending" ? null : s)} picked={new Set(picked)} onPick={pick} />
         ) : (
           <div className="grid gap-4 min-[480px]:grid-cols-2 min-[821px]:grid-cols-3 sm:gap-5">
-            {results.slice(0, shown).map((m, i) => (
+            {results.slice(0, shown).map((m) => (
               <ModCard
                 key={m.id}
                 mod={m}
                 now={now}
                 query={query}
-                index={i % 6}
                 actions={
                   <>
                     <InstallButton mods={[{ id: m.id }]} small primary={false} devOnly={m.works !== "release"} />
@@ -340,7 +339,7 @@ export default function ModBrowser({ mods, tags, now }: { mods: SlimMod[]; tags:
       {picked.length > 0 && (
         <div className="sticky bottom-0 z-20 -mx-4 mt-6 px-4 pb-[max(12px,env(safe-area-inset-bottom))] pt-3">
           <div className="surface flex flex-wrap items-center gap-3 overflow-hidden !bg-ink p-3 pl-4 shadow-[0_-12px_40px_rgb(0_0_0/0.55)]">
-            <div aria-hidden className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-brand via-amber to-brand" />
+            <div aria-hidden className="bar-stripes absolute inset-x-0 top-0 h-1" />
             <p className="min-w-0 flex-1 text-[15px] text-soft">
               <b className="font-orbitron text-gold">{picked.length}</b> mod{picked.length === 1 ? "" : "s"} in the set
             </p>

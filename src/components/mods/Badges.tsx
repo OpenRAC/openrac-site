@@ -4,11 +4,10 @@ import type { Impact, ModType } from "@/lib/mods/types";
 // min-w-0 and a truncating label: in a one-line row (a mod card) a long badge shortens with "…" instead of spilling out.
 const pill = "inline-flex min-w-0 max-w-full items-center gap-1.5 whitespace-nowrap rounded-full border px-2 py-0.5 font-orbitron text-[10px] font-bold uppercase tracking-[.15em] leading-[1.4]";
 
-/** Every kind is calm, like the other badges: most mods are native, so a loud one would outshine the name.
-    Native keeps a small warning mark in the accent (and its title), since it runs on the player's computer. */
+/** Script and data mods are calm; native code gets the warning colour, since it runs on the player's computer. */
 const TYPE_STYLE: Record<ModType, string> = {
-  script: "border-white/15 text-soft",
-  native: "border-white/15 text-soft",
+  script: "border-amber/40 text-amber",
+  native: "border-amber/60 bg-amber/15 text-gold",
   data: "border-white/15 text-soft",
   pack: "border-discord/45 text-discord",
 };
@@ -16,7 +15,7 @@ const TYPE_STYLE: Record<ModType, string> = {
 export function TypeBadge({ type }: { type: ModType }) {
   return (
     <span className={`${pill} flex-none ${TYPE_STYLE[type]}`} title={type === "native" ? "Runs native code on your computer" : type === "script" ? "Runs scripts in the game's sandbox" : undefined}>
-      {type === "native" && <span aria-hidden className="text-amber/80">⚠</span>}
+      {type === "native" && <span aria-hidden>⚠</span>}
       <span className="truncate">{TYPE_LABEL[type]}</span>
     </span>
   );

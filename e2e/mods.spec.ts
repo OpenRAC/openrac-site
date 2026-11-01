@@ -32,10 +32,16 @@ test("browse: presets, search, filters and sort live in the address", async ({ p
   await expect(page.locator("#results article").first()).toContainText("Item randomizer");
 
   await page.getByRole("searchbox", { name: "Search mods" }).fill("");
-  await page.getByRole("button", { name: "Native", exact: true }).click();
+  // The filters live in one panel; the ones in use show under the search box, each to remove.
+  await page.getByRole("button", { name: "Filters" }).click();
+  await page.getByRole("dialog").getByRole("button", { name: "Native", exact: true }).click();
   await expect(page).toHaveURL(/type=native/);
+  await page.keyboard.press("Escape");
   await page.reload();
-  await expect(page.getByRole("button", { name: "Native", exact: true })).toHaveAttribute("aria-pressed", "true");
+  await expect(page.getByRole("button", { name: "Remove filter: Native" })).toBeVisible();
+  await page.getByRole("button", { name: /^Filters/ }).click();
+  await expect(page.getByRole("dialog").getByRole("button", { name: "Native", exact: true })).toHaveAttribute("aria-pressed", "true");
+  await page.keyboard.press("Escape");
 
   await page.getByLabel("Sort").selectOption("name");
   await expect(page).toHaveURL(/sort=name/);

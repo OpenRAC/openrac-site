@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState, ViewTransition, type CSSProperties, type ReactNode } from "react";
+import { useEffect, useState, ViewTransition, type ReactNode } from "react";
 import { ago, formatCount } from "@/lib/mods/logic";
 import type { SlimMod } from "@/lib/mods/slim";
 import { highlight } from "@/lib/mods/search";
@@ -63,8 +63,8 @@ function CardPicture({ mod, sizes, priority }: { mod: SlimMod; sizes: string; pr
           ) : null,
         )}
         {!frames.length && (
-          <svg aria-hidden viewBox="0 0 120 68" className="absolute inset-0 m-auto h-1/2 fill-amber opacity-25">
-            <path d="M60 6 70 26l22 3-16 15 4 22-20-11-20 11 4-22L28 29l22-3z" />
+          <svg aria-hidden viewBox="0 0 120 68" className="absolute inset-0 m-auto h-1/2 opacity-25">
+            <path d="M60 6 70 26l22 3-16 15 4 22-20-11-20 11 4-22L28 29l22-3z" fill="#f5c040" />
           </svg>
         )}
         {/* Dark at the bottom, fading into the card. */}
@@ -92,7 +92,6 @@ export default function ModCard({
   actions,
   sizes = "(max-width: 480px) 100vw, (max-width: 820px) 50vw, 340px",
   priority,
-  index = 0,
 }: {
   mod: SlimMod;
   now: number;
@@ -100,16 +99,15 @@ export default function ModCard({
   actions?: ReactNode;
   sizes?: string;
   priority?: boolean;
-  index?: number;
 }) {
   return (
     <article
-      style={{ "--i": index } as CSSProperties}
       className="group/card surface surface-link relative isolate flex flex-col overflow-hidden rounded-2xl [contain-intrinsic-size:auto_420px] [content-visibility:auto]"
     >
       <CardPicture mod={mod} sizes={sizes} priority={priority} />
-      {/* Under the picture, never over it: a long name or a second line of badges cannot reach into it. */}
-      <div className="relative flex flex-1 flex-col gap-2.5 p-4 sm:p-5">
+      {/* Under the picture, never over it: a long name cannot reach into it. Not positioned, so the
+          name's stretched link still covers the whole card. */}
+      <div className="flex flex-1 flex-col gap-2.5 p-4 sm:p-5">
         {/* One line of badges: a long one shortens with "…" rather than wrapping. */}
         <div className="relative flex min-w-0 gap-1.5">
           <TypeBadge type={mod.type} />

@@ -9,20 +9,15 @@
   --font-chakra: var(--font-chakra), var(--font-orbitron), sans-serif;
 }
 
-@theme static {
+@theme {
   /* Neutral darks with a hair of violet: the page, raised panels, the footer. */
   --color-ink: #12121a;
   --color-ink-deep: #0c0c12;
   --color-panel: #1d1d27;
   --color-panel-hi: #23232f;
-  /* The accent, in three shades plus the deep one under gradients and glows, and the dark text set on it. */
   --color-brand: #d6a020;
   --color-amber: #f5c040;
   --color-gold: #ffe08f;
-  --color-deep: #e8a317;
-  --color-on-accent: #1a0d00;
-  /* The header bar's own gold. */
-  --color-sun: #f5c040;
   /* Text, light to quiet. Neutral rather than blue, so the gold is the only accent. */
   --color-hi: #e6e6ec;
   --color-soft: #b4b4bf;
@@ -84,9 +79,9 @@
   }
   .btn-primary {
     border-color: var(--color-amber);
-    background: linear-gradient(to bottom, var(--color-amber), var(--color-deep));
-    color: var(--color-on-accent);
-    box-shadow: 0 6px 24px color-mix(in srgb, var(--color-deep) 30%, transparent);
+    background: linear-gradient(to bottom, var(--color-amber), #e8a317);
+    color: #1a0d00;
+    box-shadow: 0 6px 24px rgb(232 163 23 / 0.3);
   }
   .btn-sm {
     min-height: 2.5rem;
@@ -97,7 +92,7 @@
   .btn-discord { color: var(--color-discord); }
   @media (hover: hover) and (pointer: fine) {
     .btn:hover { transform: translateY(-2px); border-color: var(--color-amber); box-shadow: 0 8px 24px rgb(0 0 0 / 0.4); }
-    .btn-primary:hover { filter: brightness(1.08); box-shadow: 0 8px 28px color-mix(in srgb, var(--color-deep) 40%, transparent); }
+    .btn-primary:hover { filter: brightness(1.08); box-shadow: 0 8px 28px rgb(232 163 23 / 0.4); }
     .btn-discord:hover { border-color: var(--color-discord); }
   }
 
@@ -129,12 +124,14 @@
     background-size: 1rem;
   }
   select.field option { background: var(--color-ink); }
-  /* A small toggle: filters, tags, kinds. Pressed (aria-pressed / aria-checked) takes the accent. */
+  /* A small toggle: filters, tags, kinds. On (aria-pressed / aria-checked, or data-on for a filter in use) takes the accent. */
   .chip {
     display: inline-flex;
     align-items: center;
     gap: 0.375rem;
-    min-height: 2.25rem;
+    justify-content: center;
+    min-width: 2.5rem;
+    min-height: 2.5rem; /* 40 px each way: a fair target for a thumb */
     white-space: nowrap;
     border-radius: 9999px;
     border: 1px solid rgb(255 255 255 / 0.15);
@@ -146,7 +143,8 @@
     transition: border-color 0.2s ease, color 0.2s ease, background-color 0.2s ease;
   }
   .chip[aria-pressed="true"],
-  .chip[aria-checked="true"] {
+  .chip[aria-checked="true"],
+  .chip[data-on] {
     border-color: var(--color-amber);
     background: color-mix(in srgb, var(--color-amber) 15%, var(--color-ink));
     color: var(--color-amber);
@@ -157,13 +155,15 @@
     flex: none;
     border-radius: 9999px;
     border: 1px solid rgb(255 255 255 / 0.15);
-    padding: 3px;
+    padding: 1px;
   }
   .seg > button {
     display: inline-flex;
     align-items: center;
     gap: 0.375rem;
-    min-height: 2.25rem;
+    justify-content: center;
+    min-width: 2.5rem;
+    min-height: 2.5rem;
     white-space: nowrap;
     border-radius: 9999px;
     padding-inline: 0.875rem;
@@ -180,7 +180,7 @@
   }
   @media (hover: hover) and (pointer: fine) {
     .field:hover:not(:focus) { border-color: rgb(255 255 255 / 0.3); }
-    .chip:hover:not([aria-pressed="true"], [aria-checked="true"]) { border-color: rgb(255 255 255 / 0.3); color: var(--color-hi); }
+    .chip:hover:not([aria-pressed="true"], [aria-checked="true"], [data-on]) { border-color: rgb(255 255 255 / 0.3); color: var(--color-hi); }
     .seg > button:hover:not([aria-pressed="true"], [aria-checked="true"]) { color: var(--color-hi); }
   }
 
@@ -231,7 +231,7 @@ html {
   background: var(--color-ink);
 }
 body { background: var(--color-ink); color: var(--color-text); }
-::selection { background: color-mix(in srgb, var(--color-amber) 35%, transparent); color: #fff; }
+::selection { background: rgb(245 192 64 / 0.35); color: #fff; }
 :focus-visible { outline: 2px solid var(--color-amber); outline-offset: 3px; }
 /* An element focused only by script (tabindex="-1", such as the Download panel's heading) takes no ring: the reader did not move there with the keyboard. */
 [tabindex="-1"]:focus { outline: none; }
@@ -297,7 +297,7 @@ summary::-webkit-details-marker { display: none; }
   from { opacity: 0; translate: 0 22px; scale: 0.98; }
 }
 /* The visitor's own system: a soft gold glow. */
-.dl-mine { box-shadow: 0 0 0 1px color-mix(in srgb, var(--color-amber) 20%, transparent), 0 18px 50px -18px color-mix(in srgb, var(--color-deep) 45%, transparent); }
+.dl-mine { box-shadow: 0 0 0 1px rgb(245 192 64 / 0.2), 0 18px 50px -18px rgb(232 163 23 / 0.45); }
 /* Corner brackets, like a game's target frame: on the visitor's card, and on the card under the pointer. */
 .dl-card::before,
 .dl-card::after {
@@ -318,7 +318,7 @@ summary::-webkit-details-marker { display: none; }
 @media (hover: hover) and (pointer: fine) {
   .dl-card:hover::before,
   .dl-card:hover::after { width: 30px; height: 30px; opacity: 1; }
-  .dl-card:hover .dl-tile { transform: scale(1.06); box-shadow: 0 0 18px color-mix(in srgb, var(--color-amber) 20%, transparent); }
+  .dl-card:hover .dl-tile { transform: scale(1.06); box-shadow: 0 0 18px rgb(245 192 64 / 0.2); }
 }
 
 /* Without scripts the Download links still open it. */

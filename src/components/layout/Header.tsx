@@ -22,22 +22,22 @@ const SECTIONS = ([
 const link =
   "group/l relative flex min-h-11 items-center rounded-full px-3.5 text-[17px] font-bold no-underline transition-colors min-[821px]:min-h-9 min-[821px]:text-[15px]";
 // The open mobile menu sits on the page's colour, the bar on its stripes: light text there, dark here.
-const linkOn = "bg-white/[.06] text-sun min-[821px]:bg-[#1b1206]";
+const linkOn = "bg-white/[.06] text-amber min-[821px]:bg-[#1b1206]";
 const linkOff = "text-hi hover:bg-white/5 min-[821px]:text-[#2a1800] min-[821px]:hover:bg-black/10";
 const underline =
   "absolute inset-x-3.5 bottom-1 hidden h-0.5 origin-left scale-x-0 rounded bg-current transition-transform group-hover/l:scale-x-100 min-[821px]:block";
 const pill = "flex min-h-11 items-center justify-center rounded-full px-4 text-sm font-semibold no-underline transition-colors min-[821px]:min-h-9";
 
-/** The bar's own dark and gold, like the Download button, so the buttons on the bar read as a set.
-    The header keeps its own gold (text-sun), whatever the page's accent. */
-const filled = "bg-[#1b1206] text-sun hover:bg-[#2a1800]";
+/** The bar's own dark and gold, like the Download button, so the buttons on the bar read as a set. */
 /** The same dark, with Discord's mark in Discord's blue and GitHub's in white. */
 const discord = "bg-[#1b1206] text-discord hover:bg-[#2a1800]";
 const github = "bg-[#1b1206] text-text hover:bg-[#2a1800]";
+/** On a phone the bar's buttons are bare dark marks on the stripes: no discs or rings, a light shade under a finger. */
+const barIcon = "flex size-10 flex-none items-center justify-center rounded-full text-[#1b1206] transition-colors hover:bg-black/10 active:bg-black/15 min-[821px]:hidden";
 
 /** Mods on the bar: dark with gold like Download, filled gold while on /mods. In the open mobile menu, an outlined gold pill. */
-const modsOff = "border-sun/50 text-sun hover:bg-sun/10 min-[821px]:border-black/25 min-[821px]:bg-[#1b1206] min-[821px]:hover:bg-[#2a1800]";
-const modsOn = "border-sun bg-sun text-[#1a0d00] min-[821px]:border-black/25";
+const modsOff = "border-amber/50 text-amber hover:bg-amber/10 min-[821px]:border-black/25 min-[821px]:bg-[#1b1206] min-[821px]:hover:bg-[#2a1800]";
+const modsOn = "border-amber bg-amber text-[#1a0d00] min-[821px]:border-black/25";
 
 /** A small puzzle piece: the mark of Mods in the bar. */
 function ModsMark({ className = "size-4" }: { className?: string }) {
@@ -58,7 +58,7 @@ function MarkButton({ site, onClick, className = "" }: { site: "github" | "disco
       onClick={onClick}
       aria-label={label}
       title={label}
-      className={`flex size-11 flex-none items-center justify-center rounded-full transition-colors min-[821px]:size-9 ${className}`}
+      className={`flex flex-none items-center justify-center rounded-full transition-colors ${className}`}
     >
       <Icon className="size-[20px] min-[821px]:size-[18px]" />
     </a>
@@ -128,23 +128,23 @@ export default function Header() {
             aria-label="Mods"
             title="Mods"
             aria-current={inMods ? "page" : undefined}
-            className={`ml-auto flex size-11 flex-none items-center justify-center rounded-full transition-colors min-[821px]:hidden ${inMods ? "bg-sun text-[#1a0d00] ring-2 ring-[#1b1206]" : "bg-[#1b1206] text-sun"}`}
+            className={`${barIcon} ml-auto ${inMods ? "bg-black/15" : ""}`}
           >
             <ModsMark className="size-[20px]" />
           </Link>
-          <MarkButton site="github" onClick={close} className={`${github} -ml-3 min-[821px]:hidden`} />
-          <MarkButton site="discord" onClick={close} className={`${discord} -ml-3 min-[821px]:hidden`} />
+          <MarkButton site="github" onClick={close} className={`${barIcon} -ml-5`} />
+          <MarkButton site="discord" onClick={close} className={`${barIcon} -ml-5`} />
           <button
             type="button"
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
             aria-controls="nav"
             onClick={() => setOpen((o) => !o)}
-            className={`${filled} relative -ml-3 size-11 flex-none rounded-full transition-colors min-[821px]:hidden`}
+            className={`${barIcon} relative -ml-5`}
           >
             <span
               aria-hidden
-              className={`absolute left-[12px] top-[20px] h-0.5 w-[18px] rounded bg-sun transition before:absolute before:left-0 before:top-[-6px] before:h-0.5 before:w-[18px] before:rounded before:bg-sun before:transition before:content-[''] after:absolute after:left-0 after:top-[6px] after:h-0.5 after:w-[18px] after:rounded after:bg-sun after:transition after:content-[''] ${open ? "bg-transparent before:translate-y-[6px] before:rotate-45 after:-translate-y-[6px] after:-rotate-45" : ""}`}
+              className={`absolute left-[11px] top-[19px] h-0.5 w-[18px] rounded bg-[#1b1206] transition before:absolute before:left-0 before:top-[-6px] before:h-0.5 before:w-[18px] before:rounded before:bg-[#1b1206] before:transition before:content-[''] after:absolute after:left-0 after:top-[6px] after:h-0.5 after:w-[18px] after:rounded after:bg-[#1b1206] after:transition after:content-[''] ${open ? "bg-transparent before:translate-y-[6px] before:rotate-45 after:-translate-y-[6px] after:-rotate-45" : ""}`}
             />
           </button>
 
@@ -174,11 +174,11 @@ export default function Header() {
                 Mods
               </Link>
               {/* The home page's Download panel; elsewhere it goes home and opens it there. */}
-              <Link href="/#download" transitionTypes={PAGE_TRANSITION} onClick={close} className={`${pill} border border-sun bg-sun text-[#1a0d00] hover:brightness-110 min-[821px]:border-black/25 min-[821px]:bg-[#1b1206] min-[821px]:text-sun min-[821px]:hover:bg-[#2a1800] min-[821px]:hover:brightness-100`}>
+              <Link href="/#download" transitionTypes={PAGE_TRANSITION} onClick={close} className={`${pill} border border-amber bg-amber text-[#1a0d00] hover:brightness-110 min-[821px]:border-black/25 min-[821px]:bg-[#1b1206] min-[821px]:text-amber min-[821px]:hover:bg-[#2a1800] min-[821px]:hover:brightness-100`}>
                 Download
               </Link>
-              <MarkButton site="github" onClick={close} className={`${github} max-[821px]:hidden`} />
-              <MarkButton site="discord" onClick={close} className={`${discord} max-[821px]:hidden`} />
+              <MarkButton site="github" onClick={close} className={`${github} size-9 max-[821px]:hidden`} />
+              <MarkButton site="discord" onClick={close} className={`${discord} size-9 max-[821px]:hidden`} />
             </div>
           </nav>
         </div>
