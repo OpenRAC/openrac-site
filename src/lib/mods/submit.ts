@@ -62,12 +62,7 @@ function checkManifest(m: Manifest): Check[] {
     { ok: typeof m.version === "string" && SEMVER.test(m.version), label: "The version is MAJOR.MINOR.PATCH", fix: 'Set "version" like "1.0.0".', link: `${SDK}/manifest.md` },
     { ok: type === "data" || (typeof m.api === "string" && API.test(m.api)), label: "It names the mod interface it was made for", fix: 'Set "api" like "1.1".', link: `${SDK}/manifest.md` },
     { ok: !!games, label: "It names its games and discs", fix: 'Set "games" like {"rac1": ["pal", "ntsc"]}.', link: `${SDK}/manifest.md` },
-    {
-      ok: type !== "native" || (!!m.plugin && typeof m.plugin === "object" && Object.keys(m.plugin).some((p) => PLATFORMS.includes(p))),
-      label: "A native mod has a library for at least one system",
-      fix: "Build with the SDK's CMake (openrac_add_mod): it fills in \"plugin\".",
-      link: `${SDK}/packaging-and-releases.md`,
-    },
+    // Not "plugin": packaging adds it, so a repository's own manifest rightly has none. The release's archives show a mod is built.
   ];
 }
 
@@ -122,12 +117,26 @@ export async function checkSubmission(input: string, get: GitHubGet, listed: Lis
     mine.push({ ok: missing.length === 0, label: "Everything it requires is listed", fix: `List these first, or drop them from "requires": ${missing.join(", ")}.` });
     if (type === "native") {
       const archives = PLATFORMS.filter((p) => assets.has(`${id}-${version}-${p}.zip`));
+      // The usual slip: the tag's "v" in the file's name.
+      const withV = PLATFORMS.find((p) => assets.has(`${id}-v${version}-${p}.zip`));
       mine.push({
-        ok: !!release && archives.length > 0 && assets.has("SHA256SUMS"),
-        label: "The latest release has archives and SHA256SUMS",
-        fix: release ? `Release ${id}-${version}-<system>.zip files and SHA256SUMS: the template's workflow does it on a tag.` : "Make a release: tag a version and the template's workflow builds it.",
+        ok: !!release && archives.length > 0,
+        label: "The latest release has its archives",
+        fix: !release
+          ? "Make a release: tag a version and the template's workflow builds it."
+          : withV
+            ? `${id}-v${version}-${withV}.zip must be named ${id}-${version}-${withV}.zip: no "v" before the version.`
+            : `Release ${id}-${version}-<system>.zip files: the template's workflow does it on a tag.`,
         link: `${SDK}/packaging-and-releases.md`,
       });
+      if (release) {
+        mine.push({
+          ok: assets.has("SHA256SUMS"),
+          label: "The latest release has SHA256SUMS",
+          fix: "Upload SHA256SUMS to this release (sha256sum *.zip > SHA256SUMS): the launcher checks each download against it. The template's workflow does it on a tag.",
+          link: `${SDK}/packaging-and-releases.md`,
+        });
+      }
     }
     mods.push({ id, name: String(m.name ?? id), version, type, path: path.replace(/\/?openrac-mod\.json$/, ""), requires, checks: mine });
   }
