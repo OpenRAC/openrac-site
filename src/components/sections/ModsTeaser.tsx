@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { PAGE_TRANSITION } from "@/components/layout/PageTransition";
 import Section from "@/components/ui/Section";
 import ModCard from "@/components/mods/ModCard";
 import { getModCatalog } from "@/lib/mods";
@@ -20,7 +21,7 @@ export default async function ModsTeaser() {
         ))}
       </div>
       <div className="mt-6 flex flex-wrap gap-3">
-        <Link href="/mods" className="btn">
+        <Link href="/mods" transitionTypes={PAGE_TRANSITION} className="btn">
           Browse all mods
         </Link>
         <Link href="/mods/submit" className="btn">

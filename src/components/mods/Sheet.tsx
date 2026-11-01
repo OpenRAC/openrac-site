@@ -37,7 +37,7 @@ export default function Sheet({ open, onClose, title, children, actions, wide = 
       onClick={(e) => e.target === e.currentTarget && ref.current?.close()}
       className={`m-0 mt-auto w-full max-w-none overflow-hidden rounded-t-2xl border border-line bg-ink p-0 text-text shadow-[0_-20px_60px_rgb(0_0_0/0.6)] backdrop:bg-black/70 backdrop:backdrop-blur-[2px] min-[821px]:m-auto min-[821px]:rounded-2xl ${wide ? "min-[821px]:max-w-[720px]" : "min-[821px]:max-w-[520px]"}`}
     >
-      <div aria-hidden className="bar-stripes h-1" />
+      <div aria-hidden className="h-1 bg-gradient-to-r from-brand via-amber to-brand" />
       <div className="flex max-h-[min(85svh,760px)] flex-col">
         <div className="overflow-y-auto overscroll-contain px-5 pb-4 pt-5 sm:px-6">
           <h2 id={id} ref={heading} tabIndex={-1} className="mb-3 font-audiowide text-[22px] leading-tight text-hi">

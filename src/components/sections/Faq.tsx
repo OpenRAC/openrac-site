@@ -80,7 +80,7 @@ export default function Faq() {
               {/* A real button-looking control, so it is plain that the row opens. */}
               <span
                 aria-hidden
-                className="plus flex size-9 flex-none items-center justify-center rounded-full border border-brand/50 bg-brand/15 font-orbitron text-[20px] leading-none text-amber transition group-hover:bg-brand group-hover:text-[#1a0d00] group-open:bg-brand group-open:text-[#1a0d00]"
+                className="plus flex size-9 flex-none items-center justify-center rounded-full border border-brand/50 bg-brand/15 font-orbitron text-[20px] leading-none text-amber transition group-hover:bg-brand group-hover:text-on-accent group-open:bg-brand group-open:text-on-accent"
               >
                 +
               </span>

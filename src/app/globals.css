@@ -9,15 +9,22 @@
   --font-chakra: var(--font-chakra), var(--font-orbitron), sans-serif;
 }
 
-@theme {
+@theme static {
   /* Neutral darks with a hair of violet: the page, raised panels, the footer. */
   --color-ink: #12121a;
   --color-ink-deep: #0c0c12;
   --color-panel: #1d1d27;
   --color-panel-hi: #23232f;
+  /* The accent, in three shades plus the deep one under gradients and glows, and the dark text set on it.
+     Gold on most pages; /mods swaps all five for its own (see "Accent" below). */
   --color-brand: #d6a020;
   --color-amber: #f5c040;
   --color-gold: #ffe08f;
+  --color-deep: #e8a317;
+  --color-on-accent: #1a0d00;
+  /* Fixed colours that never follow the accent: the header bar's gold, and the mint that marks Mods there. */
+  --color-sun: #f5c040;
+  --color-mint: #3dd6c0;
   /* Text, light to quiet. Neutral rather than blue, so the gold is the only accent. */
   --color-hi: #e6e6ec;
   --color-soft: #b4b4bf;
@@ -49,6 +56,30 @@
   }
 }
 
+/* Hover effects only for a real pointer: on touch screens a tap leaves :hover stuck under the finger
+   (lifted buttons, zoomed pictures). Every `hover:` and `group-hover:` in the markup goes through this. */
+@custom-variant hover (@media (hover: hover) and (pointer: fine) { &:hover });
+
+/* Accent: gold on the site, mint on /mods (data-accent on <html>, set before the first paint by the
+   script in layout.tsx and on every navigation by AccentSync). The colours are registered, so the
+   browser can animate them: going between / and /mods everything in the accent fades across at once. */
+@property --color-brand { syntax: "<color>"; inherits: true; initial-value: #d6a020; }
+@property --color-amber { syntax: "<color>"; inherits: true; initial-value: #f5c040; }
+@property --color-gold { syntax: "<color>"; inherits: true; initial-value: #ffe08f; }
+@property --color-deep { syntax: "<color>"; inherits: true; initial-value: #e8a317; }
+@property --color-on-accent { syntax: "<color>"; inherits: true; initial-value: #1a0d00; }
+:root {
+  transition: --color-brand 0.6s ease, --color-amber 0.6s ease, --color-gold 0.6s ease, --color-deep 0.6s ease, --color-on-accent 0.6s ease;
+}
+/* Mint: tools and tinkering, calm on the dark page, and far from Discord's blue on the same buttons. */
+:root[data-accent="mods"] {
+  --color-brand: #1fae9b;
+  --color-amber: #3dd6c0;
+  --color-gold: #a8f0e3;
+  --color-deep: #22b8a5;
+  --color-on-accent: #04201c;
+}
+
 /* The header bar: wide stripes of two close golds, as the launcher draws it. */
 @utility bar-stripes {
   background: repeating-linear-gradient(35deg, #c99222 0 20px, #bd8619 20px 40px);
@@ -75,9 +106,9 @@
   }
   .btn-primary {
     border-color: var(--color-amber);
-    background: linear-gradient(to bottom, var(--color-amber), #e8a317);
-    color: #1a0d00;
-    box-shadow: 0 6px 24px rgb(232 163 23 / 0.3);
+    background: linear-gradient(to bottom, var(--color-amber), var(--color-deep));
+    color: var(--color-on-accent);
+    box-shadow: 0 6px 24px color-mix(in srgb, var(--color-deep) 30%, transparent);
   }
   .btn-sm {
     min-height: 2.5rem;
@@ -86,9 +117,9 @@
   }
   /* A plain button whose text and mark are Discord's blue. */
   .btn-discord { color: var(--color-discord); }
-  @media (hover: hover) {
+  @media (hover: hover) and (pointer: fine) {
     .btn:hover { transform: translateY(-2px); border-color: var(--color-amber); box-shadow: 0 8px 24px rgb(0 0 0 / 0.4); }
-    .btn-primary:hover { filter: brightness(1.08); box-shadow: 0 8px 28px rgb(232 163 23 / 0.4); }
+    .btn-primary:hover { filter: brightness(1.08); box-shadow: 0 8px 28px color-mix(in srgb, var(--color-deep) 40%, transparent); }
     .btn-discord:hover { border-color: var(--color-discord); }
   }
 
@@ -100,7 +131,7 @@
     background: color-mix(in srgb, white 1.8%, var(--color-ink));
     transition: transform 0.2s ease, border-color 0.2s ease;
   }
-  @media (hover: hover) {
+  @media (hover: hover) and (pointer: fine) {
     .surface-link:hover { transform: translateY(-3px); border-color: var(--color-brand); }
   }
 }
@@ -139,7 +170,7 @@ html {
   background: var(--color-ink);
 }
 body { background: var(--color-ink); color: var(--color-text); }
-::selection { background: rgb(245 192 64 / 0.35); color: #fff; }
+::selection { background: color-mix(in srgb, var(--color-amber) 35%, transparent); color: #fff; }
 :focus-visible { outline: 2px solid var(--color-amber); outline-offset: 3px; }
 /* An element focused only by script (tabindex="-1", such as the Download panel's heading) takes no ring: the reader did not move there with the keyboard. */
 [tabindex="-1"]:focus { outline: none; }
@@ -205,7 +236,7 @@ summary::-webkit-details-marker { display: none; }
   from { opacity: 0; translate: 0 22px; scale: 0.98; }
 }
 /* The visitor's own system: a soft gold glow. */
-.dl-mine { box-shadow: 0 0 0 1px rgb(245 192 64 / 0.2), 0 18px 50px -18px rgb(232 163 23 / 0.45); }
+.dl-mine { box-shadow: 0 0 0 1px color-mix(in srgb, var(--color-amber) 20%, transparent), 0 18px 50px -18px color-mix(in srgb, var(--color-deep) 45%, transparent); }
 /* Corner brackets, like a game's target frame: on the visitor's card, and on the card under the pointer. */
 .dl-card::before,
 .dl-card::after {
@@ -223,10 +254,10 @@ summary::-webkit-details-marker { display: none; }
 .dl-mine::before,
 .dl-mine::after { border-color: var(--color-amber); opacity: 1; }
 .dl-tile { transition: transform 0.25s ease, box-shadow 0.25s ease; }
-@media (hover: hover) {
+@media (hover: hover) and (pointer: fine) {
   .dl-card:hover::before,
   .dl-card:hover::after { width: 30px; height: 30px; opacity: 1; }
-  .dl-card:hover .dl-tile { transform: scale(1.06); box-shadow: 0 0 18px rgb(245 192 64 / 0.2); }
+  .dl-card:hover .dl-tile { transform: scale(1.06); box-shadow: 0 0 18px color-mix(in srgb, var(--color-amber) 20%, transparent); }
 }
 
 /* Without scripts the Download links still open it. */
@@ -242,9 +273,20 @@ summary::-webkit-details-marker { display: none; }
   [data-reveal]:not(.in) .bar-fill { transform: none; }
 }
 
-/* View transitions (mod card -> mod page): the header stays put, and no movement for anyone who asked
-   for less motion; the page then simply changes, as without the API. */
-::view-transition-group(site-header) { animation: none; }
+/* View transitions (mod card -> mod page, and between the home page and /mods): the header stays put,
+   and no movement for anyone who asked for less motion; the page then simply changes, as without the API. */
+::view-transition-group(site-header) { animation: none; z-index: 100; }
+::view-transition-old(site-header) { display: none; }
+::view-transition-new(site-header) { animation: none; }
+/* Clicks during the short fade reach the new page. */
+::view-transition { pointer-events: none; }
+/* Between whole pages (PageTransition.tsx): the old one fades out quickly, the new one rises in. */
+::view-transition-old(.page-fade) { animation: 160ms ease-in both vt-fade reverse; }
+::view-transition-new(.page-fade) { animation: 260ms ease-out 100ms both vt-fade, 420ms cubic-bezier(0.2, 0.8, 0.2, 1) both vt-rise; }
+@keyframes vt-fade { from { opacity: 0; } }
+@keyframes vt-rise { from { translate: 0 14px; } }
+/* A full page load from this site (the back button after a reload, a link opened plainly) crossfades too. */
+@view-transition { navigation: auto; }
 @media (prefers-reduced-motion: reduce) {
   ::view-transition-group(*), ::view-transition-old(*), ::view-transition-new(*) { animation: none !important; }
 }

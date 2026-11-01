@@ -30,16 +30,19 @@ const PAGE = 48;
 
 const list = (v: string | null) => (v ? v.split(",").filter(Boolean) : []);
 
+/** A small toggle pill for presets and filters: compact, no lift on hover, still a fair target for a thumb. */
 const chip = (on: boolean) =>
-  `btn btn-sm min-h-11 min-[821px]:min-h-10 ${on ? "!border-amber text-amber" : "text-soft"}`;
+  `inline-flex min-h-9 items-center whitespace-nowrap rounded-full border px-3 text-[13px] font-semibold leading-none transition-colors min-[821px]:min-h-8 ${
+    on ? "border-amber bg-amber/15 text-amber" : "border-white/15 bg-[color-mix(in_srgb,white_3%,var(--color-ink))] text-soft hover:border-white/30 hover:text-hi"
+  }`;
 
 /** A labelled group of toggle chips: a fieldset, so a screen reader hears the group's name. */
 function Chips<T extends string>({ legend, items, on, label, toggle }: { legend: string; items: T[]; on: Set<T>; label: (t: T) => string; toggle: (t: T) => void }) {
   if (!items.length) return null;
   return (
     <fieldset className="min-w-0">
-      <legend className="mb-2 font-orbitron text-[11px] font-bold uppercase tracking-[.2em] text-dim">{legend}</legend>
-      <div className="flex flex-wrap gap-2">
+      <legend className="mb-1.5 font-orbitron text-[11px] font-bold uppercase tracking-[.2em] text-dim">{legend}</legend>
+      <div className="flex flex-wrap gap-1.5">
         {items.map((t) => (
           <button key={t} type="button" aria-pressed={on.has(t)} onClick={() => toggle(t)} className={chip(on.has(t))}>
             {label(t)}
@@ -162,7 +165,7 @@ export default function ModBrowser({ mods, tags, now }: { mods: SlimMod[]; tags:
   };
 
   const filters: ReactNode = (
-    <div className="grid gap-5 min-[821px]:flex min-[821px]:flex-wrap min-[821px]:gap-x-8 min-[821px]:gap-y-4">
+    <div className="grid gap-5 min-[821px]:flex min-[821px]:flex-wrap min-[821px]:gap-x-6 min-[821px]:gap-y-3">
       {games.length > 1 && (
         <Chips legend="Game" items={games} on={new Set(game ? [game] : [])} label={(g) => GAME_LABEL[g] ?? g} toggle={(g) => setParam("game", game === g ? null : g)} />
       )}
@@ -181,7 +184,7 @@ export default function ModBrowser({ mods, tags, now }: { mods: SlimMod[]; tags:
       </a>
 
       {/* Presets: one at a time, like a radio group. */}
-      <div role="radiogroup" aria-label="Show" className="mb-4 flex gap-2 overflow-x-auto pb-1 [scrollbar-width:none]">
+      <div role="radiogroup" aria-label="Show" className="mb-4 flex gap-1.5 overflow-x-auto pb-1 [scrollbar-width:none]">
         {PRESETS.map((p) => (
           <button key={p.id} type="button" role="radio" aria-checked={preset === p.id} title={p.hint} onClick={() => setParam("preset", p.id === "release" ? null : p.id)} className={`${chip(preset === p.id)} flex-none`}>
             {p.label}
@@ -316,7 +319,7 @@ export default function ModBrowser({ mods, tags, now }: { mods: SlimMod[]; tags:
       {picked.length > 0 && (
         <div className="sticky bottom-0 z-20 -mx-4 mt-6 px-4 pb-[max(12px,env(safe-area-inset-bottom))] pt-3">
           <div className="surface flex flex-wrap items-center gap-3 overflow-hidden !bg-ink p-3 pl-4 shadow-[0_-12px_40px_rgb(0_0_0/0.55)]">
-            <div aria-hidden className="bar-stripes absolute inset-x-0 top-0 h-1" />
+            <div aria-hidden className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-brand via-amber to-brand" />
             <p className="min-w-0 flex-1 text-[15px] text-soft">
               <b className="font-orbitron text-gold">{picked.length}</b> mod{picked.length === 1 ? "" : "s"} in the set
             </p>

@@ -34,7 +34,7 @@ export default function YouTubeFacade({ id, title, thumbnail, label }: { id: str
               <Image src={thumbnail} alt="" fill sizes="(min-width: 1080px) 340px, (min-width: 640px) 45vw, 100vw" className="object-cover transition duration-300 group-hover:scale-105" />
             )}
             <span aria-hidden className="absolute inset-0 bg-black/30 transition group-hover:bg-black/15" />
-            <span aria-hidden className="relative flex size-16 items-center justify-center rounded-full bg-brand text-[#1a0d00] shadow-[0_6px_24px_rgb(0_0_0/0.5)] transition group-hover:scale-110">
+            <span aria-hidden className="relative flex size-16 items-center justify-center rounded-full bg-brand text-on-accent shadow-[0_6px_24px_rgb(0_0_0/0.5)] transition group-hover:scale-110">
               <svg viewBox="0 0 24 24" className="ml-1 size-7 fill-current"><path d="M8 5v14l11-7z" /></svg>
             </span>
           </button>

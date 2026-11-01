@@ -299,11 +299,14 @@ export function modsIndexLd(site: string, mods: { id: string; name: string }[]) 
       {
         "@type": "CollectionPage",
         "@id": `${site}/mods#page`,
-        name: "Mods for Ratchet & Clank",
+        name: "Ratchet & Clank PC Mods",
+        description: "Community mods for OpenRAC, the native PC port of Ratchet & Clank, installed in one click by the launcher.",
         url: `${site}/mods`,
+        inLanguage: "en",
         isPartOf: { "@id": `${site}/#website` },
         mainEntity: {
           "@type": "ItemList",
+          numberOfItems: mods.length,
           itemListElement: mods.map((m, i) => ({ "@type": "ListItem", position: i + 1, url: `${site}/mods/${m.id}`, name: m.name })),
         },
       },

@@ -63,8 +63,8 @@ function CardPicture({ mod, sizes, priority }: { mod: SlimMod; sizes: string; pr
           ) : null,
         )}
         {!frames.length && (
-          <svg aria-hidden viewBox="0 0 120 68" className="absolute inset-0 m-auto h-1/2 opacity-25">
-            <path d="M60 6 70 26l22 3-16 15 4 22-20-11-20 11 4-22L28 29l22-3z" fill="#f5c040" />
+          <svg aria-hidden viewBox="0 0 120 68" className="absolute inset-0 m-auto h-1/2 fill-amber opacity-25">
+            <path d="M60 6 70 26l22 3-16 15 4 22-20-11-20 11 4-22L28 29l22-3z" />
           </svg>
         )}
         {/* Dark at the bottom, where the badges sit over the picture. */}
@@ -92,7 +92,6 @@ export default function ModCard({
   actions,
   sizes = "(max-width: 480px) 100vw, (max-width: 820px) 50vw, 340px",
   priority,
-  glow,
   index = 0,
 }: {
   mod: SlimMod;
@@ -101,16 +100,16 @@ export default function ModCard({
   actions?: ReactNode;
   sizes?: string;
   priority?: boolean;
-  glow?: boolean;
   index?: number;
 }) {
   return (
     <article
       style={{ "--i": index } as CSSProperties}
-      className={`dl-card group/card surface relative isolate flex flex-col overflow-hidden rounded-2xl [contain-intrinsic-size:auto_420px] [content-visibility:auto] ${glow ? "dl-mine" : ""}`}
+      className="dl-card group/card surface relative isolate flex flex-col overflow-hidden rounded-2xl [contain-intrinsic-size:auto_420px] [content-visibility:auto]"
     >
       <CardPicture mod={mod} sizes={sizes} priority={priority} />
-      <div className="-mt-9 flex flex-1 flex-col gap-2.5 p-4 pt-0 sm:p-5 sm:pt-0">
+      {/* Over the picture's dark bottom edge, and drawn above it (relative): a long name never slides under the picture. */}
+      <div className="relative -mt-9 flex flex-1 flex-col gap-2.5 p-4 pt-0 sm:p-5 sm:pt-0">
         <div className="relative flex flex-wrap gap-1.5">
           <TypeBadge type={mod.type} />
           <WorksBadge works={mod.works} />

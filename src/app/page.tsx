@@ -1,3 +1,4 @@
+import PageTransition from "@/components/layout/PageTransition";
 import Activity from "@/components/sections/Activity";
 import AiView from "@/components/sections/AiView";
 import Contribute from "@/components/sections/Contribute";
@@ -23,6 +24,7 @@ export default async function Home() {
   const [progress, commits, release, dev] = await Promise.all([getProgress(), getActivity(), getLauncherRelease(), getDevBuild()]);
 
   return (
+    <PageTransition>
     <main className="mx-auto max-w-[1080px] px-4">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: ldJson(homeLd(siteUrl(), release)) }} />
       <Hero progress={progress} />
@@ -38,5 +40,6 @@ export default async function Home() {
       <Credits />
       <Legal />
     </main>
+    </PageTransition>
   );
 }
