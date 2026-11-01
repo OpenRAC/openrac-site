@@ -27,7 +27,7 @@ export function Marked({ text, query }: { text: string; query?: string }) {
 }
 
 /** The card's picture: its banner, then, under a pointer, the screenshots one after another (loaded only once hovered). */
-function CardPicture({ mod, sizes, priority }: { mod: SlimMod; sizes: string; priority?: boolean }) {
+function CardPicture({ mod, sizes, priority, children }: { mod: SlimMod; sizes: string; priority?: boolean; children?: ReactNode }) {
   const [hovered, setHovered] = useState(false);
   const [i, setI] = useState(0);
   const frames = [mod.card, ...mod.shots.filter((s) => s.hash !== mod.card?.hash)].filter((f) => f !== null);
@@ -67,8 +67,9 @@ function CardPicture({ mod, sizes, priority }: { mod: SlimMod; sizes: string; pr
             <path d="M60 6 70 26l22 3-16 15 4 22-20-11-20 11 4-22L28 29l22-3z" fill="#f5c040" />
           </svg>
         )}
-        {/* Dark at the bottom, fading into the card. */}
-        <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-ink/60 to-transparent to-50%" />
+        {/* Dark at the bottom, where the badges sit over the picture. */}
+        <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-ink via-ink/20 to-transparent" />
+        {children}
         {mod.hasVideo && (
           <span role="img" aria-label="Has a video" className="absolute right-3 top-3 flex size-8 items-center justify-center rounded-full bg-ink/80 text-amber ring-1 ring-white/15">
             <svg viewBox="0 0 24 24" aria-hidden className="ml-0.5 size-4 fill-current">
@@ -104,16 +105,17 @@ export default function ModCard({
     <article
       className="group/card surface surface-link relative isolate flex flex-col overflow-hidden rounded-2xl [contain-intrinsic-size:auto_420px] [content-visibility:auto]"
     >
-      <CardPicture mod={mod} sizes={sizes} priority={priority} />
-      {/* Under the picture, never over it: a long name cannot reach into it. Not positioned, so the
-          name's stretched link still covers the whole card. */}
-      <div className="flex flex-1 flex-col gap-2.5 p-4 sm:p-5">
-        {/* One line of badges: a long one shortens with "…" rather than wrapping. */}
-        <div className="relative flex min-w-0 gap-1.5">
+      <CardPicture mod={mod} sizes={sizes} priority={priority}>
+        {/* One line of badges on the picture's dark bottom edge: a long one shortens with "…" rather than wrapping. */}
+        <div className="absolute inset-x-4 bottom-3 flex min-w-0 gap-1.5 sm:inset-x-5">
           <TypeBadge type={mod.type} />
           <WorksBadge works={mod.works} />
           <ImpactBadges impact={mod.impact} max={1} />
         </div>
+      </CardPicture>
+      {/* The name sits under the picture, never over it, so a long one cannot reach into it. Not
+          positioned, so the name's stretched link still covers the whole card. */}
+      <div className="flex flex-1 flex-col gap-2.5 p-4 sm:p-5">
         <div className="min-w-0">
           <h3 className="font-orbitron text-[17px] font-bold leading-tight text-hi [overflow-wrap:anywhere]">
             {/* The card's one link, stretched over the whole card. */}
