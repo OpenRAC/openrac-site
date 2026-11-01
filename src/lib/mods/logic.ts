@@ -49,6 +49,9 @@ export function isRevoked(revoked: Revoked[], id: string, version: string): bool
   return revoked.some((r) => r.id === id && (r.versions.includes("*") || r.versions.includes(version)));
 }
 
+/** Taken off the list as a whole (every version revoked): its page stays, but it is no longer offered. */
+export const isWithdrawn = (revoked: Revoked[], id: string) => revoked.some((r) => r.id === id && r.versions.includes("*"));
+
 /** The versions a player may be offered, newest first. */
 export function offered(mod: Mod, revoked: Revoked[], prerelease = false): ModVersion[] {
   return mod.versions.filter((v) => !isRevoked(revoked, mod.id, v.version) && (prerelease || !v.prerelease));

@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import type { ReactNode } from "react";
+import { ViewTransition, type ReactNode } from "react";
 import { DiscordIcon, GithubIcon } from "@/components/ui/icons";
+import Boundary from "@/components/ui/Boundary";
 import Markdown from "@/components/ui/Markdown";
 import AddToSet from "@/components/mods/AddToSet";
 import { DiscBadges, ImpactBadges, TypeBadge, WorksBadge } from "@/components/mods/Badges";
@@ -28,6 +29,7 @@ import {
   dependents,
   formatCount,
   isRevoked,
+  isWithdrawn,
   latest,
   mediaSrc,
   widthFor,
@@ -49,14 +51,17 @@ const shortGame = (m: ListedMod) => (Object.keys(m.games)[0] ?? "rac1").toUpperC
 
 export async function generateMetadata(props: PageProps<"/mods/[id]">): Promise<Metadata> {
   const { id } = await props.params;
-  const { mod } = await getMod(id);
+  const { mod, catalog } = await getMod(id);
   if (!mod) return { title: "Mod not found", robots: { index: false } };
+  // A mod taken off the list keeps its page (old links still explain why) but leaves search results.
+  const withdrawn = isWithdrawn(catalog.revoked, mod.id);
   const title = `${mod.name} · ${shortGame(mod)} mod`;
   const description = mod.description.length > 155 ? `${mod.description.slice(0, 152).trimEnd()}…` : mod.description;
   return {
     title,
     description,
     alternates: { canonical: `/mods/${mod.id}` },
+    ...(withdrawn && { robots: { index: false, follow: true } }),
     openGraph: { title: `${title} · OpenRAC`, description, url: `/mods/${mod.id}`, type: "website" },
     twitter: { card: "summary_large_image", title: `${title} · OpenRAC`, description },
   };
@@ -150,7 +155,7 @@ export default async function ModPage(props: PageProps<"/mods/[id]">) {
   const byId = new Map(all.map((m) => [m.id, m]));
   const v = latest(mod, catalog.revoked);
   const works = worksWith(mod, catalog.ports, catalog.revoked);
-  const revokedAll = catalog.revoked.some((r) => r.id === mod.id && r.versions.includes("*"));
+  const revokedAll = isWithdrawn(catalog.revoked, mod.id);
   const banner = mod.media.banner ?? mod.media.screenshots[0] ?? null;
   const [blur, discussion] = await Promise.all([thumbDataUrl(banner?.thumbhash), getDiscussion(mod.indexSource, mod.discussion)]);
   const discussionUrl = mod.discussion ? `${mod.indexSource.replace(/\/$/, "")}/discussions/${mod.discussion}` : undefined;
@@ -194,9 +199,12 @@ export default async function ModPage(props: PageProps<"/mods/[id]">) {
 
       {/* The hero: the banner full width, darkened where the title sits. */}
       <div className="relative isolate overflow-hidden border-b border-line">
-        <div aria-hidden className="absolute inset-0 -z-10 bg-gradient-to-br from-panel-hi to-ink bg-cover bg-center" style={blur ? { backgroundImage: `url(${blur})` } : undefined}>
-          {banner && <ModImage img={slimImageOf(banner)!} sizes="100vw" priority className="size-full object-cover saturate-[.8]" style={{ backgroundColor: "transparent" }} />}
-        </div>
+        {/* Named like the mod's card in the list: the card's picture grows into this banner. */}
+        <ViewTransition name={`mod-${mod.id}`} share="morph" default="none">
+          <div aria-hidden className="absolute inset-0 -z-10 bg-gradient-to-br from-panel-hi to-ink bg-cover bg-center" style={blur ? { backgroundImage: `url(${blur})` } : undefined}>
+            {banner && <ModImage img={slimImageOf(banner)!} sizes="100vw" priority className="size-full object-cover saturate-[.8]" style={{ backgroundColor: "transparent" }} />}
+          </div>
+        </ViewTransition>
         <div aria-hidden className="absolute inset-0 -z-10 bg-gradient-to-t from-ink via-ink/75 to-ink/20" />
         <div className="mx-auto max-w-[1080px] px-4 pb-8 pt-[clamp(120px,22vw,240px)]">
           <nav aria-label="Breadcrumb" className="mb-3 text-[13px] text-dim">
@@ -283,7 +291,9 @@ export default async function ModPage(props: PageProps<"/mods/[id]">) {
             {gallery.length > 0 && (
               <section id="showcase" data-reveal="fade" className="scroll-mt-28 pt-8">
                 <h2 className="sr-only">Showcase</h2>
-                <MediaGallery items={gallery} name={mod.name} />
+                <Boundary what="gallery">
+                  <MediaGallery items={gallery} name={mod.name} />
+                </Boundary>
               </section>
             )}
 

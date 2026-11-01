@@ -241,3 +241,10 @@ summary::-webkit-details-marker { display: none; }
   [data-reveal]:not(.in) { opacity: 1; transform: none; }
   [data-reveal]:not(.in) .bar-fill { transform: none; }
 }
+
+/* View transitions (mod card -> mod page): the header stays put, and no movement for anyone who asked
+   for less motion; the page then simply changes, as without the API. */
+::view-transition-group(site-header) { animation: none; }
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*), ::view-transition-old(*), ::view-transition-new(*) { animation: none !important; }
+}

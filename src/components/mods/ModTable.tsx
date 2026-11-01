@@ -69,7 +69,7 @@ export default function ModTable({
         </thead>
         <tbody>
           {mods.map((m) => (
-            <tr key={m.id} className="relative border-t border-line first:border-0 hover:bg-white/[.02] max-[821px]:grid max-[821px]:grid-cols-[auto_1fr_auto] max-[821px]:items-center max-[821px]:gap-x-3 max-[821px]:px-3 max-[821px]:py-3">
+            <tr key={m.id} className="group/row relative border-t border-line first:border-0 hover:bg-white/[.02] max-[821px]:grid max-[821px]:grid-cols-[auto_1fr_auto] max-[821px]:items-center max-[821px]:gap-x-3 max-[821px]:px-3 max-[821px]:py-3">
               <td className="px-3 py-2 max-[821px]:row-span-2 max-[821px]:p-0">
                 <label className="relative z-10 flex size-11 cursor-pointer items-center justify-center rounded-lg hover:bg-white/5">
                   <input type="checkbox" checked={picked.has(m.id)} onChange={() => onPick(m.id)} className="size-[18px] accent-amber" />
@@ -90,6 +90,14 @@ export default function ModTable({
                     <p className="text-[13px] text-dim">
                       by <Marked text={m.author} query={query} />
                     </p>
+                    {/* Under a pointer, a peek at the screenshots (hidden until then, so they load only when shown). */}
+                    {m.shots.length > 0 && (
+                      <div aria-hidden className="mt-1.5 hidden gap-1.5 [@media(hover:hover)]:group-hover/row:flex">
+                        {m.shots.map((s) => (
+                          <ModImage key={s.hash} img={s} sizes="96px" className="aspect-video w-24 rounded object-cover" />
+                        ))}
+                      </div>
+                    )}
                   </div>
                 </div>
               </td>

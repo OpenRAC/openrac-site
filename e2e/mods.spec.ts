@@ -149,7 +149,8 @@ test("mods.json: the list for scripts, without server-only parts", async ({ requ
   expect(r.headers()["access-control-allow-origin"]).toBe("*");
   expect(r.headers()["cache-control"]).toContain("stale-if-error");
   const body = await r.json();
-  expect(body.mods.length).toBe(10);
+  expect(body.mods.length).toBe(11); // the withdrawn test mod too: scripts see it with its reason in "revoked"
+  expect(body.revoked.some((r: { id: string }) => r.id === "gone-mod")).toBe(true);
   expect("mediaBase" in body.mods[0]).toBe(false);
 });
 
@@ -227,4 +228,33 @@ test("shared setup: exact versions, unknown ones flagged, kept out of search", a
   await expect(page.getByText("Not in the mod list any more")).toBeVisible();
   await expect(page.getByRole("button", { name: "Install 1 at these versions" })).toBeVisible();
   await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", /noindex/);
+});
+
+test("a mod taken off the list keeps its page, explains why, and leaves search", async ({ page, request }) => {
+  expect((await page.goto("/mods/gone-mod"))?.status()).toBe(200);
+  await expect(page.getByText("This mod was taken off the list.")).toBeVisible();
+  await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", /noindex/);
+  await expect(page.getByRole("button", { name: "Install", exact: true })).toHaveCount(0);
+  expect(await request.get("/sitemap.xml").then((r) => r.text())).not.toContain("/mods/gone-mod");
+});
+
+test("performance: the mod list ships little JavaScript, and nothing shifts", async ({ page }) => {
+  await page.goto("/mods", { waitUntil: "networkidle" });
+  const js = await page.evaluate(() =>
+    performance.getEntriesByType("resource").filter((e) => (e as PerformanceResourceTiming).initiatorType === "script").reduce((a, e) => a + ((e as PerformanceResourceTiming).encodedBodySize || 0), 0),
+  );
+  // 171 KB compressed when this was written (the whole site's shared code included); a jump past
+  // 200 KB means something heavy reached the browser.
+  expect(js).toBeLessThan(200 * 1024);
+  const shift = await page.evaluate(
+    () =>
+      new Promise<number>((done) => {
+        let total = 0;
+        new PerformanceObserver((list) => {
+          for (const e of list.getEntries() as (PerformanceEntry & { value: number; hadRecentInput: boolean })[]) if (!e.hadRecentInput) total += e.value;
+        }).observe({ type: "layout-shift", buffered: true });
+        setTimeout(() => done(total), 1000);
+      }),
+  );
+  expect(shift).toBeLessThan(0.1); // Core Web Vitals' "good" for CLS
 });
