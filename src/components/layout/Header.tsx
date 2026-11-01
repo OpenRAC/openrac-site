@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useLayoutEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { PAGE_TRANSITION } from "@/components/layout/PageTransition";
 import { DiscordIcon, GithubIcon } from "@/components/ui/icons";
 import Logo from "@/components/ui/Logo";
@@ -29,15 +29,15 @@ const underline =
 const pill = "flex min-h-11 items-center justify-center rounded-full px-4 text-sm font-semibold no-underline transition-colors min-[821px]:min-h-9";
 
 /** The bar's own dark and gold, like the Download button, so the buttons on the bar read as a set.
-    The header keeps its gold on every page (text-sun, never the page's accent); only Mods wears copper. */
+    The header keeps its own gold (text-sun), whatever the page's accent. */
 const filled = "bg-[#1b1206] text-sun hover:bg-[#2a1800]";
 /** The same dark, with Discord's mark in Discord's blue and GitHub's in white. */
 const discord = "bg-[#1b1206] text-discord hover:bg-[#2a1800]";
 const github = "bg-[#1b1206] text-text hover:bg-[#2a1800]";
 
-/** Mods on the bar: dark with copper, filled copper while on /mods. In the open mobile menu, an outlined copper pill. */
-const modsOff = "border-mods/50 text-mods hover:bg-mods/10 min-[821px]:border-black/25 min-[821px]:bg-[#1b1206] min-[821px]:hover:bg-[#2a1800]";
-const modsOn = "border-mods bg-mods text-[#2a1206]";
+/** Mods on the bar: dark with gold like Download, filled gold while on /mods. In the open mobile menu, an outlined gold pill. */
+const modsOff = "border-sun/50 text-sun hover:bg-sun/10 min-[821px]:border-black/25 min-[821px]:bg-[#1b1206] min-[821px]:hover:bg-[#2a1800]";
+const modsOn = "border-sun bg-sun text-[#1a0d00] min-[821px]:border-black/25";
 
 /** A small puzzle piece: the mark of Mods in the bar. */
 function ModsMark({ className = "size-4" }: { className?: string }) {
@@ -76,13 +76,6 @@ export default function Header() {
   const inMods = pathname === "/mods" || pathname.startsWith("/mods/");
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState<string | null>(null);
-
-  // The page's accent follows the address (the first paint is set by the script in layout.tsx). A layout
-  // effect, so the change lands in the same frame as the new page and its colours fade across with it.
-  useLayoutEffect(() => {
-    if (inMods) document.documentElement.dataset.accent = "mods";
-    else delete document.documentElement.dataset.accent;
-  }, [inMods]);
 
   // Scroll-spy: the section crossing the middle of the screen is the current one.
   useEffect(() => {
@@ -135,7 +128,7 @@ export default function Header() {
             aria-label="Mods"
             title="Mods"
             aria-current={inMods ? "page" : undefined}
-            className={`ml-auto flex size-11 flex-none items-center justify-center rounded-full transition-colors min-[821px]:hidden ${inMods ? "bg-mods text-[#2a1206]" : "bg-[#1b1206] text-mods"}`}
+            className={`ml-auto flex size-11 flex-none items-center justify-center rounded-full transition-colors min-[821px]:hidden ${inMods ? "bg-sun text-[#1a0d00] ring-2 ring-[#1b1206]" : "bg-[#1b1206] text-sun"}`}
           >
             <ModsMark className="size-[20px]" />
           </Link>
@@ -175,7 +168,7 @@ export default function Header() {
               )}
             </div>
             <div className="grid gap-2 min-[821px]:ml-auto min-[821px]:flex min-[821px]:items-center">
-              {/* Mods, set apart from the home page's sections: its own page, in its own copper. */}
+              {/* Mods, set apart from the home page's sections: its own page, with its own mark. */}
               <Link href="/mods" transitionTypes={PAGE_TRANSITION} onClick={close} aria-current={inMods ? "page" : undefined} className={`${pill} gap-2 border ${inMods ? modsOn : modsOff}`}>
                 <ModsMark />
                 Mods

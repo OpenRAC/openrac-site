@@ -16,7 +16,7 @@ export default function Particles() {
     const ctx = canvas?.getContext("2d");
     if (!canvas || !ctx || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
-    let w = 0, h = 0, dots: Dot[] = [], raf = 0, visible = false, frame = 0;
+    let w = 0, h = 0, dots: Dot[] = [], raf = 0, visible = false;
     const resize = () => {
       const dpr = Math.min(window.devicePixelRatio || 1, 2);
       w = canvas.offsetWidth;
@@ -24,15 +24,14 @@ export default function Particles() {
       canvas.width = Math.round(w * dpr);
       canvas.height = Math.round(h * dpr);
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      frame = 0; // a resized canvas forgets its fill colour
+      // The embers take the accent (the canvas's text colour); set again here, since a resized canvas forgets it.
+      ctx.fillStyle = getComputedStyle(canvas).color;
       dots = Array.from({ length: Math.min(46, Math.floor(w / 24)) }, () => ({
         x: Math.random() * w, y: Math.random() * h,
         r: Math.random() * 1.8 + 0.6, v: Math.random() * 0.25 + 0.08, a: Math.random() * 0.5 + 0.2,
       }));
     };
     const loop = () => {
-      // The embers take the page's accent (the canvas's text colour), looked up a few times a second so they follow its fade.
-      if (frame++ % 12 === 0) ctx.fillStyle = getComputedStyle(canvas).color;
       ctx.clearRect(0, 0, w, h);
       for (const d of dots) {
         d.y -= d.v;

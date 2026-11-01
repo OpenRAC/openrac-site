@@ -97,15 +97,14 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body className="font-sans text-base leading-relaxed antialiased">
         {/* The logo over a blank page until the fonts are in, then a fade: the page never pops in
             half-styled. A timer lifts it anyway; without scripts there is none (globals.css). Coming
-            from another page of the site the fonts are already in, so it is lifted at once. The same
-            script picks the accent (copper on /mods) before the first paint; Header keeps it in step after. */}
+            from another page of the site the fonts are already in, so it is lifted at once. */}
         <div id="splash" aria-hidden className="splash">
           <Logo height={44} label="" accent className="text-text" />
         </div>
         <script
           dangerouslySetInnerHTML={{
             __html:
-              "(function(){var d=document.documentElement,r=function(){d.classList.add('ready')};if(/^\\/mods(\\/|$)/.test(location.pathname))d.dataset.accent='mods';try{if(new URL(document.referrer).origin===location.origin)r()}catch(e){}setTimeout(r,1500);if(document.fonts)document.fonts.ready.then(r);})()",
+              "(function(){var d=document.documentElement,r=function(){d.classList.add('ready')};try{if(new URL(document.referrer).origin===location.origin)r()}catch(e){}setTimeout(r,1500);if(document.fonts)document.fonts.ready.then(r);})()",
           }}
         />
         {/* Glows in the hero reach past the viewport; clip them so phones never scroll sideways.

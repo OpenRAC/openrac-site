@@ -15,16 +15,14 @@
   --color-ink-deep: #0c0c12;
   --color-panel: #1d1d27;
   --color-panel-hi: #23232f;
-  /* The accent, in three shades plus the deep one under gradients and glows, and the dark text set on it.
-     Gold on most pages; /mods swaps all five for its own (see "Accent" below). */
+  /* The accent, in three shades plus the deep one under gradients and glows, and the dark text set on it. */
   --color-brand: #d6a020;
   --color-amber: #f5c040;
   --color-gold: #ffe08f;
   --color-deep: #e8a317;
   --color-on-accent: #1a0d00;
-  /* Fixed colours that never follow the accent: the header bar's gold, and the copper that marks Mods there. */
+  /* The header bar's own gold. */
   --color-sun: #f5c040;
-  --color-mods: #e58d61;
   /* Text, light to quiet. Neutral rather than blue, so the gold is the only accent. */
   --color-hi: #e6e6ec;
   --color-soft: #b4b4bf;
@@ -59,27 +57,6 @@
 /* Hover effects only for a real pointer: on touch screens a tap leaves :hover stuck under the finger
    (lifted buttons, zoomed pictures). Every `hover:` and `group-hover:` in the markup goes through this. */
 @custom-variant hover (@media (hover: hover) and (pointer: fine) { &:hover });
-
-/* Accent: gold on the site, copper on /mods (data-accent on <html>, set before the first paint by the
-   script in layout.tsx and on every navigation by AccentSync). The colours are registered, so the
-   browser can animate them: going between / and /mods everything in the accent fades across at once. */
-@property --color-brand { syntax: "<color>"; inherits: true; initial-value: #d6a020; }
-@property --color-amber { syntax: "<color>"; inherits: true; initial-value: #f5c040; }
-@property --color-gold { syntax: "<color>"; inherits: true; initial-value: #ffe08f; }
-@property --color-deep { syntax: "<color>"; inherits: true; initial-value: #e8a317; }
-@property --color-on-accent { syntax: "<color>"; inherits: true; initial-value: #1a0d00; }
-:root {
-  transition: --color-brand 0.6s ease, --color-amber 0.6s ease, --color-gold 0.6s ease, --color-deep 0.6s ease, --color-on-accent 0.6s ease;
-}
-/* Copper: the gold's neighbour on the colour wheel (an analogous pair, about 25° warmer and a little
-   less saturated), so the two sit together on the same bar; warm metal, like a workshop's tools. */
-:root[data-accent="mods"] {
-  --color-brand: #cc6d3e;
-  --color-amber: #e58d61;
-  --color-gold: #f8c9aa;
-  --color-deep: #d87246;
-  --color-on-accent: #2a1206;
-}
 
 /* The header bar: wide stripes of two close golds, as the launcher draws it. */
 @utility bar-stripes {

@@ -7,8 +7,8 @@ import type { ReactNode } from "react";
  */
 
 const INK = "#0c0c12";
-// The accent's three shades, as CSS variables: gold on the site, copper on /mods (globals.css). Set through
-// `style`, since SVG attributes do not read variables everywhere.
+// The accent's three shades, as the theme's CSS variables (globals.css). Set through `style`, since SVG
+// attributes do not read variables everywhere.
 const GOLD = "var(--color-amber)";
 const GOLD_DARK = "var(--color-brand)";
 const GOLD_LIGHT = "var(--color-gold)";
