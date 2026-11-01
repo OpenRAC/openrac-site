@@ -51,7 +51,13 @@
 
 /* Hover effects only for a real pointer: on touch screens a tap leaves :hover stuck under the finger
    (lifted buttons, zoomed pictures). Every `hover:` and `group-hover:` in the markup goes through this. */
-@custom-variant hover (@media (hover: hover) and (pointer: fine) { &:hover });
+@custom-variant hover {
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      @slot;
+    }
+  }
+}
 
 /* The header bar: wide stripes of two close golds, as the launcher draws it. */
 @utility bar-stripes {
@@ -124,23 +130,27 @@
     background-size: 1rem;
   }
   select.field option { background: var(--color-ink); }
-  /* A small toggle: filters, tags, kinds. On (aria-pressed / aria-checked, or data-on for a filter in use) takes the accent. */
-  .chip {
+  /* Small toggles: filter chips, and the choices of a segmented control (.seg). At least 40 px each way,
+     a fair target for a thumb. On (aria-pressed / aria-checked, or data-on for a filter in use) takes the accent. */
+  .chip,
+  .seg > button {
     display: inline-flex;
     align-items: center;
-    gap: 0.375rem;
     justify-content: center;
+    gap: 0.375rem;
     min-width: 2.5rem;
-    min-height: 2.5rem; /* 40 px each way: a fair target for a thumb */
+    min-height: 2.5rem;
     white-space: nowrap;
     border-radius: 9999px;
-    border: 1px solid rgb(255 255 255 / 0.15);
-    background: color-mix(in srgb, white 3%, var(--color-ink));
     padding-inline: 0.875rem;
-    font-size: 13px;
     font-weight: 600;
     color: var(--color-soft);
     transition: border-color 0.2s ease, color 0.2s ease, background-color 0.2s ease;
+  }
+  .chip {
+    border: 1px solid rgb(255 255 255 / 0.15);
+    background: color-mix(in srgb, white 3%, var(--color-ink));
+    font-size: 13px;
   }
   .chip[aria-pressed="true"],
   .chip[aria-checked="true"],
@@ -157,21 +167,7 @@
     border: 1px solid rgb(255 255 255 / 0.15);
     padding: 1px;
   }
-  .seg > button {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.375rem;
-    justify-content: center;
-    min-width: 2.5rem;
-    min-height: 2.5rem;
-    white-space: nowrap;
-    border-radius: 9999px;
-    padding-inline: 0.875rem;
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--color-soft);
-    transition: color 0.2s ease, background-color 0.2s ease;
-  }
+  .seg > button { font-size: 14px; }
   @media (max-width: 479px) { .seg > button { padding-inline: 0.7rem; } }
   .seg > button[aria-pressed="true"],
   .seg > button[aria-checked="true"] {

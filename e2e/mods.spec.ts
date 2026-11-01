@@ -33,7 +33,7 @@ test("browse: presets, search, filters and sort live in the address", async ({ p
 
   await page.getByRole("searchbox", { name: "Search mods" }).fill("");
   // The filters live in one panel; the ones in use show under the search box, each to remove.
-  await page.getByRole("button", { name: "Filters" }).click();
+  await page.getByRole("button", { name: "Filters", exact: true }).click();
   await page.getByRole("dialog").getByRole("button", { name: "Native", exact: true }).click();
   await expect(page).toHaveURL(/type=native/);
   await page.keyboard.press("Escape");
