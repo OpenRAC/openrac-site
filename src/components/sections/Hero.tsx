@@ -5,8 +5,8 @@ import type { ProjectId } from "@/lib/projects";
 import CountUp from "@/components/ui/CountUp";
 import Particles from "@/components/ui/Particles";
 
-/** The top of the home page: headline, the two main buttons and three headline numbers. */
-export default function Hero({ progress }: { progress: Partial<Record<ProjectId, ProjectProgress>> }) {
+/** The top of the home page: headline, the two main buttons and four headline numbers. */
+export default function Hero({ progress, mods }: { progress: Partial<Record<ProjectId, ProjectProgress>>; mods: number }) {
   const active = Object.values(progress);
   const bytes = active.reduce((sum, p) => sum + (p?.code.done ?? 0), 0);
 
@@ -44,10 +44,12 @@ export default function Hero({ progress }: { progress: Partial<Record<ProjectId,
         </a>
       </div>
 
-      <div className="mt-10 grid max-w-[760px] animate-rise grid-cols-3 gap-2.5 sm:mt-12 sm:gap-3.5 [animation-delay:.6s]">
+      <div className={`mt-10 grid animate-rise gap-2.5 sm:mt-12 sm:gap-3.5 [animation-delay:.6s] ${mods ? "max-w-[900px] grid-cols-2 min-[560px]:grid-cols-4" : "max-w-[760px] grid-cols-3"}`}>
         {[
           [<CountUp key="t" value={new Set(PROJECTS.map((p) => p.name)).size} />, "titles tracked"],
           [<CountUp key="a" value={active.length} />, "active projects"],
+          // Left out while the mod list cannot be read, rather than claiming none.
+          ...(mods ? [[<CountUp key="m" value={mods} />, "community mods"]] : []),
           [<span key="b">{formatSize(bytes)}</span>, "of code verified across projects"],
         ].map(([value, label], i) => (
           <div key={i} className="surface px-3 py-3 sm:px-[18px] sm:py-4">

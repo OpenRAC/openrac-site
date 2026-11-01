@@ -1,3 +1,4 @@
+import PageTransition from "@/components/layout/PageTransition";
 import Activity from "@/components/sections/Activity";
 import AiView from "@/components/sections/AiView";
 import Contribute from "@/components/sections/Contribute";
@@ -7,10 +8,11 @@ import Faq from "@/components/sections/Faq";
 import Hero from "@/components/sections/Hero";
 import HowItWorks from "@/components/sections/HowItWorks";
 import Legal from "@/components/sections/Legal";
-import ModsTeaser from "@/components/sections/ModsTeaser";
 import Progress from "@/components/sections/Progress";
 import Resources from "@/components/sections/Resources";
 import { getActivity } from "@/lib/activity";
+import { getModCatalog } from "@/lib/mods";
+import { isWithdrawn } from "@/lib/mods/logic";
 import { homeLd, ldJson, siteUrl } from "@/lib/machine";
 import { getProgress } from "@/lib/progress";
 import { getDevBuild, getLauncherRelease } from "@/lib/releases";
@@ -20,15 +22,17 @@ export const revalidate = 300;
 
 /** The home page: every section in order, with the progress, activity and latest launcher builds loaded on the server. */
 export default async function Home() {
-  const [progress, commits, release, dev] = await Promise.all([getProgress(), getActivity(), getLauncherRelease(), getDevBuild()]);
+  const [progress, commits, release, dev, { catalog }] = await Promise.all([getProgress(), getActivity(), getLauncherRelease(), getDevBuild(), getModCatalog()]);
+  // Counted as on /mods, so the two numbers agree.
+  const mods = catalog.mods.filter((m) => !isWithdrawn(catalog.revoked, m.id)).length;
 
   return (
+    <PageTransition>
     <main className="mx-auto max-w-[1080px] px-4">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: ldJson(homeLd(siteUrl(), release)) }} />
-      <Hero progress={progress} />
+      <Hero progress={progress} mods={mods} />
       <Download release={release} dev={dev} />
       <Progress progress={progress} />
-      <ModsTeaser />
       <Contribute />
       <Activity commits={commits} />
       <HowItWorks />
@@ -38,5 +42,6 @@ export default async function Home() {
       <Credits />
       <Legal />
     </main>
+    </PageTransition>
   );
 }

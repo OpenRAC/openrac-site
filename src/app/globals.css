@@ -49,6 +49,16 @@
   }
 }
 
+/* Hover effects only for a real pointer: on touch screens a tap leaves :hover stuck under the finger
+   (lifted buttons, zoomed pictures). Every `hover:` and `group-hover:` in the markup goes through this. */
+@custom-variant hover {
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      @slot;
+    }
+  }
+}
+
 /* The header bar: wide stripes of two close golds, as the launcher draws it. */
 @utility bar-stripes {
   background: repeating-linear-gradient(35deg, #c99222 0 20px, #bd8619 20px 40px);
@@ -86,10 +96,88 @@
   }
   /* A plain button whose text and mark are Discord's blue. */
   .btn-discord { color: var(--color-discord); }
-  @media (hover: hover) {
+  @media (hover: hover) and (pointer: fine) {
     .btn:hover { transform: translateY(-2px); border-color: var(--color-amber); box-shadow: 0 8px 24px rgb(0 0 0 / 0.4); }
     .btn-primary:hover { filter: brightness(1.08); box-shadow: 0 8px 28px rgb(232 163 23 / 0.4); }
     .btn-discord:hover { border-color: var(--color-discord); }
+  }
+
+  /* Form controls, one look for all: as tall as a button, the same border and fill, the accent on focus. */
+  .field {
+    height: 2.75rem;
+    width: 100%;
+    border-radius: 9999px;
+    border: 1px solid rgb(255 255 255 / 0.18);
+    background: color-mix(in srgb, white 3%, var(--color-ink));
+    padding-inline: 1.125rem;
+    font-size: 16px; /* 16 px or more: phones do not zoom in on focus */
+    color: var(--color-text);
+    transition: border-color 0.2s ease;
+  }
+  .field::placeholder { color: var(--color-dim); }
+  .field:focus { border-color: var(--color-amber); outline: none; }
+  textarea.field { height: auto; min-height: 6rem; border-radius: 1rem; padding-block: 0.75rem; }
+  /* A dropdown: the same field with its own arrow. */
+  select.field {
+    width: auto;
+    appearance: none;
+    cursor: pointer;
+    padding-right: 2.5rem;
+    font-size: 15px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='m4 6 4 4 4-4' fill='none' stroke='%238b8b98' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.875rem center;
+    background-size: 1rem;
+  }
+  select.field option { background: var(--color-ink); }
+  /* Small toggles: filter chips, and the choices of a segmented control (.seg). At least 40 px each way,
+     a fair target for a thumb. On (aria-pressed / aria-checked, or data-on for a filter in use) takes the accent. */
+  .chip,
+  .seg > button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.375rem;
+    min-width: 2.5rem;
+    min-height: 2.5rem;
+    white-space: nowrap;
+    border-radius: 9999px;
+    padding-inline: 0.875rem;
+    font-weight: 600;
+    color: var(--color-soft);
+    transition: border-color 0.2s ease, color 0.2s ease, background-color 0.2s ease;
+  }
+  .chip {
+    border: 1px solid rgb(255 255 255 / 0.15);
+    background: color-mix(in srgb, white 3%, var(--color-ink));
+    font-size: 13px;
+  }
+  .chip[aria-pressed="true"],
+  .chip[aria-checked="true"],
+  .chip[data-on] {
+    border-color: var(--color-amber);
+    background: color-mix(in srgb, var(--color-amber) 15%, var(--color-ink));
+    color: var(--color-amber);
+  }
+  /* A row of choices in one pill, one of them on: the list's presets, Showcase or List. */
+  .seg {
+    display: inline-flex;
+    flex: none;
+    border-radius: 9999px;
+    border: 1px solid rgb(255 255 255 / 0.15);
+    padding: 1px;
+  }
+  .seg > button { font-size: 14px; }
+  @media (max-width: 479px) { .seg > button { padding-inline: 0.7rem; } }
+  .seg > button[aria-pressed="true"],
+  .seg > button[aria-checked="true"] {
+    background: color-mix(in srgb, var(--color-amber) 15%, transparent);
+    color: var(--color-amber);
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .field:hover:not(:focus) { border-color: rgb(255 255 255 / 0.3); }
+    .chip:hover:not([aria-pressed="true"], [aria-checked="true"], [data-on]) { border-color: rgb(255 255 255 / 0.3); color: var(--color-hi); }
+    .seg > button:hover:not([aria-pressed="true"], [aria-checked="true"]) { color: var(--color-hi); }
   }
 
   /* A raised panel: info cards, resources, mod panels. */
@@ -100,7 +188,7 @@
     background: color-mix(in srgb, white 1.8%, var(--color-ink));
     transition: transform 0.2s ease, border-color 0.2s ease;
   }
-  @media (hover: hover) {
+  @media (hover: hover) and (pointer: fine) {
     .surface-link:hover { transform: translateY(-3px); border-color: var(--color-brand); }
   }
 }
@@ -223,7 +311,7 @@ summary::-webkit-details-marker { display: none; }
 .dl-mine::before,
 .dl-mine::after { border-color: var(--color-amber); opacity: 1; }
 .dl-tile { transition: transform 0.25s ease, box-shadow 0.25s ease; }
-@media (hover: hover) {
+@media (hover: hover) and (pointer: fine) {
   .dl-card:hover::before,
   .dl-card:hover::after { width: 30px; height: 30px; opacity: 1; }
   .dl-card:hover .dl-tile { transform: scale(1.06); box-shadow: 0 0 18px rgb(245 192 64 / 0.2); }
@@ -242,9 +330,20 @@ summary::-webkit-details-marker { display: none; }
   [data-reveal]:not(.in) .bar-fill { transform: none; }
 }
 
-/* View transitions (mod card -> mod page): the header stays put, and no movement for anyone who asked
-   for less motion; the page then simply changes, as without the API. */
-::view-transition-group(site-header) { animation: none; }
+/* View transitions (mod card -> mod page, and between the home page and /mods): the header stays put,
+   and no movement for anyone who asked for less motion; the page then simply changes, as without the API. */
+::view-transition-group(site-header) { animation: none; z-index: 100; }
+::view-transition-old(site-header) { display: none; }
+::view-transition-new(site-header) { animation: none; }
+/* Clicks during the short fade reach the new page. */
+::view-transition { pointer-events: none; }
+/* Between whole pages (PageTransition.tsx): the old one fades out quickly, the new one rises in. */
+::view-transition-old(.page-fade) { animation: 160ms ease-in both vt-fade reverse; }
+::view-transition-new(.page-fade) { animation: 260ms ease-out 100ms both vt-fade, 420ms cubic-bezier(0.2, 0.8, 0.2, 1) both vt-rise; }
+@keyframes vt-fade { from { opacity: 0; } }
+@keyframes vt-rise { from { translate: 0 14px; } }
+/* A full page load from this site (the back button after a reload, a link opened plainly) crossfades too. */
+@view-transition { navigation: auto; }
 @media (prefers-reduced-motion: reduce) {
   ::view-transition-group(*), ::view-transition-old(*), ::view-transition-new(*) { animation: none !important; }
 }

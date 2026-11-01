@@ -88,7 +88,9 @@ function SystemCard({ p, i, mine, release, dev, devAgo, fallback }: {
 
       <div className="self-end pt-5">
         {p.main ? (
-          <a href={p.main.url} className={`btn w-full ${mine ? "btn-primary" : ""}`} download>
+          // Through the site's own redirect (app/download/[platform]): a short, stable address that
+          // always gives the latest release's file.
+          <a href={`/download/${p.id}`} className={`btn w-full ${mine ? "btn-primary" : ""}`}>
             <svg viewBox="0 0 16 16" aria-hidden="true" className="size-4 flex-none fill-none stroke-current stroke-2">
               <path d="M8 2v8m-3.5-3.5L8 10l3.5-3.5M3 13.5h10" strokeLinecap="round" strokeLinejoin="round" />
             </svg>

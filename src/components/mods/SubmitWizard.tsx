@@ -6,9 +6,7 @@ import { issueUrl, type Check, type SubmitCheck } from "@/lib/mods/submit";
 import type { Impact } from "@/lib/mods/types";
 
 const IMPACTS: Impact[] = ["cosmetic", "gameplay", "speedrun-safe", "touches-saves", "online"];
-const input = "h-12 w-full rounded-xl border border-white/15 bg-[color-mix(in_srgb,white_3%,var(--color-ink))] px-4 text-[16px] text-text placeholder:text-dim focus:border-amber focus:outline-none";
 const label = "mb-1.5 block font-orbitron text-[11px] font-bold uppercase tracking-[.2em] text-dim";
-const chip = (on: boolean) => `btn btn-sm min-h-11 ${on ? "!border-amber text-amber" : "text-soft"}`;
 
 function CheckList({ checks }: { checks: Check[] }) {
   return (
@@ -112,9 +110,9 @@ export default function SubmitWizard({ indexRepo, tags, mods }: { indexRepo: str
 
   return (
     <div className="grid gap-5">
-      <div role="radiogroup" aria-label="What are you listing" className="flex gap-2">
+      <div role="radiogroup" aria-label="What are you listing" className="seg w-fit">
         {(["Mod", "Modpack"] as const).map((k) => (
-          <button key={k} type="button" role="radio" aria-checked={kind === k} onClick={() => (setKind(k), setPicked([]))} className={chip(kind === k)}>
+          <button key={k} type="button" role="radio" aria-checked={kind === k} onClick={() => (setKind(k), setPicked([]))}>
             {k === "Mod" ? "A mod" : "A modpack"}
           </button>
         ))}
@@ -125,7 +123,7 @@ export default function SubmitWizard({ indexRepo, tags, mods }: { indexRepo: str
           <form onSubmit={check} className="flex flex-wrap gap-2.5">
             <label className="min-w-0 flex-1 basis-[280px]">
               <span className="sr-only">GitHub repository address</span>
-              <input className={input} type="url" inputMode="url" required placeholder="https://github.com/you/your-mod" value={repo} onChange={(e) => setRepo(e.target.value)} />
+              <input className="field" type="url" inputMode="url" required placeholder="https://github.com/you/your-mod" value={repo} onChange={(e) => setRepo(e.target.value)} />
             </label>
             <button type="submit" className="btn btn-primary" disabled={busy}>
               {busy ? "Checking…" : "Check it"}
@@ -156,7 +154,7 @@ export default function SubmitWizard({ indexRepo, tags, mods }: { indexRepo: str
         <Step n={1} title="What goes in it">
           <label className="mb-4 block">
             <span className={label}>Name</span>
-            <input className={input} value={name} onChange={(e) => setName(e.target.value)} placeholder="Randomizer night" />
+            <input className="field" value={name} onChange={(e) => setName(e.target.value)} placeholder="Randomizer night" />
           </label>
           <fieldset>
             <legend className={label}>Mods (at least two)</legend>
@@ -176,13 +174,13 @@ export default function SubmitWizard({ indexRepo, tags, mods }: { indexRepo: str
       <Step n={2} title="How players find it">
         <label className="mb-4 block">
           <span className={label}>One line about it ({300 - description.length} left)</span>
-          <textarea className={`${input} h-24 py-3`} maxLength={300} value={description} onChange={(e) => setDescription(e.target.value)} placeholder="What it does, in plain words." />
+          <textarea className="field" maxLength={300} value={description} onChange={(e) => setDescription(e.target.value)} placeholder="What it does, in plain words." />
         </label>
         <fieldset className="mb-4">
           <legend className={label}>Tags</legend>
-          <div className="flex flex-wrap gap-2">
+          <div className="flex flex-wrap gap-1.5">
             {tags.map((t) => (
-              <button key={t} type="button" aria-pressed={tagOn.includes(t)} onClick={() => toggle(tagOn, setTagOn, t)} className={chip(tagOn.includes(t))}>
+              <button key={t} type="button" aria-pressed={tagOn.includes(t)} onClick={() => toggle(tagOn, setTagOn, t)} className="chip">
                 {t}
               </button>
             ))}
@@ -190,9 +188,9 @@ export default function SubmitWizard({ indexRepo, tags, mods }: { indexRepo: str
         </fieldset>
         <fieldset className="mb-4">
           <legend className={label}>What it changes</legend>
-          <div className="flex flex-wrap gap-2">
+          <div className="flex flex-wrap gap-1.5">
             {IMPACTS.map((i) => (
-              <button key={i} type="button" aria-pressed={impact.includes(i)} onClick={() => toggle(impact, setImpact, i)} className={chip(impact.includes(i))}>
+              <button key={i} type="button" aria-pressed={impact.includes(i)} onClick={() => toggle(impact, setImpact, i)} className="chip">
                 {IMPACT_LABEL[i]}
               </button>
             ))}
@@ -201,15 +199,15 @@ export default function SubmitWizard({ indexRepo, tags, mods }: { indexRepo: str
         <div className="grid gap-4 sm:grid-cols-3">
           <label>
             <span className={label}>YouTube video</span>
-            <input className={input} type="url" value={video} onChange={(e) => setVideo(e.target.value)} placeholder="https://youtu.be/…" />
+            <input className="field" type="url" value={video} onChange={(e) => setVideo(e.target.value)} placeholder="https://youtu.be/…" />
           </label>
           <label>
             <span className={label}>Bug reports</span>
-            <input className={input} type="url" value={bugs} onChange={(e) => setBugs(e.target.value)} placeholder="Issues link" />
+            <input className="field" type="url" value={bugs} onChange={(e) => setBugs(e.target.value)} placeholder="Issues link" />
           </label>
           <label>
             <span className={label}>Discord</span>
-            <input className={input} type="url" value={discord} onChange={(e) => setDiscord(e.target.value)} placeholder="Invite link" />
+            <input className="field" type="url" value={discord} onChange={(e) => setDiscord(e.target.value)} placeholder="Invite link" />
           </label>
         </div>
       </Step>

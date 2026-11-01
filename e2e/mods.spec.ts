@@ -23,8 +23,11 @@ test("browse: presets, search, filters and sort live in the address", async ({ p
   const status = page.getByRole("status").filter({ hasText: /mods?$/ });
   await expect(status).toHaveText("8 mods"); // works on release: no dev-only mods, no packs (7 + the second index's one)
 
-  await page.getByRole("radio", { name: "All" }).click();
-  await expect(page).toHaveURL(/preset=all/);
+  // A press before the page has hydrated does nothing, so the first one is retried.
+  await expect(async () => {
+    await page.getByRole("radio", { name: "All" }).click();
+    await expect(page).toHaveURL(/preset=all/, { timeout: 1000 });
+  }).toPass();
   await expect(status).toHaveText("10 mods");
 
   await page.getByRole("searchbox", { name: "Search mods" }).fill("radnomizer");
@@ -32,10 +35,16 @@ test("browse: presets, search, filters and sort live in the address", async ({ p
   await expect(page.locator("#results article").first()).toContainText("Item randomizer");
 
   await page.getByRole("searchbox", { name: "Search mods" }).fill("");
-  await page.getByRole("button", { name: "Native", exact: true }).click();
+  // The filters live in one panel; the ones in use show under the search box, each to remove.
+  await page.getByRole("button", { name: "Filters", exact: true }).click();
+  await page.getByRole("dialog").getByRole("button", { name: "Native", exact: true }).click();
   await expect(page).toHaveURL(/type=native/);
+  await page.keyboard.press("Escape");
   await page.reload();
-  await expect(page.getByRole("button", { name: "Native", exact: true })).toHaveAttribute("aria-pressed", "true");
+  await expect(page.getByRole("button", { name: "Remove filter: Native" })).toBeVisible();
+  await page.getByRole("button", { name: /^Filters/ }).click();
+  await expect(page.getByRole("dialog").getByRole("button", { name: "Native", exact: true })).toHaveAttribute("aria-pressed", "true");
+  await page.keyboard.press("Escape");
 
   await page.getByLabel("Sort").selectOption("name");
   await expect(page).toHaveURL(/sort=name/);

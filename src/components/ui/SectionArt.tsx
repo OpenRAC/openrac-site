@@ -180,13 +180,12 @@ const ART: Record<string, ReactNode> = {
       <circle cx="86" cy="63" r="3" fill={PANEL} {...line} />
     </>
   ),
-  // a star with a spark: the picked mods
+  // a star: the picked mods
   featured: (
     <>
       <Burst d={burst(58, 50, 40, 11, 0.3)} />
       <path d="M58 16l9 19 21 2-16 14 5 21-19-11-19 11 5-21-16-14 21-2z" fill={GOLD} {...line} />
       <path d="M58 30l4 9 10 1-8 7 2 10-8-5" fill={GOLD_LIGHT} />
-      <path d="M96 18v12M90 24h12" {...line} stroke={BLUE} strokeWidth={4} />
     </>
   ),
   // a box with a ribbon: new and updated
@@ -197,7 +196,20 @@ const ART: Record<string, ReactNode> = {
       <rect x="22" y="30" width="76" height="14" rx="3" fill={PANEL_LIGHT} {...line} />
       <path d="M60 30v50" {...line} stroke={GOLD} strokeWidth={8} />
       <path d="M60 30c-8-12-24-12-20-2s20 2 20 2c8-12 24-12 20-2s-20 2-20 2z" fill={GOLD} {...line} />
-      <path d="M98 12l3 7 7 3-7 3-3 7-3-7-7-3 7-3z" fill={GOLD_LIGHT} {...line} />
+    </>
+  ),
+  // a grid of mods under a magnifier: every mod, to search and filter
+  all: (
+    <>
+      <Burst d={burst(60, 50, 40, 12, 0.22)} />
+      <rect x="18" y="14" width="30" height="24" rx="4" fill={PANEL} {...line} />
+      <rect x="54" y="14" width="30" height="24" rx="4" fill={GOLD} {...line} />
+      <rect x="18" y="44" width="30" height="24" rx="4" fill={GOLD_DARK} {...line} />
+      <rect x="54" y="44" width="30" height="24" rx="4" fill={PANEL_LIGHT} {...line} />
+      <Bar d="M90 70l14 14" color={GOLD} w={8} />
+      <circle cx="80" cy="60" r="16" fill={PANEL} {...line} strokeWidth={3} />
+      <circle cx="80" cy="60" r="10" fill="none" stroke={GOLD_LIGHT} strokeWidth={3} />
+      <path d="M74 56a7 7 0 0 1 5-4" fill="none" stroke={WHITE} strokeWidth={2.5} strokeLinecap="round" />
     </>
   ),
   // an arrow out of a tray: publish a mod
