@@ -22,7 +22,8 @@ const SECTIONS = ([
 const link =
   "group/l relative flex min-h-11 items-center rounded-full px-3.5 text-[17px] font-bold no-underline transition-colors min-[821px]:min-h-9 min-[821px]:whitespace-nowrap min-[821px]:text-[15px] min-[821px]:max-[1023px]:px-2 min-[821px]:max-[1023px]:text-[14px]";
 // The open mobile menu sits on the page's colour, the bar on its stripes: light text there, dark here.
-const linkOn = "bg-white/[.06] text-amber min-[821px]:bg-[#1b1206]";
+// On the bar the current section only keeps its underline: a dark block there outweighed the Mods and Download buttons.
+const linkOn = "bg-white/[.06] text-amber min-[821px]:bg-transparent min-[821px]:text-[#1b1206] [&>span]:scale-x-100";
 const linkOff = "text-hi hover:bg-white/5 min-[821px]:text-[#2a1800] min-[821px]:hover:bg-black/10";
 const underline =
   "absolute inset-x-3.5 bottom-1 min-[821px]:max-[1023px]:inset-x-2 hidden h-0.5 origin-left scale-x-0 rounded bg-current transition-transform group-hover/l:scale-x-100 min-[821px]:block";
@@ -157,7 +158,7 @@ export default function Header() {
                 home ? (
                   <a key={id} href={`#${id}`} onClick={close} aria-current={active === id ? "true" : undefined} className={`${link} ${active === id ? linkOn : linkOff}`}>
                     {label}
-                    {active !== id && <span className={underline} />}
+                    <span className={underline} />
                   </a>
                 ) : (
                   <Link key={id} href={`/#${id}`} transitionTypes={PAGE_TRANSITION} onClick={close} className={`${link} ${linkOff}`}>
