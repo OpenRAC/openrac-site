@@ -39,6 +39,9 @@ const SECURITY_HEADERS = [
 const nextConfig: NextConfig = {
   // Minimal self-contained server in .next/standalone, used by the container image.
   output: "standalone",
+  // Subresource Integrity: every script tag carries its file's SHA-256, so a script changed on the
+  // way (a proxy, a CDN) is refused by the browser. Unlike nonces it keeps pages static and cached.
+  experimental: { sri: { algorithm: "sha256" } },
   poweredByHeader: false,
   images: {
     formats: ["image/avif", "image/webp"],

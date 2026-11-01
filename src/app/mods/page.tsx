@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
+import Boundary from "@/components/ui/Boundary";
 import Cards from "@/components/ui/Cards";
 import Particles from "@/components/ui/Particles";
 import Section from "@/components/ui/Section";
@@ -8,7 +9,7 @@ import ModBrowser from "@/components/mods/ModBrowser";
 import ModCard from "@/components/mods/ModCard";
 import { SHARE_IMAGE, ldJson, modsIndexLd, siteUrl } from "@/lib/machine";
 import { getModCatalog } from "@/lib/mods";
-import { isFresh, renderedAt, sortMods } from "@/lib/mods/logic";
+import { isFresh, isWithdrawn, renderedAt, sortMods } from "@/lib/mods/logic";
 import { LIST_YOUR_MOD, SDK_DOCS } from "@/lib/mods/links";
 import { slim } from "@/lib/mods/slim";
 
@@ -31,7 +32,7 @@ export const metadata: Metadata = {
 export default async function ModsPage() {
   const { catalog } = await getModCatalog();
   const now = renderedAt();
-  const mods = catalog.mods.map((m) => slim(m, catalog));
+  const mods = catalog.mods.filter((m) => !isWithdrawn(catalog.revoked, m.id)).map((m) => slim(m, catalog));
   const trending = sortMods(mods, "trending", now);
   // The picked ones, or the most active when none are picked; never sliding by itself.
   const featured = (mods.some((m) => m.featured) ? mods.filter((m) => m.featured) : trending).slice(0, 3);
@@ -94,7 +95,9 @@ export default async function ModsPage() {
 
       <Section id="all" title="All mods" sub="Search, filter and compare. Pick several to install them together, with everything they need.">
         <Suspense fallback={<div className="surface h-[420px] animate-pulse" />}>
-          <ModBrowser mods={mods} tags={catalog.tags} now={now} />
+          <Boundary what="mod list">
+            <ModBrowser mods={mods} tags={catalog.tags} now={now} />
+          </Boundary>
         </Suspense>
       </Section>
 

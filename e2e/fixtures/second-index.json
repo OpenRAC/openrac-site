@@ -178,7 +178,164 @@
      }
     }
    ]
+  },
+  {
+   "id": "gone-mod",
+   "name": "Gone mod",
+   "author": "OpenRAC contributors",
+   "description": "A test mod taken off the list.",
+   "license": "MIT",
+   "homepage": "https://github.com/OpenRAC/openrac-mods/tree/master/camera-base",
+   "repo": "https://github.com/OpenRAC/openrac-mods",
+   "path": "camera-base",
+   "type": "script",
+   "games": {
+    "rac1": [
+     "pal",
+     "ntsc"
+    ]
+   },
+   "tags": [
+    "camera",
+    "tools"
+   ],
+   "impact": [
+    "cosmetic"
+   ],
+   "aliases": [],
+   "links": {
+    "bugs": "https://github.com/OpenRAC/openrac-mods/issues"
+   },
+   "downloads": 900,
+   "downloads7d": 40,
+   "created": "2026-08-01T12:00:00Z",
+   "updated": "2026-09-10T12:00:00Z",
+   "featured": false,
+   "recommends": [],
+   "suggests": [],
+   "readme": "",
+   "media": {
+    "icon": {
+     "hash": "c6bf3d641933",
+     "widths": [
+      256
+     ],
+     "width": 256,
+     "height": 256,
+     "thumbhash": "3OcRJYB4d3h/iIeHeEh3eIhw+j3A",
+     "alt": "Camera base icon"
+    },
+    "banner": {
+     "hash": "a26a765ffc4f",
+     "widths": [
+      480,
+      960,
+      1600
+     ],
+     "width": 1600,
+     "height": 686,
+     "thumbhash": "3OcRJYB4d3h/iIeHeEh3eIhw+j3A",
+     "alt": "Camera base banner"
+    },
+    "screenshots": [
+     {
+      "hash": "327741f6d320",
+      "widths": [
+       480,
+       960,
+       1600
+      ],
+      "width": 1600,
+      "height": 900,
+      "thumbhash": "3OcRJYB4d3h/iIeHeEh3eIhw+j3A",
+      "alt": "Camera base screenshot 1",
+      "caption": "Camera base in action 1"
+     },
+     {
+      "hash": "bef8bb0e6777",
+      "widths": [
+       480,
+       960,
+       1600
+      ],
+      "width": 1600,
+      "height": 900,
+      "thumbhash": "3OcRJYB4d3h/iIeHeEh3eIhw+j3A",
+      "alt": "Camera base screenshot 2",
+      "caption": "Camera base in action 2"
+     }
+    ],
+    "videos": []
+   },
+   "versions": [
+    {
+     "version": "1.2.0",
+     "api": "1.1",
+     "games": {
+      "rac1": [
+       "pal",
+       "ntsc"
+      ]
+     },
+     "requires": [],
+     "conflicts": [],
+     "hooks": [],
+     "tag": "gone-mod-v1.2.0",
+     "released": "2026-09-10T12:00:00Z",
+     "prerelease": false,
+     "changelog": "## 1.2.0\n\n- Changes for 1.2.0.",
+     "size": 12000,
+     "files": [
+      "openrac-mod.json",
+      "main.luau"
+     ],
+     "platforms": {
+      "any": {
+       "asset": "camera-base-1.2.0.zip",
+       "sha256": "207e82b780454f99a1397cd37d0b47f7a7cf19a0aee287e987eac2397373a389",
+       "size": 12000
+      }
+     }
+    },
+    {
+     "version": "1.1.0",
+     "api": "1.1",
+     "games": {
+      "rac1": [
+       "pal",
+       "ntsc"
+      ]
+     },
+     "requires": [],
+     "conflicts": [],
+     "hooks": [],
+     "tag": "gone-mod-v1.1.0",
+     "released": "2026-08-01T12:00:00Z",
+     "prerelease": false,
+     "changelog": "## 1.1.0\n\n- Changes for 1.1.0.",
+     "size": 12000,
+     "files": [
+      "openrac-mod.json",
+      "main.luau"
+     ],
+     "platforms": {
+      "any": {
+       "asset": "camera-base-1.1.0.zip",
+       "sha256": "e936b842d562cd65b68d85c9b150e5e7de0de60ce9553347957e459cabbb2bbe",
+       "size": 12000
+      }
+     }
+    }
+   ]
   }
  ],
- "revoked": []
+ "revoked": [
+  {
+   "id": "gone-mod",
+   "versions": [
+    "*"
+   ],
+   "reason": "Taken off for a test."
+  }
+ ]
 }

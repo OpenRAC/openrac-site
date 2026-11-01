@@ -7,6 +7,7 @@ import { GAME_LABEL, IMPACT_LABEL, SORTS, TYPE_LABEL, sortMods, type Sort } from
 import { closest, prepare, search } from "@/lib/mods/search";
 import type { SlimMod } from "@/lib/mods/slim";
 import type { Impact, ModType } from "@/lib/mods/types";
+import Boundary from "@/components/ui/Boundary";
 import InstallButton from "./InstallButton";
 import ModCard from "./ModCard";
 import ModTable from "./ModTable";
@@ -341,7 +342,11 @@ export default function ModBrowser({ mods, tags, now }: { mods: SlimMod[]; tags:
       >
         {filters}
       </Sheet>
-      {review && <ChangeSetDialog mods={mods} picked={picked} open={review} onClose={() => setReview(false)} onDone={() => {}} />}
+      {review && (
+        <Boundary what="install review">
+          <ChangeSetDialog mods={mods} picked={picked} open={review} onClose={() => setReview(false)} onDone={() => {}} />
+        </Boundary>
+      )}
     </div>
   );
 }

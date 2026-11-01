@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState, type CSSProperties, type ReactNode } from "react";
+import { useEffect, useState, ViewTransition, type CSSProperties, type ReactNode } from "react";
 import { ago, formatCount } from "@/lib/mods/logic";
 import type { SlimMod } from "@/lib/mods/slim";
 import { highlight } from "@/lib/mods/search";
@@ -40,40 +40,44 @@ function CardPicture({ mod, sizes, priority }: { mod: SlimMod; sizes: string; pr
   }, [hovered, frames.length]);
 
   return (
-    <div
-      className="relative aspect-video overflow-hidden bg-gradient-to-br from-panel-hi to-ink"
-      onPointerEnter={(e) => e.pointerType === "mouse" && setHovered(true)}
-      onPointerLeave={() => {
-        setHovered(false);
-        setI(0);
-      }}
-    >
-      {frames.map((f, n) =>
-        n === 0 || hovered ? (
-          <ModImage
-            key={f.hash}
-            img={f}
-            sizes={sizes}
-            priority={priority && n === 0}
-            className={`absolute inset-0 size-full object-cover saturate-[.85] transition duration-700 group-hover/card:scale-[1.04] ${n === i ? "opacity-100" : "opacity-0"}`}
-          />
-        ) : null,
-      )}
-      {!frames.length && (
-        <svg aria-hidden viewBox="0 0 120 68" className="absolute inset-0 m-auto h-1/2 opacity-25">
-          <path d="M60 6 70 26l22 3-16 15 4 22-20-11-20 11 4-22L28 29l22-3z" fill="#f5c040" />
-        </svg>
-      )}
-      {/* Dark at the bottom, where the badges sit over the picture. */}
-      <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-ink via-ink/20 to-transparent" />
-      {mod.hasVideo && (
-        <span role="img" aria-label="Has a video" className="absolute right-3 top-3 flex size-8 items-center justify-center rounded-full bg-ink/80 text-amber ring-1 ring-white/15">
-          <svg viewBox="0 0 24 24" aria-hidden className="ml-0.5 size-4 fill-current">
-            <path d="M8 5v14l11-7z" />
+    // The same name as the mod page's banner: on browsers with view transitions, opening the page
+    // grows this picture into its banner (and back), so the eye follows where it went.
+    <ViewTransition name={`mod-${mod.id}`} share="morph" default="none">
+      <div
+        className="relative aspect-video overflow-hidden bg-gradient-to-br from-panel-hi to-ink"
+        onPointerEnter={(e) => e.pointerType === "mouse" && setHovered(true)}
+        onPointerLeave={() => {
+          setHovered(false);
+          setI(0);
+        }}
+      >
+        {frames.map((f, n) =>
+          n === 0 || hovered ? (
+            <ModImage
+              key={f.hash}
+              img={f}
+              sizes={sizes}
+              priority={priority && n === 0}
+              className={`absolute inset-0 size-full object-cover saturate-[.85] transition duration-700 group-hover/card:scale-[1.04] ${n === i ? "opacity-100" : "opacity-0"}`}
+            />
+          ) : null,
+        )}
+        {!frames.length && (
+          <svg aria-hidden viewBox="0 0 120 68" className="absolute inset-0 m-auto h-1/2 opacity-25">
+            <path d="M60 6 70 26l22 3-16 15 4 22-20-11-20 11 4-22L28 29l22-3z" fill="#f5c040" />
           </svg>
-        </span>
-      )}
-    </div>
+        )}
+        {/* Dark at the bottom, where the badges sit over the picture. */}
+        <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-ink via-ink/20 to-transparent" />
+        {mod.hasVideo && (
+          <span role="img" aria-label="Has a video" className="absolute right-3 top-3 flex size-8 items-center justify-center rounded-full bg-ink/80 text-amber ring-1 ring-white/15">
+            <svg viewBox="0 0 24 24" aria-hidden className="ml-0.5 size-4 fill-current">
+              <path d="M8 5v14l11-7z" />
+            </svg>
+          </span>
+        )}
+      </div>
+    </ViewTransition>
   );
 }
 
