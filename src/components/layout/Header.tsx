@@ -20,13 +20,13 @@ const SECTIONS = ([
 ] as const).filter(([id]) => id !== "credits" || HAS_CREDITS);
 
 const link =
-  "group/l relative flex min-h-11 items-center rounded-full px-3.5 text-[17px] font-bold no-underline transition-colors min-[821px]:min-h-9 min-[821px]:text-[15px]";
+  "group/l relative flex min-h-11 items-center rounded-full px-3.5 text-[17px] font-bold no-underline transition-colors min-[821px]:min-h-9 min-[821px]:whitespace-nowrap min-[821px]:text-[15px] min-[821px]:max-[1023px]:px-2 min-[821px]:max-[1023px]:text-[14px]";
 // The open mobile menu sits on the page's colour, the bar on its stripes: light text there, dark here.
 const linkOn = "bg-white/[.06] text-amber min-[821px]:bg-[#1b1206]";
 const linkOff = "text-hi hover:bg-white/5 min-[821px]:text-[#2a1800] min-[821px]:hover:bg-black/10";
 const underline =
-  "absolute inset-x-3.5 bottom-1 hidden h-0.5 origin-left scale-x-0 rounded bg-current transition-transform group-hover/l:scale-x-100 min-[821px]:block";
-const pill = "flex min-h-11 items-center justify-center rounded-full px-4 text-sm font-semibold no-underline transition-colors min-[821px]:min-h-9";
+  "absolute inset-x-3.5 bottom-1 min-[821px]:max-[1023px]:inset-x-2 hidden h-0.5 origin-left scale-x-0 rounded bg-current transition-transform group-hover/l:scale-x-100 min-[821px]:block";
+const pill = "flex min-h-11 items-center justify-center rounded-full px-4 text-sm font-semibold no-underline transition-colors min-[821px]:min-h-9 min-[821px]:whitespace-nowrap min-[821px]:max-[1023px]:px-3";
 
 /** The bar's own dark and gold, like the Download button, so the buttons on the bar read as a set. */
 /** The same dark, with the GitHub and Discord marks in white. */
@@ -115,7 +115,7 @@ export default function Header() {
   return (
     <>
       <header style={{ viewTransitionName: "site-header" }} className="bar-stripes fixed inset-x-0 top-0 z-30 border-b border-black/30 text-black shadow-[inset_0_1px_0_rgb(255_255_255/0.35),0_4px_24px_rgb(0_0_0/0.45)]">
-        <div className="mx-auto flex h-[50px] max-w-[1080px] items-center gap-6 px-4">
+        <div className="mx-auto flex h-[50px] max-w-[1080px] items-center gap-6 px-4 min-[821px]:max-[1023px]:gap-4">
           <Link href="/" transitionTypes={PAGE_TRANSITION} onClick={close} className="group flex items-center text-[#1b1206] no-underline" aria-label="OpenRAC home">
             <Logo height={34} label="" className="transition-opacity group-hover:opacity-85" />
           </Link>
@@ -150,7 +150,7 @@ export default function Header() {
 
           <nav
             id="nav"
-            className={`absolute inset-x-0 top-full flex max-h-[calc(100dvh-50px)] flex-col gap-3 overflow-y-auto overscroll-contain border-b border-white/10 bg-ink px-4 pb-[18px] pt-3.5 shadow-[0_20px_30px_rgb(0_0_0/0.4)] transition duration-200 max-[821px]:origin-top ${open ? "" : "max-[821px]:pointer-events-none max-[821px]:invisible max-[821px]:-translate-y-2 max-[821px]:opacity-0"} min-[821px]:static min-[821px]:max-h-none min-[821px]:flex-1 min-[821px]:flex-row min-[821px]:items-center min-[821px]:gap-[18px] min-[821px]:overflow-visible min-[821px]:border-0 min-[821px]:bg-transparent min-[821px]:p-0 min-[821px]:shadow-none`}
+            className={`absolute inset-x-0 top-full flex max-h-[calc(100dvh-50px)] flex-col gap-3 overflow-y-auto overscroll-contain border-b border-white/10 bg-ink px-4 pb-[18px] pt-3.5 shadow-[0_20px_30px_rgb(0_0_0/0.4)] transition duration-200 max-[821px]:origin-top ${open ? "" : "max-[821px]:pointer-events-none max-[821px]:invisible max-[821px]:-translate-y-2 max-[821px]:opacity-0"} min-[821px]:static min-[821px]:max-h-none min-[821px]:flex-1 min-[821px]:flex-row min-[821px]:items-center min-[821px]:gap-[18px] min-[821px]:max-[1023px]:gap-2.5 min-[821px]:overflow-visible min-[821px]:border-0 min-[821px]:bg-transparent min-[821px]:p-0 min-[821px]:shadow-none`}
           >
             <div className="flex flex-col gap-1 min-[821px]:ml-2 min-[821px]:flex-row">
               {SECTIONS.map(([id, label]) =>
@@ -167,7 +167,7 @@ export default function Header() {
                 ),
               )}
             </div>
-            <div className="grid gap-2 min-[821px]:ml-auto min-[821px]:flex min-[821px]:items-center">
+            <div className="grid gap-2 min-[821px]:ml-auto min-[821px]:flex min-[821px]:items-center min-[821px]:max-[1023px]:gap-1.5">
               {/* Mods, set apart from the home page's sections: its own page, with its own mark. */}
               <Link href="/mods" transitionTypes={PAGE_TRANSITION} onClick={close} aria-current={inMods ? "page" : undefined} className={`${pill} gap-2 border ${inMods ? modsOn : modsOff}`}>
                 <ModsMark />
