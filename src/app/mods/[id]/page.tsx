@@ -369,7 +369,7 @@ export default async function ModPage(props: PageProps<"/mods/[id]">) {
 
             <section id="versions" data-reveal="fade" className="scroll-mt-28 pt-10">
               <H2>Versions</H2>
-              <ul className="grid gap-2">
+              <ul className="grid grid-cols-[minmax(0,1fr)] gap-2">
                 {mod.versions.map((ver, i) => {
                   const gone = isRevoked(catalog.revoked, mod.id, ver.version);
                   return (
@@ -418,7 +418,7 @@ export default async function ModPage(props: PageProps<"/mods/[id]">) {
               <section id="comments" data-reveal="fade" className="scroll-mt-28 pt-10">
                 <H2>Comments</H2>
                 {discussion?.comments.length ? (
-                  <ul className="mb-4 grid gap-3">
+                  <ul className="mb-4 grid grid-cols-[minmax(0,1fr)] gap-3">
                     {discussion.comments.map((c) => (
                       <li key={c.url} className="surface p-4">
                         <p className="mb-2 flex items-center gap-2 text-[14px] text-dim">
