@@ -45,6 +45,12 @@ function componentsFor(base?: string): Components {
         </a>
       ) : null;
     },
+    // A wide table scrolls in its own box, so it never widens the page. Focusable, so keys can scroll it too.
+    table: ({ children }) => (
+      <div tabIndex={0} className="overflow-x-auto">
+        <table>{children}</table>
+      </div>
+    ),
     h1: ({ children }) => <h2>{children}</h2>,
     h2: ({ children }) => <h3>{children}</h3>,
     h3: ({ children }) => <h4>{children}</h4>,
