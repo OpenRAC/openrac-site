@@ -30,11 +30,17 @@ const PAGE = 48;
 
 const list = (v: string | null) => (v ? v.split(",").filter(Boolean) : []);
 
-/** A small toggle pill for presets and filters: compact, no lift on hover, still a fair target for a thumb. */
-const chip = (on: boolean) =>
-  `inline-flex min-h-9 items-center whitespace-nowrap rounded-full border px-3 text-[13px] font-semibold leading-none transition-colors min-[821px]:min-h-8 ${
-    on ? "border-amber bg-amber/15 text-amber" : "border-white/15 bg-[color-mix(in_srgb,white_3%,var(--color-ink))] text-soft hover:border-white/30 hover:text-hi"
-  }`;
+/** A filter in use: pressed, and a press takes it off. */
+function Active({ label, onRemove }: { label: string; onRemove: () => void }) {
+  return (
+    <li>
+      <button type="button" aria-pressed="true" onClick={onRemove} className="chip" aria-label={`Remove filter: ${label}`}>
+        {label}
+        <span aria-hidden className="text-[15px] leading-none">×</span>
+      </button>
+    </li>
+  );
+}
 
 /** A labelled group of toggle chips: a fieldset, so a screen reader hears the group's name. */
 function Chips<T extends string>({ legend, items, on, label, toggle }: { legend: string; items: T[]; on: Set<T>; label: (t: T) => string; toggle: (t: T) => void }) {
@@ -44,7 +50,7 @@ function Chips<T extends string>({ legend, items, on, label, toggle }: { legend:
       <legend className="mb-1.5 font-orbitron text-[11px] font-bold uppercase tracking-[.2em] text-dim">{legend}</legend>
       <div className="flex flex-wrap gap-1.5">
         {items.map((t) => (
-          <button key={t} type="button" aria-pressed={on.has(t)} onClick={() => toggle(t)} className={chip(on.has(t))}>
+          <button key={t} type="button" aria-pressed={on.has(t)} onClick={() => toggle(t)} className="chip">
             {label(t)}
           </button>
         ))}
@@ -165,7 +171,7 @@ export default function ModBrowser({ mods, tags, now }: { mods: SlimMod[]; tags:
   };
 
   const filters: ReactNode = (
-    <div className="grid gap-5 min-[821px]:flex min-[821px]:flex-wrap min-[821px]:gap-x-6 min-[821px]:gap-y-3">
+    <div className="grid gap-5">
       {games.length > 1 && (
         <Chips legend="Game" items={games} on={new Set(game ? [game] : [])} label={(g) => GAME_LABEL[g] ?? g} toggle={(g) => setParam("game", game === g ? null : g)} />
       )}
@@ -183,16 +189,18 @@ export default function ModBrowser({ mods, tags, now }: { mods: SlimMod[]; tags:
         Skip to the mods
       </a>
 
-      {/* Presets: one at a time, like a radio group. */}
-      <div role="radiogroup" aria-label="Show" className="mb-4 flex gap-1.5 overflow-x-auto pb-1 [scrollbar-width:none]">
+      {/* Presets: one at a time, like a radio group; a row to swipe on a narrow phone. */}
+      <div className="mb-3 overflow-x-auto [scrollbar-width:none]">
+      <div role="radiogroup" aria-label="Show" className="seg">
         {PRESETS.map((p) => (
-          <button key={p.id} type="button" role="radio" aria-checked={preset === p.id} title={p.hint} onClick={() => setParam("preset", p.id === "release" ? null : p.id)} className={`${chip(preset === p.id)} flex-none`}>
+          <button key={p.id} type="button" role="radio" aria-checked={preset === p.id} title={p.hint} onClick={() => setParam("preset", p.id === "release" ? null : p.id)}>
             {p.label}
           </button>
         ))}
       </div>
+      </div>
 
-      <div className="mb-4 flex flex-wrap items-center gap-2.5">
+      <div className="mb-3 flex flex-wrap items-center gap-2">
         <label className="relative min-w-0 flex-1 basis-[260px]">
           <span className="sr-only">Search mods</span>
           <svg viewBox="0 0 16 16" aria-hidden className="pointer-events-none absolute left-4 top-1/2 size-4 -translate-y-1/2 fill-none stroke-dim stroke-2">
@@ -209,18 +217,23 @@ export default function ModBrowser({ mods, tags, now }: { mods: SlimMod[]; tags:
             onChange={(e) => setQ(e.target.value)}
             onKeyDown={(e) => e.key === "Escape" && setQ("")}
             placeholder="Search name, author or what it does"
-            className="h-12 w-full rounded-full border border-white/15 bg-[color-mix(in_srgb,white_3%,var(--color-ink))] pl-11 pr-12 text-[16px] text-text placeholder:text-dim focus:border-amber focus:outline-none"
+            className="field pl-11 pr-12"
           />
           <kbd aria-hidden className="pointer-events-none absolute right-4 top-1/2 hidden -translate-y-1/2 rounded border border-white/15 px-1.5 text-[12px] text-dim [@media(hover:hover)]:block">
             /
           </kbd>
         </label>
-        <button type="button" onClick={() => setFiltersOpen(true)} className="btn min-[821px]:hidden" aria-haspopup="dialog">
-          Filters{active ? ` (${active})` : ""}
+        {/* Every filter in one panel: the list stays a list, not a wall of buttons. */}
+        <button type="button" onClick={() => setFiltersOpen(true)} className={`btn ${active ? "!border-amber" : ""}`} aria-haspopup="dialog">
+          <svg viewBox="0 0 16 16" aria-hidden className="size-4 fill-none stroke-current stroke-2" strokeLinecap="round">
+            <path d="M2 4h12M4.5 8h7M7 12h2" />
+          </svg>
+          Filters
+          {active > 0 && <span className="grid min-w-5 place-items-center rounded-full bg-amber px-1.5 text-[12px] font-bold leading-5 text-on-accent">{active}</span>}
         </button>
         <label className="flex items-center gap-2 text-[14px] text-dim">
           <span>Sort</span>
-          <select value={sort} onChange={(e) => setParam("sort", e.target.value === "trending" ? null : e.target.value)} className="h-11 rounded-full border border-white/15 bg-ink px-3 text-[15px] text-text focus:border-amber focus:outline-none">
+          <select value={sort} onChange={(e) => setParam("sort", e.target.value === "trending" ? null : e.target.value)} className="field">
             {SORTS.map((s) => (
               <option key={s.id} value={s.id}>
                 {s.label}
@@ -228,9 +241,9 @@ export default function ModBrowser({ mods, tags, now }: { mods: SlimMod[]; tags:
             ))}
           </select>
         </label>
-        <div role="group" aria-label="View" className="flex rounded-full border border-white/15 p-0.5">
+        <div role="group" aria-label="View" className="seg">
           {(["grid", "list"] as const).map((v) => (
-            <button key={v} type="button" aria-pressed={view === v} onClick={() => chooseView(v)} className={`flex min-h-10 items-center gap-1.5 rounded-full px-3.5 text-[14px] ${view === v ? "bg-amber/15 text-amber" : "text-soft hover:text-hi"}`}>
+            <button key={v} type="button" aria-pressed={view === v} onClick={() => chooseView(v)}>
               <svg viewBox="0 0 16 16" aria-hidden className="size-4 fill-current">
                 {v === "grid" ? <path d="M2 2h5v5H2zm7 0h5v5H9zM2 9h5v5H2zm7 0h5v5H9z" /> : <path d="M2 3h12v2H2zm0 4h12v2H2zm0 4h12v2H2z" />}
               </svg>
@@ -240,7 +253,15 @@ export default function ModBrowser({ mods, tags, now }: { mods: SlimMod[]; tags:
         </div>
       </div>
 
-      <div className="mb-6 hidden min-[821px]:block">{filters}</div>
+      {/* Only the filters in use, each with its own ×; the rest wait in the Filters panel. */}
+      {active > 0 && (
+        <ul aria-label="Filters in use" className="mb-3 flex flex-wrap gap-1.5">
+          {game && <Active label={GAME_LABEL[game] ?? game} onRemove={() => setParam("game", null)} />}
+          {[...types].map((t) => <Active key={t} label={TYPE_LABEL[t]} onRemove={() => toggleIn("type", types, t)} />)}
+          {[...impacts].map((i) => <Active key={i} label={IMPACT_LABEL[i]} onRemove={() => toggleIn("impact", impacts, i)} />)}
+          {[...tagOn].map((t) => <Active key={t} label={t} onRemove={() => toggleIn("tag", tagOn, t)} />)}
+        </ul>
+      )}
 
       <div className="mb-4 flex min-h-6 flex-wrap items-center gap-3 text-[14px] text-dim">
         <p role="status" aria-live="polite" aria-atomic="true">
@@ -337,6 +358,7 @@ export default function ModBrowser({ mods, tags, now }: { mods: SlimMod[]; tags:
         open={filtersOpen}
         onClose={() => setFiltersOpen(false)}
         title="Filters"
+        wide
         actions={
           <button type="button" className="btn btn-primary" onClick={() => setFiltersOpen(false)}>
             Show {results.length} mod{results.length === 1 ? "" : "s"}

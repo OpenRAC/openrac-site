@@ -98,7 +98,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         {/* The logo over a blank page until the fonts are in, then a fade: the page never pops in
             half-styled. A timer lifts it anyway; without scripts there is none (globals.css). Coming
             from another page of the site the fonts are already in, so it is lifted at once. The same
-            script picks the accent (mint on /mods) before the first paint; Header keeps it in step after. */}
+            script picks the accent (copper on /mods) before the first paint; Header keeps it in step after. */}
         <div id="splash" aria-hidden className="splash">
           <Logo height={44} label="" accent className="text-text" />
         </div>

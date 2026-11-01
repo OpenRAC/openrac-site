@@ -29,15 +29,15 @@ const underline =
 const pill = "flex min-h-11 items-center justify-center rounded-full px-4 text-sm font-semibold no-underline transition-colors min-[821px]:min-h-9";
 
 /** The bar's own dark and gold, like the Download button, so the buttons on the bar read as a set.
-    The header keeps its gold on every page (text-sun, never the page's accent); only Mods wears mint. */
+    The header keeps its gold on every page (text-sun, never the page's accent); only Mods wears copper. */
 const filled = "bg-[#1b1206] text-sun hover:bg-[#2a1800]";
 /** The same dark, with Discord's mark in Discord's blue and GitHub's in white. */
 const discord = "bg-[#1b1206] text-discord hover:bg-[#2a1800]";
 const github = "bg-[#1b1206] text-text hover:bg-[#2a1800]";
 
-/** Mods on the bar: dark with mint, filled mint while on /mods. In the open mobile menu, an outlined mint pill. */
-const modsOff = "border-mint/50 text-mint hover:bg-mint/10 min-[821px]:border-black/25 min-[821px]:bg-[#1b1206] min-[821px]:hover:bg-[#2a1800]";
-const modsOn = "border-mint bg-mint text-[#04201c]";
+/** Mods on the bar: dark with copper, filled copper while on /mods. In the open mobile menu, an outlined copper pill. */
+const modsOff = "border-mods/50 text-mods hover:bg-mods/10 min-[821px]:border-black/25 min-[821px]:bg-[#1b1206] min-[821px]:hover:bg-[#2a1800]";
+const modsOn = "border-mods bg-mods text-[#2a1206]";
 
 /** A small puzzle piece: the mark of Mods in the bar. */
 function ModsMark({ className = "size-4" }: { className?: string }) {
@@ -135,7 +135,7 @@ export default function Header() {
             aria-label="Mods"
             title="Mods"
             aria-current={inMods ? "page" : undefined}
-            className={`ml-auto flex size-11 flex-none items-center justify-center rounded-full transition-colors min-[821px]:hidden ${inMods ? "bg-mint text-[#04201c]" : "bg-[#1b1206] text-mint"}`}
+            className={`ml-auto flex size-11 flex-none items-center justify-center rounded-full transition-colors min-[821px]:hidden ${inMods ? "bg-mods text-[#2a1206]" : "bg-[#1b1206] text-mods"}`}
           >
             <ModsMark className="size-[20px]" />
           </Link>
@@ -175,7 +175,7 @@ export default function Header() {
               )}
             </div>
             <div className="grid gap-2 min-[821px]:ml-auto min-[821px]:flex min-[821px]:items-center">
-              {/* Mods, set apart from the home page's sections: its own page, in its own mint. */}
+              {/* Mods, set apart from the home page's sections: its own page, in its own copper. */}
               <Link href="/mods" transitionTypes={PAGE_TRANSITION} onClick={close} aria-current={inMods ? "page" : undefined} className={`${pill} gap-2 border ${inMods ? modsOn : modsOff}`}>
                 <ModsMark />
                 Mods

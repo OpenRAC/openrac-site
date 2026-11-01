@@ -22,9 +22,9 @@
   --color-gold: #ffe08f;
   --color-deep: #e8a317;
   --color-on-accent: #1a0d00;
-  /* Fixed colours that never follow the accent: the header bar's gold, and the mint that marks Mods there. */
+  /* Fixed colours that never follow the accent: the header bar's gold, and the copper that marks Mods there. */
   --color-sun: #f5c040;
-  --color-mint: #3dd6c0;
+  --color-mods: #e58d61;
   /* Text, light to quiet. Neutral rather than blue, so the gold is the only accent. */
   --color-hi: #e6e6ec;
   --color-soft: #b4b4bf;
@@ -60,7 +60,7 @@
    (lifted buttons, zoomed pictures). Every `hover:` and `group-hover:` in the markup goes through this. */
 @custom-variant hover (@media (hover: hover) and (pointer: fine) { &:hover });
 
-/* Accent: gold on the site, mint on /mods (data-accent on <html>, set before the first paint by the
+/* Accent: gold on the site, copper on /mods (data-accent on <html>, set before the first paint by the
    script in layout.tsx and on every navigation by AccentSync). The colours are registered, so the
    browser can animate them: going between / and /mods everything in the accent fades across at once. */
 @property --color-brand { syntax: "<color>"; inherits: true; initial-value: #d6a020; }
@@ -71,13 +71,14 @@
 :root {
   transition: --color-brand 0.6s ease, --color-amber 0.6s ease, --color-gold 0.6s ease, --color-deep 0.6s ease, --color-on-accent 0.6s ease;
 }
-/* Mint: tools and tinkering, calm on the dark page, and far from Discord's blue on the same buttons. */
+/* Copper: the gold's neighbour on the colour wheel (an analogous pair, about 25° warmer and a little
+   less saturated), so the two sit together on the same bar; warm metal, like a workshop's tools. */
 :root[data-accent="mods"] {
-  --color-brand: #1fae9b;
-  --color-amber: #3dd6c0;
-  --color-gold: #a8f0e3;
-  --color-deep: #22b8a5;
-  --color-on-accent: #04201c;
+  --color-brand: #cc6d3e;
+  --color-amber: #e58d61;
+  --color-gold: #f8c9aa;
+  --color-deep: #d87246;
+  --color-on-accent: #2a1206;
 }
 
 /* The header bar: wide stripes of two close golds, as the launcher draws it. */
@@ -121,6 +122,89 @@
     .btn:hover { transform: translateY(-2px); border-color: var(--color-amber); box-shadow: 0 8px 24px rgb(0 0 0 / 0.4); }
     .btn-primary:hover { filter: brightness(1.08); box-shadow: 0 8px 28px color-mix(in srgb, var(--color-deep) 40%, transparent); }
     .btn-discord:hover { border-color: var(--color-discord); }
+  }
+
+  /* Form controls, one look for all: as tall as a button, the same border and fill, the accent on focus. */
+  .field {
+    height: 2.75rem;
+    width: 100%;
+    border-radius: 9999px;
+    border: 1px solid rgb(255 255 255 / 0.18);
+    background: color-mix(in srgb, white 3%, var(--color-ink));
+    padding-inline: 1.125rem;
+    font-size: 16px; /* 16 px or more: phones do not zoom in on focus */
+    color: var(--color-text);
+    transition: border-color 0.2s ease;
+  }
+  .field::placeholder { color: var(--color-dim); }
+  .field:focus { border-color: var(--color-amber); outline: none; }
+  textarea.field { height: auto; min-height: 6rem; border-radius: 1rem; padding-block: 0.75rem; }
+  /* A dropdown: the same field with its own arrow. */
+  select.field {
+    width: auto;
+    appearance: none;
+    cursor: pointer;
+    padding-right: 2.5rem;
+    font-size: 15px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='m4 6 4 4 4-4' fill='none' stroke='%238b8b98' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.875rem center;
+    background-size: 1rem;
+  }
+  select.field option { background: var(--color-ink); }
+  /* A small toggle: filters, tags, kinds. Pressed (aria-pressed / aria-checked) takes the accent. */
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    min-height: 2.25rem;
+    white-space: nowrap;
+    border-radius: 9999px;
+    border: 1px solid rgb(255 255 255 / 0.15);
+    background: color-mix(in srgb, white 3%, var(--color-ink));
+    padding-inline: 0.875rem;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--color-soft);
+    transition: border-color 0.2s ease, color 0.2s ease, background-color 0.2s ease;
+  }
+  .chip[aria-pressed="true"],
+  .chip[aria-checked="true"] {
+    border-color: var(--color-amber);
+    background: color-mix(in srgb, var(--color-amber) 15%, var(--color-ink));
+    color: var(--color-amber);
+  }
+  /* A row of choices in one pill, one of them on: the list's presets, Showcase or List. */
+  .seg {
+    display: inline-flex;
+    flex: none;
+    border-radius: 9999px;
+    border: 1px solid rgb(255 255 255 / 0.15);
+    padding: 3px;
+  }
+  .seg > button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    min-height: 2.25rem;
+    white-space: nowrap;
+    border-radius: 9999px;
+    padding-inline: 0.875rem;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-soft);
+    transition: color 0.2s ease, background-color 0.2s ease;
+  }
+  @media (max-width: 479px) { .seg > button { padding-inline: 0.7rem; } }
+  .seg > button[aria-pressed="true"],
+  .seg > button[aria-checked="true"] {
+    background: color-mix(in srgb, var(--color-amber) 15%, transparent);
+    color: var(--color-amber);
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .field:hover:not(:focus) { border-color: rgb(255 255 255 / 0.3); }
+    .chip:hover:not([aria-pressed="true"], [aria-checked="true"]) { border-color: rgb(255 255 255 / 0.3); color: var(--color-hi); }
+    .seg > button:hover:not([aria-pressed="true"], [aria-checked="true"]) { color: var(--color-hi); }
   }
 
   /* A raised panel: info cards, resources, mod panels. */

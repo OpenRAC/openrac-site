@@ -110,7 +110,8 @@ export default function ModCard({
       <CardPicture mod={mod} sizes={sizes} priority={priority} />
       {/* Over the picture's dark bottom edge, and drawn above it (relative): a long name never slides under the picture. */}
       <div className="relative -mt-9 flex flex-1 flex-col gap-2.5 p-4 pt-0 sm:p-5 sm:pt-0">
-        <div className="relative flex flex-wrap gap-1.5">
+        {/* One line of badges: a long one shortens rather than wrapping up into the picture. */}
+        <div className="relative flex min-w-0 gap-1.5">
           <TypeBadge type={mod.type} />
           <WorksBadge works={mod.works} />
           <ImpactBadges impact={mod.impact} max={1} />
