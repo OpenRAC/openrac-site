@@ -8,7 +8,6 @@ import Faq from "@/components/sections/Faq";
 import Hero from "@/components/sections/Hero";
 import HowItWorks from "@/components/sections/HowItWorks";
 import Legal from "@/components/sections/Legal";
-import ModsTeaser from "@/components/sections/ModsTeaser";
 import Progress from "@/components/sections/Progress";
 import Resources from "@/components/sections/Resources";
 import { getActivity } from "@/lib/activity";
@@ -34,7 +33,6 @@ export default async function Home() {
       <Hero progress={progress} mods={mods} />
       <Download release={release} dev={dev} />
       <Progress progress={progress} />
-      <ModsTeaser />
       <Contribute />
       <Activity commits={commits} />
       <HowItWorks />
