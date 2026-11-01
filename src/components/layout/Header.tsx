@@ -29,9 +29,8 @@ const underline =
 const pill = "flex min-h-11 items-center justify-center rounded-full px-4 text-sm font-semibold no-underline transition-colors min-[821px]:min-h-9";
 
 /** The bar's own dark and gold, like the Download button, so the buttons on the bar read as a set. */
-/** The same dark, with Discord's mark in Discord's blue and GitHub's in white. */
-const discord = "bg-[#1b1206] text-discord hover:bg-[#2a1800]";
-const github = "bg-[#1b1206] text-text hover:bg-[#2a1800]";
+/** The same dark, with the GitHub and Discord marks in white. */
+const mark = "bg-[#1b1206] text-text hover:bg-[#2a1800]";
 /** On a phone the bar's buttons are bare dark marks on the stripes: no discs or rings, a light shade under a finger. */
 const barIcon = "flex size-10 flex-none items-center justify-center rounded-full text-[#1b1206] transition-colors hover:bg-black/10 active:bg-black/15 min-[821px]:hidden";
 
@@ -177,8 +176,8 @@ export default function Header() {
               <Link href="/#download" transitionTypes={PAGE_TRANSITION} onClick={close} className={`${pill} border border-amber bg-amber text-[#1a0d00] hover:brightness-110 min-[821px]:border-black/25 min-[821px]:bg-[#1b1206] min-[821px]:text-amber min-[821px]:hover:bg-[#2a1800] min-[821px]:hover:brightness-100`}>
                 Download
               </Link>
-              <MarkButton site="github" onClick={close} className={`${github} size-9 max-[821px]:hidden`} />
-              <MarkButton site="discord" onClick={close} className={`${discord} size-9 max-[821px]:hidden`} />
+              <MarkButton site="github" onClick={close} className={`${mark} size-9 max-[821px]:hidden`} />
+              <MarkButton site="discord" onClick={close} className={`${mark} size-9 max-[821px]:hidden`} />
             </div>
           </nav>
         </div>
