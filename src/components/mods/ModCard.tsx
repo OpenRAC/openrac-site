@@ -105,7 +105,7 @@ export default function ModCard({
   return (
     <article
       style={{ "--i": index } as CSSProperties}
-      className="dl-card group/card surface relative isolate flex flex-col overflow-hidden rounded-2xl [contain-intrinsic-size:auto_420px] [content-visibility:auto]"
+      className="group/card surface surface-link relative isolate flex flex-col overflow-hidden rounded-2xl [contain-intrinsic-size:auto_420px] [content-visibility:auto]"
     >
       <CardPicture mod={mod} sizes={sizes} priority={priority} />
       {/* Under the picture, never over it: a long name or a second line of badges cannot reach into it. */}
