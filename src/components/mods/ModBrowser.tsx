@@ -90,9 +90,11 @@ export default function ModBrowser({ mods, tags, now }: { mods: SlimMod[]; tags:
   const searchBox = useRef<HTMLInputElement>(null);
   const more = useRef<HTMLDivElement>(null);
 
-  /** Writes one setting to the address without scrolling or adding a history entry. */
+  /** Writes one setting to the address without scrolling or adding a history entry. It starts from
+   * the address as it is now, not from this render's copy: the delayed search write would otherwise
+   * undo a filter picked while it waited. */
   const setParam = (key: string, value: string | null) => {
-    const next = new URLSearchParams(params.toString());
+    const next = new URLSearchParams(location.search);
     if (value) next.set(key, value);
     else next.delete(key);
     const s = next.toString();

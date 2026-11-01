@@ -23,8 +23,11 @@ test("browse: presets, search, filters and sort live in the address", async ({ p
   const status = page.getByRole("status").filter({ hasText: /mods?$/ });
   await expect(status).toHaveText("8 mods"); // works on release: no dev-only mods, no packs (7 + the second index's one)
 
-  await page.getByRole("radio", { name: "All" }).click();
-  await expect(page).toHaveURL(/preset=all/);
+  // A press before the page has hydrated does nothing, so the first one is retried.
+  await expect(async () => {
+    await page.getByRole("radio", { name: "All" }).click();
+    await expect(page).toHaveURL(/preset=all/, { timeout: 1000 });
+  }).toPass();
   await expect(status).toHaveText("10 mods");
 
   await page.getByRole("searchbox", { name: "Search mods" }).fill("radnomizer");
