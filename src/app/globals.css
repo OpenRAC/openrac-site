@@ -347,3 +347,6 @@ summary::-webkit-details-marker { display: none; }
 @media (prefers-reduced-motion: reduce) {
   ::view-transition-group(*), ::view-transition-old(*), ::view-transition-new(*) { animation: none !important; }
 }
+
+/* A page with the Install bar keeps the footer's end clear of it. */
+body:has([data-install-bar]) footer { padding-bottom: calc(96px + env(safe-area-inset-bottom)); }

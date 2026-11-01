@@ -6,8 +6,9 @@ import { DiscordIcon, GithubIcon } from "@/components/ui/icons";
 import Boundary from "@/components/ui/Boundary";
 import Markdown from "@/components/ui/Markdown";
 import AddToSet from "@/components/mods/AddToSet";
-import { DiscBadges, ImpactBadges, TypeBadge, WorksBadge } from "@/components/mods/Badges";
+import { AiBadge, DiscBadges, ImpactBadges, TypeBadge, WorksBadge } from "@/components/mods/Badges";
 import InPageNav from "@/components/mods/InPageNav";
+import InstallBar from "@/components/mods/InstallBar";
 import InstallButton from "@/components/mods/InstallButton";
 import MediaGallery, { type GalleryItem } from "@/components/mods/MediaGallery";
 import ModImage from "@/components/mods/ModImage";
@@ -194,7 +195,7 @@ export default async function ModPage(props: PageProps<"/mods/[id]">) {
   });
 
   return (
-    <main className="pb-24 min-[821px]:pb-10">
+    <main className="pb-10">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: ldJson(ld) }} />
 
       {/* The hero: the banner full width, darkened where the title sits. */}
@@ -240,11 +241,12 @@ export default async function ModPage(props: PageProps<"/mods/[id]">) {
           <div className="mt-4 flex flex-wrap gap-1.5">
             <TypeBadge type={mod.type} />
             <WorksBadge works={works} />
+            {mod.aiAssisted && <AiBadge />}
             <ImpactBadges impact={mod.impact} max={5} />
             <DiscBadges games={mod.games} />
           </div>
           <div className="mt-6 flex flex-wrap items-center gap-2.5">
-            {install}
+            {install && <div id="hero-install">{install}</div>}
             {!revokedAll && v && <AddToSet id={mod.id} />}
             <a href={mod.homepage ?? mod.repo} className="btn" rel="nofollow ugc noopener">
               <GithubIcon className="size-4" />
@@ -311,6 +313,7 @@ export default async function ModPage(props: PageProps<"/mods/[id]">) {
                     ["Type", `${TYPE_LABEL[mod.type]}${mod.type === "native" ? " (runs native code)" : mod.type === "script" ? " (sandboxed scripts)" : ""}`],
                     ["Author", mod.author],
                     ["License", mod.license ?? "Not stated"],
+                    ["AI assistance", mod.aiAssisted === undefined ? null : <>{mod.aiAssisted ? "Yes" : "No"}, stated by the author (<Link key="ai" href="/#ai" className="text-amber underline underline-offset-2">our view on AI</Link>)</>],
                     ["Mod interface", v?.api ? `${v.api}${apiFits(v.api, catalog.ports.stable.api) ? " (release ✓)" : apiFits(v.api, catalog.ports.dev.api) ? " (dev build)" : ""}` : "Not needed"],
                     ["Games", Object.entries(mod.games).map(([g, ds]) => `${GAME_LABEL[g] ?? g} (${ds.map((d) => DISC_LABEL[d] ?? d).join(", ")})`).join("; ")],
                     ["Systems", Object.keys(v?.platforms ?? {}).map((p) => PLATFORM_LABEL[p] ?? p).join(", ") || "Any"],
@@ -401,7 +404,7 @@ export default async function ModPage(props: PageProps<"/mods/[id]">) {
               <section id="files" data-reveal="fade" className="scroll-mt-28 pt-10">
                 <H2>Files</H2>
                 <details className="surface p-4">
-                  <summary className="cursor-pointer text-soft">
+                  <summary className="flex min-h-11 cursor-pointer items-center text-soft">
                     {v.files.length} file{v.files.length === 1 ? "" : "s"} in v{v.version}
                   </summary>
                   <div className="mt-3 max-h-[420px] overflow-auto">
@@ -440,10 +443,9 @@ export default async function ModPage(props: PageProps<"/mods/[id]">) {
             )}
           </div>
 
-          {/* The side panel: sticky on a wide screen; on a phone its facts come after the page and Install sits at the bottom. */}
+          {/* The side panel: sticky on a wide screen, above the page on a phone. Install is in the hero, then in the bar. */}
           <aside className="pt-8 max-[821px]:order-first max-[821px]:pt-6">
-            <div className="surface sticky top-[112px] grid gap-4 p-5">
-              <div className="max-[821px]:hidden">{install}</div>
+            <div className="surface grid gap-4 p-5 [@media(min-height:800px)]:sticky [@media(min-height:800px)]:top-[112px]">
               <Facts mod={mod} catalog={catalog} now={now} />
               {mod.type === "native" && (
                 <p className="rounded-xl border-l-4 border-amber bg-amber/10 px-3 py-2.5 text-[13px] text-soft">
@@ -457,18 +459,16 @@ export default async function ModPage(props: PageProps<"/mods/[id]">) {
         </div>
       </div>
 
-      {/* Install in thumb reach on a phone. */}
+      {/* Takes over from the hero's Install once that has scrolled away, so only one shows at a time. */}
       {install && (
-        <div className="fixed inset-x-0 bottom-0 z-20 border-t border-line bg-ink/95 px-4 pb-[max(12px,env(safe-area-inset-bottom))] pt-3 backdrop-blur-md min-[821px]:hidden">
-          <div className="mx-auto flex max-w-[1080px] items-center gap-3">
-            <p className="min-w-0 flex-1 truncate text-[14px] text-soft">
-              <b className="font-orbitron text-gold">{mod.name}</b>
-              {v && <span className="tabular-nums"> · v{v.version}</span>}
-              {mod.type === "native" && <span aria-label="runs native code"> · ⚠</span>}
-            </p>
-            {install}
-          </div>
-        </div>
+        <InstallBar watch="hero-install">
+          <p className="min-w-0 flex-1 truncate text-[14px] text-soft">
+            <b className="font-orbitron text-gold">{mod.name}</b>
+            {v && <span className="tabular-nums"> · v{v.version}</span>}
+            {mod.type === "native" && <span aria-label="runs native code"> · ⚠</span>}
+          </p>
+          {install}
+        </InstallBar>
       )}
     </main>
   );

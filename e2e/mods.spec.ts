@@ -193,8 +193,9 @@ for (const path of ["/", "/mods", "/mods/lock-strafe"]) {
 test("@mobile mod page: Install stays in thumb reach", async ({ page }) => {
   await page.goto("/mods/lock-strafe");
   const bar = page.locator("div.fixed.bottom-0").filter({ has: page.getByRole("button", { name: "Install" }) });
-  await expect(bar).toBeVisible();
+  await expect(bar).toBeHidden(); // the hero's Install is on screen, so the bar waits
   await page.mouse.wheel(0, 2000);
+  await expect(bar).toBeVisible();
   await expect(bar).toBeInViewport();
 });
 

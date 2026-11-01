@@ -33,6 +33,15 @@ export function ImpactBadges({ impact, max = 3 }: { impact: Impact[]; max?: numb
   );
 }
 
+/** A plain statement, not a warning: the calm colours, stated by the author and not checked by anyone. */
+export function AiBadge() {
+  return (
+    <span className={`${pill} flex-none border-white/15 text-soft`} title="The author says AI tools helped make this mod">
+      <span className="truncate">AI-assisted</span>
+    </span>
+  );
+}
+
 /** "Dev build only" pulses like the progress cards' research badge: it is a state, not a kind. */
 export function WorksBadge({ works }: { works: Works }) {
   if (works === "release") return null;

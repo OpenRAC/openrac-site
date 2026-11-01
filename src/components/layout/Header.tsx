@@ -20,7 +20,7 @@ const SECTIONS = ([
 ] as const).filter(([id]) => id !== "credits" || HAS_CREDITS);
 
 const link =
-  "group/l relative flex min-h-11 items-center rounded-full px-3.5 text-[17px] font-bold no-underline transition-colors min-[821px]:min-h-9 min-[821px]:whitespace-nowrap min-[821px]:text-[15px] min-[821px]:max-[1023px]:px-2 min-[821px]:max-[1023px]:text-[14px]";
+  "group/l relative flex min-h-11 items-center rounded-full px-3.5 text-[17px] font-bold no-underline transition-colors min-[821px]:min-h-9 min-[821px]:whitespace-nowrap min-[821px]:text-[15px] min-[821px]:max-[1023px]:px-2 min-[821px]:max-[900px]:px-1.5 min-[821px]:max-[1023px]:text-[14px]";
 // The open mobile menu sits on the page's colour, the bar on its stripes: light text there, dark here.
 // The current section: a pill as tall as the bar's buttons. Its label never wraps, so the pill cannot grow to the bar's height.
 const linkOn = "bg-white/[.06] text-amber min-[821px]:bg-[#1b1206] [&>span]:hidden";
@@ -116,7 +116,7 @@ export default function Header() {
   return (
     <>
       <header style={{ viewTransitionName: "site-header" }} className="bar-stripes fixed inset-x-0 top-0 z-30 border-b border-black/30 text-black shadow-[inset_0_1px_0_rgb(255_255_255/0.35),0_4px_24px_rgb(0_0_0/0.45)]">
-        <div className="mx-auto flex h-[50px] max-w-[1080px] items-center gap-6 px-4 min-[821px]:max-[1023px]:gap-4">
+        <div className="mx-auto flex h-[50px] max-w-[1080px] items-center gap-6 px-4 min-[821px]:max-[1023px]:gap-4 min-[821px]:max-[900px]:gap-2">
           <Link href="/" transitionTypes={PAGE_TRANSITION} onClick={close} className="group flex items-center text-[#1b1206] no-underline" aria-label="OpenRAC home">
             <Logo height={34} label="" className="transition-opacity group-hover:opacity-85" />
           </Link>
@@ -133,8 +133,9 @@ export default function Header() {
           >
             <ModsMark className="size-[22px]" />
           </Link>
-          <MarkButton site="github" onClick={close} className={`${barIcon} -ml-5`} />
-          <MarkButton site="discord" onClick={close} className={`${barIcon} -ml-5`} />
+          {/* Too wide for the narrowest phones: there they move into the menu, so the menu button stays on screen. */}
+          <MarkButton site="github" onClick={close} className={`${barIcon} -ml-5 max-[359px]:hidden`} />
+          <MarkButton site="discord" onClick={close} className={`${barIcon} -ml-5 max-[359px]:hidden`} />
           <button
             type="button"
             aria-label={open ? "Close menu" : "Open menu"}
@@ -179,6 +180,10 @@ export default function Header() {
               <Link href="/#download" transitionTypes={PAGE_TRANSITION} onClick={close} className={`${pill} border border-amber bg-amber text-[#1a0d00] hover:brightness-110 min-[821px]:border-black/25 min-[821px]:bg-[#1b1206] min-[821px]:text-amber min-[821px]:hover:bg-[#2a1800] min-[821px]:hover:brightness-100`}>
                 Download
               </Link>
+              <div className="flex justify-center gap-2 min-[360px]:hidden">
+                <MarkButton site="github" onClick={close} className={`${mark} size-11`} />
+                <MarkButton site="discord" onClick={close} className={`${mark} size-11`} />
+              </div>
               <MarkButton site="github" onClick={close} className={`${mark} size-9 max-[821px]:hidden`} />
               <MarkButton site="discord" onClick={close} className={`${mark} size-9 max-[821px]:hidden`} />
             </div>

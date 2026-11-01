@@ -31,6 +31,7 @@ export interface SlimMod {
   created: string;
   updated: string;
   featured: boolean;
+  aiAssisted?: boolean;
   works: Works;
   version: string;
   size: number;
@@ -76,6 +77,7 @@ export function slim(m: ListedMod, catalog: Pick<ModCatalog, "ports" | "revoked"
     created: m.created,
     updated: m.updated,
     featured: m.featured,
+    ...(m.aiAssisted === true && { aiAssisted: true }),
     works: worksWith(m, catalog.ports, catalog.revoked),
     version: v?.version ?? m.versions[0].version,
     size: v?.size ?? 0,

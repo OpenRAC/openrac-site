@@ -78,6 +78,8 @@ export interface Mod {
   created: string;
   updated: string;
   featured: boolean;
+  /** What the author stated about AI tools helping to make the mod; absent when they have not said. */
+  aiAssisted?: boolean;
   recommends: string[];
   suggests: string[];
   readme?: string;
