@@ -35,9 +35,9 @@ const mark = "bg-[#1b1206] text-text hover:bg-[#2a1800]";
 /** On a phone the bar's buttons are bare dark marks on the stripes: no discs or rings, a light shade under a finger. */
 const barIcon = "flex size-10 flex-none items-center justify-center rounded-full text-[#1b1206] transition-colors hover:bg-black/10 active:bg-black/15 min-[821px]:hidden";
 
-/** Mods on the bar: dark with gold like Download, filled gold while on /mods. In the open mobile menu, an outlined gold pill. */
-const modsOff = "border-amber/50 text-amber hover:bg-amber/10 min-[821px]:border-black/25 min-[821px]:bg-[#1b1206] min-[821px]:hover:bg-[#2a1800]";
-const modsOn = "border-amber bg-amber text-[#1a0d00] min-[821px]:border-black/25";
+/** Mods on the wide bar: dark with gold like Download, filled gold while on /mods. */
+const modsOff = "border-black/25 bg-[#1b1206] text-amber hover:bg-[#2a1800]";
+const modsOn = "border-black/25 bg-amber text-[#1a0d00]";
 
 /** A small puzzle piece: the mark of Mods in the bar. Its knobs sit top and right, so the view is shifted to
     put the piece's weight, not its outline, in the middle of a round button. */
@@ -169,8 +169,9 @@ export default function Header() {
               )}
             </div>
             <div className="grid gap-2 min-[821px]:ml-auto min-[821px]:flex min-[821px]:items-center min-[821px]:max-[1023px]:gap-1.5">
-              {/* Mods, set apart from the home page's sections: its own page, with its own mark. */}
-              <Link href="/mods" transitionTypes={PAGE_TRANSITION} onClick={close} aria-current={inMods ? "page" : undefined} className={`${pill} gap-2 border ${inMods ? modsOn : modsOff}`}>
+              {/* Mods, set apart from the home page's sections: its own page, with its own mark. Not in the
+                  open phone menu: the bar there already has its own Mods button. */}
+              <Link href="/mods" transitionTypes={PAGE_TRANSITION} onClick={close} aria-current={inMods ? "page" : undefined} className={`${pill} gap-2 border max-[821px]:hidden ${inMods ? modsOn : modsOff}`}>
                 <ModsMark />
                 Mods
               </Link>
