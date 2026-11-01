@@ -38,10 +38,11 @@ const barIcon = "flex size-10 flex-none items-center justify-center rounded-full
 const modsOff = "border-amber/50 text-amber hover:bg-amber/10 min-[821px]:border-black/25 min-[821px]:bg-[#1b1206] min-[821px]:hover:bg-[#2a1800]";
 const modsOn = "border-amber bg-amber text-[#1a0d00] min-[821px]:border-black/25";
 
-/** A small puzzle piece: the mark of Mods in the bar. */
+/** A small puzzle piece: the mark of Mods in the bar. Its knobs sit top and right, so the view is shifted to
+    put the piece's weight, not its outline, in the middle of a round button. */
 function ModsMark({ className = "size-4" }: { className?: string }) {
   return (
-    <svg viewBox="0 0 16 16" aria-hidden className={`flex-none fill-current ${className}`}>
+    <svg viewBox="-1 1 16 16" aria-hidden className={`flex-none fill-current ${className}`}>
       <path d="M6 1.5a2 2 0 0 1 2 2V4h3a1 1 0 0 1 1 1v3h.5a2 2 0 1 1 0 4H12v2.5a1 1 0 0 1-1 1H8V15a2 2 0 1 0-4 0v.5H1.5a1 1 0 0 1-1-1V12H1a2 2 0 1 0 0-4H.5V5a1 1 0 0 1 1-1H4v-.5a2 2 0 0 1 2-2z" />
     </svg>
   );
@@ -129,7 +130,7 @@ export default function Header() {
             aria-current={inMods ? "page" : undefined}
             className={`${barIcon} ml-auto ${inMods ? "bg-black/15" : ""}`}
           >
-            <ModsMark className="size-[20px]" />
+            <ModsMark className="size-[22px]" />
           </Link>
           <MarkButton site="github" onClick={close} className={`${barIcon} -ml-5`} />
           <MarkButton site="discord" onClick={close} className={`${barIcon} -ml-5`} />
