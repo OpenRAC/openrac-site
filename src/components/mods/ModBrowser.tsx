@@ -307,7 +307,7 @@ export default function ModBrowser({ mods, tags, now }: { mods: SlimMod[]; tags:
         ) : view === "list" ? (
           <ModTable mods={results.slice(0, shown)} now={now} query={query} sort={sort} onSort={(s) => setParam("sort", s === "trending" ? null : s)} picked={new Set(picked)} onPick={pick} />
         ) : (
-          <div className="grid gap-4 min-[480px]:grid-cols-2 min-[821px]:grid-cols-3 sm:gap-5">
+          <div className="grid gap-4 min-[480px]:grid-cols-2 min-[821px]:grid-cols-3">
             {results.slice(0, shown).map((m) => (
               <ModCard
                 key={m.id}

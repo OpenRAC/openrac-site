@@ -44,7 +44,7 @@ function CardPicture({ mod, sizes, priority, children }: { mod: SlimMod; sizes: 
     // grows this picture into its banner (and back), so the eye follows where it went.
     <ViewTransition name={`mod-${mod.id}`} share="morph" default="none">
       <div
-        className="relative aspect-video overflow-hidden bg-gradient-to-br from-panel-hi to-ink"
+        className="relative aspect-[2/1] overflow-hidden bg-gradient-to-br from-panel-hi to-ink"
         onPointerEnter={(e) => e.pointerType === "mouse" && setHovered(true)}
         onPointerLeave={() => {
           setHovered(false);
@@ -103,11 +103,11 @@ export default function ModCard({
 }) {
   return (
     <article
-      className="group/card surface surface-link relative isolate flex flex-col overflow-hidden rounded-2xl [contain-intrinsic-size:auto_420px] [content-visibility:auto]"
+      className="group/card surface surface-link relative isolate flex flex-col overflow-hidden rounded-2xl [contain-intrinsic-size:auto_380px] [content-visibility:auto]"
     >
       <CardPicture mod={mod} sizes={sizes} priority={priority}>
         {/* One line of badges on the picture's dark bottom edge: a long one shortens with "…" rather than wrapping. */}
-        <div className="absolute inset-x-4 bottom-3 flex min-w-0 gap-1.5 sm:inset-x-5">
+        <div className="absolute inset-x-4 bottom-3 flex min-w-0 gap-1.5">
           <TypeBadge type={mod.type} />
           <WorksBadge works={mod.works} />
           <ImpactBadges impact={mod.impact} max={1} />
@@ -115,7 +115,7 @@ export default function ModCard({
       </CardPicture>
       {/* The name sits under the picture, never over it, so a long one cannot reach into it. Not
           positioned, so the name's stretched link still covers the whole card. */}
-      <div className="flex flex-1 flex-col gap-2.5 p-4 sm:p-5">
+      <div className="flex flex-1 flex-col gap-2 p-4">
         <div className="min-w-0">
           <h3 className="font-orbitron text-[17px] font-bold leading-tight text-hi [overflow-wrap:anywhere]">
             {/* The card's one link, stretched over the whole card. */}
