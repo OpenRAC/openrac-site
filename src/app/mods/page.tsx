@@ -11,7 +11,7 @@ import ModCard from "@/components/mods/ModCard";
 import { SHARE_IMAGE, ldJson, modsIndexLd, siteUrl } from "@/lib/machine";
 import { getModCatalog } from "@/lib/mods";
 import { isFresh, isWithdrawn, renderedAt, sortMods } from "@/lib/mods/logic";
-import { LIST_YOUR_MOD, SDK_DOCS } from "@/lib/mods/links";
+import { CONTENT_RULES, LIST_YOUR_MOD, SDK_DOCS } from "@/lib/mods/links";
 import { slim } from "@/lib/mods/slim";
 
 // Static, rebuilt in the background at most every 5 minutes, like the home page.
@@ -62,7 +62,7 @@ export default async function ModsPage() {
           <a href="#all" className="btn btn-primary">
             Browse {mods.length ? `${mods.length} mods` : "mods"}
           </a>
-          <a href={LIST_YOUR_MOD} className="btn">
+          <a href="#publish" className="btn">
             Publish your mod
           </a>
         </div>
@@ -111,9 +111,12 @@ export default async function ModsPage() {
           items={[
             ["Build it with the SDK", "Script mods in Luau, native mods in C or C++, data packs from the level editor. The templates set everything up.", <a key="a" className="btn btn-sm" href={SDK_DOCS}>SDK docs</a>],
             ["Release it on GitHub", "Tag a version: the template's workflow builds every system, packs the archives and writes SHA256SUMS.", null],
-            ["List it once", "Add your repository to the mod list. After that each release shows up here within the hour.", <a key="c" className="btn btn-sm" href={LIST_YOUR_MOD}>How to list a mod</a>],
+            ["List it once", "All you need is a GitHub account. Fill in the form and a bot answers on the issue, with each problem and its fix. After that each release shows up here within the hour.", <a key="c" className="btn btn-sm" href={LIST_YOUR_MOD}>Open the submission on GitHub</a>],
           ]}
         />
+        <p className="mt-6 text-[14px] text-dim">
+          Every listing follows the <a href={CONTENT_RULES} className="text-amber underline">content rules</a>.
+        </p>
       </Section>
     </main>
     </PageTransition>

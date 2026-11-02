@@ -205,31 +205,16 @@ test("@mobile search box does not make iOS zoom", async ({ page }) => {
   expect(size).toBeGreaterThanOrEqual(16);
 });
 
-test("submit: a bad address is refused with a plain answer", async ({ page, request }) => {
-  const r = await request.get("/mods/submit/check?repo=http://169.254.169.254/latest");
-  expect(r.status()).toBe(400);
-  expect(JSON.stringify(await r.json())).not.toMatch(/api\.github\.com|token|at \w+ \(/);
+test("publishing goes to GitHub's form: the old page redirects, its check is gone", async ({ page, request }) => {
+  const form = "https://github.com/OpenRAC/openrac-mods/issues/new?template=submit-mod.yml";
+  const old = await request.get("/mods/submit", { maxRedirects: 0 });
+  expect(old.status()).toBe(308);
+  expect(old.headers().location).toBe(form);
+  expect((await request.get("/mods/submit/check?repo=https://github.com/you/x")).status()).toBe(404);
 
-  await page.goto("/mods/submit");
-  await expect(page.getByRole("heading", { name: "Publish your mod" })).toBeVisible();
-  await expect(page.getByRole("button", { name: "Open the submission on GitHub" })).toBeDisabled();
-  await page.getByRole("radio", { name: "A modpack" }).click();
-  await page.getByLabel("Name").fill("My night");
-  await page.getByPlaceholder("What it does, in plain words.").fill("Two mods together.");
-  await page.getByRole("checkbox", { name: /Lock-strafe/ }).check();
-  await page.getByRole("checkbox", { name: /Xbox icons/ }).check();
-  // Catch the GitHub page instead of loading it: the test never reaches the network.
-  let opened = "";
-  await page.context().route("https://github.com/**", (route) => {
-    opened = route.request().url();
-    return route.fulfill({ body: "ok" });
-  });
-  await page.getByRole("button", { name: "Open the submission on GitHub" }).click();
-  await expect.poll(() => opened).not.toBe("");
-  const url = new URL(opened);
-  expect(url.pathname).toBe("/OpenRAC/openrac-mods/issues/new");
-  expect(url.searchParams.get("kind")).toBe("Modpack");
-  expect(url.searchParams.get("mods")).toContain("lock-strafe@>=1.2.0");
+  await page.goto("/mods");
+  await expect(page.getByRole("link", { name: "Publish your mod" })).toHaveAttribute("href", "#publish");
+  await expect(page.getByRole("link", { name: "Open the submission on GitHub" })).toHaveAttribute("href", form);
 });
 
 test("shared setup: exact versions, unknown ones flagged, kept out of search", async ({ page }) => {

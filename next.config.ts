@@ -1,4 +1,5 @@
 import type { NextConfig } from "next";
+import { LIST_YOUR_MOD } from "./src/lib/mods/links.ts";
 
 /**
  * Content Security Policy: what a page may load, and from where. Everything comes from this site
@@ -43,6 +44,10 @@ const nextConfig: NextConfig = {
   // way (a proxy, a CDN) is refused by the browser. Unlike nonces it keeps pages static and cached.
   experimental: { sri: { algorithm: "sha256" } },
   poweredByHeader: false,
+  async redirects() {
+    // The submission wizard is gone; the launcher and old links still point here.
+    return [{ source: "/mods/submit", destination: LIST_YOUR_MOD, permanent: true }];
+  },
   images: {
     formats: ["image/avif", "image/webp"],
     qualities: [70, 75],
