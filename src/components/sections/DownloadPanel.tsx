@@ -232,7 +232,7 @@ export default function DownloadPanel({ release, dev, platforms, fallback, art }
               id="download-title"
               ref={heading}
               tabIndex={-1}
-              className="min-w-0 bg-gradient-to-r from-text to-soft bg-clip-text font-audiowide text-[clamp(26px,4vw,38px)] leading-tight text-transparent outline-none"
+              className="min-w-0 bg-gradient-to-r from-text to-soft bg-clip-text font-audiowide text-[clamp(24px,3.4vw,32px)] leading-tight text-transparent outline-none"
             >
               Get the launcher
             </h2>

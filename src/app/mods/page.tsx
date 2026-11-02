@@ -46,19 +46,19 @@ export default async function ModsPage() {
     <main className="mx-auto max-w-[1080px] px-4">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: ldJson(modsIndexLd(siteUrl(), trending)) }} />
 
-      <div className="relative isolate pb-6 pt-12 sm:pb-10 sm:pt-20">
+      <div className="relative isolate pb-2 pt-10 sm:pb-4 sm:pt-14">
         <Particles />
         <div aria-hidden className="absolute -right-56 -top-24 -z-10 size-[680px] bg-[radial-gradient(closest-side,rgb(214_160_32/0.28),transparent)] will-change-transform sm:animate-drift" />
         <p className="mb-4 whitespace-nowrap font-orbitron text-[clamp(7px,2.35vw,11px)] font-bold uppercase tracking-[.2em] text-brand after:mt-2 after:block after:h-[3px] after:w-11 after:rounded-sm after:bg-brand after:content-[''] sm:text-[13px] sm:tracking-[.28em]">
           Community made · one-click install
         </p>
-        <h1 className="max-w-[860px] text-balance font-audiowide text-[clamp(32px,6.6vw,68px)] leading-[1.06]">
+        <h1 className="max-w-[860px] text-balance font-audiowide text-[clamp(30px,5.6vw,56px)] leading-[1.06]">
           <span className="animate-shine bg-gradient-to-r from-amber via-[#e8a317] to-gold bg-[length:220%_100%] bg-clip-text text-transparent">Mods</span> for the Ratchet &amp; Clank port.
         </h1>
-        <p className="mt-5 max-w-[620px] text-[15px] leading-relaxed text-soft sm:text-[17px]">
+        <p className="mt-4 max-w-[620px] text-[15px] leading-relaxed text-soft sm:text-[17px]">
           Made by the community for OpenRAC. Press <b className="font-semibold text-hi">Install</b> and the launcher adds the mod with everything it needs, checks every file, and keeps it up to date.
         </p>
-        <div className="mt-7 grid animate-rise gap-3 [animation-delay:.3s] min-[560px]:flex min-[560px]:flex-wrap">
+        <div className="mt-6 grid animate-rise gap-3 [animation-delay:.3s] min-[560px]:flex min-[560px]:flex-wrap">
           <a href="#all" className="btn btn-primary">
             Browse {mods.length ? `${mods.length} mods` : "mods"}
           </a>
@@ -76,7 +76,7 @@ export default async function ModsPage() {
 
       {featured.length > 0 && (
         <Section id="featured" title="Featured" sub="Picked by the community: a good place to start.">
-          <div className="grid gap-4 min-[480px]:grid-cols-2 min-[821px]:grid-cols-3 sm:gap-5">
+          <div className="grid gap-4 min-[480px]:grid-cols-2 min-[821px]:grid-cols-3">
             {featured.map((m, i) => (
               <ModCard key={m.id} mod={m} now={now} priority={i === 0} actions={<InstallButton mods={[{ id: m.id }]} small primary={false} devOnly={m.works !== "release"} />} />
             ))}
@@ -86,11 +86,12 @@ export default async function ModsPage() {
 
       {fresh.length > 0 && (
         <Section id="fresh" title="New & updated" sub="Released or updated in the last two weeks.">
-          {/* A row to swipe through, snapping to each card; it never moves by itself. */}
-          <div className="-mx-4 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-3 [scrollbar-width:thin]">
+          {/* A row to swipe through, snapping to each card; it never moves by itself. A scrolling row also
+              clips up and down, so the room above (pt, undone by -mt) keeps a hovered card's lifted border in view. */}
+          <div className="-mx-4 -mt-2 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-3 pt-2 [scrollbar-width:thin]">
             {fresh.map((m) => (
-              <div key={m.id} className="w-[min(300px,82vw)] flex-none snap-start">
-                <ModCard mod={m} now={now} sizes="300px" />
+              <div key={m.id} className="w-[min(280px,80vw)] flex-none snap-start">
+                <ModCard mod={m} now={now} sizes="280px" />
               </div>
             ))}
           </div>
