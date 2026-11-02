@@ -75,7 +75,7 @@ export default async function ModsPage() {
       )}
 
       {featured.length > 0 && (
-        <Section compact id="featured" title="Featured" sub="Picked by the community: a good place to start.">
+        <Section id="featured" title="Featured" sub="Picked by the community: a good place to start.">
           <div className="grid gap-4 min-[480px]:grid-cols-2 min-[821px]:grid-cols-3">
             {featured.map((m, i) => (
               <ModCard key={m.id} mod={m} now={now} priority={i === 0} actions={<InstallButton mods={[{ id: m.id }]} small primary={false} devOnly={m.works !== "release"} />} />
@@ -85,7 +85,7 @@ export default async function ModsPage() {
       )}
 
       {fresh.length > 0 && (
-        <Section compact id="fresh" title="New & updated" sub="Released or updated in the last two weeks.">
+        <Section id="fresh" title="New & updated" sub="Released or updated in the last two weeks.">
           {/* A row to swipe through, snapping to each card; it never moves by itself. A scrolling row also
               clips up and down, so the room above (pt, undone by -mt) keeps a hovered card's lifted border in view. */}
           <div className="-mx-4 -mt-2 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-3 pt-2 [scrollbar-width:thin]">
@@ -98,7 +98,7 @@ export default async function ModsPage() {
         </Section>
       )}
 
-      <Section compact id="all" title="All mods" sub="Search, filter and compare. Pick several to install them together, with everything they need.">
+      <Section id="all" title="All mods" sub="Search, filter and compare. Pick several to install them together, with everything they need.">
         <Suspense fallback={<div className="surface h-[420px] animate-pulse" />}>
           <Boundary what="mod list">
             <ModBrowser mods={mods} tags={catalog.tags} now={now} />
@@ -106,7 +106,7 @@ export default async function ModsPage() {
         </Suspense>
       </Section>
 
-      <Section compact id="publish" title="Publish your mod" sub="Players install it in one click, and every new release reaches them by itself.">
+      <Section id="publish" title="Publish your mod" sub="Players install it in one click, and every new release reaches them by itself.">
         <Cards
           items={[
             ["Build it with the SDK", "Script mods in Luau, native mods in C or C++, data packs from the level editor. The templates set everything up.", <a key="a" className="btn btn-sm" href={SDK_DOCS}>SDK docs</a>],

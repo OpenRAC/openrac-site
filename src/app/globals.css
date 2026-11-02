@@ -234,6 +234,8 @@ body { background: var(--color-ink); color: var(--color-text); }
 :focus-visible { outline: 2px solid var(--color-amber); outline-offset: 3px; }
 /* An element focused only by script (tabindex="-1", such as the Download panel's heading) takes no ring: the reader did not move there with the keyboard. */
 [tabindex="-1"]:focus { outline: none; }
+/* Form fields show focus with their gold border (.field:focus); a ring around it as well would draw two frames. */
+.field:focus-visible { outline: none; }
 
 /* Sections fade in once scrolled to. Only hidden when scripting is available,
    so the page stays fully readable without JavaScript. */
