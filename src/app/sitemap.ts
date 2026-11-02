@@ -16,7 +16,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   return [
     { url: `${site}/`, lastModified: new Date(), changeFrequency: "daily", priority: 1 },
     { url: `${site}/mods`, lastModified: newest ? new Date(newest) : new Date(), changeFrequency: "daily", priority: 0.9 },
-    { url: `${site}/mods/submit`, changeFrequency: "monthly", priority: 0.5 },
     ...mods.map((m) => {
       const pics = [m.media.banner, ...m.media.screenshots].filter((i) => i !== null);
       return {

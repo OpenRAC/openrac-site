@@ -24,7 +24,7 @@ PublishPort=127.0.0.1:3000:3000
 
 # Public address, used for absolute URLs in page metadata.
 Environment=SITE_URL=https://openrac.dev
-# GitHub access (activity feed, Download panel, /mods/submit checks, mod comments). Best: the OpenRAC
+# GitHub access (activity feed, Download panel, mod comments). Best: the OpenRAC
 # GitHub App, which needs no renewing (README, "GitHub access"). Its settings go in the env file
 # (GITHUB_APP_ID, optionally GITHUB_APP_INSTALLATION_ID) and its private key in a Podman secret:
 #   podman secret create openrac-github-app ~/openrac-github-app.pem   (then delete the .pem)

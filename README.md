@@ -57,7 +57,7 @@ The home page and every mod page also carry schema.org JSON-LD (the projects as 
 the launcher through its `openrac://` link, which installs the mod with its dependencies. Pictures are resized by
 the index build and served from this site (`/mods/media/...`), so visitors never load anything from GitHub.
 
-- `/mods/submit` checks a repository against the listing rules and opens openrac-mods' submission form filled in.
+- Authors list a mod through openrac-mods' submission form on GitHub, where a bot checks it; `/mods/submit` redirects there.
 - `/mods/set?m=id@1.2.0,...` is a "Share my setup" link from the launcher: a friend's mods at exact versions.
 - Mod pages show the latest comments of the mod's GitHub Discussion (needs `GITHUB_TOKEN`); commenting happens on GitHub.
 
@@ -65,7 +65,7 @@ Browser tests: `npm run test:e2e` (Playwright) builds the site against the share
 
 ## GitHub access
 
-The server reads GitHub for the activity feed, the Download panel, the `/mods/submit` checks and mod
+The server reads GitHub for the activity feed, the Download panel and mod
 comments. It signs in as the **OpenRAC GitHub App** (`src/lib/githubApp.ts`), owned by the
 organization, so nothing expires or depends on one person: its private key gets a fresh one-hour token
 whenever needed. Without the app it uses `GITHUB_TOKEN`; if GitHub refuses a token, it goes on without

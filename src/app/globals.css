@@ -116,7 +116,6 @@
   }
   .field::placeholder { color: var(--color-dim); }
   .field:focus { border-color: var(--color-amber); outline: none; }
-  textarea.field { height: auto; min-height: 6rem; border-radius: 1rem; padding-block: 0.75rem; }
   /* A dropdown: the same field with its own arrow. */
   select.field {
     width: auto;
