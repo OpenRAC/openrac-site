@@ -6,7 +6,7 @@ import { accentStyle, Freshness, Gallery, gameOf, NoReport, ProjectCard, ReportS
 import Backdrop from "@/components/ui/Backdrop";
 import { ldJson, newsWeekLd, siteUrl } from "@/lib/machine";
 import { getNewsIndex, getNewsWeek } from "@/lib/news";
-import { formatShortDay, formatWeekName, formatWeekRange, isActive, isNewsWeek, leadProject, neighbours, plainTitle, reportSources } from "@/lib/news/logic";
+import { formatShortDay, formatWeekName, formatWeekRange, isActive, isNewsWeek, leadProject, neighbours, reportSources } from "@/lib/news/logic";
 import { newsAlternates } from "@/lib/news/metadata";
 
 // A report can arrive any time after its week, so weeks are rebuilt in the background like the list.
@@ -80,7 +80,7 @@ export default async function NewsWeekPage(props: PageProps<"/news/[week]">) {
               {formatWeekName(week)} · <time dateTime={facts.end}>{formatWeekRange(facts.start, facts.end)}</time>
               {!entry.finished && " · so far"}
             </p>
-            <h1 className="font-audiowide text-[clamp(26px,4.4vw,42px)] leading-[1.15] text-hi">{report ? report.headline : "What happened this week"}</h1>
+            <h1 className="font-audiowide text-[clamp(26px,4.4vw,42px)] leading-[1.15] text-hi [overflow-wrap:anywhere]">{report ? report.headline : "What happened this week"}</h1>
             <p className="text-[14px] text-soft">
               {totals.commits.toLocaleString("en-GB")} commits landed · {totals.pullRequestsMerged.toLocaleString("en-GB")} pull requests merged · {totals.contributors.toLocaleString("en-GB")} contributors
             </p>
@@ -91,7 +91,7 @@ export default async function NewsWeekPage(props: PageProps<"/news/[week]">) {
           <Freshness stale={data.stale} newest={loaded.index.days[0]} now={now} />
           {report ? (
             <section aria-label="The week in brief" className="grid gap-3">
-              <p className="text-[17px] leading-relaxed text-body sm:text-[18px]"><ReportText text={report.summary} known={known} /></p>
+              <p className="text-[17px] leading-relaxed text-body [overflow-wrap:anywhere] sm:text-[18px]"><ReportText text={report.summary} known={known} /></p>
               <WrittenBy report={report} sources={reportSources(report, facts.projects).length} />
             </section>
           ) : entry.finished || state.status !== "none" ? (
@@ -115,7 +115,6 @@ export default async function NewsWeekPage(props: PageProps<"/news/[week]">) {
                       {section ? `Every change on ${p.title}` : `See what changed on ${p.title}`}: {p.merged.length} merged
                     </Link>
                   </p>
-                  {!section && p.merged[0] && <p className="sr-only">Latest: {plainTitle(p.merged[0].title)}</p>}
                 </article>
               );
             })}

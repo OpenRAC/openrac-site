@@ -160,7 +160,7 @@ test("the feed is valid RSS of written reports only", async ({ request, page }) 
     return { error: doc.querySelector("parsererror")?.textContent ?? null, items: [...doc.querySelectorAll("item > link")].map((l) => l.textContent) };
   }, await res.text());
   expect(parsed.error).toBeNull();
-  expect(parsed.items).toHaveLength(1);
+  expect(parsed.items).toHaveLength(2);
   expect(parsed.items[0]).toMatch(/\/news\/2026-W44$/);
   await page.goto("/news");
   await expect(page.locator('link[rel="alternate"][type="application/rss+xml"]')).toHaveAttribute("href", /\/news\.xml$/);
