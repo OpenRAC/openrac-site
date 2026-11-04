@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import { test } from "node:test";
-import { daysBehind, formatDay, formatPercent, formatWeekName, formatWeekRange, groupItems, isActive, isMediaName, isNewsDay, isNewsWeek, leadProject, mediaMatches, mediaType, monthGrid, neighbours, parseDayFacts, parseIndex, parseReport, parseWeekFacts, plainTitle, progressChange, reportSources, rssXml, segments, splitLabel, weekOfDay } from "./logic.ts";
+import { formatDay, formatPercent, formatWeekName, formatWeekRange, groupItems, isActive, isNewsDay, isNewsWeek, leadProject, monthGrid, neighbours, parseDayFacts, parseIndex, parseReport, parseWeekFacts, plainTitle, progressChange, reportSources, rssXml, segments, splitLabel, weekOfDay } from "./logic.ts";
 import type { NewsIndex } from "./types.ts";
 
 const fixture = (path: string) => JSON.parse(readFileSync(new URL(`./__fixtures__/repo/${path}`, import.meta.url), "utf8"));
@@ -107,32 +107,6 @@ test("a report must say who wrote it, with what", () => {
   }
 });
 
-test("pictures need a safe name and a description, and only four count", () => {
-  const good = fixture(`reports/${WEEK}/report.json`);
-  const media = [{ file: "a.png", alt: "A" }, { file: "../b.png", alt: "B" }, { file: "c.svg", alt: "C" }, { file: "d.png" }, { file: "e.webp", alt: "E", caption: 3, repo: "../x" }];
-  assert.deepEqual(parseReport({ ...good, media }, WEEK)!.media, [{ file: "a.png", alt: "A", caption: "" }, { file: "e.webp", alt: "E", caption: "" }]);
-  const many = Array.from({ length: 6 }, (_, i) => ({ file: `${i}.png`, alt: "x" }));
-  assert.equal(parseReport({ ...good, media: many }, WEEK)!.media.length, 4);
-  assert.deepEqual(parseReport({ ...good, media: "x" }, WEEK)!.media, []);
-});
-
-test("a picture's bytes must match its name", () => {
-  const png = new Uint8Array([0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a, 0]);
-  const webp = new TextEncoder().encode("RIFF\0\0\0\0WEBPVP8 ");
-  const jpeg = new Uint8Array([0xff, 0xd8, 0xff, 0xe0]);
-  const svg = new TextEncoder().encode("<svg onload=alert(1)>");
-  assert.equal(mediaMatches("a.png", png), true);
-  assert.equal(mediaMatches("a.webp", webp), true);
-  assert.equal(mediaMatches("a.jpg", jpeg), true);
-  assert.equal(mediaMatches("a.jpeg", jpeg), true);
-  assert.equal(mediaMatches("a.png", svg), false);
-  assert.equal(mediaMatches("a.webp", png), false);
-  assert.equal(mediaMatches("a.jpg", new Uint8Array()), false);
-  assert.equal(mediaType("a.webp"), "image/webp");
-  assert.equal(mediaType("a.jpg"), "image/jpeg");
-  for (const bad of ["../a.png", "a.svg", "A.PNG", "a b.png", ".png", null]) assert.equal(isMediaName(bad), false, String(bad));
-});
-
 test("citations become links only for tracked projects", () => {
   const known = ["OpenRAC", "rac2-decomp"];
   assert.deepEqual(segments("Fixed in OpenRAC#228, see #399.", known, "rac2-decomp"), [
@@ -207,14 +181,6 @@ test("neighbours skip the gaps", () => {
   assert.deepEqual(neighbours(days, "2026-11-02"), { newer: DAY, older: "2026-10-27" });
   assert.deepEqual(neighbours(days, DAY), { newer: undefined, older: "2026-11-02" });
   assert.deepEqual(neighbours(days, "2020-01-01"), {});
-});
-
-test("old facts are noticed", () => {
-  const now = Date.parse("2026-11-04T12:00:00Z");
-  assert.equal(daysBehind(DAY, now), 0);
-  assert.equal(daysBehind("2026-10-30", now), 4);
-  assert.equal(daysBehind("2026-11-04", now), 0);
-  assert.equal(daysBehind(undefined, now), Number.POSITIVE_INFINITY);
 });
 
 test("a month is Monday-first weeks, linked to the months around it", () => {

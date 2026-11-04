@@ -1,4 +1,4 @@
-import type { NewsCommit, NewsDayFacts, NewsIndex, NewsItem, NewsMeasures, NewsMedia, NewsProgress, NewsProject, NewsRatio, NewsRelease, NewsReport, NewsReportSection, NewsSegment, NewsSource, NewsTotals, NewsWeekEntry, NewsWeekFacts } from "./types.ts";
+import type { NewsCommit, NewsDayFacts, NewsIndex, NewsItem, NewsMeasures, NewsProgress, NewsProject, NewsRatio, NewsRelease, NewsReport, NewsReportSection, NewsSegment, NewsSource, NewsTotals, NewsWeekEntry, NewsWeekFacts } from "./types.ts";
 
 /**
  * Reading and shaping the news data. Everything here is pure. The data comes from another repository
@@ -8,9 +8,9 @@ import type { NewsCommit, NewsDayFacts, NewsIndex, NewsItem, NewsMeasures, NewsM
  */
 
 export const NEWS_ORG = "OpenRAC";
-export const NEWS_REPOSITORY = `https://github.com/${NEWS_ORG}/openrac-news`;
-export const NEWS_CONTRIBUTING = `${NEWS_REPOSITORY}/blob/main/CONTRIBUTING.md`;
-export const NEWS_ISSUES = `${NEWS_REPOSITORY}/issues`;
+export const NEWS_FOLDER = `https://github.com/${NEWS_ORG}/openrac-site/tree/main/news`;
+export const NEWS_CONTRIBUTING = `https://github.com/${NEWS_ORG}/openrac-site/blob/main/news/CONTRIBUTING.md`;
+export const NEWS_ISSUES = `https://github.com/${NEWS_ORG}/openrac-site/issues`;
 
 const FORMAT = 1;
 const SAFE_REPO = /^[A-Za-z0-9._-]+$/;
@@ -144,33 +144,6 @@ export function parseWeekFacts(raw: unknown, week: string): NewsWeekFacts | null
   return { week, start: raw.start, end: raw.end, days: list(raw.days).filter(isNewsDay), totals: parseTotals(raw.totals), projects: compact(list(raw.projects).map(parseProject)) };
 }
 
-const MEDIA_NAME = /^[a-z0-9][a-z0-9._-]{0,60}\.(webp|png|jpe?g)$/;
-
-/** A picture's name as the checks allow it. Nothing else may reach a URL. */
-export const isMediaName = (name: unknown): name is string => typeof name === "string" && MEDIA_NAME.test(name);
-
-/** The type a picture's name promises. */
-export function mediaType(name: string): string {
-  const ext = name.slice(name.lastIndexOf(".") + 1);
-  return ext === "png" ? "image/png" : ext === "webp" ? "image/webp" : "image/jpeg";
-}
-
-/** True when the bytes really are the type the name promises: a name proves nothing. */
-export function mediaMatches(name: string, bytes: Uint8Array): boolean {
-  const starts = (...b: number[]) => b.every((x, i) => bytes[i] === x);
-  const ascii = (at: number, text: string) => [...text].every((c, i) => bytes[at + i] === c.charCodeAt(0));
-  const type = mediaType(name);
-  if (type === "image/png") return starts(0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a);
-  if (type === "image/webp") return ascii(0, "RIFF") && ascii(8, "WEBP");
-  return starts(0xff, 0xd8, 0xff);
-}
-
-function parseMedia(x: unknown): NewsMedia | null {
-  if (!isObject(x) || !isMediaName(x.file) || !text(x.alt, 200)) return null;
-  const repo = text(x.repo, 80);
-  return { file: x.file, alt: text(x.alt, 200), caption: text(x.caption, 200), ...(SAFE_REPO.test(repo) && { repo }) };
-}
-
 /** A week's written report, or null when it is not one this site can show. A report must say who wrote it. */
 export function parseReport(raw: unknown, week: string): NewsReport | null {
   if (!isObject(raw) || raw.format !== FORMAT || raw.week !== week) return null;
@@ -181,7 +154,7 @@ export function parseReport(raw: unknown, week: string): NewsReport | null {
     if (!SAFE_REPO.test(repo) || !isObject(s) || !text(s.headline, 200) || !text(s.summary, 1200)) continue;
     projects[repo] = { headline: text(s.headline, 200), summary: text(s.summary, 1200), highlights: list(s.highlights).map((h) => text(h, 500)).filter(Boolean) };
   }
-  return { week, author, tool, headline, summary, projects, media: compact(list(raw.media).map(parseMedia)).slice(0, 4) };
+  return { week, author, tool, headline, summary, projects };
 }
 
 export const githubUrl = (repo: string) => `https://github.com/${NEWS_ORG}/${repo}`;
@@ -309,13 +282,6 @@ export const formatWeekName = (week: string) => `Week ${Number(week.slice(6))}, 
 export function neighbours<T>(list: readonly T[], item: T): { older?: T; newer?: T } {
   const i = list.indexOf(item);
   return i < 0 ? {} : { newer: list[i - 1], older: list[i + 1] };
-}
-
-/** How many whole days the newest facts are behind the last finished day; a calm note appears past a few. */
-export function daysBehind(newest: string | undefined, now: number): number {
-  if (!newest) return Number.POSITIVE_INFINITY;
-  const yesterday = Math.floor(now / 86_400_000) - 1;
-  return Math.max(0, yesterday - Math.floor(at(newest).getTime() / 86_400_000));
 }
 
 export interface MonthCell {

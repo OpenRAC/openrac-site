@@ -1,0 +1,336 @@
+{
+ "format": 1,
+ "date": "2026-10-01",
+ "totals": {
+  "commits": 18,
+  "pullRequestsMerged": 3,
+  "pullRequestsOpened": 4,
+  "contributors": 2
+ },
+ "projects": [
+  {
+   "repo": "OpenRAC",
+   "title": "OpenRAC launcher",
+   "branches": [
+    {
+     "name": "develop",
+     "commits": []
+    },
+    {
+     "name": "master",
+     "commits": []
+    }
+   ],
+   "commitCount": 0,
+   "pullRequests": {
+    "merged": [],
+    "opened": []
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": null,
+   "contributors": []
+  },
+  {
+   "repo": "rac1-decomp",
+   "title": "Ratchet & Clank",
+   "branches": [
+    {
+     "name": "main",
+     "commits": [
+      {
+       "sha": "19d50d685a079c99091de594acaa6660656587c3",
+       "title": "feat(overlays): level 18 (Veldin 2): func_L18_002D6D08 exact match",
+       "author": "Lynder063",
+       "date": "2026-10-01T23:48:04Z"
+      },
+      {
+       "sha": "61808f2a68ef5298151438c9433f511694c0496a",
+       "title": "fix(nonmatching): level 18: repair four staged candidates, drop a stale one",
+       "author": "Lynder063",
+       "date": "2026-10-01T23:17:23Z"
+      },
+      {
+       "sha": "5ffb34a78f8e3ff6896bca050b79a81729545ea1",
+       "title": "feat(overlays): level 18 (Veldin 2): func_L18_002DD848 exact match",
+       "author": "Lynder063",
+       "date": "2026-10-01T23:07:28Z"
+      },
+      {
+       "sha": "279226c02a2d546fe25fff14d7a655ae5ca32092",
+       "title": "feat(overlays): level 18 (Veldin 2): func_L18_002F39F8 exact match",
+       "author": "Lynder063",
+       "date": "2026-10-01T22:56:15Z"
+      },
+      {
+       "sha": "2000227bdda0cc167480d362330ee7f49fc567bf",
+       "title": "feat(overlays): level 18 (Veldin 2): func_L18_002FB6B0 exact match",
+       "author": "Lynder063",
+       "date": "2026-10-01T22:45:41Z"
+      },
+      {
+       "sha": "a1c351f74a0507cc02296fd37ad1a8c2eeba3dbb",
+       "title": "feat(nonmatching): level 18 (Veldin 2): stage 30 more near misses",
+       "author": "Lynder063",
+       "date": "2026-10-01T22:32:35Z"
+      },
+      {
+       "sha": "2606c6209e81afcbb8c6287ab044ad7b0c5392cb",
+       "title": "merge: upstream/main (near-miss staging, levels 16/17, tooling)",
+       "author": "Lynder063",
+       "date": "2026-10-01T22:25:15Z"
+      },
+      {
+       "sha": "b9dfadb27245b5d0b86505c55b652f47cbf398b3",
+       "title": "feat(overlays): level 18 (Veldin 2): func_L18_002D6B58 exact match",
+       "author": "Lynder063",
+       "date": "2026-10-01T22:24:38Z"
+      },
+      {
+       "sha": "127fbb8f53ad3204d649a916a44c1f7ab6b15ddf",
+       "title": "feat(overlays): level 18 (Veldin 2): 6 more functions exact match",
+       "author": "Lynder063",
+       "date": "2026-10-01T17:33:24Z"
+      },
+      {
+       "sha": "e92655cdcb85531bf77621d0bfca54829a431471",
+       "title": "fix(tools): ps2eeas_nops: a macro store after li.s does not need a nop",
+       "author": "Lynder063",
+       "date": "2026-10-01T17:22:20Z"
+      },
+      {
+       "sha": "58d7e2890680e8f647a8385f0f0c657783f6e21d",
+       "title": "fix(tools): permuter setup accepts a candidate defined through an alias",
+       "author": "Lynder063",
+       "date": "2026-10-01T16:41:36Z"
+      },
+      {
+       "sha": "af61ff66cd46aac3066db394903dd244479d1154",
+       "title": "feat(overlays): level 18 (Veldin 2): func_L18_002D7F48 and 002D79F0 exact match",
+       "author": "Lynder063",
+       "date": "2026-10-01T16:22:45Z"
+      },
+      {
+       "sha": "3a648a7d29685c552a389ab3a5c73e9bca588107",
+       "title": "Merge remote-tracking branch 'origin/main' into level-18-veldin2",
+       "author": "Lynder063",
+       "date": "2026-10-01T16:17:45Z"
+      },
+      {
+       "sha": "1e4da2db1d7d32442ba927b1feb3b5e7c79f91c6",
+       "title": "feat(overlays): level 18 (Veldin 2): func_L18_00214138 and 002E09F8 exact match",
+       "author": "Lynder063",
+       "date": "2026-10-01T11:34:37Z"
+      },
+      {
+       "sha": "34d2427f04dfd8ab1e5c6bd51df42b5fd449e0a3",
+       "title": "feat(overlays): level 18 (Veldin 2): 10 more functions exact match",
+       "author": "Lynder063",
+       "date": "2026-10-01T07:41:16Z"
+      },
+      {
+       "sha": "4672502889286d6e0807c3176338d22bd9942861",
+       "title": "feat(overlays): level 18 (Veldin 2): 10 functions exact match",
+       "author": "Lynder063",
+       "date": "2026-10-01T07:27:44Z"
+      },
+      {
+       "sha": "178209f6c256f050c8b973e72954895d6c733cc7",
+       "title": "feat(overlays): level 00 (Veldin): func_L00_0023E300, 002DB278, 002E1E38, 002E4CB0 exact match",
+       "author": "Lynder063",
+       "date": "2026-10-01T06:49:49Z"
+      },
+      {
+       "sha": "3772980d4b97ad7e2e7d062b620de043dc44ebb2",
+       "title": "Merge pull request #13 from Veradictus/main",
+       "author": "Lynder063",
+       "date": "2026-10-01T06:10:33Z"
+      }
+     ]
+    }
+   ],
+   "commitCount": 18,
+   "pullRequests": {
+    "merged": [
+     {
+      "number": 13,
+      "title": "Level code: 643 matches, 112 functions ported from Lombyte, one box per level on decomp.dev",
+      "author": "Veradictus",
+      "untrustedBody": "This takes the project from 8.72% to 15.60% of the game's code (1,777 → 2,532 of 5,111 functions) in six commits:\r\n\r\n| Commit | What | Code matched |\r\n|---|---|---|\r\n| `feat(overlays)` 6f95fce | 619 level-code matches from our own waves; one box per level | 8.72% → 13.54% |\r\n| `fix(waves)` 37ab007 | landing a wave in one batch | — |\r\n| `feat(port)` 64f52e4 | 105 functions ported from Lombyte | 13.54% → 15.25% |\r\n| `feat(waves)` a0e8021 | salvage, near-miss waves, long-function trials | — |\r\n| `feat(overlays)` 758822c | 24 more level-code matches | 15.25% → 15.48% |\r\n| `feat(port)` 859e60d | 7 more functions ported from Lombyte | 15.48% → 15.60% |\r\n\r\n## Our matches (643 functions)\r\n\r\n- **619** from waves q6–q26 of Sonnet 5.5 queue workers, plus a GPT agent working in the same checkout.\r\n- **23** that had matched in earlier waves but never landed: a wave stopped before landing, or a later neighbour in the same file declared a symbol differently. `wave.py salvage` landed them.\r\n- **1**, `",
+      "mergedAt": "2026-10-01T06:10:34Z"
+     },
+     {
+      "number": 15,
+      "title": "Level 17 batch, Level 16 (GPT agent), near misses shared in nonmatching/, checker and build fixes",
+      "author": "Veradictus",
+      "untrustedBody": "This takes the project from 15.60% to 16.34% of the game's code (2,532 → 2,566 of 5,111 functions). Counting partial matches it's 18.16%, now that near misses are scored.\r\n\r\n| Area | Functions | Commits |\r\n|---|---|---|\r\n| Level 17 (Drek's Fleet), our agents | 16 | `2509668` |\r\n| Level 16 (Kalebo III), GPT agent | 9 | `0935092` |\r\n| Earlier attempts now exact | 5 | `4569be3`, `9ba50d7` |\r\n| Upstream's level 00 matches, now counted | 4 | `a6241fc` |\r\n| Lombyte port corrected | (1) | `8e95816` |\r\n| Near misses shared (`nonmatching/`) | 376 staged | `e812bec`, `0162960` |\r\n| Checker, build and triage fixes | — | `52e873a`, `54f7050`, `bb70a09` |\r\n| Agent tooling and docs | — | `3639fc6`, `b36f9a2`, `3232656` |\r\n\r\n## Level 17 (16 functions)\r\n\r\nLevel 17 goes from 5.0% to 19.8%:\r\n- **8 long functions** (1.4–2.7 KB) by Opus 5.5 workers under `docs/LONG_FUNCTIONS.md`. Two of them started from earlier attempts: a Sonnet attempt for one, an earlier Opus pass for the other.\r\n- **5 by Sonnet 5.5**",
+      "mergedAt": "2026-10-01T21:21:34Z"
+     }
+    ],
+    "opened": [
+     {
+      "number": 13,
+      "title": "Level code: 643 matches, 112 functions ported from Lombyte, one box per level on decomp.dev",
+      "author": "Veradictus",
+      "untrustedBody": "This takes the project from 8.72% to 15.60% of the game's code (1,777 → 2,532 of 5,111 functions) in six commits:\r\n\r\n| Commit | What | Code matched |\r\n|---|---|---|\r\n| `feat(overlays)` 6f95fce | 619 level-code matches from our own waves; one box per level | 8.72% → 13.54% |\r\n| `fix(waves)` 37ab007 | landing a wave in one batch | — |\r\n| `feat(port)` 64f52e4 | 105 functions ported from Lombyte | 13.54% → 15.25% |\r\n| `feat(waves)` a0e8021 | salvage, near-miss waves, long-function trials | — |\r\n| `feat(overlays)` 758822c | 24 more level-code matches | 15.25% → 15.48% |\r\n| `feat(port)` 859e60d | 7 more functions ported from Lombyte | 15.48% → 15.60% |\r\n\r\n## Our matches (643 functions)\r\n\r\n- **619** from waves q6–q26 of Sonnet 5.5 queue workers, plus a GPT agent working in the same checkout.\r\n- **23** that had matched in earlier waves but never landed: a wave stopped before landing, or a later neighbour in the same file declared a symbol differently. `wave.py salvage` landed them.\r\n- **1**, `",
+      "mergedAt": "2026-10-01T06:10:34Z"
+     },
+     {
+      "number": 14,
+      "title": "Level 18 (Veldin 2): decompile the level's code",
+      "author": "Lynder063",
+      "untrustedBody": "Working PR for level 18 (Veldin 2, `src/overlays/l18_veldin2/`). Everything we get goes in here, matched or not; still a draft.\n\n## Status\n\nLevel 18: **79 of 122 functions exact, 29,360 of 154,848 bytes** (19.0% of the level's code, **26.5%** counting the staged near misses). 42 were already matched before this branch. Two more are matched but invisible to the report, which does not see a definition whose name is an `__asm__` alias (`func_L18_002D6B58`, `func_L18_002F1AB0`); those drop out of the totals instead of counting, which is why the function count fell from 123.\n\nPlus `func_L05_003053D8` (level 5), which the tooling fix below unblocked.\n\nEvery function is checked with `tools/try_func.py` (every byte and relocation at its real level address), re-checked in the final file with `tools/overlay_file_check.py`, and `progress/report.json` is regenerated in the same commit.\n\n## The open functions are in here too\n\nThe closest candidate for **38 of the 43 open functions** is committed un",
+      "mergedAt": "2026-10-02T08:25:08Z"
+     },
+     {
+      "number": 15,
+      "title": "Level 17 batch, Level 16 (GPT agent), near misses shared in nonmatching/, checker and build fixes",
+      "author": "Veradictus",
+      "untrustedBody": "This takes the project from 15.60% to 16.34% of the game's code (2,532 → 2,566 of 5,111 functions). Counting partial matches it's 18.16%, now that near misses are scored.\r\n\r\n| Area | Functions | Commits |\r\n|---|---|---|\r\n| Level 17 (Drek's Fleet), our agents | 16 | `2509668` |\r\n| Level 16 (Kalebo III), GPT agent | 9 | `0935092` |\r\n| Earlier attempts now exact | 5 | `4569be3`, `9ba50d7` |\r\n| Upstream's level 00 matches, now counted | 4 | `a6241fc` |\r\n| Lombyte port corrected | (1) | `8e95816` |\r\n| Near misses shared (`nonmatching/`) | 376 staged | `e812bec`, `0162960` |\r\n| Checker, build and triage fixes | — | `52e873a`, `54f7050`, `bb70a09` |\r\n| Agent tooling and docs | — | `3639fc6`, `b36f9a2`, `3232656` |\r\n\r\n## Level 17 (16 functions)\r\n\r\nLevel 17 goes from 5.0% to 19.8%:\r\n- **8 long functions** (1.4–2.7 KB) by Opus 5.5 workers under `docs/LONG_FUNCTIONS.md`. Two of them started from earlier attempts: a Sonnet attempt for one, an earlier Opus pass for the other.\r\n- **5 by Sonnet 5.5**",
+      "mergedAt": "2026-10-01T21:21:34Z"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": {
+    "before": {
+     "code": {
+      "done": 323648,
+      "total": 3713628
+     },
+     "functions": {
+      "done": 1777,
+      "total": 5111
+     }
+    },
+    "after": {
+     "code": {
+      "done": 625684,
+      "total": 3713196
+     },
+     "functions": {
+      "done": 2599,
+      "total": 5110
+     }
+    }
+   },
+   "contributors": [
+    "Lynder063",
+    "Veradictus"
+   ]
+  },
+  {
+   "repo": "rac2-decomp",
+   "title": "Going Commando",
+   "branches": [
+    {
+     "name": "master",
+     "commits": []
+    }
+   ],
+   "commitCount": 0,
+   "pullRequests": {
+    "merged": [
+     {
+      "number": 1,
+      "title": "docs/include: add community reverse engineering reference and engine headers",
+      "author": "Lynder063",
+      "untrustedBody": "### Summary\n\nThis PR contributes reverse-engineering reference documentation, foundational engine headers, and a dedicated **decomp.dev** progress reporting GitHub Actions workflow for *Ratchet & Clank: Going Commando* (RaC2), synthesized from the `#rac-ps2-reverse-engineering` community research archive (2018–2026), Aug 8 2002 prototype datamining, and cross-game engine analysis.\n\n---\n\n### What is included\n\n1. **`docs/COMMUNITY-ENGINE-REFERENCE.md`**:\n   - Synthesizes findings on executable editions, SDK 2.5.5, and toolchain configurations.\n   - Documents the dynamic level overlay layout (`.lit`, `.bss`, `.data`, `lvl.vtbl`, `lvl.camvtbl`, `lvl.sndvtbl`, `.text`).\n   - Details the Insomniac Moby actor model (first `0x28` bytes matching Deadlocked `MobyInstance`, `modeBits` flags, function pointer offsets at `0x64 pUpdate`, `0x68 pVar`, `0x6C oClass`, `0x6E UID`).\n   - Documents the weapon upgrade table bitmask layout (Lock-on `0x01`, Shock `0x02`, Acid `0x04`).\n   - Documents event fl",
+      "mergedAt": "2026-10-01T19:43:36Z"
+     }
+    ],
+    "opened": [
+     {
+      "number": 1,
+      "title": "docs/include: add community reverse engineering reference and engine headers",
+      "author": "Lynder063",
+      "untrustedBody": "### Summary\n\nThis PR contributes reverse-engineering reference documentation, foundational engine headers, and a dedicated **decomp.dev** progress reporting GitHub Actions workflow for *Ratchet & Clank: Going Commando* (RaC2), synthesized from the `#rac-ps2-reverse-engineering` community research archive (2018–2026), Aug 8 2002 prototype datamining, and cross-game engine analysis.\n\n---\n\n### What is included\n\n1. **`docs/COMMUNITY-ENGINE-REFERENCE.md`**:\n   - Synthesizes findings on executable editions, SDK 2.5.5, and toolchain configurations.\n   - Documents the dynamic level overlay layout (`.lit`, `.bss`, `.data`, `lvl.vtbl`, `lvl.camvtbl`, `lvl.sndvtbl`, `.text`).\n   - Details the Insomniac Moby actor model (first `0x28` bytes matching Deadlocked `MobyInstance`, `modeBits` flags, function pointer offsets at `0x64 pUpdate`, `0x68 pVar`, `0x6C oClass`, `0x6E UID`).\n   - Documents the weapon upgrade table bitmask layout (Lock-on `0x01`, Shock `0x02`, Acid `0x04`).\n   - Documents event fl",
+      "mergedAt": "2026-10-01T19:43:36Z"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": null,
+   "contributors": [
+    "Lynder063"
+   ]
+  },
+  {
+   "repo": "rac3-decomp",
+   "title": "Up Your Arsenal",
+   "branches": [
+    {
+     "name": "master",
+     "commits": []
+    }
+   ],
+   "commitCount": 0,
+   "pullRequests": {
+    "merged": [],
+    "opened": []
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": null,
+   "contributors": []
+  },
+  {
+   "repo": "rac4-decomp",
+   "title": "Ratchet: Deadlocked",
+   "branches": [
+    {
+     "name": "main",
+     "commits": []
+    }
+   ],
+   "commitCount": 0,
+   "pullRequests": {
+    "merged": [],
+    "opened": []
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": null,
+   "contributors": []
+  },
+  {
+   "repo": "openrac-mods",
+   "title": "OpenRAC mods",
+   "branches": [
+    {
+     "name": "master",
+     "commits": []
+    }
+   ],
+   "commitCount": 0,
+   "pullRequests": {
+    "merged": [],
+    "opened": []
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": null,
+   "contributors": []
+  }
+ ]
+}

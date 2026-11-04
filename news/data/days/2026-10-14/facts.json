@@ -1,0 +1,789 @@
+{
+ "format": 1,
+ "date": "2026-10-14",
+ "totals": {
+  "commits": 34,
+  "pullRequestsMerged": 21,
+  "pullRequestsOpened": 17,
+  "contributors": 6
+ },
+ "projects": [
+  {
+   "repo": "OpenRAC",
+   "title": "OpenRAC launcher",
+   "branches": [
+    {
+     "name": "develop",
+     "commits": [
+      {
+       "sha": "d66169fb10af8a3f18909eefd9cf811a73937f51",
+       "title": "docs: fix screenshot image links in README.md",
+       "author": "Lynder063",
+       "date": "2026-10-14T21:02:26Z"
+      },
+      {
+       "sha": "964061f278b00b566f4cd8a6783b688ff132cfe3",
+       "title": "chore(launcher): 0.4.4",
+       "author": "Lynder063",
+       "date": "2026-10-14T20:29:45Z"
+      },
+      {
+       "sha": "09712f064f62d4db579d87734ee3c2babb4fc50a",
+       "title": "fix(hostgen): drop the prepared copy of a file the decompilation moved",
+       "author": "Veradictus",
+       "date": "2026-10-14T18:53:15Z"
+      },
+      {
+       "sha": "c73a080594e6b1ad882be86e270b2ff3cad99b6e",
+       "title": "chore(rac1/pal): sync rac1-decomp to e1ee2ee3",
+       "author": "Veradictus",
+       "date": "2026-10-14T18:50:16Z"
+      },
+      {
+       "sha": "630a3a191ed866b906dc12ea3aacc77660a7219a",
+       "title": "fix(launcher): clear AppImageKit's PYTHONHOME and PYTHONPATH",
+       "author": "Lynder063",
+       "date": "2026-10-14T15:31:50Z"
+      },
+      {
+       "sha": "99bf2273bac1735e5ece07a9fce9ee60d7156dd7",
+       "title": "docs(port): handoff, every level's start without a missing function",
+       "author": "Lynder063",
+       "date": "2026-10-14T10:50:19Z"
+      },
+      {
+       "sha": "a57fe1e99647a04635875e223c5b8ee723b730de",
+       "title": "feat(hostgen): a variable-length array whose length is a local",
+       "author": "Lynder063",
+       "date": "2026-10-14T09:32:00Z"
+      },
+      {
+       "sha": "08122ed15f1ea1a93e2594ad56ce4d2d30230a9b",
+       "title": "fix(hostgen): shared code calls a level's own variant through its jal",
+       "author": "Lynder063",
+       "date": "2026-10-14T08:18:55Z"
+      },
+      {
+       "sha": "857ce69fdd6991e2dd5a41bca9b458f4cc2b570e",
+       "title": "fix(port): include ucontext.h on Linux only",
+       "author": "Lynder063",
+       "date": "2026-10-14T08:16:32Z"
+      },
+      {
+       "sha": "44c678449b9a250df2555d1a2f9fee1c9a3fa05d",
+       "title": "feat(hostgen): list the calls short of arguments it fills with 0",
+       "author": "Lynder063",
+       "date": "2026-10-14T07:51:25Z"
+      },
+      {
+       "sha": "ea70ea7cb064728988efdf53a2398ea53f68f281",
+       "title": "feat(port): OPENRAC_GUARD, a write watchpoint on game memory",
+       "author": "Lynder063",
+       "date": "2026-10-14T07:23:49Z"
+      },
+      {
+       "sha": "62f6ef3b2bd3e1ce15b3fad8011f69384e3ef569",
+       "title": "fix(port): run the game's code rounding toward zero, as the EE does",
+       "author": "Lynder063",
+       "date": "2026-10-14T06:54:14Z"
+      },
+      {
+       "sha": "daaaf67ab2ed9262722a25869ab98a70096f74db",
+       "title": "feat(editor): a C parser for the decompilation's update functions",
+       "author": "Veradictus",
+       "date": "2026-10-14T06:18:55Z"
+      },
+      {
+       "sha": "2079a9fa9c5e8494e0655130de1b8f87eaf7a25b",
+       "title": "fix(hostgen): keep a typedef's aligned attribute",
+       "author": "Lynder063",
+       "date": "2026-10-14T06:18:53Z"
+      }
+     ]
+    },
+    {
+     "name": "master",
+     "commits": [
+      {
+       "sha": "d66169fb10af8a3f18909eefd9cf811a73937f51",
+       "title": "docs: fix screenshot image links in README.md",
+       "author": "Lynder063",
+       "date": "2026-10-14T21:02:26Z"
+      },
+      {
+       "sha": "964061f278b00b566f4cd8a6783b688ff132cfe3",
+       "title": "chore(launcher): 0.4.4",
+       "author": "Lynder063",
+       "date": "2026-10-14T20:29:45Z"
+      },
+      {
+       "sha": "09712f064f62d4db579d87734ee3c2babb4fc50a",
+       "title": "fix(hostgen): drop the prepared copy of a file the decompilation moved",
+       "author": "Veradictus",
+       "date": "2026-10-14T18:53:15Z"
+      },
+      {
+       "sha": "c73a080594e6b1ad882be86e270b2ff3cad99b6e",
+       "title": "chore(rac1/pal): sync rac1-decomp to e1ee2ee3",
+       "author": "Veradictus",
+       "date": "2026-10-14T18:50:16Z"
+      },
+      {
+       "sha": "630a3a191ed866b906dc12ea3aacc77660a7219a",
+       "title": "fix(launcher): clear AppImageKit's PYTHONHOME and PYTHONPATH",
+       "author": "Lynder063",
+       "date": "2026-10-14T15:31:50Z"
+      },
+      {
+       "sha": "99bf2273bac1735e5ece07a9fce9ee60d7156dd7",
+       "title": "docs(port): handoff, every level's start without a missing function",
+       "author": "Lynder063",
+       "date": "2026-10-14T10:50:19Z"
+      },
+      {
+       "sha": "a57fe1e99647a04635875e223c5b8ee723b730de",
+       "title": "feat(hostgen): a variable-length array whose length is a local",
+       "author": "Lynder063",
+       "date": "2026-10-14T09:32:00Z"
+      },
+      {
+       "sha": "08122ed15f1ea1a93e2594ad56ce4d2d30230a9b",
+       "title": "fix(hostgen): shared code calls a level's own variant through its jal",
+       "author": "Lynder063",
+       "date": "2026-10-14T08:18:55Z"
+      },
+      {
+       "sha": "857ce69fdd6991e2dd5a41bca9b458f4cc2b570e",
+       "title": "fix(port): include ucontext.h on Linux only",
+       "author": "Lynder063",
+       "date": "2026-10-14T08:16:32Z"
+      },
+      {
+       "sha": "44c678449b9a250df2555d1a2f9fee1c9a3fa05d",
+       "title": "feat(hostgen): list the calls short of arguments it fills with 0",
+       "author": "Lynder063",
+       "date": "2026-10-14T07:51:25Z"
+      },
+      {
+       "sha": "ea70ea7cb064728988efdf53a2398ea53f68f281",
+       "title": "feat(port): OPENRAC_GUARD, a write watchpoint on game memory",
+       "author": "Lynder063",
+       "date": "2026-10-14T07:23:49Z"
+      },
+      {
+       "sha": "62f6ef3b2bd3e1ce15b3fad8011f69384e3ef569",
+       "title": "fix(port): run the game's code rounding toward zero, as the EE does",
+       "author": "Lynder063",
+       "date": "2026-10-14T06:54:14Z"
+      },
+      {
+       "sha": "daaaf67ab2ed9262722a25869ab98a70096f74db",
+       "title": "feat(editor): a C parser for the decompilation's update functions",
+       "author": "Veradictus",
+       "date": "2026-10-14T06:18:55Z"
+      },
+      {
+       "sha": "2079a9fa9c5e8494e0655130de1b8f87eaf7a25b",
+       "title": "fix(hostgen): keep a typedef's aligned attribute",
+       "author": "Lynder063",
+       "date": "2026-10-14T06:18:53Z"
+      }
+     ]
+    }
+   ],
+   "commitCount": 14,
+   "pullRequests": {
+    "merged": [],
+    "opened": []
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [
+    {
+     "tag": "launcher-v0.4.0",
+     "name": "v0.4.0",
+     "publishedAt": "2026-10-14T01:05:35Z"
+    },
+    {
+     "tag": "launcher-v0.4.1",
+     "name": "v0.4.1",
+     "publishedAt": "2026-10-14T02:00:06Z"
+    },
+    {
+     "tag": "launcher-v0.4.2",
+     "name": "v0.4.2",
+     "publishedAt": "2026-10-14T02:19:14Z"
+    },
+    {
+     "tag": "launcher-v0.4.3",
+     "name": "v0.4.3",
+     "publishedAt": "2026-10-14T18:48:16Z"
+    },
+    {
+     "tag": "launcher-v0.4.4",
+     "name": "v0.4.4",
+     "publishedAt": "2026-10-14T20:50:26Z"
+    }
+   ],
+   "progress": null,
+   "contributors": [
+    "Lynder063",
+    "Veradictus"
+   ]
+  },
+  {
+   "repo": "rac1-decomp",
+   "title": "Ratchet & Clank",
+   "branches": [
+    {
+     "name": "main",
+     "commits": [
+      {
+       "sha": "9a8143337c49794a9b6588d253f79683ad1484ce",
+       "title": "Merge pull request #73 from OpenRAC/feat/pure-c-round2",
+       "author": "Lynder063",
+       "date": "2026-10-14T23:02:04Z"
+      },
+      {
+       "sha": "9d10e94620095d1b530dffc7ddded4da3aebd265",
+       "title": "Merge pull request #72 from OpenRAC/feat/pure-c-lombyte-ports",
+       "author": "Lynder063",
+       "date": "2026-10-14T21:21:20Z"
+      },
+      {
+       "sha": "3e53c2d696f551aa5a612d466660ea8543e5c4f5",
+       "title": "Merge pull request #69 from cnobis/feat/ports-2",
+       "author": "Lynder063",
+       "date": "2026-10-14T20:59:35Z"
+      },
+      {
+       "sha": "e1ee2ee37ba5b1ad8110132c1717ef94cb39acb0",
+       "title": "Merge pull request #67 from cblackler19/codex-exact-matches-oct14",
+       "author": "Lynder063",
+       "date": "2026-10-14T11:53:57Z"
+      },
+      {
+       "sha": "70f7489d678883cddf346746db62d7e783ba1e5c",
+       "title": "Merge pull request #66 from OpenRAC/feat/port-backfill",
+       "author": "Lynder063",
+       "date": "2026-10-14T11:52:45Z"
+      },
+      {
+       "sha": "9498e87737ad3b145bba6f8ad577f6030220b6a6",
+       "title": "Merge pull request #65 from OpenRAC/feat/port-backfill",
+       "author": "Lynder063",
+       "date": "2026-10-14T08:34:56Z"
+      },
+      {
+       "sha": "f6193776480e7a1f14dfa065fe4e5076744789d2",
+       "title": "Merge pull request #63 from cblackler19/codex-exact-matches",
+       "author": "Lynder063",
+       "date": "2026-10-14T07:30:30Z"
+      },
+      {
+       "sha": "f2c62b33f3c405703bd35f210d8167b190dff550",
+       "title": "Merge pull request #64 from OpenRAC/feat/port-backfill",
+       "author": "Lynder063",
+       "date": "2026-10-14T07:30:20Z"
+      },
+      {
+       "sha": "08e96018c5d0d42dffa3936dd2f4ee13b8579c7a",
+       "title": "feat(nonmatching): func_L14_002F2778 functional",
+       "author": "Lynder063",
+       "date": "2026-10-14T06:21:32Z"
+      },
+      {
+       "sha": "7b776c9ab9db456378cdcdc5653e9c9e3f089576",
+       "title": "Merge pull request #62 from OpenRAC/chore/stale-functional",
+       "author": "Veradictus",
+       "date": "2026-10-14T02:04:38Z"
+      },
+      {
+       "sha": "361e1d3f2fddbbbc8431dc8b0b3e4656bb63543d",
+       "title": "Merge pull request #60 from cnobis/feat/ports-1",
+       "author": "Veradictus",
+       "date": "2026-10-14T02:00:46Z"
+      },
+      {
+       "sha": "713a0b9a6bedef597e357b3e06fbd467d792eda6",
+       "title": "Merge pull request #58 from cnobis/feat/jumpers-1",
+       "author": "Veradictus",
+       "date": "2026-10-14T01:50:35Z"
+      },
+      {
+       "sha": "ddeaaefe224085d2216302c94149ab7938c9d487",
+       "title": "Merge pull request #57 from cblackler19/feat/sol-three-exact",
+       "author": "Veradictus",
+       "date": "2026-10-14T01:41:39Z"
+      },
+      {
+       "sha": "9ab7db5109a90babde98761e60a6011425ee24fb",
+       "title": "Merge pull request #56 from cnobis/feat/func_L00_002347B8",
+       "author": "Veradictus",
+       "date": "2026-10-14T01:28:48Z"
+      }
+     ]
+    }
+   ],
+   "commitCount": 14,
+   "pullRequests": {
+    "merged": [
+     {
+      "number": 56,
+      "title": "feat(overlays): two ammo functions and func_L00_002347B8",
+      "author": "cnobis",
+      "untrustedBody": "Three exact matches in `help_00232560.c`, one commit each. Each branches into code after its own end, so `config/overlays/joined.tsv` gains or completes their rows (the same pattern as `func_L00_0025B478`):\n\n- `func_L00_00234638`: takes ammo from a weapon (pieces `func_L00_00234674`, `func_001E97C8`)\n- `func_L00_00234718`: a weapon's ammo, or 1 without an ammo limit (piece `func_00208238`)\n- `func_L00_002347B8`: a switch on the word at 0x1414D4 (piece `func_001E9768` added)\n\nAll three are on the native port's path from the fire button.\n\n## Verification\n\nRun on macOS (Docker):\n\n- `tools/try_func.py`: EXACT for each\n- `tools/overlay_file_check.py src/overlays/shared/help_00232560.c`: 1 file, 0 problems\n- `tools/build_sn.sh`: every function at its retail address\n- `tools/gen_progress_report.py --check`: current (4333/5109)\n\nGenerated with [Claude Code](https://claude.com/claude-code)",
+      "mergedAt": "2026-10-14T01:28:49Z"
+     },
+     {
+      "number": 57,
+      "title": "feat(overlays): exact-matched three shared overlay functions",
+      "author": "cblackler19",
+      "untrustedBody": "## Summary\n\nReplaces three shared overlay assembly stubs with **byte-exact C implementations**, matching 940 bytes of retail code.\n\n- `func_L00_00250478` — 336 bytes\n- `func_L00_0025C710` — 152 bytes\n- `func_L00_002E72E8` — 452 bytes\n\nTwo implementations adapt MIT-licensed source from Lombyte, with attribution added to `THIRD_PARTY_NOTICES.md`.\n\nRegenerates `progress/report.json`, increasing matched functions from **4,291 to 4,294** and overall code completion to **80.30%**.\n\n## Verification\n\n- All three implementations match retail exactly.\n- Whole-file overlay check: **3 files, 0 problems**.\n- Executable build: **0 size mismatches**, with every function at its retail address.\n- Progress report regenerated and verified current.\n- `git diff --check` passed.\n\n---\n\nAssisted by GPT-6.1 Sol",
+      "mergedAt": "2026-10-14T01:41:39Z"
+     },
+     {
+      "number": 58,
+      "title": "feat(overlays): thirteen functions that return through shared fragments",
+      "author": "cnobis",
+      "untrustedBody": "Thirteen exact matches, one commit each, and the progress report in its own last commit. Each function branches to code after its own end (the shared return fragments `func_001E97C8`, `func_00208238`, `func_001E9768`, `func_L00_002347F0`), so each gains a row in `config/overlays/joined.tsv`. `func_L00_002CC390` returns through two consecutive copies of `func_001E97C8`, so its row lists that piece twice. `try_func`, `overlay_file_check` and `gen_progress_report.py --check` all take it.\n\n## Slot 4 of the enemy class tables\n\nFour of them are the same accessor, slot 4 of a moby class's 6-word table: the moby's pvars plus an offset, or 0 without a moby or pvars. Each was the last function of some class tables still in assembly, so this completes eleven of them:\n\n| Function | Offset | Classes |\n|---|---|---|\n| `func_L00_002D6CB0` | 0xD0 | horny_toad (749), gadgebot (1906, the ones Drek releases in the final fight) |\n| `func_L01_002F31D0` | 0x60 | peckbot, scoutbot, robosquawker, mine, chompe",
+      "mergedAt": "2026-10-14T01:50:35Z"
+     },
+     {
+      "number": 60,
+      "title": "feat(overlays): seven split functions adapted from Lombyte",
+      "author": "cnobis",
+      "untrustedBody": "Seven functions Lombyte has matched whole, which this project's catalogue splits into pieces. `tools/port.py` only offers functions of the same size in both builds, so it never carried these over. Each takes Lombyte's C with every symbol renamed to its PAL address, one commit each, then the credit in `THIRD_PARTY_NOTICES.md`, then the progress report.\n\n| Function | Lombyte | Pieces in `config/overlays/joined.tsv` |\n|---|---|---|\n| `func_L00_001EB578` | `FUN_L00_001eb1f8` | row completed: had one of its three pieces |\n| `func_L05_002559B8` | `FUN_L05_002551d0` | new row |\n| `func_L00_00264BB0` | `FUN_L00_00263b38` | new row |\n| `func_L00_002E9838` | `FUN_L00_002e8388` | new row |\n| `func_L03_002DDEF8` | `FUN_L03_002dcb30` | row already right |\n| `func_L06_00305C38` | `FUN_L06_003047f8` | row already right |\n| `func_L14_00307660` | `FUN_L14_003061d8` | row gains its second piece |\n\n`lombyte.py todo` lists more of the same kind (213 functions matched there and not here, many of them split",
+      "mergedAt": "2026-10-14T02:00:47Z"
+     },
+     {
+      "number": 62,
+      "title": "chore(nonmatching): drop functional C for 42 functions that are matched now",
+      "author": "Veradictus",
+      "untrustedBody": "Follow-up to #56, #57, #58 and #60.\n\n42 functions listed in `nonmatching/functional.tsv` have an exact C definition in `src/` by now, so the native port takes the match and the functional copy is never read. This removes each one's row, its file, any staged near miss of the same function, and its line in `nonmatching/README.md`. Sixteen of them arrived with #56 and #58, which matched functions main only had as functional C; the others were older leftovers.\n\nNot touched: the 29 rows of functions the report counts as finished while they are still assembly (handwritten routines and joined pieces). The port needs functional C for those.\n\nNo source file changes. The report is unchanged at 4,360 of 5,109 functions and `gen_progress_report.py --check` says it is current.",
+      "mergedAt": "2026-10-14T02:04:38Z"
+     },
+     {
+      "number": 63,
+      "title": "feat: Match three functions (2,396 bytes) and update progress",
+      "author": "cblackler19",
+      "untrustedBody": "## Summary\n\nThis PR adds three verified, byte-exact function matches, totalling **2,396 bytes (599 MIPS instructions)**.\n\n## Matched functions\n\n| Function | Level | Size | Commit |\n| --- | --- | ---: | --- |\n| `func_L05_00317CD8` | Rilgar | 384 bytes | `dbf6c08e` |\n| `func_L00_002D3608` | Shared across 19 levels | 1,300 bytes | `6c4a8c32` |\n| `func_L05_003054B0` | Rilgar | 712 bytes | `bb63a5cb` |\n\nAll three functions were verified **EXACT** using the project's matching toolchain and remained EXACT after integration.\n\nThe shared function `func_L00_002D3608` was reconstructed using an existing matched relative, differing in its final output vector offset.\n\n## Attribution\n\nUpdated `THIRD_PARTY_NOTICES.md` to credit Lombyte where applicable, in a dedicated commit (`988da204`).\n\n## Progress\n\nRegenerated `progress/report.json` using the repository's established workflow in a separate commit (`e9dcdf41`).\n\n| Metric | Updated | Change |\n| --- | ---: | ---: |\n| Matched functions | 4,363 / 5,10",
+      "mergedAt": "2026-10-14T07:30:31Z"
+     },
+     {
+      "number": 64,
+      "title": "fix(nonmatching): func_0020E3D0 reads a key's infinite rate as the EE…",
+      "author": "Lynder063",
+      "untrustedBody": "… does\n\nLevel 9 hung: 0 * inf made t NaN and the key loop never ended.",
+      "mergedAt": "2026-10-14T07:30:20Z"
+     },
+     {
+      "number": 65,
+      "title": "fix(nonmatching): func_0020E3D0 reads a key's infinite rate as the EE…",
+      "author": "Lynder063",
+      "untrustedBody": "",
+      "mergedAt": "2026-10-14T08:34:56Z"
+     },
+     {
+      "number": 66,
+      "title": "Feat/port backfill",
+      "author": "Lynder063",
+      "untrustedBody": "",
+      "mergedAt": "2026-10-14T11:52:46Z"
+     },
+     {
+      "number": 67,
+      "title": "feat(overlays): exact-match Gaspar and Rilgar functions",
+      "author": "cblackler19",
+      "untrustedBody": "## Summary\n\nAdds two **EXACT** function matches in the Gaspar and Rilgar overlays, contributing **856 bytes of newly matched code**. Both implementations reproduce the retail instructions byte-for-byte using the project's original SN Systems GCC 2.95.3 toolchain.\n\n## Matched functions\n\n| Function | Overlay | Matched size | Result |\n| --- | --- | ---: | --- |\n| `func_L09_00306DD8` | Gaspar (`L09`) | 488 bytes | **EXACT** |\n| `func_L05_00317B68` | Rilgar (`L05`) | 368 bytes | **EXACT** |\n| **Total** | | **856 bytes** | |\n\n### `func_L09_00306DD8` — Gaspar\n\n- Adds a C implementation that matches all **488 bytes** of the original function.\n- Corrects the argument typing for a variadic floating-point logging call to reproduce the original calling convention and generated instructions.\n\n### `func_L05_00317B68` — Rilgar\n\n- Adds a C implementation of the rotor-related function that matches all **368 bytes** of the original.\n- Preserves the compiler's expected global-addressing and instruction g",
+      "mergedAt": "2026-10-14T11:53:58Z"
+     },
+     {
+      "number": 69,
+      "title": "feat(overlays): fifteen functions adapted from the NTSC decomp",
+      "author": "cnobis",
+      "untrustedBody": "Fifteen exact matches adapted from the NTSC decomp's matched C, one commit each. Each passed `try_func.py` (EXACT) and `overlay_file_check.py` (0 problems). The full build has no size mismatch, every function sits at its retail address, and the one known byte mismatch is unchanged. The report is regenerated in the last commit: 4389 of 5109.\n\n| Function | Level | What it does |\n|---|---|---|\n| func_L00_002629E0 | shared | does a segment cross a path |\n| func_L00_0020D3A0 | shared | finds the ledge spot the hero can reach |\n| func_L01_00303810 | Novalis | full-screen tiled noise draw callback |\n| func_L01_002F0B48 | Novalis | spark burst around a moby |\n| func_L06_002EAF90 | Blarg | moves a moby, pushes it out of walls, snaps it to its path |\n| func_L06_0030D3E8 | Blarg | growing and fading sprite draw callback |\n| func_L06_002F3D40 | Blarg | nearest box or mine within reach |\n| func_L09_002F1198 | Gaspar | spawns a class 0x1A1 effect around a point |\n| func_L09_0030BB28 | Gaspar | spawn",
+      "mergedAt": "2026-10-14T20:59:35Z"
+     },
+     {
+      "number": 70,
+      "title": "feat(overlays): 23 functions ported from Lombyte",
+      "author": "Veradictus",
+      "untrustedBody": "23 level functions Lombyte already matched, carried to PAL by OpenRAC's `tools/port.py` (same code, other addresses). Each one is EXACT against its whole file, and the full build passes.\n\n- 4,372 → 4,397 of 5,109 functions (86.06%), 82.39% → 83.27% code\n- Credits for every one in `THIRD_PARTY_NOTICES.md`\n- Near misses and functional C for the 23 dropped, along with the `functional.tsv` rows pointing at them (one more, `func_L09_00306DD8`, was dangling already)\n\nLeft out: `func_L07_0031BDB8`, `func_L07_003121D0` and `func_L01_002BA150` aren't exact inside their files. `_sceFs_Rcv_Intr` (`func_0011B868`) is exact alone but can't link yet: its jump table and the rest of its object's rodata have `jtbl_001528B0` between them, which belongs to a function that is still asm.",
+      "mergedAt": "2026-10-14T21:21:23Z"
+     },
+     {
+      "number": 71,
+      "title": "feat(overlays): six functions adapted from the NTSC decomp, without its compiler tricks",
+      "author": "cnobis",
+      "untrustedBody": "Six more exact matches adapted from the NTSC decomp's matched C, one commit each, in the same way as #69. Each passed `try_func.py` (EXACT) and `overlay_file_check.py` (0 problems). The full build has no size mismatch, every function sits at its retail address, and the report is regenerated in the last commit: 4380 of 5109.\n\n| Function | Level | What it does |\n|---|---|---|\n| func_L02_002DDAE8 | Aridia | a moby that rolls back and forth along its heading |\n| func_L00_0023AC68 | shared | a HUD panel that slides open, with a pulsing label |\n| func_L05_0024C558 | Rilgar | the hero's periodic wall and ledge probes, and carrying an object |\n| func_L11_00319108 | Pokitaru | damage to the chain enemy, link by link |\n| func_L10_002DB688 | Orxon | a moby that shuffles an order on spawn and keeps a looping voice |\n| func_L01_002FABE8 | Novalis | a breakable object that bursts into dust and debris |\n\nWhere the NTSC decomp's C only steered the compiler, these use the plain form, which matches as w",
+      "mergedAt": "2026-10-14T21:21:23Z"
+     },
+     {
+      "number": 72,
+      "title": "feat(overlays): 50 pure-C ports, plus #69, #70 and #71 merged",
+      "author": "Lynder063",
+      "untrustedBody": "One PR for today's overlay work.\n\n- 50 functions ported in plain C (no `__asm__` symbol aliases, `SDATA()` or `qcopy`/`qzero`); joins added for six split heads.\n- Merges #69, #70 and #71. Where they matched the same functions (12 stubs), the pure-C version is kept; their other functions are included as written.\n- THIRD_PARTY_NOTICES.md credits Lombyte for each set of ports.\n- Full build passes; `overlay_file_check` clean on all 41 changed files; progress 4482/5109 functions, 84.35% code.\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)",
+      "mergedAt": "2026-10-14T21:21:21Z"
+     },
+     {
+      "number": 73,
+      "title": "feat(overlays): 38 more functions in C, qcopy helpers allowed",
+      "author": "Lynder063",
+      "untrustedBody": "38 more functions, all without `__asm__` symbol aliases or `SDATA()`. The `qcopy`/`qcopy_nc`/`qzero` helpers from `include/common.h` are allowed as the one exception (retail used inline asm for those quad copies).\n\n- Join added for `func_L00_002367A8` (shared `return 1` tail `func_00208238`).\n- Full build passes; `overlay_file_check` clean on all changed files; progress 84.35% → 86.02% code (4520/5109 functions).\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)",
+      "mergedAt": "2026-10-14T23:02:04Z"
+     }
+    ],
+    "opened": [
+     {
+      "number": 62,
+      "title": "chore(nonmatching): drop functional C for 42 functions that are matched now",
+      "author": "Veradictus",
+      "untrustedBody": "Follow-up to #56, #57, #58 and #60.\n\n42 functions listed in `nonmatching/functional.tsv` have an exact C definition in `src/` by now, so the native port takes the match and the functional copy is never read. This removes each one's row, its file, any staged near miss of the same function, and its line in `nonmatching/README.md`. Sixteen of them arrived with #56 and #58, which matched functions main only had as functional C; the others were older leftovers.\n\nNot touched: the 29 rows of functions the report counts as finished while they are still assembly (handwritten routines and joined pieces). The port needs functional C for those.\n\nNo source file changes. The report is unchanged at 4,360 of 5,109 functions and `gen_progress_report.py --check` says it is current.",
+      "mergedAt": "2026-10-14T02:04:38Z"
+     },
+     {
+      "number": 63,
+      "title": "feat: Match three functions (2,396 bytes) and update progress",
+      "author": "cblackler19",
+      "untrustedBody": "## Summary\n\nThis PR adds three verified, byte-exact function matches, totalling **2,396 bytes (599 MIPS instructions)**.\n\n## Matched functions\n\n| Function | Level | Size | Commit |\n| --- | --- | ---: | --- |\n| `func_L05_00317CD8` | Rilgar | 384 bytes | `dbf6c08e` |\n| `func_L00_002D3608` | Shared across 19 levels | 1,300 bytes | `6c4a8c32` |\n| `func_L05_003054B0` | Rilgar | 712 bytes | `bb63a5cb` |\n\nAll three functions were verified **EXACT** using the project's matching toolchain and remained EXACT after integration.\n\nThe shared function `func_L00_002D3608` was reconstructed using an existing matched relative, differing in its final output vector offset.\n\n## Attribution\n\nUpdated `THIRD_PARTY_NOTICES.md` to credit Lombyte where applicable, in a dedicated commit (`988da204`).\n\n## Progress\n\nRegenerated `progress/report.json` using the repository's established workflow in a separate commit (`e9dcdf41`).\n\n| Metric | Updated | Change |\n| --- | ---: | ---: |\n| Matched functions | 4,363 / 5,10",
+      "mergedAt": "2026-10-14T07:30:31Z"
+     },
+     {
+      "number": 64,
+      "title": "fix(nonmatching): func_0020E3D0 reads a key's infinite rate as the EE…",
+      "author": "Lynder063",
+      "untrustedBody": "… does\n\nLevel 9 hung: 0 * inf made t NaN and the key loop never ended.",
+      "mergedAt": "2026-10-14T07:30:20Z"
+     },
+     {
+      "number": 65,
+      "title": "fix(nonmatching): func_0020E3D0 reads a key's infinite rate as the EE…",
+      "author": "Lynder063",
+      "untrustedBody": "",
+      "mergedAt": "2026-10-14T08:34:56Z"
+     },
+     {
+      "number": 66,
+      "title": "Feat/port backfill",
+      "author": "Lynder063",
+      "untrustedBody": "",
+      "mergedAt": "2026-10-14T11:52:46Z"
+     },
+     {
+      "number": 67,
+      "title": "feat(overlays): exact-match Gaspar and Rilgar functions",
+      "author": "cblackler19",
+      "untrustedBody": "## Summary\n\nAdds two **EXACT** function matches in the Gaspar and Rilgar overlays, contributing **856 bytes of newly matched code**. Both implementations reproduce the retail instructions byte-for-byte using the project's original SN Systems GCC 2.95.3 toolchain.\n\n## Matched functions\n\n| Function | Overlay | Matched size | Result |\n| --- | --- | ---: | --- |\n| `func_L09_00306DD8` | Gaspar (`L09`) | 488 bytes | **EXACT** |\n| `func_L05_00317B68` | Rilgar (`L05`) | 368 bytes | **EXACT** |\n| **Total** | | **856 bytes** | |\n\n### `func_L09_00306DD8` — Gaspar\n\n- Adds a C implementation that matches all **488 bytes** of the original function.\n- Corrects the argument typing for a variadic floating-point logging call to reproduce the original calling convention and generated instructions.\n\n### `func_L05_00317B68` — Rilgar\n\n- Adds a C implementation of the rotor-related function that matches all **368 bytes** of the original.\n- Preserves the compiler's expected global-addressing and instruction g",
+      "mergedAt": "2026-10-14T11:53:58Z"
+     },
+     {
+      "number": 68,
+      "title": "feat(overlays): exact-match Sandshark updater (func_L02_002D5250)",
+      "author": "cblackler19",
+      "untrustedBody": "## Summary\n\nReplaces the `INCLUDE_ASM` stub for **`func_L02_002D5250`** with a C implementation of the **Sandshark updater** (`UpdateMoby_580:02`, moby class `580`, `sand_shark`) in the Aridia (level 02) overlay.\n\nThe PAL implementation was adapted from **Lombyte's byte-matched US function `FUN_L02_002d3e50`**. The PAL-specific state flow, helper call targets, data mappings, and field offsets were reconciled against the PAL retail assembly to achieve an exact match.\n\n### Changes\n\n- Implement `func_L02_002D5250` in `src/overlays/l02_aridia/vendor_002A59D8.c`, replacing its `INCLUDE_ASM` entry.\n- Match the **6,208-byte** PAL retail implementation (**1,552 MIPS instructions**), including relocations.\n- Credit Lombyte and the MIT-licensed US reference implementation in `THIRD_PARTY_NOTICES.md`.\n\n### Verification\n\n- **Strict Docker function verification:** `EXACT` — **6,208 / 6,208 bytes**, with **matching relocations**.\n- **Integrated Aridia overlay verification:** `1 files, 0 problems`.\n-"
+     },
+     {
+      "number": 69,
+      "title": "feat(overlays): fifteen functions adapted from the NTSC decomp",
+      "author": "cnobis",
+      "untrustedBody": "Fifteen exact matches adapted from the NTSC decomp's matched C, one commit each. Each passed `try_func.py` (EXACT) and `overlay_file_check.py` (0 problems). The full build has no size mismatch, every function sits at its retail address, and the one known byte mismatch is unchanged. The report is regenerated in the last commit: 4389 of 5109.\n\n| Function | Level | What it does |\n|---|---|---|\n| func_L00_002629E0 | shared | does a segment cross a path |\n| func_L00_0020D3A0 | shared | finds the ledge spot the hero can reach |\n| func_L01_00303810 | Novalis | full-screen tiled noise draw callback |\n| func_L01_002F0B48 | Novalis | spark burst around a moby |\n| func_L06_002EAF90 | Blarg | moves a moby, pushes it out of walls, snaps it to its path |\n| func_L06_0030D3E8 | Blarg | growing and fading sprite draw callback |\n| func_L06_002F3D40 | Blarg | nearest box or mine within reach |\n| func_L09_002F1198 | Gaspar | spawns a class 0x1A1 effect around a point |\n| func_L09_0030BB28 | Gaspar | spawn",
+      "mergedAt": "2026-10-14T20:59:35Z"
+     },
+     {
+      "number": 70,
+      "title": "feat(overlays): 23 functions ported from Lombyte",
+      "author": "Veradictus",
+      "untrustedBody": "23 level functions Lombyte already matched, carried to PAL by OpenRAC's `tools/port.py` (same code, other addresses). Each one is EXACT against its whole file, and the full build passes.\n\n- 4,372 → 4,397 of 5,109 functions (86.06%), 82.39% → 83.27% code\n- Credits for every one in `THIRD_PARTY_NOTICES.md`\n- Near misses and functional C for the 23 dropped, along with the `functional.tsv` rows pointing at them (one more, `func_L09_00306DD8`, was dangling already)\n\nLeft out: `func_L07_0031BDB8`, `func_L07_003121D0` and `func_L01_002BA150` aren't exact inside their files. `_sceFs_Rcv_Intr` (`func_0011B868`) is exact alone but can't link yet: its jump table and the rest of its object's rodata have `jtbl_001528B0` between them, which belongs to a function that is still asm.",
+      "mergedAt": "2026-10-14T21:21:23Z"
+     },
+     {
+      "number": 71,
+      "title": "feat(overlays): six functions adapted from the NTSC decomp, without its compiler tricks",
+      "author": "cnobis",
+      "untrustedBody": "Six more exact matches adapted from the NTSC decomp's matched C, one commit each, in the same way as #69. Each passed `try_func.py` (EXACT) and `overlay_file_check.py` (0 problems). The full build has no size mismatch, every function sits at its retail address, and the report is regenerated in the last commit: 4380 of 5109.\n\n| Function | Level | What it does |\n|---|---|---|\n| func_L02_002DDAE8 | Aridia | a moby that rolls back and forth along its heading |\n| func_L00_0023AC68 | shared | a HUD panel that slides open, with a pulsing label |\n| func_L05_0024C558 | Rilgar | the hero's periodic wall and ledge probes, and carrying an object |\n| func_L11_00319108 | Pokitaru | damage to the chain enemy, link by link |\n| func_L10_002DB688 | Orxon | a moby that shuffles an order on spawn and keeps a looping voice |\n| func_L01_002FABE8 | Novalis | a breakable object that bursts into dust and debris |\n\nWhere the NTSC decomp's C only steered the compiler, these use the plain form, which matches as w",
+      "mergedAt": "2026-10-14T21:21:23Z"
+     },
+     {
+      "number": 72,
+      "title": "feat(overlays): 50 pure-C ports, plus #69, #70 and #71 merged",
+      "author": "Lynder063",
+      "untrustedBody": "One PR for today's overlay work.\n\n- 50 functions ported in plain C (no `__asm__` symbol aliases, `SDATA()` or `qcopy`/`qzero`); joins added for six split heads.\n- Merges #69, #70 and #71. Where they matched the same functions (12 stubs), the pure-C version is kept; their other functions are included as written.\n- THIRD_PARTY_NOTICES.md credits Lombyte for each set of ports.\n- Full build passes; `overlay_file_check` clean on all 41 changed files; progress 4482/5109 functions, 84.35% code.\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)",
+      "mergedAt": "2026-10-14T21:21:21Z"
+     },
+     {
+      "number": 73,
+      "title": "feat(overlays): 38 more functions in C, qcopy helpers allowed",
+      "author": "Lynder063",
+      "untrustedBody": "38 more functions, all without `__asm__` symbol aliases or `SDATA()`. The `qcopy`/`qcopy_nc`/`qzero` helpers from `include/common.h` are allowed as the one exception (retail used inline asm for those quad copies).\n\n- Join added for `func_L00_002367A8` (shared `return 1` tail `func_00208238`).\n- Full build passes; `overlay_file_check` clean on all changed files; progress 84.35% → 86.02% code (4520/5109 functions).\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)",
+      "mergedAt": "2026-10-14T23:02:04Z"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": {
+    "before": {
+     "code": {
+      "done": 3011244,
+      "total": 3712808
+     },
+     "functions": {
+      "done": 4329,
+      "total": 5109
+     }
+    },
+    "after": {
+     "code": {
+      "done": 3193820,
+      "total": 3712808
+     },
+     "functions": {
+      "done": 4520,
+      "total": 5109
+     }
+    }
+   },
+   "contributors": [
+    "cblackler19",
+    "cnobis",
+    "Lynder063",
+    "Veradictus"
+   ]
+  },
+  {
+   "repo": "rac2-decomp",
+   "title": "Going Commando",
+   "branches": [
+    {
+     "name": "master",
+     "commits": [
+      {
+       "sha": "8a174cb56b93ece45d286ab9f39a9b5d4bd36acb",
+       "title": "Merge pull request #177 from OpenRAC/match/thorpen-six-functions-20261015",
+       "author": "ThorpenCodes",
+       "date": "2026-10-14T21:48:50Z"
+      },
+      {
+       "sha": "9d1f97fa107ac8a1379c87bf140bf9d9515df9cd",
+       "title": "Merge pull request #176 from OpenRAC/match/thorpen-two-functions-20261014",
+       "author": "ThorpenCodes",
+       "date": "2026-10-14T12:36:13Z"
+      },
+      {
+       "sha": "9b796c93d0f12dc04ba04c395ee32665602fe4cd",
+       "title": "Merge pull request #175 from OpenRAC/match/thorpen-five-functions-20261014",
+       "author": "ThorpenCodes",
+       "date": "2026-10-14T12:11:11Z"
+      },
+      {
+       "sha": "c0748054bc49fdcbe7d7b8b7c93890c78fed58a2",
+       "title": "Merge pull request #174 from OpenRAC/match/thorpen-src-game-safe-20261014",
+       "author": "ThorpenCodes",
+       "date": "2026-10-14T11:21:13Z"
+      },
+      {
+       "sha": "aca4f5911fdcac5aa9ffaa74153010694378ad11",
+       "title": "Merge pull request #172 from platypet2217-star/master",
+       "author": "Veradictus",
+       "date": "2026-10-14T00:02:54Z"
+      },
+      {
+       "sha": "35794b78935addab2ce2590e135fbe2b0c855c14",
+       "title": "Merge pull request #173 from OpenRAC/match/thorpen-src-game-bank-next",
+       "author": "ThorpenCodes",
+       "date": "2026-10-14T00:01:51Z"
+      }
+     ]
+    }
+   ],
+   "commitCount": 6,
+   "pullRequests": {
+    "merged": [
+     {
+      "number": 172,
+      "title": "Multi language doc",
+      "author": "platypet2217-star",
+      "untrustedBody": "## Multi language doc\n\n<!-- Multi language doc to help us enjoy our mother tongue. -->\n\n## Checked\n\n<!-- It doesn’t contain any undiscovered features, but as for the language-switch function, I’ve discovered that it’s buried within the files; what it does contain are the translation texts, which have been confirmed. I can’t yet say for certain that it’s fully translated – that will become clear in time. -->",
+      "mergedAt": "2026-10-14T00:02:55Z"
+     },
+     {
+      "number": 173,
+      "title": "feat(src): add 26 exact src/game matches",
+      "author": "ThorpenCodes",
+      "untrustedBody": "## What\n\nAdd **26 new unique exact `src/game/` functions**, covering **3,236 catalogue bytes and 627 placements**, for Ratchet & Clank: Going Commando, PS2 USA v1.01 (`SCUS_972.68`). This includes 16 newer bank candidates and ten candidates previously excluded from PR #170. The ten historical callers now use separate source units so their helper references can resolve to the correct C or assembly placement in each program; their implementations and compiler profiles are preserved. Reconciled helper declarations include the pointer return type and the no-op callback's object parameter.\n\nReconciliation against current master identified 133 bank candidates: **106 already upstream were skipped**, and 27 were unpublished. **`func_0027F1D8` remains excluded** (168 bytes, 28 placements): its banked float-returning four-argument definition conflicts with an existing integer-returning three-argument caller declaration. Its current-master assembly marker and the authoritative recovery bank are p",
+      "mergedAt": "2026-10-14T00:01:52Z"
+     },
+     {
+      "number": 174,
+      "title": "feat(src): add exact src/game matches",
+      "author": "ThorpenCodes",
+      "untrustedBody": "## What\n\nReplace assembly markers with 20 new plain-C `src/game` functions for Going Commando USA v1.01 / SCUS_972.68: 2,656 distinct catalogue bytes and 560 placements. None was already implemented on the freshly fetched base master.\n\nThree intended candidates remain excluded for integration dependencies: `func_00288D90`, `func_002B6828`, and `func_002CB820`. `func_0027F1D8` is deliberately excluded because of its unresolved caller-ABI conflict. Core, inline-assembly/qcopy, catalogue-boundary, and near-match work are outside this PR.\n\n## Checked\n\n- `python3 tools/build.py all --jobs 1`: boot and all 27 levels OK; all 28 programs byte-identical. Every published function is C in every build placement record (560/560); no unplaced dependencies or placement failures.\n- `python3 tools/check.py <function> --diff`: every function below passes 28/28.\n- `python3 -m unittest discover -s tests`: 23 tests passed.\n- `python3 tests/check_repository.py`: passed.\n- `python3 tools/progress.py --check`",
+      "mergedAt": "2026-10-14T11:21:14Z"
+     },
+     {
+      "number": 175,
+      "title": "feat(src): match five shared game functions",
+      "author": "ThorpenCodes",
+      "untrustedBody": "## What\n\nAdd five new exact plain-C src/game functions for Going Commando USA v1.01 / SCUS_972.68, each in its own commit: 856 catalogue bytes and 140 placements. All five remained assembly markers on freshly fetched master; none was already upstream.\n\nPreserved exclusions remain outside this PR: func_0027F1D8 (caller ABI), func_00288D90, func_002B6828, and func_002CB820 (integration dependencies). No core, catalogue, compiler-policy, inline-assembly, or near-match changes.\n\n## Checked\n\n- `python3 tools/build.py all --jobs 1`: boot and all 27 levels byte-identical; 28 programs OK. All 140 new C placements present in placed.json, with no placement or dependency failures.\n- `python3 tools/check.py <function> --diff`: every function 28/28.\n- `python3 -m unittest discover -s tests`: 23 tests passed.\n- `python3 tests/check_repository.py`: passed.\n- `python3 tools/progress.py --check`: passed; generated report and README unchanged.\n- `git diff --check`: passed; complete source diff reviewed ",
+      "mergedAt": "2026-10-14T12:11:11Z"
+     },
+     {
+      "number": 176,
+      "title": "feat(src): match two shared game functions",
+      "author": "ThorpenCodes",
+      "untrustedBody": "## What\n\nAdd two new exact plain-C src/game functions for Going Commando USA v1.01 / SCUS_972.68 in separate commits: 312 catalogue bytes and 56 placements. Both remained assembly markers on freshly fetched master.\n\nExisting caller/helper source shapes and signatures are preserved. Historical caller-ABI/integration exclusions, core candidates, catalogue fixes, and near misses remain outside this PR.\n\n## Checked\n\n- `python3 tools/build.py all --jobs 1`: boot and all 27 levels byte-identical, 28 programs OK. All 56 new C placements included; no placement/dependency failures.\n- `python3 tools/check.py func_002B7B18 --diff`: 28/28, 168 bytes.\n- `python3 tools/check.py func_0028B540 --diff`: 28/28, 144 bytes.\n- `python3 -m unittest discover -s tests`: 23 tests passed.\n- `python3 tests/check_repository.py`: passed.\n- `python3 tools/progress.py --check`: passed; generated progress and README unchanged.\n- `git diff --check`: passed; complete diff reviewed and policy scan passed.",
+      "mergedAt": "2026-10-14T12:36:13Z"
+     },
+     {
+      "number": 177,
+      "title": "feat(src): match six shared game functions",
+      "author": "ThorpenCodes",
+      "untrustedBody": "## What\n\nAdd six new exact plain-C src/game functions for Going Commando USA v1.01 / SCUS_972.68, each in its own commit: 1,144 catalogue bytes and 134 placements. All six remained assembly markers on freshly fetched master.\n\nHistorical caller-ABI/integration exclusions, core candidates, catalogue fixes, and near misses remain outside this PR. Compiler policy and generated progress/README remain unchanged.\n\n## Checked\n\n- `python3 tools/build.py all --jobs 1`: boot and all 27 levels byte-identical; 28 programs OK. All 134 new C placements included, no placement/dependency failures.\n- `python3 tools/check.py <function> --diff`: every known placement passed; counts below.\n- `python3 -m unittest discover -s tests`: 23 tests passed.\n- `python3 tests/check_repository.py`: passed.\n- `python3 tools/progress.py --check`: passed.\n- `git diff --check`: passed; full diff manually reviewed and policy scan passed.\n\n| Function | Catalogue bytes | Checker placements |\n| --- | ---: | ---: |\n| `func_002",
+      "mergedAt": "2026-10-14T21:48:50Z"
+     }
+    ],
+    "opened": [
+     {
+      "number": 173,
+      "title": "feat(src): add 26 exact src/game matches",
+      "author": "ThorpenCodes",
+      "untrustedBody": "## What\n\nAdd **26 new unique exact `src/game/` functions**, covering **3,236 catalogue bytes and 627 placements**, for Ratchet & Clank: Going Commando, PS2 USA v1.01 (`SCUS_972.68`). This includes 16 newer bank candidates and ten candidates previously excluded from PR #170. The ten historical callers now use separate source units so their helper references can resolve to the correct C or assembly placement in each program; their implementations and compiler profiles are preserved. Reconciled helper declarations include the pointer return type and the no-op callback's object parameter.\n\nReconciliation against current master identified 133 bank candidates: **106 already upstream were skipped**, and 27 were unpublished. **`func_0027F1D8` remains excluded** (168 bytes, 28 placements): its banked float-returning four-argument definition conflicts with an existing integer-returning three-argument caller declaration. Its current-master assembly marker and the authoritative recovery bank are p",
+      "mergedAt": "2026-10-14T00:01:52Z"
+     },
+     {
+      "number": 174,
+      "title": "feat(src): add exact src/game matches",
+      "author": "ThorpenCodes",
+      "untrustedBody": "## What\n\nReplace assembly markers with 20 new plain-C `src/game` functions for Going Commando USA v1.01 / SCUS_972.68: 2,656 distinct catalogue bytes and 560 placements. None was already implemented on the freshly fetched base master.\n\nThree intended candidates remain excluded for integration dependencies: `func_00288D90`, `func_002B6828`, and `func_002CB820`. `func_0027F1D8` is deliberately excluded because of its unresolved caller-ABI conflict. Core, inline-assembly/qcopy, catalogue-boundary, and near-match work are outside this PR.\n\n## Checked\n\n- `python3 tools/build.py all --jobs 1`: boot and all 27 levels OK; all 28 programs byte-identical. Every published function is C in every build placement record (560/560); no unplaced dependencies or placement failures.\n- `python3 tools/check.py <function> --diff`: every function below passes 28/28.\n- `python3 -m unittest discover -s tests`: 23 tests passed.\n- `python3 tests/check_repository.py`: passed.\n- `python3 tools/progress.py --check`",
+      "mergedAt": "2026-10-14T11:21:14Z"
+     },
+     {
+      "number": 175,
+      "title": "feat(src): match five shared game functions",
+      "author": "ThorpenCodes",
+      "untrustedBody": "## What\n\nAdd five new exact plain-C src/game functions for Going Commando USA v1.01 / SCUS_972.68, each in its own commit: 856 catalogue bytes and 140 placements. All five remained assembly markers on freshly fetched master; none was already upstream.\n\nPreserved exclusions remain outside this PR: func_0027F1D8 (caller ABI), func_00288D90, func_002B6828, and func_002CB820 (integration dependencies). No core, catalogue, compiler-policy, inline-assembly, or near-match changes.\n\n## Checked\n\n- `python3 tools/build.py all --jobs 1`: boot and all 27 levels byte-identical; 28 programs OK. All 140 new C placements present in placed.json, with no placement or dependency failures.\n- `python3 tools/check.py <function> --diff`: every function 28/28.\n- `python3 -m unittest discover -s tests`: 23 tests passed.\n- `python3 tests/check_repository.py`: passed.\n- `python3 tools/progress.py --check`: passed; generated report and README unchanged.\n- `git diff --check`: passed; complete source diff reviewed ",
+      "mergedAt": "2026-10-14T12:11:11Z"
+     },
+     {
+      "number": 176,
+      "title": "feat(src): match two shared game functions",
+      "author": "ThorpenCodes",
+      "untrustedBody": "## What\n\nAdd two new exact plain-C src/game functions for Going Commando USA v1.01 / SCUS_972.68 in separate commits: 312 catalogue bytes and 56 placements. Both remained assembly markers on freshly fetched master.\n\nExisting caller/helper source shapes and signatures are preserved. Historical caller-ABI/integration exclusions, core candidates, catalogue fixes, and near misses remain outside this PR.\n\n## Checked\n\n- `python3 tools/build.py all --jobs 1`: boot and all 27 levels byte-identical, 28 programs OK. All 56 new C placements included; no placement/dependency failures.\n- `python3 tools/check.py func_002B7B18 --diff`: 28/28, 168 bytes.\n- `python3 tools/check.py func_0028B540 --diff`: 28/28, 144 bytes.\n- `python3 -m unittest discover -s tests`: 23 tests passed.\n- `python3 tests/check_repository.py`: passed.\n- `python3 tools/progress.py --check`: passed; generated progress and README unchanged.\n- `git diff --check`: passed; complete diff reviewed and policy scan passed.",
+      "mergedAt": "2026-10-14T12:36:13Z"
+     },
+     {
+      "number": 177,
+      "title": "feat(src): match six shared game functions",
+      "author": "ThorpenCodes",
+      "untrustedBody": "## What\n\nAdd six new exact plain-C src/game functions for Going Commando USA v1.01 / SCUS_972.68, each in its own commit: 1,144 catalogue bytes and 134 placements. All six remained assembly markers on freshly fetched master.\n\nHistorical caller-ABI/integration exclusions, core candidates, catalogue fixes, and near misses remain outside this PR. Compiler policy and generated progress/README remain unchanged.\n\n## Checked\n\n- `python3 tools/build.py all --jobs 1`: boot and all 27 levels byte-identical; 28 programs OK. All 134 new C placements included, no placement/dependency failures.\n- `python3 tools/check.py <function> --diff`: every known placement passed; counts below.\n- `python3 -m unittest discover -s tests`: 23 tests passed.\n- `python3 tests/check_repository.py`: passed.\n- `python3 tools/progress.py --check`: passed.\n- `git diff --check`: passed; full diff manually reviewed and policy scan passed.\n\n| Function | Catalogue bytes | Checker placements |\n| --- | ---: | ---: |\n| `func_002",
+      "mergedAt": "2026-10-14T21:48:50Z"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": {
+    "before": {
+     "code": {
+      "done": 309824,
+      "total": 5533600
+     },
+     "functions": {
+      "done": 2881,
+      "total": 9100
+     }
+    },
+    "after": {
+     "code": {
+      "done": 309824,
+      "total": 5533600
+     },
+     "functions": {
+      "done": 2881,
+      "total": 9100
+     }
+    }
+   },
+   "contributors": [
+    "platypet2217-star",
+    "ThorpenCodes",
+    "Veradictus"
+   ]
+  },
+  {
+   "repo": "rac3-decomp",
+   "title": "Up Your Arsenal",
+   "branches": [
+    {
+     "name": "master",
+     "commits": []
+    }
+   ],
+   "commitCount": 0,
+   "pullRequests": {
+    "merged": [],
+    "opened": []
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": null,
+   "contributors": []
+  },
+  {
+   "repo": "rac4-decomp",
+   "title": "Ratchet: Deadlocked",
+   "branches": [
+    {
+     "name": "main",
+     "commits": []
+    }
+   ],
+   "commitCount": 0,
+   "pullRequests": {
+    "merged": [],
+    "opened": []
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": null,
+   "contributors": []
+  },
+  {
+   "repo": "openrac-mods",
+   "title": "OpenRAC mods",
+   "branches": [
+    {
+     "name": "master",
+     "commits": []
+    }
+   ],
+   "commitCount": 0,
+   "pullRequests": {
+    "merged": [],
+    "opened": []
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": null,
+   "contributors": []
+  }
+ ]
+}

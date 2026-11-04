@@ -7,3 +7,5 @@ Thanks for helping. Issues and pull requests are welcome.
   live in the git-ignored `public/img/`.
 - Progress numbers must come from the projects' own repositories and be computed the same way for every
   title (see the README). If you change how a number is counted, say why in the pull request.
+
+Writing a news report? See [news/CONTRIBUTING.md](news/CONTRIBUTING.md). It has its own rules and touches none of the website's code.

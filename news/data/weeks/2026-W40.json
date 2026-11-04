@@ -1,0 +1,496 @@
+{
+ "format": 1,
+ "week": "2026-W40",
+ "start": "2026-09-28",
+ "end": "2026-10-04",
+ "days": [
+  "2026-09-28",
+  "2026-09-29",
+  "2026-09-30",
+  "2026-10-01",
+  "2026-10-02",
+  "2026-10-03",
+  "2026-10-04"
+ ],
+ "totals": {
+  "commits": 377,
+  "pullRequestsMerged": 26,
+  "pullRequestsOpened": 26,
+  "contributors": 3
+ },
+ "projects": [
+  {
+   "repo": "OpenRAC",
+   "title": "OpenRAC launcher",
+   "commitCount": 12,
+   "activeDays": [
+    "2026-10-03"
+   ],
+   "pullRequests": {
+    "merged": [],
+    "opened": []
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": null,
+   "contributors": [
+    "Veradictus"
+   ]
+  },
+  {
+   "repo": "rac1-decomp",
+   "title": "Ratchet & Clank",
+   "commitCount": 350,
+   "activeDays": [
+    "2026-09-28",
+    "2026-09-29",
+    "2026-09-30",
+    "2026-10-01",
+    "2026-10-02",
+    "2026-10-03",
+    "2026-10-04"
+   ],
+   "pullRequests": {
+    "merged": [
+     {
+      "number": 8,
+      "title": "feat(overlays): decompile the per-level game code",
+      "author": "Veradictus",
+      "mergedAt": "2026-09-28T07:14:38Z"
+     },
+     {
+      "number": 9,
+      "title": "feat(overlays): 23 level-specific matches across 9 levels",
+      "author": "Veradictus",
+      "mergedAt": "2026-09-29T06:47:36Z"
+     },
+     {
+      "number": 10,
+      "title": "feat(overlays): 76 level-specific exact matches across 17 levels",
+      "author": "Veradictus",
+      "mergedAt": "2026-09-30T09:12:17Z"
+     },
+     {
+      "number": 11,
+      "title": "Planet-named level dirs, readable symbol names (names.h), overlay regression fix",
+      "author": "Lynder063",
+      "mergedAt": "2026-09-30T15:22:55Z"
+     },
+     {
+      "number": 12,
+      "title": "feat(overlays): 156 level-code matches, variant catalogue, queue-wave workflow",
+      "author": "Veradictus",
+      "mergedAt": "2026-09-30T17:08:02Z"
+     },
+     {
+      "number": 13,
+      "title": "Level code: 643 matches, 112 functions ported from Lombyte, one box per level on decomp.dev",
+      "author": "Veradictus",
+      "mergedAt": "2026-10-01T06:10:34Z"
+     },
+     {
+      "number": 14,
+      "title": "Level 18 (Veldin 2): decompile the level's code",
+      "author": "Lynder063",
+      "mergedAt": "2026-10-02T08:25:08Z"
+     },
+     {
+      "number": 15,
+      "title": "Level 17 batch, Level 16 (GPT agent), near misses shared in nonmatching/, checker and build fixes",
+      "author": "Veradictus",
+      "mergedAt": "2026-10-01T21:21:34Z"
+     },
+     {
+      "number": 16,
+      "title": "fix(nonmatching): level 18: func_L18_002D93C0 from a size mismatch to…",
+      "author": "Lynder063",
+      "mergedAt": "2026-10-02T13:12:03Z"
+     },
+     {
+      "number": 17,
+      "title": "Level 18 veldin2",
+      "author": "Lynder063",
+      "mergedAt": "2026-10-02T22:08:34Z"
+     },
+     {
+      "number": 18,
+      "title": "Level 18: func_L18_002D7310 to size exact (77.9% fuzzy)",
+      "author": "Lynder063",
+      "mergedAt": "2026-10-03T07:36:22Z"
+     },
+     {
+      "number": 19,
+      "title": "Port 9 shared level functions from Lombyte PR #66 (+2 near-misses)",
+      "author": "Lynder063",
+      "mergedAt": "2026-10-03T07:41:00Z"
+     },
+     {
+      "number": 20,
+      "title": "Level code: 145 functions (19.46%), Level 16, near misses restaged, parallel salvage",
+      "author": "Veradictus",
+      "mergedAt": "2026-10-03T00:13:02Z"
+     },
+     {
+      "number": 21,
+      "title": "Level code: 25 functions (19.77%), Level 16, US→PAL map, editor mobys and collision",
+      "author": "Veradictus",
+      "mergedAt": "2026-10-03T07:45:26Z"
+     },
+     {
+      "number": 22,
+      "title": "Merge #21 (Veradictus/main) with the Lombyte ports and L18 size-exact work",
+      "author": "Lynder063",
+      "mergedAt": "2026-10-03T07:45:24Z"
+     },
+     {
+      "number": 23,
+      "title": "Level 18: restage 13 near-misses after the merges (fuzzy 26.1% -> 34.2%)",
+      "author": "Lynder063",
+      "mergedAt": "2026-10-03T10:26:30Z"
+     },
+     {
+      "number": 24,
+      "title": "Port 36 functions Lombyte has matched (exact, +16 KB)",
+      "author": "Lynder063",
+      "mergedAt": "2026-10-04T09:32:17Z"
+     },
+     {
+      "number": 25,
+      "title": "Refresh the README: how it works, contributing and license sections",
+      "author": "Lynder063",
+      "mergedAt": "2026-10-04T21:23:51Z"
+     }
+    ],
+    "opened": [
+     {
+      "number": 8,
+      "title": "feat(overlays): decompile the per-level game code",
+      "author": "Veradictus",
+      "mergedAt": "2026-09-28T07:14:38Z"
+     },
+     {
+      "number": 9,
+      "title": "feat(overlays): 23 level-specific matches across 9 levels",
+      "author": "Veradictus",
+      "mergedAt": "2026-09-29T06:47:36Z"
+     },
+     {
+      "number": 10,
+      "title": "feat(overlays): 76 level-specific exact matches across 17 levels",
+      "author": "Veradictus",
+      "mergedAt": "2026-09-30T09:12:17Z"
+     },
+     {
+      "number": 11,
+      "title": "Planet-named level dirs, readable symbol names (names.h), overlay regression fix",
+      "author": "Lynder063",
+      "mergedAt": "2026-09-30T15:22:55Z"
+     },
+     {
+      "number": 12,
+      "title": "feat(overlays): 156 level-code matches, variant catalogue, queue-wave workflow",
+      "author": "Veradictus",
+      "mergedAt": "2026-09-30T17:08:02Z"
+     },
+     {
+      "number": 13,
+      "title": "Level code: 643 matches, 112 functions ported from Lombyte, one box per level on decomp.dev",
+      "author": "Veradictus",
+      "mergedAt": "2026-10-01T06:10:34Z"
+     },
+     {
+      "number": 14,
+      "title": "Level 18 (Veldin 2): decompile the level's code",
+      "author": "Lynder063",
+      "mergedAt": "2026-10-02T08:25:08Z"
+     },
+     {
+      "number": 15,
+      "title": "Level 17 batch, Level 16 (GPT agent), near misses shared in nonmatching/, checker and build fixes",
+      "author": "Veradictus",
+      "mergedAt": "2026-10-01T21:21:34Z"
+     },
+     {
+      "number": 16,
+      "title": "fix(nonmatching): level 18: func_L18_002D93C0 from a size mismatch to…",
+      "author": "Lynder063",
+      "mergedAt": "2026-10-02T13:12:03Z"
+     },
+     {
+      "number": 17,
+      "title": "Level 18 veldin2",
+      "author": "Lynder063",
+      "mergedAt": "2026-10-02T22:08:34Z"
+     },
+     {
+      "number": 18,
+      "title": "Level 18: func_L18_002D7310 to size exact (77.9% fuzzy)",
+      "author": "Lynder063",
+      "mergedAt": "2026-10-03T07:36:22Z"
+     },
+     {
+      "number": 19,
+      "title": "Port 9 shared level functions from Lombyte PR #66 (+2 near-misses)",
+      "author": "Lynder063",
+      "mergedAt": "2026-10-03T07:41:00Z"
+     },
+     {
+      "number": 20,
+      "title": "Level code: 145 functions (19.46%), Level 16, near misses restaged, parallel salvage",
+      "author": "Veradictus",
+      "mergedAt": "2026-10-03T00:13:02Z"
+     },
+     {
+      "number": 21,
+      "title": "Level code: 25 functions (19.77%), Level 16, US→PAL map, editor mobys and collision",
+      "author": "Veradictus",
+      "mergedAt": "2026-10-03T07:45:26Z"
+     },
+     {
+      "number": 22,
+      "title": "Merge #21 (Veradictus/main) with the Lombyte ports and L18 size-exact work",
+      "author": "Lynder063",
+      "mergedAt": "2026-10-03T07:45:24Z"
+     },
+     {
+      "number": 23,
+      "title": "Level 18: restage 13 near-misses after the merges (fuzzy 26.1% -> 34.2%)",
+      "author": "Lynder063",
+      "mergedAt": "2026-10-03T10:26:30Z"
+     },
+     {
+      "number": 24,
+      "title": "Port 36 functions Lombyte has matched (exact, +16 KB)",
+      "author": "Lynder063",
+      "mergedAt": "2026-10-04T09:32:17Z"
+     },
+     {
+      "number": 25,
+      "title": "Refresh the README: how it works, contributing and license sections",
+      "author": "Lynder063",
+      "mergedAt": "2026-10-04T21:23:51Z"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": {
+    "before": {
+     "code": {
+      "done": 256404,
+      "total": 465700
+     },
+     "functions": {
+      "done": 1349,
+      "total": 1680
+     }
+    },
+    "after": {
+     "code": {
+      "done": 751292,
+      "total": 3712808
+     },
+     "functions": {
+      "done": 2834,
+      "total": 5109
+     }
+    }
+   },
+   "contributors": [
+    "Lynder063",
+    "Veradictus"
+   ]
+  },
+  {
+   "repo": "rac2-decomp",
+   "title": "Going Commando",
+   "commitCount": 0,
+   "activeDays": [],
+   "pullRequests": {
+    "merged": [
+     {
+      "number": 1,
+      "title": "docs/include: add community reverse engineering reference and engine headers",
+      "author": "Lynder063",
+      "mergedAt": "2026-10-01T19:43:36Z"
+     },
+     {
+      "number": 2,
+      "title": "docs/include: add save chunk FSM, RaC1 legacy unlock bitmask, and authentic MobyInstance layout",
+      "author": "Lynder063",
+      "mergedAt": "2026-10-02T13:14:31Z"
+     },
+     {
+      "number": 3,
+      "title": "Name 6,356 level functions from the prototype's class identifiers",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-02T18:24:04Z"
+     },
+     {
+      "number": 4,
+      "title": "Engine symbol names from the 8 August prototype: one transfers, ten do not",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-02T19:08:53Z"
+     },
+     {
+      "number": 5,
+      "title": "Name 102 assert-message carriers, and close the last 59 messages",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-02T20:24:39Z"
+     },
+     {
+      "number": 6,
+      "title": "Identify which prototype the linker script maps: the 6 August 2003 preview disc",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-02T20:45:00Z"
+     },
+     {
+      "number": 7,
+      "title": "Add a measured survey of the prototype builds: the earliest one is the closest to retail",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-02T22:20:51Z"
+     },
+     {
+      "number": 8,
+      "title": "Document the level archive format, measured rather than inherited",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-02T22:28:53Z"
+     }
+    ],
+    "opened": [
+     {
+      "number": 1,
+      "title": "docs/include: add community reverse engineering reference and engine headers",
+      "author": "Lynder063",
+      "mergedAt": "2026-10-01T19:43:36Z"
+     },
+     {
+      "number": 2,
+      "title": "docs/include: add save chunk FSM, RaC1 legacy unlock bitmask, and authentic MobyInstance layout",
+      "author": "Lynder063",
+      "mergedAt": "2026-10-02T13:14:31Z"
+     },
+     {
+      "number": 3,
+      "title": "Name 6,356 level functions from the prototype's class identifiers",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-02T18:24:04Z"
+     },
+     {
+      "number": 4,
+      "title": "Engine symbol names from the 8 August prototype: one transfers, ten do not",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-02T19:08:53Z"
+     },
+     {
+      "number": 5,
+      "title": "Name 102 assert-message carriers, and close the last 59 messages",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-02T20:24:39Z"
+     },
+     {
+      "number": 6,
+      "title": "Identify which prototype the linker script maps: the 6 August 2003 preview disc",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-02T20:45:00Z"
+     },
+     {
+      "number": 7,
+      "title": "Add a measured survey of the prototype builds: the earliest one is the closest to retail",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-02T22:20:51Z"
+     },
+     {
+      "number": 8,
+      "title": "Document the level archive format, measured rather than inherited",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-02T22:28:53Z"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": null,
+   "contributors": [
+    "llesieur99",
+    "Lynder063"
+   ]
+  },
+  {
+   "repo": "rac3-decomp",
+   "title": "Up Your Arsenal",
+   "commitCount": 0,
+   "activeDays": [],
+   "pullRequests": {
+    "merged": [],
+    "opened": []
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": null,
+   "contributors": []
+  },
+  {
+   "repo": "rac4-decomp",
+   "title": "Ratchet: Deadlocked",
+   "commitCount": 15,
+   "activeDays": [
+    "2026-10-04"
+   ],
+   "pullRequests": {
+    "merged": [],
+    "opened": []
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": {
+    "before": null,
+    "after": {
+     "code": {
+      "done": 26572,
+      "total": 5175440
+     },
+     "functions": {
+      "done": 243,
+      "total": 15056
+     }
+    }
+   },
+   "contributors": [
+    "Lynder063"
+   ]
+  },
+  {
+   "repo": "openrac-mods",
+   "title": "OpenRAC mods",
+   "commitCount": 0,
+   "activeDays": [],
+   "pullRequests": {
+    "merged": [],
+    "opened": []
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": null,
+   "contributors": []
+  }
+ ]
+}

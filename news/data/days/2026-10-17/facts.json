@@ -1,0 +1,518 @@
+{
+ "format": 1,
+ "date": "2026-10-17",
+ "totals": {
+  "commits": 24,
+  "pullRequestsMerged": 1,
+  "pullRequestsOpened": 2,
+  "contributors": 3
+ },
+ "projects": [
+  {
+   "repo": "OpenRAC",
+   "title": "OpenRAC launcher",
+   "branches": [
+    {
+     "name": "develop",
+     "commits": [
+      {
+       "sha": "159c57c06a2a664fd9307679f8e4596d6e75736d",
+       "title": "ci: publish a launcher draft once its build and checks pass",
+       "author": "Veradictus",
+       "date": "2026-10-17T20:46:07Z"
+      },
+      {
+       "sha": "1a0e305c16075f9f17136674659c455fdc8bc0bb",
+       "title": "chore(launcher): 0.7.1",
+       "author": "Veradictus",
+       "date": "2026-10-17T20:44:34Z"
+      },
+      {
+       "sha": "750555c277bab7cc5cfc3daa344a0287328b9414",
+       "title": "fix(port): Quit Game puts the executable's program back for the menus",
+       "author": "Veradictus",
+       "date": "2026-10-17T20:30:16Z"
+      },
+      {
+       "sha": "2e97bb94a51f9a9b0960ae0a0a0113c7b5d0996e",
+       "title": "fix(port): controllers keep working after Quit Game",
+       "author": "Veradictus",
+       "date": "2026-10-17T20:04:23Z"
+      },
+      {
+       "sha": "6d03c5c08b373e5087eab4efd397aa0f54570f4e",
+       "title": "feat(rac1/pal): backfill the weak functions every level goes through",
+       "author": "Veradictus",
+       "date": "2026-10-17T19:51:29Z"
+      },
+      {
+       "sha": "96092e551e2c1d2936ccc6eecb8e91f5f3bf1bcb",
+       "title": "feat(port): hostgen reports its call graph and call-site mismatches",
+       "author": "Veradictus",
+       "date": "2026-10-17T19:48:15Z"
+      },
+      {
+       "sha": "76647a53d043d32b2b2840d821ddd6e72456bbbc",
+       "title": "feat(port): hostgen translates alloca, VLA rows, a file's own va_list and code as data",
+       "author": "Veradictus",
+       "date": "2026-10-17T18:48:34Z"
+      },
+      {
+       "sha": "3eb864863efa9637452aa24b456879c0c93f2e08",
+       "title": "feat(rac1/pal): functional C for 50 functions the port lacked",
+       "author": "Veradictus",
+       "date": "2026-10-17T17:36:44Z"
+      },
+      {
+       "sha": "0cf08e6361ae51b3e9e97c7f3a4fa1b03341b4ee",
+       "title": "feat(launcher): ensure OpenRAC directory in user home on first run",
+       "author": "Lynder063",
+       "date": "2026-10-17T07:56:49Z"
+      },
+      {
+       "sha": "5f0f2661cdcc61cf9886c5a5867295bd5111ea27",
+       "title": "chore(launcher): 0.7.0",
+       "author": "Veradictus",
+       "date": "2026-10-17T02:39:26Z"
+      },
+      {
+       "sha": "62e2e5dee2fd11dd1daeac89bef2b9884c368da1",
+       "title": "chore(packaging): remove Flatpak manifest, packaging files and docs",
+       "author": "Lynder063",
+       "date": "2026-10-17T02:38:28Z"
+      },
+      {
+       "sha": "3e7759f2128d9bd8431fc266c9da2dffb6cbd2c4",
+       "title": "feat(launcher): read the skill points' names from the game's text",
+       "author": "Veradictus",
+       "date": "2026-10-17T02:37:46Z"
+      },
+      {
+       "sha": "0d9acc6b59727860998cb8a2219c805df8a1a75d",
+       "title": "docs: agents ask before automated game tests",
+       "author": "Veradictus",
+       "date": "2026-10-17T02:29:22Z"
+      },
+      {
+       "sha": "9a96c081e2d56e9f197f47555c988934507a9828",
+       "title": "docs(port): the pause menu brings the HUD up; R3 is the map",
+       "author": "Veradictus",
+       "date": "2026-10-17T02:20:05Z"
+      },
+      {
+       "sha": "1b0b5be31f9887dc893f5e254b15b5ffa3e9b894",
+       "title": "feat(launcher): move a save to another planet; raw chunk edits in the core",
+       "author": "Veradictus",
+       "date": "2026-10-17T02:14:40Z"
+      },
+      {
+       "sha": "9d3e224feb5bb3f2ff99976c48958a835390a965",
+       "title": "feat(launcher): decode, check and rewrite Ratchet & Clank saves",
+       "author": "Veradictus",
+       "date": "2026-10-17T02:00:09Z"
+      },
+      {
+       "sha": "5e11a463bb321e1ea46357d953901a4bfdc11f83",
+       "title": "fix(port): the US game's memory card reads finish (sceMcChdir)",
+       "author": "Veradictus",
+       "date": "2026-10-17T01:39:43Z"
+      },
+      {
+       "sha": "a6b5f13e34bb59f2638dab86b5c19822043fdb17",
+       "title": "feat(port): build windowed programs as macOS app bundles named by title",
+       "author": "Veradictus",
+       "date": "2026-10-17T01:33:18Z"
+      },
+      {
+       "sha": "de416d17177c7555c74125e10b0a6d8a4e8d3c69",
+       "title": "fix(port/rac1-ntsc): carried level C reads its level's data, not the executable's",
+       "author": "Veradictus",
+       "date": "2026-10-17T01:06:59Z"
+      },
+      {
+       "sha": "d79dd3bb2d79023e0cf7ec9c977fdbaad0bd4a4b",
+       "title": "feat(launcher): make_macos_icon.py shapes any full-bleed picture",
+       "author": "Veradictus",
+       "date": "2026-10-17T00:43:59Z"
+      },
+      {
+       "sha": "2b93666b3a442a299b46860166992d6db820682f",
+       "title": "fix(rac1/ntsc): refresh_point_light passes the light index on",
+       "author": "Veradictus",
+       "date": "2026-10-17T00:42:10Z"
+      }
+     ]
+    },
+    {
+     "name": "master",
+     "commits": [
+      {
+       "sha": "159c57c06a2a664fd9307679f8e4596d6e75736d",
+       "title": "ci: publish a launcher draft once its build and checks pass",
+       "author": "Veradictus",
+       "date": "2026-10-17T20:46:07Z"
+      },
+      {
+       "sha": "1a0e305c16075f9f17136674659c455fdc8bc0bb",
+       "title": "chore(launcher): 0.7.1",
+       "author": "Veradictus",
+       "date": "2026-10-17T20:44:34Z"
+      },
+      {
+       "sha": "750555c277bab7cc5cfc3daa344a0287328b9414",
+       "title": "fix(port): Quit Game puts the executable's program back for the menus",
+       "author": "Veradictus",
+       "date": "2026-10-17T20:30:16Z"
+      },
+      {
+       "sha": "2e97bb94a51f9a9b0960ae0a0a0113c7b5d0996e",
+       "title": "fix(port): controllers keep working after Quit Game",
+       "author": "Veradictus",
+       "date": "2026-10-17T20:04:23Z"
+      },
+      {
+       "sha": "6d03c5c08b373e5087eab4efd397aa0f54570f4e",
+       "title": "feat(rac1/pal): backfill the weak functions every level goes through",
+       "author": "Veradictus",
+       "date": "2026-10-17T19:51:29Z"
+      },
+      {
+       "sha": "96092e551e2c1d2936ccc6eecb8e91f5f3bf1bcb",
+       "title": "feat(port): hostgen reports its call graph and call-site mismatches",
+       "author": "Veradictus",
+       "date": "2026-10-17T19:48:15Z"
+      },
+      {
+       "sha": "76647a53d043d32b2b2840d821ddd6e72456bbbc",
+       "title": "feat(port): hostgen translates alloca, VLA rows, a file's own va_list and code as data",
+       "author": "Veradictus",
+       "date": "2026-10-17T18:48:34Z"
+      },
+      {
+       "sha": "3eb864863efa9637452aa24b456879c0c93f2e08",
+       "title": "feat(rac1/pal): functional C for 50 functions the port lacked",
+       "author": "Veradictus",
+       "date": "2026-10-17T17:36:44Z"
+      },
+      {
+       "sha": "0cf08e6361ae51b3e9e97c7f3a4fa1b03341b4ee",
+       "title": "feat(launcher): ensure OpenRAC directory in user home on first run",
+       "author": "Lynder063",
+       "date": "2026-10-17T07:56:49Z"
+      },
+      {
+       "sha": "5f0f2661cdcc61cf9886c5a5867295bd5111ea27",
+       "title": "chore(launcher): 0.7.0",
+       "author": "Veradictus",
+       "date": "2026-10-17T02:39:26Z"
+      },
+      {
+       "sha": "62e2e5dee2fd11dd1daeac89bef2b9884c368da1",
+       "title": "chore(packaging): remove Flatpak manifest, packaging files and docs",
+       "author": "Lynder063",
+       "date": "2026-10-17T02:38:28Z"
+      },
+      {
+       "sha": "3e7759f2128d9bd8431fc266c9da2dffb6cbd2c4",
+       "title": "feat(launcher): read the skill points' names from the game's text",
+       "author": "Veradictus",
+       "date": "2026-10-17T02:37:46Z"
+      },
+      {
+       "sha": "0d9acc6b59727860998cb8a2219c805df8a1a75d",
+       "title": "docs: agents ask before automated game tests",
+       "author": "Veradictus",
+       "date": "2026-10-17T02:29:22Z"
+      },
+      {
+       "sha": "9a96c081e2d56e9f197f47555c988934507a9828",
+       "title": "docs(port): the pause menu brings the HUD up; R3 is the map",
+       "author": "Veradictus",
+       "date": "2026-10-17T02:20:05Z"
+      },
+      {
+       "sha": "1b0b5be31f9887dc893f5e254b15b5ffa3e9b894",
+       "title": "feat(launcher): move a save to another planet; raw chunk edits in the core",
+       "author": "Veradictus",
+       "date": "2026-10-17T02:14:40Z"
+      },
+      {
+       "sha": "9d3e224feb5bb3f2ff99976c48958a835390a965",
+       "title": "feat(launcher): decode, check and rewrite Ratchet & Clank saves",
+       "author": "Veradictus",
+       "date": "2026-10-17T02:00:09Z"
+      },
+      {
+       "sha": "5e11a463bb321e1ea46357d953901a4bfdc11f83",
+       "title": "fix(port): the US game's memory card reads finish (sceMcChdir)",
+       "author": "Veradictus",
+       "date": "2026-10-17T01:39:43Z"
+      },
+      {
+       "sha": "a6b5f13e34bb59f2638dab86b5c19822043fdb17",
+       "title": "feat(port): build windowed programs as macOS app bundles named by title",
+       "author": "Veradictus",
+       "date": "2026-10-17T01:33:18Z"
+      },
+      {
+       "sha": "de416d17177c7555c74125e10b0a6d8a4e8d3c69",
+       "title": "fix(port/rac1-ntsc): carried level C reads its level's data, not the executable's",
+       "author": "Veradictus",
+       "date": "2026-10-17T01:06:59Z"
+      },
+      {
+       "sha": "d79dd3bb2d79023e0cf7ec9c977fdbaad0bd4a4b",
+       "title": "feat(launcher): make_macos_icon.py shapes any full-bleed picture",
+       "author": "Veradictus",
+       "date": "2026-10-17T00:43:59Z"
+      },
+      {
+       "sha": "2b93666b3a442a299b46860166992d6db820682f",
+       "title": "fix(rac1/ntsc): refresh_point_light passes the light index on",
+       "author": "Veradictus",
+       "date": "2026-10-17T00:42:10Z"
+      }
+     ]
+    }
+   ],
+   "commitCount": 21,
+   "pullRequests": {
+    "merged": [],
+    "opened": []
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [
+    {
+     "tag": "launcher-v0.7.0",
+     "name": "v0.7.0",
+     "publishedAt": "2026-10-17T03:06:17Z"
+    }
+   ],
+   "progress": null,
+   "contributors": [
+    "Lynder063",
+    "Veradictus"
+   ]
+  },
+  {
+   "repo": "rac1-decomp",
+   "title": "Ratchet & Clank",
+   "branches": [
+    {
+     "name": "main",
+     "commits": [
+      {
+       "sha": "14f4ed57f2db7b7c1679d35c35a6e509d1d3577a",
+       "title": "fix: the HUD text width, and other calls that dropped arguments retail passes",
+       "author": "Veradictus",
+       "date": "2026-10-17T19:49:47Z"
+      },
+      {
+       "sha": "a82cf74119402200435c4e5d8ee2862f6e7f4ec9",
+       "title": "fix: pass the arguments retail passes in 25 matched functions",
+       "author": "Veradictus",
+       "date": "2026-10-17T18:24:24Z"
+      }
+     ]
+    }
+   ],
+   "commitCount": 2,
+   "pullRequests": {
+    "merged": [],
+    "opened": [
+     {
+      "number": 89,
+      "title": "Feat/to 95",
+      "author": "Lynder063",
+      "untrustedBody": "",
+      "mergedAt": "2026-10-18T14:07:43Z"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": {
+    "before": {
+     "code": {
+      "done": 3427760,
+      "total": 3712808
+     },
+     "functions": {
+      "done": 4725,
+      "total": 5109
+     },
+     "data": {
+      "done": 3064,
+      "total": 699072
+     }
+    },
+    "after": {
+     "code": {
+      "done": 3427760,
+      "total": 3712808
+     },
+     "functions": {
+      "done": 4725,
+      "total": 5109
+     },
+     "data": {
+      "done": 3064,
+      "total": 699072
+     }
+    }
+   },
+   "contributors": [
+    "Lynder063",
+    "Veradictus"
+   ]
+  },
+  {
+   "repo": "rac2-decomp",
+   "title": "Going Commando",
+   "branches": [
+    {
+     "name": "master",
+     "commits": [
+      {
+       "sha": "253a8aee52cce96c383891e7195759c06ecdfa25",
+       "title": "Merge pull request #206 from OpenRAC/chore/bytematch-refresh-20261016",
+       "author": "llesieur99",
+       "date": "2026-10-17T02:40:28Z"
+      }
+     ]
+    }
+   ],
+   "commitCount": 1,
+   "pullRequests": {
+    "merged": [
+     {
+      "number": 206,
+      "title": "chore(progress): refresh ByteMatch to 3,303 of 9,100 functions",
+      "author": "llesieur99",
+      "untrustedBody": "## What\n\nRefresh the maintainer progress snapshot from merged master `ec03034` using a fresh complete build. This report-only PR updates the two generated files together so ByteMatch and the README publish the same measurements.\n\n- Code: **360,448 / 5,533,600 bytes (6.51%)**, previously 318,088 bytes (5.75%).\n- Finished distinct functions: **3,303 / 9,100**, previously 2,941. This includes **3,052 C functions and 251 original assembly routines** marked `ASM_FUNC`.\n- Level C placements: **41,101**, previously 38,445. Repeated level copies do not inflate the distinct function total.\n- Boot data remains **0 / 383,391 bytes** matched; level data is not measured.\n\nNo source, build recipe, game data or proprietary tool is changed or uploaded. This is the maintainer regeneration of the shared progress files after merged contributions, rather than a function-contribution PR carrying its own report update.\n\n## Checked\n\n- Rebuilt `tools/compiler/build.sh` from the current hash-checked recipe in ",
+      "mergedAt": "2026-10-17T02:40:29Z"
+     }
+    ],
+    "opened": [
+     {
+      "number": 206,
+      "title": "chore(progress): refresh ByteMatch to 3,303 of 9,100 functions",
+      "author": "llesieur99",
+      "untrustedBody": "## What\n\nRefresh the maintainer progress snapshot from merged master `ec03034` using a fresh complete build. This report-only PR updates the two generated files together so ByteMatch and the README publish the same measurements.\n\n- Code: **360,448 / 5,533,600 bytes (6.51%)**, previously 318,088 bytes (5.75%).\n- Finished distinct functions: **3,303 / 9,100**, previously 2,941. This includes **3,052 C functions and 251 original assembly routines** marked `ASM_FUNC`.\n- Level C placements: **41,101**, previously 38,445. Repeated level copies do not inflate the distinct function total.\n- Boot data remains **0 / 383,391 bytes** matched; level data is not measured.\n\nNo source, build recipe, game data or proprietary tool is changed or uploaded. This is the maintainer regeneration of the shared progress files after merged contributions, rather than a function-contribution PR carrying its own report update.\n\n## Checked\n\n- Rebuilt `tools/compiler/build.sh` from the current hash-checked recipe in ",
+      "mergedAt": "2026-10-17T02:40:29Z"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": {
+    "before": {
+     "code": {
+      "done": 318088,
+      "total": 5533600
+     },
+     "functions": {
+      "done": 2941,
+      "total": 9100
+     },
+     "data": {
+      "done": 0,
+      "total": 383391
+     }
+    },
+    "after": {
+     "code": {
+      "done": 360448,
+      "total": 5533600
+     },
+     "functions": {
+      "done": 3303,
+      "total": 9100
+     },
+     "data": {
+      "done": 0,
+      "total": 383391
+     }
+    }
+   },
+   "contributors": [
+    "llesieur99"
+   ]
+  },
+  {
+   "repo": "rac3-decomp",
+   "title": "Up Your Arsenal",
+   "branches": [
+    {
+     "name": "master",
+     "commits": []
+    }
+   ],
+   "commitCount": 0,
+   "pullRequests": {
+    "merged": [],
+    "opened": []
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": null,
+   "contributors": []
+  },
+  {
+   "repo": "rac4-decomp",
+   "title": "Ratchet: Deadlocked",
+   "branches": [
+    {
+     "name": "main",
+     "commits": []
+    }
+   ],
+   "commitCount": 0,
+   "pullRequests": {
+    "merged": [],
+    "opened": []
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": null,
+   "contributors": []
+  },
+  {
+   "repo": "openrac-mods",
+   "title": "OpenRAC mods",
+   "branches": [
+    {
+     "name": "master",
+     "commits": []
+    }
+   ],
+   "commitCount": 0,
+   "pullRequests": {
+    "merged": [],
+    "opened": []
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": null,
+   "contributors": []
+  }
+ ]
+}

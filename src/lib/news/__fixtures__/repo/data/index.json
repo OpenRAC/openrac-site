@@ -5,7 +5,7 @@
    "week": "2026-W45",
    "start": "2026-11-02",
    "end": "2026-11-08",
-   "finished": false,
+   "finished": true,
    "report": false
   },
   {
@@ -28,6 +28,20 @@
    "end": "2026-10-18",
    "finished": true,
    "report": true
+  },
+  {
+   "week": "2026-W41",
+   "start": "2026-10-05",
+   "end": "2026-10-11",
+   "finished": true,
+   "report": true
+  },
+  {
+   "week": "2026-W46",
+   "start": "2026-11-09",
+   "end": "2026-11-15",
+   "finished": false,
+   "report": false
   }
  ],
  "days": [

@@ -1,0 +1,700 @@
+{
+ "format": 1,
+ "date": "2026-10-30",
+ "totals": {
+  "commits": 39,
+  "pullRequestsMerged": 17,
+  "pullRequestsOpened": 22,
+  "contributors": 7
+ },
+ "projects": [
+  {
+   "repo": "OpenRAC",
+   "title": "OpenRAC launcher",
+   "branches": [
+    {
+     "name": "develop",
+     "commits": [
+      {
+       "sha": "405fd666fc425dce9061c62b9be842796e0749aa",
+       "title": "feat(launcher): Safe rendering, turned on after a crashed start (#131)",
+       "author": "Lynder063",
+       "date": "2026-10-30T22:19:17Z"
+      },
+      {
+       "sha": "a4f47014f80e1cdfbfdebec18a439308339f4a06",
+       "title": "fix(port): mobys drawn in the 2D path no longer sample with its sampler (#143)",
+       "author": "mateuszklysz",
+       "date": "2026-10-30T21:15:15Z"
+      },
+      {
+       "sha": "eedbb20171dd84b297ecfe62ff332ad232b470e1",
+       "title": "docs(sources): name Lombyte f809a274 in the sources table (#138)",
+       "author": "Lynder063",
+       "date": "2026-10-30T21:08:32Z"
+      },
+      {
+       "sha": "375203c40cb0312a0a3a6f85d686bcc2f1f13f9a",
+       "title": "fix: Responsive controls camera at any frame rate, and low-latency frames at the display's rate (#142)",
+       "author": "mateuszklysz",
+       "date": "2026-10-30T20:49:35Z"
+      },
+      {
+       "sha": "ce30ee7470bb969dd6758d5ef88c7cf32de91044",
+       "title": "fix(hostgen): run moby updates again after the Lombyte sync (#140)",
+       "author": "mateuszklysz",
+       "date": "2026-10-30T20:05:28Z"
+      },
+      {
+       "sha": "cace898f653904634267dc4c07d3a7f65fd28290",
+       "title": "fix(launcher): let a development build switch back to an older Stable release (#139)",
+       "author": "mateuszklysz",
+       "date": "2026-10-30T19:58:17Z"
+      },
+      {
+       "sha": "c6f86bc34b42298b463648db2b2e3a05b0ad3548",
+       "title": "feat(sdk): add rac1 hook points for menus, HUD, vendor, ammo drops and saves (#136)",
+       "author": "Lynder063",
+       "date": "2026-10-30T19:51:06Z"
+      },
+      {
+       "sha": "7fc2ff59df12b3f98d5ba7422353147c060ccbe5",
+       "title": "chore(import): sync rac1/ntsc to Lombyte f809a274 (#133)",
+       "author": "mateuszklysz",
+       "date": "2026-10-30T18:19:24Z"
+      },
+      {
+       "sha": "e5b55eec9a3c97fe3048a1d3bc9fa0bc47d9e4fe",
+       "title": "fix(enhanced): Novalis water, probe profiles and bake inputs on the PAL disc (#132)",
+       "author": "mateuszklysz",
+       "date": "2026-10-30T18:17:55Z"
+      },
+      {
+       "sha": "e57739c2d13d1844ffb4f800e7c621d2f895fbb4",
+       "title": "feat(launcher): mod updates at start, saved mod links, a mods mark on saves, and pad bindings (#123)",
+       "author": "Lynder063",
+       "date": "2026-10-30T18:04:37Z"
+      },
+      {
+       "sha": "b409d8cf47e202b11d2c5430da3fe8eb58dc0a7c",
+       "title": "fix(launcher): turn off WebKit compositing on Wayland with NVIDIA (#130)",
+       "author": "Lynder063",
+       "date": "2026-10-30T18:01:56Z"
+      },
+      {
+       "sha": "293cb5cc05bcbffe06d3c59685488efc806d1bff",
+       "title": "ci(launcher): skip the launcher build on pull requests (#137)",
+       "author": "mateuszklysz",
+       "date": "2026-10-30T16:36:41Z"
+      },
+      {
+       "sha": "fb6f0dedcec38edb4ab487d2df799634c402b2a7",
+       "title": "ci(launcher): skip the launcher builds on pull requests into develop (#134)",
+       "author": "Lynder063",
+       "date": "2026-10-30T15:44:16Z"
+      },
+      {
+       "sha": "1ff2e2348374d8969b41a8dced5ebf9a6d18e8ee",
+       "title": "chore(release): bump version to 0.10.1 (#129)",
+       "author": "mateuszklysz",
+       "date": "2026-10-30T15:19:48Z"
+      },
+      {
+       "sha": "624b5faf80ce1f8ef96c4ec19b50dc3f5fbbfb70",
+       "title": "fix: Android full screen, lower input lag and rac1 visual fixes (#128)",
+       "author": "mateuszklysz",
+       "date": "2026-10-30T15:19:18Z"
+      },
+      {
+       "sha": "42fb915b4957086b42af69616cc97d34fb9ae953",
+       "title": "chore(release): 0.10.0 (#115)",
+       "author": "Veradictus",
+       "date": "2026-10-30T14:28:57Z"
+      }
+     ]
+    },
+    {
+     "name": "master",
+     "commits": [
+      {
+       "sha": "d015ea1c6925de90b4be91ddb349af83361d9d4b",
+       "title": "chore(release): 0.10.0 (#115)",
+       "author": "Veradictus",
+       "date": "2026-10-30T14:33:16Z"
+      },
+      {
+       "sha": "a824b59803db71fd5ec9bf432bc996b79b830cc9",
+       "title": "Enhanced rendering, environment reflections and playable probe placement (#119)",
+       "author": "pezzadev",
+       "date": "2026-10-30T14:33:16Z"
+      },
+      {
+       "sha": "389b8c12de6c04d7d0a386dba5233410e3577f43",
+       "title": "fix(port): Exit and the player's language survive Quit Game (#126)",
+       "author": "mateuszklysz",
+       "date": "2026-10-30T14:33:16Z"
+      },
+      {
+       "sha": "1d997eff190bcb16bc00032715fa93173b315025",
+       "title": "style(port): lay out two new lines as clang-format does and drop stale getenv exceptions (#125)",
+       "author": "mateuszklysz",
+       "date": "2026-10-30T14:33:16Z"
+      },
+      {
+       "sha": "16b639d3ac1ac4cdcfff5436af41f488bbe1d289",
+       "title": "fix(port): Exit leaves and returns with Options like the game's rows (#124)",
+       "author": "mateuszklysz",
+       "date": "2026-10-30T14:33:16Z"
+      },
+      {
+       "sha": "b45edf70fbd0e4400585a998debb04a81f524b07",
+       "title": "feat(port): optional fresh pad input and low-latency frames (#122)",
+       "author": "mateuszklysz",
+       "date": "2026-10-30T14:33:16Z"
+      },
+      {
+       "sha": "845705686ef4b50620ea7eeb72fe326549b388ad",
+       "title": "fix(port): Exit on the NTSC main menu, save overwrite prompt, black loading screens (#121)",
+       "author": "mateuszklysz",
+       "date": "2026-10-30T14:33:16Z"
+      },
+      {
+       "sha": "dd6175a8d8f87eaa5224283b73d52f2a9c1ce6c9",
+       "title": "fix(rac1): a co-op figure's glove opens and throws with its hand (#120)",
+       "author": "Veradictus",
+       "date": "2026-10-30T14:33:16Z"
+      },
+      {
+       "sha": "81b8ab0456f33bb8df1e7c74e4b0f52025b4c14f",
+       "title": "fix(sdk): the templates pin 1.10.1, as the packager requires (#118)",
+       "author": "Veradictus",
+       "date": "2026-10-30T14:33:16Z"
+      },
+      {
+       "sha": "464a75f956531fecef6aeacba6486847bce5940c",
+       "title": "chore(sdk): 1.10.1, the first SDK with Android native mods (#117)",
+       "author": "Veradictus",
+       "date": "2026-10-30T14:33:16Z"
+      },
+      {
+       "sha": "019eea4f30b2c35e84b3fc19c66043fd1683ae73",
+       "title": "fix(port): never draw the world from an unusable camera (#114)",
+       "author": "Veradictus",
+       "date": "2026-10-30T14:33:16Z"
+      },
+      {
+       "sha": "f4a51380e1e4fcb25b38e018189b00de6946e73f",
+       "title": "style(port): lay out the background colour and sky texture lines as clang-format 21.1.8 does (#112)",
+       "author": "Veradictus",
+       "date": "2026-10-30T14:33:16Z"
+      },
+      {
+       "sha": "429ea740385781a53ea0948b02dc0be75f0a24c7",
+       "title": "fix(launcher): the development channel follows develop (#111)",
+       "author": "Veradictus",
+       "date": "2026-10-30T14:33:16Z"
+      },
+      {
+       "sha": "c760fab7e8aec371d8ed84eeb4208821e9b28008",
+       "title": "fix(rac1): drones and Novalis sparks, matched C backfills, Exit item, native mods on Android (#110)",
+       "author": "mateuszklysz",
+       "date": "2026-10-30T14:33:16Z"
+      },
+      {
+       "sha": "b2a220a95ccbce200c245c3ec184fc8c62db0e5f",
+       "title": "fix(port/rac1-ntsc): give FUN_0020db40's places one C, the grid's own (#109)",
+       "author": "Veradictus",
+       "date": "2026-10-30T14:33:16Z"
+      },
+      {
+       "sha": "a7ad3cc05487e7d2934c6f9c344f4a2e9c309bba",
+       "title": "fix(rac1): the level's background colour, and sky textures and export for modding (#108)",
+       "author": "Veradictus",
+       "date": "2026-10-30T14:33:16Z"
+      },
+      {
+       "sha": "080726d010aec80528bdce56f9fbfe13a1fd3235",
+       "title": "feat(launcher): one status panel for the level editor (#107)",
+       "author": "Veradictus",
+       "date": "2026-10-30T14:33:16Z"
+      },
+      {
+       "sha": "d88f68b7749af0c30861865028ee077f519647c3",
+       "title": "chore(import): sync rac1/pal to rac1-decomp 0f0bfcfe (#106)",
+       "author": "Veradictus",
+       "date": "2026-10-30T14:33:16Z"
+      },
+      {
+       "sha": "31ec3c5c866dfcee4001b5c830109186afcde7f5",
+       "title": "feat(launcher): start the level editor over from the Mods page (#105)",
+       "author": "Veradictus",
+       "date": "2026-10-30T14:33:16Z"
+      },
+      {
+       "sha": "496aaf68c41082f43c6816f5972d2bb0171cac4a",
+       "title": "feat(editor): add ship destinations and cross-level static imports (#104)",
+       "author": "Veradictus",
+       "date": "2026-10-30T14:33:16Z"
+      },
+      {
+       "sha": "7adeb1c9b5a5b40a08a592315244abcce967d013",
+       "title": "feat(sdk): add persistent RAC1 savestate support (#103)",
+       "author": "Veradictus",
+       "date": "2026-10-30T14:33:16Z"
+      },
+      {
+       "sha": "58b849edff81070f72b269c77901817f35167594",
+       "title": "fix(editor): preserve typed pvar edits in installed builds (#100)",
+       "author": "llesieur99",
+       "date": "2026-10-30T14:33:16Z"
+      },
+      {
+       "sha": "b5ee188f8109294f4170026b640ce05ec18e636e",
+       "title": "feat: RAC1 online co-op: SDK interface 1.9, the port's play and world calls (#99)",
+       "author": "Veradictus",
+       "date": "2026-10-30T14:33:16Z"
+      }
+     ]
+    }
+   ],
+   "commitCount": 39,
+   "pullRequests": {
+    "merged": [
+     {
+      "number": 115,
+      "title": "chore(release): 0.10.0",
+      "author": "Veradictus",
+      "untrustedBody": "The version bump for v0.10.0, and its release notes.\n\n- `launcher/package.json`, `launcher/src-tauri/tauri.conf.json`, `launcher/Cargo.toml` (workspace version) and `launcher/Cargo.lock`: 0.9.0 → 0.10.0. The game's own version (`build_info::version()`, `port/cmake/BuildInfo.cmake`) is read from `tauri.conf.json`, so it follows. The SDK and the mods keep their versions.\n- `launcher/release-notes/0.10.0.md`: everything since `launcher-v0.9.0`, the 99 commits of the old history (now in 6360471e) and #99–#114, for players and modders. RELEASING.md keeps release notes there rather than in a root CHANGELOG: the release job uses the file as the release's text, the update prompt shows it, and `publish.yml` publishes the draft by itself once the tag's build and master's checks pass and this file is on master.\n\nChecks, on the Mac:\n- `corepack yarn install --immutable` and `corepack yarn verify`: typecheck, lint, format, 203 tests pass.\n- `cargo fmt --all --check`; `cargo test -p openrac-launcher",
+      "mergedAt": "2026-10-30T14:28:58Z"
+     },
+     {
+      "number": 116,
+      "title": "Release v0.10.0",
+      "author": "Veradictus",
+      "untrustedBody": "Everything on `develop` since v0.9.0, for release as **v0.10.0**.\n\n> **#115 (`chore/release-0.10.0`) must merge into `develop` first**, so that this PR carries the version bump and `launcher/release-notes/0.10.0.md`. Until then it would release as 0.9.0.\n\n## Release checklist (from `launcher/docs/RELEASING.md`)\n\n- [x] Merge #115 (the bump and the notes) into `develop`.\n- [x] Merge this PR into `master`.\n- [x] Tag the merged commit on `master` and push the tag:\n  `git fetch origin && git checkout master && git pull --ff-only && git tag launcher-v0.10.0 && git push origin launcher-v0.10.0`\n- [x] The launcher workflow builds every system and leaves a draft release `v0.10.0`. Check it (`gh release view launcher-v0.10.0`) and publish it (`gh release edit launcher-v0.10.0 --draft=false --latest`). `publish.yml` also publishes it by itself once the tag's build and master's checks pass, since the notes file is on master.\n- [x] Check the live updater manifest: `curl -sSfL https://github.com/Ope",
+      "mergedAt": "2026-10-30T14:33:17Z"
+     },
+     {
+      "number": 123,
+      "title": "feat(launcher): mod updates at start, saved mod links, a mods mark on saves, and pad bindings",
+      "author": "Lynder063",
+      "untrustedBody": "Four things players asked for: the launcher offers the mods' updates when it starts, Add a mod lists the links you already used, a save written with mods loaded is marked in the launcher and on the game's own memory card page, and the pad's sixteen buttons can be bound in the game's settings file.\nThe save mark is a small file beside the save, never a change to the save itself; a binding left empty keeps the key or button the port already used, and Escape always pauses.\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)",
+      "mergedAt": "2026-10-30T18:04:37Z"
+     },
+     {
+      "number": 128,
+      "title": "fix: Android full screen, lower input lag and rac1 visual fixes",
+      "author": "mateuszklysz",
+      "untrustedBody": "## Android\n- The game stays full screen and in landscape. This fixes the black bar above the picture at 16:9 on Vulkan, seen on the Retroid Pocket 6.\n- The window and render threads get a performance hint session (ADPF), so the system sets clocks for the frame's work. `OPENRAC_ADPF_OFF` switches it off.\n- The drawer has a new **Latency** card with Low-latency frames, Responsive camera and Responsive pad (`fresh_input`, which was in Sound and game before).\n\n## Latency\n- **Low-latency frames (Vulkan):** a frame between ticks sleeps before it starts, so it is queued just as the GPU becomes free. It no longer waits inside the frame for the frame before it. This also works with the render thread. The frame rate stays as it was, with lower input lag. The setting is on the game's Video page as well.\n- **Responsive camera** (`camera_latch`, on by default): frames drawn between ticks turn the camera by the right stick as it is now. It only changes the picture; the game's tick and its camera are",
+      "mergedAt": "2026-10-30T15:19:19Z"
+     },
+     {
+      "number": 129,
+      "title": "chore(release): bump version to 0.10.1",
+      "author": "mateuszklysz",
+      "untrustedBody": "Development builds of develop now carry 0.10.1, so the Development channel stays ahead of the 0.10.0 release.",
+      "mergedAt": "2026-10-30T15:19:48Z"
+     },
+     {
+      "number": 130,
+      "title": "fix(launcher): turn off WebKit compositing on Wayland with NVIDIA",
+      "author": "Lynder063",
+      "untrustedBody": "The launcher crashed on Wayland with NVIDIA, even with shared memory (desktop and AMD + NVIDIA laptop).\nWayland with NVIDIA now also turns off accelerated compositing, as on Steam Deck. Fixes #64.\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)",
+      "mergedAt": "2026-10-30T18:01:57Z"
+     },
+     {
+      "number": 131,
+      "title": "feat(launcher): Safe rendering, turned on after a crashed start",
+      "author": "Lynder063",
+      "untrustedBody": "Settings, Advanced: Safe rendering turns off WebKit compositing on Linux; the launcher restarts.\nIf the last start crashed before its window drew a click, it turns on by itself and says so.\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)",
+      "mergedAt": "2026-10-30T22:19:18Z"
+     },
+     {
+      "number": 132,
+      "title": "fix(enhanced): Novalis water, probe profiles and bake inputs on the PAL disc",
+      "author": "mateuszklysz",
+      "untrustedBody": "## Overview\nThe latest Enhanced graphics work (interior probe lighting, #119) was wired for NTSC-U only. PAL got the original water and baked with defaults. This brings PAL to the same state.\n\n## Before\n- Novalis enhanced water had hooks only in rac1-ntsc/host/water.c, and the frontend turned it on only for rac1-ntsc.\n- bake_water.py read NTSC-U addresses only.\n- Lighting and water profiles existed only for rac1-ntsc.\n- Metropolis/Orxon static scenery, the Novalis pistons' travel and Gaspar's liquid bake input were limited to NTSC-U.\n\n## After\nPAL uses the same water and bake inputs as NTSC-U.\n\n## How\n- rac1-pal/host/water.c: the same hooks on PAL's functions, paired with NTSC-U's through games/rac1's function catalogue (same fingerprint, or same size and places). Data come from PAL's names.h (l01_packet_r, pool_tiles, scroll layers). Wrap rows added in libraries.tsv.\n- The frontend gates accept any rac1-* disc.\n- bake_water.py has an address table per disc. It picks the disc from the ",
+      "mergedAt": "2026-10-30T18:17:56Z"
+     },
+     {
+      "number": 133,
+      "title": "chore(import): sync rac1/ntsc to Lombyte f809a274",
+      "author": "mateuszklysz",
+      "untrustedBody": "## Overview\r\nSyncs games/rac1/ntsc to Lombyte f809a274 and adapts the port to the new layout.\r\n\r\n- Import by a 3-way merge with rename detection (OpenRAC's tree at the recorded commit merged with Lombyte main). Hunks git could not place were carried by hand to the function with the same label; every patch line is present exactly once.\r\n- OPENRAC_PATCHES.md: paths follow the new files. Rows Lombyte now covers itself are dropped (load_level_gameplay, random_float_between, random_angle_radians, sharkigator, 003054b0, bolt_thief/bomb, batalia_deserter, camera_object, FUN_L14_00307a80).\r\n- port_symbols.txt: release_voice_slot, which new L04 class files call by plain name (the port was calling an empty stub).\r\n- hostgen: skip list and drafts follow src/sdk/soft_float and src/sdk/libc; `__typeof__(NAME)` renamed with the va builtins (vfprintf.c was unreadable); the flickering-mesh override follows flickering_mesh_effect.c with VLAs as alloca.\r\n\r\n## Testing\r\n- hostgen: 0 unreadable units, 0 ho",
+      "mergedAt": "2026-10-30T18:19:24Z"
+     },
+     {
+      "number": 134,
+      "title": "ci(launcher): skip the launcher builds on pull requests into develop",
+      "author": "Lynder063",
+      "untrustedBody": "Pull requests into develop no longer run the launcher workflow's platform builds.\nPushes to develop and master, and PRs into master, still run them.\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)",
+      "mergedAt": "2026-10-30T15:44:17Z"
+     },
+     {
+      "number": 136,
+      "title": "feat(sdk): rac1 hook points for menus, HUD, vendor, ammo drops and saves",
+      "author": "Lynder063",
+      "untrustedBody": "Adds 29 rac1 hook points from #127 (menus, HUD quick select, vendor, ammo drops, saves); new game and restore now run mods under the port wraps.\nPart of #127: menu preview pose (a port host function) and bundled mod assets come later.\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)",
+      "mergedAt": "2026-10-30T19:51:08Z"
+     },
+     {
+      "number": 137,
+      "title": "ci(launcher): skip the launcher build on pull requests",
+      "author": "mateuszklysz",
+      "untrustedBody": "## Before\n`launcher.yml` ran on `pull_request` for every target branch except `develop` (so in practice release PRs `develop` -> `master` and PRs into other branches), building the whole matrix (Windows, Linux x86_64/ARM64, Fedora, macOS, Android) on top of the build the push already does.\n\n## After\nPull requests no longer trigger `launcher`. It still runs on pushes to `master`/`develop` (dev release), on `launcher-v*` tags (release drafts) and by hand (`workflow_dispatch`).\n\n## How\n- Dropped the `pull_request` trigger (and the now unused `&paths` anchor).\n- Removed the dead `github.event_name != 'pull_request'` conditions in the version step and the `dev-release` job, and updated the comments that mentioned pull request builds.\n- Nothing else depends on PR runs: `publish.yml` listens to `launcher` via `workflow_run`, but only acts on tag drafts, and `checks.yml` is untouched.\n\nNote for maintainers: if branch protection on `master` lists any `launcher` matrix job as a required check, r",
+      "mergedAt": "2026-10-30T16:36:42Z"
+     },
+     {
+      "number": 138,
+      "title": "docs(sources): name Lombyte f809a274 in the sources table",
+      "author": "Lynder063",
+      "untrustedBody": "The rac1/ntsc sync (#133) left docs/SOURCES.md at the old Lombyte commit.\nThis writes the table again, so the checks job passes on develop.\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)",
+      "mergedAt": "2026-10-30T21:08:32Z"
+     },
+     {
+      "number": 139,
+      "title": "fix(launcher): let a development build switch back to an older Stable release",
+      "author": "mateuszklysz",
+      "untrustedBody": "Choosing Stable on a development build only took a release newer than the build, so with the latest release older than the installed X.Y.Z-dev.N the launcher said it was up to date and never went back. On the other channel than the one it was built for, the launcher is now offered that channel's build whatever its version (update::offered), shown as \"Switch to Stable X.Y.Z\". Its own channel still takes only newer builds.\n\nAndroid installs no lower version code over a higher one, so there the switch to an older release sends the player to the release's APK, to install after uninstalling the launcher with its data kept.",
+      "mergedAt": "2026-10-30T19:58:18Z"
+     },
+     {
+      "number": 140,
+      "title": "fix(hostgen): run moby updates again after the Lombyte sync",
+      "author": "mateuszklysz",
+      "untrustedBody": "The NTSC decomp now writes the moby update loops' call (`if (update) update(moby);`) as a jalr in the MOBY_CALL_UPDATE macro (include/moby_update.h). Clang's JSON has no text for an asm statement spelled through a macro, so hostgen turned it into a bare barrier and reported nothing: update_visible_mobys, link_and_update_all_mobys and update_all_mobys_profiled stopped calling any moby's update. On Novalis the pond's moby never initialised its 21 tiles, so the still water was missing.\n\n- rac1-ntsc hostgen.json: MOBY_CALL_UPDATE given as C, its header guard defined (as qzero's), so the loops call the update again.\n- hostgen reads the text of asm statements spelled in a header or a macro, and reports one it still cannot read, so such a loss is no longer silent (report.json inline_assembly_skipped).\n- hostgen translates a lone `sw %N,%M` to a memory output (func_0012C4C8, the MPEG frame size update).\n- Override for draw_vendor_effects: the matching C hands d0 to the second euler_rotation_ba",
+      "mergedAt": "2026-10-30T20:05:28Z"
+     },
+     {
+      "number": 142,
+      "title": "fix: Responsive controls camera at any frame rate, and low-latency frames at the display's rate",
+      "author": "mateuszklysz",
+      "untrustedBody": "## Before\n\n- With Responsive camera on and one frame a tick (a frame cap of 60 on NTSC's 60 ticks), the camera stood still while the right stick was held, then sprang to where it should have been. The latch's fade expected the picture to keep turning at the rate the picture itself had turned; with every frame a new tick the carry held the picture still, that rate stayed zero, and the picture froze until the step grew past the cut threshold (0.6 rad) and jumped.\n- Letting go of the stick, the latch switched off while the game's camera was still easing out its turn, so the picture turned back by the latch's lead (about 4°).\n- Low-latency frames with VSync showed 60 fps on a 120 Hz display: on Android, Vulkan's two swapchain images made every frame wait a refresh for SurfaceFlinger to release one; on OpenGL, between() rejected every frame shown at or after the next tick, though the next tick's own frame comes a refresh later.\n- Responsive camera was on by default; Responsive pad and Respo",
+      "mergedAt": "2026-10-30T20:49:36Z"
+     },
+     {
+      "number": 143,
+      "title": "fix(port): mobys drawn in the 2D path no longer sample with its sampler",
+      "author": "mateuszklysz",
+      "untrustedBody": "The mobys the game renders into a target (the vendor's item and salesman screens, the menu pages' item previews) are drawn from inside the 2D path's draw list, while that path's sampler object was still bound to units 0 and 1. A bound sampler overrides a texture's own wrap and filter, so those mobys sampled with whatever the last 2D draw used, mostly clamped. The Pyrocitor's texture coordinates run from 1 to 2 (the GS repeats its texture), so on the vendor's screen it took its texture's edge texels all over and showed grey. The samplers are unbound before the mobys are drawn and bound again by the next 2D draw.",
+      "mergedAt": "2026-10-30T21:15:15Z"
+     }
+    ],
+    "opened": [
+     {
+      "number": 128,
+      "title": "fix: Android full screen, lower input lag and rac1 visual fixes",
+      "author": "mateuszklysz",
+      "untrustedBody": "## Android\n- The game stays full screen and in landscape. This fixes the black bar above the picture at 16:9 on Vulkan, seen on the Retroid Pocket 6.\n- The window and render threads get a performance hint session (ADPF), so the system sets clocks for the frame's work. `OPENRAC_ADPF_OFF` switches it off.\n- The drawer has a new **Latency** card with Low-latency frames, Responsive camera and Responsive pad (`fresh_input`, which was in Sound and game before).\n\n## Latency\n- **Low-latency frames (Vulkan):** a frame between ticks sleeps before it starts, so it is queued just as the GPU becomes free. It no longer waits inside the frame for the frame before it. This also works with the render thread. The frame rate stays as it was, with lower input lag. The setting is on the game's Video page as well.\n- **Responsive camera** (`camera_latch`, on by default): frames drawn between ticks turn the camera by the right stick as it is now. It only changes the picture; the game's tick and its camera are",
+      "mergedAt": "2026-10-30T15:19:19Z"
+     },
+     {
+      "number": 129,
+      "title": "chore(release): bump version to 0.10.1",
+      "author": "mateuszklysz",
+      "untrustedBody": "Development builds of develop now carry 0.10.1, so the Development channel stays ahead of the 0.10.0 release.",
+      "mergedAt": "2026-10-30T15:19:48Z"
+     },
+     {
+      "number": 130,
+      "title": "fix(launcher): turn off WebKit compositing on Wayland with NVIDIA",
+      "author": "Lynder063",
+      "untrustedBody": "The launcher crashed on Wayland with NVIDIA, even with shared memory (desktop and AMD + NVIDIA laptop).\nWayland with NVIDIA now also turns off accelerated compositing, as on Steam Deck. Fixes #64.\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)",
+      "mergedAt": "2026-10-30T18:01:57Z"
+     },
+     {
+      "number": 131,
+      "title": "feat(launcher): Safe rendering, turned on after a crashed start",
+      "author": "Lynder063",
+      "untrustedBody": "Settings, Advanced: Safe rendering turns off WebKit compositing on Linux; the launcher restarts.\nIf the last start crashed before its window drew a click, it turns on by itself and says so.\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)",
+      "mergedAt": "2026-10-30T22:19:18Z"
+     },
+     {
+      "number": 132,
+      "title": "fix(enhanced): Novalis water, probe profiles and bake inputs on the PAL disc",
+      "author": "mateuszklysz",
+      "untrustedBody": "## Overview\nThe latest Enhanced graphics work (interior probe lighting, #119) was wired for NTSC-U only. PAL got the original water and baked with defaults. This brings PAL to the same state.\n\n## Before\n- Novalis enhanced water had hooks only in rac1-ntsc/host/water.c, and the frontend turned it on only for rac1-ntsc.\n- bake_water.py read NTSC-U addresses only.\n- Lighting and water profiles existed only for rac1-ntsc.\n- Metropolis/Orxon static scenery, the Novalis pistons' travel and Gaspar's liquid bake input were limited to NTSC-U.\n\n## After\nPAL uses the same water and bake inputs as NTSC-U.\n\n## How\n- rac1-pal/host/water.c: the same hooks on PAL's functions, paired with NTSC-U's through games/rac1's function catalogue (same fingerprint, or same size and places). Data come from PAL's names.h (l01_packet_r, pool_tiles, scroll layers). Wrap rows added in libraries.tsv.\n- The frontend gates accept any rac1-* disc.\n- bake_water.py has an address table per disc. It picks the disc from the ",
+      "mergedAt": "2026-10-30T18:17:56Z"
+     },
+     {
+      "number": 133,
+      "title": "chore(import): sync rac1/ntsc to Lombyte f809a274",
+      "author": "mateuszklysz",
+      "untrustedBody": "## Overview\r\nSyncs games/rac1/ntsc to Lombyte f809a274 and adapts the port to the new layout.\r\n\r\n- Import by a 3-way merge with rename detection (OpenRAC's tree at the recorded commit merged with Lombyte main). Hunks git could not place were carried by hand to the function with the same label; every patch line is present exactly once.\r\n- OPENRAC_PATCHES.md: paths follow the new files. Rows Lombyte now covers itself are dropped (load_level_gameplay, random_float_between, random_angle_radians, sharkigator, 003054b0, bolt_thief/bomb, batalia_deserter, camera_object, FUN_L14_00307a80).\r\n- port_symbols.txt: release_voice_slot, which new L04 class files call by plain name (the port was calling an empty stub).\r\n- hostgen: skip list and drafts follow src/sdk/soft_float and src/sdk/libc; `__typeof__(NAME)` renamed with the va builtins (vfprintf.c was unreadable); the flickering-mesh override follows flickering_mesh_effect.c with VLAs as alloca.\r\n\r\n## Testing\r\n- hostgen: 0 unreadable units, 0 ho",
+      "mergedAt": "2026-10-30T18:19:24Z"
+     },
+     {
+      "number": 134,
+      "title": "ci(launcher): skip the launcher builds on pull requests into develop",
+      "author": "Lynder063",
+      "untrustedBody": "Pull requests into develop no longer run the launcher workflow's platform builds.\nPushes to develop and master, and PRs into master, still run them.\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)",
+      "mergedAt": "2026-10-30T15:44:17Z"
+     },
+     {
+      "number": 136,
+      "title": "feat(sdk): rac1 hook points for menus, HUD, vendor, ammo drops and saves",
+      "author": "Lynder063",
+      "untrustedBody": "Adds 29 rac1 hook points from #127 (menus, HUD quick select, vendor, ammo drops, saves); new game and restore now run mods under the port wraps.\nPart of #127: menu preview pose (a port host function) and bundled mod assets come later.\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)",
+      "mergedAt": "2026-10-30T19:51:08Z"
+     },
+     {
+      "number": 137,
+      "title": "ci(launcher): skip the launcher build on pull requests",
+      "author": "mateuszklysz",
+      "untrustedBody": "## Before\n`launcher.yml` ran on `pull_request` for every target branch except `develop` (so in practice release PRs `develop` -> `master` and PRs into other branches), building the whole matrix (Windows, Linux x86_64/ARM64, Fedora, macOS, Android) on top of the build the push already does.\n\n## After\nPull requests no longer trigger `launcher`. It still runs on pushes to `master`/`develop` (dev release), on `launcher-v*` tags (release drafts) and by hand (`workflow_dispatch`).\n\n## How\n- Dropped the `pull_request` trigger (and the now unused `&paths` anchor).\n- Removed the dead `github.event_name != 'pull_request'` conditions in the version step and the `dev-release` job, and updated the comments that mentioned pull request builds.\n- Nothing else depends on PR runs: `publish.yml` listens to `launcher` via `workflow_run`, but only acts on tag drafts, and `checks.yml` is untouched.\n\nNote for maintainers: if branch protection on `master` lists any `launcher` matrix job as a required check, r",
+      "mergedAt": "2026-10-30T16:36:42Z"
+     },
+     {
+      "number": 138,
+      "title": "docs(sources): name Lombyte f809a274 in the sources table",
+      "author": "Lynder063",
+      "untrustedBody": "The rac1/ntsc sync (#133) left docs/SOURCES.md at the old Lombyte commit.\nThis writes the table again, so the checks job passes on develop.\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)",
+      "mergedAt": "2026-10-30T21:08:32Z"
+     },
+     {
+      "number": 139,
+      "title": "fix(launcher): let a development build switch back to an older Stable release",
+      "author": "mateuszklysz",
+      "untrustedBody": "Choosing Stable on a development build only took a release newer than the build, so with the latest release older than the installed X.Y.Z-dev.N the launcher said it was up to date and never went back. On the other channel than the one it was built for, the launcher is now offered that channel's build whatever its version (update::offered), shown as \"Switch to Stable X.Y.Z\". Its own channel still takes only newer builds.\n\nAndroid installs no lower version code over a higher one, so there the switch to an older release sends the player to the release's APK, to install after uninstalling the launcher with its data kept.",
+      "mergedAt": "2026-10-30T19:58:18Z"
+     },
+     {
+      "number": 140,
+      "title": "fix(hostgen): run moby updates again after the Lombyte sync",
+      "author": "mateuszklysz",
+      "untrustedBody": "The NTSC decomp now writes the moby update loops' call (`if (update) update(moby);`) as a jalr in the MOBY_CALL_UPDATE macro (include/moby_update.h). Clang's JSON has no text for an asm statement spelled through a macro, so hostgen turned it into a bare barrier and reported nothing: update_visible_mobys, link_and_update_all_mobys and update_all_mobys_profiled stopped calling any moby's update. On Novalis the pond's moby never initialised its 21 tiles, so the still water was missing.\n\n- rac1-ntsc hostgen.json: MOBY_CALL_UPDATE given as C, its header guard defined (as qzero's), so the loops call the update again.\n- hostgen reads the text of asm statements spelled in a header or a macro, and reports one it still cannot read, so such a loss is no longer silent (report.json inline_assembly_skipped).\n- hostgen translates a lone `sw %N,%M` to a memory output (func_0012C4C8, the MPEG frame size update).\n- Override for draw_vendor_effects: the matching C hands d0 to the second euler_rotation_ba",
+      "mergedAt": "2026-10-30T20:05:28Z"
+     },
+     {
+      "number": 142,
+      "title": "fix: Responsive controls camera at any frame rate, and low-latency frames at the display's rate",
+      "author": "mateuszklysz",
+      "untrustedBody": "## Before\n\n- With Responsive camera on and one frame a tick (a frame cap of 60 on NTSC's 60 ticks), the camera stood still while the right stick was held, then sprang to where it should have been. The latch's fade expected the picture to keep turning at the rate the picture itself had turned; with every frame a new tick the carry held the picture still, that rate stayed zero, and the picture froze until the step grew past the cut threshold (0.6 rad) and jumped.\n- Letting go of the stick, the latch switched off while the game's camera was still easing out its turn, so the picture turned back by the latch's lead (about 4°).\n- Low-latency frames with VSync showed 60 fps on a 120 Hz display: on Android, Vulkan's two swapchain images made every frame wait a refresh for SurfaceFlinger to release one; on OpenGL, between() rejected every frame shown at or after the next tick, though the next tick's own frame comes a refresh later.\n- Responsive camera was on by default; Responsive pad and Respo",
+      "mergedAt": "2026-10-30T20:49:36Z"
+     },
+     {
+      "number": 143,
+      "title": "fix(port): mobys drawn in the 2D path no longer sample with its sampler",
+      "author": "mateuszklysz",
+      "untrustedBody": "The mobys the game renders into a target (the vendor's item and salesman screens, the menu pages' item previews) are drawn from inside the 2D path's draw list, while that path's sampler object was still bound to units 0 and 1. A bound sampler overrides a texture's own wrap and filter, so those mobys sampled with whatever the last 2D draw used, mostly clamped. The Pyrocitor's texture coordinates run from 1 to 2 (the GS repeats its texture), so on the vendor's screen it took its texture's edge texels all over and showed grey. The samplers are unbound before the mobys are drawn and bound again by the next 2D draw.",
+      "mergedAt": "2026-10-30T21:15:15Z"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [
+     {
+      "number": 127,
+      "title": "Mod SDK: inventory/save hooks and bundled assets for additional weapons",
+      "author": "noire342"
+     },
+     {
+      "number": 135,
+      "title": "Controller remapping: global, per-game and per-player controls (builds on #123)",
+      "author": "DrLegitamate"
+     },
+     {
+      "number": 141,
+      "title": "Mod: Enhanced Graphics - \"The Level Needs Too Many Lighting Regions\" (Game Version: NTSC /  Series: SCUS-97199)",
+      "author": "J05H333"
+     }
+    ],
+    "closed": [
+     {
+      "number": 64,
+      "title": "Launcher crashing",
+      "author": "Billabong1985"
+     },
+     {
+      "number": 78,
+      "title": "Unable to close game or launcher cleanly",
+      "author": "Billabong1985"
+     }
+    ]
+   },
+   "releases": [
+    {
+     "tag": "launcher-v0.10.0",
+     "name": "v0.10.0",
+     "publishedAt": "2026-10-30T15:59:16Z"
+    }
+   ],
+   "progress": null,
+   "contributors": [
+    "llesieur99",
+    "Lynder063",
+    "mateuszklysz",
+    "pezzadev",
+    "Veradictus"
+   ]
+  },
+  {
+   "repo": "rac1-decomp",
+   "title": "Ratchet & Clank",
+   "branches": [
+    {
+     "name": "main",
+     "commits": []
+    }
+   ],
+   "commitCount": 0,
+   "pullRequests": {
+    "merged": [],
+    "opened": []
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": null,
+   "contributors": []
+  },
+  {
+   "repo": "rac2-decomp",
+   "title": "Going Commando",
+   "branches": [
+    {
+     "name": "master",
+     "commits": []
+    }
+   ],
+   "commitCount": 0,
+   "pullRequests": {
+    "merged": [],
+    "opened": [
+     {
+      "number": 372,
+      "title": "feat(src): match two level routines and retain reviewed reconstructions",
+      "author": "llesieur99",
+      "untrustedBody": "## What\n\nMatch two level functions and preserve the useful results of a 30-target review on master `96927f87`.\n\n| Function | Distinct bytes | Carrying placements |\n| --- | ---: | --- |\n| `func_L09_003FEAE8` | 520 | USA v1.01 Dobbo; USA v2.00 Dobbo |\n| `func_L16_0041F360` | 576 | USA v1.01, USA v2.00 and PAL Snivelak |\n\n**Two new C functions, 1,096 distinct bytes.** Dobbo needs a complete 64-byte joint matrix and its +0x30 position. Snivelak needs complete ring points and separate counters for its three loops; the reviewed copy helper closes the ring without a new compiler mechanism.\n\nThe remaining review records 27 nonmatching outcomes and defers one previously exhausted initializer without repeating its old trials. Retained sources correct false helper arguments/returns, incomplete matrix storage, a ray's source vector, a four-slot scan, an exact float constant and a record-field offset. Useful alternate lowerings remain available. Equal-size drafts are still nonmatching and earn no c",
+      "mergedAt": "2026-10-31T18:40:42Z"
+     },
+     {
+      "number": 373,
+      "title": "feat(src): match four routines and repair the callback entry",
+      "author": "llesieur99",
+      "untrustedBody": "## What\n\nAdd four qualified C routines and repair one incorrectly trimmed catalogue entry after a 100-target review on master `96927f87`.\n\n| Function | Distinct bytes | Carrying releases |\n| --- | ---: | --- |\n| `func_L09_003FD128` | 824 | USA v1.01, USA v2.00, PAL |\n| `func_L17_003C6CE8` | 812 | Both USA releases |\n| `func_L17_003C69A8` | 828 | Both USA releases |\n| `func_L07_003EEE28` | 832 | Both USA releases |\n\n**Four new C functions, 3,296 distinct bytes, nine carrying placements.** The Dobbo light ring adapts public GPL-3.0 RAC1 source with independently measured RAC2 buffers and full-width texture/GS parameters. Smolg retains complete path vectors and the actual argument-bank/return contracts. Siberius preserves the speed-cap and phase/rate lifetimes.\n\nCallback constructions in all twelve placements prove that `func_L05_0042AFE0` starts four bytes before the previously recorded entry, on its F1 load. The original 732-byte extent now skips eight bytes rather than twelve. All name",
+      "mergedAt": "2026-10-31T18:40:42Z"
+     },
+     {
+      "number": 374,
+      "title": "feat(src): classify func_002A1130 as handwritten",
+      "author": "cadelass",
+      "untrustedBody": "The 584-byte body at 0x002A1130 uses instructions the compiler never emits: $at as a\nworking register (lhu $at, mtc1 $at, beqz $at, addi $at), and trapping add/addi\nthroughout where the compiler would emit addu/addiu. It also jumps into its own middle\nand ends with a tail jump to func_002A1378 instead of returning. Mark it ASM_FUNC\nunder the second criterion of AGENTS.md \"Handwritten assembly\", which needs a\nmaintainer's agreement in review.\n\nChecks: python3 tests/check_repository.py (repository checks passed);\npython3 tools/progress.py --check (one original-assembly function awaits the\nmaintainer's report refresh); git diff --check passed. The unit tests give the same\n15 environment errors with and without this change. ASM_FUNC and INCLUDE_ASM expand\nto the same thing (include/include_asm.h), so the linked programs are unchanged; the\nstrict build was not run.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>"
+     },
+     {
+      "number": 375,
+      "title": "docs(nonmatching): func_0034F048, the movie playback loop at 876/880 bytes",
+      "author": "cadelass",
+      "untrustedBody": "Retains a near miss for `func_0034F048` (880 bytes, boot and all 27 levels): the movie playback loop that `func_0034EF58` calls after the movie is set up. It returns whether the player skipped the movie.\n\n## What differs\n\nEverything matches except the skip-button test. Retail loads `D_001A7478` once into `v1` and copies it to `a1` (`beq v1,s1` / `daddu a1,v1`), and sets `skip = 1` in the delay slots of a `beql pressed,zero` and a `bnez 0x800`, which then fall through to the 64-bit combo test. With this C, cc1 keeps the address of `D_001A7478` (it reloads the value for the `!= 0` test) and shares one `skip = 1` block. The result is one instruction shorter.\n\nVariants tried (sizes from `tools/check.py`):\n- a block-local `mode` copy: 868\n- `mode` assigned in the condition: 868\n- the three cases as one `||` expression: 876, but the saved registers shift\n- the combo as a plain assignment: `sltiu` instead of retail's `movn`\n\n`src/` keeps the `INCLUDE_ASM` marker; the draft is in `nonmatching/"
+     },
+     {
+      "number": 376,
+      "title": "docs(nonmatching): func_L01_003D8830, the Oozla ring emitter at 672/672 bytes",
+      "author": "cadelass",
+      "untrustedBody": "Retains a near miss for `func_L01_003D8830` (672 bytes, level 01 only): it spawns `count` particles on a ring around an object, with its settings in `D_L01_002A4E78`.\n\n## What differs\n\nThe draft reaches retail's size in a dedicated `-g` unit (`-O2 -G0 -ffunction-sections -g`) with `low = v / spread` on its own line, which reproduces the two nops before the second `div.s` (MATCHING-BLOCKERS 5). Without `-g` it is 664 bytes.\n\nTwo load orders still differ:\n- at entry, retail loads `startColor` (`lw $fp`) before spilling `obj` (`sw $a0,0x40($sp)`); cc1 spills first\n- after `func_00282CC0`, retail loads `pos[2]` before `cfg.height`; cc1 loads `height` first\n\nTried without change: loading `count` before `endColor`, assigning the settings after the declarations, the w stores before the z add, a struct instead of `f32[4]` for `pos`, and the flags `-ffast-math`, `-frac2-qcopy(-barrier)`, `-fno-sched-interblock` and `-O2 -G0 -g`. Worse: `height + pos[2]` (swaps the add too), a countdown loop, `-"
+     },
+     {
+      "number": 377,
+      "title": "docs(blockers): func_L04_00378838 starts with the same 16-byte tail",
+      "author": "cadelass",
+      "untrustedBody": "The shared row func_L04_00378838 (levels 04 and 10) begins with the same four\nwords of the previous body's tail as func_L12_0035A838, func_L05_00367340 and\nfunc_L20_0036AE68. Data pointers at 04:0029FE90 and 10:0029F960 reach the real\nentries 16 bytes in, and no aligned word, j or jal in either level reaches the\nleading words. Recorded with the pending three-release carry, not applied.\n\nChecks: a scan of baserom/levels/{04_barlow,10_hrugis_cloud}/*.bin for aligned\nwords and j/jal targets in the row's first 20 bytes; tools/check.py with an empty\nbody showing the retail words.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>"
+     },
+     {
+      "number": 378,
+      "title": "docs(nonmatching): func_002D6230, the text-list drawer at 1696/1700 bytes",
+      "author": "cadelass",
+      "untrustedBody": "Retains a near miss for `func_002D6230` (1700 bytes, boot and all 27 levels). It draws the `ListMenu` that `func_002D5EC0` handles: each entry's label centred, a shadow pass offset by `D_001AA444`/`D_001AA448` and a colour pass. On the control-binding lists (`D_00259148`…`D_002592D8`) it prints the bound button with the label through `D_001ABAC8`. It returns 1 when the list switches to the small font to fit, else 2.\n\n## What differs\n\nThe draft goes at the end of `src/game/002D5E98-list-g8.c`, with `width` at 0x20 and `height` at 0x24 added to `ListMenu`. `func_002D5EC0` stays 28/28 there. The frame, the colour choice and the binding lookup match. Only register allocation differs (MATCHING-BLOCKERS 1): retail keeps `menu` in s3 and `y` in fp and spills `i + 1` to `0x18($sp)`; cc1 puts `menu` in s2 and spills `y`.\n\n| Step | Bytes |\n| --- | --- |\n| first draft | 1692 |\n| signed colour (an unsigned one is zero-extended for the u64 argument and costs a register and a 0x80 frame) | 1668 |\n| "
+     }
+    ]
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": null,
+   "contributors": [
+    "cadelass",
+    "llesieur99"
+   ]
+  },
+  {
+   "repo": "rac3-decomp",
+   "title": "Up Your Arsenal",
+   "branches": [
+    {
+     "name": "master",
+     "commits": []
+    }
+   ],
+   "commitCount": 0,
+   "pullRequests": {
+    "merged": [],
+    "opened": []
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": null,
+   "contributors": []
+  },
+  {
+   "repo": "rac4-decomp",
+   "title": "Ratchet: Deadlocked",
+   "branches": [
+    {
+     "name": "main",
+     "commits": []
+    }
+   ],
+   "commitCount": 0,
+   "pullRequests": {
+    "merged": [],
+    "opened": [
+     {
+      "number": 50,
+      "title": "Match 157 functions",
+      "author": "BlindFire1200",
+      "untrustedBody": "Matches 157 functions: 126 in game code, 17 in network code (net.text) and 12 in the engine core (core.text). Also adds C for 33 near misses under `nonmatching/`.\n\n| | Before | After |\n| --- | ---: | ---: |\n| SCUS_974.65 functions (exact) | 4,151 of 18,085 | 4,308 of 18,085 |\n| SCUS_974.65 code (exact) | 5.57% | 5.77% |\n| SCES_532.85 functions (exact) | 4,553 of 18,113 | 4,696 of 18,113 |\n| SCES_532.85 code (exact) | 5.95% | 6.14% |\n\nNotes:\n- 13 of these functions already had PAL-only C in `src/pal/` from #45, under the same name. The `src/` C builds to the same PAL bytes at the same place, so, as in ab87a986, each now lands once in `src/` and its `src/pal/` copy is dropped: `src/pal/game/{003F6170,004074E8,00415E88}.c` and `src/pal/net/{01EA9718,01EBDE60,01EBF088,01EC2280,01ECC958,01ED4438,01ED4460,01EDB018,01EE3960,01EE3A98}.c`. They count on SCUS_974.65 for the first time; on SCES_532.85 they were already counted.\n- SCES_532.85 gains 143, not 157: those 13, plus `func_004BAC90`, who",
+      "mergedAt": "2026-10-31T18:41:22Z"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": null,
+   "contributors": [
+    "BlindFire1200"
+   ]
+  },
+  {
+   "repo": "openrac-mods",
+   "title": "OpenRAC mods",
+   "branches": [
+    {
+     "name": "master",
+     "commits": []
+    }
+   ],
+   "commitCount": 0,
+   "pullRequests": {
+    "merged": [],
+    "opened": []
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": null,
+   "contributors": []
+  }
+ ]
+}

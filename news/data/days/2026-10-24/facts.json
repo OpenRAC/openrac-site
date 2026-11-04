@@ -1,0 +1,1633 @@
+{
+ "format": 1,
+ "date": "2026-10-24",
+ "totals": {
+  "commits": 100,
+  "pullRequestsMerged": 16,
+  "pullRequestsOpened": 14,
+  "contributors": 7
+ },
+ "projects": [
+  {
+   "repo": "OpenRAC",
+   "title": "OpenRAC launcher",
+   "branches": [
+    {
+     "name": "develop",
+     "commits": [
+      {
+       "sha": "bca7de431ed67fbecad3791fa99a091a98ba9e62",
+       "title": "fix(rac1): fixes from player reports: saves, sound, lava, flicker and the flight",
+       "author": "Lynder063",
+       "date": "2026-10-24T23:53:40Z"
+      },
+      {
+       "sha": "c9102c202cdd532353458a09d66f08cdc52ccaf0",
+       "title": "feat(port): add FSR upscaling and pipelined rendering",
+       "author": "pezzadev",
+       "date": "2026-10-24T18:18:47Z"
+      },
+      {
+       "sha": "cbf19556dccc0e785c775eb144ed3874327ea848",
+       "title": "feat: Android launcher and controls round: touch camera, Mods tab, Enhanced graphics, themes",
+       "author": "mateuszklysz",
+       "date": "2026-10-24T16:27:57Z"
+      },
+      {
+       "sha": "ec69042aede571d7b59f70e028bb0bf15fbec31f",
+       "title": "feat(rac6): add Ratchet & Clank: Secret Agent Clank",
+       "author": "Lynder063",
+       "date": "2026-10-24T13:37:31Z"
+      },
+      {
+       "sha": "fc6a4b81d6ba4f06d6b62cf09a778a3147bf7842",
+       "title": "docs(port): R-14's descriptor sets kept across frames on the Mac and box1, R-14 done",
+       "author": "Veradictus",
+       "date": "2026-10-24T12:29:59Z"
+      },
+      {
+       "sha": "3eec364a61b1dee07901dc3556eab344ff88d2b6",
+       "title": "feat(renderer): vk-persistent-descriptors in the optimisation registry",
+       "author": "Veradictus",
+       "date": "2026-10-24T12:29:41Z"
+      },
+      {
+       "sha": "015304db70da4e1bce76e063b908b99165591e41",
+       "title": "docs(restructure): P2-39b done, and what it found",
+       "author": "Veradictus",
+       "date": "2026-10-24T11:52:57Z"
+      },
+      {
+       "sha": "79b574973066cf899990cfbac725cece4cb61cdf",
+       "title": "refactor(port): the emissions table becomes part of the scene's level data",
+       "author": "Veradictus",
+       "date": "2026-10-24T11:44:24Z"
+      },
+      {
+       "sha": "12a973ab59f5fce1126ab22c7a71e38dba90cafe",
+       "title": "refactor(port): the shadow math and its tests move into scene/",
+       "author": "Veradictus",
+       "date": "2026-10-24T11:30:39Z"
+      },
+      {
+       "sha": "7c6e550cd9f71ec88734879252de1acea7e2b149",
+       "title": "docs(port): R-12's SPIR-V cache on the Mac and box1, R-12 done",
+       "author": "Veradictus",
+       "date": "2026-10-24T10:56:34Z"
+      },
+      {
+       "sha": "655b82383e7b0f1d6b92f81ba4afa492ed5a7d3b",
+       "title": "fix(renderer): render_opt_vulkan counts a compile and a pipeline of its own",
+       "author": "Veradictus",
+       "date": "2026-10-24T10:56:25Z"
+      },
+      {
+       "sha": "5c80fea6389d9329e834125fd38333c09fc53f7d",
+       "title": "feat(renderer): spirv-disk-cache in the optimisation registry",
+       "author": "Veradictus",
+       "date": "2026-10-24T10:56:25Z"
+      },
+      {
+       "sha": "8315610a621fe28d408bb8a687ad6d998d27205a",
+       "title": "refactor(port): GTAO's settings type moves into renderer/",
+       "author": "Veradictus",
+       "date": "2026-10-24T10:48:13Z"
+      },
+      {
+       "sha": "ab5555ae64dba8f5b98ae516ecf33d218389a03e",
+       "title": "docs(restructure): P2-06 done, and what it found",
+       "author": "Veradictus",
+       "date": "2026-10-24T10:30:11Z"
+      },
+      {
+       "sha": "b842d5b9b0e5f4bd195fa230079dc94f6b5ae1d1",
+       "title": "refactor(port): the ImGui GL backend, touch overlay and FPS counter move to renderer/ui/",
+       "author": "Veradictus",
+       "date": "2026-10-24T10:28:40Z"
+      },
+      {
+       "sha": "e3035630c496c1cbe1ef9beb81e8e7bb4cf05939",
+       "title": "feat(launcher): add every mod of a folder, a mods checkout's build first",
+       "author": "Veradictus",
+       "date": "2026-10-24T10:15:13Z"
+      },
+      {
+       "sha": "c002585a225e179de66eb2fce72e7503c28e20b9",
+       "title": "feat(launcher): an Update button on each mod's row, and Update all",
+       "author": "Veradictus",
+       "date": "2026-10-24T09:37:15Z"
+      },
+      {
+       "sha": "d513c90112a6997dc77b7519f9f392c507dd1fd8",
+       "title": "fix(scene): the shadow targets' GPU memory let go with them",
+       "author": "Veradictus",
+       "date": "2026-10-24T09:36:32Z"
+      },
+      {
+       "sha": "d66a7121f2cfc5f3f5cb9779541bffc6894ced61",
+       "title": "feat(renderer): shadow-atlas-discard in the registry",
+       "author": "Veradictus",
+       "date": "2026-10-24T09:36:32Z"
+      },
+      {
+       "sha": "3f20862d678d5aa13aff079b54305a674b6ab55d",
+       "title": "feat(scene): the moby layer's instances and palette timed",
+       "author": "Veradictus",
+       "date": "2026-10-24T09:36:32Z"
+      },
+      {
+       "sha": "00c3071f7dca292031a69f8cf913f2860ccadb0f",
+       "title": "feat(renderer): moby-pose-in-place in the registry",
+       "author": "Veradictus",
+       "date": "2026-10-24T09:36:32Z"
+      },
+      {
+       "sha": "2f2205a6dfd7a6ee613530e54f64e017ceba05dc",
+       "title": "refactor(scene): build_groups' key, instance data and bounds as helpers",
+       "author": "Veradictus",
+       "date": "2026-10-24T09:36:32Z"
+      },
+      {
+       "sha": "f2db8fb234df0f6a6b45fdd3c879858f4c923696",
+       "title": "refactor(port/rac1): the host C reads its OPENRAC_* variables through openrac/host_env.h",
+       "author": "Veradictus",
+       "date": "2026-10-24T09:36:30Z"
+      },
+      {
+       "sha": "81b4c535e874d4d2d547b8678956bd864423c9df",
+       "title": "feat(launcher): update a mod from its row's menu",
+       "author": "Veradictus",
+       "date": "2026-10-24T09:33:39Z"
+      },
+      {
+       "sha": "a4fbe15478886deaaaffd5284e7b541d6686f3e0",
+       "title": "refactor(port): the host reads rac1's game state through host::GameProfile",
+       "author": "Veradictus",
+       "date": "2026-10-24T09:15:31Z"
+      },
+      {
+       "sha": "4c92c8bb5b3db7fb252177f567af0f28e86cbcb6",
+       "title": "refactor(port): rac1's game state moves from viewer/ to game/rac1/",
+       "author": "Veradictus",
+       "date": "2026-10-24T09:14:51Z"
+      },
+      {
+       "sha": "3eeae1b944f5c36d11a07d567f078326d1da3668",
+       "title": "feat(renderer): vk-extended-dynamic-state in the optimisation registry, off by default",
+       "author": "Veradictus",
+       "date": "2026-10-24T08:40:15Z"
+      },
+      {
+       "sha": "3978a1b124096e376635f911964f05884768e31b",
+       "title": "fix(port/rac1-pal): hostgen leaves out the other versions' trees under src/versions",
+       "author": "Veradictus",
+       "date": "2026-10-24T08:37:19Z"
+      },
+      {
+       "sha": "eb575e389d603ba9b8efc589c775af6e2359f29b",
+       "title": "docs(port): R-09's presentation timing (the backend), R-09 done; R-22's gate closed",
+       "author": "Veradictus",
+       "date": "2026-10-24T08:14:00Z"
+      },
+      {
+       "sha": "31d31a27d0b8cee3e173440c46023b5de5052410",
+       "title": "feat(renderer): present-timing in the optimisation registry",
+       "author": "Veradictus",
+       "date": "2026-10-24T08:04:22Z"
+      },
+      {
+       "sha": "5fb02565e80a2c693acb47c6266d5529b3e7d33b",
+       "title": "docs(port): R-19's zero-coverage cull measured on the Mac and box1; the GPU part not landed",
+       "author": "Veradictus",
+       "date": "2026-10-24T07:54:01Z"
+      },
+      {
+       "sha": "95572a2c289e0184687eb10507d9834548bde3f0",
+       "title": "test(renderer): the zero-coverage cull's CPU reference and cull_coverage",
+       "author": "Veradictus",
+       "date": "2026-10-24T07:46:52Z"
+      },
+      {
+       "sha": "513cf6d511cbf45ed9688cccba26699d49fa64a0",
+       "title": "docs(port): R-10's pre-warm on the Mac and box1, R-10 done",
+       "author": "Veradictus",
+       "date": "2026-10-24T07:18:42Z"
+      },
+      {
+       "sha": "9929bf637930fc95ff70a4612053f1d518b517bd",
+       "title": "feat(renderer): pipeline-prewarm in the optimisation registry",
+       "author": "Veradictus",
+       "date": "2026-10-24T07:18:25Z"
+      },
+      {
+       "sha": "96bc2543039ecab338da235a6a30dc3d0e306d49",
+       "title": "docs(port): R-08's barriers and the present's own wait, R-08 done",
+       "author": "Veradictus",
+       "date": "2026-10-24T07:14:40Z"
+      },
+      {
+       "sha": "8641181891088c78f051a05b8aad5ccefd99c858",
+       "title": "feat(renderer): vk-tight-sync in the optimisation registry",
+       "author": "Veradictus",
+       "date": "2026-10-24T07:08:49Z"
+      },
+      {
+       "sha": "f7beb38600bb5fbc40973e3260d5792684f1e76f",
+       "title": "docs(port): R-07's one copy to the screen, R-07 part 1 done",
+       "author": "Veradictus",
+       "date": "2026-10-24T07:05:18Z"
+      },
+      {
+       "sha": "7cb3619874ef4ba7ec7d44c1dd83a4bee2c69b9c",
+       "title": "feat(renderer): present-single-copy in the optimisation registry",
+       "author": "Veradictus",
+       "date": "2026-10-24T07:05:10Z"
+      },
+      {
+       "sha": "f1bf66b33182ccfe8ecc882a1d96baf09fb1f12b",
+       "title": "fix(port): the static shadow cache's key in sun_shadow.h, scene's layering kept",
+       "author": "Veradictus",
+       "date": "2026-10-24T07:04:26Z"
+      },
+      {
+       "sha": "1db126a76124d398391cbf5eb32bbee29646ed60",
+       "title": "feat(renderer): shadow-static-cache in the registry, default off",
+       "author": "Veradictus",
+       "date": "2026-10-24T06:50:14Z"
+      },
+      {
+       "sha": "3dfefb3776de95303f610eac9455e8a05dd13597",
+       "title": "docs(port): R-15's resident static instances and their counters on the Mac and box1, R-15 done",
+       "author": "Veradictus",
+       "date": "2026-10-24T06:23:55Z"
+      },
+      {
+       "sha": "3f6dd6efcf447f25a11299771a16b75e821b1113",
+       "title": "feat(renderer/vulkan): resident static instances for the GPU-driven culling",
+       "author": "Veradictus",
+       "date": "2026-10-24T06:23:34Z"
+      },
+      {
+       "sha": "bc80414a496dd9b7c6d65ae98937a0d4e54582d8",
+       "title": "docs(port): R-06's attachments a pass does not keep, on the Mac and box1, R-06 done",
+       "author": "Veradictus",
+       "date": "2026-10-24T06:19:27Z"
+      },
+      {
+       "sha": "1a6b9d02140d33c9b13a3d7991bf7e6da0ad0368",
+       "title": "feat(renderer): attachment-discard in the optimisation registry",
+       "author": "Veradictus",
+       "date": "2026-10-24T05:57:48Z"
+      },
+      {
+       "sha": "c7529d42166b8647a81a242316f2122d0e8ed45a",
+       "title": "fix(renderer): vulkan_buffer reads from the device whether it has device-only memory",
+       "author": "Veradictus",
+       "date": "2026-10-24T05:57:10Z"
+      },
+      {
+       "sha": "c3f3928234cbe6d9225eb2e089e9b1ca1d682118",
+       "title": "docs(port): R-04's allocation-free draw on the Mac and box1, R-04 done",
+       "author": "Veradictus",
+       "date": "2026-10-24T05:56:48Z"
+      },
+      {
+       "sha": "526116525b6b5498ebe528feed2b75e05e371320",
+       "title": "feat(renderer): vk-draw-cache in the optimisation registry",
+       "author": "Veradictus",
+       "date": "2026-10-24T05:48:37Z"
+      },
+      {
+       "sha": "cf9b4979c9569c5f84d646a0fa46d9d1ea07569f",
+       "title": "docs(port): R-13's texture preparation and its counters on the Mac and box1, R-13 done",
+       "author": "Veradictus",
+       "date": "2026-10-24T05:32:06Z"
+      },
+      {
+       "sha": "491a17521bc415747ced1c74cd1025876c7daa53",
+       "title": "feat(renderer): texture-prepare in the registry, TexturePool::prepare",
+       "author": "Veradictus",
+       "date": "2026-10-24T05:31:42Z"
+      },
+      {
+       "sha": "560f60035023e003821df4d017dc10a0d173c1ba",
+       "title": "docs(restructure): P2-18, frame() and its steps in frontend/frame.cpp",
+       "author": "Veradictus",
+       "date": "2026-10-24T05:12:01Z"
+      },
+      {
+       "sha": "44b32c959fa4a9993731b9f82138737d3400e697",
+       "title": "refactor(port): the OPENRAC_TRACE line written with fwrite",
+       "author": "Veradictus",
+       "date": "2026-10-24T05:11:42Z"
+      },
+      {
+       "sha": "e70a486c4d2c5ac6cea6d35466bdf2be40aed62c",
+       "title": "feat(renderer): static-buffers-device-local and static-buffers-force-staging entries",
+       "author": "Veradictus",
+       "date": "2026-10-24T04:53:25Z"
+      },
+      {
+       "sha": "1fb2ac97d35851666ccd123aba97f84de427b398",
+       "title": "docs(port): R-03's tracker and its counters on the Mac and box1, R-03 done",
+       "author": "Veradictus",
+       "date": "2026-10-24T04:45:45Z"
+      },
+      {
+       "sha": "80a7dec086d2a6fd68b70d5e1091f9ed60859ff1",
+       "title": "feat(renderer): vk-draw-clock and vk-state-skip in the optimisation registry",
+       "author": "Veradictus",
+       "date": "2026-10-24T04:44:44Z"
+      },
+      {
+       "sha": "02b6bf68105dca022a3d13756706c82de13a80a9",
+       "title": "feat(port): optimise probe baking and add edge-aware texture upscaling",
+       "author": "pezzadev",
+       "date": "2026-10-24T04:41:07Z"
+      },
+      {
+       "sha": "9b0e960e8432eeab23fb4a6a05717dc6ebfe40c7",
+       "title": "docs(restructure): P2-18, frame() cut into named steps, done",
+       "author": "Veradictus",
+       "date": "2026-10-24T04:15:43Z"
+      },
+      {
+       "sha": "bb8bcd1ed254e01e1052f8779b9be3fef5643b5e",
+       "title": "refactor(port): frame() cut into named steps",
+       "author": "Veradictus",
+       "date": "2026-10-24T04:15:37Z"
+      },
+      {
+       "sha": "a95396d6971d5ba9116fe20839056f34989490bf",
+       "title": "docs(sources): credit rac1-decomp and the NTSC decomp as GPL-3.0",
+       "author": "Veradictus",
+       "date": "2026-10-24T04:15:13Z"
+      },
+      {
+       "sha": "425ceb227c3bf879b1d3834f8fdba0d793a5691c",
+       "title": "docs(restructure): P2-17, frontend.cpp's interpolation split into frontend/interpolation.cpp, done",
+       "author": "Veradictus",
+       "date": "2026-10-24T04:05:29Z"
+      },
+      {
+       "sha": "56cd0f5fdccb40d5e61aebe3e706c12ea806e86a",
+       "title": "refactor(port): the frontend's interpolation between ticks to frontend/interpolation.cpp",
+       "author": "Veradictus",
+       "date": "2026-10-24T04:05:22Z"
+      },
+      {
+       "sha": "68ad9015305b40cb5f7b8890b372dacdb52f3b80",
+       "title": "fix(sources): the NTSC decomp is GPL-3.0 since its a1379f57",
+       "author": "Veradictus",
+       "date": "2026-10-24T04:02:34Z"
+      },
+      {
+       "sha": "ea233ceb527b4011574951db4c95881ac09f96e0",
+       "title": "docs(restructure): P2-27, debug_overlay.cpp's drawer, menu bar and controls split into debug/, done",
+       "author": "Veradictus",
+       "date": "2026-10-24T03:48:58Z"
+      },
+      {
+       "sha": "af8242bd79d15f285f88f363f205eb15a7d57a16",
+       "title": "fix(port): render_bench_smoke finds its program in a build of the test targets",
+       "author": "Veradictus",
+       "date": "2026-10-24T03:48:31Z"
+      },
+      {
+       "sha": "78d1e438fd4eee42f925afdc6124638c5982cfd0",
+       "title": "test(renderer): render_equivalence_vulkan keeps no pipeline cache",
+       "author": "Veradictus",
+       "date": "2026-10-24T03:17:42Z"
+      },
+      {
+       "sha": "381e48f037bd2fa50dbb8ca941be5e8838e60054",
+       "title": "docs(port): the render baseline on the Mac and box1, R-02 done",
+       "author": "Veradictus",
+       "date": "2026-10-24T03:14:15Z"
+      },
+      {
+       "sha": "03653f418686022f3be8e6ebb46d12a40a1cebdc",
+       "title": "feat(port): openrac_render_bench, the render benchmark on the synthetic scene",
+       "author": "Veradictus",
+       "date": "2026-10-24T03:08:46Z"
+      },
+      {
+       "sha": "1651569b0fc5bf59cd8e181b3d2a7d1e47df84bf",
+       "title": "docs(port): the render counters measured on the Mac and box1, R-01 done",
+       "author": "Veradictus",
+       "date": "2026-10-24T02:44:23Z"
+      },
+      {
+       "sha": "8b2f89eb356ee0666678742799c044509091a7f4",
+       "title": "feat(renderer): the optimisation registry, switched off by OPENRAC_RENDER_OPT_OFF",
+       "author": "Veradictus",
+       "date": "2026-10-24T02:42:04Z"
+      },
+      {
+       "sha": "7a2b55d0477b638e033f0d2784c963e31f524c54",
+       "title": "fix(launcher): Discord Rich Presence reads the page's camelCase fields",
+       "author": "Veradictus",
+       "date": "2026-10-24T02:33:36Z"
+      },
+      {
+       "sha": "77acdf2883510f1b6d87fab96674e449b9b780e9",
+       "title": "docs(restructure): P2-26, debug_overlay.cpp's panels split into debug/, done",
+       "author": "Veradictus",
+       "date": "2026-10-24T02:28:06Z"
+      },
+      {
+       "sha": "30c9fc0031db41b819b93229d63ca5cc8382d2f4",
+       "title": "refactor(port): the debug overlay's shared state and helpers in debug/overlay.h",
+       "author": "Veradictus",
+       "date": "2026-10-24T02:27:48Z"
+      },
+      {
+       "sha": "ed931eaac9dd2c8102337a64d285d0212274f2c4",
+       "title": "docs(restructure): P2-16, the frontend's world submission split out, done",
+       "author": "Veradictus",
+       "date": "2026-10-24T02:23:03Z"
+      },
+      {
+       "sha": "5b55ed37f7d58143bb77a3898d9884767a065e6f",
+       "title": "refactor(port): the frontend's world submission to frontend/world.cpp and images.cpp",
+       "author": "Veradictus",
+       "date": "2026-10-24T02:22:55Z"
+      },
+      {
+       "sha": "a36a335773d1f2c1d309de47447f71d5c48b9ba7",
+       "title": "feat(launcher): the page's types generated from the core's Rust types",
+       "author": "Veradictus",
+       "date": "2026-10-24T02:14:43Z"
+      },
+      {
+       "sha": "7fef2c5bfc528320d570a0166327a5fd4caf06e8",
+       "title": "refactor(hostgen): main cut into named steps",
+       "author": "Veradictus",
+       "date": "2026-10-24T02:09:19Z"
+      },
+      {
+       "sha": "b0426650e38a2b5714d2db675ea94f0445534deb",
+       "title": "docs(restructure): P2-05, main.cpp split into program/, done",
+       "author": "Veradictus",
+       "date": "2026-10-24T01:54:33Z"
+      },
+      {
+       "sha": "4fb017fdf7181631b8efc904c9351477b188e95f",
+       "title": "refactor(port): check_levels' stamp written with std::format and fwrite",
+       "author": "Veradictus",
+       "date": "2026-10-24T01:52:54Z"
+      },
+      {
+       "sha": "e645a46e4cdf32af5cfdb2c2ba0bfc2cb4670dab",
+       "title": "feat(tools): sister checkouts beside OpenRAC, written relative in game.json",
+       "author": "Veradictus",
+       "date": "2026-10-24T01:39:14Z"
+      },
+      {
+       "sha": "460b23f482390f073eaf9129b63aa2622a44ae2d",
+       "title": "docs(restructure): P2-25, game_host.cpp gathered and wrapped, done",
+       "author": "Veradictus",
+       "date": "2026-10-24T01:27:09Z"
+      },
+      {
+       "sha": "f4204e936081b96ef3efa2bc051ce8c1d585e0bc",
+       "title": "refactor(port): the host side of game_host.h moved into program/game_host.cpp",
+       "author": "Veradictus",
+       "date": "2026-10-24T01:25:32Z"
+      },
+      {
+       "sha": "b5d4e457ec92df61797bbded3662e561356f98d6",
+       "title": "feat(port): the conventions check holds getenv to the env table",
+       "author": "Veradictus",
+       "date": "2026-10-24T00:58:08Z"
+      },
+      {
+       "sha": "d655e1c9b801e2018d4563f2a78f9bc208e1c7cd",
+       "title": "refactor(port): the bodies of the mods', scripts' and fixes' C entry points",
+       "author": "Veradictus",
+       "date": "2026-10-24T00:36:32Z"
+      },
+      {
+       "sha": "3a1f9df3ff7dcf1b76b594846399b897cf096f70",
+       "title": "docs(restructure): P2-15, the frontend's input in frontend/input.cpp, done",
+       "author": "Veradictus",
+       "date": "2026-10-24T00:06:05Z"
+      },
+      {
+       "sha": "14f807a884a0838f7560358a25893a616c5e3f1f",
+       "title": "refactor(port): the frontend's input, pad and touch pad to frontend/input.cpp",
+       "author": "Veradictus",
+       "date": "2026-10-24T00:03:26Z"
+      }
+     ]
+    },
+    {
+     "name": "master",
+     "commits": [
+      {
+       "sha": "bca7de431ed67fbecad3791fa99a091a98ba9e62",
+       "title": "fix(rac1): fixes from player reports: saves, sound, lava, flicker and the flight",
+       "author": "Lynder063",
+       "date": "2026-10-24T23:53:40Z"
+      },
+      {
+       "sha": "c9102c202cdd532353458a09d66f08cdc52ccaf0",
+       "title": "feat(port): add FSR upscaling and pipelined rendering",
+       "author": "pezzadev",
+       "date": "2026-10-24T18:18:47Z"
+      },
+      {
+       "sha": "cbf19556dccc0e785c775eb144ed3874327ea848",
+       "title": "feat: Android launcher and controls round: touch camera, Mods tab, Enhanced graphics, themes",
+       "author": "mateuszklysz",
+       "date": "2026-10-24T16:27:57Z"
+      },
+      {
+       "sha": "ec69042aede571d7b59f70e028bb0bf15fbec31f",
+       "title": "feat(rac6): add Ratchet & Clank: Secret Agent Clank",
+       "author": "Lynder063",
+       "date": "2026-10-24T13:37:31Z"
+      },
+      {
+       "sha": "fc6a4b81d6ba4f06d6b62cf09a778a3147bf7842",
+       "title": "docs(port): R-14's descriptor sets kept across frames on the Mac and box1, R-14 done",
+       "author": "Veradictus",
+       "date": "2026-10-24T12:29:59Z"
+      },
+      {
+       "sha": "3eec364a61b1dee07901dc3556eab344ff88d2b6",
+       "title": "feat(renderer): vk-persistent-descriptors in the optimisation registry",
+       "author": "Veradictus",
+       "date": "2026-10-24T12:29:41Z"
+      },
+      {
+       "sha": "015304db70da4e1bce76e063b908b99165591e41",
+       "title": "docs(restructure): P2-39b done, and what it found",
+       "author": "Veradictus",
+       "date": "2026-10-24T11:52:57Z"
+      },
+      {
+       "sha": "79b574973066cf899990cfbac725cece4cb61cdf",
+       "title": "refactor(port): the emissions table becomes part of the scene's level data",
+       "author": "Veradictus",
+       "date": "2026-10-24T11:44:24Z"
+      },
+      {
+       "sha": "12a973ab59f5fce1126ab22c7a71e38dba90cafe",
+       "title": "refactor(port): the shadow math and its tests move into scene/",
+       "author": "Veradictus",
+       "date": "2026-10-24T11:30:39Z"
+      },
+      {
+       "sha": "7c6e550cd9f71ec88734879252de1acea7e2b149",
+       "title": "docs(port): R-12's SPIR-V cache on the Mac and box1, R-12 done",
+       "author": "Veradictus",
+       "date": "2026-10-24T10:56:34Z"
+      },
+      {
+       "sha": "655b82383e7b0f1d6b92f81ba4afa492ed5a7d3b",
+       "title": "fix(renderer): render_opt_vulkan counts a compile and a pipeline of its own",
+       "author": "Veradictus",
+       "date": "2026-10-24T10:56:25Z"
+      },
+      {
+       "sha": "5c80fea6389d9329e834125fd38333c09fc53f7d",
+       "title": "feat(renderer): spirv-disk-cache in the optimisation registry",
+       "author": "Veradictus",
+       "date": "2026-10-24T10:56:25Z"
+      },
+      {
+       "sha": "8315610a621fe28d408bb8a687ad6d998d27205a",
+       "title": "refactor(port): GTAO's settings type moves into renderer/",
+       "author": "Veradictus",
+       "date": "2026-10-24T10:48:13Z"
+      },
+      {
+       "sha": "ab5555ae64dba8f5b98ae516ecf33d218389a03e",
+       "title": "docs(restructure): P2-06 done, and what it found",
+       "author": "Veradictus",
+       "date": "2026-10-24T10:30:11Z"
+      },
+      {
+       "sha": "b842d5b9b0e5f4bd195fa230079dc94f6b5ae1d1",
+       "title": "refactor(port): the ImGui GL backend, touch overlay and FPS counter move to renderer/ui/",
+       "author": "Veradictus",
+       "date": "2026-10-24T10:28:40Z"
+      },
+      {
+       "sha": "e3035630c496c1cbe1ef9beb81e8e7bb4cf05939",
+       "title": "feat(launcher): add every mod of a folder, a mods checkout's build first",
+       "author": "Veradictus",
+       "date": "2026-10-24T10:15:13Z"
+      },
+      {
+       "sha": "c002585a225e179de66eb2fce72e7503c28e20b9",
+       "title": "feat(launcher): an Update button on each mod's row, and Update all",
+       "author": "Veradictus",
+       "date": "2026-10-24T09:37:15Z"
+      },
+      {
+       "sha": "d513c90112a6997dc77b7519f9f392c507dd1fd8",
+       "title": "fix(scene): the shadow targets' GPU memory let go with them",
+       "author": "Veradictus",
+       "date": "2026-10-24T09:36:32Z"
+      },
+      {
+       "sha": "d66a7121f2cfc5f3f5cb9779541bffc6894ced61",
+       "title": "feat(renderer): shadow-atlas-discard in the registry",
+       "author": "Veradictus",
+       "date": "2026-10-24T09:36:32Z"
+      },
+      {
+       "sha": "3f20862d678d5aa13aff079b54305a674b6ab55d",
+       "title": "feat(scene): the moby layer's instances and palette timed",
+       "author": "Veradictus",
+       "date": "2026-10-24T09:36:32Z"
+      },
+      {
+       "sha": "00c3071f7dca292031a69f8cf913f2860ccadb0f",
+       "title": "feat(renderer): moby-pose-in-place in the registry",
+       "author": "Veradictus",
+       "date": "2026-10-24T09:36:32Z"
+      },
+      {
+       "sha": "2f2205a6dfd7a6ee613530e54f64e017ceba05dc",
+       "title": "refactor(scene): build_groups' key, instance data and bounds as helpers",
+       "author": "Veradictus",
+       "date": "2026-10-24T09:36:32Z"
+      },
+      {
+       "sha": "f2db8fb234df0f6a6b45fdd3c879858f4c923696",
+       "title": "refactor(port/rac1): the host C reads its OPENRAC_* variables through openrac/host_env.h",
+       "author": "Veradictus",
+       "date": "2026-10-24T09:36:30Z"
+      },
+      {
+       "sha": "81b4c535e874d4d2d547b8678956bd864423c9df",
+       "title": "feat(launcher): update a mod from its row's menu",
+       "author": "Veradictus",
+       "date": "2026-10-24T09:33:39Z"
+      },
+      {
+       "sha": "a4fbe15478886deaaaffd5284e7b541d6686f3e0",
+       "title": "refactor(port): the host reads rac1's game state through host::GameProfile",
+       "author": "Veradictus",
+       "date": "2026-10-24T09:15:31Z"
+      },
+      {
+       "sha": "4c92c8bb5b3db7fb252177f567af0f28e86cbcb6",
+       "title": "refactor(port): rac1's game state moves from viewer/ to game/rac1/",
+       "author": "Veradictus",
+       "date": "2026-10-24T09:14:51Z"
+      },
+      {
+       "sha": "3eeae1b944f5c36d11a07d567f078326d1da3668",
+       "title": "feat(renderer): vk-extended-dynamic-state in the optimisation registry, off by default",
+       "author": "Veradictus",
+       "date": "2026-10-24T08:40:15Z"
+      },
+      {
+       "sha": "3978a1b124096e376635f911964f05884768e31b",
+       "title": "fix(port/rac1-pal): hostgen leaves out the other versions' trees under src/versions",
+       "author": "Veradictus",
+       "date": "2026-10-24T08:37:19Z"
+      },
+      {
+       "sha": "eb575e389d603ba9b8efc589c775af6e2359f29b",
+       "title": "docs(port): R-09's presentation timing (the backend), R-09 done; R-22's gate closed",
+       "author": "Veradictus",
+       "date": "2026-10-24T08:14:00Z"
+      },
+      {
+       "sha": "31d31a27d0b8cee3e173440c46023b5de5052410",
+       "title": "feat(renderer): present-timing in the optimisation registry",
+       "author": "Veradictus",
+       "date": "2026-10-24T08:04:22Z"
+      },
+      {
+       "sha": "5fb02565e80a2c693acb47c6266d5529b3e7d33b",
+       "title": "docs(port): R-19's zero-coverage cull measured on the Mac and box1; the GPU part not landed",
+       "author": "Veradictus",
+       "date": "2026-10-24T07:54:01Z"
+      },
+      {
+       "sha": "95572a2c289e0184687eb10507d9834548bde3f0",
+       "title": "test(renderer): the zero-coverage cull's CPU reference and cull_coverage",
+       "author": "Veradictus",
+       "date": "2026-10-24T07:46:52Z"
+      },
+      {
+       "sha": "513cf6d511cbf45ed9688cccba26699d49fa64a0",
+       "title": "docs(port): R-10's pre-warm on the Mac and box1, R-10 done",
+       "author": "Veradictus",
+       "date": "2026-10-24T07:18:42Z"
+      },
+      {
+       "sha": "9929bf637930fc95ff70a4612053f1d518b517bd",
+       "title": "feat(renderer): pipeline-prewarm in the optimisation registry",
+       "author": "Veradictus",
+       "date": "2026-10-24T07:18:25Z"
+      },
+      {
+       "sha": "96bc2543039ecab338da235a6a30dc3d0e306d49",
+       "title": "docs(port): R-08's barriers and the present's own wait, R-08 done",
+       "author": "Veradictus",
+       "date": "2026-10-24T07:14:40Z"
+      },
+      {
+       "sha": "8641181891088c78f051a05b8aad5ccefd99c858",
+       "title": "feat(renderer): vk-tight-sync in the optimisation registry",
+       "author": "Veradictus",
+       "date": "2026-10-24T07:08:49Z"
+      },
+      {
+       "sha": "f7beb38600bb5fbc40973e3260d5792684f1e76f",
+       "title": "docs(port): R-07's one copy to the screen, R-07 part 1 done",
+       "author": "Veradictus",
+       "date": "2026-10-24T07:05:18Z"
+      },
+      {
+       "sha": "7cb3619874ef4ba7ec7d44c1dd83a4bee2c69b9c",
+       "title": "feat(renderer): present-single-copy in the optimisation registry",
+       "author": "Veradictus",
+       "date": "2026-10-24T07:05:10Z"
+      },
+      {
+       "sha": "f1bf66b33182ccfe8ecc882a1d96baf09fb1f12b",
+       "title": "fix(port): the static shadow cache's key in sun_shadow.h, scene's layering kept",
+       "author": "Veradictus",
+       "date": "2026-10-24T07:04:26Z"
+      },
+      {
+       "sha": "1db126a76124d398391cbf5eb32bbee29646ed60",
+       "title": "feat(renderer): shadow-static-cache in the registry, default off",
+       "author": "Veradictus",
+       "date": "2026-10-24T06:50:14Z"
+      },
+      {
+       "sha": "3dfefb3776de95303f610eac9455e8a05dd13597",
+       "title": "docs(port): R-15's resident static instances and their counters on the Mac and box1, R-15 done",
+       "author": "Veradictus",
+       "date": "2026-10-24T06:23:55Z"
+      },
+      {
+       "sha": "3f6dd6efcf447f25a11299771a16b75e821b1113",
+       "title": "feat(renderer/vulkan): resident static instances for the GPU-driven culling",
+       "author": "Veradictus",
+       "date": "2026-10-24T06:23:34Z"
+      },
+      {
+       "sha": "bc80414a496dd9b7c6d65ae98937a0d4e54582d8",
+       "title": "docs(port): R-06's attachments a pass does not keep, on the Mac and box1, R-06 done",
+       "author": "Veradictus",
+       "date": "2026-10-24T06:19:27Z"
+      },
+      {
+       "sha": "1a6b9d02140d33c9b13a3d7991bf7e6da0ad0368",
+       "title": "feat(renderer): attachment-discard in the optimisation registry",
+       "author": "Veradictus",
+       "date": "2026-10-24T05:57:48Z"
+      },
+      {
+       "sha": "c7529d42166b8647a81a242316f2122d0e8ed45a",
+       "title": "fix(renderer): vulkan_buffer reads from the device whether it has device-only memory",
+       "author": "Veradictus",
+       "date": "2026-10-24T05:57:10Z"
+      },
+      {
+       "sha": "c3f3928234cbe6d9225eb2e089e9b1ca1d682118",
+       "title": "docs(port): R-04's allocation-free draw on the Mac and box1, R-04 done",
+       "author": "Veradictus",
+       "date": "2026-10-24T05:56:48Z"
+      },
+      {
+       "sha": "526116525b6b5498ebe528feed2b75e05e371320",
+       "title": "feat(renderer): vk-draw-cache in the optimisation registry",
+       "author": "Veradictus",
+       "date": "2026-10-24T05:48:37Z"
+      },
+      {
+       "sha": "cf9b4979c9569c5f84d646a0fa46d9d1ea07569f",
+       "title": "docs(port): R-13's texture preparation and its counters on the Mac and box1, R-13 done",
+       "author": "Veradictus",
+       "date": "2026-10-24T05:32:06Z"
+      },
+      {
+       "sha": "491a17521bc415747ced1c74cd1025876c7daa53",
+       "title": "feat(renderer): texture-prepare in the registry, TexturePool::prepare",
+       "author": "Veradictus",
+       "date": "2026-10-24T05:31:42Z"
+      },
+      {
+       "sha": "560f60035023e003821df4d017dc10a0d173c1ba",
+       "title": "docs(restructure): P2-18, frame() and its steps in frontend/frame.cpp",
+       "author": "Veradictus",
+       "date": "2026-10-24T05:12:01Z"
+      },
+      {
+       "sha": "44b32c959fa4a9993731b9f82138737d3400e697",
+       "title": "refactor(port): the OPENRAC_TRACE line written with fwrite",
+       "author": "Veradictus",
+       "date": "2026-10-24T05:11:42Z"
+      },
+      {
+       "sha": "e70a486c4d2c5ac6cea6d35466bdf2be40aed62c",
+       "title": "feat(renderer): static-buffers-device-local and static-buffers-force-staging entries",
+       "author": "Veradictus",
+       "date": "2026-10-24T04:53:25Z"
+      },
+      {
+       "sha": "1fb2ac97d35851666ccd123aba97f84de427b398",
+       "title": "docs(port): R-03's tracker and its counters on the Mac and box1, R-03 done",
+       "author": "Veradictus",
+       "date": "2026-10-24T04:45:45Z"
+      },
+      {
+       "sha": "80a7dec086d2a6fd68b70d5e1091f9ed60859ff1",
+       "title": "feat(renderer): vk-draw-clock and vk-state-skip in the optimisation registry",
+       "author": "Veradictus",
+       "date": "2026-10-24T04:44:44Z"
+      },
+      {
+       "sha": "02b6bf68105dca022a3d13756706c82de13a80a9",
+       "title": "feat(port): optimise probe baking and add edge-aware texture upscaling",
+       "author": "pezzadev",
+       "date": "2026-10-24T04:41:07Z"
+      },
+      {
+       "sha": "9b0e960e8432eeab23fb4a6a05717dc6ebfe40c7",
+       "title": "docs(restructure): P2-18, frame() cut into named steps, done",
+       "author": "Veradictus",
+       "date": "2026-10-24T04:15:43Z"
+      },
+      {
+       "sha": "bb8bcd1ed254e01e1052f8779b9be3fef5643b5e",
+       "title": "refactor(port): frame() cut into named steps",
+       "author": "Veradictus",
+       "date": "2026-10-24T04:15:37Z"
+      },
+      {
+       "sha": "a95396d6971d5ba9116fe20839056f34989490bf",
+       "title": "docs(sources): credit rac1-decomp and the NTSC decomp as GPL-3.0",
+       "author": "Veradictus",
+       "date": "2026-10-24T04:15:13Z"
+      },
+      {
+       "sha": "425ceb227c3bf879b1d3834f8fdba0d793a5691c",
+       "title": "docs(restructure): P2-17, frontend.cpp's interpolation split into frontend/interpolation.cpp, done",
+       "author": "Veradictus",
+       "date": "2026-10-24T04:05:29Z"
+      },
+      {
+       "sha": "56cd0f5fdccb40d5e61aebe3e706c12ea806e86a",
+       "title": "refactor(port): the frontend's interpolation between ticks to frontend/interpolation.cpp",
+       "author": "Veradictus",
+       "date": "2026-10-24T04:05:22Z"
+      },
+      {
+       "sha": "68ad9015305b40cb5f7b8890b372dacdb52f3b80",
+       "title": "fix(sources): the NTSC decomp is GPL-3.0 since its a1379f57",
+       "author": "Veradictus",
+       "date": "2026-10-24T04:02:34Z"
+      },
+      {
+       "sha": "ea233ceb527b4011574951db4c95881ac09f96e0",
+       "title": "docs(restructure): P2-27, debug_overlay.cpp's drawer, menu bar and controls split into debug/, done",
+       "author": "Veradictus",
+       "date": "2026-10-24T03:48:58Z"
+      },
+      {
+       "sha": "af8242bd79d15f285f88f363f205eb15a7d57a16",
+       "title": "fix(port): render_bench_smoke finds its program in a build of the test targets",
+       "author": "Veradictus",
+       "date": "2026-10-24T03:48:31Z"
+      },
+      {
+       "sha": "78d1e438fd4eee42f925afdc6124638c5982cfd0",
+       "title": "test(renderer): render_equivalence_vulkan keeps no pipeline cache",
+       "author": "Veradictus",
+       "date": "2026-10-24T03:17:42Z"
+      },
+      {
+       "sha": "381e48f037bd2fa50dbb8ca941be5e8838e60054",
+       "title": "docs(port): the render baseline on the Mac and box1, R-02 done",
+       "author": "Veradictus",
+       "date": "2026-10-24T03:14:15Z"
+      },
+      {
+       "sha": "03653f418686022f3be8e6ebb46d12a40a1cebdc",
+       "title": "feat(port): openrac_render_bench, the render benchmark on the synthetic scene",
+       "author": "Veradictus",
+       "date": "2026-10-24T03:08:46Z"
+      },
+      {
+       "sha": "1651569b0fc5bf59cd8e181b3d2a7d1e47df84bf",
+       "title": "docs(port): the render counters measured on the Mac and box1, R-01 done",
+       "author": "Veradictus",
+       "date": "2026-10-24T02:44:23Z"
+      },
+      {
+       "sha": "8b2f89eb356ee0666678742799c044509091a7f4",
+       "title": "feat(renderer): the optimisation registry, switched off by OPENRAC_RENDER_OPT_OFF",
+       "author": "Veradictus",
+       "date": "2026-10-24T02:42:04Z"
+      },
+      {
+       "sha": "7a2b55d0477b638e033f0d2784c963e31f524c54",
+       "title": "fix(launcher): Discord Rich Presence reads the page's camelCase fields",
+       "author": "Veradictus",
+       "date": "2026-10-24T02:33:36Z"
+      },
+      {
+       "sha": "77acdf2883510f1b6d87fab96674e449b9b780e9",
+       "title": "docs(restructure): P2-26, debug_overlay.cpp's panels split into debug/, done",
+       "author": "Veradictus",
+       "date": "2026-10-24T02:28:06Z"
+      },
+      {
+       "sha": "30c9fc0031db41b819b93229d63ca5cc8382d2f4",
+       "title": "refactor(port): the debug overlay's shared state and helpers in debug/overlay.h",
+       "author": "Veradictus",
+       "date": "2026-10-24T02:27:48Z"
+      },
+      {
+       "sha": "ed931eaac9dd2c8102337a64d285d0212274f2c4",
+       "title": "docs(restructure): P2-16, the frontend's world submission split out, done",
+       "author": "Veradictus",
+       "date": "2026-10-24T02:23:03Z"
+      },
+      {
+       "sha": "5b55ed37f7d58143bb77a3898d9884767a065e6f",
+       "title": "refactor(port): the frontend's world submission to frontend/world.cpp and images.cpp",
+       "author": "Veradictus",
+       "date": "2026-10-24T02:22:55Z"
+      },
+      {
+       "sha": "a36a335773d1f2c1d309de47447f71d5c48b9ba7",
+       "title": "feat(launcher): the page's types generated from the core's Rust types",
+       "author": "Veradictus",
+       "date": "2026-10-24T02:14:43Z"
+      },
+      {
+       "sha": "7fef2c5bfc528320d570a0166327a5fd4caf06e8",
+       "title": "refactor(hostgen): main cut into named steps",
+       "author": "Veradictus",
+       "date": "2026-10-24T02:09:19Z"
+      },
+      {
+       "sha": "b0426650e38a2b5714d2db675ea94f0445534deb",
+       "title": "docs(restructure): P2-05, main.cpp split into program/, done",
+       "author": "Veradictus",
+       "date": "2026-10-24T01:54:33Z"
+      },
+      {
+       "sha": "4fb017fdf7181631b8efc904c9351477b188e95f",
+       "title": "refactor(port): check_levels' stamp written with std::format and fwrite",
+       "author": "Veradictus",
+       "date": "2026-10-24T01:52:54Z"
+      },
+      {
+       "sha": "e645a46e4cdf32af5cfdb2c2ba0bfc2cb4670dab",
+       "title": "feat(tools): sister checkouts beside OpenRAC, written relative in game.json",
+       "author": "Veradictus",
+       "date": "2026-10-24T01:39:14Z"
+      },
+      {
+       "sha": "460b23f482390f073eaf9129b63aa2622a44ae2d",
+       "title": "docs(restructure): P2-25, game_host.cpp gathered and wrapped, done",
+       "author": "Veradictus",
+       "date": "2026-10-24T01:27:09Z"
+      },
+      {
+       "sha": "f4204e936081b96ef3efa2bc051ce8c1d585e0bc",
+       "title": "refactor(port): the host side of game_host.h moved into program/game_host.cpp",
+       "author": "Veradictus",
+       "date": "2026-10-24T01:25:32Z"
+      },
+      {
+       "sha": "b5d4e457ec92df61797bbded3662e561356f98d6",
+       "title": "feat(port): the conventions check holds getenv to the env table",
+       "author": "Veradictus",
+       "date": "2026-10-24T00:58:08Z"
+      },
+      {
+       "sha": "d655e1c9b801e2018d4563f2a78f9bc208e1c7cd",
+       "title": "refactor(port): the bodies of the mods', scripts' and fixes' C entry points",
+       "author": "Veradictus",
+       "date": "2026-10-24T00:36:32Z"
+      },
+      {
+       "sha": "3a1f9df3ff7dcf1b76b594846399b897cf096f70",
+       "title": "docs(restructure): P2-15, the frontend's input in frontend/input.cpp, done",
+       "author": "Veradictus",
+       "date": "2026-10-24T00:06:05Z"
+      },
+      {
+       "sha": "14f807a884a0838f7560358a25893a616c5e3f1f",
+       "title": "refactor(port): the frontend's input, pad and touch pad to frontend/input.cpp",
+       "author": "Veradictus",
+       "date": "2026-10-24T00:03:26Z"
+      }
+     ]
+    }
+   ],
+   "commitCount": 84,
+   "pullRequests": {
+    "merged": [
+     {
+      "number": 43,
+      "title": "feat(port): optimise probe baking and add edge-aware texture upscaling",
+      "author": "pezzadev",
+      "untrustedBody": "## Changes\r\n\r\n- Reuse loaded level assets and one prepared Embree scene across sparse and dense grids. Cache sampling directions, share primary first hits, and use alpha filters and occlusion queries for visibility.\r\n- Integrate probe maps with portable four-lane C++, a specialised exponent-32 path and 2x2 subtexel sampling. Cache dense-region merge candidates without changing their ordering.\r\n- Add optional Vulkan edge-aware 2x world-texture colours, preserving original alpha and mip sampling with a bounded 64 MiB cache. Expose the option in the launcher's Enhanced settings.\r\n- Align the launcher's AO default with the game, clarify Reset to defaults, and split baking, transport, reporting and fixtures into focused files. Adapt texture-provider registration to the new scene-module layout.\r\n\r\n## Verification\r\n\r\n- Built the offline baker, game frontend and viewer on Windows/Vulkan.\r\n- Six native bake suites pass: `probe_bake`, `probe_visibility`, `probe_lighting`, `probe_bake_parallel`, ",
+      "mergedAt": "2026-10-24T04:41:08Z"
+     },
+     {
+      "number": 44,
+      "title": "feat: Android launcher and controls round: touch camera, Mods tab, Enhanced graphics, themes",
+      "author": "mateuszklysz",
+      "untrustedBody": "## Summary\r\n\r\nA large round of work on the Android launcher and the game's controls, tested on the Ayn Odin 3. It also brings changes that every platform gets: launcher themes, an update window that opens by itself, a restyled in-game options drawer and better analog stick handling.\r\n\r\n## Changelog\r\n\r\n### Controls (port)\r\n\r\n- **Analog sticks reach their corners, like a DualShock 2.** Ratchet only runs when the stick is pushed all the way. A round stick (PS4/Xbox pads, the on-screen stick) only reached about 0.71 on each axis at a diagonal, so Ratchet walked. A push near the rim is now stretched out to the square, so a full diagonal runs.\r\n  - Only the outer part is stretched: the stretch eases in from 80% of the way to the rim and is complete at the rim. Partial pushes and resting-stick drift stay exactly as the gamepad reports them.\r\n  - A gamepad whose stick already reports a square (such as the Odin 3's) is detected the first time it reports a position clearly past a circle, and is ",
+      "mergedAt": "2026-10-24T16:27:57Z"
+     },
+     {
+      "number": 45,
+      "title": "Feat/rac6 secret agent clank",
+      "author": "Lynder063",
+      "untrustedBody": "",
+      "mergedAt": "2026-10-24T13:37:32Z"
+     },
+     {
+      "number": 47,
+      "title": "feat(port): add FSR upscaling and pipelined rendering",
+      "author": "pezzadev",
+      "untrustedBody": "Adds FSR 3.1.4 temporal upscaling to enhanced Vulkan rendering, with Quality as the default and the HUD drawn at display resolution. Frame generation is excluded.\r\n\r\n## Changes\r\n\r\n- Preserve authored smooth normals through export, the depth/normal prepass, GI and GTAO; fix false AO at grazing angles.\r\n- Keep dense probe regions local, retain up to 512 resident regions and select a stable 128-region lookup for tiled sampling.\r\n- Add per-level sunlight direction overrides shared by direct lighting, shadows and baked bounces.\r\n- Give Ratchet and attached equipment a dedicated shadow, with smooth transitions to downward projection in the air and a platforming cue inside cascade shadows.\r\n- Batch temporal object-motion draws and bindless upscaled materials, cache the last graphics pipeline, and restore texture debanding.\r\n- Enable the Vulkan render worker by default, with owned scene snapshots and a bounded handoff. Show whole-frame, CPU and GPU timing modes in the frame counter.\r\n- Automat",
+      "mergedAt": "2026-10-24T18:18:47Z"
+     },
+     {
+      "number": 49,
+      "title": "Fix/rac1 user reports",
+      "author": "Lynder063",
+      "untrustedBody": "",
+      "mergedAt": "2026-10-24T23:53:40Z"
+     }
+    ],
+    "opened": [
+     {
+      "number": 44,
+      "title": "feat: Android launcher and controls round: touch camera, Mods tab, Enhanced graphics, themes",
+      "author": "mateuszklysz",
+      "untrustedBody": "## Summary\r\n\r\nA large round of work on the Android launcher and the game's controls, tested on the Ayn Odin 3. It also brings changes that every platform gets: launcher themes, an update window that opens by itself, a restyled in-game options drawer and better analog stick handling.\r\n\r\n## Changelog\r\n\r\n### Controls (port)\r\n\r\n- **Analog sticks reach their corners, like a DualShock 2.** Ratchet only runs when the stick is pushed all the way. A round stick (PS4/Xbox pads, the on-screen stick) only reached about 0.71 on each axis at a diagonal, so Ratchet walked. A push near the rim is now stretched out to the square, so a full diagonal runs.\r\n  - Only the outer part is stretched: the stretch eases in from 80% of the way to the rim and is complete at the rim. Partial pushes and resting-stick drift stay exactly as the gamepad reports them.\r\n  - A gamepad whose stick already reports a square (such as the Odin 3's) is detected the first time it reports a position clearly past a circle, and is ",
+      "mergedAt": "2026-10-24T16:27:57Z"
+     },
+     {
+      "number": 45,
+      "title": "Feat/rac6 secret agent clank",
+      "author": "Lynder063",
+      "untrustedBody": "",
+      "mergedAt": "2026-10-24T13:37:32Z"
+     },
+     {
+      "number": 47,
+      "title": "feat(port): add FSR upscaling and pipelined rendering",
+      "author": "pezzadev",
+      "untrustedBody": "Adds FSR 3.1.4 temporal upscaling to enhanced Vulkan rendering, with Quality as the default and the HUD drawn at display resolution. Frame generation is excluded.\r\n\r\n## Changes\r\n\r\n- Preserve authored smooth normals through export, the depth/normal prepass, GI and GTAO; fix false AO at grazing angles.\r\n- Keep dense probe regions local, retain up to 512 resident regions and select a stable 128-region lookup for tiled sampling.\r\n- Add per-level sunlight direction overrides shared by direct lighting, shadows and baked bounces.\r\n- Give Ratchet and attached equipment a dedicated shadow, with smooth transitions to downward projection in the air and a platforming cue inside cascade shadows.\r\n- Batch temporal object-motion draws and bindless upscaled materials, cache the last graphics pipeline, and restore texture debanding.\r\n- Enable the Vulkan render worker by default, with owned scene snapshots and a bounded handoff. Show whole-frame, CPU and GPU timing modes in the frame counter.\r\n- Automat",
+      "mergedAt": "2026-10-24T18:18:47Z"
+     },
+     {
+      "number": 49,
+      "title": "Fix/rac1 user reports",
+      "author": "Lynder063",
+      "untrustedBody": "",
+      "mergedAt": "2026-10-24T23:53:40Z"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [
+     {
+      "number": 46,
+      "title": "Missing Play button on launcher",
+      "author": "Billabong1985"
+     },
+     {
+      "number": 48,
+      "title": "HD texture pack compatibility?",
+      "author": "Billabong1985"
+     }
+    ],
+    "closed": [
+     {
+      "number": 46,
+      "title": "Missing Play button on launcher",
+      "author": "Billabong1985"
+     }
+    ]
+   },
+   "releases": [],
+   "progress": null,
+   "contributors": [
+    "Lynder063",
+    "mateuszklysz",
+    "pezzadev",
+    "Veradictus"
+   ]
+  },
+  {
+   "repo": "rac1-decomp",
+   "title": "Ratchet & Clank",
+   "branches": [
+    {
+     "name": "main",
+     "commits": [
+      {
+       "sha": "69c3e42d792adb90fabb90184a4fac915a48f5b2",
+       "title": "Merge pull request #124 from Veradictus/main",
+       "author": "Veradictus",
+       "date": "2026-10-24T10:23:07Z"
+      },
+      {
+       "sha": "45453963345e75d0e51402ecead77a15af75c7ab",
+       "title": "Merge pull request #123 from Veradictus/main",
+       "author": "Veradictus",
+       "date": "2026-10-24T08:33:14Z"
+      },
+      {
+       "sha": "de14440819093b81c00a1e219d4fef54d6fccd16",
+       "title": "Merge pull request #122 from Veradictus/main",
+       "author": "Veradictus",
+       "date": "2026-10-24T05:47:44Z"
+      },
+      {
+       "sha": "13b285ccb673e5ba6d1f2330cce1797706f02a67",
+       "title": "Merge pull request #121 from Veradictus/main",
+       "author": "Veradictus",
+       "date": "2026-10-24T04:12:32Z"
+      }
+     ]
+    }
+   ],
+   "commitCount": 4,
+   "pullRequests": {
+    "merged": [
+     {
+      "number": 121,
+      "title": "Drop the NTSC decomp submodule: NTSC-U built here, the NTSC decomp read at a pin",
+      "author": "Veradictus",
+      "untrustedBody": "The `versions/ntsc` submodule put 2,122 files of the NTSC decomp into every recursive clone. It goes. Nothing about matching changes: no new C, no ports.\n\n- **NTSC-U is a version like PAL v1.00 and NTSC-J** (`tools/versions.py` drops the `submodule` field). Its boot ELF and 19 level programs build byte-identical from assembly (20 of 20), with `programs.tsv`, `boot_layout.json`, a fresh `map.tsv` and our own report in `progress/us/report.json` (4,756 of 5,097 functions, 74.21% of code). `version_sync.py check` now covers all four versions.\n- **The NTSC decomp is read at a pinned commit**: `config/versions/us/ntsc_decomp.txt` (`url commit`, still 6abcf077), fetched shallow by the new `tools/ntsc_source.py` into `~/.cache/rac1-decomp/ntsc/<commit>`, outside the checkout. `names.py ntsc`, `version_sync.py ntsc`, `build_ntsc.sh` and `lombyte.py` read it from there; from the cache they give the same `names.tsv`, `names_ntsc.tsv`, `modules.tsv` and `carry.tsv` as from the submodule (only the ",
+      "mergedAt": "2026-10-24T04:12:32Z"
+     },
+     {
+      "number": 122,
+      "title": "feat(us): carry 64 definitions that build NTSC-U exactly",
+      "author": "Veradictus",
+      "untrustedBody": "version_sync.py run copies 64 existing PAL v1.00 and NTSC-J definitions into src/versions/us/, where they build NTSC-U byte for byte. No new C.\n\n- NTSC-U: 4,756 to 4,822 of 5,097 functions (76.10% of code)\n- version_build.py --version us: 20 of 20 programs match\n- version_sync.py check, gen_progress_report.py --check, names.py check and the tools tests pass",
+      "mergedAt": "2026-10-24T05:47:44Z"
+     },
+     {
+      "number": 123,
+      "title": "chore(ntsc): follow the NTSC decomp to 2d6fb52bb8",
+      "author": "Veradictus",
+      "untrustedBody": "Moves the NTSC decomp pin from 6abcf077 to 2d6fb52b. Upstream renamed 2 boot functions and a few hundred level helpers (no header or layout changes, nothing newly matched); the names are adopted (config/names_ntsc.tsv, names.tsv, include/names.h, 600 definitions and 3734 uses renamed). All four versions build 20 of 20; version sync, fidelity, names and unit checks pass.",
+      "mergedAt": "2026-10-24T08:33:14Z"
+     },
+     {
+      "number": 124,
+      "title": "docs: credit the NTSC decomp's code as GPL-3.0",
+      "author": "Veradictus",
+      "untrustedBody": "The NTSC decomp is GPL-3.0 since its a1379f57, but the provenance comments in adapted code and the docs still said MIT. Comments only (206 files), no code changes.\n\nVerified on box1: build_sn.sh audits 1241 of 1241 functions and the image matches retail; version_sync.py check, names.py check and gen_progress_report.py --check pass.",
+      "mergedAt": "2026-10-24T10:23:07Z"
+     }
+    ],
+    "opened": [
+     {
+      "number": 121,
+      "title": "Drop the NTSC decomp submodule: NTSC-U built here, the NTSC decomp read at a pin",
+      "author": "Veradictus",
+      "untrustedBody": "The `versions/ntsc` submodule put 2,122 files of the NTSC decomp into every recursive clone. It goes. Nothing about matching changes: no new C, no ports.\n\n- **NTSC-U is a version like PAL v1.00 and NTSC-J** (`tools/versions.py` drops the `submodule` field). Its boot ELF and 19 level programs build byte-identical from assembly (20 of 20), with `programs.tsv`, `boot_layout.json`, a fresh `map.tsv` and our own report in `progress/us/report.json` (4,756 of 5,097 functions, 74.21% of code). `version_sync.py check` now covers all four versions.\n- **The NTSC decomp is read at a pinned commit**: `config/versions/us/ntsc_decomp.txt` (`url commit`, still 6abcf077), fetched shallow by the new `tools/ntsc_source.py` into `~/.cache/rac1-decomp/ntsc/<commit>`, outside the checkout. `names.py ntsc`, `version_sync.py ntsc`, `build_ntsc.sh` and `lombyte.py` read it from there; from the cache they give the same `names.tsv`, `names_ntsc.tsv`, `modules.tsv` and `carry.tsv` as from the submodule (only the ",
+      "mergedAt": "2026-10-24T04:12:32Z"
+     },
+     {
+      "number": 122,
+      "title": "feat(us): carry 64 definitions that build NTSC-U exactly",
+      "author": "Veradictus",
+      "untrustedBody": "version_sync.py run copies 64 existing PAL v1.00 and NTSC-J definitions into src/versions/us/, where they build NTSC-U byte for byte. No new C.\n\n- NTSC-U: 4,756 to 4,822 of 5,097 functions (76.10% of code)\n- version_build.py --version us: 20 of 20 programs match\n- version_sync.py check, gen_progress_report.py --check, names.py check and the tools tests pass",
+      "mergedAt": "2026-10-24T05:47:44Z"
+     },
+     {
+      "number": 123,
+      "title": "chore(ntsc): follow the NTSC decomp to 2d6fb52bb8",
+      "author": "Veradictus",
+      "untrustedBody": "Moves the NTSC decomp pin from 6abcf077 to 2d6fb52b. Upstream renamed 2 boot functions and a few hundred level helpers (no header or layout changes, nothing newly matched); the names are adopted (config/names_ntsc.tsv, names.tsv, include/names.h, 600 definitions and 3734 uses renamed). All four versions build 20 of 20; version sync, fidelity, names and unit checks pass.",
+      "mergedAt": "2026-10-24T08:33:14Z"
+     },
+     {
+      "number": 124,
+      "title": "docs: credit the NTSC decomp's code as GPL-3.0",
+      "author": "Veradictus",
+      "untrustedBody": "The NTSC decomp is GPL-3.0 since its a1379f57, but the provenance comments in adapted code and the docs still said MIT. Comments only (206 files), no code changes.\n\nVerified on box1: build_sn.sh audits 1241 of 1241 functions and the image matches retail; version_sync.py check, names.py check and gen_progress_report.py --check pass.",
+      "mergedAt": "2026-10-24T10:23:07Z"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": {
+    "before": {
+     "code": {
+      "done": 3656816,
+      "total": 3713416
+     },
+     "functions": {
+      "done": 5089,
+      "total": 5120
+     },
+     "data": {
+      "done": 3852,
+      "total": 699072
+     }
+    },
+    "after": {
+     "code": {
+      "done": 3656816,
+      "total": 3713416
+     },
+     "functions": {
+      "done": 5089,
+      "total": 5120
+     },
+     "data": {
+      "done": 3852,
+      "total": 699072
+     }
+    }
+   },
+   "contributors": [
+    "Veradictus"
+   ]
+  },
+  {
+   "repo": "rac2-decomp",
+   "title": "Going Commando",
+   "branches": [
+    {
+     "name": "master",
+     "commits": [
+      {
+       "sha": "d43c3b99b984fb63556c844a21ee99e8e31d2deb",
+       "title": "Merge pull request #313 from OpenRAC/match/remaining-switch-tables",
+       "author": "llesieur99",
+       "date": "2026-10-24T08:40:23Z"
+      },
+      {
+       "sha": "73fca27e5a6faab0504d18e102db43bd6443bda5",
+       "title": "Merge pull request #312 from OpenRAC/feat/compiled-jump-tables",
+       "author": "llesieur99",
+       "date": "2026-10-24T07:52:38Z"
+      },
+      {
+       "sha": "d2f8514b3dba4d3668e1786dfcd472fdb88f3ac0",
+       "title": "Merge pull request #311 from OpenRAC/publish/thorpen-reviewed-20261024",
+       "author": "ThorpenCodes",
+       "date": "2026-10-24T07:08:41Z"
+      },
+      {
+       "sha": "6ecfa206337aa6f1e03fbfacab628eeda8139efa",
+       "title": "chore(progress): publish validated coverage for all three releases",
+       "author": "llesieur99",
+       "date": "2026-10-24T06:43:24Z"
+      },
+      {
+       "sha": "31ed11af5f5529650ae99462bcb0320e053e5092",
+       "title": "feat(src): integrate qualified routines and retained reconstructions",
+       "author": "llesieur99",
+       "date": "2026-10-24T06:33:13Z"
+      },
+      {
+       "sha": "83bb1bb4b00cb18ccb9c84c2bb605135b669150c",
+       "title": "Merge pull request #308 from OpenRAC/nonmatching/shared-effects-20261023",
+       "author": "llesieur99",
+       "date": "2026-10-24T00:00:19Z"
+      }
+     ]
+    }
+   ],
+   "commitCount": 6,
+   "pullRequests": {
+    "merged": [
+     {
+      "number": 308,
+      "title": "Retain 89 C reconstructions and consolidate measured blockers",
+      "author": "llesieur99",
+      "untrustedBody": "## What\n\nRetain 89 manually reconstructed C bodies in the existing `nonmatching/` files.\nEach records the tested release coverage and profile, remaining differences and\na concrete reopening condition. These bodies remain assembly in the active\nbuild and add no matching credit. Five previously established boundary/tie\ncases were left unchanged rather than repeating the same attempts.\n\nUpdate the existing flat index and remove 36 obsolete comment-only screens for\nthe functions matched in #307. Their text was backed up privately and the files\nsent to the Recycle Bin; no useful prior C was discarded. Trial objects,\nassembly, extracted data and generated analysis remain private.\n\nKeep the lasting findings in the existing shared documents:\n\n- Correct floating return banks, forwarded pointer/float inputs and four stack\n  arguments omitted from the large `003C3220` reconstruction.\n- Preserve the complete 64-bit texture descriptor returned by `0028E640`.\n- Record the measured `001290BC + 0x24` ",
+      "mergedAt": "2026-10-24T00:00:19Z"
+     },
+     {
+      "number": 309,
+      "title": "feat(src): match 62 routines and retain measured reconstructions",
+      "author": "llesieur99",
+      "untrustedBody": "## What\r\n\r\nReplace 62 assembly markers with manually reconstructed C: **25,444 distinct USA v1.01 code bytes**, counted once per function. The same definitions are qualified in every release that carries them, using the existing compiler profiles and per-file flags.\r\n\r\nCorrect existing call contracts without claiming extra bytes: mutable 24-byte text layouts, full-width drawing descriptors, promoted animation states, vector/float forwarding and consumed return values. The packet initializer uses its genuine scoped reference where the boot and level catalogue identities differ.\r\n\r\nPreserve reviewed manual reconstructions and useful alternatives in `nonmatching/`, with their profiles, actual trial coverage, residuals and reopening conditions. Three locally matching functions remain unlinked because their generated `.rodata` dependencies fail strict placement. Raw listings, trial objects, private evidence and game/toolchain files stay local. Superseded screens are retired and historical n",
+      "mergedAt": "2026-10-24T06:33:14Z"
+     },
+     {
+      "number": 310,
+      "title": "chore(progress): refresh validated coverage for all three releases",
+      "author": "llesieur99",
+      "untrustedBody": "## What\r\n\r\nRefresh the three maintained reports, the README progress table and the release totals after #309 and earlier source merges. This catches up previously unreported merged work; #309 itself contributes 62 new C functions / 25,444 distinct bytes.\r\n\r\n| Release | Matched functions | Matched code |\r\n| --- | ---: | ---: |\r\n| USA v1.01 | 4,351 / 8,601 | 776,368 / 5,529,148 (14.04%) |\r\n| USA v2.00 | 4,149 / 8,655 | 733,192 / 5,583,108 (13.13%) |\r\n| PAL | 3,666 / 8,693 | 579,796 / 5,707,256 (10.16%) |\r\n\r\nClarify that the original inventory/carry sample is historical and separate from these current generated totals. No source, compiler, catalogue, private asset or match classification changes.\r\n\r\n## Checked\r\n\r\n- Maintained `tools/progress.py` generators ran once for `us`, `us2` and `pal`.\r\n- All three `--check` commands pass; the reports agree on every function they share.\r\n- 144 unit tests and `tests/check_repository.py` pass; `git diff --check` is clean.\r\n- The merged source tree is ",
+      "mergedAt": "2026-10-24T06:43:25Z"
+     },
+     {
+      "number": 311,
+      "title": "feat(src): match 15 game functions and retain bounded near misses",
+      "author": "ThorpenCodes",
+      "untrustedBody": "## What\n\nReplace 15 game-function markers with plain C: **2,396 catalogue bytes and 366 primary USA v1.01 placements**. The same C also passes 308 PAL and 366 USA v2.00 placements, for **1,040 applicable placements** overall. Qualified per-file profiles use the existing compiler; no compiler, catalogue or build-policy changes are included.\n\nKeep **40 new useful C near-miss drafts**, update one existing draft, and retire nine drafts whose functions now link exactly. Near misses remain unlinked and receive no completion credit. Record measured blockers and copy-profile remedies in the existing shared documentation.\n\nEach matched function and each retained/updated near miss has its own commit: 15 match commits, 41 near-miss commits and one shared documentation commit (57 total). Generated reports, README progress, npm files, local campaign files and private game/tool assets are excluded. An unlinked `func_0030D430` draft using a symbol alias and volatile addressing tricks was withheld and",
+      "mergedAt": "2026-10-24T07:08:42Z"
+     },
+     {
+      "number": 312,
+      "title": "Link verified compiler jump tables and integrate five C functions",
+      "author": "llesieur99",
+      "untrustedBody": "Ordinary C switches previously passed the local instruction checker but fell back to retail assembly because their compiler-generated branch tables had no place in the linked image. Retain verified `.rodata`/`.rdata` sections at the addresses derived from their text relocations and interleave them with the remaining retail data, following RAC1's placement approach.\r\n\r\nEvery table word must have one R_MIPS_32 relocation to an independently placed C text section in the same object. Validate entry order and destinations, section bounds/alignment and overlapping claims. Keep dependencies scoped to their object. Reject mixed/scalar pools and missing destinations. Neither compiler instructions nor table values are rewritten; strict loaded-byte comparison remains the acceptance gate.\r\n\r\nIntegrate the retained ordinary-C color conversions `func_L04_004323F8` and `func_L04_00432530`, Grelbin controller `func_L19_00421E80`, format dispatcher `func_00118CC8` and DWARF interpreter `func_00123D30`.",
+      "mergedAt": "2026-10-24T07:52:38Z"
+     },
+     {
+      "number": 313,
+      "title": "Match three switch functions and correct Joba case mappings",
+      "author": "llesieur99",
+      "untrustedBody": "Integrate the shared message selector `func_L02_004114A0` and the two Joba index converters `func_L11_0043E090` / `func_L11_0043E108`, using the compiler-owned branch-table placement merged in #312. These add 408 distinct primary code bytes; no build mechanism or compiler profile changes are needed.\r\n\r\nThe retained Joba drafts had instruction-exact bodies but incorrect switch mappings. The table validator rejected both because their R_MIPS_32 case destinations disagreed with retail. Correct the ordinary C `case` labels while preserving the emitted text layout, then link and compare the complete tables. Keep the three bodies in separate C units so their tables preserve the measured retail spacing without artificial padding or aliases.\r\n\r\nThe shared selector has seven USA v1.01 placements and is absent under that catalogue name in USA v2.00/PAL. Each Joba converter has one placement in each release. Preserve the original drafts privately, remove their obsolete nonmatching entries and rec",
+      "mergedAt": "2026-10-24T08:40:23Z"
+     }
+    ],
+    "opened": [
+     {
+      "number": 309,
+      "title": "feat(src): match 62 routines and retain measured reconstructions",
+      "author": "llesieur99",
+      "untrustedBody": "## What\r\n\r\nReplace 62 assembly markers with manually reconstructed C: **25,444 distinct USA v1.01 code bytes**, counted once per function. The same definitions are qualified in every release that carries them, using the existing compiler profiles and per-file flags.\r\n\r\nCorrect existing call contracts without claiming extra bytes: mutable 24-byte text layouts, full-width drawing descriptors, promoted animation states, vector/float forwarding and consumed return values. The packet initializer uses its genuine scoped reference where the boot and level catalogue identities differ.\r\n\r\nPreserve reviewed manual reconstructions and useful alternatives in `nonmatching/`, with their profiles, actual trial coverage, residuals and reopening conditions. Three locally matching functions remain unlinked because their generated `.rodata` dependencies fail strict placement. Raw listings, trial objects, private evidence and game/toolchain files stay local. Superseded screens are retired and historical n",
+      "mergedAt": "2026-10-24T06:33:14Z"
+     },
+     {
+      "number": 310,
+      "title": "chore(progress): refresh validated coverage for all three releases",
+      "author": "llesieur99",
+      "untrustedBody": "## What\r\n\r\nRefresh the three maintained reports, the README progress table and the release totals after #309 and earlier source merges. This catches up previously unreported merged work; #309 itself contributes 62 new C functions / 25,444 distinct bytes.\r\n\r\n| Release | Matched functions | Matched code |\r\n| --- | ---: | ---: |\r\n| USA v1.01 | 4,351 / 8,601 | 776,368 / 5,529,148 (14.04%) |\r\n| USA v2.00 | 4,149 / 8,655 | 733,192 / 5,583,108 (13.13%) |\r\n| PAL | 3,666 / 8,693 | 579,796 / 5,707,256 (10.16%) |\r\n\r\nClarify that the original inventory/carry sample is historical and separate from these current generated totals. No source, compiler, catalogue, private asset or match classification changes.\r\n\r\n## Checked\r\n\r\n- Maintained `tools/progress.py` generators ran once for `us`, `us2` and `pal`.\r\n- All three `--check` commands pass; the reports agree on every function they share.\r\n- 144 unit tests and `tests/check_repository.py` pass; `git diff --check` is clean.\r\n- The merged source tree is ",
+      "mergedAt": "2026-10-24T06:43:25Z"
+     },
+     {
+      "number": 311,
+      "title": "feat(src): match 15 game functions and retain bounded near misses",
+      "author": "ThorpenCodes",
+      "untrustedBody": "## What\n\nReplace 15 game-function markers with plain C: **2,396 catalogue bytes and 366 primary USA v1.01 placements**. The same C also passes 308 PAL and 366 USA v2.00 placements, for **1,040 applicable placements** overall. Qualified per-file profiles use the existing compiler; no compiler, catalogue or build-policy changes are included.\n\nKeep **40 new useful C near-miss drafts**, update one existing draft, and retire nine drafts whose functions now link exactly. Near misses remain unlinked and receive no completion credit. Record measured blockers and copy-profile remedies in the existing shared documentation.\n\nEach matched function and each retained/updated near miss has its own commit: 15 match commits, 41 near-miss commits and one shared documentation commit (57 total). Generated reports, README progress, npm files, local campaign files and private game/tool assets are excluded. An unlinked `func_0030D430` draft using a symbol alias and volatile addressing tricks was withheld and",
+      "mergedAt": "2026-10-24T07:08:42Z"
+     },
+     {
+      "number": 312,
+      "title": "Link verified compiler jump tables and integrate five C functions",
+      "author": "llesieur99",
+      "untrustedBody": "Ordinary C switches previously passed the local instruction checker but fell back to retail assembly because their compiler-generated branch tables had no place in the linked image. Retain verified `.rodata`/`.rdata` sections at the addresses derived from their text relocations and interleave them with the remaining retail data, following RAC1's placement approach.\r\n\r\nEvery table word must have one R_MIPS_32 relocation to an independently placed C text section in the same object. Validate entry order and destinations, section bounds/alignment and overlapping claims. Keep dependencies scoped to their object. Reject mixed/scalar pools and missing destinations. Neither compiler instructions nor table values are rewritten; strict loaded-byte comparison remains the acceptance gate.\r\n\r\nIntegrate the retained ordinary-C color conversions `func_L04_004323F8` and `func_L04_00432530`, Grelbin controller `func_L19_00421E80`, format dispatcher `func_00118CC8` and DWARF interpreter `func_00123D30`.",
+      "mergedAt": "2026-10-24T07:52:38Z"
+     },
+     {
+      "number": 313,
+      "title": "Match three switch functions and correct Joba case mappings",
+      "author": "llesieur99",
+      "untrustedBody": "Integrate the shared message selector `func_L02_004114A0` and the two Joba index converters `func_L11_0043E090` / `func_L11_0043E108`, using the compiler-owned branch-table placement merged in #312. These add 408 distinct primary code bytes; no build mechanism or compiler profile changes are needed.\r\n\r\nThe retained Joba drafts had instruction-exact bodies but incorrect switch mappings. The table validator rejected both because their R_MIPS_32 case destinations disagreed with retail. Correct the ordinary C `case` labels while preserving the emitted text layout, then link and compare the complete tables. Keep the three bodies in separate C units so their tables preserve the measured retail spacing without artificial padding or aliases.\r\n\r\nThe shared selector has seven USA v1.01 placements and is absent under that catalogue name in USA v2.00/PAL. Each Joba converter has one placement in each release. Preserve the original drafts privately, remove their obsolete nonmatching entries and rec",
+      "mergedAt": "2026-10-24T08:40:23Z"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": {
+    "before": {
+     "code": {
+      "done": 718216,
+      "total": 5529156
+     },
+     "functions": {
+      "done": 4192,
+      "total": 8601
+     },
+     "data": {
+      "done": 0,
+      "total": 383391
+     }
+    },
+    "after": {
+     "code": {
+      "done": 776368,
+      "total": 5529148
+     },
+     "functions": {
+      "done": 4351,
+      "total": 8601
+     },
+     "data": {
+      "done": 0,
+      "total": 383391
+     }
+    }
+   },
+   "contributors": [
+    "llesieur99",
+    "ThorpenCodes"
+   ]
+  },
+  {
+   "repo": "rac3-decomp",
+   "title": "Up Your Arsenal",
+   "branches": [
+    {
+     "name": "master",
+     "commits": []
+    }
+   ],
+   "commitCount": 0,
+   "pullRequests": {
+    "merged": [],
+    "opened": []
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": null,
+   "contributors": []
+  },
+  {
+   "repo": "rac4-decomp",
+   "title": "Ratchet: Deadlocked",
+   "branches": [
+    {
+     "name": "main",
+     "commits": [
+      {
+       "sha": "5d517a2bcfd7add9af94e36a297e259d7846d607",
+       "title": "Merge pull request #36 from chistianh/pal-oficial-7",
+       "author": "Veradictus",
+       "date": "2026-10-24T10:06:55Z"
+      }
+     ]
+    }
+   ],
+   "commitCount": 1,
+   "pullRequests": {
+    "merged": [
+     {
+      "number": 36,
+      "title": "Add PAL C for 3 more PAL-only functions; two build/PAL notes",
+      "author": "chistianh",
+      "untrustedBody": "This adds 3 PAL-only functions, chosen as in #33–#35 (fingerprint in no row of `config/us/functions.tsv`, nothing resident, no `match` or `near` row places them):\n\n| PAL | Where | Size |\n|---|---|---|\n| func_00523578 | `src/pal/game/` | 184 |\n| func_004ABCE8 | `src/pal/game/` | 268 |\n| func_L01_0045BF60 | `src/pal/overlays/shared/` | 212 |\n\nNotes:\n- `func_00523578` calls a handler from a table with 5 arguments (`$t0` = 1).\n- `func_L01_0045BF60` takes two `u128` arguments by value. The callee parameters that receive `0xFFFFFFFF` and `0x84204080` are declared `u32`, which gives retail's `lui`/`ori`.\n- `func_004ABCE8` sits in the main image. Its level-00 copy uses the level-00 names of the same callees and tables; they were renamed to the main ones (`func_004977E0`, `D_003D92C8`…) from the relocations of the built object.\n\nChecks: all 73 files of `src/pal/` MATCH with `tools/check_func.py --version pal`, checked with `src/pal/` set aside. The branch is based on `main`. `config/` and the r",
+      "mergedAt": "2026-10-24T10:06:55Z"
+     }
+    ],
+    "opened": [
+     {
+      "number": 38,
+      "title": "Add PAL C for 5 more PAL-only functions; three PAL catalogue cuts",
+      "author": "chistianh",
+      "untrustedBody": "**Title:** Add PAL C for 5 more PAL-only functions; three PAL catalogue cuts\n\nThis adds 5 PAL-only functions, chosen as in #33–#36 (fingerprint in no row of `config/us/functions.tsv`, nothing resident, no `match` or `near` row places them):\n\n| PAL | Where | Size |\n|---|---|---|\n| func_L01_0048AAF0 | `src/pal/overlays/shared/` | 380 |\n| func_L01_0048F610 | `src/pal/overlays/shared/` | 388 |\n| func_L01_0056FCA0 | `src/pal/overlays/shared/` | 440 |\n| func_005179B0 | `src/pal/game/` | 456 |\n| func_L01_00502598 | `src/pal/overlays/shared/` | 468 |\n\nNotes:\n- Frame constants that may be 50 Hz values (for the US check): `func_L01_0048AAF0` waits until a counter reaches **501** (`0x1F5`); `func_L01_0056FCA0` and `func_L01_00502598` multiply by **50.0f** before converting to an integer.\n- `func_L01_0048F610` masks a `u64` field with `(u64)0x8208 << 29` and copies a `u128` position.\n- `func_L01_00502598` writes its fields through two small structs. With plain `u8 *` casts GCC orders the stores di",
+      "mergedAt": "2026-10-28T14:03:03Z"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": {
+    "before": {
+     "code": {
+      "done": 262428,
+      "total": 5782424
+     },
+     "functions": {
+      "done": 3598,
+      "total": 18085
+     }
+    },
+    "after": {
+     "code": {
+      "done": 262428,
+      "total": 5782424
+     },
+     "functions": {
+      "done": 3598,
+      "total": 18085
+     }
+    }
+   },
+   "contributors": [
+    "chistianh",
+    "Veradictus"
+   ]
+  },
+  {
+   "repo": "openrac-mods",
+   "title": "OpenRAC mods",
+   "branches": [
+    {
+     "name": "master",
+     "commits": [
+      {
+       "sha": "43f9c26b15074ccbf8db99851c93954e26cda211",
+       "title": "chore(release): patch versions for the documentation and style pass",
+       "author": "Veradictus",
+       "date": "2026-10-24T12:58:40Z"
+      },
+      {
+       "sha": "e6c91952ac5eb62d7d1e093f340813020f207c05",
+       "title": "fix(keyboard-mouse): the mouse selects the grid cell under it, version 1.2.3",
+       "author": "Veradictus",
+       "date": "2026-10-24T09:49:33Z"
+      },
+      {
+       "sha": "d954bb1f743152f9d4a0a2287c448aa032bc84b3",
+       "title": "fix(keyboard-mouse): find the map by its handler's function in every level, version 1.2.2",
+       "author": "Veradictus",
+       "date": "2026-10-24T09:27:19Z"
+      },
+      {
+       "sha": "4984b4f0fb8a9ee2bf60594997532a1d3e27f9c0",
+       "title": "test(keyboard-mouse): keep the fake widget updates distinct, which MSVC folded into one",
+       "author": "Veradictus",
+       "date": "2026-10-24T09:18:58Z"
+      },
+      {
+       "sha": "3d1f457f73af389956a97bb90e04ccd3a87b1a90",
+       "title": "fix(keyboard-mouse): the mouse focuses only what the arrows can reach, version 1.2.1",
+       "author": "Veradictus",
+       "date": "2026-10-24T09:15:33Z"
+      }
+     ]
+    }
+   ],
+   "commitCount": 5,
+   "pullRequests": {
+    "merged": [],
+    "opened": []
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [
+    {
+     "tag": "ammo-max-v1.0.1",
+     "name": "ammo-max-v1.0.1",
+     "publishedAt": "2026-10-24T13:04:05Z"
+    },
+    {
+     "tag": "difficulty-v1.2.1",
+     "name": "difficulty-v1.2.1",
+     "publishedAt": "2026-10-24T13:03:48Z"
+    },
+    {
+     "tag": "dualsense-v1.0.1",
+     "name": "dualsense-v1.0.1",
+     "publishedAt": "2026-10-24T13:05:04Z"
+    },
+    {
+     "tag": "item-randomizer-v1.0.2",
+     "name": "item-randomizer-v1.0.2",
+     "publishedAt": "2026-10-24T13:05:16Z"
+    },
+    {
+     "tag": "keyboard-mouse-v1.2.1",
+     "name": "keyboard-mouse-v1.2.1",
+     "publishedAt": "2026-10-24T09:24:23Z"
+    },
+    {
+     "tag": "keyboard-mouse-v1.2.2",
+     "name": "keyboard-mouse-v1.2.2",
+     "publishedAt": "2026-10-24T09:32:16Z"
+    },
+    {
+     "tag": "keyboard-mouse-v1.2.3",
+     "name": "keyboard-mouse-v1.2.3",
+     "publishedAt": "2026-10-24T09:54:30Z"
+    },
+    {
+     "tag": "live-splits-v1.0.1",
+     "name": "live-splits-v1.0.1",
+     "publishedAt": "2026-10-24T13:06:27Z"
+    },
+    {
+     "tag": "lock-strafe-v1.0.1",
+     "name": "lock-strafe-v1.0.1",
+     "publishedAt": "2026-10-24T13:06:39Z"
+    }
+   ],
+   "progress": null,
+   "contributors": [
+    "Veradictus"
+   ]
+  }
+ ]
+}

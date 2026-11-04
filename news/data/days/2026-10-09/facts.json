@@ -1,0 +1,820 @@
+{
+ "format": 1,
+ "date": "2026-10-09",
+ "totals": {
+  "commits": 27,
+  "pullRequestsMerged": 18,
+  "pullRequestsOpened": 22,
+  "contributors": 6
+ },
+ "projects": [
+  {
+   "repo": "OpenRAC",
+   "title": "OpenRAC launcher",
+   "branches": [
+    {
+     "name": "develop",
+     "commits": [
+      {
+       "sha": "9d29746f237dde4f564dc38f5e762b5912fb82cf",
+       "title": "chore(import): sync rac1/ntsc with Lombyte at 5a199f1",
+       "author": "Veradictus",
+       "date": "2026-10-09T20:28:48Z"
+      },
+      {
+       "sha": "8d962f017127212c40da55fab6432983597682ea",
+       "title": "feat(launcher): optimize user gameplay video to smooth GIF preview",
+       "author": "Lynder063",
+       "date": "2026-10-09T18:50:32Z"
+      },
+      {
+       "sha": "da8467c369bcbfedcaed3a76d5acad32f2683b57",
+       "title": "feat(launcher)!: no emulation: play is the native port",
+       "author": "Lynder063",
+       "date": "2026-10-09T17:29:48Z"
+      },
+      {
+       "sha": "74181d6c2215d34afc2b59175b4ef7b16411b158",
+       "title": "fix(launcher): eliminate navigation lag and socket stalls when opening games",
+       "author": "Lynder063",
+       "date": "2026-10-09T17:26:08Z"
+      },
+      {
+       "sha": "f09b22662c310a943dacaf192e42d5f569f9ab3e",
+       "title": "chore: install state",
+       "author": "Veradictus",
+       "date": "2026-10-09T16:59:55Z"
+      },
+      {
+       "sha": "d7a2f62339cc2d9917718f68bfe0fe45925b4e93",
+       "title": "feat(launcher): enhance Discord Rich Presence for playing games with live art assets",
+       "author": "Lynder063",
+       "date": "2026-10-09T16:58:06Z"
+      },
+      {
+       "sha": "5fc5d72479c2741cbd23a51413b2fbefe523f929",
+       "title": "feat(launcher): add static game backdrop to game detail pages",
+       "author": "Lynder063",
+       "date": "2026-10-09T15:13:42Z"
+      },
+      {
+       "sha": "c2f313379cc8d6e94c609f11856d9e2706132568",
+       "title": "feat(launcher): add ISO inspection, disc import, and Wayland icon integration",
+       "author": "Lynder063",
+       "date": "2026-10-09T14:41:26Z"
+      },
+      {
+       "sha": "6bf2d8ef52f5b3290e1629ec8f8effa8ebec4b34",
+       "title": "feat(runtime): which of the game's vector unit programs runs how much",
+       "author": "Veradictus",
+       "date": "2026-10-09T13:42:20Z"
+      },
+      {
+       "sha": "bdf3495ced029852d177c77eb6222532236df760",
+       "title": "feat(runtime): the core library as host code, and what it showed",
+       "author": "Veradictus",
+       "date": "2026-10-09T13:17:02Z"
+      },
+      {
+       "sha": "add88e6d9695dada4ac1fab6d1de9b7c0d9de3dd",
+       "title": "docs(port): what the port into rac1/pal still gets wrong",
+       "author": "Veradictus",
+       "date": "2026-10-09T13:04:33Z"
+      },
+      {
+       "sha": "3ca3a3e251aa173d7c7f5d4c6e6c021ccef3ec5d",
+       "title": "feat(runtime): three small assembly routines of the levels in C",
+       "author": "Veradictus",
+       "date": "2026-10-09T12:26:59Z"
+      },
+      {
+       "sha": "f525d58ad89f10b8c32044e67e1085bc3f8c2001",
+       "title": "feat(runtime): bind place by place, find narrowed 64-bit results",
+       "author": "Veradictus",
+       "date": "2026-10-09T12:05:38Z"
+      },
+      {
+       "sha": "4e48e38792d7b38cd40e40c3e26c52562b88a7ab",
+       "title": "feat(runtime): one decompiled function stands in for all its copies",
+       "author": "Veradictus",
+       "date": "2026-10-09T10:39:54Z"
+      },
+      {
+       "sha": "d7e5c1d1f92524c8614e07ce722cd92ad6223177",
+       "title": "feat(runtime): host code runs into the first level",
+       "author": "Veradictus",
+       "date": "2026-10-09T09:01:59Z"
+      },
+      {
+       "sha": "d75b5cca2a391cdfd0b0027091b6cb2a7b49b992",
+       "title": "feat(runtime): host code in place of guest functions",
+       "author": "Veradictus",
+       "date": "2026-10-09T07:01:02Z"
+      },
+      {
+       "sha": "6f7e3b13b2f5c060b88ea46f2097a8fdf4f8abdf",
+       "title": "feat(runtime): the guest's memory as one address space",
+       "author": "Veradictus",
+       "date": "2026-10-09T05:19:42Z"
+      },
+      {
+       "sha": "16e6b5a93539c6400630fc6fc98e3dbfef1c6795",
+       "title": "feat(launcher): the level editor's steps, from extract to play",
+       "author": "Veradictus",
+       "date": "2026-10-09T05:14:57Z"
+      },
+      {
+       "sha": "35b43289c0abd6da6dd215bfbb2305e7309dad9c",
+       "title": "feat(runtime): one command to build, test and play",
+       "author": "Veradictus",
+       "date": "2026-10-09T04:27:06Z"
+      },
+      {
+       "sha": "dc090f54e414935791825627f41cc56f3d0e39f5",
+       "title": "feat(launcher): scaffold a desktop launcher for all four games",
+       "author": "Veradictus",
+       "date": "2026-10-09T04:19:08Z"
+      },
+      {
+       "sha": "a17dfb30a45cd88aafc8125234ede2ba1a9700bc",
+       "title": "feat(runtime): sound effects play in the game",
+       "author": "Veradictus",
+       "date": "2026-10-09T04:18:43Z"
+      },
+      {
+       "sha": "dfe1b308429bb4c3dffda0273d058fca1e4c87a7",
+       "title": "feat(runtime): sound effect banks, scripts and voices",
+       "author": "Veradictus",
+       "date": "2026-10-09T03:15:45Z"
+      },
+      {
+       "sha": "d3bf6af620fe233e0898cd54f69ebe26eff94732",
+       "title": "fix(runtime): the games' stash on the second processor; the pause menu opens",
+       "author": "Veradictus",
+       "date": "2026-10-09T02:49:31Z"
+      },
+      {
+       "sha": "6073e492993540b93d6c350e063b2693da120c87",
+       "title": "feat(runtime): play in the window: keyboard and game controller, one frame per field",
+       "author": "Veradictus",
+       "date": "2026-10-09T02:17:42Z"
+      }
+     ]
+    },
+    {
+     "name": "master",
+     "commits": [
+      {
+       "sha": "9d29746f237dde4f564dc38f5e762b5912fb82cf",
+       "title": "chore(import): sync rac1/ntsc with Lombyte at 5a199f1",
+       "author": "Veradictus",
+       "date": "2026-10-09T20:28:48Z"
+      },
+      {
+       "sha": "8d962f017127212c40da55fab6432983597682ea",
+       "title": "feat(launcher): optimize user gameplay video to smooth GIF preview",
+       "author": "Lynder063",
+       "date": "2026-10-09T18:50:32Z"
+      },
+      {
+       "sha": "da8467c369bcbfedcaed3a76d5acad32f2683b57",
+       "title": "feat(launcher)!: no emulation: play is the native port",
+       "author": "Lynder063",
+       "date": "2026-10-09T17:29:48Z"
+      },
+      {
+       "sha": "74181d6c2215d34afc2b59175b4ef7b16411b158",
+       "title": "fix(launcher): eliminate navigation lag and socket stalls when opening games",
+       "author": "Lynder063",
+       "date": "2026-10-09T17:26:08Z"
+      },
+      {
+       "sha": "f09b22662c310a943dacaf192e42d5f569f9ab3e",
+       "title": "chore: install state",
+       "author": "Veradictus",
+       "date": "2026-10-09T16:59:55Z"
+      },
+      {
+       "sha": "d7a2f62339cc2d9917718f68bfe0fe45925b4e93",
+       "title": "feat(launcher): enhance Discord Rich Presence for playing games with live art assets",
+       "author": "Lynder063",
+       "date": "2026-10-09T16:58:06Z"
+      },
+      {
+       "sha": "5fc5d72479c2741cbd23a51413b2fbefe523f929",
+       "title": "feat(launcher): add static game backdrop to game detail pages",
+       "author": "Lynder063",
+       "date": "2026-10-09T15:13:42Z"
+      },
+      {
+       "sha": "c2f313379cc8d6e94c609f11856d9e2706132568",
+       "title": "feat(launcher): add ISO inspection, disc import, and Wayland icon integration",
+       "author": "Lynder063",
+       "date": "2026-10-09T14:41:26Z"
+      },
+      {
+       "sha": "6bf2d8ef52f5b3290e1629ec8f8effa8ebec4b34",
+       "title": "feat(runtime): which of the game's vector unit programs runs how much",
+       "author": "Veradictus",
+       "date": "2026-10-09T13:42:20Z"
+      },
+      {
+       "sha": "bdf3495ced029852d177c77eb6222532236df760",
+       "title": "feat(runtime): the core library as host code, and what it showed",
+       "author": "Veradictus",
+       "date": "2026-10-09T13:17:02Z"
+      },
+      {
+       "sha": "add88e6d9695dada4ac1fab6d1de9b7c0d9de3dd",
+       "title": "docs(port): what the port into rac1/pal still gets wrong",
+       "author": "Veradictus",
+       "date": "2026-10-09T13:04:33Z"
+      },
+      {
+       "sha": "3ca3a3e251aa173d7c7f5d4c6e6c021ccef3ec5d",
+       "title": "feat(runtime): three small assembly routines of the levels in C",
+       "author": "Veradictus",
+       "date": "2026-10-09T12:26:59Z"
+      },
+      {
+       "sha": "f525d58ad89f10b8c32044e67e1085bc3f8c2001",
+       "title": "feat(runtime): bind place by place, find narrowed 64-bit results",
+       "author": "Veradictus",
+       "date": "2026-10-09T12:05:38Z"
+      },
+      {
+       "sha": "4e48e38792d7b38cd40e40c3e26c52562b88a7ab",
+       "title": "feat(runtime): one decompiled function stands in for all its copies",
+       "author": "Veradictus",
+       "date": "2026-10-09T10:39:54Z"
+      },
+      {
+       "sha": "d7e5c1d1f92524c8614e07ce722cd92ad6223177",
+       "title": "feat(runtime): host code runs into the first level",
+       "author": "Veradictus",
+       "date": "2026-10-09T09:01:59Z"
+      },
+      {
+       "sha": "d75b5cca2a391cdfd0b0027091b6cb2a7b49b992",
+       "title": "feat(runtime): host code in place of guest functions",
+       "author": "Veradictus",
+       "date": "2026-10-09T07:01:02Z"
+      },
+      {
+       "sha": "6f7e3b13b2f5c060b88ea46f2097a8fdf4f8abdf",
+       "title": "feat(runtime): the guest's memory as one address space",
+       "author": "Veradictus",
+       "date": "2026-10-09T05:19:42Z"
+      },
+      {
+       "sha": "16e6b5a93539c6400630fc6fc98e3dbfef1c6795",
+       "title": "feat(launcher): the level editor's steps, from extract to play",
+       "author": "Veradictus",
+       "date": "2026-10-09T05:14:57Z"
+      },
+      {
+       "sha": "35b43289c0abd6da6dd215bfbb2305e7309dad9c",
+       "title": "feat(runtime): one command to build, test and play",
+       "author": "Veradictus",
+       "date": "2026-10-09T04:27:06Z"
+      },
+      {
+       "sha": "dc090f54e414935791825627f41cc56f3d0e39f5",
+       "title": "feat(launcher): scaffold a desktop launcher for all four games",
+       "author": "Veradictus",
+       "date": "2026-10-09T04:19:08Z"
+      },
+      {
+       "sha": "a17dfb30a45cd88aafc8125234ede2ba1a9700bc",
+       "title": "feat(runtime): sound effects play in the game",
+       "author": "Veradictus",
+       "date": "2026-10-09T04:18:43Z"
+      },
+      {
+       "sha": "dfe1b308429bb4c3dffda0273d058fca1e4c87a7",
+       "title": "feat(runtime): sound effect banks, scripts and voices",
+       "author": "Veradictus",
+       "date": "2026-10-09T03:15:45Z"
+      },
+      {
+       "sha": "d3bf6af620fe233e0898cd54f69ebe26eff94732",
+       "title": "fix(runtime): the games' stash on the second processor; the pause menu opens",
+       "author": "Veradictus",
+       "date": "2026-10-09T02:49:31Z"
+      },
+      {
+       "sha": "6073e492993540b93d6c350e063b2693da120c87",
+       "title": "feat(runtime): play in the window: keyboard and game controller, one frame per field",
+       "author": "Veradictus",
+       "date": "2026-10-09T02:17:42Z"
+      }
+     ]
+    }
+   ],
+   "commitCount": 24,
+   "pullRequests": {
+    "merged": [
+     {
+      "number": 2,
+      "title": "feat(launcher): scaffold a desktop launcher for all four games",
+      "author": "Veradictus",
+      "untrustedBody": "A Tauri 2 desktop app in `launcher/` that puts OpenRAC behind buttons for every version in `games/` (rac1 PAL and NTSC-U, rac2, rac3, rac4): find your discs, place each build's inputs, set up, build, check, play in PCSX2, and open the level editor. It runs the checkout's own tools and streams their output; it hard-codes nothing a `game.json` already says.\n\nThis is **scaffolding**: the app, its look, the catalogue, the job runner and the repository-wide actions work; most per-game actions are written from each game's docs but not yet run from the launcher. `launcher/docs/INTEGRATION.md` is the handoff for connecting them.\n\n## What's in it\n\n- **`launcher/core/`** (Rust, no window): the catalogue from `games/*/game.json` and `progress/summary.json`; each version's disc and input status (names, sizes, links; never hashes an image); settings; detection of the checkout, Python, PCSX2, Godot and Docker; a job runner that streams output and cancels a job's whole process tree.\n- **`launcher/act",
+      "mergedAt": "2026-10-09T04:16:49Z"
+     }
+    ],
+    "opened": [
+     {
+      "number": 3,
+      "title": "Native port scaffolding: no emulation, OpenGOAL-style set-up, port/ with hostgen, runtime, renderer and openrac-rac1",
+      "author": "Veradictus",
+      "untrustedBody": "## Summary\n\nThis takes OpenRAC from \"play through emulation\" to the scaffolding of a **native PC port, built the way OpenGOAL ported Jak and Daxter, for every game version**. It has three parts:\n\n1. **No emulation.** The emulator experiment (`runtime/`) is removed. Its studies are kept in `docs/port/`, and git history keeps the code (for example at `7954152`). The launcher no longer imports ISOs or runs anything emulated.\n2. **OpenGOAL's disc set-up.** `tools/extractor.py` copies and validates the player's disc, using OpenGOAL's folder layout and error numbers. The launcher's \"Set up from your disc\" runs it.\n3. **`port/`**, the native port's code. Every version in `port/game/` is built from its decompilation into `openrac-<id>`:\n   - **Ratchet & Clank (PAL)** goes furthest. `openrac-rac1-pal` loads the data from the player's executable, runs the game's own translated `main()`, and stops at the first function that has no C yet: with the public decompilation, the boot stage `func_001E99D",
+      "mergedAt": "2026-10-10T03:56:18Z"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": null,
+   "contributors": [
+    "Lynder063",
+    "Veradictus"
+   ]
+  },
+  {
+   "repo": "rac1-decomp",
+   "title": "Ratchet & Clank",
+   "branches": [
+    {
+     "name": "main",
+     "commits": [
+      {
+       "sha": "0fe9b5129b831024e5372b05e52c0279f4fe54ab",
+       "title": "Merge pull request #45 from dev-gian/feat/four-overlay-matches",
+       "author": "Lynder063",
+       "date": "2026-10-09T20:35:28Z"
+      },
+      {
+       "sha": "48bbff8ed606c7aba7e7e93050fc875e5af1d778",
+       "title": "Decompile 5 functions in movie player without inline asm",
+       "author": "Lynder063",
+       "date": "2026-10-09T07:30:30Z"
+      },
+      {
+       "sha": "0da680d7a13884a5531b1eb574e4bf9cd3f59e1f",
+       "title": "Revert pseudo-functions using register pinning and inline asm to INCLUDE_ASM",
+       "author": "Lynder063",
+       "date": "2026-10-09T06:13:01Z"
+      }
+     ]
+    }
+   ],
+   "commitCount": 3,
+   "pullRequests": {
+    "merged": [
+     {
+      "number": 45,
+      "title": "Match 4 functions in Rilgar, Pokitaru, Gemlik and shared overlays",
+      "author": "dev-gian",
+      "untrustedBody": "Four overlay functions matched byte-for-byte, in one commit:\n\n- **Rilgar:** `func_L05_003108D0`\n- **Pokitaru:** `func_L11_00318730` (UpdateMoby_1264)\n- **Gemlik:** `func_L13_00306D40`\n- **Shared:** `func_L14_002B4128`\n\nMatched code goes from 61.174% to 61.221% (3,702 to 3,706 functions).\n\nVerification, on top of current upstream `main` (48bbff8e, no newer commits when this was opened):\n- `build_sn.sh` with the Linux `ee-gcc-2.9-991111-01`: 1109 of 1110 exact, 0 size mismatches, everything at its retail address.\n- `tools/overlay_file_check.py` on all four changed source files: 0 problems.\n- `progress/report.json` regenerated from that build; `gen_progress_report.py --check` passes.\n- Each change replaces exactly one `INCLUDE_ASM` stub (checked that none of them was already C on upstream). The three staged `nonmatching/` files that existed for these are removed and the README regenerated.\n\nPlain C only, no inline asm, pins or barriers, no `#define`, no Sony SDK material, and `src/game/mo",
+      "mergedAt": "2026-10-09T20:35:29Z"
+     }
+    ],
+    "opened": [
+     {
+      "number": 45,
+      "title": "Match 4 functions in Rilgar, Pokitaru, Gemlik and shared overlays",
+      "author": "dev-gian",
+      "untrustedBody": "Four overlay functions matched byte-for-byte, in one commit:\n\n- **Rilgar:** `func_L05_003108D0`\n- **Pokitaru:** `func_L11_00318730` (UpdateMoby_1264)\n- **Gemlik:** `func_L13_00306D40`\n- **Shared:** `func_L14_002B4128`\n\nMatched code goes from 61.174% to 61.221% (3,702 to 3,706 functions).\n\nVerification, on top of current upstream `main` (48bbff8e, no newer commits when this was opened):\n- `build_sn.sh` with the Linux `ee-gcc-2.9-991111-01`: 1109 of 1110 exact, 0 size mismatches, everything at its retail address.\n- `tools/overlay_file_check.py` on all four changed source files: 0 problems.\n- `progress/report.json` regenerated from that build; `gen_progress_report.py --check` passes.\n- Each change replaces exactly one `INCLUDE_ASM` stub (checked that none of them was already C on upstream). The three staged `nonmatching/` files that existed for these are removed and the README regenerated.\n\nPlain C only, no inline asm, pins or barriers, no `#define`, no Sony SDK material, and `src/game/mo",
+      "mergedAt": "2026-10-09T20:35:29Z"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": {
+    "before": {
+     "code": {
+      "done": 2270576,
+      "total": 3712808
+     },
+     "functions": {
+      "done": 3717,
+      "total": 5109
+     }
+    },
+    "after": {
+     "code": {
+      "done": 2273016,
+      "total": 3712808
+     },
+     "functions": {
+      "done": 3706,
+      "total": 5109
+     }
+    }
+   },
+   "contributors": [
+    "dev-gian",
+    "Lynder063"
+   ]
+  },
+  {
+   "repo": "rac2-decomp",
+   "title": "Going Commando",
+   "branches": [
+    {
+     "name": "master",
+     "commits": []
+    }
+   ],
+   "commitCount": 0,
+   "pullRequests": {
+    "merged": [
+     {
+      "number": 58,
+      "title": "docs: fix the complete contributor baseline instructions",
+      "author": "ThorpenCodes",
+      "untrustedBody": "## Summary\nCorrect the contributor guide's complete C baseline route: the current SDK-bound boot must use campaign.py integrate because build.py does not accept --sdk-binding. Preserve the assembly-only setup check and record the contributor's successful baseline action. This adds no matching credit.\n\n## Scope\n- Type: documentation\n- Validated base: c28a723a7d43f18a81060554654acc7a855ce8f8\n- Reservation: N/A: documentation and an already completed baseline action; no new function work\n- Targets: docs/START-HERE.md and config/campaign-register.json\n\n## Validation\n- Command: python scripts/source_layout.py --check --inventory-check progress/source-inventory.json\n- Result: maintainer check passed after refreshing this branch against c28a723a. The register merge retains every record from both parents; only the original guide and zero-credit baseline action differ from upstream.\n- Command: python scripts/campaign.py --runtime <runtime> views --check\n- Result: maintainer check passed on the ",
+      "mergedAt": "2026-10-09T03:05:32Z"
+     },
+     {
+      "number": 59,
+      "title": "tools: share contributor reservations and reviewed nonmatching attempts",
+      "author": "llesieur99",
+      "untrustedBody": "## What this changes\n\nContributors on separate forks can otherwise choose the same function from stale\nlocal state. Add shared function/family reservations, visible through GitHub\nissues and an isolated operational ledger. Whole lots are admitted atomically;\nauthenticated owners manage their own claims, expired claims remain held for\ninspection, and review handoffs do not consume active work-in-progress slots.\n\nThe trusted issue-comment workflow never checks out contributor code or executes\ncomment text. SHA compare-and-swap updates and immutable command IDs handle races\nand uncertain write acknowledgements. Current upstream reference/catalogue and\nintegrated placement proofs constrain admission and integration bookkeeping.\n\nAdd a generated `nonmatching/` research shelf following RAC1's visible handoff\norganization, with independently implemented RAC2 provenance/admission rules.\nStaging requires immutable maintained trial evidence and explicit source-bound\nowner review. The initial she",
+      "mergedAt": "2026-10-09T01:18:48Z"
+     },
+     {
+      "number": 60,
+      "title": "decomp: match boot FUN_001163A0 resident word setter (+16 C bytes)",
+      "author": "ThorpenCodes",
+      "untrustedBody": "Reconstruct the complete 16-byte boot function `FUN_001163A0` at\n`0x001163A0` in C. It stores its 32-bit argument at offset `0x58` through\nthe global pointer `D_00133E74`. Integrated C progress increases by 16\nbytes (700,268 to 700,284), and unique matched progress also increases\nby 16 bytes (178,724 to 178,740).\n\nThe authored change is one accessor function and its catalog entry.\nThe generated compilation unit, campaign history, catalog and progress\nproofs are updated coherently through the maintained workflow.\n\nValidation:\n\n- Task `boot-resident-word58-setter-20261009`: one source-search trial\n  used out of three; complete function matches 16/16 bytes, zero differences.\n- Full unchanged boot review: 287/287 symbols, 13,792 bytes, exact equality.\n- Complete boot and all 27 overlays: 28/28 loaded-byte and metadata gates\n  pass, comparing 79,486,851 bytes.\n- Global catalog replay: 109,727 reconstruction checks, zero normalizer failures.\n- Task closure, generated views, source inventory ",
+      "mergedAt": "2026-10-09T02:05:02Z"
+     },
+     {
+      "number": 63,
+      "title": "tools: require useful PR descriptions and scoped validation evidence",
+      "author": "llesieur99",
+      "untrustedBody": "## Summary\nRequire useful PR descriptions before merge so reviewers can locate scope, validation and proof metadata without reconstructing a contributor's session. The template and contributor guide distinguish documentation/tooling checks from matching evidence.\n\n## Scope\n- Type: tooling, documentation\n- Validated base: a7ff0df948a8b0144db2417620070508e9bbb97e\n- Reservation: N/A: no function work or compiler trials\n- Targets: .github/pull_request_template.md, .github/workflows/pr-description.yml, scripts/pr_description.py, tests/test_pr_description.py, AGENTS.md and contributor guides\n\n## Validation\n- Command: python -m unittest discover -s tests -p test_pr_description.py -v\n- Result: 24 targeted tests passed, including incomplete bodies, appropriate evidence, fork metadata handling, changed snapshots, duplicate heads and API failures.\n- Command: python scripts/source_layout.py --check --inventory-check progress/source-inventory.json\n- Result: source inventory is current; no game sour",
+      "mergedAt": "2026-10-09T02:21:31Z"
+     },
+     {
+      "number": 64,
+      "title": "fix: validate older PR descriptions with the current trusted target",
+      "author": "llesieur99",
+      "untrustedBody": "## Summary\nFix automatic PR description validation for older contributions. PR58 retained a cached base SHA from before the validator existed, so its edited event checked out code without scripts/pr_description.py even though the current RAC2 branch contained the validator. Manual dispatch passed, but left the automatic workflow failure visible.\n\nLoad the current protected refs/heads/RAC2 from the base repository explicitly. Contributor code, event head SHAs and pasted commands remain unexecuted. Source-branch freshness is still enforced separately.\n\n## Scope\n- Type: tooling, documentation\n- Validated base: 09024f4b5577f6676b785c797b1c56f402b42fee\n- Reservation: N/A: no function work\n- Targets: .github/workflows/pr-description.yml, tests/test_pr_description.py and docs/PR-DESCRIPTIONS.md\n\n## Validation\n- Command: python -m unittest discover -s tests -p test_pr_description.py -v\n- Result: 24 tests passed with the qualified project Python. The security regression now requires the current",
+      "mergedAt": "2026-10-09T02:46:59Z"
+     },
+     {
+      "number": 68,
+      "title": "docs: add VU hardware and renderer comparison references",
+      "author": "llesieur99",
+      "untrustedBody": "## Summary\n\nAdd a compact hardware and OpenGOAL reference guide to the measured VU notes so future renderer investigations have concrete sources and a bounded evidence checklist. Keep related-game roles explicitly hypothetical and separate VU reconstruction or PC behaviour from exact EE C credit.\n\n## Scope\n\n- Type: documentation\n- Validated base: 468aacd0d5cb249e668b614142c1c6eadf1ab517\n- Reservation: N/A: no function work, trials or game-source edits\n- Targets: docs/VU-MICROPROGRAMS.md, reference section only\n\n## Validation\n\n- Command: git diff --check\n- Result: passed; no whitespace errors.\n- Command: Python documentation integrity check against the pre-edit snapshot\n- Result: pre-existing measured text preserved byte-for-byte; both relative links resolve; added section contains no private paths; UTF-8/LF verified.\n- Command: python scripts/pr_description.py --body-file <pr-body.md>\n- Result: description contract passed. No game reconstruction or compiler tests run for this documenta",
+      "mergedAt": "2026-10-09T05:42:46Z"
+     },
+     {
+      "number": 69,
+      "title": "decomp: close Qwen backlog with ten reviewed boot matches",
+      "author": "llesieur99",
+      "untrustedBody": "## Summary\n\nClose the retained 82-job Qwen backlog with explicit owner dispositions and preserved negative history. Freshly qualify and integrate ten reviewed boot functions (+248 physical bytes), retain partial work without matching credit, and fix finalizer snapshots to include their `.github` test inputs. Qwen remains paused; this change starts no new inference.\n\nDraft review: local finalization and tests passed. Shelf and local consistency checks passed. The final public scope review remains owner-controlled; exact-head CI is requested and has not yet run. Complete the checklist after the scope audit.\n\n## Scope\n\n- Type: matching, nonmatching, tooling, documentation\n- Validated base: 5d2d8dfee436a32a82567edacb0481ae3e637beb\n- Reservation: Owner-reviewed closeout of retained work begun before the reservation workflow; no next-batch claim or new Qwen dispatch.\n- Targets: Boot: FUN_00285840, FUN_00285850, FUN_002858B0, FUN_002ED870, FUN_0011D118, FUN_00287E48, FUN_002D7AC8, FUN_002EE6A",
+      "mergedAt": "2026-10-09T06:04:39Z"
+     },
+     {
+      "number": 70,
+      "title": "decomp: integrate five shared call families across boot and 26 overlays",
+      "author": "llesieur99",
+      "untrustedBody": "## Summary\n\nPromote five canonical shared call bodies into the boot unit and 26 native overlay units, and publish their freshly qualified proofs. The five bodies reproduce 375 measured placements: a 100-byte body that derives a 16-byte element at index-1 from its index-2 and index-3 neighbours through two bound helpers (215 placements), and 592, 484, 288 and 228-byte bodies whose original game role is unknown (27, 27, 52 and 54 placements). The measured C total moves from 700,532 to 778,372 bytes.\n\nEach family is authored once as a public fragment under `src/shared/` with per-program role substitutions, one placement per family is seeded in the source-layout generator, and the existing generator emits the standalone units. Generated spelling, whitespace and declarations are preserved, so object provenance stays valid. Barlow is the only program with no placement; its small-data unit keeps its current profile and source.\n\n## Scope\n\n- Type: matching, placement\n- Validated base: 5c7206289",
+      "mergedAt": "2026-10-09T13:07:18Z"
+     },
+     {
+      "number": 76,
+      "title": "ci: prepare trusted merge queue checks for RAC2",
+      "author": "llesieur99",
+      "untrustedBody": "## Summary\n\nPrepare RAC2's merge queue so accepting one PR does not force every remaining contributor to update their topic branch manually. Required tests and progress checks run on the temporary combined commit, and a separate read-only description job validates its live queue member. Queue activation follows integration of this support; no game source or matching credit changes.\n\n## Scope\n\n- Type: tooling, documentation\n- Validated base: 5f3c5e50c79bd6461bfde969c2a39669da30f425\n- Reservation: N/A: no function work or model dispatch\n- Targets: scripts/pr_description.py, tests/test_pr_description.py, three queue-compatible CI workflows and contributor/queue documentation\n\n## Validation\n\n- Command: python -m unittest discover -s tests -p test_pr_description.py -q\n- Result: 46 tests pass, including an older PR base, live membership/ref drift, API errors, pagination, changed PR snapshots and the read-only workflow boundary.\n- Command: python -m unittest discover -s tests -q\n- Result: 842",
+      "mergedAt": "2026-10-09T13:44:39Z"
+     },
+     {
+      "number": 77,
+      "title": "docs: route ongoing contributions through the merge queue",
+      "author": "llesieur99",
+      "untrustedBody": "## Summary\n\nExplain how an ongoing contribution reaches RAC2 through the merge queue, including older topic bases and shared C/proof conflicts. This branch deliberately starts from the original validated base before the queue-support PR advances RAC2, so its eventual queue admission verifies that a behind branch can integrate without a manual topic update.\n\n## Scope\n\n- Type: documentation\n- Validated base: 5f3c5e50c79bd6461bfde969c2a39669da30f425\n- Reservation: N/A: no function work\n- Targets: docs/CONTINUE.md\n\n## Validation\n\n- Command: git diff --check; git show origin/tooling/merge-queue-20261009:docs/MERGE-QUEUE.md\n- Result: Whitespace passes and the referenced queue guide exists in the published support branch. The guide will reach RAC2 before this documentation enters the queue. The six added lines were reviewed; no code changed and no game build was run.\n\n## Matching evidence\n\n- Proofs: N/A: documentation only\n- Physical delta: N/A: no matching credit\n- Unique delta: N/A: no matc",
+      "mergedAt": "2026-10-09T15:04:31Z"
+     },
+     {
+      "number": 78,
+      "title": "fix: bind queue description checks to read-only REST ancestry",
+      "author": "llesieur99",
+      "untrustedBody": "## Summary\n\nThe first real single-PR merge group was rejected by the queue description job despite valid owner-readable queue/PR metadata. Replace the unproven GraphQL queue/ref dependency with strict read-only REST binding of the actual two-parent synthetic commit, live refs, active queue policy and its uniquely associated PR. Add sanitized stage diagnostics and a pinned operator command that uses native queue admission without classic auto-merge or direct-merge fallback.\n\n## Scope\n\n- Type: tooling, documentation\n- Validated base: 6a6fe2c31e2a59984097163b2cf8678c170165b9\n- Reservation: N/A: no function work or model dispatch\n- Targets: scripts/pr_description.py, scripts/merge_queue.py, their regression tests and docs/MERGE-QUEUE.md\n\n## Validation\n\n- Command: python -m unittest discover -s tests -p test_pr_description.py -q; python -m unittest discover -s tests -p test_merge_queue.py -q\n- Result: 53 description/security tests and seven native-admission tests pass. Covers exact two-pare",
+      "mergedAt": "2026-10-09T14:49:17Z"
+     },
+     {
+      "number": 79,
+      "title": "decomp: integrate five shared data families across boot and 26 overlays",
+      "author": "llesieur99",
+      "untrustedBody": "## Summary\n\nPromote five canonical shared call/data bodies into the boot unit and 26 native overlay units, and publish their freshly qualified proofs. The five bodies reproduce 135 measured placements: a 464-byte body that expands 128 groups of 16 source bytes through a 256-entry nibble-expansion table and a bound 64-byte helper called four times per group (27 placements), a 392-byte body that drives twelve bound helpers from one owner's state block (27 placements), a 160-byte body that fills a 32-byte stack buffer through five bound helpers (27 placements), a 144-byte body that seeds eight consecutive floats and two aligned sub-objects inside a shared data object (27 placements), and a 116-byte body that rebases a table-relative pointer list in place (27 placements). The measured C total moves from 778,372 to 812,824 bytes.\n\nEach family is authored once as a public fragment under `src/shared/` with per-program role substitutions, one placement per family is seeded in the source-layout",
+      "mergedAt": "2026-10-09T15:39:34Z"
+     },
+     {
+      "number": 80,
+      "title": "tooling: adopt the folded-zero-store compiler identity and requalify the corpus",
+      "author": "llesieur99",
+      "untrustedBody": "## Summary\n\nAdopt the folded-zero-store compiler identity as the qualified C chain and re-qualify the whole published corpus on it. `cc1` moves from `8bed6eae` to `5fed4e23`; `cpp` and GNU `as` keep their hashes, so only the compiler half of the instrument identity changes.\n\nThe retired `allow_zero_ti_store.patch` admitted constraint `J` on the register alternatives of `movti_internal` and printed them with `%z1`, which folded a 128-bit zero into its store. It earned no witness of its own: the control sources that store a zero through a `mode(TI)` pointer — including the `FUN_00282C88` spelling — are byte-identical with and without it, because it only ever moved the memory alternatives, which already accepted `J`. Its real effect was to suppress the register form the retail uses whenever one materialised zero feeds several stores. Removing it bare is not neutral: `FUN_00282C88` (8 bytes) and `FUN_002E5FE0` (168 bytes) regress. The new `fold_zero_ti_store.py` therefore retires the machi",
+      "mergedAt": "2026-10-09T18:24:37Z"
+     },
+     {
+      "number": 82,
+      "title": "compiler: add measured SDK 3.01 division padding to GNU as",
+      "author": "llesieur99",
+      "untrustedBody": "## Summary\n\nAdd a bounded SDK 3.01 incoming division-padding floor to GNU `as`, with code labels remaining on the inserted NOPs. Independent review found that the original PR's NOP-length tests missed 11 displaced-label cases. This revision fixes those labels, counts generated NOPs, prevents data labels from contaminating code state, refuses transformer reapplication, and refreshes proofs through the maintained campaign workflow.\n\nThe qualified assembler is `d81f2e934463174fe2313c8270cf88aad5cf7b0c8c92db0f14a7e60e0f9bd85c`; `cc1` and `cpp` are unchanged. No C function, declaration, placement or matching credit is added.\n\n## Scope\n\n- Type: tooling, matching, documentation\n- Validated base: 923c7559da3263a0ae5c72ce99634660888d7ba1\n- Reservation: Maintainer-owned refresh of the already admitted corpus, explicitly authorized for this compiler lot; no new function work, source changes or reservation ownership is claimed. Existing accepted placements remain unchanged.\n- Targets: `scripts/com",
+      "mergedAt": "2026-10-09T21:07:28Z"
+     },
+     {
+      "number": 84,
+      "title": "tooling: group validated progress by authored source",
+      "author": "llesieur99",
+      "untrustedBody": "## Summary\n\nGroup the verified physical progress artifact by program, proof owner, authored source and explicit presentation role. The report now links to reviewed `src/` fragments and exposes full-level categories while retaining every original function/section record, unmatched remainder, data record and byte percentage.\n\nThe same 11,395 proved function placements become 2,896 accepted source groups plus 176 unchanged remainder/data units: 11,571 display units become 3,072. The 388 overlapping categories describe presentation scope; they are not additional matching credit or recovered retail translation units. All source attributions resolve, while every original role remains `unclassified` with `unknown` confidence.\n\n## Scope\n\n- Type: tooling, documentation\n- Validated base: 167390512c67423fef7b717d554026d80a417b93\n- Reservation: N/A: no function work, source movement or matching promotion\n- Targets: scripts/progress_modules.py, scripts/progress_module_report.py, config/progress-mod",
+      "mergedAt": "2026-10-09T22:19:22Z"
+     },
+     {
+      "number": 85,
+      "title": "tooling: reuse qualified queue tests for the primary maintainer",
+      "author": "llesieur99",
+      "untrustedBody": "## Summary\r\n\r\nReduce repeated tool-suite runs for the primary maintainer while keeping the complete merge-group suite mandatory. The PR selector runs protected-base code and verifies the immutable GitHub author and repository identities. Main can reuse only an exact-commit successful full queue run from the reviewed workflow; missing or ambiguous evidence runs the full suite.\r\n\r\n## Scope\r\n\r\n- Type: tooling, documentation\r\n- Validated base: 91a8b54097e6bb24d7dd93a5743c7267c3b78831\r\n- Reservation: N/A: no function work or new matching claims\r\n- Targets: tests.yml, maintainer_test_policy.py, maintainer_tests.py, campaign finalizer CLI, focused regression tests and maintainer/queue/campaign documentation. Other contributors retain full PR/main tests; Progress publication and protection rules are unchanged.\r\n\r\n## Validation\r\n\r\n- Command: PYTHONPATH=scripts:tests python -m unittest test_maintainer_test_policy test_maintainer_tests test_campaign_finalize -q\r\n- Result: 74 focused policy/finali",
+      "mergedAt": "2026-10-09T23:05:45Z"
+     }
+    ],
+    "opened": [
+     {
+      "number": 59,
+      "title": "tools: share contributor reservations and reviewed nonmatching attempts",
+      "author": "llesieur99",
+      "untrustedBody": "## What this changes\n\nContributors on separate forks can otherwise choose the same function from stale\nlocal state. Add shared function/family reservations, visible through GitHub\nissues and an isolated operational ledger. Whole lots are admitted atomically;\nauthenticated owners manage their own claims, expired claims remain held for\ninspection, and review handoffs do not consume active work-in-progress slots.\n\nThe trusted issue-comment workflow never checks out contributor code or executes\ncomment text. SHA compare-and-swap updates and immutable command IDs handle races\nand uncertain write acknowledgements. Current upstream reference/catalogue and\nintegrated placement proofs constrain admission and integration bookkeeping.\n\nAdd a generated `nonmatching/` research shelf following RAC1's visible handoff\norganization, with independently implemented RAC2 provenance/admission rules.\nStaging requires immutable maintained trial evidence and explicit source-bound\nowner review. The initial she",
+      "mergedAt": "2026-10-09T01:18:48Z"
+     },
+     {
+      "number": 60,
+      "title": "decomp: match boot FUN_001163A0 resident word setter (+16 C bytes)",
+      "author": "ThorpenCodes",
+      "untrustedBody": "Reconstruct the complete 16-byte boot function `FUN_001163A0` at\n`0x001163A0` in C. It stores its 32-bit argument at offset `0x58` through\nthe global pointer `D_00133E74`. Integrated C progress increases by 16\nbytes (700,268 to 700,284), and unique matched progress also increases\nby 16 bytes (178,724 to 178,740).\n\nThe authored change is one accessor function and its catalog entry.\nThe generated compilation unit, campaign history, catalog and progress\nproofs are updated coherently through the maintained workflow.\n\nValidation:\n\n- Task `boot-resident-word58-setter-20261009`: one source-search trial\n  used out of three; complete function matches 16/16 bytes, zero differences.\n- Full unchanged boot review: 287/287 symbols, 13,792 bytes, exact equality.\n- Complete boot and all 27 overlays: 28/28 loaded-byte and metadata gates\n  pass, comparing 79,486,851 bytes.\n- Global catalog replay: 109,727 reconstruction checks, zero normalizer failures.\n- Task closure, generated views, source inventory ",
+      "mergedAt": "2026-10-09T02:05:02Z"
+     },
+     {
+      "number": 63,
+      "title": "tools: require useful PR descriptions and scoped validation evidence",
+      "author": "llesieur99",
+      "untrustedBody": "## Summary\nRequire useful PR descriptions before merge so reviewers can locate scope, validation and proof metadata without reconstructing a contributor's session. The template and contributor guide distinguish documentation/tooling checks from matching evidence.\n\n## Scope\n- Type: tooling, documentation\n- Validated base: a7ff0df948a8b0144db2417620070508e9bbb97e\n- Reservation: N/A: no function work or compiler trials\n- Targets: .github/pull_request_template.md, .github/workflows/pr-description.yml, scripts/pr_description.py, tests/test_pr_description.py, AGENTS.md and contributor guides\n\n## Validation\n- Command: python -m unittest discover -s tests -p test_pr_description.py -v\n- Result: 24 targeted tests passed, including incomplete bodies, appropriate evidence, fork metadata handling, changed snapshots, duplicate heads and API failures.\n- Command: python scripts/source_layout.py --check --inventory-check progress/source-inventory.json\n- Result: source inventory is current; no game sour",
+      "mergedAt": "2026-10-09T02:21:31Z"
+     },
+     {
+      "number": 64,
+      "title": "fix: validate older PR descriptions with the current trusted target",
+      "author": "llesieur99",
+      "untrustedBody": "## Summary\nFix automatic PR description validation for older contributions. PR58 retained a cached base SHA from before the validator existed, so its edited event checked out code without scripts/pr_description.py even though the current RAC2 branch contained the validator. Manual dispatch passed, but left the automatic workflow failure visible.\n\nLoad the current protected refs/heads/RAC2 from the base repository explicitly. Contributor code, event head SHAs and pasted commands remain unexecuted. Source-branch freshness is still enforced separately.\n\n## Scope\n- Type: tooling, documentation\n- Validated base: 09024f4b5577f6676b785c797b1c56f402b42fee\n- Reservation: N/A: no function work\n- Targets: .github/workflows/pr-description.yml, tests/test_pr_description.py and docs/PR-DESCRIPTIONS.md\n\n## Validation\n- Command: python -m unittest discover -s tests -p test_pr_description.py -v\n- Result: 24 tests passed with the qualified project Python. The security regression now requires the current",
+      "mergedAt": "2026-10-09T02:46:59Z"
+     },
+     {
+      "number": 66,
+      "title": "docs: record reserved boot square-root analysis and compiler blocker",
+      "author": "ThorpenCodes",
+      "untrustedBody": "## Summary\r\n\r\nRecord the acknowledged five-function reservation and the requested investigation of just FUN_00282C10. Its complete 32-byte body implements a float square root through VU0. The pinned backend's scalar square-root pattern emits CPU sqrt.s, and no lowering for this VU sequence was identified in the examined backend. Retain the observed ABI and explicit compiler/source reopening condition rather than inventing an ordinary-C match.\r\n\r\n## Scope\r\n\r\n- Type: documentation\r\n- Validated base: 468aacd0d5cb249e668b614142c1c6eadf1ab517\r\n- Reservation: https://github.com/OpenRAC/rac2-gc-decomp/issues/65; claim e2f541e73b3cf391839c01054d219294f8d2ab4868b914532324871bcc87d80a, reserved under ThorpenCodes, all five members verified. This PR is a receipt and research report; the shared ledger owns allocation.\r\n- Targets: only boot FUN_00282C10 at 0x00282C10, complete 32 bytes, was investigated in depth. New docs/BOOT-282C10-ANALYSIS.md records the findings; config/campaign-register.json r"
+     },
+     {
+      "number": 68,
+      "title": "docs: add VU hardware and renderer comparison references",
+      "author": "llesieur99",
+      "untrustedBody": "## Summary\n\nAdd a compact hardware and OpenGOAL reference guide to the measured VU notes so future renderer investigations have concrete sources and a bounded evidence checklist. Keep related-game roles explicitly hypothetical and separate VU reconstruction or PC behaviour from exact EE C credit.\n\n## Scope\n\n- Type: documentation\n- Validated base: 468aacd0d5cb249e668b614142c1c6eadf1ab517\n- Reservation: N/A: no function work, trials or game-source edits\n- Targets: docs/VU-MICROPROGRAMS.md, reference section only\n\n## Validation\n\n- Command: git diff --check\n- Result: passed; no whitespace errors.\n- Command: Python documentation integrity check against the pre-edit snapshot\n- Result: pre-existing measured text preserved byte-for-byte; both relative links resolve; added section contains no private paths; UTF-8/LF verified.\n- Command: python scripts/pr_description.py --body-file <pr-body.md>\n- Result: description contract passed. No game reconstruction or compiler tests run for this documenta",
+      "mergedAt": "2026-10-09T05:42:46Z"
+     },
+     {
+      "number": 69,
+      "title": "decomp: close Qwen backlog with ten reviewed boot matches",
+      "author": "llesieur99",
+      "untrustedBody": "## Summary\n\nClose the retained 82-job Qwen backlog with explicit owner dispositions and preserved negative history. Freshly qualify and integrate ten reviewed boot functions (+248 physical bytes), retain partial work without matching credit, and fix finalizer snapshots to include their `.github` test inputs. Qwen remains paused; this change starts no new inference.\n\nDraft review: local finalization and tests passed. Shelf and local consistency checks passed. The final public scope review remains owner-controlled; exact-head CI is requested and has not yet run. Complete the checklist after the scope audit.\n\n## Scope\n\n- Type: matching, nonmatching, tooling, documentation\n- Validated base: 5d2d8dfee436a32a82567edacb0481ae3e637beb\n- Reservation: Owner-reviewed closeout of retained work begun before the reservation workflow; no next-batch claim or new Qwen dispatch.\n- Targets: Boot: FUN_00285840, FUN_00285850, FUN_002858B0, FUN_002ED870, FUN_0011D118, FUN_00287E48, FUN_002D7AC8, FUN_002EE6A",
+      "mergedAt": "2026-10-09T06:04:39Z"
+     },
+     {
+      "number": 70,
+      "title": "decomp: integrate five shared call families across boot and 26 overlays",
+      "author": "llesieur99",
+      "untrustedBody": "## Summary\n\nPromote five canonical shared call bodies into the boot unit and 26 native overlay units, and publish their freshly qualified proofs. The five bodies reproduce 375 measured placements: a 100-byte body that derives a 16-byte element at index-1 from its index-2 and index-3 neighbours through two bound helpers (215 placements), and 592, 484, 288 and 228-byte bodies whose original game role is unknown (27, 27, 52 and 54 placements). The measured C total moves from 700,532 to 778,372 bytes.\n\nEach family is authored once as a public fragment under `src/shared/` with per-program role substitutions, one placement per family is seeded in the source-layout generator, and the existing generator emits the standalone units. Generated spelling, whitespace and declarations are preserved, so object provenance stays valid. Barlow is the only program with no placement; its small-data unit keeps its current profile and source.\n\n## Scope\n\n- Type: matching, placement\n- Validated base: 5c7206289",
+      "mergedAt": "2026-10-09T13:07:18Z"
+     },
+     {
+      "number": 72,
+      "title": "decomp: match boot FUN_00336B90 offset-0x40 word setter (+8 C bytes)",
+      "author": "liolu",
+      "untrustedBody": "## Summary\n\nMatch boot `FUN_00336B90`, an 8-byte leaf setter (`jr ra; sw a1,0x40(a0)`) that stores its second argument at offset 0x40 of the object passed as its first argument. The body is authored next to the existing offset setters in `src/boot/04-leaf-field-accessors.cfrag`:\n\n```c\nvoid FUN_00336B90(u8 *a0, s32 a1) { *(s32 *)(a0 + 0x40) = a1; }\n```\n\n## Scope\n\n- Type: matching\n- Validated base: 5c7206289fec8071603a6d02053e926896124df3\n- Reservation: #71, claim 44818f86e8e97e6199cb55564fcc658fe1c2e9be93b6fc7652a2f93b485d94e4 (acknowledged `reserved`, owner liolu)\n- Targets: boot `FUN_00336B90` (0x00336B90, 8 bytes); source `src/boot/04-leaf-field-accessors.cfrag`; catalogue `config/candidate-catalog.json` (xrefs 17)\n\n## Validation\n\n- Command: `python scripts/source_layout.py --write --expected-output-hashes <current-hashes.json>`, then `python scripts/source_layout.py --check --inventory-check progress/source-inventory.json`\n- Result: `candidates/boot.c`, `config/source-layout.json` a",
+      "mergedAt": "2026-10-11T18:33:21Z"
+     },
+     {
+      "number": 74,
+      "title": "docs: credit Promises and add a gap report against RC2-Going-Decompiled",
+      "author": "Lynder063",
+      "untrustedBody": "## Summary\n\nAdds `CREDITS.md`, the single attribution ledger for outside work, with an entry crediting [Promises/RC2-Going-Decompiled](https://github.com/Promises/RC2-Going-Decompiled), plus `docs/PROMISES-GAP-REPORT.md` listing what that project has that this one lacks (v2.00 symbol map, libm/libgcc built from source, EU cross-check, tooling, native test harness). Both are linked from the README community section. Nothing was copied from their repo; every item is a lead to re-measure against v1.01.\n\n@Promises: your approval on this PR is the permission record for anything later adopted from your repo. Please state the scope and licence you allow.\n\n## Scope\n\n- Type: documentation\n- Validated base: 5c7206289fec8071603a6d02053e926896124df3\n- Reservation: N/A: no function work\n- Targets: N/A: no game targets; files are `CREDITS.md`, `docs/PROMISES-GAP-REPORT.md` and `README.md`\n\n## Validation\n\n- Command: `git diff --stat origin/RAC2...HEAD`\n- Result: 3 files changed, documentation only. R",
+      "mergedAt": "2026-10-11T17:40:41Z"
+     },
+     {
+      "number": 75,
+      "title": "decomp: match boot FUN_002B5D28 pointer-field accessor (+12 C bytes)",
+      "author": "liolu",
+      "untrustedBody": "## Summary\n\nMatch boot `FUN_002B5D28`, a 12-byte leaf accessor (`lw v1,0x68(a0); jr ra; lw v0,0x18(v1)`). It loads the pointer stored at offset 0x68 of its argument and returns the word at offset 0x18 of that pointee. The body is authored in `src/boot/04-leaf-field-accessors.cfrag` in address order:\n\n```c\nvoid *FUN_002B5D28(u8 *a0) { return *(void **)(*(u8 **)(a0 + 0x68) + 0x18); }\n```\n\n## Scope\n\n- Type: matching\n- Validated base: 5c7206289fec8071603a6d02053e926896124df3\n- Reservation: #73, claim 1f88a8de7b95aa804b3e400745da670715ae1dbab99ca1e1a2d88041a2ebd673 (acknowledged `reserved`, owner liolu)\n- Targets: boot `FUN_002B5D28` (0x002B5D28, 12 bytes); source `src/boot/04-leaf-field-accessors.cfrag`; catalogue `config/candidate-catalog.json` (xrefs 6)\n\n## Validation\n\n- Command: `python scripts/source_layout.py --write --expected-output-hashes <current-hashes.json>`, then `python scripts/source_layout.py --check --inventory-check progress/source-inventory.json`\n- Result: `candidates/boo",
+      "mergedAt": "2026-10-11T18:33:21Z"
+     },
+     {
+      "number": 76,
+      "title": "ci: prepare trusted merge queue checks for RAC2",
+      "author": "llesieur99",
+      "untrustedBody": "## Summary\n\nPrepare RAC2's merge queue so accepting one PR does not force every remaining contributor to update their topic branch manually. Required tests and progress checks run on the temporary combined commit, and a separate read-only description job validates its live queue member. Queue activation follows integration of this support; no game source or matching credit changes.\n\n## Scope\n\n- Type: tooling, documentation\n- Validated base: 5f3c5e50c79bd6461bfde969c2a39669da30f425\n- Reservation: N/A: no function work or model dispatch\n- Targets: scripts/pr_description.py, tests/test_pr_description.py, three queue-compatible CI workflows and contributor/queue documentation\n\n## Validation\n\n- Command: python -m unittest discover -s tests -p test_pr_description.py -q\n- Result: 46 tests pass, including an older PR base, live membership/ref drift, API errors, pagination, changed PR snapshots and the read-only workflow boundary.\n- Command: python -m unittest discover -s tests -q\n- Result: 842",
+      "mergedAt": "2026-10-09T13:44:39Z"
+     },
+     {
+      "number": 77,
+      "title": "docs: route ongoing contributions through the merge queue",
+      "author": "llesieur99",
+      "untrustedBody": "## Summary\n\nExplain how an ongoing contribution reaches RAC2 through the merge queue, including older topic bases and shared C/proof conflicts. This branch deliberately starts from the original validated base before the queue-support PR advances RAC2, so its eventual queue admission verifies that a behind branch can integrate without a manual topic update.\n\n## Scope\n\n- Type: documentation\n- Validated base: 5f3c5e50c79bd6461bfde969c2a39669da30f425\n- Reservation: N/A: no function work\n- Targets: docs/CONTINUE.md\n\n## Validation\n\n- Command: git diff --check; git show origin/tooling/merge-queue-20261009:docs/MERGE-QUEUE.md\n- Result: Whitespace passes and the referenced queue guide exists in the published support branch. The guide will reach RAC2 before this documentation enters the queue. The six added lines were reviewed; no code changed and no game build was run.\n\n## Matching evidence\n\n- Proofs: N/A: documentation only\n- Physical delta: N/A: no matching credit\n- Unique delta: N/A: no matc",
+      "mergedAt": "2026-10-09T15:04:31Z"
+     },
+     {
+      "number": 78,
+      "title": "fix: bind queue description checks to read-only REST ancestry",
+      "author": "llesieur99",
+      "untrustedBody": "## Summary\n\nThe first real single-PR merge group was rejected by the queue description job despite valid owner-readable queue/PR metadata. Replace the unproven GraphQL queue/ref dependency with strict read-only REST binding of the actual two-parent synthetic commit, live refs, active queue policy and its uniquely associated PR. Add sanitized stage diagnostics and a pinned operator command that uses native queue admission without classic auto-merge or direct-merge fallback.\n\n## Scope\n\n- Type: tooling, documentation\n- Validated base: 6a6fe2c31e2a59984097163b2cf8678c170165b9\n- Reservation: N/A: no function work or model dispatch\n- Targets: scripts/pr_description.py, scripts/merge_queue.py, their regression tests and docs/MERGE-QUEUE.md\n\n## Validation\n\n- Command: python -m unittest discover -s tests -p test_pr_description.py -q; python -m unittest discover -s tests -p test_merge_queue.py -q\n- Result: 53 description/security tests and seven native-admission tests pass. Covers exact two-pare",
+      "mergedAt": "2026-10-09T14:49:17Z"
+     },
+     {
+      "number": 79,
+      "title": "decomp: integrate five shared data families across boot and 26 overlays",
+      "author": "llesieur99",
+      "untrustedBody": "## Summary\n\nPromote five canonical shared call/data bodies into the boot unit and 26 native overlay units, and publish their freshly qualified proofs. The five bodies reproduce 135 measured placements: a 464-byte body that expands 128 groups of 16 source bytes through a 256-entry nibble-expansion table and a bound 64-byte helper called four times per group (27 placements), a 392-byte body that drives twelve bound helpers from one owner's state block (27 placements), a 160-byte body that fills a 32-byte stack buffer through five bound helpers (27 placements), a 144-byte body that seeds eight consecutive floats and two aligned sub-objects inside a shared data object (27 placements), and a 116-byte body that rebases a table-relative pointer list in place (27 placements). The measured C total moves from 778,372 to 812,824 bytes.\n\nEach family is authored once as a public fragment under `src/shared/` with per-program role substitutions, one placement per family is seeded in the source-layout",
+      "mergedAt": "2026-10-09T15:39:34Z"
+     },
+     {
+      "number": 80,
+      "title": "tooling: adopt the folded-zero-store compiler identity and requalify the corpus",
+      "author": "llesieur99",
+      "untrustedBody": "## Summary\n\nAdopt the folded-zero-store compiler identity as the qualified C chain and re-qualify the whole published corpus on it. `cc1` moves from `8bed6eae` to `5fed4e23`; `cpp` and GNU `as` keep their hashes, so only the compiler half of the instrument identity changes.\n\nThe retired `allow_zero_ti_store.patch` admitted constraint `J` on the register alternatives of `movti_internal` and printed them with `%z1`, which folded a 128-bit zero into its store. It earned no witness of its own: the control sources that store a zero through a `mode(TI)` pointer — including the `FUN_00282C88` spelling — are byte-identical with and without it, because it only ever moved the memory alternatives, which already accepted `J`. Its real effect was to suppress the register form the retail uses whenever one materialised zero feeds several stores. Removing it bare is not neutral: `FUN_00282C88` (8 bytes) and `FUN_002E5FE0` (168 bytes) regress. The new `fold_zero_ti_store.py` therefore retires the machi",
+      "mergedAt": "2026-10-09T18:24:37Z"
+     },
+     {
+      "number": 82,
+      "title": "compiler: add measured SDK 3.01 division padding to GNU as",
+      "author": "llesieur99",
+      "untrustedBody": "## Summary\n\nAdd a bounded SDK 3.01 incoming division-padding floor to GNU `as`, with code labels remaining on the inserted NOPs. Independent review found that the original PR's NOP-length tests missed 11 displaced-label cases. This revision fixes those labels, counts generated NOPs, prevents data labels from contaminating code state, refuses transformer reapplication, and refreshes proofs through the maintained campaign workflow.\n\nThe qualified assembler is `d81f2e934463174fe2313c8270cf88aad5cf7b0c8c92db0f14a7e60e0f9bd85c`; `cc1` and `cpp` are unchanged. No C function, declaration, placement or matching credit is added.\n\n## Scope\n\n- Type: tooling, matching, documentation\n- Validated base: 923c7559da3263a0ae5c72ce99634660888d7ba1\n- Reservation: Maintainer-owned refresh of the already admitted corpus, explicitly authorized for this compiler lot; no new function work, source changes or reservation ownership is claimed. Existing accepted placements remain unchanged.\n- Targets: `scripts/com",
+      "mergedAt": "2026-10-09T21:07:28Z"
+     },
+     {
+      "number": 83,
+      "title": "Feature/decompilation architecture manual",
+      "author": "Lynder063",
+      "untrustedBody": "## Summary\n\nRestructures contributor tooling and documentation and adds a USA v2.00 target path. New `ntsc-u-v2` region (disc, boot and 27 overlays pinned from a contributor's disc), a retail function-size ranking tool, a legal-compliance check, a Linux runner for the Windows/WSL compiler scripts, a compiler build script that reproduces the five qualified source hashes, `try_function.py` for word-by-word checks, a v2.00 catalogue/report builder (`scripts/v2_report.py`, not wired into CI) and a contributor walkthrough (`docs/V2-SETUP.md`). Stale Going-Native-style docs and the broken README were removed or restored. The v1.01 proofs, the registry default and credit accounting are unchanged.\n\n## Scope\n\n- Type: tooling, documentation\n- Validated base: a27769c5748bf75ff5b2c12be05972c43e2268eb\n- Reservation: N/A: tooling and documentation only; the 9 functions in `trials/usa-v2/` are exploratory candidates, were not reserved and claim no credit\n- Targets: N/A: no symbol is integrated or cre"
+     },
+     {
+      "number": 84,
+      "title": "tooling: group validated progress by authored source",
+      "author": "llesieur99",
+      "untrustedBody": "## Summary\n\nGroup the verified physical progress artifact by program, proof owner, authored source and explicit presentation role. The report now links to reviewed `src/` fragments and exposes full-level categories while retaining every original function/section record, unmatched remainder, data record and byte percentage.\n\nThe same 11,395 proved function placements become 2,896 accepted source groups plus 176 unchanged remainder/data units: 11,571 display units become 3,072. The 388 overlapping categories describe presentation scope; they are not additional matching credit or recovered retail translation units. All source attributions resolve, while every original role remains `unclassified` with `unknown` confidence.\n\n## Scope\n\n- Type: tooling, documentation\n- Validated base: 167390512c67423fef7b717d554026d80a417b93\n- Reservation: N/A: no function work, source movement or matching promotion\n- Targets: scripts/progress_modules.py, scripts/progress_module_report.py, config/progress-mod",
+      "mergedAt": "2026-10-09T22:19:22Z"
+     },
+     {
+      "number": 85,
+      "title": "tooling: reuse qualified queue tests for the primary maintainer",
+      "author": "llesieur99",
+      "untrustedBody": "## Summary\r\n\r\nReduce repeated tool-suite runs for the primary maintainer while keeping the complete merge-group suite mandatory. The PR selector runs protected-base code and verifies the immutable GitHub author and repository identities. Main can reuse only an exact-commit successful full queue run from the reviewed workflow; missing or ambiguous evidence runs the full suite.\r\n\r\n## Scope\r\n\r\n- Type: tooling, documentation\r\n- Validated base: 91a8b54097e6bb24d7dd93a5743c7267c3b78831\r\n- Reservation: N/A: no function work or new matching claims\r\n- Targets: tests.yml, maintainer_test_policy.py, maintainer_tests.py, campaign finalizer CLI, focused regression tests and maintainer/queue/campaign documentation. Other contributors retain full PR/main tests; Progress publication and protection rules are unchanged.\r\n\r\n## Validation\r\n\r\n- Command: PYTHONPATH=scripts:tests python -m unittest test_maintainer_test_policy test_maintainer_tests test_campaign_finalize -q\r\n- Result: 74 focused policy/finali",
+      "mergedAt": "2026-10-09T23:05:45Z"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [
+     {
+      "number": 61,
+      "title": "[Reservation] Coordination smoke test — primary claim",
+      "author": "llesieur99"
+     },
+     {
+      "number": 62,
+      "title": "[Reservation] Coordination smoke test — overlapping claim must be refused",
+      "author": "llesieur99"
+     },
+     {
+      "number": 65,
+      "title": "[Reservation] ThorpenCodes: 5 function(s)",
+      "author": "ThorpenCodes"
+     },
+     {
+      "number": 67,
+      "title": "[Reservation] ThorpenCodes: 1 function(s)",
+      "author": "ThorpenCodes"
+     },
+     {
+      "number": 71,
+      "title": "[Reservation] liolu: 1 function(s)",
+      "author": "liolu"
+     },
+     {
+      "number": 73,
+      "title": "[Reservation] liolu: 1 function(s)",
+      "author": "liolu"
+     },
+     {
+      "number": 81,
+      "title": "[Reservation] liolu: 3 function(s)",
+      "author": "liolu"
+     }
+    ],
+    "closed": [
+     {
+      "number": 61,
+      "title": "[Reservation] Coordination smoke test — primary claim",
+      "author": "llesieur99"
+     },
+     {
+      "number": 62,
+      "title": "[Reservation] Coordination smoke test — overlapping claim must be refused",
+      "author": "llesieur99"
+     }
+    ]
+   },
+   "releases": [],
+   "progress": null,
+   "contributors": [
+    "liolu",
+    "llesieur99",
+    "Lynder063",
+    "ThorpenCodes"
+   ]
+  },
+  {
+   "repo": "rac3-decomp",
+   "title": "Up Your Arsenal",
+   "branches": [
+    {
+     "name": "master",
+     "commits": []
+    }
+   ],
+   "commitCount": 0,
+   "pullRequests": {
+    "merged": [],
+    "opened": []
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": null,
+   "contributors": []
+  },
+  {
+   "repo": "rac4-decomp",
+   "title": "Ratchet: Deadlocked",
+   "branches": [
+    {
+     "name": "main",
+     "commits": []
+    }
+   ],
+   "commitCount": 0,
+   "pullRequests": {
+    "merged": [],
+    "opened": []
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": null,
+   "contributors": []
+  },
+  {
+   "repo": "openrac-mods",
+   "title": "OpenRAC mods",
+   "branches": [
+    {
+     "name": "master",
+     "commits": []
+    }
+   ],
+   "commitCount": 0,
+   "pullRequests": {
+    "merged": [],
+    "opened": []
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": null,
+   "contributors": []
+  }
+ ]
+}

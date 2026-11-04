@@ -1,0 +1,479 @@
+{
+ "format": 1,
+ "date": "2026-10-26",
+ "totals": {
+  "commits": 11,
+  "pullRequestsMerged": 10,
+  "pullRequestsOpened": 17,
+  "contributors": 8
+ },
+ "projects": [
+  {
+   "repo": "OpenRAC",
+   "title": "OpenRAC launcher",
+   "branches": [
+    {
+     "name": "develop",
+     "commits": []
+    },
+    {
+     "name": "master",
+     "commits": []
+    }
+   ],
+   "commitCount": 0,
+   "pullRequests": {
+    "merged": [],
+    "opened": [
+     {
+      "number": 70,
+      "title": "ci: bump the actions group across 2 directories with 2 updates",
+      "author": "dependabot[bot]",
+      "untrustedBody": "Bumps the actions group with 1 update in the / directory: [actions/setup-python](https://github.com/actions/setup-python).\nBumps the actions group with 1 update in the /.github/actions/launcher-toolchain directory: [Swatinem/rust-cache](https://github.com/swatinem/rust-cache).\n\nUpdates `actions/setup-python` from 7.0.0 to 7.1.0\n<details>\n<summary>Release notes</summary>\n<p><em>Sourced from <a href=\"https://github.com/actions/setup-python/releases\">actions/setup-python's releases</a>.</em></p>\n<blockquote>\n<h2>v7.1.0</h2>\n<h2>What's Changed</h2>\n<h3>Enhancements</h3>\n<ul>\n<li>Add <code>mirror</code> and <code>mirror-token</code> inputs for custom Python distribution sources by <a href=\"https://github.com/luhenry\"><code>@​luhenry</code></a> in <a href=\"https://redirect.github.com/actions/setup-python/pull/1302\">actions/setup-python#1302</a></li>\n<li>Improve error message clarity by <a href=\"https://github.com/v-lmvysakh\"><code>@​v-lmvysakh</code></a> in <a href=\"https://redirect.github.c",
+      "mergedAt": "2026-10-27T17:45:39Z"
+     },
+     {
+      "number": 71,
+      "title": "chore(import): sync RAC1 PAL matches and names to 90e79a4",
+      "author": "llesieur99",
+      "untrustedBody": "OpenRAC's RAC1 PAL snapshot still contains assembly stubs for three functions that its source project now matches in C. This sync moves the snapshot from `de14440819` to `90e79a4cf770`, bringing in those matches together with the upstream file, symbol and struct renames.\n\n| New exact C function | PAL address | Bytes |\n|---|---|---:|\n| `update_hero_item_mobys` | `func_L00_0020FC18` | 1,828 |\n| `pyrocitor_update` | `func_L00_002B8AE8` | 2,624 |\n| `suck_beam_update` | `func_L00_002DF410` | 4,220 |\n\nThe PAL report advances from **5,089 to 5,092 / 5,120 finished functions**, adding **8,672 matched bytes**. These are existing upstream matches, not new decompilation claims. The map, hero-layer and smoke-wisp functions remain unresolved; the smoke-wisp scheduling-barrier experiment is not included.\n\nImported with `tools/sources.py sync rac1/pal`. Three-way resolution preserves OpenRAC's build/native-port adaptations and its direct `D_0016100C` loading-state access. GPL provenance is retained, "
+     },
+     {
+      "number": 72,
+      "title": "fix(rac1/pal): triage overlay assembly from its own directory",
+      "author": "llesieur99",
+      "untrustedBody": "## Problem\n\n`games/rac1/tools/triage.py` only looked in the executable's `asm/nonmatchings` directories. Unmatched level functions consequently appeared blocked by missing assembly even when their assembly was present under `asm/overlays`.\n\n## Change\n\n- Recognize level symbols with the existing `rank_candidates.OVERLAY_NAME` pattern and use its `OVERLAY_ASM` directory.\n- Classify those bodies as game text, as `rank_candidates.check_names` already does.\n- Preserve executable routing, genuine blocker classification and missing-assembly checks.\n- Add five asset-free regression tests for shared/level overlays, missing overlay assembly, game text and core text.\n\nWith the PAL snapshot from #71 and locally supplied assembly, this fixes 14 false missing-assembly reports: 12 entries return to the work queue, while two remain correctly blocked as handwritten assembly. The counts depend on that source snapshot; some entries are joined fragments rather than independent C functions.\n\nThis is a tool",
+      "mergedAt": "2026-10-27T11:38:43Z"
+     },
+     {
+      "number": 73,
+      "title": "chore(import): backport only three exact RAC1 PAL functions",
+      "author": "llesieur99",
+      "untrustedBody": "Replaces the overly broad snapshot synchronization in #71. This branch starts at current `OpenRAC/OpenRAC:master` (`07c23356`) and backports only the three exact functions from `OpenRAC/rac1-decomp` commit `9bf26d6227af`.\n\n| Function | Existing file under `games/rac1/src/overlays/shared/` | Bytes |\n|---|---|---:|\n| `func_L00_0020FC18` — update hero item mobys | `help_0020CDF0.c` | 1,828 |\n| `func_L00_002B8AE8` — pyrocitor update | `vendor_002B33E8.c` | 2,624 |\n| `func_L00_002DF410` — suck beam update | `vendor_002D9438.c` | 4,220 |\n\n## Scope\n\n- Three assembly stubs replaced by existing upstream C, adapted to this branch's symbol names and three existing `Hero` field names. These are upstream matches, not new decompilation claims.\n- Their three obsolete staged candidates removed, with only their rows removed from the near-miss index.\n- Only these three entries added to the regional maps; the associated reports regenerated. Each report changes exactly these three functions: **+3 function",
+      "mergedAt": "2026-10-27T11:38:47Z"
+     },
+     {
+      "number": 74,
+      "title": "feat(port): add WIP lighting, water and rendering improvements",
+      "author": "pezzadev",
+      "untrustedBody": "This adds an initial interior-lighting pass to baked probe GI, enhanced Novalis water, and rendering improvements. Interior illumination uses authored lighting sets to guide bounded boosts to explicit emitters and procedural ceiling lights. It aims for the original mood rather than an exact lighting match.\r\n\r\n**Very WIP:** loads of interiors can still be too dark, I am still focusing on Novalis as my vertical slice. \r\nGenerated lights need visual tuning, and emission coverage depends on explicit material definitions.\r\n\r\n## Changes\r\n\r\n- Share emission settings between export, runtime and baking. Improve local probe coverage, merging, partitioning, alignment and three-volume blending. Add GPU-driven probe spheres, volume bounds and ceiling-light diagnostics.\r\n- Add baked Novalis water boundaries, hydraulic data and subdivision meshes; GPU water simulation and UV animation; body/hand wakes; and a drying wetness coating for Ratchet. Other levels retain their existing water path.\r\n- Add GI-",
+      "mergedAt": "2026-10-28T03:02:50Z"
+     },
+     {
+      "number": 75,
+      "title": "feat: diagnostics recordings, faster frames on weak devices, and rendering fixes",
+      "author": "mateuszklysz",
+      "untrustedBody": "## Diagnostics recording\n\n- **Record diagnostics**: in the Android drawer (Developer tools), the PC Developer menu, or with Ctrl+F3. It records 15 s to 2 min, or until stopped, and gives a short Markdown report plus the frames as `.jsonl`, zipped into `perf_<game>_<time>.zip`. The report is copied to the clipboard.\n- **What the report says**:\n  - the device, the GPU and driver, CPU clocks and thermal state, and the settings;\n  - frame-time percentiles;\n  - a CPU/GPU-bound verdict, and how much slower a processor and GPU could be and still hold 60 fps;\n  - every timed section;\n  - a time line and the worst frames;\n  - the hottest functions of the window and render threads (sampled; Linux and Android).\n- **Simulate slow CPU** (2x, 4x, 6x) emulates a weaker processor on a fast device.\n- **Finer measurements**: the GPU time of the whole Vulkan frame, measured outside render passes, so it is right on tiled GPUs. The window thread's frame is split into parts, the scene is split into timed pa",
+      "mergedAt": "2026-10-27T06:48:11Z"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": null,
+   "contributors": [
+    "llesieur99",
+    "mateuszklysz",
+    "pezzadev"
+   ]
+  },
+  {
+   "repo": "rac1-decomp",
+   "title": "Ratchet & Clank",
+   "branches": [
+    {
+     "name": "main",
+     "commits": [
+      {
+       "sha": "11f36190986361c9b652459c6a9d36e2037747f6",
+       "title": "Merge pull request #131 from OpenRAC/feat/orxon-slide-match",
+       "author": "Lynder063",
+       "date": "2026-10-26T23:07:34Z"
+      },
+      {
+       "sha": "4eb9b7157687f8fb9f737e067a44db0259895d5d",
+       "title": "Merge pull request #129 from OpenRAC/feat/big3-match",
+       "author": "Lynder063",
+       "date": "2026-10-26T21:25:24Z"
+      },
+      {
+       "sha": "90e79a4cf770530d8ae900558c5f584de0da810b",
+       "title": "Merge pull request #128 from OpenRAC/fix/report-ntsc-ports",
+       "author": "Lynder063",
+       "date": "2026-10-26T12:35:30Z"
+      },
+      {
+       "sha": "b5f947fdc43669c74d07723452c765183687d5d8",
+       "title": "Merge pull request #127 from OpenRAC/chore/ntsc-follow-c6ba2e9",
+       "author": "Lynder063",
+       "date": "2026-10-26T12:27:59Z"
+      },
+      {
+       "sha": "8ead5ed5bfde80a4bd39f4155d4baae41fb3d486",
+       "title": "Merge pull request #126 from OpenRAC/refactor/names-more",
+       "author": "Lynder063",
+       "date": "2026-10-26T09:27:47Z"
+      }
+     ]
+    }
+   ],
+   "commitCount": 5,
+   "pullRequests": {
+    "merged": [
+     {
+      "number": 126,
+      "title": "refactor(names): readable names in declarations, alias views, fake bases and core",
+      "author": "Lynder063",
+      "untrustedBody": "Names 1557 more symbols; extern lines, prototypes and alias views use readable names.\nLibrary functions use library names; build and all versions match.\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nhttps://claude.ai/code/session_014XimMx3rTTYhqhYsb1nZB1",
+      "mergedAt": "2026-10-26T09:27:48Z"
+     },
+     {
+      "number": 127,
+      "title": "chore(ntsc): follow Lombyte's project to c6ba2e9 and port 3 functions",
+      "author": "Lynder063",
+      "untrustedBody": "Pin moves to c6ba2e9c2a with its new names; 3 newly matched functions ported, all EXACT.\nreveal_map_around_position stays asm (8 bytes off in pure C).\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nhttps://claude.ai/code/session_014XimMx3rTTYhqhYsb1nZB1",
+      "mergedAt": "2026-10-26T12:28:00Z"
+     },
+     {
+      "number": 128,
+      "title": "fix(report): count the three ported overlay functions",
+      "author": "Lynder063",
+      "untrustedBody": "Regenerated progress/report.json after PR #127.\r\nCI report check failed without it.\r\n\r\n🤖 Generated with [Claude Code](https://claude.com/claude-code)",
+      "mergedAt": "2026-10-26T12:35:31Z"
+     },
+     {
+      "number": 129,
+      "title": "feat(src): match 9 more functions and list level MobyProc as handwritten",
+      "author": "Lynder063",
+      "untrustedBody": "Ports and deep-dive matches, all EXACT; PAL code 98.71% -> 99.43%.\nLevel MobyProc copy listed as handwritten asm.\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nhttps://claude.ai/code/session_014XimMx3rTTYhqhYsb1nZB1",
+      "mergedAt": "2026-10-26T21:25:25Z"
+     },
+     {
+      "number": 131,
+      "title": "feat(overlays): match func_L10_002C0348",
+      "author": "Lynder063",
+      "untrustedBody": "Matches the Orxon sliding platform (408 bytes) in pure C, with the 0xFF-in-save-id trick from #130.\nAdds the pal_v1/jp map rows #130 was missing.\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)",
+      "mergedAt": "2026-10-26T23:07:34Z"
+     }
+    ],
+    "opened": [
+     {
+      "number": 126,
+      "title": "refactor(names): readable names in declarations, alias views, fake bases and core",
+      "author": "Lynder063",
+      "untrustedBody": "Names 1557 more symbols; extern lines, prototypes and alias views use readable names.\nLibrary functions use library names; build and all versions match.\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nhttps://claude.ai/code/session_014XimMx3rTTYhqhYsb1nZB1",
+      "mergedAt": "2026-10-26T09:27:48Z"
+     },
+     {
+      "number": 127,
+      "title": "chore(ntsc): follow Lombyte's project to c6ba2e9 and port 3 functions",
+      "author": "Lynder063",
+      "untrustedBody": "Pin moves to c6ba2e9c2a with its new names; 3 newly matched functions ported, all EXACT.\nreveal_map_around_position stays asm (8 bytes off in pure C).\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nhttps://claude.ai/code/session_014XimMx3rTTYhqhYsb1nZB1",
+      "mergedAt": "2026-10-26T12:28:00Z"
+     },
+     {
+      "number": 128,
+      "title": "fix(report): count the three ported overlay functions",
+      "author": "Lynder063",
+      "untrustedBody": "Regenerated progress/report.json after PR #127.\r\nCI report check failed without it.\r\n\r\n🤖 Generated with [Claude Code](https://claude.com/claude-code)",
+      "mergedAt": "2026-10-26T12:35:31Z"
+     },
+     {
+      "number": 129,
+      "title": "feat(src): match 9 more functions and list level MobyProc as handwritten",
+      "author": "Lynder063",
+      "untrustedBody": "Ports and deep-dive matches, all EXACT; PAL code 98.71% -> 99.43%.\nLevel MobyProc copy listed as handwritten asm.\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nhttps://claude.ai/code/session_014XimMx3rTTYhqhYsb1nZB1",
+      "mergedAt": "2026-10-26T21:25:25Z"
+     },
+     {
+      "number": 130,
+      "title": "Match Orxon sliding update (PAL v2 / NTSC-U, 408 bytes)",
+      "author": "llesieur99",
+      "untrustedBody": "## Summary\n- Reconstruct `func_L10_002C0348` as ordinary C after the boundary correction merged in #129.\n- Strictly match all **408 bytes** on **PAL v2 and NTSC-U**, including resolved references.\n- Change only one source function, its US map entry, and the two associated reports. Based directly on current `main` (`4eb9b715`); no monorepo import, compiler changes, register pins, dummy arguments, empty-asm barriers, or HLE.\n\n## Verified\n- Full PAL executable rebuild: **1,244/1,244 decompiled executable functions exact**, all retail addresses preserved, **zero image-byte differences**.\n- Full overlay-report rebuild; the only changed per-function result is this function, adding exactly **408 matched bytes**. The Orxon-specific report unit is now 57/57 finished (not a claim that all shared game code is complete).\n- Whole affected source-file check: zero problems.\n- Strict NTSC-U check against the locally extracted US retail image: EXACT.\n- **116 public tests passed**; whitespace check pass"
+     },
+     {
+      "number": 131,
+      "title": "feat(overlays): match func_L10_002C0348",
+      "author": "Lynder063",
+      "untrustedBody": "Matches the Orxon sliding platform (408 bytes) in pure C, with the 0xFF-in-save-id trick from #130.\nAdds the pal_v1/jp map rows #130 was missing.\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)",
+      "mergedAt": "2026-10-26T23:07:34Z"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": {
+    "before": {
+     "code": {
+      "done": 3656816,
+      "total": 3713416
+     },
+     "functions": {
+      "done": 5089,
+      "total": 5120
+     },
+     "data": {
+      "done": 3852,
+      "total": 699072
+     }
+    },
+    "after": {
+     "code": {
+      "done": 3692624,
+      "total": 3713488
+     },
+     "functions": {
+      "done": 5104,
+      "total": 5117
+     },
+     "data": {
+      "done": 3852,
+      "total": 699072
+     }
+    }
+   },
+   "contributors": [
+    "llesieur99",
+    "Lynder063"
+   ]
+  },
+  {
+   "repo": "rac2-decomp",
+   "title": "Going Commando",
+   "branches": [
+    {
+     "name": "master",
+     "commits": [
+      {
+       "sha": "e13ab1098b8c9178cd76b2785a06542637d56337",
+       "title": "chore(progress): 4618 of 8584 functions",
+       "author": "Veradictus",
+       "date": "2026-10-26T22:34:28Z"
+      },
+      {
+       "sha": "8b868ef0f0d64a3b921a5460add30d1f10478209",
+       "title": "Merge pull request #329 from atlasbez-dot/codex/rc2-upstream-20261026",
+       "author": "Veradictus",
+       "date": "2026-10-26T22:33:18Z"
+      },
+      {
+       "sha": "57d58a088e9ef341b5e9713076cbff0bde6cead9",
+       "title": "Merge pull request #331 from ReaperOfVeriod/match/small-fresh-l06l08",
+       "author": "Veradictus",
+       "date": "2026-10-26T22:05:00Z"
+      },
+      {
+       "sha": "145f82d3a4d2de7b7a3872b1c397dcb6dc51ac09",
+       "title": "Merge pull request #332 from GianniGr/match/rac2-wave1-pr",
+       "author": "Veradictus",
+       "date": "2026-10-26T21:37:18Z"
+      },
+      {
+       "sha": "a4e6b395f9474bfe8a2038f2d53c4560e45c8167",
+       "title": "Merge PR #330: recover measured lifetimes in three retained dispatchers",
+       "author": "llesieur99",
+       "date": "2026-10-26T00:47:36Z"
+      },
+      {
+       "sha": "77a8c359b2de679e80e530463c469a346c09863d",
+       "title": "Merge pull request #328 from OpenRAC/decomp/rac1-callers-20261025",
+       "author": "llesieur99",
+       "date": "2026-10-26T00:12:57Z"
+      }
+     ]
+    }
+   ],
+   "commitCount": 6,
+   "pullRequests": {
+    "merged": [
+     {
+      "number": 328,
+      "title": "feat(src): match movement helpers and recover state-machine structure",
+      "author": "llesieur99",
+      "untrustedBody": "## What\n\nMatch two movement helpers using the current qualified compiler and RAC1 source methods, adding **two distinct functions and 1,180 C bytes**:\n\n| Function | Bytes | USA v1.01 | USA v2.00 | PAL |\n| --- | ---: | ---: | ---: | ---: |\n| `func_002B52A0` | 980 | 21/21 | 21/21 | Identity absent |\n| `func_L14_003D18C8` | 200 | 1/1 | 1/1 | 1/1 |\n\nThe first preserves the controller's two actual volatile field reads and complete quadword storage. The second uses the proved float return, bank-preserving argument setup and actual basis-pointer lifetime. No compiler patch or new flag is introduced.\n\nRepair the existing `func_L09_0033E8B0` interface: explicitly forward all five GPR arguments and the FP step to the deeper ASM consumer. The consumer really reads the previously implicit output/current/direction/step values. The wrapper's allocated sections remain unchanged and its nine existing placements pass; this adds no matching credit.\n\nRetain nine improved complete nonmatching bodies, with",
+      "mergedAt": "2026-10-26T00:12:58Z"
+     },
+     {
+      "number": 329,
+      "title": "feat(src): carry over 129 verified RC2 fork functions",
+      "author": "atlasbez-dot",
+      "untrustedBody": "## Change\n\nCarries over **129 canonical C implementations** from [atlasbez-dot/rac2-gc-decomp](https://github.com/atlasbez-dot/rac2-gc-decomp), preserving the existing source bytes, complete licence notices and per-file compiler profiles. Only C sources and `config/cflags.txt` differ from current upstream base `a4e6b395f9474bfe8a2038f2d53c4560e45c8167`. Generated progress stays with maintainers.\n\nThe command-byte reader **`func_002A04B8` is excluded from the final change**. Its exact fork version requires explicit register bindings and an empty compiler barrier, which do not meet current source rules. Plain-C extraction, packed representations and documented scheduling/register-availability profiles did not match its retail allocation and scheduling. The existing upstream nonmatching C and assembly marker are preserved, the exact fork version remains in fork history, and no `ASM_FUNC` classification or new match is claimed for it.\n\n## Coordination\n\nFourteen proposed functions overlap [",
+      "mergedAt": "2026-10-26T22:33:18Z"
+     },
+     {
+      "number": 330,
+      "title": "fix(nonmatching): recover lifetimes in three large dispatchers",
+      "author": "llesieur99",
+      "untrustedBody": "Three retained large dispatchers still differ from retail. This change preserves newly measured address forms and lifetimes so the next attempt starts from the corrected sources instead of repeating the same failed models. None is promoted into the linked build.\n\n- **Oozla `func_L01_003B5878`:** separate the four real scalar objects from the complete vector/matrix workspace. The F21 zero now follows the retail scale-call/store/comparison lifetime with unchanged scalar stack slots. Replace the forced SDA alias with one `MACRO_ADDR` frame-counter declaration; both USA releases independently confirm that its absolute and GP reads address the same object. Still 4968/4972 bytes.\n- **Dobbo `func_L22_002BF1B0`:** type the two measured resident fields and retain one real combined pose predicate across the path calls, preserving the unconditional table read. The entry object returns to fp without extra references. All 147 table slots retain the 63 retail destination classes; frame, FPR and text",
+      "mergedAt": "2026-10-26T00:47:36Z"
+     },
+     {
+      "number": 331,
+      "title": "feat(src): match func_L00_003ECB38",
+      "author": "ReaperOfVeriod",
+      "untrustedBody": "Matches func_L00_003ECB38 at all 27 placements (336 bytes).\n\nChecks:\n- tools/check.py func_L00_003ECB38 --diff: 27/27 places match\n- tools/build.py level 0 --strict: OK\n- tests/check_repository.py: passed\n- tools/progress.py --check: passed\n- python3 -m unittest discover -s tests: blocked by bundled compiler SIGSYS in the sandbox (9 environment errors)\n\nThe working tree contains separate uncommitted L06/L08 experiments; they are intentionally excluded from this PR.",
+      "mergedAt": "2026-10-26T22:05:01Z"
+     },
+     {
+      "number": 332,
+      "title": "feat(src): match three boot functions",
+      "author": "GianniGr",
+      "untrustedBody": "## What\r\n\r\nMatched three boot functions:\r\n- `func_0029D9D0`\r\n- `func_002E7570`\r\n- `func_00329630`\r\n\r\nEach function has one C definition and matches all 28 placements. Four unverified near misses are preserved in `nonmatching/` with their measured compiler differences.\r\n\r\n## Checked\r\n\r\n- `tools/check.py func_0029D9D0 --diff`: 28 of 28 places match.\r\n- `tools/check.py func_002E7570 --diff`: 28 of 28 places match.\r\n- `tools/check.py func_00329630 --diff`: 28 of 28 places match.\r\n- `tools/build.py all --strict`: 28 programs OK; no C fallback.\r\n- `python -m unittest discover -s tests`: 225 tests OK.\r\n- `tests/check_repository.py`: passed.\r\n- `tools/progress.py --check`: passed.\r\n- `git diff --check`: passed.\r\n\r\nThe build and checks ran in the container-local verification tree with the required container-only Python compatibility shim; no repository tools were changed. Progress files and the README progress table were not regenerated. PAL/US2 builds were not run.",
+      "mergedAt": "2026-10-26T21:37:18Z"
+     }
+    ],
+    "opened": [
+     {
+      "number": 328,
+      "title": "feat(src): match movement helpers and recover state-machine structure",
+      "author": "llesieur99",
+      "untrustedBody": "## What\n\nMatch two movement helpers using the current qualified compiler and RAC1 source methods, adding **two distinct functions and 1,180 C bytes**:\n\n| Function | Bytes | USA v1.01 | USA v2.00 | PAL |\n| --- | ---: | ---: | ---: | ---: |\n| `func_002B52A0` | 980 | 21/21 | 21/21 | Identity absent |\n| `func_L14_003D18C8` | 200 | 1/1 | 1/1 | 1/1 |\n\nThe first preserves the controller's two actual volatile field reads and complete quadword storage. The second uses the proved float return, bank-preserving argument setup and actual basis-pointer lifetime. No compiler patch or new flag is introduced.\n\nRepair the existing `func_L09_0033E8B0` interface: explicitly forward all five GPR arguments and the FP step to the deeper ASM consumer. The consumer really reads the previously implicit output/current/direction/step values. The wrapper's allocated sections remain unchanged and its nine existing placements pass; this adds no matching credit.\n\nRetain nine improved complete nonmatching bodies, with",
+      "mergedAt": "2026-10-26T00:12:58Z"
+     },
+     {
+      "number": 329,
+      "title": "feat(src): carry over 129 verified RC2 fork functions",
+      "author": "atlasbez-dot",
+      "untrustedBody": "## Change\n\nCarries over **129 canonical C implementations** from [atlasbez-dot/rac2-gc-decomp](https://github.com/atlasbez-dot/rac2-gc-decomp), preserving the existing source bytes, complete licence notices and per-file compiler profiles. Only C sources and `config/cflags.txt` differ from current upstream base `a4e6b395f9474bfe8a2038f2d53c4560e45c8167`. Generated progress stays with maintainers.\n\nThe command-byte reader **`func_002A04B8` is excluded from the final change**. Its exact fork version requires explicit register bindings and an empty compiler barrier, which do not meet current source rules. Plain-C extraction, packed representations and documented scheduling/register-availability profiles did not match its retail allocation and scheduling. The existing upstream nonmatching C and assembly marker are preserved, the exact fork version remains in fork history, and no `ASM_FUNC` classification or new match is claimed for it.\n\n## Coordination\n\nFourteen proposed functions overlap [",
+      "mergedAt": "2026-10-26T22:33:18Z"
+     },
+     {
+      "number": 330,
+      "title": "fix(nonmatching): recover lifetimes in three large dispatchers",
+      "author": "llesieur99",
+      "untrustedBody": "Three retained large dispatchers still differ from retail. This change preserves newly measured address forms and lifetimes so the next attempt starts from the corrected sources instead of repeating the same failed models. None is promoted into the linked build.\n\n- **Oozla `func_L01_003B5878`:** separate the four real scalar objects from the complete vector/matrix workspace. The F21 zero now follows the retail scale-call/store/comparison lifetime with unchanged scalar stack slots. Replace the forced SDA alias with one `MACRO_ADDR` frame-counter declaration; both USA releases independently confirm that its absolute and GP reads address the same object. Still 4968/4972 bytes.\n- **Dobbo `func_L22_002BF1B0`:** type the two measured resident fields and retain one real combined pose predicate across the path calls, preserving the unconditional table read. The entry object returns to fp without extra references. All 147 table slots retain the 63 retail destination classes; frame, FPR and text",
+      "mergedAt": "2026-10-26T00:47:36Z"
+     },
+     {
+      "number": 331,
+      "title": "feat(src): match func_L00_003ECB38",
+      "author": "ReaperOfVeriod",
+      "untrustedBody": "Matches func_L00_003ECB38 at all 27 placements (336 bytes).\n\nChecks:\n- tools/check.py func_L00_003ECB38 --diff: 27/27 places match\n- tools/build.py level 0 --strict: OK\n- tests/check_repository.py: passed\n- tools/progress.py --check: passed\n- python3 -m unittest discover -s tests: blocked by bundled compiler SIGSYS in the sandbox (9 environment errors)\n\nThe working tree contains separate uncommitted L06/L08 experiments; they are intentionally excluded from this PR.",
+      "mergedAt": "2026-10-26T22:05:01Z"
+     },
+     {
+      "number": 332,
+      "title": "feat(src): match three boot functions",
+      "author": "GianniGr",
+      "untrustedBody": "## What\r\n\r\nMatched three boot functions:\r\n- `func_0029D9D0`\r\n- `func_002E7570`\r\n- `func_00329630`\r\n\r\nEach function has one C definition and matches all 28 placements. Four unverified near misses are preserved in `nonmatching/` with their measured compiler differences.\r\n\r\n## Checked\r\n\r\n- `tools/check.py func_0029D9D0 --diff`: 28 of 28 places match.\r\n- `tools/check.py func_002E7570 --diff`: 28 of 28 places match.\r\n- `tools/check.py func_00329630 --diff`: 28 of 28 places match.\r\n- `tools/build.py all --strict`: 28 programs OK; no C fallback.\r\n- `python -m unittest discover -s tests`: 225 tests OK.\r\n- `tests/check_repository.py`: passed.\r\n- `tools/progress.py --check`: passed.\r\n- `git diff --check`: passed.\r\n\r\nThe build and checks ran in the container-local verification tree with the required container-only Python compatibility shim; no repository tools were changed. Progress files and the README progress table were not regenerated. PAL/US2 builds were not run.",
+      "mergedAt": "2026-10-26T21:37:18Z"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": {
+    "before": {
+     "code": {
+      "done": 776368,
+      "total": 5529148
+     },
+     "functions": {
+      "done": 4351,
+      "total": 8601
+     },
+     "data": {
+      "done": 0,
+      "total": 383391
+     }
+    },
+    "after": {
+     "code": {
+      "done": 854500,
+      "total": 5527532
+     },
+     "functions": {
+      "done": 4618,
+      "total": 8584
+     },
+     "data": {
+      "done": 0,
+      "total": 383391
+     }
+    }
+   },
+   "contributors": [
+    "atlasbez-dot",
+    "GianniGr",
+    "llesieur99",
+    "ReaperOfVeriod",
+    "Veradictus"
+   ]
+  },
+  {
+   "repo": "rac3-decomp",
+   "title": "Up Your Arsenal",
+   "branches": [
+    {
+     "name": "master",
+     "commits": []
+    }
+   ],
+   "commitCount": 0,
+   "pullRequests": {
+    "merged": [],
+    "opened": []
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": null,
+   "contributors": []
+  },
+  {
+   "repo": "rac4-decomp",
+   "title": "Ratchet: Deadlocked",
+   "branches": [
+    {
+     "name": "main",
+     "commits": []
+    }
+   ],
+   "commitCount": 0,
+   "pullRequests": {
+    "merged": [],
+    "opened": []
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": null,
+   "contributors": []
+  },
+  {
+   "repo": "openrac-mods",
+   "title": "OpenRAC mods",
+   "branches": [
+    {
+     "name": "master",
+     "commits": []
+    }
+   ],
+   "commitCount": 0,
+   "pullRequests": {
+    "merged": [],
+    "opened": []
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": null,
+   "contributors": []
+  }
+ ]
+}

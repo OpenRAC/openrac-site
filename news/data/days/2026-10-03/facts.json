@@ -1,0 +1,556 @@
+{
+ "format": 1,
+ "date": "2026-10-03",
+ "totals": {
+  "commits": 38,
+  "pullRequestsMerged": 6,
+  "pullRequestsOpened": 5,
+  "contributors": 2
+ },
+ "projects": [
+  {
+   "repo": "OpenRAC",
+   "title": "OpenRAC launcher",
+   "branches": [
+    {
+     "name": "develop",
+     "commits": [
+      {
+       "sha": "a1009972ea4a0528057a3cad7495e4ab9ebb8d0d",
+       "title": "feat(rac2): run the pipeline on macOS and Linux, unchanged",
+       "author": "Veradictus",
+       "date": "2026-10-03T23:48:26Z"
+      },
+      {
+       "sha": "5d9a2af692ee4d6058f26a38c158f8d455b7cd66",
+       "title": "docs(rac1): how far rac1/ntsc builds on an Apple Silicon Mac",
+       "author": "Veradictus",
+       "date": "2026-10-03T23:13:28Z"
+      },
+      {
+       "sha": "213d872b7f6d2763c3ac02bb689264c341f7c37e",
+       "title": "feat(tools): let setup make a link inside OpenRAC, and use it for rac3",
+       "author": "Veradictus",
+       "date": "2026-10-03T23:11:57Z"
+      },
+      {
+       "sha": "c85855f70ca312add9381eb25ea25007c91f4aa3",
+       "title": "fix(tools): name the range sources.py sync applied",
+       "author": "Veradictus",
+       "date": "2026-10-03T23:03:23Z"
+      },
+      {
+       "sha": "baf7486ece738eb1a460a18b2d1f1e73959d994f",
+       "title": "docs(rac1): rac1/ntsc's container needs QEMU, not Rosetta, on Apple Silicon",
+       "author": "Veradictus",
+       "date": "2026-10-03T22:58:01Z"
+      },
+      {
+       "sha": "f75960ea3ebb1b2e23ec2f633897e8d6bcbde4f0",
+       "title": "docs(engine): what is known about the engine, across the games",
+       "author": "Veradictus",
+       "date": "2026-10-03T22:13:50Z"
+      },
+      {
+       "sha": "f6500d741a1fd67eb4a2e1b2c773a073093fea63",
+       "title": "fix(tools): keep the README's progress table free of dates",
+       "author": "Veradictus",
+       "date": "2026-10-03T22:11:40Z"
+      },
+      {
+       "sha": "ee3617f436745936e62f3f7f7c770efd953b45d2",
+       "title": "docs: contribution guide with the commit convention",
+       "author": "Veradictus",
+       "date": "2026-10-03T22:05:40Z"
+      },
+      {
+       "sha": "a982973633b1b4b36270d98e231bca534d4334ee",
+       "title": "fix(rac1/pal): read Lombyte from games/rac1/ntsc inside OpenRAC",
+       "author": "Veradictus",
+       "date": "2026-10-03T22:01:57Z"
+      },
+      {
+       "sha": "80a7fcb77c53aa8371624ada013dfb739eeed0ed",
+       "title": "feat(tools): generate the game, disc and checksum tables",
+       "author": "Veradictus",
+       "date": "2026-10-03T21:58:00Z"
+      },
+      {
+       "sha": "a58ee0afd1dc7e07704532f3a4fdb9f7d6582b9c",
+       "title": "feat(tools): identify discs, place game inputs and gather progress",
+       "author": "Veradictus",
+       "date": "2026-10-03T21:51:12Z"
+      },
+      {
+       "sha": "55c4a0684e6bb5ceeccceb90e0e08c8c347155cf",
+       "title": "build(sources): game manifests and the import tool",
+       "author": "Veradictus",
+       "date": "2026-10-03T21:47:04Z"
+      }
+     ]
+    },
+    {
+     "name": "master",
+     "commits": [
+      {
+       "sha": "a1009972ea4a0528057a3cad7495e4ab9ebb8d0d",
+       "title": "feat(rac2): run the pipeline on macOS and Linux, unchanged",
+       "author": "Veradictus",
+       "date": "2026-10-03T23:48:26Z"
+      },
+      {
+       "sha": "5d9a2af692ee4d6058f26a38c158f8d455b7cd66",
+       "title": "docs(rac1): how far rac1/ntsc builds on an Apple Silicon Mac",
+       "author": "Veradictus",
+       "date": "2026-10-03T23:13:28Z"
+      },
+      {
+       "sha": "213d872b7f6d2763c3ac02bb689264c341f7c37e",
+       "title": "feat(tools): let setup make a link inside OpenRAC, and use it for rac3",
+       "author": "Veradictus",
+       "date": "2026-10-03T23:11:57Z"
+      },
+      {
+       "sha": "c85855f70ca312add9381eb25ea25007c91f4aa3",
+       "title": "fix(tools): name the range sources.py sync applied",
+       "author": "Veradictus",
+       "date": "2026-10-03T23:03:23Z"
+      },
+      {
+       "sha": "baf7486ece738eb1a460a18b2d1f1e73959d994f",
+       "title": "docs(rac1): rac1/ntsc's container needs QEMU, not Rosetta, on Apple Silicon",
+       "author": "Veradictus",
+       "date": "2026-10-03T22:58:01Z"
+      },
+      {
+       "sha": "f75960ea3ebb1b2e23ec2f633897e8d6bcbde4f0",
+       "title": "docs(engine): what is known about the engine, across the games",
+       "author": "Veradictus",
+       "date": "2026-10-03T22:13:50Z"
+      },
+      {
+       "sha": "f6500d741a1fd67eb4a2e1b2c773a073093fea63",
+       "title": "fix(tools): keep the README's progress table free of dates",
+       "author": "Veradictus",
+       "date": "2026-10-03T22:11:40Z"
+      },
+      {
+       "sha": "ee3617f436745936e62f3f7f7c770efd953b45d2",
+       "title": "docs: contribution guide with the commit convention",
+       "author": "Veradictus",
+       "date": "2026-10-03T22:05:40Z"
+      },
+      {
+       "sha": "a982973633b1b4b36270d98e231bca534d4334ee",
+       "title": "fix(rac1/pal): read Lombyte from games/rac1/ntsc inside OpenRAC",
+       "author": "Veradictus",
+       "date": "2026-10-03T22:01:57Z"
+      },
+      {
+       "sha": "80a7fcb77c53aa8371624ada013dfb739eeed0ed",
+       "title": "feat(tools): generate the game, disc and checksum tables",
+       "author": "Veradictus",
+       "date": "2026-10-03T21:58:00Z"
+      },
+      {
+       "sha": "a58ee0afd1dc7e07704532f3a4fdb9f7d6582b9c",
+       "title": "feat(tools): identify discs, place game inputs and gather progress",
+       "author": "Veradictus",
+       "date": "2026-10-03T21:51:12Z"
+      },
+      {
+       "sha": "55c4a0684e6bb5ceeccceb90e0e08c8c347155cf",
+       "title": "build(sources): game manifests and the import tool",
+       "author": "Veradictus",
+       "date": "2026-10-03T21:47:04Z"
+      }
+     ]
+    }
+   ],
+   "commitCount": 12,
+   "pullRequests": {
+    "merged": [],
+    "opened": []
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": null,
+   "contributors": [
+    "Veradictus"
+   ]
+  },
+  {
+   "repo": "rac1-decomp",
+   "title": "Ratchet & Clank",
+   "branches": [
+    {
+     "name": "main",
+     "commits": [
+      {
+       "sha": "d1e8299c39f5571c2664c952f98b802b42cee285",
+       "title": "feat(core/text): func_0023BB40 exact match",
+       "author": "Lynder063",
+       "date": "2026-10-03T23:59:14Z"
+      },
+      {
+       "sha": "cdde31fcfb7974c22e8fd0581d59275e2ff03ffd",
+       "title": "feat(core/text): func_0023CE18 exact match",
+       "author": "Lynder063",
+       "date": "2026-10-03T23:57:11Z"
+      },
+      {
+       "sha": "588421219bd15c437bff5a61c6a95c8c0bd5aeb2",
+       "title": "feat(core/text): func_0023C9B0 exact match",
+       "author": "Lynder063",
+       "date": "2026-10-03T23:54:35Z"
+      },
+      {
+       "sha": "213c53d4c4808f13a2a3830b7808368e0dd310cf",
+       "title": "feat(core/text): func_0023C2B0 exact match",
+       "author": "Lynder063",
+       "date": "2026-10-03T23:50:59Z"
+      },
+      {
+       "sha": "2cf8211ca607d6014894885d823d84ac33822a07",
+       "title": "feat(core/text): func_0023E698 exact match",
+       "author": "Lynder063",
+       "date": "2026-10-03T23:47:54Z"
+      },
+      {
+       "sha": "95ad22c94871c58663ba5288800569d784972ac5",
+       "title": "feat(core/text): func_0023E058 exact match",
+       "author": "Lynder063",
+       "date": "2026-10-03T23:45:48Z"
+      },
+      {
+       "sha": "cac647327642bee964444cceb68ce250aa249c42",
+       "title": "feat(core/text): func_0023E040 exact match",
+       "author": "Lynder063",
+       "date": "2026-10-03T23:43:39Z"
+      },
+      {
+       "sha": "4c0928a7e50456f358d67cdcd849626e25567b38",
+       "title": "feat(core/text): func_0023E5B0 exact match",
+       "author": "Lynder063",
+       "date": "2026-10-03T23:41:32Z"
+      },
+      {
+       "sha": "904afcace24b05a446dedd9070dbca99c74d1382",
+       "title": "feat(core/text): func_0023E050 exact match",
+       "author": "Lynder063",
+       "date": "2026-10-03T23:39:26Z"
+      },
+      {
+       "sha": "b3620c8e0271b1d2a0edd85a6ad0ee2b1cf7a4cd",
+       "title": "feat(core/text): func_0023E000 exact match",
+       "author": "Lynder063",
+       "date": "2026-10-03T23:37:21Z"
+      },
+      {
+       "sha": "7be232f8085790b5499f31071d9590e0a88d07e5",
+       "title": "feat(core/text): func_0023CE28 exact match",
+       "author": "Lynder063",
+       "date": "2026-10-03T23:35:09Z"
+      },
+      {
+       "sha": "0378fb215b29e6d5ae8f8fd31dfb271785f27393",
+       "title": "feat(core/text): func_0023CD28 exact match",
+       "author": "Lynder063",
+       "date": "2026-10-03T23:25:56Z"
+      },
+      {
+       "sha": "859bfd30051abcdba972d374421dde0026195a16",
+       "title": "pvars",
+       "author": "Lynder063",
+       "date": "2026-10-03T22:18:36Z"
+      },
+      {
+       "sha": "e67fe2010ed1265b4411dc7c2cd44df7df9639d1",
+       "title": "nonmatching: func_L04_002D48B8 - add exact match",
+       "author": "Lynder063",
+       "date": "2026-10-03T20:57:03Z"
+      },
+      {
+       "sha": "13675d41326be565c0d9b548e3c5b6b6bc272028",
+       "title": "nonmatching: func_0023E068, func_0023E478 - add known wall notes\\n\\n- func_0023E068: size 60 vs 72 - delay-slot threading (known wall)\\n- func_0023E478: size 52 vs 56 - delay-slot threading (known wall)\\n\\nCo-Authored-By: qwen3-coder-next",
+       "author": "Lynder063",
+       "date": "2026-10-03T20:42:08Z"
+      },
+      {
+       "sha": "178bbccf15d52f374251f47fcc8ea3897aa8546f",
+       "title": "nonmatching: func_0023BF70 - add exact match\\n\\n- 44-byte MACRO_ADDR function loading global + constant\\n- EXACT (masked) match found via candidate with proper argument\\n\\nCo-Authored-By: qwen3-coder-next",
+       "author": "Lynder063",
+       "date": "2026-10-03T20:39:42Z"
+      },
+      {
+       "sha": "d0c2726ce721e6be436117adb249a5e94c161c5e",
+       "title": "nonmatching: func_0023E5B0 - add exact match\\n\\n- 8-byte stub function (return with delay slot nop)\\n- EXACT (masked) match found via minimal candidate\\n\\nCo-Authored-By: qwen3-coder-next",
+       "author": "Lynder063",
+       "date": "2026-10-03T20:38:10Z"
+      },
+      {
+       "sha": "ad03dabb6eade06a8a662e9d90d413166c33c815",
+       "title": "nonmatching: func_0023CD28 - add exact match\\n\\n- 8-byte stub function (return with delay slot nop)\\n- EXACT (masked) match found via minimal candidate\\n\\nCo-Authored-By: qwen3-coder-next",
+       "author": "Lynder063",
+       "date": "2026-10-03T20:36:49Z"
+      },
+      {
+       "sha": "bf5b1c51d161668697b4bf4fab66168da6e02465",
+       "title": "chore(nonmatching): func_L07_00320CD0, func_L18_002D74F8: add notes, known walls\\n\\n- func_L07_00320CD0: addu operand order (idx,g vs g,idx) - register allocation\\n- func_L18_002D74F8: beql annulled delay slot - compiler reoptimizer\\n\\nCo-Authored-By: qwen3-coder-next",
+       "author": "Lynder063",
+       "date": "2026-10-03T20:26:18Z"
+      },
+      {
+       "sha": "e7cd4b19f3f311f2d5c16c8c1184474be3255111",
+       "title": "chore(nonmatching): func_L18_002F1420 staged, update config/overlays/joined.tsv",
+       "author": "Lynder063",
+       "date": "2026-10-03T19:59:08Z"
+      },
+      {
+       "sha": "69ee8e453c7d56ef3bd2ceb517c4059fdd95ed77",
+       "title": "chore(nonmatching): func_L17_002ED498: add permuter notes",
+       "author": "Lynder063",
+       "date": "2026-10-03T19:56:56Z"
+      },
+      {
+       "sha": "837c00b01d7bc895f20b2656a90053959b30452b",
+       "title": "Merge pull request #23 from Lynder063/level-18-veldin2",
+       "author": "Lynder063",
+       "date": "2026-10-03T10:26:29Z"
+      },
+      {
+       "sha": "a32bc8887ca39e268cc93b45db59f54471a3f026",
+       "title": "Merge pull request #22 from Lynder063/merge-pr21",
+       "author": "Lynder063",
+       "date": "2026-10-03T07:45:23Z"
+      },
+      {
+       "sha": "dabbcadd13511590c96655691d124fe354bb9eec",
+       "title": "Merge pull request #19 from Lynder063/lombyte-pr66-ports-v2",
+       "author": "Lynder063",
+       "date": "2026-10-03T07:40:59Z"
+      },
+      {
+       "sha": "34a4e1ba7d1e3e5eb790988df5643efecefa6b69",
+       "title": "Merge pull request #18 from Lynder063/level-18-d7310-size-exact",
+       "author": "Lynder063",
+       "date": "2026-10-03T07:36:22Z"
+      },
+      {
+       "sha": "d79a0f134941b7bea662c4d97db6f6c16757620b",
+       "title": "Merge pull request #20 from Veradictus/main",
+       "author": "Lynder063",
+       "date": "2026-10-03T00:13:01Z"
+      }
+     ]
+    }
+   ],
+   "commitCount": 26,
+   "pullRequests": {
+    "merged": [
+     {
+      "number": 18,
+      "title": "Level 18: func_L18_002D7310 to size exact (77.9% fuzzy)",
+      "author": "Lynder063",
+      "untrustedBody": "## Summary\n\n- `func_L18_002D7310` (level 18, 484 bytes) goes from a size mismatch (488) to size-exact with 107 bytes off, so its fuzzy score in the report goes from 0 % to 77.9 %. It is staged in `nonmatching/`, not landed.\n- What got it there:\n  - The post-call code is written in both branches, so gcc crossjumps the two calls into retail's single shared `jal`.\n  - Prototype B for `func_L00_0025F4A8` fixes the argument order. Exact callers in l13, l17 and shared already use it: 108 bytes off against 124 (A) and 137 (C).\n  - `((unsigned char *)moby)[0xA4] = 0xFF`. Through a `char *`, gcc turns 0xFF into -1 and shares it with the later `-1` stack argument.\n- What is left: the scheduling order of the argument setup, and which of `$2`/`$3` the shared tail uses.\n\n## Not matched, and why (level 18)\n\n- `func_L18_002D9C78`/`002D9C90`, `002D9440`/`002D9460`, `002E0F90`, `002F1420`/`002F1444`: each is one real function that the catalogue split into two. The first half branches into the second. C",
+      "mergedAt": "2026-10-03T07:36:22Z"
+     },
+     {
+      "number": 19,
+      "title": "Port 9 shared level functions from Lombyte PR #66 (+2 near-misses)",
+      "author": "Lynder063",
+      "untrustedBody": "## Summary\n\nLombyte's [PR #66](https://github.com/mateuszklysz/Lombyte/pull/66) (merged 2026-10-03) landed C for many resident and shared-overlay functions of the US build. I paired its functions with ours using `tools/lombyte.py map`, which finds 202 matched there and not here. I took the smallest shared-level ones, translated the names and globals to PAL, and checked each with `try_func.py`. Nine are exact:\n\n| Function | Bytes | What it does |\n|---|---|---|\n| `func_L00_002EB3A0` | 72 | clears a moby's work block and re-runs its setup |\n| `func_L00_0025A868` | 36 | tests whether a moby's linked object has a non-zero field at +8 |\n| `func_L00_002E99E4` | 12 | stores a float into a moby field at +0xB4 |\n| `func_L00_002AAE20` | 92 | moves the tracked class 0x5F3 moby to a position, creating it first if needed |\n| `func_L00_002DCD40` | 104 | calls the callback a moby's class defines at +0x10, unless the moby is deleted |\n| `func_L00_00261848` | 144 | marks a planet as discovered and appen",
+      "mergedAt": "2026-10-03T07:41:00Z"
+     },
+     {
+      "number": 20,
+      "title": "Level code: 145 functions (19.46%), Level 16, near misses restaged, parallel salvage",
+      "author": "Veradictus",
+      "untrustedBody": "## Summary\r\n- **145 level functions exact**:\r\n  - 125 from the Level 12-18 waves and near-miss rounds;\r\n  - 12 on Level 16 (Kalebo III), matched by the GPT agent;\r\n  - 8 adapted from Lombyte (MIT), credited in THIRD_PARTY_NOTICES.md.\r\n- **Progress vs. upstream:** 16.96% → 19.46% of code; functions 2,609 → 2,744 of 5,109.\r\n- **Near misses:** 529 staged in `nonmatching/`, each with its closest candidate and the remaining differences. Each one is flagged when it can't land as written, and keeps its last measured result when a neighbour's landing breaks its build.\r\n- **Tools:**\r\n  - `overlay_check` accepts retail's copy for `%hi`/`%lo` pairs in functions that exist as several identical copies.\r\n  - `wave.py salvage` runs several levels at once.\r\n  - `lombyte.py` and `names.py` find Lombyte's report now that it's published by CI.\r\n  - The wave and name tools run on Python 3.9.\r\n  - The long-function budget is now 30 runs.\r\n- **Docs:** new codegen levers in `docs/QUEUE.md`.\r\n- **Merge:** inc",
+      "mergedAt": "2026-10-03T00:13:02Z"
+     },
+     {
+      "number": 21,
+      "title": "Level code: 25 functions (19.77%), Level 16, US→PAL map, editor mobys and collision",
+      "author": "Veradictus",
+      "untrustedBody": "## Summary\r\n\r\n**Level code: 25 more functions (11,388 bytes).** 2,769 of 5,109 functions, 19.77% of the code (was 19.46%), 22.33% fuzzy.\r\n\r\n- **Level 16 (Kalebo III):** 18 functions from the GPT agent, which has now finished its pass on the level (62 of 98 functions).\r\n- **Ported from relatives on other levels** (7), each with its own level's symbols, tables or arguments: `func_L01_0022D340`, `func_L02_002EBCE8`, `func_L03_002D50A0`, `func_L03_002DC848`, `func_L08_002F20D8`, `func_L11_0031FBF0`, `func_L12_002E7EE0`.\r\n- `func_L16_002CB098` and `func_L16_002D0328` are now declared `()` rather than `(void)`: they take the moby, and the `(void)` declarations stopped their staged near misses from compiling.\r\n\r\n**Near misses:** removed the 14 that landed, staged `func_L16_002E3740` (12 bytes short of 2,184), and re-checked all 511 against `src/` as it is now.\r\n\r\n**Matching tools**\r\n- `overlays.py us-map` pairs each US function with ours from the code alone. It maps 47,986 of 48,328 (99.7% of",
+      "mergedAt": "2026-10-03T07:45:26Z"
+     },
+     {
+      "number": 22,
+      "title": "Merge #21 (Veradictus/main) with the Lombyte ports and L18 size-exact work",
+      "author": "Lynder063",
+      "untrustedBody": "Brings in PR #21 (Level 16, ported relatives, US→PAL map, editor tooling), which conflicted after #18 and #19 were merged. Its conflicts were all in generated or staged near-miss files: for `func_L18_002D7310` and `func_L00_00205B50` the version on `main` stays, the staged files of functions that are now C are dropped, and the near-miss index and `progress/report.json` are regenerated. I scanned #21's diff first: no movie/ezmpeg, SDK or removed-source references. `build_sn.sh`: 0 size mismatches, same 7 near-misses; `gen_progress_report.py --check` passes (2776/5109, 19.79 %).",
+      "mergedAt": "2026-10-03T07:45:24Z"
+     },
+     {
+      "number": 23,
+      "title": "Level 18: restage 13 near-misses after the merges (fuzzy 26.1% -> 34.2%)",
+      "author": "Lynder063",
+      "untrustedBody": "## Summary\n\n- After the recent merges, 13 staged level-18 candidates had dropped to a size mismatch and scored 0 %. Their best earlier attempts, read from `build-sn/try/*/runs.log`, still compile with the right size. I restaged them with `nonmatching.py stage`, which only replaces a candidate when the new one is closer.\n- Level 18's fuzzy figure goes from 26.06 % to 34.21 %; the overall figure from 22.36 % to 22.70 %. No function became exact, so the matched-function count stays at 2776 / 5109.\n\nRestaged: `func_L18_002D76D8` (91/788 bytes off), `002D8F10` (72/1092), `002D96B0` (98/1104), `002DCE10` (75/1116), `002DD8A8` (74/1116), `002EAB58` (339/1764), `002EB5E8` (172/924), `002EBBF0` (129/1236), `002F33D8` (65/824), `002F72E0` (135/2548), `002F86E8` (38/1048), `002FDB28` (31/372); `002F1780` is still a size mismatch (824 vs 816).\n\n## Not matched, and what I learned\n\n- `func_L18_002FD058` (4 bytes) and `002D6738` (10 bytes) are register-allocation ties. gcc's global allocator picks th",
+      "mergedAt": "2026-10-03T10:26:30Z"
+     }
+    ],
+    "opened": [
+     {
+      "number": 19,
+      "title": "Port 9 shared level functions from Lombyte PR #66 (+2 near-misses)",
+      "author": "Lynder063",
+      "untrustedBody": "## Summary\n\nLombyte's [PR #66](https://github.com/mateuszklysz/Lombyte/pull/66) (merged 2026-10-03) landed C for many resident and shared-overlay functions of the US build. I paired its functions with ours using `tools/lombyte.py map`, which finds 202 matched there and not here. I took the smallest shared-level ones, translated the names and globals to PAL, and checked each with `try_func.py`. Nine are exact:\n\n| Function | Bytes | What it does |\n|---|---|---|\n| `func_L00_002EB3A0` | 72 | clears a moby's work block and re-runs its setup |\n| `func_L00_0025A868` | 36 | tests whether a moby's linked object has a non-zero field at +8 |\n| `func_L00_002E99E4` | 12 | stores a float into a moby field at +0xB4 |\n| `func_L00_002AAE20` | 92 | moves the tracked class 0x5F3 moby to a position, creating it first if needed |\n| `func_L00_002DCD40` | 104 | calls the callback a moby's class defines at +0x10, unless the moby is deleted |\n| `func_L00_00261848` | 144 | marks a planet as discovered and appen",
+      "mergedAt": "2026-10-03T07:41:00Z"
+     },
+     {
+      "number": 20,
+      "title": "Level code: 145 functions (19.46%), Level 16, near misses restaged, parallel salvage",
+      "author": "Veradictus",
+      "untrustedBody": "## Summary\r\n- **145 level functions exact**:\r\n  - 125 from the Level 12-18 waves and near-miss rounds;\r\n  - 12 on Level 16 (Kalebo III), matched by the GPT agent;\r\n  - 8 adapted from Lombyte (MIT), credited in THIRD_PARTY_NOTICES.md.\r\n- **Progress vs. upstream:** 16.96% → 19.46% of code; functions 2,609 → 2,744 of 5,109.\r\n- **Near misses:** 529 staged in `nonmatching/`, each with its closest candidate and the remaining differences. Each one is flagged when it can't land as written, and keeps its last measured result when a neighbour's landing breaks its build.\r\n- **Tools:**\r\n  - `overlay_check` accepts retail's copy for `%hi`/`%lo` pairs in functions that exist as several identical copies.\r\n  - `wave.py salvage` runs several levels at once.\r\n  - `lombyte.py` and `names.py` find Lombyte's report now that it's published by CI.\r\n  - The wave and name tools run on Python 3.9.\r\n  - The long-function budget is now 30 runs.\r\n- **Docs:** new codegen levers in `docs/QUEUE.md`.\r\n- **Merge:** inc",
+      "mergedAt": "2026-10-03T00:13:02Z"
+     },
+     {
+      "number": 21,
+      "title": "Level code: 25 functions (19.77%), Level 16, US→PAL map, editor mobys and collision",
+      "author": "Veradictus",
+      "untrustedBody": "## Summary\r\n\r\n**Level code: 25 more functions (11,388 bytes).** 2,769 of 5,109 functions, 19.77% of the code (was 19.46%), 22.33% fuzzy.\r\n\r\n- **Level 16 (Kalebo III):** 18 functions from the GPT agent, which has now finished its pass on the level (62 of 98 functions).\r\n- **Ported from relatives on other levels** (7), each with its own level's symbols, tables or arguments: `func_L01_0022D340`, `func_L02_002EBCE8`, `func_L03_002D50A0`, `func_L03_002DC848`, `func_L08_002F20D8`, `func_L11_0031FBF0`, `func_L12_002E7EE0`.\r\n- `func_L16_002CB098` and `func_L16_002D0328` are now declared `()` rather than `(void)`: they take the moby, and the `(void)` declarations stopped their staged near misses from compiling.\r\n\r\n**Near misses:** removed the 14 that landed, staged `func_L16_002E3740` (12 bytes short of 2,184), and re-checked all 511 against `src/` as it is now.\r\n\r\n**Matching tools**\r\n- `overlays.py us-map` pairs each US function with ours from the code alone. It maps 47,986 of 48,328 (99.7% of",
+      "mergedAt": "2026-10-03T07:45:26Z"
+     },
+     {
+      "number": 22,
+      "title": "Merge #21 (Veradictus/main) with the Lombyte ports and L18 size-exact work",
+      "author": "Lynder063",
+      "untrustedBody": "Brings in PR #21 (Level 16, ported relatives, US→PAL map, editor tooling), which conflicted after #18 and #19 were merged. Its conflicts were all in generated or staged near-miss files: for `func_L18_002D7310` and `func_L00_00205B50` the version on `main` stays, the staged files of functions that are now C are dropped, and the near-miss index and `progress/report.json` are regenerated. I scanned #21's diff first: no movie/ezmpeg, SDK or removed-source references. `build_sn.sh`: 0 size mismatches, same 7 near-misses; `gen_progress_report.py --check` passes (2776/5109, 19.79 %).",
+      "mergedAt": "2026-10-03T07:45:24Z"
+     },
+     {
+      "number": 23,
+      "title": "Level 18: restage 13 near-misses after the merges (fuzzy 26.1% -> 34.2%)",
+      "author": "Lynder063",
+      "untrustedBody": "## Summary\n\n- After the recent merges, 13 staged level-18 candidates had dropped to a size mismatch and scored 0 %. Their best earlier attempts, read from `build-sn/try/*/runs.log`, still compile with the right size. I restaged them with `nonmatching.py stage`, which only replaces a candidate when the new one is closer.\n- Level 18's fuzzy figure goes from 26.06 % to 34.21 %; the overall figure from 22.36 % to 22.70 %. No function became exact, so the matched-function count stays at 2776 / 5109.\n\nRestaged: `func_L18_002D76D8` (91/788 bytes off), `002D8F10` (72/1092), `002D96B0` (98/1104), `002DCE10` (75/1116), `002DD8A8` (74/1116), `002EAB58` (339/1764), `002EB5E8` (172/924), `002EBBF0` (129/1236), `002F33D8` (65/824), `002F72E0` (135/2548), `002F86E8` (38/1048), `002FDB28` (31/372); `002F1780` is still a size mismatch (824 vs 816).\n\n## Not matched, and what I learned\n\n- `func_L18_002FD058` (4 bytes) and `002D6738` (10 bytes) are register-allocation ties. gcc's global allocator picks th",
+      "mergedAt": "2026-10-03T10:26:30Z"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": {
+    "before": {
+     "code": {
+      "done": 629768,
+      "total": 3712808
+     },
+     "functions": {
+      "done": 2609,
+      "total": 5109
+     }
+    },
+    "after": {
+     "code": {
+      "done": 734872,
+      "total": 3712808
+     },
+     "functions": {
+      "done": 2788,
+      "total": 5109
+     }
+    }
+   },
+   "contributors": [
+    "Lynder063",
+    "Veradictus"
+   ]
+  },
+  {
+   "repo": "rac2-decomp",
+   "title": "Going Commando",
+   "branches": [
+    {
+     "name": "master",
+     "commits": []
+    }
+   ],
+   "commitCount": 0,
+   "pullRequests": {
+    "merged": [],
+    "opened": []
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": null,
+   "contributors": []
+  },
+  {
+   "repo": "rac3-decomp",
+   "title": "Up Your Arsenal",
+   "branches": [
+    {
+     "name": "master",
+     "commits": []
+    }
+   ],
+   "commitCount": 0,
+   "pullRequests": {
+    "merged": [],
+    "opened": []
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": null,
+   "contributors": []
+  },
+  {
+   "repo": "rac4-decomp",
+   "title": "Ratchet: Deadlocked",
+   "branches": [
+    {
+     "name": "main",
+     "commits": []
+    }
+   ],
+   "commitCount": 0,
+   "pullRequests": {
+    "merged": [],
+    "opened": []
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": null,
+   "contributors": []
+  },
+  {
+   "repo": "openrac-mods",
+   "title": "OpenRAC mods",
+   "branches": [
+    {
+     "name": "master",
+     "commits": []
+    }
+   ],
+   "commitCount": 0,
+   "pullRequests": {
+    "merged": [],
+    "opened": []
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": null,
+   "contributors": []
+  }
+ ]
+}

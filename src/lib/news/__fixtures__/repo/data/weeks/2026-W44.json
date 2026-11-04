@@ -34,6 +34,11 @@
       "number": 251,
       "title": "<img src=x onerror=\"window.__pwned=1\"> a hostile title",
       "author": "mallory"
+     },
+     {
+      "number": 161,
+      "title": "feat(launcher): mod index and install links",
+      "author": "alice"
      }
     ]
    },

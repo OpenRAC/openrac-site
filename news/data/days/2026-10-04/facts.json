@@ -1,0 +1,397 @@
+{
+ "format": 1,
+ "date": "2026-10-04",
+ "totals": {
+  "commits": 30,
+  "pullRequestsMerged": 2,
+  "pullRequestsOpened": 2,
+  "contributors": 1
+ },
+ "projects": [
+  {
+   "repo": "OpenRAC",
+   "title": "OpenRAC launcher",
+   "branches": [
+    {
+     "name": "develop",
+     "commits": []
+    },
+    {
+     "name": "master",
+     "commits": []
+    }
+   ],
+   "commitCount": 0,
+   "pullRequests": {
+    "merged": [],
+    "opened": []
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": null,
+   "contributors": []
+  },
+  {
+   "repo": "rac1-decomp",
+   "title": "Ratchet & Clank",
+   "branches": [
+    {
+     "name": "main",
+     "commits": [
+      {
+       "sha": "747a45e64f09175f98f9ea42e82c27ac9affe035",
+       "title": "l07_umbris: func_L07_00320CD0 EXACT match",
+       "author": "Lynder063",
+       "date": "2026-10-04T21:40:07Z"
+      },
+      {
+       "sha": "4a59734a3869f570901364df42bf4d01bb64481b",
+       "title": "Merge pull request #25 from Lynder063/readme-refresh",
+       "author": "Lynder063",
+       "date": "2026-10-04T21:23:51Z"
+      },
+      {
+       "sha": "9ca0f7f71f8881c8bbc5b388f48327af9dd43be2",
+       "title": "Add .recomp.json for recomp.fyi",
+       "author": "Lynder063",
+       "date": "2026-10-04T11:49:50Z"
+      },
+      {
+       "sha": "7502ff0e5cb286538859e9d107452ca185bfc3b8",
+       "title": "Merge pull request #24 from Lynder063/lombyte-ahead-ports",
+       "author": "Lynder063",
+       "date": "2026-10-04T09:32:16Z"
+      },
+      {
+       "sha": "7ea55a7995536aa8d22e8db7a56339bad907c8ec",
+       "title": "docs(credits): remove removal note and credit GFI Discord community",
+       "author": "Lynder063",
+       "date": "2026-10-04T08:40:22Z"
+      },
+      {
+       "sha": "bdc09bc86bafb3013728fb825c96e17f15187d70",
+       "title": "feat(core/text): func_0023E478 exact match\\n\\nCo-Authored-By: qwen3-coder-next",
+       "author": "Lynder063",
+       "date": "2026-10-04T06:09:07Z"
+      },
+      {
+       "sha": "f781de5e1c9cc47c5e7e37ce5fe3ce92464acbea",
+       "title": "feat(core/text): func_0023BF70 exact match",
+       "author": "Lynder063",
+       "date": "2026-10-04T00:31:45Z"
+      },
+      {
+       "sha": "e0b123f0a757df1a86f46f9fa018edadb7e55784",
+       "title": "feat(core/text): func_0023BB60 exact match",
+       "author": "Lynder063",
+       "date": "2026-10-04T00:29:36Z"
+      },
+      {
+       "sha": "405cddd940d700c59aec48c7e162ee229eeb5ea5",
+       "title": "feat(core/text): func_0023C2C0 exact match",
+       "author": "Lynder063",
+       "date": "2026-10-04T00:20:53Z"
+      },
+      {
+       "sha": "9d95031df4b061c87fbaf751d30e8a2a34b315e2",
+       "title": "feat(core/text): func_0023BF48 exact match",
+       "author": "Lynder063",
+       "date": "2026-10-04T00:18:12Z"
+      },
+      {
+       "sha": "bfb4cdd6deec6cccdb0941c0bb2f386c3eb063e0",
+       "title": "feat(core/text): func_0023DFA0 exact match",
+       "author": "Lynder063",
+       "date": "2026-10-04T00:10:04Z"
+      },
+      {
+       "sha": "717e3b84bfb8df91581744359f86d54862e49f7e",
+       "title": "feat(core/text): func_0023C060 exact match",
+       "author": "Lynder063",
+       "date": "2026-10-04T00:07:58Z"
+      },
+      {
+       "sha": "92c090b590fecf4871b615fa7137984683f2462b",
+       "title": "feat(core/text): func_0023E0B0 exact match",
+       "author": "Lynder063",
+       "date": "2026-10-04T00:05:28Z"
+      },
+      {
+       "sha": "e41048dfd75766e50b0cd30766b890e59a35559a",
+       "title": "feat(core/text): func_0023DFE0 exact match",
+       "author": "Lynder063",
+       "date": "2026-10-04T00:03:23Z"
+      },
+      {
+       "sha": "d2d5af0453fb3a394ebe9a6a7505880b3d72d6f1",
+       "title": "feat(core/text): func_0023DFC0 exact match",
+       "author": "Lynder063",
+       "date": "2026-10-04T00:01:19Z"
+      }
+     ]
+    }
+   ],
+   "commitCount": 15,
+   "pullRequests": {
+    "merged": [
+     {
+      "number": 24,
+      "title": "Port 36 functions Lombyte has matched (exact, +16 KB)",
+      "author": "Lynder063",
+      "untrustedBody": "## What\n\nLombyte (the matching decomp of the US build, MIT) has matched 245 functions we had not (121,756 bytes by its last published report). This PR ports the ones that carry over to PAL: **36 functions, 16,056 bytes, each an exact match** (2798 -> 2834 matched functions, matched code 19.80 % -> 20.24 %). Each port is its own commit and credits the Lombyte source file in a comment, as the earlier Lombyte ports do.\n\n## How\n\n- `tools/lombyte.py map`/`todo` lists what Lombyte has and we don't. Pairs whose size differs between the builds are skipped: that is different PAL code, not a port. The movie/SDK functions (`func_0023C*`-`0023E*`, `sce*`, newlib) are left out as before.\n- 27 of the 36 were staged near-misses (`nonmatching/`); their staged files and README rows are removed.\n- What made them match was the declarations and local-variable shape of Lombyte's version, not new tricks: `MACRO_ADDR` on scalars/arrays (retail's unsplit `lui/lw`), a MACRO_ADDR `int` read as a byte for a flag",
+      "mergedAt": "2026-10-04T09:32:17Z"
+     },
+     {
+      "number": 25,
+      "title": "Refresh the README: how it works, contributing and license sections",
+      "author": "Lynder063",
+      "untrustedBody": "",
+      "mergedAt": "2026-10-04T21:23:51Z"
+     }
+    ],
+    "opened": [
+     {
+      "number": 24,
+      "title": "Port 36 functions Lombyte has matched (exact, +16 KB)",
+      "author": "Lynder063",
+      "untrustedBody": "## What\n\nLombyte (the matching decomp of the US build, MIT) has matched 245 functions we had not (121,756 bytes by its last published report). This PR ports the ones that carry over to PAL: **36 functions, 16,056 bytes, each an exact match** (2798 -> 2834 matched functions, matched code 19.80 % -> 20.24 %). Each port is its own commit and credits the Lombyte source file in a comment, as the earlier Lombyte ports do.\n\n## How\n\n- `tools/lombyte.py map`/`todo` lists what Lombyte has and we don't. Pairs whose size differs between the builds are skipped: that is different PAL code, not a port. The movie/SDK functions (`func_0023C*`-`0023E*`, `sce*`, newlib) are left out as before.\n- 27 of the 36 were staged near-misses (`nonmatching/`); their staged files and README rows are removed.\n- What made them match was the declarations and local-variable shape of Lombyte's version, not new tricks: `MACRO_ADDR` on scalars/arrays (retail's unsplit `lui/lw`), a MACRO_ADDR `int` read as a byte for a flag",
+      "mergedAt": "2026-10-04T09:32:17Z"
+     },
+     {
+      "number": 25,
+      "title": "Refresh the README: how it works, contributing and license sections",
+      "author": "Lynder063",
+      "untrustedBody": "",
+      "mergedAt": "2026-10-04T21:23:51Z"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": {
+    "before": {
+     "code": {
+      "done": 734872,
+      "total": 3712808
+     },
+     "functions": {
+      "done": 2788,
+      "total": 5109
+     }
+    },
+    "after": {
+     "code": {
+      "done": 751292,
+      "total": 3712808
+     },
+     "functions": {
+      "done": 2834,
+      "total": 5109
+     }
+    }
+   },
+   "contributors": [
+    "Lynder063"
+   ]
+  },
+  {
+   "repo": "rac2-decomp",
+   "title": "Going Commando",
+   "branches": [
+    {
+     "name": "master",
+     "commits": []
+    }
+   ],
+   "commitCount": 0,
+   "pullRequests": {
+    "merged": [],
+    "opened": []
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": null,
+   "contributors": []
+  },
+  {
+   "repo": "rac3-decomp",
+   "title": "Up Your Arsenal",
+   "branches": [
+    {
+     "name": "master",
+     "commits": []
+    }
+   ],
+   "commitCount": 0,
+   "pullRequests": {
+    "merged": [],
+    "opened": []
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": null,
+   "contributors": []
+  },
+  {
+   "repo": "rac4-decomp",
+   "title": "Ratchet: Deadlocked",
+   "branches": [
+    {
+     "name": "main",
+     "commits": [
+      {
+       "sha": "dedfcd416a1b8e195978df6b038e0d4cd927f4b7",
+       "title": "Add auto_structs: structures built from member accesses; 71 more functions match",
+       "author": "Lynder063",
+       "date": "2026-10-04T22:17:41Z"
+      },
+      {
+       "sha": "46bc8368f820c281a30d7e75e98e5fdac983b136",
+       "title": "Audit and build level overlay functions; six common functions match",
+       "author": "Lynder063",
+       "date": "2026-10-04T21:46:35Z"
+      },
+      {
+       "sha": "0a156d517d815d91695f678798fb3f3b5e27344a",
+       "title": "Disassemble the level overlays: each distinct function once",
+       "author": "Lynder063",
+       "date": "2026-10-04T21:41:00Z"
+      },
+      {
+       "sha": "e96e616fa36c05d2a75831b10d1de4f8f163c0a4",
+       "title": "Track progress per level like rac1-decomp: a category and a README row for each level",
+       "author": "Lynder063",
+       "date": "2026-10-04T21:34:28Z"
+      },
+      {
+       "sha": "b188ae678a2fe6eb55ac7360b416ad13edea5b58",
+       "title": "Split the level overlays like rac1-decomp: common and level-specific code",
+       "author": "Lynder063",
+       "date": "2026-10-04T21:30:22Z"
+      },
+      {
+       "sha": "2294c239c757fa72f26948b2e69852da566125a7",
+       "title": "Document the div.s nop findings for libm and level code",
+       "author": "Lynder063",
+       "date": "2026-10-04T21:14:10Z"
+      },
+      {
+       "sha": "f5e1d9fee783b7b4eadc7e1ed30428ec4dad73ac",
+       "title": "Seven more functions match with the assembler passes (float nops, loop padding)",
+       "author": "Lynder063",
+       "date": "2026-10-04T21:08:23Z"
+      },
+      {
+       "sha": "cadbcfb7d80504bb67f05e712a9af9c396e0e91d",
+       "title": "Rewrite the README for the working pipeline",
+       "author": "Lynder063",
+       "date": "2026-10-04T21:04:02Z"
+      },
+      {
+       "sha": "719c14d68b1d80cf54ce96bfd0d1ea6e336d927f",
+       "title": "Add the SN assembler passes and a full contributing guide",
+       "author": "Lynder063",
+       "date": "2026-10-04T20:58:28Z"
+      },
+      {
+       "sha": "4ff72358f616e5db08192a1632fd0bc1f5206511",
+       "title": "Add the math library from newlib's sources: 27 members match",
+       "author": "Lynder063",
+       "date": "2026-10-04T20:48:42Z"
+      },
+      {
+       "sha": "8bc417b3ae3cf5f41afe762874055569c5424b29",
+       "title": "Two more functions match (volatile pointer, byte-offset indexing)",
+       "author": "Lynder063",
+       "date": "2026-10-04T20:28:10Z"
+      },
+      {
+       "sha": "92d67cc6f63f2994b3028a065025e60d26c21e3c",
+       "title": "Four more near-misses fixed by hand",
+       "author": "Lynder063",
+       "date": "2026-10-04T20:16:10Z"
+      },
+      {
+       "sha": "e261b49306d14f66713914278349467a83d46ed3",
+       "title": "More functions match",
+       "author": "Lynder063",
+       "date": "2026-10-04T20:04:03Z"
+      },
+      {
+       "sha": "7c35dd4ef14d69561d9d2455eff83f34609b121a",
+       "title": "Eleven more functions match",
+       "author": "Lynder063",
+       "date": "2026-10-04T19:37:32Z"
+      },
+      {
+       "sha": "d7a803a9db5c551ee9cae2443ef2ff553475540e",
+       "title": "Matching decompilation of Ratchet: Deadlocked (NTSC-U)",
+       "author": "Lynder063",
+       "date": "2026-10-04T18:46:09Z"
+      }
+     ]
+    }
+   ],
+   "commitCount": 15,
+   "pullRequests": {
+    "merged": [],
+    "opened": []
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": {
+    "before": null,
+    "after": {
+     "code": {
+      "done": 26572,
+      "total": 5175440
+     },
+     "functions": {
+      "done": 243,
+      "total": 15056
+     }
+    }
+   },
+   "contributors": [
+    "Lynder063"
+   ]
+  },
+  {
+   "repo": "openrac-mods",
+   "title": "OpenRAC mods",
+   "branches": [
+    {
+     "name": "master",
+     "commits": []
+    }
+   ],
+   "commitCount": 0,
+   "pullRequests": {
+    "merged": [],
+    "opened": []
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": null,
+   "contributors": []
+  }
+ ]
+}

@@ -1,0 +1,496 @@
+{
+ "format": 1,
+ "date": "2026-10-06",
+ "totals": {
+  "commits": 3,
+  "pullRequestsMerged": 21,
+  "pullRequestsOpened": 20,
+  "contributors": 3
+ },
+ "projects": [
+  {
+   "repo": "OpenRAC",
+   "title": "OpenRAC launcher",
+   "branches": [
+    {
+     "name": "develop",
+     "commits": []
+    },
+    {
+     "name": "master",
+     "commits": []
+    }
+   ],
+   "commitCount": 0,
+   "pullRequests": {
+    "merged": [],
+    "opened": []
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": null,
+   "contributors": []
+  },
+  {
+   "repo": "rac1-decomp",
+   "title": "Ratchet & Clank",
+   "branches": [
+    {
+     "name": "main",
+     "commits": [
+      {
+       "sha": "10c89aa51c19bb4f84364ca8db2fdc2354edee3d",
+       "title": "Merge pull request #34 from Veradictus/main",
+       "author": "Lynder063",
+       "date": "2026-10-06T19:26:26Z"
+      },
+      {
+       "sha": "9ed862d89963415428d26dd7c8bc63288971d207",
+       "title": "Merge pull request #30 from OpenRAC/qwen-fixes-and-matches",
+       "author": "Lynder063",
+       "date": "2026-10-06T19:03:17Z"
+      },
+      {
+       "sha": "7bdba056d50dfb33fc81928b01981385bded170c",
+       "title": "Merge pull request #33 from Veradictus/main",
+       "author": "Lynder063",
+       "date": "2026-10-06T12:42:19Z"
+      }
+     ]
+    }
+   ],
+   "commitCount": 3,
+   "pullRequests": {
+    "merged": [
+     {
+      "number": 30,
+      "title": "trying some small to medium functions",
+      "author": "Lynder063",
+      "untrustedBody": "",
+      "mergedAt": "2026-10-06T19:03:18Z"
+     },
+     {
+      "number": 33,
+      "title": "feat(overlays): 54 more functions, and 72 functions the catalogue had cut apart are joined",
+      "author": "Veradictus",
+      "untrustedBody": "## Summary\r\n\r\nSmall functions across level code, most of level 16's remaining large ones, and a fix for\r\nwhy so many tiny catalogue entries could never match.\r\n\r\n| | Before (#32) | After |\r\n|---|---|---|\r\n| Functions finished | 3,186 / 5,109 | 3,275 / 5,109 |\r\n| Code matched | 54.43% | 54.81% |\r\n| Fully linked | 8.45% | 8.69% |\r\n| Units complete | 71 / 278 | 76 / 278 |\r\n\r\nThe 89 newly finished entries are 54 matched functions (12,360 bytes) and 35 pieces of\r\njoined functions (1,584 bytes) that count with their owners. Five shared-code files became\r\ncomplete: memcard_0024DFB0, movie_audiodec_002EFC90, music_002664B0, shrubproc_0028A198 and\r\nspace_002A3680.\r\n\r\n## The catalogue fix (`00e0e1e`)\r\n\r\nThe level catalogue starts a new entry wherever a branch or a return suggests one, which\r\ncuts many small functions into two to four pieces: an early return, a shared tail, a second\r\narm. No C matches a piece alone, so these sat in the queue as unmatched \"functions\" of 8 to\r\n100 bytes and every a",
+      "mergedAt": "2026-10-06T12:42:19Z"
+     },
+     {
+      "number": 34,
+      "title": "feat(overlays): level 16 complete, 19 more functions",
+      "author": "Veradictus",
+      "untrustedBody": "## Summary\r\n\r\nLevel 16 (Kalebo III) is the second level whose own code is fully matched: its last seven\r\nfunctions are in this PR. Twelve small functions elsewhere come with them.\r\n\r\n| | Before (#33) | After |\r\n|---|---|---|\r\n| Functions finished | 3,275 / 5,109 | 3,294 / 5,109 |\r\n| Code matched | 54.81% | 55.01% |\r\n| Fully linked | 8.69% | 12.26% |\r\n| Units complete | 76 / 278 | 77 / 278 |\r\n\r\n19 functions, 7,404 bytes. The fully linked figure moves by the whole level (98 functions,\r\n132,340 bytes), because a level counts only when its last function matches.\r\n\r\n## Level 16's last seven (4,200 bytes)\r\n\r\n| Function | Bytes | What closed it |\r\n|---|---|---|\r\n| `func_L16_002E8B30` | 884 | see \"Last resorts\" |\r\n| `func_L16_002CFDB8` | 696 | see \"Last resorts\" |\r\n| `func_L16_002E9018` | 608 | no helper locals: `count - 1` written at each of its four uses |\r\n| `func_L16_002D0328` | 568 | a per-function flag, see below |\r\n| `func_L16_002E7670` | 544 | scale, base and product locals removed; a ",
+      "mergedAt": "2026-10-06T19:26:27Z"
+     }
+    ],
+    "opened": [
+     {
+      "number": 33,
+      "title": "feat(overlays): 54 more functions, and 72 functions the catalogue had cut apart are joined",
+      "author": "Veradictus",
+      "untrustedBody": "## Summary\r\n\r\nSmall functions across level code, most of level 16's remaining large ones, and a fix for\r\nwhy so many tiny catalogue entries could never match.\r\n\r\n| | Before (#32) | After |\r\n|---|---|---|\r\n| Functions finished | 3,186 / 5,109 | 3,275 / 5,109 |\r\n| Code matched | 54.43% | 54.81% |\r\n| Fully linked | 8.45% | 8.69% |\r\n| Units complete | 71 / 278 | 76 / 278 |\r\n\r\nThe 89 newly finished entries are 54 matched functions (12,360 bytes) and 35 pieces of\r\njoined functions (1,584 bytes) that count with their owners. Five shared-code files became\r\ncomplete: memcard_0024DFB0, movie_audiodec_002EFC90, music_002664B0, shrubproc_0028A198 and\r\nspace_002A3680.\r\n\r\n## The catalogue fix (`00e0e1e`)\r\n\r\nThe level catalogue starts a new entry wherever a branch or a return suggests one, which\r\ncuts many small functions into two to four pieces: an early return, a shared tail, a second\r\narm. No C matches a piece alone, so these sat in the queue as unmatched \"functions\" of 8 to\r\n100 bytes and every a",
+      "mergedAt": "2026-10-06T12:42:19Z"
+     },
+     {
+      "number": 34,
+      "title": "feat(overlays): level 16 complete, 19 more functions",
+      "author": "Veradictus",
+      "untrustedBody": "## Summary\r\n\r\nLevel 16 (Kalebo III) is the second level whose own code is fully matched: its last seven\r\nfunctions are in this PR. Twelve small functions elsewhere come with them.\r\n\r\n| | Before (#33) | After |\r\n|---|---|---|\r\n| Functions finished | 3,275 / 5,109 | 3,294 / 5,109 |\r\n| Code matched | 54.81% | 55.01% |\r\n| Fully linked | 8.69% | 12.26% |\r\n| Units complete | 76 / 278 | 77 / 278 |\r\n\r\n19 functions, 7,404 bytes. The fully linked figure moves by the whole level (98 functions,\r\n132,340 bytes), because a level counts only when its last function matches.\r\n\r\n## Level 16's last seven (4,200 bytes)\r\n\r\n| Function | Bytes | What closed it |\r\n|---|---|---|\r\n| `func_L16_002E8B30` | 884 | see \"Last resorts\" |\r\n| `func_L16_002CFDB8` | 696 | see \"Last resorts\" |\r\n| `func_L16_002E9018` | 608 | no helper locals: `count - 1` written at each of its four uses |\r\n| `func_L16_002D0328` | 568 | a per-function flag, see below |\r\n| `func_L16_002E7670` | 544 | scale, base and product locals removed; a ",
+      "mergedAt": "2026-10-06T19:26:27Z"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [
+     {
+      "number": 35,
+      "title": "What about tekken decomp after completed?",
+      "author": "romildolisboa4-netizen"
+     }
+    ],
+    "closed": []
+   },
+   "releases": [],
+   "progress": {
+    "before": {
+     "code": {
+      "done": 2020920,
+      "total": 3712808
+     },
+     "functions": {
+      "done": 3186,
+      "total": 5109
+     }
+    },
+    "after": {
+     "code": {
+      "done": 2090144,
+      "total": 3712808
+     },
+     "functions": {
+      "done": 3373,
+      "total": 5109
+     }
+    }
+   },
+   "contributors": [
+    "Lynder063",
+    "Veradictus"
+   ]
+  },
+  {
+   "repo": "rac2-decomp",
+   "title": "Going Commando",
+   "branches": [
+    {
+     "name": "master",
+     "commits": []
+    }
+   ],
+   "commitCount": 0,
+   "pullRequests": {
+    "merged": [
+     {
+      "number": 15,
+      "title": "tools: add global graph-refined EE catalogue and paired progress",
+      "author": "llesieur99",
+      "untrustedBody": "Loaded-byte coverage counts every copy in boot and the 27 overlays. Add a global\ncatalogue and paired structural measurement so repeated placements can be reviewed\nunder one explicit policy for both the denominator and the exact-C numerator.\n\nThe primary policy preserves unowned data targets and field encodings, and\nrefines relocation templates by all external static control target classes.\nMapped addresses alone cannot distinguish a folded field/index constant, and\ncall target aliases alone cannot distinguish different callees. Both cases have\nregression tests using the actual normalizer. No original-source or semantic\nequivalence certification is claimed.\n\nMeasured results:\n\n- 109,725 pinned intervals across all 28 programs; 84,841 structural classes.\n- Conservative EE partition: 44,879,164 bytes; 106,348 exact-C bytes counted once\n  with every grouped placement qualified (0.236965%).\n- Unsupported extents and unresolved gaps: 8,672,280 loaded EE bytes, retained\n  without collapse. O",
+      "mergedAt": "2026-10-06T02:28:03Z"
+     },
+     {
+      "number": 16,
+      "title": "tools: verify shared boot bindings and remaining duplication",
+      "author": "llesieur99",
+      "untrustedBody": "The global catalogue lost executable section names while its shared-core\nresolver depended on `core.text`. Verify the shared boot code space and retain\nthe evidence needed to explain why the conservative total remains high.\n\nChanges:\n\n- Preserve executable section identities and check them against the pinned scope.\n- Replace name-only and explicit-program shortcuts with per-edge boot bindings.\n  The producer replays all 28 reference ELFs, complete caller/target hashes,\n  executable file/segment ownership and overlay memory/zero-fill nonoverlap.\n- Verify 22,522 static edges to 103 supported boot bodies. Missing or partial\n  proof stays unresolved. This is combined-reference ownership, not runtime\n  immutability; boot RWX, generic writers, IOP/DMA and patching remain unqualified.\n- Publish bounded data/GP and switch-boundary evidence and reproducible methods.\n  No original allocations or scoped entry-GP/preservation theorem was found.\n  Twenty large uncertain bodies are guarded switches ",
+      "mergedAt": "2026-10-06T03:35:32Z"
+     },
+     {
+      "number": 17,
+      "title": "decomp: integrate 29 shared native C placements",
+      "author": "llesieur99",
+      "untrustedBody": "Integrates 29 complete native C placements across 18 translation units using\nthree canonical fragments with explicit program bindings. Resident-state\npredicates add 11 x 80 bytes, signed-index bitmap accessors add 11 x 124 bytes,\nand nonzero-byte counters add 7 x 112 bytes. The 124-byte bodies exclude the\nfour trailing bytes in historical gap estimates.\n\nPhysical C coverage advances from 311,644 to 314,672 / 48,788,176 bytes.\nNative coverage is now 1,018 complete functions / 97,884 bytes. The conservative\nunique numerator remains 67,844 / 44,451,612: every structural-group member\nmust be qualified before the primary unique measure credits that group.\n\nSource recipes, complete-unit reviews, source inventory, all integration proofs,\nthe normalized catalogue, boot receipt and paired display are refreshed.\n127 historical exact-private rows are reconciled without replacing their trial\nhistory. New negative trials are retained; future private successes add no credit.\n\nValidation:\n- 638 exist",
+      "mergedAt": "2026-10-06T04:51:17Z"
+     },
+     {
+      "number": 18,
+      "title": "decomp: integrate shared call-state and scalar power families",
+      "author": "llesieur99",
+      "untrustedBody": "Adds two canonical native C families at all 27 programs: the proven 88-byte\nresident call-state body and a 68-byte scalar complement-power loop. Combined\nwhole-unit qualification preserves 1,018 controls plus 54 new complete bodies.\n\nLoaded C coverage increases by 4,212 bytes to 318,884 / 48,788,176.\nAll-member unique coverage increases by 156 bytes to 68,000 / 44,451,612;\neach completed 88/68-byte group is counted once.\n\nRecipes, object reviews, integration proofs, normalized catalogue and paired\nprogress are refreshed. Actual next-lot bitmap124 trials remain exact-private\nwith zero integration credit; their immutable events and prior refusals are kept.\n\nValidation: 496 tests pass (two existing skips), all 28 fresh loaded-image gates\nare exact, all 109,725 catalogue intervals reconstruct, pointer theorems replay,\nthe 22,522-edge boot receipt is regenerated, all freshness/display checks pass,\nand pinned objdiff 3.8.1 accepts both reports. Compiled-image input pins remain\ncurrent. Runti",
+      "mergedAt": "2026-10-06T05:37:23Z"
+     },
+     {
+      "number": 19,
+      "title": "decomp: complete all 28 signed-index bitmap placements",
+      "author": "llesieur99",
+      "untrustedBody": "Completes the signed-index bitmap family using the unchanged canonical C body\nat 17 additional placements: one boot function and sixteen native copies.\nEvery existing source prefix and vendored notice is preserved. The boot adds\nonly an explicit byte-array declaration and absolute binding, without data.\n\nLoaded C coverage advances by 2,108 bytes to 320,992 / 48,788,176.\nThe stable 28-member bitmap group is now complete: primary unique coverage\nincreases by 124 bytes once, to 68,124 / 44,451,612. Existing shared-placement\nmaps remain unchanged, so no overlapping boot-shared/native copies are injected.\n\nValidation: all 833 whole-unit functions exact, including 816 controls; all\n28 fresh loaded-image and metadata gates pass; 496 tests pass with two existing\nskips; all 109,725 intervals reconstruct and pointer theorems replay; source,\nviews, exports and paired displays are fresh; pinned objdiff accepts both reports.\n\nRetained next-lot trials remain exact-private with zero credit. No privat",
+      "mergedAt": "2026-10-06T06:18:36Z"
+     },
+     {
+      "number": 20,
+      "title": "decomp: integrate 34 counter and resident-state placements",
+      "author": "llesieur99",
+      "untrustedBody": "Integrate **34 complete C placements**: twenty 112-byte counters and fourteen 80-byte resident-state predicates. The fixed bodies retain explicit program/data bindings; the existing seven counter sources are unchanged after rendering.\n\nLoaded matching C grows **320,992 → 324,352 bytes**. The conservative unique measure stays **68,124 / 44,451,612 bytes** because three historical member refusals remain parked.\n\nValidation: 1,227 exact functions (1,193 controls + 34 new), fresh boot and all 27 overlay full loaded-byte/metadata gates, 496 tests (two skips), full 109,725-span reconstruction and stored-pointer replay, source/inventory/register/display freshness, and pinned objdiff parsing. Catalogue/review metadata uses UTF-8/LF; the full gates bind the final hashes.\n\nThe register also retains the next independent medium-family seed and a complete-size refusal with explicit reopening conditions. These seed results add no integration credit. Private trial objects, game bytes and tools are ex",
+      "mergedAt": "2026-10-06T07:24:19Z"
+     },
+     {
+      "number": 21,
+      "title": "decomp: reuse three canonical C routines at 81 overlay placements",
+      "author": "llesieur99",
+      "untrustedBody": "Reuse three existing exact boot C routines at **81 explicit overlay placements**: image store128, wait/reset372 and synchronized table clear168. The existing loader combines the unchanged G0 boot object with each independently qualified native object, including Barlow G8.\n\nLoaded matching C grows **324,352 → 342,388 bytes** (+18,036). The conservative unique measure is **86,160 / 44,451,612 bytes**, following actual structural graph classes rather than source-family labels. No C source or compiler tool changes. Correct three outdated catalogue descriptions and regenerate their dependent metadata.\n\nValidation: 5,275 existing overlay functions plus 81 new complete placements pass actual mixed-object qualification; fresh boot and all 27 overlay full loaded-byte/metadata gates; 496 tests (two skips); global reconstruction/pointer replay and display/source/inventory/objdiff checks.\n\nPreserve 80 private native-source positives and the Barlow G8 image refusal as alternate-source evidence. The",
+      "mergedAt": "2026-10-06T08:40:55Z"
+     },
+     {
+      "number": 22,
+      "title": "fix: admit C member names without weakening assembly guards",
+      "author": "llesieur99",
+      "untrustedBody": "Fix a concrete admission false positive: **`snapshot.bytes` was treated as `.byte` assembly**, so a valid standalone C candidate never reached the compiler. All five source consumers now distinguish ordinary C members/designators from genuine assembler directives and retain the existing assembly/header/reproducibility refusals.\n\nPreserve preparation-only events separately from actual C refusals. Reconcile stale research reservations against complete current coverage and real preserved trial outcomes, keeping every candidate result and original experiment intact.\n\nValidation: **501 tests (two skips)**, fresh boot plus all 27 overlay full-image/metadata gates, actual full-size/raw/readonly verification, refreshed boot/native objects identical to their previous qualified hashes, full global reconstruction/pointer replay and export/display checks.\n\n**No new matching credit:** loaded C remains 342,388 / 48,788,176 bytes; conservative unique remains 86,160 / 44,451,612. New source hypotheses",
+      "mergedAt": "2026-10-06T10:37:13Z"
+     },
+     {
+      "number": 23,
+      "title": "decomp: match the boot dual-prime motion-vector routine",
+      "author": "llesieur99",
+      "untrustedBody": "Add the complete **388-byte boot dual-prime motion-vector routine** using mechanically adapted, attributed MIT-licensed Lombyte C. Preserve its body, layout, types, expression order and full notice; keep all 184 accepted boot controls unchanged. The donor compiler differs, so the first actual qualified RAC2 trial—not the donor result—establishes complete unmasked equality.\n\nLoaded C: **342,388 → 342,776 / 48,788,176 bytes**. Boot: **184 / 9,944 → 185 / 10,332**. Conservative unique: **86,160 → 86,548 / 44,451,612**, with no denominator change. No exact overlay copy of the new body is credited; native sources and qualified G0/G8 profiles stay unchanged.\n\nValidation: 501 tests with two explicit skips; fresh boot and all 27 overlay image/metadata gates; independent full raw/object/STT/readonly checks for all 5,541 current functions; 249 frozen input pins; fresh pointer artifact for 24 affected witnesses and three incoming roles; all 109,725 interval reconstructions and pointer theorem rep",
+      "mergedAt": "2026-10-06T11:04:25Z"
+     },
+     {
+      "number": 24,
+      "title": "decomp: match boot temporary-track update and IPU synchronization",
+      "author": "llesieur99",
+      "untrustedBody": "Add **220 complete boot C bytes**: the 116-byte temporary-track update and 104-byte IPU synchronization routines, using mechanically adapted MIT-licensed Lombyte bodies with full attribution. Preserve all 185 existing controls, original layouts/types/expressions and native G0/G8 profiles.\n\nThe original combined trial remains recorded: two exact bodies plus a strict **140/152-byte sysbit refusal**. The final public source excludes sysbit completely. Its reduced 187-function unit and final comment-only provenance repair both received real qualifications; the actual object and linked ELF remain byte-identical. No failed-target permutation or profile rescue was attempted.\n\nLoaded matching C: **342,776 → 342,996 / 48,788,176**. Boot: **185 / 10,332 → 187 / 10,552**. Actual all-members unique: **86,548 → 86,768 / 44,451,612**, denominator unchanged. Only the boot occurrences receive new credit.\n\nValidation: 501 tests with two skips; fresh boot and 27 overlay full-image/metadata gates; indepe",
+      "mergedAt": "2026-10-06T11:48:45Z"
+     },
+     {
+      "number": 25,
+      "title": "compiler: bind a control-backed SDK profile with immutable job metadata",
+      "author": "llesieur99",
+      "untrustedBody": "Add explicit, strictly validated compiler-profile metadata backed by the actual SDK three-control qualification: **388/116/104 complete bytes, two independent passes, deterministic objects and linked ELF files**. The foundation prepares immutable per-job bindings/argv only and rejects unknown scope, drift, incomplete proofs and forged bindings. It adds no executor or SDK target dispatch.\n\nPreserve the existing default compiler and all C source. Document the SDK driver's integrated preprocessing and the preserved initial observer refusal. Keep the DMA **736/656-byte link-overlap refusal** with zero measurements and zero credit; do not count its controls as matched or failed.\n\nValidation: **509 tests, two skips; 28 fresh image gates; 252 frozen inputs; all 5,543 complete raw/object/STT checks; 110 object/qualification ELF files identical to the prior epoch; 109,725 exact reconstructions and full pointer theorem replay; current source/views/README/unique/paired checks; both reports parsed",
+      "mergedAt": "2026-10-06T13:16:07Z"
+     },
+     {
+      "number": 26,
+      "title": "decomp: integrate the source-specific SDK sysbit boot owner",
+      "author": "llesieur99",
+      "untrustedBody": "The unchanged MIT-attributed `_sysbitFlush` source now reproduces its complete\n152-byte boot body under a separately qualified owned SDK pipeline. Link that\nobject alongside the unchanged 187-function GNU object and record explicit\nper-object owners in the full boot proof. Overlay placements continue to reuse\nonly the default GNU source and review.\n\nPreserve the previous 140/152 refusal and all stopped physical-family trials.\nThis admits only the exact standalone SDK source; it does not promote the\nleaf-control profile to arbitrary SDK targets or establish the original compiler.\nExtend source capture, object-proof dispatch, catalogue input closure and paired\nprogress to this additional owner. Document the private runtime binding and\ncorrect three stale research reservations.\n\nPhysical matching: **342,996 → 343,148 / 48,788,176 bytes**.\nConservative all-members unique matching: **86,768 → 86,920 / 44,451,612 bytes**.\nBoot: 188 complete functions / 10,704 bytes. All 5,356 overlay placeme",
+      "mergedAt": "2026-10-06T15:13:38Z"
+     },
+     {
+      "number": 27,
+      "title": "decomp: integrate the exact CPR8 SDK boot object",
+      "author": "llesieur99",
+      "untrustedBody": "Integrate the unchanged MIT-attributed CPR8 source as the second explicitly\nqualified SDK boot object. The complete 656-byte body matches its RAC2 reference\nwithout masks. Preserve the 187-function GNU object, the 152-byte sysbit object\nand all existing overlay placements. Four declared REL26 calls bind two opaque\noriginal helpers at their verified addresses; neither helper receives C credit.\n\nRetain the original 736-byte default-compiler refusal and two instrumentation\nrefusals. Metadata-only repairs completed the same first experimental object\nwithout another compilation, strip or link. Source, types, statement ordering,\nflags and tools were not varied. Fixed per-source admission does not promote\narbitrary SDK targets or establish the original retail compiler.\n\nPhysical C: **343,148 → 343,804 / 48,788,176 bytes**.\nConservative all-members unique C: **86,920 → 87,576 / 44,451,612 bytes**.\nBoot: **189 functions / 11,360 bytes**. The 5,356 overlay placements and 1,121\nnative bodies rema",
+      "mergedAt": "2026-10-06T16:29:16Z"
+     },
+     {
+      "number": 28,
+      "title": "decomp: integrate callback 775 placements and IPU DMA restart",
+      "author": "llesieur99",
+      "untrustedBody": "This integrates one authored 76-byte callback at 27 explicit level placements and the unchanged attributed 336-byte IPU DMA restart source as a third SDK boot owner. Existing native controls and both previous SDK owners remain exact; the default GNU object is unchanged. The callback uses a measured partial field view, and opaque helpers receive zero C credit.\n\nPhysical matching advances **343,804 → 346,192 bytes**. Conservative all-members matching advances **87,576 → 89,964 / 44,451,612 bytes**, measured after complete reconstruction and theorem replay. The source inventory, global catalogue, paired display and task register are refreshed.\n\nValidation:\n\n- Fresh boot and all 27 overlay loaded-byte and metadata gates pass under campaign `790b5eb477624821be9ed3fcdc3c615d`.\n- Independent audit verifies 5,573 complete owned functions, readonly sections, current inputs and preserved prior controls.\n- All 109,725 catalogue reconstructions and the complete pointer-theorem replay pass.\n- Unit ",
+      "mergedAt": "2026-10-06T18:04:27Z"
+     },
+     {
+      "number": 29,
+      "title": "metrics: expose verified reusable-code families and uncertainty",
+      "author": "llesieur99",
+      "untrustedBody": "This adds a separate reusable-code family measure beside physical matching and the existing conservative graph measure. Each supported family keeps complete instruction/constant/register bits, proved address encodings and explicit placement-specific bindings. Unsupported boundaries and gaps stay uncollapsed. Its C numerator requires every placement in that same partition to have a current exact proof.\n\nMeasured results:\n\n- **38,345,900 EE template bytes / 44,808 all-member C bytes**, with 5,120 multi-member families.\n- **449 authored fragment/function slots across 5,573 exact C placements**, retaining per-source declaration contexts.\n- Existing physical **346,192** and conservative **89,964 / 44,451,612** matching remain unchanged.\n\nThe deterministic summary and compressed family ledger are linked from the README, documented, checked and uploaded by both CI workflows. A bounded diagnosis explains why GP16 remains unproved and why an approximately 5 MB original-source estimate is not ye",
+      "mergedAt": "2026-10-06T19:03:17Z"
+     },
+     {
+      "number": 30,
+      "title": "compiler: prove bounded local GP facts with strict CFG joins",
+      "author": "llesieur99",
+      "untrustedBody": "compiler: prove bounded local GP facts with strict CFG joins\n\nAdd a finite intrafunction constant verifier that begins with unknown entry\nregisters, respects complete CFG paths and delay slots, kills all facts after\nopaque calls, and independently recomputes typed proofs from pinned references.\nQualify 1,056 narrowly admitted MMI encodings with Rabbitizer 1.16.2. Exclude\nall eight partial memory accesses and retain MMIO and unsafe joins unmasked.\n\nPublish metadata for 28 complete scratch bodies, totaling 141,680 bytes,\nindependently reconstructed exactly. The local GP definition resolves one\nMMIO access; bypass paths leave the later join unknown. No entry ABI, callee\npreservation, original data ownership, GP16 normalization or C credit is claimed.\nPreserve failed and superseded trial receipts privately.\n\nRefresh all 28 full-image gates and catalogue/report provenance. Replay\n109,725 complete intervals and pointer theorems. Physical matching remains\n346,192 / 48,788,176 bytes; conservat",
+      "mergedAt": "2026-10-06T20:31:46Z"
+     },
+     {
+      "number": 31,
+      "title": "docs: retain bounded caller GP refusal and qualification gap",
+      "author": "llesieur99",
+      "untrustedBody": "docs: retain bounded caller GP refusal and reopening evidence\n\nPin the complete boot startup and first direct target inspected for a caller\nGP theorem. The local GP construction is followed by syscall selectors 0x3C\nand 0x3D before the call, without a qualified kernel preservation contract.\nThe first target has five calls and a tail transfer, and no GP-base memory.\n\nRecord the bounded existing inventory recheck: 58 bodies, 149,036 bytes and\n731 GP writes. Its startup, scratch, mutable-global restore and context cases\nsupply no accepted explicit-known-GP caller to a mapped-data leaf. This is not\nan exhaustive whole-game absence claim. Preserve the research task and exact\nreopening conditions in the canonical campaign register and generated view.\n\nExplicitly mark the published local verifier as static-CFG conditional: an independently reproduced indirect reentry changes GP despite accepted mapped-field eligibility. No production GP16 consumer may use it until control-flow evidence or con",
+      "mergedAt": "2026-10-06T20:45:34Z"
+     },
+     {
+      "number": 32,
+      "title": "fix: refuse unproved control escapes in local GP certificates",
+      "author": "llesieur99",
+      "untrustedBody": "fix: refuse unproved control escapes in local GP certificates\n\nA rewritten return link can reenter an earlier GP memory access with a different\nGP. The old producer and typed consumer accepted a first-pass mapped field\nbecause their CFG treated the indirect transfer as an exit. Exact raw-byte\nreconstruction does not prove register lifetime.\n\nRequire a closed direct CFG before emitting facts or field eligibility. Refuse\nreturns, indirect transfers, opaque calls, external direct edges and reachable\nordinary or branch-likely fallthrough escapes. Retain fixed-point joins for\nadmitted internal backedges; changed GP values become unknown. Do not infer\nreturn-link, callee or kernel preservation from an ABI convention.\n\nPreserve the 28 historical MMIO pilot receipts and raw/proof hashes, explicitly\nsupersede their GP admission, and record all 28 current producer and historical\nconsumer refusals before facts. The tool remains conditional on normal\ninstruction completion and supplies no producti",
+      "mergedAt": "2026-10-06T21:23:49Z"
+     }
+    ],
+    "opened": [
+     {
+      "number": 15,
+      "title": "tools: add global graph-refined EE catalogue and paired progress",
+      "author": "llesieur99",
+      "untrustedBody": "Loaded-byte coverage counts every copy in boot and the 27 overlays. Add a global\ncatalogue and paired structural measurement so repeated placements can be reviewed\nunder one explicit policy for both the denominator and the exact-C numerator.\n\nThe primary policy preserves unowned data targets and field encodings, and\nrefines relocation templates by all external static control target classes.\nMapped addresses alone cannot distinguish a folded field/index constant, and\ncall target aliases alone cannot distinguish different callees. Both cases have\nregression tests using the actual normalizer. No original-source or semantic\nequivalence certification is claimed.\n\nMeasured results:\n\n- 109,725 pinned intervals across all 28 programs; 84,841 structural classes.\n- Conservative EE partition: 44,879,164 bytes; 106,348 exact-C bytes counted once\n  with every grouped placement qualified (0.236965%).\n- Unsupported extents and unresolved gaps: 8,672,280 loaded EE bytes, retained\n  without collapse. O",
+      "mergedAt": "2026-10-06T02:28:03Z"
+     },
+     {
+      "number": 16,
+      "title": "tools: verify shared boot bindings and remaining duplication",
+      "author": "llesieur99",
+      "untrustedBody": "The global catalogue lost executable section names while its shared-core\nresolver depended on `core.text`. Verify the shared boot code space and retain\nthe evidence needed to explain why the conservative total remains high.\n\nChanges:\n\n- Preserve executable section identities and check them against the pinned scope.\n- Replace name-only and explicit-program shortcuts with per-edge boot bindings.\n  The producer replays all 28 reference ELFs, complete caller/target hashes,\n  executable file/segment ownership and overlay memory/zero-fill nonoverlap.\n- Verify 22,522 static edges to 103 supported boot bodies. Missing or partial\n  proof stays unresolved. This is combined-reference ownership, not runtime\n  immutability; boot RWX, generic writers, IOP/DMA and patching remain unqualified.\n- Publish bounded data/GP and switch-boundary evidence and reproducible methods.\n  No original allocations or scoped entry-GP/preservation theorem was found.\n  Twenty large uncertain bodies are guarded switches ",
+      "mergedAt": "2026-10-06T03:35:32Z"
+     },
+     {
+      "number": 17,
+      "title": "decomp: integrate 29 shared native C placements",
+      "author": "llesieur99",
+      "untrustedBody": "Integrates 29 complete native C placements across 18 translation units using\nthree canonical fragments with explicit program bindings. Resident-state\npredicates add 11 x 80 bytes, signed-index bitmap accessors add 11 x 124 bytes,\nand nonzero-byte counters add 7 x 112 bytes. The 124-byte bodies exclude the\nfour trailing bytes in historical gap estimates.\n\nPhysical C coverage advances from 311,644 to 314,672 / 48,788,176 bytes.\nNative coverage is now 1,018 complete functions / 97,884 bytes. The conservative\nunique numerator remains 67,844 / 44,451,612: every structural-group member\nmust be qualified before the primary unique measure credits that group.\n\nSource recipes, complete-unit reviews, source inventory, all integration proofs,\nthe normalized catalogue, boot receipt and paired display are refreshed.\n127 historical exact-private rows are reconciled without replacing their trial\nhistory. New negative trials are retained; future private successes add no credit.\n\nValidation:\n- 638 exist",
+      "mergedAt": "2026-10-06T04:51:17Z"
+     },
+     {
+      "number": 18,
+      "title": "decomp: integrate shared call-state and scalar power families",
+      "author": "llesieur99",
+      "untrustedBody": "Adds two canonical native C families at all 27 programs: the proven 88-byte\nresident call-state body and a 68-byte scalar complement-power loop. Combined\nwhole-unit qualification preserves 1,018 controls plus 54 new complete bodies.\n\nLoaded C coverage increases by 4,212 bytes to 318,884 / 48,788,176.\nAll-member unique coverage increases by 156 bytes to 68,000 / 44,451,612;\neach completed 88/68-byte group is counted once.\n\nRecipes, object reviews, integration proofs, normalized catalogue and paired\nprogress are refreshed. Actual next-lot bitmap124 trials remain exact-private\nwith zero integration credit; their immutable events and prior refusals are kept.\n\nValidation: 496 tests pass (two existing skips), all 28 fresh loaded-image gates\nare exact, all 109,725 catalogue intervals reconstruct, pointer theorems replay,\nthe 22,522-edge boot receipt is regenerated, all freshness/display checks pass,\nand pinned objdiff 3.8.1 accepts both reports. Compiled-image input pins remain\ncurrent. Runti",
+      "mergedAt": "2026-10-06T05:37:23Z"
+     },
+     {
+      "number": 19,
+      "title": "decomp: complete all 28 signed-index bitmap placements",
+      "author": "llesieur99",
+      "untrustedBody": "Completes the signed-index bitmap family using the unchanged canonical C body\nat 17 additional placements: one boot function and sixteen native copies.\nEvery existing source prefix and vendored notice is preserved. The boot adds\nonly an explicit byte-array declaration and absolute binding, without data.\n\nLoaded C coverage advances by 2,108 bytes to 320,992 / 48,788,176.\nThe stable 28-member bitmap group is now complete: primary unique coverage\nincreases by 124 bytes once, to 68,124 / 44,451,612. Existing shared-placement\nmaps remain unchanged, so no overlapping boot-shared/native copies are injected.\n\nValidation: all 833 whole-unit functions exact, including 816 controls; all\n28 fresh loaded-image and metadata gates pass; 496 tests pass with two existing\nskips; all 109,725 intervals reconstruct and pointer theorems replay; source,\nviews, exports and paired displays are fresh; pinned objdiff accepts both reports.\n\nRetained next-lot trials remain exact-private with zero credit. No privat",
+      "mergedAt": "2026-10-06T06:18:36Z"
+     },
+     {
+      "number": 20,
+      "title": "decomp: integrate 34 counter and resident-state placements",
+      "author": "llesieur99",
+      "untrustedBody": "Integrate **34 complete C placements**: twenty 112-byte counters and fourteen 80-byte resident-state predicates. The fixed bodies retain explicit program/data bindings; the existing seven counter sources are unchanged after rendering.\n\nLoaded matching C grows **320,992 → 324,352 bytes**. The conservative unique measure stays **68,124 / 44,451,612 bytes** because three historical member refusals remain parked.\n\nValidation: 1,227 exact functions (1,193 controls + 34 new), fresh boot and all 27 overlay full loaded-byte/metadata gates, 496 tests (two skips), full 109,725-span reconstruction and stored-pointer replay, source/inventory/register/display freshness, and pinned objdiff parsing. Catalogue/review metadata uses UTF-8/LF; the full gates bind the final hashes.\n\nThe register also retains the next independent medium-family seed and a complete-size refusal with explicit reopening conditions. These seed results add no integration credit. Private trial objects, game bytes and tools are ex",
+      "mergedAt": "2026-10-06T07:24:19Z"
+     },
+     {
+      "number": 21,
+      "title": "decomp: reuse three canonical C routines at 81 overlay placements",
+      "author": "llesieur99",
+      "untrustedBody": "Reuse three existing exact boot C routines at **81 explicit overlay placements**: image store128, wait/reset372 and synchronized table clear168. The existing loader combines the unchanged G0 boot object with each independently qualified native object, including Barlow G8.\n\nLoaded matching C grows **324,352 → 342,388 bytes** (+18,036). The conservative unique measure is **86,160 / 44,451,612 bytes**, following actual structural graph classes rather than source-family labels. No C source or compiler tool changes. Correct three outdated catalogue descriptions and regenerate their dependent metadata.\n\nValidation: 5,275 existing overlay functions plus 81 new complete placements pass actual mixed-object qualification; fresh boot and all 27 overlay full loaded-byte/metadata gates; 496 tests (two skips); global reconstruction/pointer replay and display/source/inventory/objdiff checks.\n\nPreserve 80 private native-source positives and the Barlow G8 image refusal as alternate-source evidence. The",
+      "mergedAt": "2026-10-06T08:40:55Z"
+     },
+     {
+      "number": 22,
+      "title": "fix: admit C member names without weakening assembly guards",
+      "author": "llesieur99",
+      "untrustedBody": "Fix a concrete admission false positive: **`snapshot.bytes` was treated as `.byte` assembly**, so a valid standalone C candidate never reached the compiler. All five source consumers now distinguish ordinary C members/designators from genuine assembler directives and retain the existing assembly/header/reproducibility refusals.\n\nPreserve preparation-only events separately from actual C refusals. Reconcile stale research reservations against complete current coverage and real preserved trial outcomes, keeping every candidate result and original experiment intact.\n\nValidation: **501 tests (two skips)**, fresh boot plus all 27 overlay full-image/metadata gates, actual full-size/raw/readonly verification, refreshed boot/native objects identical to their previous qualified hashes, full global reconstruction/pointer replay and export/display checks.\n\n**No new matching credit:** loaded C remains 342,388 / 48,788,176 bytes; conservative unique remains 86,160 / 44,451,612. New source hypotheses",
+      "mergedAt": "2026-10-06T10:37:13Z"
+     },
+     {
+      "number": 23,
+      "title": "decomp: match the boot dual-prime motion-vector routine",
+      "author": "llesieur99",
+      "untrustedBody": "Add the complete **388-byte boot dual-prime motion-vector routine** using mechanically adapted, attributed MIT-licensed Lombyte C. Preserve its body, layout, types, expression order and full notice; keep all 184 accepted boot controls unchanged. The donor compiler differs, so the first actual qualified RAC2 trial—not the donor result—establishes complete unmasked equality.\n\nLoaded C: **342,388 → 342,776 / 48,788,176 bytes**. Boot: **184 / 9,944 → 185 / 10,332**. Conservative unique: **86,160 → 86,548 / 44,451,612**, with no denominator change. No exact overlay copy of the new body is credited; native sources and qualified G0/G8 profiles stay unchanged.\n\nValidation: 501 tests with two explicit skips; fresh boot and all 27 overlay image/metadata gates; independent full raw/object/STT/readonly checks for all 5,541 current functions; 249 frozen input pins; fresh pointer artifact for 24 affected witnesses and three incoming roles; all 109,725 interval reconstructions and pointer theorem rep",
+      "mergedAt": "2026-10-06T11:04:25Z"
+     },
+     {
+      "number": 24,
+      "title": "decomp: match boot temporary-track update and IPU synchronization",
+      "author": "llesieur99",
+      "untrustedBody": "Add **220 complete boot C bytes**: the 116-byte temporary-track update and 104-byte IPU synchronization routines, using mechanically adapted MIT-licensed Lombyte bodies with full attribution. Preserve all 185 existing controls, original layouts/types/expressions and native G0/G8 profiles.\n\nThe original combined trial remains recorded: two exact bodies plus a strict **140/152-byte sysbit refusal**. The final public source excludes sysbit completely. Its reduced 187-function unit and final comment-only provenance repair both received real qualifications; the actual object and linked ELF remain byte-identical. No failed-target permutation or profile rescue was attempted.\n\nLoaded matching C: **342,776 → 342,996 / 48,788,176**. Boot: **185 / 10,332 → 187 / 10,552**. Actual all-members unique: **86,548 → 86,768 / 44,451,612**, denominator unchanged. Only the boot occurrences receive new credit.\n\nValidation: 501 tests with two skips; fresh boot and 27 overlay full-image/metadata gates; indepe",
+      "mergedAt": "2026-10-06T11:48:45Z"
+     },
+     {
+      "number": 25,
+      "title": "compiler: bind a control-backed SDK profile with immutable job metadata",
+      "author": "llesieur99",
+      "untrustedBody": "Add explicit, strictly validated compiler-profile metadata backed by the actual SDK three-control qualification: **388/116/104 complete bytes, two independent passes, deterministic objects and linked ELF files**. The foundation prepares immutable per-job bindings/argv only and rejects unknown scope, drift, incomplete proofs and forged bindings. It adds no executor or SDK target dispatch.\n\nPreserve the existing default compiler and all C source. Document the SDK driver's integrated preprocessing and the preserved initial observer refusal. Keep the DMA **736/656-byte link-overlap refusal** with zero measurements and zero credit; do not count its controls as matched or failed.\n\nValidation: **509 tests, two skips; 28 fresh image gates; 252 frozen inputs; all 5,543 complete raw/object/STT checks; 110 object/qualification ELF files identical to the prior epoch; 109,725 exact reconstructions and full pointer theorem replay; current source/views/README/unique/paired checks; both reports parsed",
+      "mergedAt": "2026-10-06T13:16:07Z"
+     },
+     {
+      "number": 26,
+      "title": "decomp: integrate the source-specific SDK sysbit boot owner",
+      "author": "llesieur99",
+      "untrustedBody": "The unchanged MIT-attributed `_sysbitFlush` source now reproduces its complete\n152-byte boot body under a separately qualified owned SDK pipeline. Link that\nobject alongside the unchanged 187-function GNU object and record explicit\nper-object owners in the full boot proof. Overlay placements continue to reuse\nonly the default GNU source and review.\n\nPreserve the previous 140/152 refusal and all stopped physical-family trials.\nThis admits only the exact standalone SDK source; it does not promote the\nleaf-control profile to arbitrary SDK targets or establish the original compiler.\nExtend source capture, object-proof dispatch, catalogue input closure and paired\nprogress to this additional owner. Document the private runtime binding and\ncorrect three stale research reservations.\n\nPhysical matching: **342,996 → 343,148 / 48,788,176 bytes**.\nConservative all-members unique matching: **86,768 → 86,920 / 44,451,612 bytes**.\nBoot: 188 complete functions / 10,704 bytes. All 5,356 overlay placeme",
+      "mergedAt": "2026-10-06T15:13:38Z"
+     },
+     {
+      "number": 27,
+      "title": "decomp: integrate the exact CPR8 SDK boot object",
+      "author": "llesieur99",
+      "untrustedBody": "Integrate the unchanged MIT-attributed CPR8 source as the second explicitly\nqualified SDK boot object. The complete 656-byte body matches its RAC2 reference\nwithout masks. Preserve the 187-function GNU object, the 152-byte sysbit object\nand all existing overlay placements. Four declared REL26 calls bind two opaque\noriginal helpers at their verified addresses; neither helper receives C credit.\n\nRetain the original 736-byte default-compiler refusal and two instrumentation\nrefusals. Metadata-only repairs completed the same first experimental object\nwithout another compilation, strip or link. Source, types, statement ordering,\nflags and tools were not varied. Fixed per-source admission does not promote\narbitrary SDK targets or establish the original retail compiler.\n\nPhysical C: **343,148 → 343,804 / 48,788,176 bytes**.\nConservative all-members unique C: **86,920 → 87,576 / 44,451,612 bytes**.\nBoot: **189 functions / 11,360 bytes**. The 5,356 overlay placements and 1,121\nnative bodies rema",
+      "mergedAt": "2026-10-06T16:29:16Z"
+     },
+     {
+      "number": 28,
+      "title": "decomp: integrate callback 775 placements and IPU DMA restart",
+      "author": "llesieur99",
+      "untrustedBody": "This integrates one authored 76-byte callback at 27 explicit level placements and the unchanged attributed 336-byte IPU DMA restart source as a third SDK boot owner. Existing native controls and both previous SDK owners remain exact; the default GNU object is unchanged. The callback uses a measured partial field view, and opaque helpers receive zero C credit.\n\nPhysical matching advances **343,804 → 346,192 bytes**. Conservative all-members matching advances **87,576 → 89,964 / 44,451,612 bytes**, measured after complete reconstruction and theorem replay. The source inventory, global catalogue, paired display and task register are refreshed.\n\nValidation:\n\n- Fresh boot and all 27 overlay loaded-byte and metadata gates pass under campaign `790b5eb477624821be9ed3fcdc3c615d`.\n- Independent audit verifies 5,573 complete owned functions, readonly sections, current inputs and preserved prior controls.\n- All 109,725 catalogue reconstructions and the complete pointer-theorem replay pass.\n- Unit ",
+      "mergedAt": "2026-10-06T18:04:27Z"
+     },
+     {
+      "number": 29,
+      "title": "metrics: expose verified reusable-code families and uncertainty",
+      "author": "llesieur99",
+      "untrustedBody": "This adds a separate reusable-code family measure beside physical matching and the existing conservative graph measure. Each supported family keeps complete instruction/constant/register bits, proved address encodings and explicit placement-specific bindings. Unsupported boundaries and gaps stay uncollapsed. Its C numerator requires every placement in that same partition to have a current exact proof.\n\nMeasured results:\n\n- **38,345,900 EE template bytes / 44,808 all-member C bytes**, with 5,120 multi-member families.\n- **449 authored fragment/function slots across 5,573 exact C placements**, retaining per-source declaration contexts.\n- Existing physical **346,192** and conservative **89,964 / 44,451,612** matching remain unchanged.\n\nThe deterministic summary and compressed family ledger are linked from the README, documented, checked and uploaded by both CI workflows. A bounded diagnosis explains why GP16 remains unproved and why an approximately 5 MB original-source estimate is not ye",
+      "mergedAt": "2026-10-06T19:03:17Z"
+     },
+     {
+      "number": 30,
+      "title": "compiler: prove bounded local GP facts with strict CFG joins",
+      "author": "llesieur99",
+      "untrustedBody": "compiler: prove bounded local GP facts with strict CFG joins\n\nAdd a finite intrafunction constant verifier that begins with unknown entry\nregisters, respects complete CFG paths and delay slots, kills all facts after\nopaque calls, and independently recomputes typed proofs from pinned references.\nQualify 1,056 narrowly admitted MMI encodings with Rabbitizer 1.16.2. Exclude\nall eight partial memory accesses and retain MMIO and unsafe joins unmasked.\n\nPublish metadata for 28 complete scratch bodies, totaling 141,680 bytes,\nindependently reconstructed exactly. The local GP definition resolves one\nMMIO access; bypass paths leave the later join unknown. No entry ABI, callee\npreservation, original data ownership, GP16 normalization or C credit is claimed.\nPreserve failed and superseded trial receipts privately.\n\nRefresh all 28 full-image gates and catalogue/report provenance. Replay\n109,725 complete intervals and pointer theorems. Physical matching remains\n346,192 / 48,788,176 bytes; conservat",
+      "mergedAt": "2026-10-06T20:31:46Z"
+     },
+     {
+      "number": 31,
+      "title": "docs: retain bounded caller GP refusal and qualification gap",
+      "author": "llesieur99",
+      "untrustedBody": "docs: retain bounded caller GP refusal and reopening evidence\n\nPin the complete boot startup and first direct target inspected for a caller\nGP theorem. The local GP construction is followed by syscall selectors 0x3C\nand 0x3D before the call, without a qualified kernel preservation contract.\nThe first target has five calls and a tail transfer, and no GP-base memory.\n\nRecord the bounded existing inventory recheck: 58 bodies, 149,036 bytes and\n731 GP writes. Its startup, scratch, mutable-global restore and context cases\nsupply no accepted explicit-known-GP caller to a mapped-data leaf. This is not\nan exhaustive whole-game absence claim. Preserve the research task and exact\nreopening conditions in the canonical campaign register and generated view.\n\nExplicitly mark the published local verifier as static-CFG conditional: an independently reproduced indirect reentry changes GP despite accepted mapped-field eligibility. No production GP16 consumer may use it until control-flow evidence or con",
+      "mergedAt": "2026-10-06T20:45:34Z"
+     },
+     {
+      "number": 32,
+      "title": "fix: refuse unproved control escapes in local GP certificates",
+      "author": "llesieur99",
+      "untrustedBody": "fix: refuse unproved control escapes in local GP certificates\n\nA rewritten return link can reenter an earlier GP memory access with a different\nGP. The old producer and typed consumer accepted a first-pass mapped field\nbecause their CFG treated the indirect transfer as an exit. Exact raw-byte\nreconstruction does not prove register lifetime.\n\nRequire a closed direct CFG before emitting facts or field eligibility. Refuse\nreturns, indirect transfers, opaque calls, external direct edges and reachable\nordinary or branch-likely fallthrough escapes. Retain fixed-point joins for\nadmitted internal backedges; changed GP values become unknown. Do not infer\nreturn-link, callee or kernel preservation from an ABI convention.\n\nPreserve the 28 historical MMIO pilot receipts and raw/proof hashes, explicitly\nsupersede their GP admission, and record all 28 current producer and historical\nconsumer refusals before facts. The tool remains conditional on normal\ninstruction completion and supplies no producti",
+      "mergedAt": "2026-10-06T21:23:49Z"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": null,
+   "contributors": [
+    "llesieur99"
+   ]
+  },
+  {
+   "repo": "rac3-decomp",
+   "title": "Up Your Arsenal",
+   "branches": [
+    {
+     "name": "master",
+     "commits": []
+    }
+   ],
+   "commitCount": 0,
+   "pullRequests": {
+    "merged": [],
+    "opened": []
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": null,
+   "contributors": []
+  },
+  {
+   "repo": "rac4-decomp",
+   "title": "Ratchet: Deadlocked",
+   "branches": [
+    {
+     "name": "main",
+     "commits": []
+    }
+   ],
+   "commitCount": 0,
+   "pullRequests": {
+    "merged": [],
+    "opened": []
+   },
+   "issues": {
+    "opened": [
+     {
+      "number": 1,
+      "title": "What about the last two ratchet and clank ps2 versions for decomp??",
+      "author": "romildolisboa4-netizen"
+     }
+    ],
+    "closed": []
+   },
+   "releases": [],
+   "progress": null,
+   "contributors": []
+  },
+  {
+   "repo": "openrac-mods",
+   "title": "OpenRAC mods",
+   "branches": [
+    {
+     "name": "master",
+     "commits": []
+    }
+   ],
+   "commitCount": 0,
+   "pullRequests": {
+    "merged": [],
+    "opened": []
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": null,
+   "contributors": []
+  }
+ ]
+}

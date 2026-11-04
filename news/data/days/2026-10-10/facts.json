@@ -1,0 +1,924 @@
+{
+ "format": 1,
+ "date": "2026-10-10",
+ "totals": {
+  "commits": 45,
+  "pullRequestsMerged": 14,
+  "pullRequestsOpened": 16,
+  "contributors": 4
+ },
+ "projects": [
+  {
+   "repo": "OpenRAC",
+   "title": "OpenRAC launcher",
+   "branches": [
+    {
+     "name": "develop",
+     "commits": [
+      {
+       "sha": "1e8013227d90586350467c5f24616e76ee9b8f0e",
+       "title": "feat(rac1/pal): recover native hero movement and respawn routines",
+       "author": "PeterFarber",
+       "date": "2026-10-10T22:30:33Z"
+      },
+      {
+       "sha": "f1b4df6348603acdb87dcaf17ad05daacc9b939c",
+       "title": "feat(tools): build_port.py builds the native port with no set-up by hand",
+       "author": "Veradictus",
+       "date": "2026-10-10T20:24:00Z"
+      },
+      {
+       "sha": "079cc3a2bf9ccd4ad2fb2d2812dee4348899b48f",
+       "title": "feat(rac1/pal): advance native New Game initialization",
+       "author": "PeterFarber",
+       "date": "2026-10-10T20:18:16Z"
+      },
+      {
+       "sha": "ea18f245bd546b602516ad7eb9a99ddcc61bf853",
+       "title": "feat(port): the quaternion-to-rotation routine (func_001FA648) as hand C",
+       "author": "Veradictus",
+       "date": "2026-10-10T20:09:04Z"
+      },
+      {
+       "sha": "ba37263b255dfe2d69f0a0aa5f5da7a04a6764f8",
+       "title": "feat(port): a function without C is logged and skipped by default",
+       "author": "Veradictus",
+       "date": "2026-10-10T19:47:04Z"
+      },
+      {
+       "sha": "776123a1e24c07d62c1aae362ff4b4bbe3f3d3ff",
+       "title": "feat(port): a Planets page in the front end's Options, in developer mode",
+       "author": "Veradictus",
+       "date": "2026-10-10T19:41:44Z"
+      },
+      {
+       "sha": "7488a090fc37d14593fe54a09f9e0ea1c1536796",
+       "title": "feat(port): a debug menu on the title to start any level",
+       "author": "Veradictus",
+       "date": "2026-10-10T19:22:05Z"
+      },
+      {
+       "sha": "1e41d81f25da0402255fce351f7976d298bcda99",
+       "title": "feat(port): frames between the game's ticks, the camera and mobys blended",
+       "author": "Veradictus",
+       "date": "2026-10-10T19:07:11Z"
+      },
+      {
+       "sha": "184f498852f0bcd2d18bd2d516a7d36722196203",
+       "title": "feat(port): test aids: a direct start, the frame rate, a memory watch and slow frames",
+       "author": "Veradictus",
+       "date": "2026-10-10T18:36:53Z"
+      },
+      {
+       "sha": "e892f7463f2f786ecf8eb6414d10ca3ead2ee303",
+       "title": "fix(port): the pause menu draws over the frame it opened on",
+       "author": "Veradictus",
+       "date": "2026-10-10T18:36:53Z"
+      },
+      {
+       "sha": "de7ce334ca4880033f614b79cf5e8752af1f99b7",
+       "title": "feat(editor): Ratchet's hand items (the wrench, weapons, gadgets) from the core's gadget table",
+       "author": "Veradictus",
+       "date": "2026-10-10T18:36:53Z"
+      },
+      {
+       "sha": "152d841d4524529028cebd28ea54ff8e892abce1",
+       "title": "feat(launcher): Play runs rac1/pal's native port on Windows",
+       "author": "Veradictus",
+       "date": "2026-10-10T18:31:07Z"
+      },
+      {
+       "sha": "4df4eacb90a522fe64e321791f4cbded85bd188a",
+       "title": "fix(port): a load image transfer's IMAGE tag carries its size",
+       "author": "Veradictus",
+       "date": "2026-10-10T17:21:11Z"
+      },
+      {
+       "sha": "5607672c50b8899293d44cb969fa7bb9ae3b2d37",
+       "title": "fix(port): level code reads the atan tables; mobys report being drawn",
+       "author": "Veradictus",
+       "date": "2026-10-10T16:15:55Z"
+      },
+      {
+       "sha": "e96f46bc891b4da8684a1a1fd25ceaa3fecd58b0",
+       "title": "fix(runtime): pairing follows registers into branch targets",
+       "author": "Veradictus",
+       "date": "2026-10-10T15:39:50Z"
+      },
+      {
+       "sha": "3eb9ac9794f67697ad073f9821f39f577bc36594",
+       "title": "feat(renderer): the sky's sprites (stars), from SkySpriteProc's records",
+       "author": "Veradictus",
+       "date": "2026-10-10T15:07:38Z"
+      },
+      {
+       "sha": "69e4f12bf7308a60503fed4462a7f6148c26a83d",
+       "title": "feat(viewer): cutout materials drawn in two passes, as the GS does",
+       "author": "Veradictus",
+       "date": "2026-10-10T14:48:27Z"
+      },
+      {
+       "sha": "bc008695ad00f8b3f0a07ae8b683dd9737e7d307",
+       "title": "feat(renderer): the VU1 strips (seas, liquids, glass) drawn in the world",
+       "author": "Veradictus",
+       "date": "2026-10-10T14:31:38Z"
+      },
+      {
+       "sha": "2920308464fc7fb7ceec0efe814465e5f2de570a",
+       "title": "fix(port): the particle pool is read at the level program's addresses",
+       "author": "Veradictus",
+       "date": "2026-10-10T14:06:29Z"
+      },
+      {
+       "sha": "edcafc4557ce04477e5f8e4dd0ceac17ef12b617",
+       "title": "feat(renderer): particles, from the game's pool, as its sprite program draws them",
+       "author": "Veradictus",
+       "date": "2026-10-10T14:00:06Z"
+      },
+      {
+       "sha": "1adb06193aa5bcf6ab1bdbcfb384d6ff4d0ae4e5",
+       "title": "feat(port): C for the particle step, the sphere view tests and four more hand-written routines",
+       "author": "Veradictus",
+       "date": "2026-10-10T13:31:41Z"
+      },
+      {
+       "sha": "019de744066034ef1dbc372db9b19787d197bd31",
+       "title": "fix(hostgen): candidates in one file declare game symbols under their own names",
+       "author": "Veradictus",
+       "date": "2026-10-10T12:22:44Z"
+      },
+      {
+       "sha": "250a2e0582308022989fc04709812641e1345608",
+       "title": "feat(port): rac1-pal's effect draw callback as a no-op, and a collision query trace",
+       "author": "Veradictus",
+       "date": "2026-10-10T12:02:01Z"
+      },
+      {
+       "sha": "b6417fde296ef615f21472f5d1e50a3a6dd9a4b0",
+       "title": "feat(port): glow packets are drawn in the moby's glow colour",
+       "author": "Veradictus",
+       "date": "2026-10-10T10:52:30Z"
+      },
+      {
+       "sha": "4201614f04fec52e1d8dea970d0bd7ac9517b059",
+       "title": "feat(port): rac1-pal's pose snapshots as documented no-ops, and the wrench trail's state",
+       "author": "Veradictus",
+       "date": "2026-10-10T10:32:14Z"
+      },
+      {
+       "sha": "a3d7e896443d76525a363b89311feaaa0456ba20",
+       "title": "fix(port): any target other than the frame buffers is drawn off screen",
+       "author": "Veradictus",
+       "date": "2026-10-10T10:16:31Z"
+      },
+      {
+       "sha": "86e092f9a98ec4770b277c0144d92d3e1dd92141",
+       "title": "feat(port): rac1-pal's collision queries as host C, adapted from ReRAC",
+       "author": "Veradictus",
+       "date": "2026-10-10T09:43:18Z"
+      },
+      {
+       "sha": "a82b1b1dce8a2755d24a64f34f55b76e0184e234",
+       "title": "feat(editor): the port export lights terrain and ties as the game does at level load",
+       "author": "Veradictus",
+       "date": "2026-10-10T08:21:49Z"
+      },
+      {
+       "sha": "3fae88259c69f9d789a792ef5ec300889f9a44ec",
+       "title": "feat(port): functions several levels share find their globals in any level",
+       "author": "Veradictus",
+       "date": "2026-10-10T07:58:47Z"
+      },
+      {
+       "sha": "ece44208db18bb51c7f7a6cde2d888f9d2887191",
+       "title": "feat(port): OPENRAC_WRITE puts words into the game's memory at chosen frames",
+       "author": "Veradictus",
+       "date": "2026-10-10T07:27:33Z"
+      },
+      {
+       "sha": "945e7b4bbb2e2dc7307c3009b10d95b8685b2ad0",
+       "title": "fix(hostgen): frame fields in declaration order, the same every run",
+       "author": "Veradictus",
+       "date": "2026-10-10T07:09:19Z"
+      },
+      {
+       "sha": "9deda84b732680539bed5bb479653037ea1ff771",
+       "title": "feat(hostgen): returns_64, functions whose 64-bit result matching C keeps in an int",
+       "author": "Veradictus",
+       "date": "2026-10-10T07:06:07Z"
+      },
+      {
+       "sha": "3592034e264f76106cbca1fbdc87629fb8fd5f27",
+       "title": "fix(editor): moby classes without sequences keep their skeleton",
+       "author": "Veradictus",
+       "date": "2026-10-10T06:29:45Z"
+      },
+      {
+       "sha": "4553e6e7fb8bb771d6e7abfeeaa85ddd7e7430cb",
+       "title": "feat(assets): evaluate a moby pose from the two keys a moby points at",
+       "author": "Veradictus",
+       "date": "2026-10-10T06:20:14Z"
+      },
+      {
+       "sha": "9ae6755cfa2e57e4818b23dd03f47dfcdf20760c",
+       "title": "feat(port): the window draws a world layer only when the game drew it",
+       "author": "Veradictus",
+       "date": "2026-10-10T05:36:32Z"
+      },
+      {
+       "sha": "8a6da7e8c4646f5a90adc77c0d5a6ce3bd7690a7",
+       "title": "feat(editor): export the title world as level 99",
+       "author": "Veradictus",
+       "date": "2026-10-10T05:19:45Z"
+      },
+      {
+       "sha": "7591db21a72974be70e6a26352a09eeca6a82ee0",
+       "title": "feat(port): play the games' PSS movies in the window",
+       "author": "Veradictus",
+       "date": "2026-10-10T05:09:39Z"
+      },
+      {
+       "sha": "f9ddce4e020a2b47545950db8247f2d2142096db",
+       "title": "feat(port): images the game sends outside the display list reach the renderer",
+       "author": "Veradictus",
+       "date": "2026-10-10T04:31:14Z"
+      },
+      {
+       "sha": "c7db2d1ef1afa2964ce53aa0eb2244b8f0fd419a",
+       "title": "chore(import): sync rac1/ntsc with Lombyte at cdddf69",
+       "author": "Veradictus",
+       "date": "2026-10-10T04:13:14Z"
+      },
+      {
+       "sha": "1dd572dfa0829b51e741036848413c1de6ee8223",
+       "title": "feat(port): native port scaffolding: no emulation, OpenGOAL-style set-up, hostgen, runtime and renderer",
+       "author": "Veradictus",
+       "date": "2026-10-10T03:56:18Z"
+      },
+      {
+       "sha": "81245f9777363ba582463158a87ab5f07b9aeefd",
+       "title": "chore(import): sync rac1/pal with rac1-decomp at 28b4daf",
+       "author": "Veradictus",
+       "date": "2026-10-10T03:43:06Z"
+      },
+      {
+       "sha": "5b32fd396ffebc0a3ddf707d2ebfac60bbd89bd4",
+       "title": "fix(runtime): fcheck runs each side on a fresh machine and refuses empty runs",
+       "author": "Veradictus",
+       "date": "2026-10-10T03:38:27Z"
+      },
+      {
+       "sha": "b750dbbe892042dc1884ab0ce69125c88848b580",
+       "title": "feat(runtime): check a function by what it does, from captured calls",
+       "author": "Veradictus",
+       "date": "2026-10-10T00:39:12Z"
+      }
+     ]
+    },
+    {
+     "name": "master",
+     "commits": [
+      {
+       "sha": "1e8013227d90586350467c5f24616e76ee9b8f0e",
+       "title": "feat(rac1/pal): recover native hero movement and respawn routines",
+       "author": "PeterFarber",
+       "date": "2026-10-10T22:30:33Z"
+      },
+      {
+       "sha": "f1b4df6348603acdb87dcaf17ad05daacc9b939c",
+       "title": "feat(tools): build_port.py builds the native port with no set-up by hand",
+       "author": "Veradictus",
+       "date": "2026-10-10T20:24:00Z"
+      },
+      {
+       "sha": "079cc3a2bf9ccd4ad2fb2d2812dee4348899b48f",
+       "title": "feat(rac1/pal): advance native New Game initialization",
+       "author": "PeterFarber",
+       "date": "2026-10-10T20:18:16Z"
+      },
+      {
+       "sha": "ea18f245bd546b602516ad7eb9a99ddcc61bf853",
+       "title": "feat(port): the quaternion-to-rotation routine (func_001FA648) as hand C",
+       "author": "Veradictus",
+       "date": "2026-10-10T20:09:04Z"
+      },
+      {
+       "sha": "ba37263b255dfe2d69f0a0aa5f5da7a04a6764f8",
+       "title": "feat(port): a function without C is logged and skipped by default",
+       "author": "Veradictus",
+       "date": "2026-10-10T19:47:04Z"
+      },
+      {
+       "sha": "776123a1e24c07d62c1aae362ff4b4bbe3f3d3ff",
+       "title": "feat(port): a Planets page in the front end's Options, in developer mode",
+       "author": "Veradictus",
+       "date": "2026-10-10T19:41:44Z"
+      },
+      {
+       "sha": "7488a090fc37d14593fe54a09f9e0ea1c1536796",
+       "title": "feat(port): a debug menu on the title to start any level",
+       "author": "Veradictus",
+       "date": "2026-10-10T19:22:05Z"
+      },
+      {
+       "sha": "1e41d81f25da0402255fce351f7976d298bcda99",
+       "title": "feat(port): frames between the game's ticks, the camera and mobys blended",
+       "author": "Veradictus",
+       "date": "2026-10-10T19:07:11Z"
+      },
+      {
+       "sha": "184f498852f0bcd2d18bd2d516a7d36722196203",
+       "title": "feat(port): test aids: a direct start, the frame rate, a memory watch and slow frames",
+       "author": "Veradictus",
+       "date": "2026-10-10T18:36:53Z"
+      },
+      {
+       "sha": "e892f7463f2f786ecf8eb6414d10ca3ead2ee303",
+       "title": "fix(port): the pause menu draws over the frame it opened on",
+       "author": "Veradictus",
+       "date": "2026-10-10T18:36:53Z"
+      },
+      {
+       "sha": "de7ce334ca4880033f614b79cf5e8752af1f99b7",
+       "title": "feat(editor): Ratchet's hand items (the wrench, weapons, gadgets) from the core's gadget table",
+       "author": "Veradictus",
+       "date": "2026-10-10T18:36:53Z"
+      },
+      {
+       "sha": "152d841d4524529028cebd28ea54ff8e892abce1",
+       "title": "feat(launcher): Play runs rac1/pal's native port on Windows",
+       "author": "Veradictus",
+       "date": "2026-10-10T18:31:07Z"
+      },
+      {
+       "sha": "4df4eacb90a522fe64e321791f4cbded85bd188a",
+       "title": "fix(port): a load image transfer's IMAGE tag carries its size",
+       "author": "Veradictus",
+       "date": "2026-10-10T17:21:11Z"
+      },
+      {
+       "sha": "5607672c50b8899293d44cb969fa7bb9ae3b2d37",
+       "title": "fix(port): level code reads the atan tables; mobys report being drawn",
+       "author": "Veradictus",
+       "date": "2026-10-10T16:15:55Z"
+      },
+      {
+       "sha": "e96f46bc891b4da8684a1a1fd25ceaa3fecd58b0",
+       "title": "fix(runtime): pairing follows registers into branch targets",
+       "author": "Veradictus",
+       "date": "2026-10-10T15:39:50Z"
+      },
+      {
+       "sha": "3eb9ac9794f67697ad073f9821f39f577bc36594",
+       "title": "feat(renderer): the sky's sprites (stars), from SkySpriteProc's records",
+       "author": "Veradictus",
+       "date": "2026-10-10T15:07:38Z"
+      },
+      {
+       "sha": "69e4f12bf7308a60503fed4462a7f6148c26a83d",
+       "title": "feat(viewer): cutout materials drawn in two passes, as the GS does",
+       "author": "Veradictus",
+       "date": "2026-10-10T14:48:27Z"
+      },
+      {
+       "sha": "bc008695ad00f8b3f0a07ae8b683dd9737e7d307",
+       "title": "feat(renderer): the VU1 strips (seas, liquids, glass) drawn in the world",
+       "author": "Veradictus",
+       "date": "2026-10-10T14:31:38Z"
+      },
+      {
+       "sha": "2920308464fc7fb7ceec0efe814465e5f2de570a",
+       "title": "fix(port): the particle pool is read at the level program's addresses",
+       "author": "Veradictus",
+       "date": "2026-10-10T14:06:29Z"
+      },
+      {
+       "sha": "edcafc4557ce04477e5f8e4dd0ceac17ef12b617",
+       "title": "feat(renderer): particles, from the game's pool, as its sprite program draws them",
+       "author": "Veradictus",
+       "date": "2026-10-10T14:00:06Z"
+      },
+      {
+       "sha": "1adb06193aa5bcf6ab1bdbcfb384d6ff4d0ae4e5",
+       "title": "feat(port): C for the particle step, the sphere view tests and four more hand-written routines",
+       "author": "Veradictus",
+       "date": "2026-10-10T13:31:41Z"
+      },
+      {
+       "sha": "019de744066034ef1dbc372db9b19787d197bd31",
+       "title": "fix(hostgen): candidates in one file declare game symbols under their own names",
+       "author": "Veradictus",
+       "date": "2026-10-10T12:22:44Z"
+      },
+      {
+       "sha": "250a2e0582308022989fc04709812641e1345608",
+       "title": "feat(port): rac1-pal's effect draw callback as a no-op, and a collision query trace",
+       "author": "Veradictus",
+       "date": "2026-10-10T12:02:01Z"
+      },
+      {
+       "sha": "b6417fde296ef615f21472f5d1e50a3a6dd9a4b0",
+       "title": "feat(port): glow packets are drawn in the moby's glow colour",
+       "author": "Veradictus",
+       "date": "2026-10-10T10:52:30Z"
+      },
+      {
+       "sha": "4201614f04fec52e1d8dea970d0bd7ac9517b059",
+       "title": "feat(port): rac1-pal's pose snapshots as documented no-ops, and the wrench trail's state",
+       "author": "Veradictus",
+       "date": "2026-10-10T10:32:14Z"
+      },
+      {
+       "sha": "a3d7e896443d76525a363b89311feaaa0456ba20",
+       "title": "fix(port): any target other than the frame buffers is drawn off screen",
+       "author": "Veradictus",
+       "date": "2026-10-10T10:16:31Z"
+      },
+      {
+       "sha": "86e092f9a98ec4770b277c0144d92d3e1dd92141",
+       "title": "feat(port): rac1-pal's collision queries as host C, adapted from ReRAC",
+       "author": "Veradictus",
+       "date": "2026-10-10T09:43:18Z"
+      },
+      {
+       "sha": "a82b1b1dce8a2755d24a64f34f55b76e0184e234",
+       "title": "feat(editor): the port export lights terrain and ties as the game does at level load",
+       "author": "Veradictus",
+       "date": "2026-10-10T08:21:49Z"
+      },
+      {
+       "sha": "3fae88259c69f9d789a792ef5ec300889f9a44ec",
+       "title": "feat(port): functions several levels share find their globals in any level",
+       "author": "Veradictus",
+       "date": "2026-10-10T07:58:47Z"
+      },
+      {
+       "sha": "ece44208db18bb51c7f7a6cde2d888f9d2887191",
+       "title": "feat(port): OPENRAC_WRITE puts words into the game's memory at chosen frames",
+       "author": "Veradictus",
+       "date": "2026-10-10T07:27:33Z"
+      },
+      {
+       "sha": "945e7b4bbb2e2dc7307c3009b10d95b8685b2ad0",
+       "title": "fix(hostgen): frame fields in declaration order, the same every run",
+       "author": "Veradictus",
+       "date": "2026-10-10T07:09:19Z"
+      },
+      {
+       "sha": "9deda84b732680539bed5bb479653037ea1ff771",
+       "title": "feat(hostgen): returns_64, functions whose 64-bit result matching C keeps in an int",
+       "author": "Veradictus",
+       "date": "2026-10-10T07:06:07Z"
+      },
+      {
+       "sha": "3592034e264f76106cbca1fbdc87629fb8fd5f27",
+       "title": "fix(editor): moby classes without sequences keep their skeleton",
+       "author": "Veradictus",
+       "date": "2026-10-10T06:29:45Z"
+      },
+      {
+       "sha": "4553e6e7fb8bb771d6e7abfeeaa85ddd7e7430cb",
+       "title": "feat(assets): evaluate a moby pose from the two keys a moby points at",
+       "author": "Veradictus",
+       "date": "2026-10-10T06:20:14Z"
+      },
+      {
+       "sha": "9ae6755cfa2e57e4818b23dd03f47dfcdf20760c",
+       "title": "feat(port): the window draws a world layer only when the game drew it",
+       "author": "Veradictus",
+       "date": "2026-10-10T05:36:32Z"
+      },
+      {
+       "sha": "8a6da7e8c4646f5a90adc77c0d5a6ce3bd7690a7",
+       "title": "feat(editor): export the title world as level 99",
+       "author": "Veradictus",
+       "date": "2026-10-10T05:19:45Z"
+      },
+      {
+       "sha": "7591db21a72974be70e6a26352a09eeca6a82ee0",
+       "title": "feat(port): play the games' PSS movies in the window",
+       "author": "Veradictus",
+       "date": "2026-10-10T05:09:39Z"
+      },
+      {
+       "sha": "f9ddce4e020a2b47545950db8247f2d2142096db",
+       "title": "feat(port): images the game sends outside the display list reach the renderer",
+       "author": "Veradictus",
+       "date": "2026-10-10T04:31:14Z"
+      },
+      {
+       "sha": "c7db2d1ef1afa2964ce53aa0eb2244b8f0fd419a",
+       "title": "chore(import): sync rac1/ntsc with Lombyte at cdddf69",
+       "author": "Veradictus",
+       "date": "2026-10-10T04:13:14Z"
+      },
+      {
+       "sha": "1dd572dfa0829b51e741036848413c1de6ee8223",
+       "title": "feat(port): native port scaffolding: no emulation, OpenGOAL-style set-up, hostgen, runtime and renderer",
+       "author": "Veradictus",
+       "date": "2026-10-10T03:56:18Z"
+      },
+      {
+       "sha": "81245f9777363ba582463158a87ab5f07b9aeefd",
+       "title": "chore(import): sync rac1/pal with rac1-decomp at 28b4daf",
+       "author": "Veradictus",
+       "date": "2026-10-10T03:43:06Z"
+      },
+      {
+       "sha": "5b32fd396ffebc0a3ddf707d2ebfac60bbd89bd4",
+       "title": "fix(runtime): fcheck runs each side on a fresh machine and refuses empty runs",
+       "author": "Veradictus",
+       "date": "2026-10-10T03:38:27Z"
+      },
+      {
+       "sha": "b750dbbe892042dc1884ab0ce69125c88848b580",
+       "title": "feat(runtime): check a function by what it does, from captured calls",
+       "author": "Veradictus",
+       "date": "2026-10-10T00:39:12Z"
+      }
+     ]
+    }
+   ],
+   "commitCount": 43,
+   "pullRequests": {
+    "merged": [
+     {
+      "number": 3,
+      "title": "Native port scaffolding: no emulation, OpenGOAL-style set-up, port/ with hostgen, runtime, renderer and openrac-rac1",
+      "author": "Veradictus",
+      "untrustedBody": "## Summary\n\nThis takes OpenRAC from \"play through emulation\" to the scaffolding of a **native PC port, built the way OpenGOAL ported Jak and Daxter, for every game version**. It has three parts:\n\n1. **No emulation.** The emulator experiment (`runtime/`) is removed. Its studies are kept in `docs/port/`, and git history keeps the code (for example at `7954152`). The launcher no longer imports ISOs or runs anything emulated.\n2. **OpenGOAL's disc set-up.** `tools/extractor.py` copies and validates the player's disc, using OpenGOAL's folder layout and error numbers. The launcher's \"Set up from your disc\" runs it.\n3. **`port/`**, the native port's code. Every version in `port/game/` is built from its decompilation into `openrac-<id>`:\n   - **Ratchet & Clank (PAL)** goes furthest. `openrac-rac1-pal` loads the data from the player's executable, runs the game's own translated `main()`, and stops at the first function that has no C yet: with the public decompilation, the boot stage `func_001E99D",
+      "mergedAt": "2026-10-10T03:56:18Z"
+     },
+     {
+      "number": 4,
+      "title": "feat(rac1/pal): advance native New Game initialization",
+      "author": "PeterFarber",
+      "untrustedBody": "The native PAL New Game path stops at missing crate, joint-matrix, particle, and hero routines. This adds retail-derived native implementations and corrects a stream request's callee binding so the local integration run advances through those calls. It also fixes Windows hostgen compatibility and stale renderer test expectations, allowing the committed Windows release build and all 42 CTest tests to pass.\n\n## Changes\n\n- Implement crate initialization, joint-matrix selection, both particle allocation entries, hero animation advancement, model effects, and equipment creation, preserving EE pointer layouts and failure paths.\n- Correct the stream candidate to call the existing `func_00217AE8` instead of the nonexistent overlay symbol.\n- Normalize Windows source paths and newer Clang anonymous-tag and desugared type representations in hostgen. Correct CMake's translator dependency path and add a portable synthetic regression test.\n- Test the existing GIF payload continuation contract while ",
+      "mergedAt": "2026-10-10T20:18:16Z"
+     },
+     {
+      "number": 5,
+      "title": "feat(rac1/pal): recover native hero movement and respawn routines",
+      "author": "PeterFarber",
+      "untrustedBody": "The native PAL port still has missing gameplay routines after #4. This adds retail-derived implementations for hero movement, jumping, particle updates and checkpoint restoration, plus the model, map and rendering work needed along that route. A clean build using this repository's bundled PAL sources now completes a strict Veldin fall/respawn probe and can walk, jump and land after respawning.\n\nChanges:\n\n- Recover hero equipment attachment, pose manipulators, leaning, gait, heading/velocity, nearby-surface lookup, jump/gravity behavior, attack object queries and checkpoint restoration.\n- Recover model-bank loading, moby bounds/grid/lighting, map reveal, particle dispatch/type 53 and planar speed limiting; draw vendor effect quads through the native renderer.\n- Separate level controller-update wrappers from sound wrappers so input reaches gameplay.\n- Add focused fixtures, input tracing and optional movie skipping for development probes. Missing-function stops remain enabled in validatio",
+      "mergedAt": "2026-10-10T22:30:33Z"
+     }
+    ],
+    "opened": [
+     {
+      "number": 4,
+      "title": "feat(rac1/pal): advance native New Game initialization",
+      "author": "PeterFarber",
+      "untrustedBody": "The native PAL New Game path stops at missing crate, joint-matrix, particle, and hero routines. This adds retail-derived native implementations and corrects a stream request's callee binding so the local integration run advances through those calls. It also fixes Windows hostgen compatibility and stale renderer test expectations, allowing the committed Windows release build and all 42 CTest tests to pass.\n\n## Changes\n\n- Implement crate initialization, joint-matrix selection, both particle allocation entries, hero animation advancement, model effects, and equipment creation, preserving EE pointer layouts and failure paths.\n- Correct the stream candidate to call the existing `func_00217AE8` instead of the nonexistent overlay symbol.\n- Normalize Windows source paths and newer Clang anonymous-tag and desugared type representations in hostgen. Correct CMake's translator dependency path and add a portable synthetic regression test.\n- Test the existing GIF payload continuation contract while ",
+      "mergedAt": "2026-10-10T20:18:16Z"
+     },
+     {
+      "number": 5,
+      "title": "feat(rac1/pal): recover native hero movement and respawn routines",
+      "author": "PeterFarber",
+      "untrustedBody": "The native PAL port still has missing gameplay routines after #4. This adds retail-derived implementations for hero movement, jumping, particle updates and checkpoint restoration, plus the model, map and rendering work needed along that route. A clean build using this repository's bundled PAL sources now completes a strict Veldin fall/respawn probe and can walk, jump and land after respawning.\n\nChanges:\n\n- Recover hero equipment attachment, pose manipulators, leaning, gait, heading/velocity, nearby-surface lookup, jump/gravity behavior, attack object queries and checkpoint restoration.\n- Recover model-bank loading, moby bounds/grid/lighting, map reveal, particle dispatch/type 53 and planar speed limiting; draw vendor effect quads through the native renderer.\n- Separate level controller-update wrappers from sound wrappers so input reaches gameplay.\n- Add focused fixtures, input tracing and optional movie skipping for development probes. Missing-function stops remain enabled in validatio",
+      "mergedAt": "2026-10-10T22:30:33Z"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": null,
+   "contributors": [
+    "PeterFarber",
+    "Veradictus"
+   ]
+  },
+  {
+   "repo": "rac1-decomp",
+   "title": "Ratchet & Clank",
+   "branches": [
+    {
+     "name": "main",
+     "commits": [
+      {
+       "sha": "ae5490f717e9a508933e38f79f23623ffd6d8462",
+       "title": "Merge pull request #47 from Veradictus/main",
+       "author": "Veradictus",
+       "date": "2026-10-10T20:34:21Z"
+      },
+      {
+       "sha": "4b86e4fca5bc81eabda107454e0262d76be6398b",
+       "title": "Merge pull request #46 from Veradictus/main",
+       "author": "Veradictus",
+       "date": "2026-10-10T03:40:35Z"
+      }
+     ]
+    }
+   ],
+   "commitCount": 2,
+   "pullRequests": {
+    "merged": [
+     {
+      "number": 46,
+      "title": "Match 508 functions, add a moby struct and functional C for the native port",
+      "author": "Veradictus",
+      "untrustedBody": "This brings the fork's last stretch of work upstream. Progress goes from 3,706 to 4,214 of 5,109 functions (61.22% to 78.50% of the code), and complete units from 131 to 143.\n\n## Matches\n\nAround 500 functions, most of them level functions in `src/overlays`. They come from three sources:\n\n- Our own near misses, finished off.\n- Lombyte's matched C, carried over by machine where the instructions are identical and every symbol is renamed to its PAL address.\n- Lombyte's C adapted where the US and PAL builds differ. Those parts were written from the PAL assembly.\n\nThe executable gains about 60 functions in `src/game` (pause menu, loaders, sky, pad, sound, transitions). Everything taken from Lombyte is listed in `THIRD_PARTY_NOTICES.md` with Lombyte's name for each function.\n\nEvery match passes the full build and the audit. Nothing edits compiler output, and flags stay per file (`config/file_cflags.txt`); `tools/check_build_fidelity.py` agrees.\n\n## Refactors\n\n- `include/moby.h`: one moby stru",
+      "mergedAt": "2026-10-10T03:40:36Z"
+     },
+     {
+      "number": 47,
+      "title": "Port support: functional C for the native build, plus a handful of matching fixes",
+      "author": "Veradictus",
+      "untrustedBody": "Mostly port-side work: C the native PC build runs where the decomp is still\nassembly or a near miss. None of it is counted as matched. Progress\nreporting is unchanged apart from the regenerated report.\n\nFunctional C (nonmatching/functional/, listed in nonmatching/functional.tsv)\n- Level 0 gameplay: Ratchet's per-frame set and movement, the follow camera,\n  map setup, crate stacking init, the hero's hand attachments and items,\n  HeroEnvLighting and its zone searches, the wrench's lookups.\n- Menus: the Load Game slot handler, the save page and its card status draw,\n  the page menu label draw, the freeze dialog.\n- Rendering helpers: MobyBuildMatrix and the Euler rows, UploadMipTexture,\n  CreatePart's allocator, the joint chain, the space flights' engine trails.\n- 68 near misses that the equivalence check finds functional, plus 22 more\n  level object functions.\n\nFixes in src/\n- The font functions carry the 64-bit texture word as long, and the callers\n  that keep TEX0 whole call a 64-bit Ge",
+      "mergedAt": "2026-10-10T20:34:21Z"
+     }
+    ],
+    "opened": [
+     {
+      "number": 46,
+      "title": "Match 508 functions, add a moby struct and functional C for the native port",
+      "author": "Veradictus",
+      "untrustedBody": "This brings the fork's last stretch of work upstream. Progress goes from 3,706 to 4,214 of 5,109 functions (61.22% to 78.50% of the code), and complete units from 131 to 143.\n\n## Matches\n\nAround 500 functions, most of them level functions in `src/overlays`. They come from three sources:\n\n- Our own near misses, finished off.\n- Lombyte's matched C, carried over by machine where the instructions are identical and every symbol is renamed to its PAL address.\n- Lombyte's C adapted where the US and PAL builds differ. Those parts were written from the PAL assembly.\n\nThe executable gains about 60 functions in `src/game` (pause menu, loaders, sky, pad, sound, transitions). Everything taken from Lombyte is listed in `THIRD_PARTY_NOTICES.md` with Lombyte's name for each function.\n\nEvery match passes the full build and the audit. Nothing edits compiler output, and flags stay per file (`config/file_cflags.txt`); `tools/check_build_fidelity.py` agrees.\n\n## Refactors\n\n- `include/moby.h`: one moby stru",
+      "mergedAt": "2026-10-10T03:40:36Z"
+     },
+     {
+      "number": 47,
+      "title": "Port support: functional C for the native build, plus a handful of matching fixes",
+      "author": "Veradictus",
+      "untrustedBody": "Mostly port-side work: C the native PC build runs where the decomp is still\nassembly or a near miss. None of it is counted as matched. Progress\nreporting is unchanged apart from the regenerated report.\n\nFunctional C (nonmatching/functional/, listed in nonmatching/functional.tsv)\n- Level 0 gameplay: Ratchet's per-frame set and movement, the follow camera,\n  map setup, crate stacking init, the hero's hand attachments and items,\n  HeroEnvLighting and its zone searches, the wrench's lookups.\n- Menus: the Load Game slot handler, the save page and its card status draw,\n  the page menu label draw, the freeze dialog.\n- Rendering helpers: MobyBuildMatrix and the Euler rows, UploadMipTexture,\n  CreatePart's allocator, the joint chain, the space flights' engine trails.\n- 68 near misses that the equivalence check finds functional, plus 22 more\n  level object functions.\n\nFixes in src/\n- The font functions carry the 64-bit texture word as long, and the callers\n  that keep TEX0 whole call a 64-bit Ge",
+      "mergedAt": "2026-10-10T20:34:21Z"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": {
+    "before": {
+     "code": {
+      "done": 2273016,
+      "total": 3712808
+     },
+     "functions": {
+      "done": 3706,
+      "total": 5109
+     }
+    },
+    "after": {
+     "code": {
+      "done": 2914880,
+      "total": 3712808
+     },
+     "functions": {
+      "done": 4215,
+      "total": 5109
+     }
+    }
+   },
+   "contributors": [
+    "Veradictus"
+   ]
+  },
+  {
+   "repo": "rac2-decomp",
+   "title": "Going Commando",
+   "branches": [
+    {
+     "name": "master",
+     "commits": []
+    }
+   ],
+   "commitCount": 0,
+   "pullRequests": {
+    "merged": [
+     {
+      "number": 86,
+      "title": "compiler: adopt the division delay-slot barrier and the branch-group floor",
+      "author": "llesieur99",
+      "untrustedBody": "## Summary\n\nAdopt the two measured division fixes and requalify the whole published corpus\non the resulting chain. No C body, declaration, placement or matching credit is\nadded or changed.\n\n- **Compiler half.** `dbr_schedule` fills delay slots with a backward scan and no\n  `may_trap_p` guard, and accepts any candidate whose `dslot` attribute is \"no\";\n  `div.s` is one. The retail build never does that — a census of the pinned image\n  finds **0 of 19 806 `div.s` occupancies in a delay slot**, while integer HI/LO\n  division occupies **61** — and the SDK 3.01 assembler refuses a `div.s` in a\n  slot on the emitted assembly of the affected family.\n  `scripts/compiler/neutralise_div_dslot.py` adds the single-precision COP1\n  division/root family to the `dslot` barrier list and leaves integer division\n  eligible. `cc1` moves from `5fed4e23…` to\n  `4d069ae40f7e22d19bf35ccbe0b1a52973ba7f56622ce8bf85cf6d92811a6c78`;\n  `gcc/config/mips/mips.md` from `177caa69…` to `9720897d…`.\n- **Assembler half.*",
+      "mergedAt": "2026-10-10T02:18:37Z"
+     },
+     {
+      "number": 87,
+      "title": "decomp: integrate thirteen shared call families across boot and 26 overlays",
+      "author": "llesieur99",
+      "untrustedBody": "<!-- Required format: docs/PR-DESCRIPTIONS.md. Replace TODOs; keep headings and\r\nfield names. Use English and report only checks actually run. Commands use\r\nportable placeholders, never private paths. This check does not prove claims. -->\r\n\r\n## Summary\r\n\r\nPromote the remaining matched shared call families from the owner's parallel\r\ncampaign into the boot unit and the native overlay units, and publish their\r\nfreshly qualified proofs. Thirteen families are promoted. Each is authored once\r\nas a public fragment under `src/shared/`, each placement is seeded through\r\n`scripts/source_layout.py`, and the existing generator emits the standalone\r\nunits, so generated spelling, whitespace and declarations are preserved and\r\nobject provenance stays valid.\r\n\r\nSeven of the thirteen needed an **invariant data binding** the family record\r\ncannot carry: a reference that is the same address in every placement carries no\r\nrelocation, so the record has no `DATA<n>` role for it while the body still has\r\nto ",
+      "mergedAt": "2026-10-10T04:26:52Z"
+     },
+     {
+      "number": 88,
+      "title": "tooling: cache exact source definition spans",
+      "author": "llesieur99",
+      "untrustedBody": "## Summary\n\nRepeated inventory and source-attribution checks rescanned identical complete source buffers for the same function. Reuse successful span results by exact immutable bytes and symbol with a bounded LRU; keep the original lexer, mutable-input behavior, errors and external freshness checks.\n\n## Scope\n\n- Type: tooling, documentation\n- Validated base: 6998c8dd98d34e8f8530411dc4fccc620d15f586\n- Reservation: N/A: no function work or game source changes.\n- Targets: scripts/source_layout.py and its cache tests; source-layout/inventory/supplementary freshness metadata; docs/PIPELINE-PERFORMANCE.md.\n\n## Validation\n\n- Command: python scripts/maintainer_tests.py --test test_source_layout_cache --test test_progress_modules --test test_decomp_report_cli\n- Result: 24 tests passed in 0.320 seconds; authenticated focused check, not full discovery.\n- Command: python -m unittest discover -s tests -p test_source_layout.py -v (private controlled exact-function cache harness)\n- Result: Existing 1",
+      "mergedAt": "2026-10-10T04:51:19Z"
+     },
+     {
+      "number": 89,
+      "title": "tooling: validate and publish CI exports once",
+      "author": "llesieur99",
+      "untrustedBody": "## Summary\n\nThe same current reports were recomputed by both Tool tests and Progress, and again after merge. One validation producer now owns tests and exports. Required `tests` and `SCUS_972.68 Progress` consumers fail if that shared validation fails or skips. The protected queue always runs the full suite; main can restore the exact validated queue artifact with strict provenance, or recompute everything on failure.\n\n## Scope\n\n- Type: tooling, documentation\n- Validated base: 06826aef52fa1a62444b8552f4d2f4f8d9f21053\n- Reservation: N/A: no function work, C, catalogue or matching proof changes.\n- Targets: tests.yml producer/consumers; ci_export.py and ci_export_reuse.py; maintained test policy, meaningful tests and documentation. Remove the duplicated progress.yml while retaining original public artifact and required-check names. Manual workflow_dispatch remains full-only.\n\n## Validation\n\n- Command: python scripts/maintainer_tests.py --test test_ci_export --test test_ci_export_reuse --t",
+      "mergedAt": "2026-10-10T12:01:55Z"
+     },
+     {
+      "number": 90,
+      "title": "tooling: tolerate delayed merged-PR association",
+      "author": "llesieur99",
+      "untrustedBody": "## Summary\n\nThe first main run after PR89 merged started before GitHub exposed its merged-PR association. The policy correctly chose full validation; a later read and live artifact proof qualified the exact queue commit, and the observed main restore succeeded. Wait briefly only for that transient absence instead of immediately repeating the complete suite.\n\n## Scope\n\n- Type: tooling\n- Validated base: 13bfbc131634e7bddc787531f979b0ffd89d0a21\n- Reservation: N/A: no function, compiler, catalogue or proof work.\n- Targets: scripts/maintainer_test_policy.py and tests/test_maintainer_test_policy.py only. Workflow, exporter and qualified hashes are byte-identical to the accepted base.\n\n## Validation\n\n- Command: python scripts/maintainer_tests.py --test test_maintainer_test_policy\n- Result: 16 focused tests passed in 0.013 seconds, including transient-empty then trusted-pending then exact reuse, bounded exhaustion, wrong owner/fork/SHA/ambiguity, API errors and unrelated proof failures. No ful",
+      "mergedAt": "2026-10-10T12:32:19Z"
+     },
+     {
+      "number": 91,
+      "title": "compiler: emit the save blocks in the stock order and requalify the corpus",
+      "author": "llesieur99",
+      "untrustedBody": "## Summary\n\nThe reconstructed chain emitted the callee-saved blocks in an order the retail\nbuild never used. The save-block recipe forced the FPR emission block ahead of\nthe GPR block on saves, and the GPR block ahead of the FPR block on restores.\nThe released source does the opposite: `save_restore_insns` emits the GP block\nfirst and the FP block second, in both directions. A byte-level census of the\npinned reference agrees: of the frames that save at least one GPR **and** at\nleast one FPR, the first save is a GPR in 92.3 % of `0_aranos_tutorial`'s 1 102\nmixed frames, 90.6 % of the boot's 533, and 92.5 % of all 31 278 across the 28\nprograms.\n\nThe inversion is a defect of the recipe itself, not a lost RAC2 adjustment. Two\n`cc1` builds of 3 October 2026 bracket it: the 00:13 build emits the GP block\nfirst, the 06:23 build no longer does.\n\n`reorder_save_blocks.py` now emits the stock order, and the families that the\ninversion was blocking are integrated. `cc1` moves from `4d069ae4…` to\n`",
+      "mergedAt": "2026-10-10T14:03:50Z"
+     },
+     {
+      "number": 92,
+      "title": "decomp: integrate twenty-three shared call families across boot and 27 overlays",
+      "author": "llesieur99",
+      "untrustedBody": "## Summary\r\n\r\nPromote 23 owner-authored shared call families across boot and the native overlays. Each body remains authored once in `src/shared/lot4-*.cfrag`; the maintained source recipes generate its placements. This refresh merges current RAC2, preserves PR93's compiler V4 and source additions, and replaces the historical V3 trial blockage with genuinely measured V4 trials and complete image gates. No authored family body was rewritten.\r\n\r\n## Scope\r\n\r\n- Type: matching, placement\r\n- Validated base: 800159b21d90fa2dfa5a005a763bd732a1ef0feb\r\n- Reservation: Existing owner-operated promotion campaign; original reservation exclusions are retained. No new reservation is acquired by this refresh.\r\n- Targets: 23 `src/shared/lot4-*.cfrag` families, their 23 source-layout seeds and generated boot/27 native overlay placements. Main's Aranos quaternion and boot utility/aligned-clear changes are retained unchanged.\r\n\r\n## Validation\r\n\r\n- Command: `python scripts/source_layout.py --write --expecte",
+      "mergedAt": "2026-10-10T18:59:34Z"
+     },
+     {
+      "number": 93,
+      "title": "compiler: fold the return-value read of the zero store and integrate its family",
+      "author": "llesieur99",
+      "untrustedBody": "## Summary\n\nThe zero-store fold refuses as soon as the materialised TImode zero is read\nafter the store, and one reader is a read of the constant being folded. When a\nbody stores a TImode zero and returns 0, reload materialises the zero once in\n`$v0` and the pre-reload return `(set (reg/i:SI 2 v0) (const_int 0))`\ndegenerates into `(use (reg/i:SI 2 v0))`. The guard then refuses, so the chain\nprinted `por $v0,$zero,$zero` + `sq $v0,0($base)` where the retail prints\n`sq $zero,0($base)` + `move $v0,$zero`.\n\n`fold_zero_ti_return_value.py` keeps the rule and adds exactly one bounded case:\nan exact `(use (reg/i ...))` pattern, the same register, `REG_FUNCTION_VALUE_P`\nset, no jump or call between the store and the use, and a single such use. The\nstore folds to architectural zero and the `use` is rewritten to a plain\n`(set (reg/i:SI 2 v0) (const_int 0))`; both changes share one\n`validate_change`/`apply_change_group` group, so an unrecognised pattern\nabandons the whole group and nothing is fold",
+      "mergedAt": "2026-10-10T17:33:34Z"
+     },
+     {
+      "number": 94,
+      "title": "decomp: integrate three shared call families across boot and 26 overlays",
+      "author": "llesieur99",
+      "untrustedBody": "<!-- Required format: docs/PR-DESCRIPTIONS.md. Replace TODOs; keep headings and\nfield names. Use English and report only checks actually run. Commands use\nportable placeholders, never private paths. This check does not prove claims. -->\n\n## Summary\n\nPromote three matched shared call families into the boot unit and the native\noverlay units, and publish their freshly qualified proofs. Each family is\nauthored once as a public fragment under `src/shared/`, one placement per family\nis seeded through `scripts/source_layout.py`, and the existing generator emits\nthe standalone units, so generated spelling, whitespace and declarations are\npreserved and object provenance stays valid.\n\nThese are exactly the three families the previous lot had to leave behind\nbecause the private owner tool corrupted the machine mode of their canonical\n128-bit typedef spelling. The three defects that blocked them are repaired\nbefore promotion, and their effect is visible in this diff: the published\nfragments and `c",
+      "mergedAt": "2026-10-10T21:51:39Z"
+     }
+    ],
+    "opened": [
+     {
+      "number": 86,
+      "title": "compiler: adopt the division delay-slot barrier and the branch-group floor",
+      "author": "llesieur99",
+      "untrustedBody": "## Summary\n\nAdopt the two measured division fixes and requalify the whole published corpus\non the resulting chain. No C body, declaration, placement or matching credit is\nadded or changed.\n\n- **Compiler half.** `dbr_schedule` fills delay slots with a backward scan and no\n  `may_trap_p` guard, and accepts any candidate whose `dslot` attribute is \"no\";\n  `div.s` is one. The retail build never does that — a census of the pinned image\n  finds **0 of 19 806 `div.s` occupancies in a delay slot**, while integer HI/LO\n  division occupies **61** — and the SDK 3.01 assembler refuses a `div.s` in a\n  slot on the emitted assembly of the affected family.\n  `scripts/compiler/neutralise_div_dslot.py` adds the single-precision COP1\n  division/root family to the `dslot` barrier list and leaves integer division\n  eligible. `cc1` moves from `5fed4e23…` to\n  `4d069ae40f7e22d19bf35ccbe0b1a52973ba7f56622ce8bf85cf6d92811a6c78`;\n  `gcc/config/mips/mips.md` from `177caa69…` to `9720897d…`.\n- **Assembler half.*",
+      "mergedAt": "2026-10-10T02:18:37Z"
+     },
+     {
+      "number": 87,
+      "title": "decomp: integrate thirteen shared call families across boot and 26 overlays",
+      "author": "llesieur99",
+      "untrustedBody": "<!-- Required format: docs/PR-DESCRIPTIONS.md. Replace TODOs; keep headings and\r\nfield names. Use English and report only checks actually run. Commands use\r\nportable placeholders, never private paths. This check does not prove claims. -->\r\n\r\n## Summary\r\n\r\nPromote the remaining matched shared call families from the owner's parallel\r\ncampaign into the boot unit and the native overlay units, and publish their\r\nfreshly qualified proofs. Thirteen families are promoted. Each is authored once\r\nas a public fragment under `src/shared/`, each placement is seeded through\r\n`scripts/source_layout.py`, and the existing generator emits the standalone\r\nunits, so generated spelling, whitespace and declarations are preserved and\r\nobject provenance stays valid.\r\n\r\nSeven of the thirteen needed an **invariant data binding** the family record\r\ncannot carry: a reference that is the same address in every placement carries no\r\nrelocation, so the record has no `DATA<n>` role for it while the body still has\r\nto ",
+      "mergedAt": "2026-10-10T04:26:52Z"
+     },
+     {
+      "number": 88,
+      "title": "tooling: cache exact source definition spans",
+      "author": "llesieur99",
+      "untrustedBody": "## Summary\n\nRepeated inventory and source-attribution checks rescanned identical complete source buffers for the same function. Reuse successful span results by exact immutable bytes and symbol with a bounded LRU; keep the original lexer, mutable-input behavior, errors and external freshness checks.\n\n## Scope\n\n- Type: tooling, documentation\n- Validated base: 6998c8dd98d34e8f8530411dc4fccc620d15f586\n- Reservation: N/A: no function work or game source changes.\n- Targets: scripts/source_layout.py and its cache tests; source-layout/inventory/supplementary freshness metadata; docs/PIPELINE-PERFORMANCE.md.\n\n## Validation\n\n- Command: python scripts/maintainer_tests.py --test test_source_layout_cache --test test_progress_modules --test test_decomp_report_cli\n- Result: 24 tests passed in 0.320 seconds; authenticated focused check, not full discovery.\n- Command: python -m unittest discover -s tests -p test_source_layout.py -v (private controlled exact-function cache harness)\n- Result: Existing 1",
+      "mergedAt": "2026-10-10T04:51:19Z"
+     },
+     {
+      "number": 89,
+      "title": "tooling: validate and publish CI exports once",
+      "author": "llesieur99",
+      "untrustedBody": "## Summary\n\nThe same current reports were recomputed by both Tool tests and Progress, and again after merge. One validation producer now owns tests and exports. Required `tests` and `SCUS_972.68 Progress` consumers fail if that shared validation fails or skips. The protected queue always runs the full suite; main can restore the exact validated queue artifact with strict provenance, or recompute everything on failure.\n\n## Scope\n\n- Type: tooling, documentation\n- Validated base: 06826aef52fa1a62444b8552f4d2f4f8d9f21053\n- Reservation: N/A: no function work, C, catalogue or matching proof changes.\n- Targets: tests.yml producer/consumers; ci_export.py and ci_export_reuse.py; maintained test policy, meaningful tests and documentation. Remove the duplicated progress.yml while retaining original public artifact and required-check names. Manual workflow_dispatch remains full-only.\n\n## Validation\n\n- Command: python scripts/maintainer_tests.py --test test_ci_export --test test_ci_export_reuse --t",
+      "mergedAt": "2026-10-10T12:01:55Z"
+     },
+     {
+      "number": 90,
+      "title": "tooling: tolerate delayed merged-PR association",
+      "author": "llesieur99",
+      "untrustedBody": "## Summary\n\nThe first main run after PR89 merged started before GitHub exposed its merged-PR association. The policy correctly chose full validation; a later read and live artifact proof qualified the exact queue commit, and the observed main restore succeeded. Wait briefly only for that transient absence instead of immediately repeating the complete suite.\n\n## Scope\n\n- Type: tooling\n- Validated base: 13bfbc131634e7bddc787531f979b0ffd89d0a21\n- Reservation: N/A: no function, compiler, catalogue or proof work.\n- Targets: scripts/maintainer_test_policy.py and tests/test_maintainer_test_policy.py only. Workflow, exporter and qualified hashes are byte-identical to the accepted base.\n\n## Validation\n\n- Command: python scripts/maintainer_tests.py --test test_maintainer_test_policy\n- Result: 16 focused tests passed in 0.013 seconds, including transient-empty then trusted-pending then exact reuse, bounded exhaustion, wrong owner/fork/SHA/ambiguity, API errors and unrelated proof failures. No ful",
+      "mergedAt": "2026-10-10T12:32:19Z"
+     },
+     {
+      "number": 91,
+      "title": "compiler: emit the save blocks in the stock order and requalify the corpus",
+      "author": "llesieur99",
+      "untrustedBody": "## Summary\n\nThe reconstructed chain emitted the callee-saved blocks in an order the retail\nbuild never used. The save-block recipe forced the FPR emission block ahead of\nthe GPR block on saves, and the GPR block ahead of the FPR block on restores.\nThe released source does the opposite: `save_restore_insns` emits the GP block\nfirst and the FP block second, in both directions. A byte-level census of the\npinned reference agrees: of the frames that save at least one GPR **and** at\nleast one FPR, the first save is a GPR in 92.3 % of `0_aranos_tutorial`'s 1 102\nmixed frames, 90.6 % of the boot's 533, and 92.5 % of all 31 278 across the 28\nprograms.\n\nThe inversion is a defect of the recipe itself, not a lost RAC2 adjustment. Two\n`cc1` builds of 3 October 2026 bracket it: the 00:13 build emits the GP block\nfirst, the 06:23 build no longer does.\n\n`reorder_save_blocks.py` now emits the stock order, and the families that the\ninversion was blocking are integrated. `cc1` moves from `4d069ae4…` to\n`",
+      "mergedAt": "2026-10-10T14:03:50Z"
+     },
+     {
+      "number": 92,
+      "title": "decomp: integrate twenty-three shared call families across boot and 27 overlays",
+      "author": "llesieur99",
+      "untrustedBody": "## Summary\r\n\r\nPromote 23 owner-authored shared call families across boot and the native overlays. Each body remains authored once in `src/shared/lot4-*.cfrag`; the maintained source recipes generate its placements. This refresh merges current RAC2, preserves PR93's compiler V4 and source additions, and replaces the historical V3 trial blockage with genuinely measured V4 trials and complete image gates. No authored family body was rewritten.\r\n\r\n## Scope\r\n\r\n- Type: matching, placement\r\n- Validated base: 800159b21d90fa2dfa5a005a763bd732a1ef0feb\r\n- Reservation: Existing owner-operated promotion campaign; original reservation exclusions are retained. No new reservation is acquired by this refresh.\r\n- Targets: 23 `src/shared/lot4-*.cfrag` families, their 23 source-layout seeds and generated boot/27 native overlay placements. Main's Aranos quaternion and boot utility/aligned-clear changes are retained unchanged.\r\n\r\n## Validation\r\n\r\n- Command: `python scripts/source_layout.py --write --expecte",
+      "mergedAt": "2026-10-10T18:59:34Z"
+     },
+     {
+      "number": 93,
+      "title": "compiler: fold the return-value read of the zero store and integrate its family",
+      "author": "llesieur99",
+      "untrustedBody": "## Summary\n\nThe zero-store fold refuses as soon as the materialised TImode zero is read\nafter the store, and one reader is a read of the constant being folded. When a\nbody stores a TImode zero and returns 0, reload materialises the zero once in\n`$v0` and the pre-reload return `(set (reg/i:SI 2 v0) (const_int 0))`\ndegenerates into `(use (reg/i:SI 2 v0))`. The guard then refuses, so the chain\nprinted `por $v0,$zero,$zero` + `sq $v0,0($base)` where the retail prints\n`sq $zero,0($base)` + `move $v0,$zero`.\n\n`fold_zero_ti_return_value.py` keeps the rule and adds exactly one bounded case:\nan exact `(use (reg/i ...))` pattern, the same register, `REG_FUNCTION_VALUE_P`\nset, no jump or call between the store and the use, and a single such use. The\nstore folds to architectural zero and the `use` is rewritten to a plain\n`(set (reg/i:SI 2 v0) (const_int 0))`; both changes share one\n`validate_change`/`apply_change_group` group, so an unrecognised pattern\nabandons the whole group and nothing is fold",
+      "mergedAt": "2026-10-10T17:33:34Z"
+     },
+     {
+      "number": 94,
+      "title": "decomp: integrate three shared call families across boot and 26 overlays",
+      "author": "llesieur99",
+      "untrustedBody": "<!-- Required format: docs/PR-DESCRIPTIONS.md. Replace TODOs; keep headings and\nfield names. Use English and report only checks actually run. Commands use\nportable placeholders, never private paths. This check does not prove claims. -->\n\n## Summary\n\nPromote three matched shared call families into the boot unit and the native\noverlay units, and publish their freshly qualified proofs. Each family is\nauthored once as a public fragment under `src/shared/`, one placement per family\nis seeded through `scripts/source_layout.py`, and the existing generator emits\nthe standalone units, so generated spelling, whitespace and declarations are\npreserved and object provenance stays valid.\n\nThese are exactly the three families the previous lot had to leave behind\nbecause the private owner tool corrupted the machine mode of their canonical\n128-bit typedef spelling. The three defects that blocked them are repaired\nbefore promotion, and their effect is visible in this diff: the published\nfragments and `c",
+      "mergedAt": "2026-10-10T21:51:39Z"
+     },
+     {
+      "number": 95,
+      "title": "Multi-language Cinematic Structure Doc",
+      "author": "platypet2217-star",
+      "untrustedBody": "<!-- Required format: docs/PR-DESCRIPTIONS.md. Replace TODOs; keep headings and\r\nfield names. Use English and report only checks actually run. Commands use\r\nportable placeholders, never private paths. This check does not prove claims. -->\r\n\r\n## Summary\r\n\r\nDocumenting the directory structure and runtime multi-language asset management for pre-rendered cinematic files (`video_pal.pss` and corresponding `.asset` metadata files) present in the `mpeg/` directory of the Ratchet & Clank 2 (PAL) release. This serves as foundational research for future native PC port localization, custom subtitle injection, and dynamic voice-over streaming.\r\n\r\n## Scope\r\n\r\n- Type: documentation\r\n- Validated base: 77070933dcfecb510da88ba6eb699a36d54338ad\r\n- Reservation: N/A: non-decompilation documentation work\r\n- Targets: ports/pal-functional/docs/mpeg_structure.md\r\n\r\n## Validation\r\n\r\n- Command: N/A: contributor-reported manual Wrench analysis; no executable command was supplied\r\n- Result: The contributor report",
+      "mergedAt": "2026-10-11T04:55:50Z"
+     },
+     {
+      "number": 96,
+      "title": "fix: bind native queue fork heads with missing commit association",
+      "author": "llesieur99",
+      "untrustedBody": "## Summary\r\n\r\nGitHub returned an empty target-repository commit/pulls association for PR95's fork head despite a unique open PR and the exact native queue parents. The queue description check consequently rejected valid fork contributions. A successful empty association now falls back to a bounded open-PR lookup and verifies the source repository's live branch ref. API errors and nonempty invalid associations retain their existing refusal.\r\n\r\n## Scope\r\n\r\n- Type: tooling\r\n- Validated base: 77070933dcfecb510da88ba6eb699a36d54338ad\r\n- Reservation: N/A: no function work\r\n- Targets: scripts/pr_description.py and tests/test_pr_description.py\r\n\r\n## Validation\r\n\r\n- Command: python -B -m unittest discover -s tests -p test_pr_description.py\r\n- Result: 68 tests PASS, including 15 regressions for fallback identity, source ref, ambiguity, malformed evidence, API failures and snapshot changes.\r\n- Command: git diff --check\r\n- Result: PASS before commit.\r\n- Command: N/A: read-only GitHub REST inspecti",
+      "mergedAt": "2026-10-11T01:35:03Z"
+     },
+     {
+      "number": 97,
+      "title": "decomp: promote thirty-four wave-6 shared call families",
+      "author": "llesieur99",
+      "untrustedBody": "<!-- Required format: docs/PR-DESCRIPTIONS.md. -->\n\n## Summary\n\nPromote the matched shared call families of the sixth parallel-campaign wave into\nthe boot unit and the native overlay units, and publish their freshly qualified\nproofs. Thirty-four families are promoted, each authored once as a fragment under\n`src/shared/` (or, for the single small-data family, appended to its level's\nmodule under `src/levels/smalldata/`), with every placement seeded through\n`scripts/source_layout.py`, so the maintained generator still emits the\nstandalone units and object provenance stays valid.\n\nEleven of the thirty-four needed an **invariant data binding** the family record\ncannot carry: a reference that is the same address in every placement carries no\nrelocation, so the record has no `DATA<n>` role for it while the body still has to\nname it. `promote_call_family.py --binding NAME=0xADDR[:abs|sda]` declares those\nout of band, and both owner gates re-verify every placement byte before anything\nis writt",
+      "mergedAt": "2026-10-11T00:49:29Z"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": null,
+   "contributors": [
+    "llesieur99",
+    "platypet2217-star"
+   ]
+  },
+  {
+   "repo": "rac3-decomp",
+   "title": "Up Your Arsenal",
+   "branches": [
+    {
+     "name": "master",
+     "commits": []
+    }
+   ],
+   "commitCount": 0,
+   "pullRequests": {
+    "merged": [],
+    "opened": []
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": null,
+   "contributors": []
+  },
+  {
+   "repo": "rac4-decomp",
+   "title": "Ratchet: Deadlocked",
+   "branches": [
+    {
+     "name": "main",
+     "commits": []
+    }
+   ],
+   "commitCount": 0,
+   "pullRequests": {
+    "merged": [],
+    "opened": []
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": null,
+   "contributors": []
+  },
+  {
+   "repo": "openrac-mods",
+   "title": "OpenRAC mods",
+   "branches": [
+    {
+     "name": "master",
+     "commits": []
+    }
+   ],
+   "commitCount": 0,
+   "pullRequests": {
+    "merged": [],
+    "opened": []
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": null,
+   "contributors": []
+  }
+ ]
+}
