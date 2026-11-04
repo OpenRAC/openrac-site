@@ -121,13 +121,44 @@ test("README from a second index renders inert", async ({ page }) => {
   page.on("request", (r) => requests.push(r.url()));
   await page.goto("/mods/evil-readme");
   await revealAll(page);
-  await expect(page.locator("#about")).toContainText("<script>"); // shown as text, never run
+  await expect(page.locator("#about script, #about iframe, #about picture, #about source, #about img, #about [onerror], #about [style]")).toHaveCount(0);
+  await expect(page.locator("#about")).not.toContainText("<");
+  await expect(page.locator("#about")).not.toContainText("hidden note");
   expect(await page.evaluate(() => (window as unknown as { __pwned?: number }).__pwned)).toBeUndefined();
   await expect(page.locator('#about a[href^="javascript:"]')).toHaveCount(0);
+  // HTML written for GitHub is real markup here, and a badge is its link's text, not a link within a link.
+  await expect(page.locator("#about b", { hasText: "raw html" })).toBeVisible();
+  await expect(page.locator('#about a[href="https://example.com/release"]')).toHaveText("Download");
+  await expect(page.locator("#about a a")).toHaveCount(0);
+  await expect(page.locator("#about a", { hasText: "Title picture" })).toHaveAttribute("href", "https://evil.example/title.png");
+  await expect(page.locator('#about a[href*="decoration"]')).toHaveCount(0);
   await expect(page.locator('#about a[href="https://example.com"]')).toHaveAttribute("rel", "nofollow ugc noopener noreferrer");
   expect(requests.some((u) => u.includes("evil.example"))).toBe(false); // the tracker picture is a link, not a load
   // A relative link points into the mod's repository at its release, never at this site.
   await expect(page.locator('#about a', { hasText: "docs" })).toHaveAttribute("href", /^https:\/\/github\.com\/OpenRAC\/openrac-mods\/blob\/evil-readme-v1\.2\.0\/camera-base\/docs\/setup\.md$/);
+});
+
+test("README: in-page links reach its headings and footnotes, never the page's own sections", async ({ page }) => {
+  await page.goto("/mods/evil-readme");
+  await revealAll(page);
+  const heading = page.locator("#about h3#user-content-set-up");
+  await expect(heading).toHaveText("Set up");
+  await expect(page.locator('#about a[href="#details"]')).toHaveCount(0);
+  await expect(page.locator('#about a[href="#user-content-details"]')).toHaveCount(1);
+  await expect(page.locator('#about a[href="#user-content-set-up"]')).toHaveCount(2);
+  await page.locator("#about a", { hasText: "to setup" }).click();
+  await expect(page).toHaveURL(/#user-content-set-up$/);
+  await expect(heading).toBeInViewport();
+  // Clear of the stuck header and contents bar, once the smooth scroll has settled.
+  const nav = page.getByRole("navigation", { name: "On this page" });
+  await expect.poll(async () => (await heading.boundingBox())!.y - (await nav.boundingBox())!.y - (await nav.boundingBox())!.height).toBeGreaterThanOrEqual(0);
+  await page.locator('#about sup a[href="#user-content-fn-1"]').click();
+  await expect(page.locator("#about li#user-content-fn-1")).toContainText("A footnote.");
+  await expect(page.locator("#about li#user-content-fn-1")).toBeInViewport();
+  await expect(page.locator('#about a[href="#user-content-fnref-1"]')).toHaveCount(1);
+  await expect(page.locator("#about sup a#user-content-fnref-1")).toHaveCount(1);
+  await expect(page.locator('#about a[href="#user-content-old-anchor"]')).toHaveCount(1);
+  await expect(page.locator("#about a#user-content-old-anchor")).toHaveCount(1);
 });
 
 test("SEO: title, canonical, share card, JSON-LD, robots and sitemap", async ({ page, request }) => {

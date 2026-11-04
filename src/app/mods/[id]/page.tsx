@@ -301,7 +301,7 @@ export default async function ModPage(props: PageProps<"/mods/[id]">) {
 
             <section id="about" data-reveal="fade" className="scroll-mt-28 pt-10">
               <H2>About</H2>
-              {mod.readme?.trim() ? <Markdown base={readmeBase}>{mod.readme}</Markdown> : <p className="text-soft">{mod.description}</p>}
+              {mod.readme?.trim() ? <Markdown base={readmeBase} anchors>{mod.readme}</Markdown> : <p className="text-soft">{mod.description}</p>}
             </section>
 
             <section id="details" data-reveal="fade" className="scroll-mt-28 pt-10">
