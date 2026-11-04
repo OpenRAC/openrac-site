@@ -31,7 +31,7 @@ test("a good source reads as fresh", async () => {
   const week = await getNewsWeek(WEEK);
   assert.equal(week?.report.status, "ok");
   assert.equal(week?.stale, false);
-  assert.equal((await getLatestReports(3))?.length, 1);
+  assert.equal((await getLatestReports(3))?.length, 2);
   assert.equal((await getNewsDay("2026-11-03"))?.stale, false);
 });
 

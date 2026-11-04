@@ -57,8 +57,8 @@ export default async function NewsDayProjectPage(props: PageProps<"/news/days/[d
                 <ul>
                   {b.commits.map((c) => (
                     <li key={c.sha} className="flex min-h-11 min-w-0 flex-wrap items-baseline gap-x-2.5 border-b border-line py-2.5 last:border-0">
-                      <a href={commitUrl(repo, c.sha)} className="flex-none font-mono text-[13px] text-amber underline underline-offset-2">{c.sha.slice(0, 7)}</a>
-                      <span className="min-w-0 break-words text-text">{plainTitle(c.title)}</span>
+                      <a href={commitUrl(repo, c.sha)} className="inline-flex min-h-6 flex-none items-center font-mono text-[13px] text-amber underline underline-offset-2">{c.sha.slice(0, 7)}</a>
+                      <span className="min-w-0 text-text [overflow-wrap:anywhere]">{plainTitle(c.title)}</span>
                     </li>
                   ))}
                 </ul>

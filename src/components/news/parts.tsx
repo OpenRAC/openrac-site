@@ -72,7 +72,7 @@ export function Sources({ report, projects }: { report: NewsReport; projects: re
       <summary className="flex min-h-12 cursor-pointer items-center font-orbitron text-[13px] font-bold text-gold">Sources ({sources.length})</summary>
       <ul className="grid gap-1.5 pb-4 text-[14px] leading-snug">
         {sources.map((s) => (
-          <li key={`${s.repo}#${s.number}`} className="min-w-0 break-words text-soft">
+          <li key={`${s.repo}#${s.number}`} className="min-w-0 text-soft [overflow-wrap:anywhere]">
             <a href={s.href} className={`${LINK} whitespace-nowrap`}>
               {s.repo}#{s.number}
             </a>{" "}
@@ -158,12 +158,12 @@ export function ProjectCard({ project, children, href }: { project: NewsProject;
 export function ReportSection({ section, known, repo }: { section: NewsReportSection; known: readonly string[]; repo: string }) {
   return (
     <div className="grid gap-2.5">
-      <h4 className="text-[17px] font-semibold leading-snug text-hi">{section.headline}</h4>
-      <p className="leading-relaxed text-body">
+      <h4 className="text-[17px] font-semibold leading-snug text-hi [overflow-wrap:anywhere]">{section.headline}</h4>
+      <p className="leading-relaxed text-body [overflow-wrap:anywhere]">
         <ReportText text={section.summary} known={known} owner={repo} />
       </p>
       {section.highlights.length > 0 && (
-        <ul className="grid list-disc gap-1.5 pl-5 leading-relaxed text-body marker:text-(--tx)">
+        <ul className="grid list-disc gap-1.5 pl-5 leading-relaxed text-body [overflow-wrap:anywhere] marker:text-(--tx)">
           {section.highlights.map((line, i) => (
             <Highlight key={i} line={line} known={known} owner={repo} />
           ))}
@@ -186,7 +186,7 @@ export function Gallery({ week, media }: { week: string; media: readonly NewsMed
               {/* eslint-disable-next-line @next/next/no-img-element -- served by our own route, already sized by its author */}
               <img src={src} alt={m.alt} loading="lazy" className="block min-h-16 w-full p-0 text-[14px]" />
             </a>
-            {m.caption && <figcaption className="text-[13px] text-dim">{m.caption}</figcaption>}
+            {m.caption && <figcaption className="text-[13px] text-dim [overflow-wrap:anywhere]">{m.caption}</figcaption>}
           </figure>
         );
       })}
@@ -242,7 +242,7 @@ export function ReportPoster({ entry, report, lead, large = false, heading: Head
         <p className="font-orbitron text-[12px] font-bold uppercase tracking-[.16em] text-(--tx)">
           {formatWeekName(entry.week)} · <time dateTime={entry.end}>{formatWeekRange(entry.start, entry.end)}</time>
         </p>
-        <Heading className={`leading-tight text-hi ${large ? "font-audiowide text-[clamp(24px,3.6vw,36px)]" : "text-[19px] font-semibold"}`}>
+        <Heading className={`leading-tight text-hi [overflow-wrap:anywhere] ${large ? "font-audiowide text-[clamp(24px,3.6vw,36px)]" : "text-[19px] font-semibold"}`}>
           {/* The whole poster is the link, one stop for keyboards. */}
           <Link href={`/news/${entry.week}`} className="text-inherit no-underline after:absolute after:inset-0 after:content-['']">
             {report.headline}
@@ -261,10 +261,10 @@ const SHOWN = 5;
 function Row({ repo, item }: { repo: string; item: NewsItem }) {
   return (
     <li className="flex min-h-11 min-w-0 flex-wrap items-baseline gap-x-2.5 border-b border-line py-2.5 last:border-0">
-      <a href={`https://github.com/OpenRAC/${repo}/issues/${item.number}`} className={`${LINK} flex-none font-semibold no-underline hover:underline`}>
+      <a href={`https://github.com/OpenRAC/${repo}/issues/${item.number}`} className={`${LINK} inline-flex min-h-6 min-w-6 flex-none items-center font-semibold no-underline hover:underline`}>
         #{item.number}
       </a>
-      <span className="min-w-0 break-words text-text">{plainTitle(item.title)}</span>
+      <span className="min-w-0 text-text [overflow-wrap:anywhere]">{plainTitle(item.title)}</span>
       {item.author && <span className="text-[13px] text-dim">{item.author}</span>}
     </li>
   );
