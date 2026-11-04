@@ -210,7 +210,7 @@ export function homeLd(site: string, release?: LauncherRelease | null) {
 }
 
 /** A week's written report as a schema.org Article: its named author, and how it was made. */
-export function newsWeekLd(site: string, r: { week: string; end: string; headline: string; summary: string; author: string; tool: string }) {
+export function newsWeekLd(site: string, r: { week: string; end: string; title: string; description: string; author: string; tool: string }) {
   const url = `${site}/news/${r.week}`;
   return {
     "@context": "https://schema.org",
@@ -218,17 +218,51 @@ export function newsWeekLd(site: string, r: { week: string; end: string; headlin
       {
         "@type": "Article",
         "@id": `${url}#report`,
-        headline: r.headline,
-        description: r.summary,
+        headline: r.title,
+        description: r.description,
         url,
+        mainEntityOfPage: url,
+        image: `${url}/opengraph-image`,
+        inLanguage: "en",
         datePublished: r.end,
         author: { "@type": "Person", name: r.author, url: `https://github.com/${encodeURIComponent(r.author)}` },
+        publisher: { "@id": `${site}/#organization` },
+        isPartOf: { "@id": `${site}/news#page` },
         creditText: `Written by ${r.author} with ${r.tool} from public GitHub data`,
       },
       breadcrumbLd([
         { name: "Home", url: `${site}/` },
         { name: "News", url: `${site}/news` },
         { name: r.week, url },
+      ]),
+    ],
+  };
+}
+
+export const NEWS_DESCRIPTION = "What happens across the OpenRAC projects rebuilding the Ratchet & Clank games, in weekly reports written by named people.";
+
+/** The news page and its reports, newest first. */
+export function newsIndexLd(site: string, reports: { week: string; title: string }[]) {
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "CollectionPage",
+        "@id": `${site}/news#page`,
+        name: "OpenRAC News",
+        description: NEWS_DESCRIPTION,
+        url: `${site}/news`,
+        inLanguage: "en",
+        isPartOf: { "@id": `${site}/#website` },
+        mainEntity: {
+          "@type": "ItemList",
+          numberOfItems: reports.length,
+          itemListElement: reports.map((r, i) => ({ "@type": "ListItem", position: i + 1, url: `${site}/news/${r.week}`, name: r.title })),
+        },
+      },
+      breadcrumbLd([
+        { name: "Home", url: `${site}/` },
+        { name: "News", url: `${site}/news` },
       ]),
     ],
   };

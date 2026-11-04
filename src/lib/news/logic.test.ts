@@ -107,6 +107,23 @@ test("a report must say who wrote it, with what", () => {
   }
 });
 
+test("a report's own title and description are used", () => {
+  const r = report();
+  assert.equal(r.title, "Ratchet & Clank reaches 100% matched");
+  assert.equal(r.description, "The first game is fully matched, Going Commando rises to 84.74%, and the launcher gains install links.");
+});
+
+test("a report missing them still gets clean ones, cut at a word and without citations", () => {
+  const raw = fixture(`reports/${WEEK}/report.json`);
+  delete raw.title;
+  delete raw.description;
+  const r = parseReport({ ...raw, headline: "word ".repeat(30), summary: `Fixed (OpenRAC#1, rac2-decomp#2). ${"more text ".repeat(30)}` }, WEEK)!;
+  assert.ok(r.title.length <= 70 && r.title.endsWith("word…"), r.title);
+  assert.ok(r.description.length <= 155 && r.description.endsWith("…"), r.description);
+  assert.ok(!r.description.includes("#"));
+  assert.ok(r.description.startsWith("Fixed. more text"));
+});
+
 test("citations become links only for tracked projects", () => {
   const known = ["OpenRAC", "rac2-decomp"];
   assert.deepEqual(segments("Fixed in OpenRAC#228, see #399.", known, "rac2-decomp"), [

@@ -144,6 +144,16 @@ export function parseWeekFacts(raw: unknown, week: string): NewsWeekFacts | null
   return { week, start: raw.start, end: raw.end, days: list(raw.days).filter(isNewsDay), totals: parseTotals(raw.totals), projects: compact(list(raw.projects).map(parseProject)) };
 }
 
+/** Text with citations taken out, for places where they could not be links. */
+const withoutCitations = (value: string) => value.replace(/\s*\((?:[\w.-]*#\d+(?:,\s*)?)+\)/g, "");
+
+/** Shortened at a word, for a report that lacks its own title or description: the checks refuse those, so this is only a safety net. */
+function clip(value: string, max: number): string {
+  if (value.length <= max) return value;
+  const cut = value.slice(0, max - 1);
+  return `${cut.slice(0, Math.max(cut.lastIndexOf(" "), 1)).trimEnd()}…`;
+}
+
 /** A week's written report, or null when it is not one this site can show. A report must say who wrote it. */
 export function parseReport(raw: unknown, week: string): NewsReport | null {
   if (!isObject(raw) || raw.format !== FORMAT || raw.week !== week) return null;
@@ -154,7 +164,7 @@ export function parseReport(raw: unknown, week: string): NewsReport | null {
     if (!SAFE_REPO.test(repo) || !isObject(s) || !text(s.headline, 200) || !text(s.summary, 1200)) continue;
     projects[repo] = { headline: text(s.headline, 200), summary: text(s.summary, 1200), highlights: list(s.highlights).map((h) => text(h, 500)).filter(Boolean) };
   }
-  return { week, author, tool, headline, summary, projects };
+  return { week, author, tool, title: text(raw.title, 70) || clip(headline, 70), description: text(raw.description, 160) || clip(withoutCitations(summary), 155), headline, summary, projects };
 }
 
 export const githubUrl = (repo: string) => `https://github.com/${NEWS_ORG}/${repo}`;

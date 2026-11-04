@@ -3,6 +3,8 @@
  "week": "2026-W44",
  "author": "Lynder063",
  "tool": "Claude Code",
+ "title": "Ratchet & Clank reaches 100% matched",
+ "description": "The first Ratchet & Clank is now fully matched, Going Commando climbs to 84.74%, and launcher 0.10.0 is out.",
  "headline": "Ratchet & Clank reaches 100% matched, and Going Commando climbs to 84.74%",
  "summary": "The first game is now fully matched: its last 11 functions landed this week (rac1-decomp#135), so all of its code compiles to the same bytes as the original. Going Commando's matched code rose from 14.04% to 84.74%, driven by large batches such as 780 functions (rac2-decomp#333) and 453 more (rac2-decomp#384). Deadlocked moved from 4.54% to 6.07%. The launcher released version 0.10.0, and its development line gained a signed mod list with one-click install links (OpenRAC#161). Development work also added safer starts after a crash (OpenRAC#131) and Android 9 support (OpenRAC#77).",
  "projects": {

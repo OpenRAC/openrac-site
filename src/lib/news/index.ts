@@ -9,14 +9,15 @@ import type { NewsDayFacts, NewsIndex, NewsReport, NewsReportState, NewsWeekFact
  * a broken report never costs a week its facts. See news/README.md for where the files come from.
  */
 
-const root = () => process.env.NEWS_DIR?.trim() || join(process.cwd(), "news");
+// Not traced: Next would otherwise copy the whole project into the server bundle. The Containerfile copies the news itself.
+const root = () => process.env.NEWS_DIR?.trim() || join(/* turbopackIgnore: true */ process.cwd(), "news");
 
 type Read = { found: true; value: unknown } | { found: false } | { found: true; broken: true };
 
 async function read(path: string): Promise<Read> {
   let text: string;
   try {
-    text = await readFile(join(root(), path), "utf8");
+    text = await readFile(/* turbopackIgnore: true */ join(root(), path), "utf8");
   } catch (e) {
     if ((e as NodeJS.ErrnoException).code === "ENOENT") return { found: false };
     logFailure(path, e);
@@ -50,7 +51,7 @@ export async function getNewsIndex(): Promise<NewsIndex | null> {
   if (!index) return null;
   const weeks = index.weeks.filter((w) => w.finished);
   const lastDay = weeks[0]?.end ?? "";
-  const reports = await Promise.all(weeks.map((w) => stat(join(root(), "reports", w.week, "report.json")).then(() => true, () => false)));
+  const reports = await Promise.all(weeks.map((w) => stat(/* turbopackIgnore: true */ join(root(), "reports", w.week, "report.json")).then(() => true, () => false)));
   return { weeks: weeks.map((w, i) => ({ ...w, report: reports[i] })), days: index.days.filter((d) => d <= lastDay) };
 }
 

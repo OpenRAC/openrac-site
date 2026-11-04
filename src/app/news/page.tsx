@@ -3,14 +3,19 @@ import Link from "next/link";
 import PageTransition from "@/components/layout/PageTransition";
 import { Notice, ReportPoster } from "@/components/news/parts";
 import SectionArt from "@/components/ui/SectionArt";
+import { ldJson, NEWS_DESCRIPTION, newsIndexLd, siteUrl } from "@/lib/machine";
 import { getNewsIndex, getNewsWeek } from "@/lib/news";
 import { formatDay, formatWeekName, formatWeekRange, leadProject, NEWS_CONTRIBUTING } from "@/lib/news/logic";
 import { newsAlternates } from "@/lib/news/metadata";
 
+const TITLE = "OpenRAC News";
+
 export const metadata: Metadata = {
-  title: "News",
-  description: "What happens across the OpenRAC projects, week by week, in reports written by named people.",
+  title: { absolute: TITLE },
+  description: NEWS_DESCRIPTION,
   alternates: newsAlternates("/news"),
+  openGraph: { title: TITLE, description: NEWS_DESCRIPTION, url: "/news", type: "website" },
+  twitter: { card: "summary_large_image", title: TITLE, description: NEWS_DESCRIPTION },
 };
 
 const SHOWN_REPORTS = 13;
@@ -48,6 +53,7 @@ export default async function NewsPage() {
   return (
     <PageTransition>
       <main className="mx-auto grid max-w-[1080px] gap-8 px-4 pb-12 pt-8">
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: ldJson(newsIndexLd(siteUrl(), reports.map((r) => ({ week: r.entry.week, title: r.report.title })))) }} />
         <div>
           {header}
           <div className="grid gap-4">

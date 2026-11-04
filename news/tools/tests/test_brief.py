@@ -126,12 +126,14 @@ class Brief(unittest.TestCase):
         errors = check.check_week(self.root, WEEK)
         self.assertTrue(any("headline is required" in e for e in errors))
         self.assertTrue(any("tool must" in e for e in errors))
+        self.assertTrue(any("title is required" in e for e in errors))
+        self.assertTrue(any("description is required" in e for e in errors))
 
     def test_a_filled_template_passes(self):
         self.run_main(WEEK, "--template")
         path = common.report_path(self.root, WEEK)
         report = json.loads(path.read_text())
-        report.update(tool="Some AI", headline="Game reaches 75%", summary="Game rose from 25% to 75% (game#5).")
+        report.update(tool="Some AI", title="Game reaches 75%", description="Game's matched code rose from 25% to 75% this week, through a batch of newly matched functions.", headline="Game reaches 75%", summary="Game rose from 25% to 75% (game#5).")
         report["projects"] = {"game": {"headline": "Up", "summary": "A batch landed (#5).", "highlights": ["Proposal: #6 is not merged."]}}
         path.write_text(json.dumps(report))
         self.assertEqual(check.check_week(self.root, WEEK), [])

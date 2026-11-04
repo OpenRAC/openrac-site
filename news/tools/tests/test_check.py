@@ -46,6 +46,8 @@ def facts():
 def report(**changes):
     out = {
         "format": 1, "week": WEEK, "author": "alice", "tool": "Claude Code",
+        "title": "Game reaches 87.68%",
+        "description": "Game's matched code rises to 87.68%, and the launcher gains a slider for changing the field of view.",
         "headline": "Game reaches 87.68% as the launcher gets a slider",
         "summary": "Game rises from 85.49% to 87.68%, up 2.19%, and OpenRAC#12 adds a slider from 80% to 120%. OpenRAC#30 reports a bug.",
         "projects": {"game": {"headline": "Matching rises", "summary": "Up to 87.68% through #5.", "highlights": ["#5 lands."]}},
@@ -167,6 +169,23 @@ class Reports(unittest.TestCase):
         self.fails(report(projects=section(highlights=["x"] * 9)), "more than 8")
         self.fails(report(projects=section(highlights=["x" * 301])), "over 300")
         self.fails(report(projects=section(highlights="x")), "must be a list")
+
+    def test_a_report_cannot_forget_its_metadata(self):
+        for field in ("title", "description"):
+            r = report()
+            del r[field]
+            self.fails(r, f"{field} is required")
+            self.fails(report(**{field: "  "}), f"{field} is required")
+
+    def test_metadata_fits_search_results(self):
+        self.fails(report(title="x" * 56), "title is over 55")
+        self.fails(report(description="x" * 69), "must be 70 to 155")
+        self.fails(report(description="x" * 156), "must be 70 to 155")
+
+    def test_metadata_is_checked_like_any_other_text(self):
+        self.fails(report(title="<b>Game</b>"), "no HTML")
+        self.fails(report(description="Game reaches 99.99% of its code matched, which is not a figure found anywhere in the facts."), "99.99% is not in the facts")
+        self.fails(report(description="Game's matched code rises to 87.68% through a batch of newly matched functions (game#5)."), "no citations here")
 
     def test_a_project_with_nothing_to_report(self):
         self.fails(report(projects={"quiet": {"headline": "h", "summary": "s", "highlights": []}}), "nothing happened")

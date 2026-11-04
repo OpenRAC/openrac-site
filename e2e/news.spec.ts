@@ -125,6 +125,57 @@ for (const path of ["/news/2020-W01", "/news/not-a-week", "/news/2026-W54", `/ne
   });
 }
 
+test("a report's metadata: its own title and description, a share image, and an article's details", async ({ page, request }) => {
+  await page.goto(`/news/${WEEK}`);
+  await expect(page).toHaveTitle("Ratchet & Clank reaches 100% matched · OpenRAC");
+  const description = "The first game is fully matched, Going Commando rises to 84.74%, and the launcher gains install links.";
+  const meta = (selector: string) => page.locator(`meta[${selector}]`);
+  await expect(meta('name="description"')).toHaveAttribute("content", description);
+  await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href", new RegExp(`/news/${WEEK}$`));
+  await expect(meta('property="og:title"')).toHaveAttribute("content", "Ratchet & Clank reaches 100% matched");
+  await expect(meta('property="og:description"')).toHaveAttribute("content", description);
+  await expect(meta('property="og:type"')).toHaveAttribute("content", "article");
+  await expect(meta('property="og:url"')).toHaveAttribute("content", new RegExp(`/news/${WEEK}$`));
+  await expect(meta('property="article:published_time"')).toHaveAttribute("content", "2026-11-01T23:59:59Z");
+  await expect(meta('property="article:author"')).toHaveAttribute("content", "https://github.com/Lynder063");
+  await expect(meta('name="twitter:card"')).toHaveAttribute("content", "summary_large_image");
+  await expect(meta('name="twitter:title"')).toHaveAttribute("content", "Ratchet & Clank reaches 100% matched");
+  for (const selector of ['property="og:image"', 'name="twitter:image"']) {
+    const src = await meta(selector).first().getAttribute("content");
+    expect(src, selector).toContain(`/news/${WEEK}/opengraph-image`);
+    const image = await request.get(new URL(src!).pathname + new URL(src!).search);
+    expect(image.status(), selector).toBe(200);
+    expect(image.headers()["content-type"], selector).toBe("image/png");
+  }
+  const ld = JSON.parse((await page.locator('script[type="application/ld+json"]').first().textContent()) ?? "{}");
+  expect(ld["@graph"][0]).toMatchObject({ "@type": "Article", headline: "Ratchet & Clank reaches 100% matched", description, datePublished: "2026-11-01" });
+  await expect(page.locator("h1")).toHaveCount(1);
+});
+
+test("the news page's metadata: title, description, share image and the list of reports", async ({ page, request }) => {
+  await page.goto("/news");
+  await expect(page).toHaveTitle("OpenRAC News");
+  const content = await page.locator('meta[name="description"]').getAttribute("content");
+  expect(content!.length).toBeGreaterThanOrEqual(70);
+  expect(content!.length).toBeLessThanOrEqual(155);
+  await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href", /\/news$/);
+  await expect(page.locator('meta[property="og:type"]')).toHaveAttribute("content", "website");
+  await expect(page.locator('meta[name="twitter:card"]')).toHaveAttribute("content", "summary_large_image");
+  const src = await page.locator('meta[property="og:image"]').first().getAttribute("content");
+  expect(src).toContain("/news/opengraph-image");
+  expect((await request.get(new URL(src!).pathname + new URL(src!).search)).headers()["content-type"]).toBe("image/png");
+  const ld = JSON.parse((await page.locator('script[type="application/ld+json"]').first().textContent()) ?? "{}");
+  expect(ld["@graph"][0]["@type"]).toBe("CollectionPage");
+  expect(ld["@graph"][0].mainEntity.itemListElement[0].name).toBe("Ratchet & Clank reaches 100% matched");
+});
+
+test("a week without a report still previews properly, but stays out of search", async ({ page }) => {
+  await page.goto("/news/2026-W43");
+  await expect(page).toHaveTitle("Week 43, 2026 · News · OpenRAC");
+  await expect(page.locator('meta[name="robots"][content*="noindex"]')).toHaveCount(1);
+  await expect(page.locator('meta[property="og:image"]').first()).toHaveAttribute("content", /\/news\/2026-W43\/opengraph-image/);
+});
+
 test("pictures are not served: there is no such route", async ({ page }) => {
   expect((await page.goto("/news/media/2026-W44/menu.png"))?.status()).toBe(404);
 });
