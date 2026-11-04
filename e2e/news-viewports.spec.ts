@@ -33,6 +33,10 @@ function problems(scope: string): string[] {
     const r = el.getBoundingClientRect();
     if (r.width && r.height && (r.right > vw + 1 || r.left < -1) && !clippedAbove(el)) out.push(`past the edge: ${name(el)}`);
   }
+  // A card that clips its art must not be clipping its words.
+  for (const el of document.querySelectorAll(`${scope} article, ${scope} [data-reveal]`)) {
+    if (el.scrollWidth > el.clientWidth + 1 && getComputedStyle(el).overflowX === "hidden") out.push(`card hides content: ${name(el)}`);
+  }
   // A hidden overflow must not be hiding words.
   for (const el of document.querySelectorAll(`${scope} h1, ${scope} h2, ${scope} h3, ${scope} h4, ${scope} p, ${scope} li, ${scope} figcaption`)) {
     if (el.scrollWidth > el.clientWidth + 1 && getComputedStyle(el).display !== "inline") out.push(`text wider than its box: ${name(el)}`);

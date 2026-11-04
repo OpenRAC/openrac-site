@@ -50,7 +50,7 @@ export function Highlight({ line, known, owner }: { line: string; known: readonl
 /** Who answers for a report, how it was made, and how much of it can be checked. Shown wherever report text is. */
 export function WrittenBy({ report, sources }: { report: NewsReport; sources?: number }) {
   return (
-    <p className="text-[13px] leading-relaxed text-dim">
+    <p className="text-[13px] leading-relaxed text-dim [overflow-wrap:anywhere]">
       Written by{" "}
       <a href={authorUrl(report.author)} rel="nofollow ugc noopener noreferrer" className={QUIET_LINK}>
         @{report.author}
@@ -238,7 +238,7 @@ export function ReportPoster({ entry, report, lead, large = false, heading: Head
         game && <Backdrop src={game.image} fallback={game.fallbackImage} zoom="group-hover/poster:[--zoom:1.04]" className="rounded-[inherit] [clip-path:inset(0_round_1rem)]" />
       )}
       <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-ink via-ink/85 to-ink/40" />
-      <div className="relative mt-auto grid gap-2 p-5 sm:p-6">
+      <div className="relative mt-auto grid w-full min-w-0 gap-2 p-5 [overflow-wrap:anywhere] sm:p-6">
         <p className="font-orbitron text-[12px] font-bold uppercase tracking-[.16em] text-(--tx)">
           {formatWeekName(entry.week)} · <time dateTime={entry.end}>{formatWeekRange(entry.start, entry.end)}</time>
         </p>
