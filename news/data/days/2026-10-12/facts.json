@@ -1,0 +1,1208 @@
+{
+ "format": 1,
+ "date": "2026-10-12",
+ "totals": {
+  "commits": 71,
+  "pullRequestsMerged": 25,
+  "pullRequestsOpened": 25,
+  "contributors": 7
+ },
+ "projects": [
+  {
+   "repo": "OpenRAC",
+   "title": "OpenRAC launcher",
+   "branches": [
+    {
+     "name": "develop",
+     "commits": [
+      {
+       "sha": "7e2957d03d55ffe443677f8d2113bcf7a5fc9ec4",
+       "title": "feat(rac1/pal): func_L00_001FF240, the vector add the level code calls, as hand C",
+       "author": "Lynder063",
+       "date": "2026-10-12T21:39:26Z"
+      },
+      {
+       "sha": "841262cdacddc2a95f11336af22843bfc1fc5ba6",
+       "title": "fix(port): hostgen reads a definition that a shared header declares otherwise, and a record defined in a cast",
+       "author": "Lynder063",
+       "date": "2026-10-12T20:53:35Z"
+      },
+      {
+       "sha": "06a32f2802d8c4240349756fd8d5052999046027",
+       "title": "chore(rac1): sync ntsc to 0ee0bc4d and pal to its 80.16% report",
+       "author": "Veradictus",
+       "date": "2026-10-12T19:26:02Z"
+      },
+      {
+       "sha": "1ea2f15e4c995863f75839b3365c5b2040190b4d",
+       "title": "chore(rac1): sync ntsc to 4b156bb8 and pal to d85904b3",
+       "author": "Veradictus",
+       "date": "2026-10-12T03:57:42Z"
+      },
+      {
+       "sha": "fc8ceaeb7e4316e41e3f97989fc5c88577397a34",
+       "title": "chore(rac2): sync to ee64f3eb, the report grouped by level as rac1's",
+       "author": "Veradictus",
+       "date": "2026-10-12T03:10:19Z"
+      },
+      {
+       "sha": "e48abb217837438bbacc158ac437cecb20058fc6",
+       "title": "feat(rac2): import rac2-gc-decomp master, rebuilt to rac1's structure",
+       "author": "Veradictus",
+       "date": "2026-10-12T03:01:15Z"
+      }
+     ]
+    },
+    {
+     "name": "master",
+     "commits": [
+      {
+       "sha": "7e2957d03d55ffe443677f8d2113bcf7a5fc9ec4",
+       "title": "feat(rac1/pal): func_L00_001FF240, the vector add the level code calls, as hand C",
+       "author": "Lynder063",
+       "date": "2026-10-12T21:39:26Z"
+      },
+      {
+       "sha": "841262cdacddc2a95f11336af22843bfc1fc5ba6",
+       "title": "fix(port): hostgen reads a definition that a shared header declares otherwise, and a record defined in a cast",
+       "author": "Lynder063",
+       "date": "2026-10-12T20:53:35Z"
+      },
+      {
+       "sha": "06a32f2802d8c4240349756fd8d5052999046027",
+       "title": "chore(rac1): sync ntsc to 0ee0bc4d and pal to its 80.16% report",
+       "author": "Veradictus",
+       "date": "2026-10-12T19:26:02Z"
+      },
+      {
+       "sha": "1ea2f15e4c995863f75839b3365c5b2040190b4d",
+       "title": "chore(rac1): sync ntsc to 4b156bb8 and pal to d85904b3",
+       "author": "Veradictus",
+       "date": "2026-10-12T03:57:42Z"
+      },
+      {
+       "sha": "fc8ceaeb7e4316e41e3f97989fc5c88577397a34",
+       "title": "chore(rac2): sync to ee64f3eb, the report grouped by level as rac1's",
+       "author": "Veradictus",
+       "date": "2026-10-12T03:10:19Z"
+      },
+      {
+       "sha": "e48abb217837438bbacc158ac437cecb20058fc6",
+       "title": "feat(rac2): import rac2-gc-decomp master, rebuilt to rac1's structure",
+       "author": "Veradictus",
+       "date": "2026-10-12T03:01:15Z"
+      }
+     ]
+    }
+   ],
+   "commitCount": 6,
+   "pullRequests": {
+    "merged": [],
+    "opened": []
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": null,
+   "contributors": [
+    "Lynder063",
+    "Veradictus"
+   ]
+  },
+  {
+   "repo": "rac1-decomp",
+   "title": "Ratchet & Clank",
+   "branches": [
+    {
+     "name": "main",
+     "commits": [
+      {
+       "sha": "1ff90e7c1f353bee09ec03d372cd591941838b6d",
+       "title": "feat(port): func_L00_0025A8E8 near miss for the port",
+       "author": "Lynder063",
+       "date": "2026-10-12T21:36:03Z"
+      },
+      {
+       "sha": "e7e2eec1781f017a15e8f8bf8ca99f350b2f510c",
+       "title": "notes: func_0012AC80 near miss 16/136 (3-case switch tree, recomputed address)",
+       "author": "Lynder063",
+       "date": "2026-10-12T21:29:38Z"
+      },
+      {
+       "sha": "e7afe84ca247c150e3e0176838cfab48dd64120f",
+       "title": "feat(port): nine near misses the port may run, found the same program as retail",
+       "author": "Lynder063",
+       "date": "2026-10-12T21:00:15Z"
+      },
+      {
+       "sha": "04d9aa2d319f7ee6c1793d8c615a0570b9c54eaf",
+       "title": "vendor_002B90A8.c: func_L01_002C8740 exact match",
+       "author": "Lynder063",
+       "date": "2026-10-12T20:50:10Z"
+      },
+      {
+       "sha": "802c91880654a864d4b6aa33fa636502667813fe",
+       "title": "nonmatching: func_L09_002F1198 now 18/500 bytes (was 55)",
+       "author": "Lynder063",
+       "date": "2026-10-12T20:11:40Z"
+      },
+      {
+       "sha": "351dacdb464b53be8e68c0e8c7c928ae0cb02aca",
+       "title": "Merge PR #53: func_L00_002C6720 exact match",
+       "author": "Lynder063",
+       "date": "2026-10-12T19:49:19Z"
+      },
+      {
+       "sha": "4449aaff13edf6634dc31f3bfda6017b097834a6",
+       "title": "nonmatching: func_L09_002F1198 now 55/500 bytes (was 95)",
+       "author": "Lynder063",
+       "date": "2026-10-12T15:42:44Z"
+      },
+      {
+       "sha": "45e34967aa96625762137c042385f2bf84e62d16",
+       "title": "vendor_00298BB8.c: func_L15_002A3B98 exact match",
+       "author": "Lynder063",
+       "date": "2026-10-12T15:12:52Z"
+      },
+      {
+       "sha": "33cdd36eabe21a1e4ce2f5fad0dc3c7434f83c70",
+       "title": "nonmatching: drop two rows for matched functions",
+       "author": "Lynder063",
+       "date": "2026-10-12T15:01:44Z"
+      },
+      {
+       "sha": "c10f11c287c3879cb6bfa8e8cec5e928a4ffda1b",
+       "title": "nonmatching: func_L15_002A3B98 now 568 bytes, 25 off (was an unlinkable 572)",
+       "author": "Lynder063",
+       "date": "2026-10-12T15:01:36Z"
+      },
+      {
+       "sha": "c5d247e45b181f717ef13b462a166233efccc7b4",
+       "title": "help_0020CDF0.c: func_L00_00211D28 exact match",
+       "author": "Lynder063",
+       "date": "2026-10-12T14:27:27Z"
+      },
+      {
+       "sha": "4aa43deda767a655a6f3a6dbf2ed03e15cfb2dbc",
+       "title": "help_00203E98.c: func_L00_00207220 exact match, file built with -fno-sched-interblock",
+       "author": "Lynder063",
+       "date": "2026-10-12T13:34:23Z"
+      },
+      {
+       "sha": "d10bd3fc75c4cf9ece9f78f57fbcc6c702522bf5",
+       "title": "nonmatching: func_L15_002A3B98 near miss, 572/568, builds again",
+       "author": "Lynder063",
+       "date": "2026-10-12T11:45:40Z"
+      },
+      {
+       "sha": "d4a6254ffb9a0a8e5d7d7cbbc39b4ecd47a6a052",
+       "title": "nonmatching: func_L00_00227F48 near miss, 552/564",
+       "author": "Lynder063",
+       "date": "2026-10-12T11:38:54Z"
+      },
+      {
+       "sha": "84abd0aab067b3b8ad7854d2101d410d4bb339e3",
+       "title": "nonmatching: func_L01_00303810 near miss, 464/524",
+       "author": "Lynder063",
+       "date": "2026-10-12T11:32:57Z"
+      },
+      {
+       "sha": "860e2984c87ef38bf7f859d0beeee8e10b6e7d01",
+       "title": "nonmatching: func_L09_002F1198 near miss, 95/500",
+       "author": "Lynder063",
+       "date": "2026-10-12T11:20:49Z"
+      },
+      {
+       "sha": "771fe76990c6608d7cfebaacb6b9864dba3844d3",
+       "title": "notes: near misses func_00238F98, func_0023D340, func_00232B90, func_00204918; level notes refreshed",
+       "author": "Lynder063",
+       "date": "2026-10-12T11:17:38Z"
+      },
+      {
+       "sha": "70396998749286a61a11d038356893fa32259c02",
+       "title": "refactor(overlays): drop two repeated externs in draw_001F3A78.c",
+       "author": "Lynder063",
+       "date": "2026-10-12T10:35:08Z"
+      },
+      {
+       "sha": "e9253c39053a562c48d8fcf90490deacbc9efcf7",
+       "title": "refactor: include/callees.h shares 47 engine prototypes; fix Vec4A clash in help_0020CDF0",
+       "author": "Lynder063",
+       "date": "2026-10-12T10:29:05Z"
+      },
+      {
+       "sha": "cdca44d498e9918a4bcf2b8418a606372565a923",
+       "title": "refactor: include/records.h for DispatchRec, PadSlots, AnimSeq in 60 files",
+       "author": "Lynder063",
+       "date": "2026-10-12T10:23:20Z"
+      },
+      {
+       "sha": "8927700612ca72d206f4e6ff323e214edcbd5a20",
+       "title": "refactor(overlays): Vec4A in vector.h replaces 21 private aligned xyzw copies",
+       "author": "Lynder063",
+       "date": "2026-10-12T10:13:15Z"
+      },
+      {
+       "sha": "5539a45b061a6eecd75026dee83fe14972883be2",
+       "title": "refactor(game): merge same-form aliases of one symbol in 9 files",
+       "author": "Lynder063",
+       "date": "2026-10-12T10:10:16Z"
+      },
+      {
+       "sha": "9db6ca9f73d5cfc48bce01e57aeccd596ab87612",
+       "title": "refactor(overlays): merge same-form aliases of one symbol in 52 files",
+       "author": "Lynder063",
+       "date": "2026-10-12T10:09:51Z"
+      },
+      {
+       "sha": "c0525310a5c126423f39a2c9b6c6f8345751a63c",
+       "title": "refactor(game): drop repeated identical extern lines in 36 files",
+       "author": "Lynder063",
+       "date": "2026-10-12T10:08:22Z"
+      },
+      {
+       "sha": "4c7231adf482d23e7228c2b51587ba8fb9bd03f2",
+       "title": "Match func_L00_001F5C60 in the shared draw overlay (the debug menu draw) (#49)",
+       "author": "dev-gian",
+       "date": "2026-10-12T10:01:19Z"
+      },
+      {
+       "sha": "365163b9b9b354fb709acf9207c47d8e96fa2115",
+       "title": "feat(overlays): func_L00_00267120 exact match (#51)",
+       "author": "cblackler19",
+       "date": "2026-10-12T09:38:31Z"
+      },
+      {
+       "sha": "edbd95cb64035980843ac46bfa45e5e1e97c9a63",
+       "title": "refactor(overlays): drop repeated identical extern lines in 126 files",
+       "author": "Lynder063",
+       "date": "2026-10-12T09:32:35Z"
+      },
+      {
+       "sha": "4a46a47401e61b6ae6c9e86bfce3aebf337787d2",
+       "title": "refactor(game): shared moby and vector headers in update, pause, transition",
+       "author": "Lynder063",
+       "date": "2026-10-12T08:10:11Z"
+      },
+      {
+       "sha": "3e6174f63b3a379136a138c90a54969b5c8edac8",
+       "title": "refactor(overlays): shared moby, hero, vector headers in 16 more level files",
+       "author": "Lynder063",
+       "date": "2026-10-12T08:09:49Z"
+      },
+      {
+       "sha": "85cfe927dbd455e34a7f68aff6c3711089a70c21",
+       "title": "audiodec.c: func_0023C390 exact match",
+       "author": "Lynder063",
+       "date": "2026-10-12T07:27:09Z"
+      },
+      {
+       "sha": "fc9d8e0b06aa0896c425b12d2784e20dff3df36d",
+       "title": "Merge pull request #52 from Veradictus/main",
+       "author": "Veradictus",
+       "date": "2026-10-12T05:33:13Z"
+      },
+      {
+       "sha": "a584fe47440f47108b9ca538a1dcd2ba5bca5288",
+       "title": "Merge pull request #50 from Veradictus/main",
+       "author": "Veradictus",
+       "date": "2026-10-12T04:27:16Z"
+      }
+     ]
+    }
+   ],
+   "commitCount": 32,
+   "pullRequests": {
+    "merged": [
+     {
+      "number": 49,
+      "title": "Match func_L00_001F5C60 (debug menu draw, 4,884 bytes)",
+      "author": "dev-gian",
+      "untrustedBody": "`func_L00_001F5C60` matched byte-for-byte, in one commit. It is the largest function matched so far: 4,884 bytes, the debug menu draw in `src/overlays/shared/draw_001F3A78.c`.\n\nMatched code goes from 78.629% to 78.760% (4,225 to 4,226 functions).\n\nHow it was found: the staged near miss in `nonmatching/shared/` was one byte off. decomp-permuter (via `tools/permuter_setup.py`) found a change that closes it, and I applied only that change to the readable source, with proper names:\n\n- the format-string pointer `D_L00_0015F1D8` is cached in a local (`fmt`) on its first use in the ammo block, and later calls reuse it;\n- the constant `16` in `D_0015EE84 * 16` is held in a local (`stride`).\n\nThe `volatile` global is the spin on a hardware status flag (`while (D_L00_00161260 & 1) {}`); without it the loop is removed and the size is wrong (4,900 against 4,884).\n\nVerification, on top of current upstream `main` (`ae2da5f2`, no newer commits when this was opened):\n- `build_sn.sh` with the Linux `ee",
+      "mergedAt": "2026-10-12T10:01:19Z"
+     },
+     {
+      "number": 50,
+      "title": "feat: 32 functions ported from the NTSC decomp (4,257 of 5,109)",
+      "author": "Veradictus",
+      "untrustedBody": "32 functions carried over from Lombyte (at 4b156bb8), on top of current main.\n\n## What's in it\n\n- 29 level functions and 3 in the executable (`func_00121490`, `func_001FF958`,\n  `func_002035B0`). They are the same machine code in both regions, so the C was\n  taken as is and only the symbols were renamed to ours. No model wrote any of it.\n- Their staged near misses are gone from `nonmatching/`.\n- A merge of main, so this applies cleanly on the header refactor.\n\n## One thing to look at\n\nThe ported functions bring Lombyte's own `struct Hero`, `HeroEase`, `MobyTrail`,\n`Vec4` and so on. Those clash with the new shared headers, so each copy is named\nafter its function (`Hero_21A98` etc.), the same way the tree already handles\nprivate copies. Folding them into `hero.h` and `moby.h` is the obvious follow-up\nand I left it out of this PR on purpose: it touches layouts, and this one doesn't.\n\n## Checks\n\n- `bash tools/build_sn.sh`: 1,154 of 1,155 audited functions exact, every function\n  at its re",
+      "mergedAt": "2026-10-12T04:27:17Z"
+     },
+     {
+      "number": 51,
+      "title": "feat(overlays): func_L00_00267120 exact match",
+      "author": "cblackler19",
+      "untrustedBody": "## Summary\n\n- Replace the `INCLUDE_ASM` stub for `func_L00_00267120` with a C implementation.\n- Clear the 16-bit field at offset `0xA` from the second argument.\n- Use `volatile` to preserve the store placement required for an exact match.\n\n## Verification\n\n- `tools/try_func.py`: `EXACT` for both the candidate and landed function.\n- `tools/overlay_file_check.py`: passed with 0 problems.\n- `git diff --check`: passed.\n\nNo full build was run, following the repository's overlay workflow.",
+      "mergedAt": "2026-10-12T09:38:32Z"
+     },
+     {
+      "number": 52,
+      "title": "feat(report): shared level code is one unit, as each level is",
+      "author": "Veradictus",
+      "untrustedBody": "The report had one unit per level but 140 separate units for the shared level\ncode, one per file. This makes the shared code a single unit too, so the tree\nreads the same way all the way down: the executable's files, \"Shared level\ncode\", then \"Level 00\" to \"Level 19\".\n\n## What changes\n\n- `tools/gen_progress_report.py`: the files under `src/overlays/shared/` go into\n  one unit named \"Shared level code\" (1,980 functions), with the directory as its\n  source path. Categories are as before (`level_code`, `common`).\n- `progress/report.json` regenerated; `docs/OVERLAYS.md` says the same thing the\n  code now does.\n\n## What doesn't\n\nFunction and byte counts: 4,257 of 5,109 functions, 79.59% code, same as main.\n\nThe unit totals do move, and only because of the grouping: 141 units instead of\n280, and \"complete units\" reads 87 of 141 where it read 144 of 280. Shared code\nused to be many small units, a good number of them complete; it is now one\nunit that isn't.\n\n## Checks\n\n- `tools/gen_progress_re",
+      "mergedAt": "2026-10-12T05:33:13Z"
+     },
+     {
+      "number": 53,
+      "title": "feat(overlays): func_L00_002C6720 exact match",
+      "author": "cblackler19",
+      "untrustedBody": "## Summary\n\nThis PR replaces `INCLUDE_ASM` for `func_L00_002C6720` in `src/overlays/shared/vendor_002C12B0.c` with a byte-matching C implementation.\n\nThe function handles pickup behaviour, including movement physics, ammunition collection, sound selection, animation states, and scaling.\n\n**The implementation matches the original retail binary exactly: 2076/2076 bytes (519 MIPS instructions).**\n\n## Changes\n\n- Implemented `func_L00_002C6720` in C.\n- Removed the corresponding `INCLUDE_ASM` directive.\n- Regenerated `progress/report.json` using the repository's documented workflow.\n- Increased the matched function count from 4,260 to 4,261.\n- Increased matched code by 2,076 bytes.\n\nRegenerating the progress report also refreshed the existing fuzzy-match score for `func_L09_002F1198` to 81%. No source changes were made to that function.\n\n## Verification\n\nAll applicable verification checks passed:\n\n- `try_func.py --diff` — **EXACT (2076/2076 bytes)**\n- `overlay_file_check.py` — **0 problems**",
+      "mergedAt": "2026-10-12T19:49:23Z"
+     },
+     {
+      "number": 55,
+      "title": "feat: 27 more functions (4,291 of 5,109), fragment joins and functional C for the port",
+      "author": "Veradictus",
+      "untrustedBody": "On top of current main. 4,291 of 5,109 functions, 80.27% (main is at 4,264).\n\n## Matched\n\n- 22 functions ported from Lombyte at 0ee0bc4d: 21 level functions and\n  `func_00232B90`. Same machine code in both regions, so the C is his with the\n  symbols renamed to ours. No model wrote any of it.\n- `func_L18_002D9440` and `func_L18_002D9C78`, from a sweep of the small level\n  functions that had no attempt yet. Each completes the entry joined to it, so\n  that is four on the report.\n- `func_L00_002465F8`, the level loop. `wave.py salvage` found an exact run in\n  `build-sn/try` that had never landed.\n\n## The small-function sweep, and what it found\n\nThe 241 unmatched functions of 400 bytes or less with nothing written turned out\nto be mostly not functions: 120 are pieces of a neighbouring function that the\ncatalogue lists as entries of their own (they read registers they never set, or\nbranch out of themselves).\n\n- `config/overlays/joined.tsv`: 38 of those pieces are joined to the 33 functions\n ",
+      "mergedAt": "2026-10-12T22:06:09Z"
+     }
+    ],
+    "opened": [
+     {
+      "number": 50,
+      "title": "feat: 32 functions ported from the NTSC decomp (4,257 of 5,109)",
+      "author": "Veradictus",
+      "untrustedBody": "32 functions carried over from Lombyte (at 4b156bb8), on top of current main.\n\n## What's in it\n\n- 29 level functions and 3 in the executable (`func_00121490`, `func_001FF958`,\n  `func_002035B0`). They are the same machine code in both regions, so the C was\n  taken as is and only the symbols were renamed to ours. No model wrote any of it.\n- Their staged near misses are gone from `nonmatching/`.\n- A merge of main, so this applies cleanly on the header refactor.\n\n## One thing to look at\n\nThe ported functions bring Lombyte's own `struct Hero`, `HeroEase`, `MobyTrail`,\n`Vec4` and so on. Those clash with the new shared headers, so each copy is named\nafter its function (`Hero_21A98` etc.), the same way the tree already handles\nprivate copies. Folding them into `hero.h` and `moby.h` is the obvious follow-up\nand I left it out of this PR on purpose: it touches layouts, and this one doesn't.\n\n## Checks\n\n- `bash tools/build_sn.sh`: 1,154 of 1,155 audited functions exact, every function\n  at its re",
+      "mergedAt": "2026-10-12T04:27:17Z"
+     },
+     {
+      "number": 51,
+      "title": "feat(overlays): func_L00_00267120 exact match",
+      "author": "cblackler19",
+      "untrustedBody": "## Summary\n\n- Replace the `INCLUDE_ASM` stub for `func_L00_00267120` with a C implementation.\n- Clear the 16-bit field at offset `0xA` from the second argument.\n- Use `volatile` to preserve the store placement required for an exact match.\n\n## Verification\n\n- `tools/try_func.py`: `EXACT` for both the candidate and landed function.\n- `tools/overlay_file_check.py`: passed with 0 problems.\n- `git diff --check`: passed.\n\nNo full build was run, following the repository's overlay workflow.",
+      "mergedAt": "2026-10-12T09:38:32Z"
+     },
+     {
+      "number": 52,
+      "title": "feat(report): shared level code is one unit, as each level is",
+      "author": "Veradictus",
+      "untrustedBody": "The report had one unit per level but 140 separate units for the shared level\ncode, one per file. This makes the shared code a single unit too, so the tree\nreads the same way all the way down: the executable's files, \"Shared level\ncode\", then \"Level 00\" to \"Level 19\".\n\n## What changes\n\n- `tools/gen_progress_report.py`: the files under `src/overlays/shared/` go into\n  one unit named \"Shared level code\" (1,980 functions), with the directory as its\n  source path. Categories are as before (`level_code`, `common`).\n- `progress/report.json` regenerated; `docs/OVERLAYS.md` says the same thing the\n  code now does.\n\n## What doesn't\n\nFunction and byte counts: 4,257 of 5,109 functions, 79.59% code, same as main.\n\nThe unit totals do move, and only because of the grouping: 141 units instead of\n280, and \"complete units\" reads 87 of 141 where it read 144 of 280. Shared code\nused to be many small units, a good number of them complete; it is now one\nunit that isn't.\n\n## Checks\n\n- `tools/gen_progress_re",
+      "mergedAt": "2026-10-12T05:33:13Z"
+     },
+     {
+      "number": 53,
+      "title": "feat(overlays): func_L00_002C6720 exact match",
+      "author": "cblackler19",
+      "untrustedBody": "## Summary\n\nThis PR replaces `INCLUDE_ASM` for `func_L00_002C6720` in `src/overlays/shared/vendor_002C12B0.c` with a byte-matching C implementation.\n\nThe function handles pickup behaviour, including movement physics, ammunition collection, sound selection, animation states, and scaling.\n\n**The implementation matches the original retail binary exactly: 2076/2076 bytes (519 MIPS instructions).**\n\n## Changes\n\n- Implemented `func_L00_002C6720` in C.\n- Removed the corresponding `INCLUDE_ASM` directive.\n- Regenerated `progress/report.json` using the repository's documented workflow.\n- Increased the matched function count from 4,260 to 4,261.\n- Increased matched code by 2,076 bytes.\n\nRegenerating the progress report also refreshed the existing fuzzy-match score for `func_L09_002F1198` to 81%. No source changes were made to that function.\n\n## Verification\n\nAll applicable verification checks passed:\n\n- `try_func.py --diff` — **EXACT (2076/2076 bytes)**\n- `overlay_file_check.py` — **0 problems**",
+      "mergedAt": "2026-10-12T19:49:23Z"
+     },
+     {
+      "number": 54,
+      "title": "feat(overlays): func_L00_0024BD18 exact match",
+      "author": "cnobis",
+      "untrustedBody": "The card menu's state step: it clears menu flags 4 and 2, then picks the next state from the flags and the card status. The catalogue has it as three pieces (`config/overlays/joined.tsv`), so it finishes `func_L00_0024BD84` and `func_L00_0024BDB8` too.\n\nFound by playing the native port: going from the title to New Game with a memory card stopped on this function. With it, that path reaches Veldin.\n\n## Verification\n\nRun on macOS (Docker):\n\n- `tools/try_func.py`: EXACT\n- `tools/overlay_file_check.py src/overlays/shared/menu_00249720.c`: 1 file, 0 problems\n- `tools/build_sn.sh`: 1155 exact, every function at its retail address\n- `tools/gen_progress_report.py --check`: current (4294/5109)\n\nGenerated with [Claude Code](https://claude.com/claude-code)",
+      "mergedAt": "2026-10-13T14:45:09Z"
+     },
+     {
+      "number": 55,
+      "title": "feat: 27 more functions (4,291 of 5,109), fragment joins and functional C for the port",
+      "author": "Veradictus",
+      "untrustedBody": "On top of current main. 4,291 of 5,109 functions, 80.27% (main is at 4,264).\n\n## Matched\n\n- 22 functions ported from Lombyte at 0ee0bc4d: 21 level functions and\n  `func_00232B90`. Same machine code in both regions, so the C is his with the\n  symbols renamed to ours. No model wrote any of it.\n- `func_L18_002D9440` and `func_L18_002D9C78`, from a sweep of the small level\n  functions that had no attempt yet. Each completes the entry joined to it, so\n  that is four on the report.\n- `func_L00_002465F8`, the level loop. `wave.py salvage` found an exact run in\n  `build-sn/try` that had never landed.\n\n## The small-function sweep, and what it found\n\nThe 241 unmatched functions of 400 bytes or less with nothing written turned out\nto be mostly not functions: 120 are pieces of a neighbouring function that the\ncatalogue lists as entries of their own (they read registers they never set, or\nbranch out of themselves).\n\n- `config/overlays/joined.tsv`: 38 of those pieces are joined to the 33 functions\n ",
+      "mergedAt": "2026-10-12T22:06:09Z"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": {
+    "before": {
+     "code": {
+      "done": 2919340,
+      "total": 3712808
+     },
+     "functions": {
+      "done": 4225,
+      "total": 5109
+     }
+    },
+    "after": {
+     "code": {
+      "done": 2963672,
+      "total": 3712808
+     },
+     "functions": {
+      "done": 4264,
+      "total": 5109
+     }
+    }
+   },
+   "contributors": [
+    "cblackler19",
+    "cnobis",
+    "dev-gian",
+    "Lynder063",
+    "Veradictus"
+   ]
+  },
+  {
+   "repo": "rac2-decomp",
+   "title": "Going Commando",
+   "branches": [
+    {
+     "name": "master",
+     "commits": [
+      {
+       "sha": "1a9ce37663ba90a90e7f9dd18035a337afe2f10c",
+       "title": "Merge pull request #165 from OpenRAC/chore/nonmatching-english-20261013",
+       "author": "llesieur99",
+       "date": "2026-10-12T23:29:17Z"
+      },
+      {
+       "sha": "df61098d0212fc7f926ab6fe37e905a446f90a6a",
+       "title": "Merge pull request #164 from OpenRAC/match/wave7-20261013",
+       "author": "llesieur99",
+       "date": "2026-10-12T22:57:45Z"
+      },
+      {
+       "sha": "712b29e6ba93c41e42d53aa5fa6f5aba20d0a1de",
+       "title": "Merge pull request #163 from OpenRAC/chore/qcopy-plain-c-20261013",
+       "author": "llesieur99",
+       "date": "2026-10-12T22:32:17Z"
+      },
+      {
+       "sha": "244206d6753654c62a9e65cc84af9dddd6d4962f",
+       "title": "Merge pull request #162 from OpenRAC/docs/english-rule-20261013",
+       "author": "llesieur99",
+       "date": "2026-10-12T22:26:37Z"
+      },
+      {
+       "sha": "19ac12ceee4005cb6e34173745a471ec52b1079a",
+       "title": "Merge pull request #161 from OpenRAC/docs/english-rule-20261013",
+       "author": "llesieur99",
+       "date": "2026-10-12T22:23:36Z"
+      },
+      {
+       "sha": "4606efa8da3d3556d675d327a848f05903e994b7",
+       "title": "docs: pull requests leave the progress report to master",
+       "author": "Veradictus",
+       "date": "2026-10-12T21:42:01Z"
+      },
+      {
+       "sha": "2d8e6b2903c6f78e74fe247c24eaf0797f2e461b",
+       "title": "Merge branch 'port/rac1-identical'",
+       "author": "Veradictus",
+       "date": "2026-10-12T21:41:52Z"
+      },
+      {
+       "sha": "550807391c354a4477e6a07c36b8e217afd8332e",
+       "title": "Merge pull request #160 from OpenRAC/chore/nonmatching-waves-20261013",
+       "author": "llesieur99",
+       "date": "2026-10-12T21:19:05Z"
+      },
+      {
+       "sha": "39e8dd3f15a44de52d36dad0c1672ed73715eead",
+       "title": "Merge pull request #159 from OpenRAC/match/wave6-20261012",
+       "author": "llesieur99",
+       "date": "2026-10-12T20:49:02Z"
+      },
+      {
+       "sha": "8c24344cc0041446df827f7cdab4e1f6c9149455",
+       "title": "Merge pull request #158 from OpenRAC/match/thorpen-next-30",
+       "author": "ThorpenCodes",
+       "date": "2026-10-12T20:26:06Z"
+      },
+      {
+       "sha": "f7844353554324f7c773df633d4310c50a9becc2",
+       "title": "Merge pull request #156 from OpenRAC/match/wave5-20261012",
+       "author": "Veradictus",
+       "date": "2026-10-12T18:26:43Z"
+      },
+      {
+       "sha": "b40a684eaf384bd8a72c5a16aeaec32139f06ece",
+       "title": "Merge pull request #155 from OpenRAC/match/wave4-20261012",
+       "author": "Veradictus",
+       "date": "2026-10-12T18:18:44Z"
+      },
+      {
+       "sha": "90172472d4d097f1fc7d99fcb59ff4e07df059c2",
+       "title": "Merge pull request #153 from OpenRAC/match/wave3-20261012",
+       "author": "Veradictus",
+       "date": "2026-10-12T18:10:12Z"
+      },
+      {
+       "sha": "f54dc32ff8999cf25b8b3a9b924ae712f3910f7b",
+       "title": "Merge pull request #151 from OpenRAC/match/wave2-20261012",
+       "author": "Veradictus",
+       "date": "2026-10-12T18:00:15Z"
+      },
+      {
+       "sha": "dd088e2085360facd2a12ce73d60a290fe3c56b0",
+       "title": "fix(tools): a temporary object name per process",
+       "author": "Veradictus",
+       "date": "2026-10-12T17:56:57Z"
+      },
+      {
+       "sha": "352712da8d55c1570b41197bd81c719f9e6ae5fc",
+       "title": "Merge pull request #154 from OpenRAC/fix/link-and-parallel-build",
+       "author": "Veradictus",
+       "date": "2026-10-12T17:46:21Z"
+      },
+      {
+       "sha": "fa608c989977eb43a7476dfd54f92ecfa2562b1a",
+       "title": "Merge pull request #150 from OpenRAC/match/thorpen-100-functions-wsl",
+       "author": "ThorpenCodes",
+       "date": "2026-10-12T17:35:31Z"
+      },
+      {
+       "sha": "7b60cd6b666268d8d35595e752a8ee2345a96f0c",
+       "title": "docs: add contributor coordination workflow",
+       "author": "ThorpenCodes",
+       "date": "2026-10-12T17:25:55Z"
+      },
+      {
+       "sha": "6cb6673a7f48daa09a0461b492b02dc66d0a9491",
+       "title": "Merge pull request #149 from OpenRAC/match/wave-20261012",
+       "author": "llesieur99",
+       "date": "2026-10-12T16:19:41Z"
+      },
+      {
+       "sha": "974302ba936bb455acd78034b58ad4b98bafcc6b",
+       "title": "Merge pull request #148 from OpenRAC/match/small-functions",
+       "author": "Veradictus",
+       "date": "2026-10-12T06:46:16Z"
+      },
+      {
+       "sha": "a05a870803294f074a412f86b97cab6d173c686b",
+       "title": "Merge pull request #147 from OpenRAC/match/recover-legacy-placements-20261012",
+       "author": "llesieur99",
+       "date": "2026-10-12T06:12:18Z"
+      },
+      {
+       "sha": "014e2ea9c7bc57d834a48e4d992d62f07b39a923",
+       "title": "docs(agents): ref_ names, -g8 sibling files and what the first Haiku trial taught",
+       "author": "Veradictus",
+       "date": "2026-10-12T05:32:03Z"
+      },
+      {
+       "sha": "d1d5bdd70dbe40c4a39c1b403e168d6617430701",
+       "title": "feat(progress): shared level code is one unit, as each level is",
+       "author": "Veradictus",
+       "date": "2026-10-12T05:32:03Z"
+      },
+      {
+       "sha": "757627c9868b7de8aafc10f508bd158a6acbae48",
+       "title": "docs(agents): which model takes which functions, and tools/todo.py to sort them",
+       "author": "Veradictus",
+       "date": "2026-10-12T03:09:57Z"
+      },
+      {
+       "sha": "ee64f3eb7b499d1f4aece92ebd993baf48d0890a",
+       "title": "feat(progress): one unit per level, rac1-decomp's report tree",
+       "author": "Veradictus",
+       "date": "2026-10-12T03:03:05Z"
+      },
+      {
+       "sha": "99d98838893a64e584e175bc4eb7b03144ef78fa",
+       "title": "chore: remove what came from leaked material",
+       "author": "Veradictus",
+       "date": "2026-10-12T02:54:04Z"
+      },
+      {
+       "sha": "936a22483d659ee50104ccb9ef5ea06af69330fe",
+       "title": "ci: progress report and build image, as rac1-decomp publishes them",
+       "author": "Veradictus",
+       "date": "2026-10-12T02:43:49Z"
+      },
+      {
+       "sha": "3cd2f593fd01a4f786cd6a8612126ef40e107164",
+       "title": "feat(src): the boot functions RAC2 matched last, and four level functions",
+       "author": "Veradictus",
+       "date": "2026-10-12T01:46:39Z"
+      },
+      {
+       "sha": "862581a9c86177c8edc9fd8fe39440bf5db29f22",
+       "title": "chore: ignore `.vscode` dir",
+       "author": "Veradictus",
+       "date": "2026-10-12T01:17:14Z"
+      },
+      {
+       "sha": "51258f5b9c95853b55f0af82a48eb220f6d2c51a",
+       "title": "feat(src): 14 functions from the Qwen drafts that really match",
+       "author": "Veradictus",
+       "date": "2026-10-12T01:10:11Z"
+      },
+      {
+       "sha": "d9cbbef857cc9a926b8e9cd8db19e7debaa6490d",
+       "title": "feat(src): the 2026-10-11 matching wave, and data from the old branches",
+       "author": "Veradictus",
+       "date": "2026-10-12T00:59:31Z"
+      },
+      {
+       "sha": "7fccf7352bb8a6f0926508d9b8c32a5a7433130b",
+       "title": "Ratchet & Clank: Going Commando decompilation",
+       "author": "Veradictus",
+       "date": "2026-10-12T00:30:03Z"
+      }
+     ]
+    }
+   ],
+   "commitCount": 32,
+   "pullRequests": {
+    "merged": [
+     {
+      "number": 146,
+      "title": "decomp: integrate 4,003 exact placements from the Claude wave",
+      "author": "llesieur99",
+      "untrustedBody": "## Summary\n\nIntegrate the completed Claude matching wave: 4,003 additional exact C function placements across the boot executable and level overlays, adding 646,208 loaded-code bytes. The maintained source includes 140 new shared fragments with explicit per-program bindings.\n\n## Scope\n\n- Type: matching, placement\n- Validated base: d46a353984ee5b4e5129935a35d5b90934e88606\n- Reservation: Takeover of the existing Claude batch, assigned in isolated family lots before this publication handoff. This PR does not create or claim a shared reservation; current contributor claims were checked for new-placement overlap before publication.\n- Targets: Newly accepted placements in config/candidate-catalog.json, config/level-native/ and config/level-g8/; authored bodies in src/shared/wave-*.cfrag and src/levels/. config/source-layout.json binds each generated unit. Existing SDK owners and the qualified compiler chain remain unchanged.\n\n## Validation\n\n- Command: Independently qualify the complete defau",
+      "mergedAt": "2026-10-12T01:05:47Z"
+     },
+     {
+      "number": 147,
+      "title": "fix(src): recover 59 migrated C placements",
+      "author": "llesieur99",
+      "untrustedBody": "## What\n\nRecover all 59 C placements lost during the source migration, across 13 catalogue function groups. The affected functions use symbolic per-program data and call targets, rather than fixed level addresses or an incorrectly identified callee.\n\nRestore eight retained drafts and the 64-byte pool-record allocator as maintained C. Small-data functions live in `-g8.c` siblings, keeping the original source files' `-G0` profile. The lookup and flag-to-state writer use ordinary standalone files with `-mno-split-addresses` so their symbolic addresses retain the retail assembler addressing form. Flags apply to files, not individual definitions. No inline assembly, register pins, artificial barriers, compiler-output edits, tools, headers or catalogue changes are introduced.\n\nThe resident flags and pool records are measured partial C views, not claims about original retail types. Earlier nonmatching drafts remain retained and their README points to the recovered source.\n\n## Checked\n\n- `tool",
+      "mergedAt": "2026-10-12T06:12:19Z"
+     },
+     {
+      "number": 148,
+      "title": "feat(src): 382 small functions, and progress only counts what links everywhere",
+      "author": "Veradictus",
+      "untrustedBody": "Small functions first, from two sources, plus a fix to how progress is counted.\n1,591 of 9,101 functions (2.86%), up from 1,216.\n\n## Functions\n\n- 275 boot functions, mostly up to 400 bytes in `src/game`, and 27 shared level\n  functions, matched by a Codex agent on this branch.\n- 80 shared level functions from a trial of 16 Haiku workers on functions of up to\n  172 bytes. 58 are as the workers left them. The other 22 were their near misses,\n  retried with no model: 14 only needed `-G8` (they live in `*-g8.c` sibling\n  files), 4 needed a `ref_` name for a call whose target differs per level, and\n  3 needed both.\n\n## Progress counting\n\n`tools/progress.py` counted a function as soon as it linked in any one program.\nSeven functions on master were counted that way while linking at 2 to 26 of\ntheir 27 or 28 places. A function now counts only when it links at every place\nit has. #147 had already recovered four of those properly, so they stay; the\nother four are in `nonmatching/` with what the ",
+      "mergedAt": "2026-10-12T06:46:17Z"
+     },
+     {
+      "number": 149,
+      "title": "feat(src): 76 small functions across the boot and nine level units",
+      "author": "llesieur99",
+      "untrustedBody": "## What\n\nSeventy-six small functions (16 to 140 bytes) matched by a ten-worker wave, each body\nverified with `tools/check.py` at every place and then by the full build: 7 in the boot's\n`src/game/0032EB28.c` and 69 across nine level units — `L00_002E5918.c` (3),\n`L00_00316F60.c` (2), `L01_002A7248.c` (8), `L02_002B5F50.c` (4), `L02_003C43F0.c` (13),\n`L04_002CC748.c` (8), `L14_00304190.c` (11), `L18_002C4000.c` (12), `L20_0043ECB0.c` (8).\nSmall-data members live in their `-g8` siblings with the markers taken out of the originals.\n`docs/COMPILER-NOTES.md` gains the body-writing notes the wave measured.\n\n## Checked\n\n- `tools/build.py all`: 28 programs OK, no C function left unplaced — run twice, the second\n  time after removing a duplicate `INCLUDE_ASM` marker that `tests/check_repository.py`\n  caught; the two build logs are identical.\n- `tools/progress.py`: 1,591 -> 1,667 of 9,101 functions, 158,540 -> 163,276 bytes\n  (2.86% -> 2.95%); level placements 25,170 -> 25,697.\n- `tools/progress.",
+      "mergedAt": "2026-10-12T16:19:41Z"
+     },
+     {
+      "number": 150,
+      "title": "feat(src): match 85 additional boot functions",
+      "author": "ThorpenCodes",
+      "untrustedBody": "## What\n\n- Integrate **85 unique exact boot functions**, adding **5,636 matched bytes** relative to current master.\n- Retain the documented sibling `*-g8.c` layout for functions requiring `-G8`, including `func_0028E408` and `func_003435C8`.\n- Preserve 23 recorded `nonmatching/` attempts; these are not credited as exact matches.\n- Reconcile the existing PR history with master using normal merge commits. `func_00336390` was dropped from this PR's credit because it already landed via PR #149; master's definition is retained.\n- Regenerate README progress and `progress/report.json` with `tools/progress.py`.\n\nActual combined progress: **1,752 of 9,101 functions**, **168,912 of 5,538,056 bytes (3.05%)**. Master before this contribution has 1,667 matched functions / 163,276 bytes.\n\nThe previous runtime blocker is resolved. The authoritative full run completed in native Ubuntu WSL + Wine with CPython 3.12.15, the existing pinned dependencies, serialized assembler calls and the existing ignored",
+      "mergedAt": "2026-10-12T17:35:31Z"
+     },
+     {
+      "number": 151,
+      "title": "feat(src): 23 level functions from the large-function wave",
+      "author": "llesieur99",
+      "untrustedBody": "Twenty-three level functions matched by a wave that worked the >1000-byte targets of eight units: L03_003F09C0.c 6, L06_0033BDC0.c 5, L12_004149B8.c 4, L00_003C6298.c 3 (2 in the -g8 sibling), L00_00412928.c 3, L00_002AFBC0.c 1, L00_004096B0.c 1 (in the -g8 sibling). The wave's big bodies (1028/1052, 1024/1048, 976/1044) came within a few instructions but none linked, so none is here; near misses stay outside the repository. Checked: tools/build.py all on this exact tree rebased on 6cb6673 -> 28 programs OK, no C function left unplaced; tools/progress.py: 1,667 -> 1,690 of 9,101 functions, 163,276 -> 165,464 bytes (2.99%); tools/progress.py --check, python3 -m unittest discover -s tests (20 tests) and tests/check_repository.py pass. Not run: nothing else.",
+      "mergedAt": "2026-10-12T18:00:16Z"
+     },
+     {
+      "number": 153,
+      "title": "feat(src): 62 level functions from the medium-tier wave",
+      "author": "llesieur99",
+      "untrustedBody": "Sixty-two level functions (16-236 bytes) matched by a wave over eight units: L09_002B7238.c 14, L23_00416388.c 10 (6 in the -g8 sibling), L02_003D26B0.c 10 (1 in -g8), L05_0037B6D0.c 7, L07_003F4578.c 7, L02_003DB310.c 5 (1 in -g8), L02_003F5430.c 5 (2 in -g8), L05_003D33E8.c 4 (3 in -g8). Three more bodies in L02_003F5430.c pass tools/check.py but the placement refuses them (\"needs .rodata at its place\" - a switch table travelling with the function), so they stay assembly and are not counted. Four bodies call qcopy/qzero from include/common.h for their 128-bit copies, as rac1-decomp's sources do (358 uses there). Checked: tools/build.py all on this exact tree (rebased on 6cb6673) -> 28 programs OK, no C function left unplaced; tools/progress.py: 1,667 -> 1,729 of 9,101 functions, 163,276 -> 168,388 bytes (3.04%); tools/progress.py --check, python3 -m unittest discover -s tests (20 tests) and tests/check_repository.py pass. Not run: nothing else.",
+      "mergedAt": "2026-10-12T18:10:13Z"
+     },
+     {
+      "number": 154,
+      "title": "fix(tools): link without objects on the command line; build programs in parallel",
+      "author": "Veradictus",
+      "untrustedBody": "Two changes to `tools/build.py`, and the docs that go with them.\n\n## The linker stopped working past about 1,700 C functions\n\nEvery object was passed to `ld.exe` on the command line. With the functions now\non master that line is over 33,000 characters, and a Windows program accepts\n32,767. Under Wine the SN linker then exits with an error and prints nothing, so\nthe build fails at the boot with an empty `link.log`.\n\nThe linker script already names every object it places, which is what loads\nthem, so the objects on the command line were redundant. They are gone. Output\nis unchanged: all 28 programs still equal retail.\n\n## Builds run in parallel\n\n`tools/build.py all` and `levels` build several programs at once, each in its\nown process (`--jobs N`, default half the cores, at most 8). Compiled objects\nare moved into place whole, since two programs can compile the same shared file.\n\nMeasured on an 18-core Mac with the tools in containers: about 12 minutes\nsequentially, about 7 at eight jobs.",
+      "mergedAt": "2026-10-12T17:46:21Z"
+     },
+     {
+      "number": 155,
+      "title": "feat(src): 54 level functions from the fourth wave",
+      "author": "llesieur99",
+      "untrustedBody": "Fifty-four level functions (16-300 bytes) across eight units: L18_003F80A0.c 17 (3 in the -g8 sibling), L11_004465F8.c 9, L20_0039C448.c 7, L11_00432628.c 6, L00_00426340.c 5 (2 in -g8), L03_002AB5C8.c 4, L16_00403900.c 3, L06_0041DED8.c 3. Two more bodies in L11_00432628.c pass tools/check.py but the placement refuses them (\"needs .rodata at its place\" - switch tables travelling with the function), so they stay assembly, as the three of the previous wave did. Checked: tools/build.py all on this exact tree -> 28 programs OK, no C function left unplaced; tools/progress.py: 1,667 -> 1,721 of 9,101 functions, 163,276 -> 168,280 bytes (3.04%); tools/progress.py --check, python3 -m unittest discover -s tests (20 tests) and tests/check_repository.py pass. Not run: nothing else.",
+      "mergedAt": "2026-10-12T18:18:45Z"
+     },
+     {
+      "number": 156,
+      "title": "feat(src): 47 level functions from the fifth wave",
+      "author": "llesieur99",
+      "untrustedBody": "Forty-seven level functions (32-260 bytes) across eight units: L09_003FEA48.c 11 (2 in the -g8 sibling), L23_0041E418.c 9 (5 in -g8), L00_003EE100.c 7 (1 in -g8), L11_0043E1A0.c 6 (1 in -g8), L09_002F8BA0.c 6, L22_003A5018.c 4 (2 in -g8), L05_00428350.c 3 (1 in -g8), L00_0037E898.c 1 (in -g8). One more body in L11_0043E1A0.c passes tools/check.py but the placement refuses it (\"needs .rodata at its place\" - a switch table travelling with the function), so it stays assembly, as in the two previous waves. Checked: tools/build.py all on this exact tree -> 28 programs OK, no C function left unplaced; tools/progress.py: 1,721 -> 1,799 of 9,101 functions, 168,280 -> 172,952 bytes (3.12%); tools/progress.py --check, python3 -m unittest discover -s tests (20 tests) and tests/check_repository.py pass. Not run: nothing else.",
+      "mergedAt": "2026-10-12T18:26:43Z"
+     },
+     {
+      "number": 158,
+      "title": "feat(src): match 30 shared and level functions",
+      "author": "ThorpenCodes",
+      "untrustedBody": "## What\n\nMatch exactly 30 new distinct functions, adding 1188 unique code bytes and 126 level placements. Matching stopped at 30; no function 31 was begun. One definition per function, with G8 siblings for GP-relative code.\n\n| Scope (includes G8 sibling) | New functions | Unique bytes |\n| --- | ---: | ---: |\n| src/levels/shared/L00_002E5918.c |2|20|\n| src/levels/shared/L01_002A7248.c |1|64|\n| src/levels/shared/L05_003008C0.c |12|316|\n| src/levels/shared/L00_00358D98.c |1|16|\n| src/levels/00_aranos_tutorial/L00_003D54A8.c |7|252|\n| src/levels/08_tabora/L08_002D90C8.c |7|520|\n\nSession-start master 352712d: 1752/9101 functions, 168912/5538056 bytes (3.05%). Reconciled master f784435: 1938 functions, 185256 bytes (3.35%). Final: 1968 functions, 186444 bytes (3.37%). The 186 intervening upstream matches and 16344 bytes are not batch credit. No duplicates were dropped.\n\nRetain 11 useful near misses in nonmatching with markers restored; none is linked or counted. The two vector-copy near miss",
+      "mergedAt": "2026-10-12T20:26:06Z"
+     },
+     {
+      "number": 159,
+      "title": "feat(src): 259 level functions from a 49-worker wave",
+      "author": "llesieur99",
+      "untrustedBody": "Two hundred and fifty-nine level functions across 75 files, matched by 49 workers running in parallel, one unit each (19 to 35 targets per worker, bounded at 18 functions or 150 minutes). Twenty-five of the files are new `-g8` siblings carrying the small-data members, with their markers taken out of the originals. Bodies run from 4 to ~400 bytes; the biggest units are `L11_003D6270.c` 10, `L23_0035CE90.c` 9 (2 in -g8), `L00_0033F678.c` 9, `L02_0040A4A8.c` 8, `L03_00399230.c` 8 (1 in -g8), `L06_00458138.c` 8, `L08_003D8348.c` 8 (in -g8), `L13_00306F38.c` 8, `L00_004224D0.c` 8.\n\nOne body is deliberately not landed and went to `nonmatching/levels/func_L00_00424BB8.c` with a row in the README table: it is exact in 23 of its 27 places, and in `16_snivelak`, `22_dobbo_orbit`, `23_damosel_orbit` and `26_jamming_array` retail holds other constants (`+0x20`/`+0x1C`/`+0x20` against `+0x60`/`+0xE4`/`+0xE8`), so no one source form reaches every place and the placement drops the body everywhere. Wo",
+      "mergedAt": "2026-10-12T20:49:03Z"
+     },
+     {
+      "number": 160,
+      "title": "chore(nonmatching): preserve 160 bounded attempts from the six agent waves",
+      "author": "llesieur99",
+      "untrustedBody": "The six waves of workers that landed 521 functions in `src/` (PRs #149, #151, #153, #155, #156 and #159) left attempts that did not match at every place. `AGENTS.md` and `docs/AGENT_WORKFLOW.md` say what a bounded attempt leaves behind: its C in `nonmatching/<area>/<func>.c`, the `INCLUDE_ASM` marker back in `src/`, and a line in the README saying how far it got and what was tried. This branch does that, instead of leaving the attempts in a scratch directory.\n\n- 154 files under `nonmatching/levels/` and `nonmatching/game/`, each with the worker's own note at the top and the closest C below it;\n- six bodies that are exact but that the build refuses (`needs .rodata at its place, which is not C`), listed with the bodies that link at some of their places only, the way `func_L00_002B1308` already was;\n- one attempt per function: the nine functions the earlier Haiku trial had already preserved are left untouched;\n- a new README section, \"Level functions from the six agent waves (2026-10-12)\"",
+      "mergedAt": "2026-10-12T21:19:05Z"
+     },
+     {
+      "number": 161,
+      "title": "docs(AGENTS): say which language the repository writes in",
+      "author": "llesieur99",
+      "untrustedBody": "The rules covered sources, Plain C, flags per file, compiler output and game data, but not the language the repository writes in. This adds it: everything that lands here is in English - code, comments, commit messages, issues, pull requests, reviews, and the notes kept in `nonmatching/`.\n\nIt came up on 2026-10-13: issue #157 gained a set of wall entries that quoted worker notes in French. That issue has been rewritten in English, and the `nonmatching/` notes left by the six agent waves are being translated the same way.\n\nChecked: `python3 -m unittest discover -s tests` (20 tests) pass. A documentation change only; no `src/` file is touched. Not run: nothing else.",
+      "mergedAt": "2026-10-12T22:23:37Z"
+     },
+     {
+      "number": 162,
+      "title": "docs(AGENTS): the language rule says what it says",
+      "author": "llesieur99",
+      "untrustedBody": "The aside about private conversation has no place in a rule about what the repository publishes.\n\n## What\n\n<!-- The functions matched or the change made, and why. -->\n\n## Checked\n\n<!-- The commands you ran and what they printed, e.g. `tools/build.py all`: 28 programs OK;\nhow many functions this adds (leave `progress/report.json` and the README table out: they are regenerated on master). Say what you did not run. -->",
+      "mergedAt": "2026-10-12T22:26:37Z"
+     },
+     {
+      "number": 163,
+      "title": "fix(src): take the qcopy bodies back out, the Plain C rule forbids them",
+      "author": "llesieur99",
+      "untrustedBody": "Eighteen bodies that had been landed in the agent waves call `qcopy`/`qzero` from `include/common.h`. Those helpers are inline assembly, and AGENTS.md's \"Plain C\" rule - no inline assembly in a function - rules that out as a matching route; `docs/COMPILER-NOTES.md` states it in as many words. They build, but they are not legitimate matches, so they go back to assembly here: `L07_003F4578.c` 4, `L03_00399230.c` 2, `L00_003EE100.c` 2, `L00_003FFA70.c` 2, and one each in `L05_00314E28.c`, `L06_00458138.c`, `L11_00453358.c`, `L16_00403900.c`, `L19_003E9400.c`, `L00_003B3158.c`, `L00_003E3258.c`.\n\nEach body is kept in `nonmatching/` with a note saying why it cannot land, and the README gains a section for them: the shape is right, and only the 128-bit copies need a plain-C spelling that `mode(TI)` and the aggregate forms have not given yet. The markers are back in place, in their address order.\n\nOne body paid for the change, and it is worth knowing: `func_L07_003F8BB0`, plain C, matched at ",
+      "mergedAt": "2026-10-12T22:32:18Z"
+     },
+     {
+      "number": 164,
+      "title": "feat(src): level functions from the seventh wave, twenty units in parallel",
+      "author": "llesieur99",
+      "untrustedBody": "Twenty level units matched at once, one worker each (bounded at 18 functions or 150 minutes per unit, as docs/AGENT_WORKFLOW.md describes). The units are the twenty level files with the most unmatched functions; every body was checked with `tools/check.py` at every place and then by the full build.\n\n**What the batch measured, and it is now written into #157:**\n\n- **The `sda` lever, confirmed independently by four workers.** Read the retail column first, then pick the profile: `lui $r,%hi` (absolute) means staying in the `-G0` file with `__attribute__((sda))` on the symbol - gas then folds `%hi/%lo` into the destination register and the emission order falls into place; `off($gp)` means the `-g8` sibling. It moves the register *and* the order, where rewording the C does not: four spellings of one body produced strictly identical bytes. Its precondition was measured too: the attribute helps only when the symbol is read by that body alone - on a shared symbol it moved an already integrated",
+      "mergedAt": "2026-10-12T22:57:45Z"
+     },
+     {
+      "number": 165,
+      "title": "docs(nonmatching): the wave notes in English, as the rules now ask",
+      "author": "llesieur99",
+      "untrustedBody": "AGENTS.md gained the language rule in #161: everything that lands in the repository is in English, and it says the notes kept in `nonmatching/` are published material and follow the same rule. Thirty of the notes left by the six agent waves were still in the language their worker thought in - this translates them.\n\nThe prose is translated, the data is not: every register name, offset, byte count, instruction name and measured claim stays exactly as it stood, because those notes are the evidence behind each entry. Nothing else is touched - no C body, no detail added or dropped, and the files whose note was already in English are left alone.\n\nChecked: `python3 -m unittest discover -s tests` (20 tests) and `tests/check_repository.py` pass, and a script compares every changed file's bytes below its leading comment against the committed revision, byte for byte: no difference. Not run: `tools/build.py all`, which `nonmatching/` does not take part in.",
+      "mergedAt": "2026-10-12T23:29:18Z"
+     }
+    ],
+    "opened": [
+     {
+      "number": 146,
+      "title": "decomp: integrate 4,003 exact placements from the Claude wave",
+      "author": "llesieur99",
+      "untrustedBody": "## Summary\n\nIntegrate the completed Claude matching wave: 4,003 additional exact C function placements across the boot executable and level overlays, adding 646,208 loaded-code bytes. The maintained source includes 140 new shared fragments with explicit per-program bindings.\n\n## Scope\n\n- Type: matching, placement\n- Validated base: d46a353984ee5b4e5129935a35d5b90934e88606\n- Reservation: Takeover of the existing Claude batch, assigned in isolated family lots before this publication handoff. This PR does not create or claim a shared reservation; current contributor claims were checked for new-placement overlap before publication.\n- Targets: Newly accepted placements in config/candidate-catalog.json, config/level-native/ and config/level-g8/; authored bodies in src/shared/wave-*.cfrag and src/levels/. config/source-layout.json binds each generated unit. Existing SDK owners and the qualified compiler chain remain unchanged.\n\n## Validation\n\n- Command: Independently qualify the complete defau",
+      "mergedAt": "2026-10-12T01:05:47Z"
+     },
+     {
+      "number": 147,
+      "title": "fix(src): recover 59 migrated C placements",
+      "author": "llesieur99",
+      "untrustedBody": "## What\n\nRecover all 59 C placements lost during the source migration, across 13 catalogue function groups. The affected functions use symbolic per-program data and call targets, rather than fixed level addresses or an incorrectly identified callee.\n\nRestore eight retained drafts and the 64-byte pool-record allocator as maintained C. Small-data functions live in `-g8.c` siblings, keeping the original source files' `-G0` profile. The lookup and flag-to-state writer use ordinary standalone files with `-mno-split-addresses` so their symbolic addresses retain the retail assembler addressing form. Flags apply to files, not individual definitions. No inline assembly, register pins, artificial barriers, compiler-output edits, tools, headers or catalogue changes are introduced.\n\nThe resident flags and pool records are measured partial C views, not claims about original retail types. Earlier nonmatching drafts remain retained and their README points to the recovered source.\n\n## Checked\n\n- `tool",
+      "mergedAt": "2026-10-12T06:12:19Z"
+     },
+     {
+      "number": 148,
+      "title": "feat(src): 382 small functions, and progress only counts what links everywhere",
+      "author": "Veradictus",
+      "untrustedBody": "Small functions first, from two sources, plus a fix to how progress is counted.\n1,591 of 9,101 functions (2.86%), up from 1,216.\n\n## Functions\n\n- 275 boot functions, mostly up to 400 bytes in `src/game`, and 27 shared level\n  functions, matched by a Codex agent on this branch.\n- 80 shared level functions from a trial of 16 Haiku workers on functions of up to\n  172 bytes. 58 are as the workers left them. The other 22 were their near misses,\n  retried with no model: 14 only needed `-G8` (they live in `*-g8.c` sibling\n  files), 4 needed a `ref_` name for a call whose target differs per level, and\n  3 needed both.\n\n## Progress counting\n\n`tools/progress.py` counted a function as soon as it linked in any one program.\nSeven functions on master were counted that way while linking at 2 to 26 of\ntheir 27 or 28 places. A function now counts only when it links at every place\nit has. #147 had already recovered four of those properly, so they stay; the\nother four are in `nonmatching/` with what the ",
+      "mergedAt": "2026-10-12T06:46:17Z"
+     },
+     {
+      "number": 149,
+      "title": "feat(src): 76 small functions across the boot and nine level units",
+      "author": "llesieur99",
+      "untrustedBody": "## What\n\nSeventy-six small functions (16 to 140 bytes) matched by a ten-worker wave, each body\nverified with `tools/check.py` at every place and then by the full build: 7 in the boot's\n`src/game/0032EB28.c` and 69 across nine level units — `L00_002E5918.c` (3),\n`L00_00316F60.c` (2), `L01_002A7248.c` (8), `L02_002B5F50.c` (4), `L02_003C43F0.c` (13),\n`L04_002CC748.c` (8), `L14_00304190.c` (11), `L18_002C4000.c` (12), `L20_0043ECB0.c` (8).\nSmall-data members live in their `-g8` siblings with the markers taken out of the originals.\n`docs/COMPILER-NOTES.md` gains the body-writing notes the wave measured.\n\n## Checked\n\n- `tools/build.py all`: 28 programs OK, no C function left unplaced — run twice, the second\n  time after removing a duplicate `INCLUDE_ASM` marker that `tests/check_repository.py`\n  caught; the two build logs are identical.\n- `tools/progress.py`: 1,591 -> 1,667 of 9,101 functions, 158,540 -> 163,276 bytes\n  (2.86% -> 2.95%); level placements 25,170 -> 25,697.\n- `tools/progress.",
+      "mergedAt": "2026-10-12T16:19:41Z"
+     },
+     {
+      "number": 150,
+      "title": "feat(src): match 85 additional boot functions",
+      "author": "ThorpenCodes",
+      "untrustedBody": "## What\n\n- Integrate **85 unique exact boot functions**, adding **5,636 matched bytes** relative to current master.\n- Retain the documented sibling `*-g8.c` layout for functions requiring `-G8`, including `func_0028E408` and `func_003435C8`.\n- Preserve 23 recorded `nonmatching/` attempts; these are not credited as exact matches.\n- Reconcile the existing PR history with master using normal merge commits. `func_00336390` was dropped from this PR's credit because it already landed via PR #149; master's definition is retained.\n- Regenerate README progress and `progress/report.json` with `tools/progress.py`.\n\nActual combined progress: **1,752 of 9,101 functions**, **168,912 of 5,538,056 bytes (3.05%)**. Master before this contribution has 1,667 matched functions / 163,276 bytes.\n\nThe previous runtime blocker is resolved. The authoritative full run completed in native Ubuntu WSL + Wine with CPython 3.12.15, the existing pinned dependencies, serialized assembler calls and the existing ignored",
+      "mergedAt": "2026-10-12T17:35:31Z"
+     },
+     {
+      "number": 151,
+      "title": "feat(src): 23 level functions from the large-function wave",
+      "author": "llesieur99",
+      "untrustedBody": "Twenty-three level functions matched by a wave that worked the >1000-byte targets of eight units: L03_003F09C0.c 6, L06_0033BDC0.c 5, L12_004149B8.c 4, L00_003C6298.c 3 (2 in the -g8 sibling), L00_00412928.c 3, L00_002AFBC0.c 1, L00_004096B0.c 1 (in the -g8 sibling). The wave's big bodies (1028/1052, 1024/1048, 976/1044) came within a few instructions but none linked, so none is here; near misses stay outside the repository. Checked: tools/build.py all on this exact tree rebased on 6cb6673 -> 28 programs OK, no C function left unplaced; tools/progress.py: 1,667 -> 1,690 of 9,101 functions, 163,276 -> 165,464 bytes (2.99%); tools/progress.py --check, python3 -m unittest discover -s tests (20 tests) and tests/check_repository.py pass. Not run: nothing else.",
+      "mergedAt": "2026-10-12T18:00:16Z"
+     },
+     {
+      "number": 153,
+      "title": "feat(src): 62 level functions from the medium-tier wave",
+      "author": "llesieur99",
+      "untrustedBody": "Sixty-two level functions (16-236 bytes) matched by a wave over eight units: L09_002B7238.c 14, L23_00416388.c 10 (6 in the -g8 sibling), L02_003D26B0.c 10 (1 in -g8), L05_0037B6D0.c 7, L07_003F4578.c 7, L02_003DB310.c 5 (1 in -g8), L02_003F5430.c 5 (2 in -g8), L05_003D33E8.c 4 (3 in -g8). Three more bodies in L02_003F5430.c pass tools/check.py but the placement refuses them (\"needs .rodata at its place\" - a switch table travelling with the function), so they stay assembly and are not counted. Four bodies call qcopy/qzero from include/common.h for their 128-bit copies, as rac1-decomp's sources do (358 uses there). Checked: tools/build.py all on this exact tree (rebased on 6cb6673) -> 28 programs OK, no C function left unplaced; tools/progress.py: 1,667 -> 1,729 of 9,101 functions, 163,276 -> 168,388 bytes (3.04%); tools/progress.py --check, python3 -m unittest discover -s tests (20 tests) and tests/check_repository.py pass. Not run: nothing else.",
+      "mergedAt": "2026-10-12T18:10:13Z"
+     },
+     {
+      "number": 154,
+      "title": "fix(tools): link without objects on the command line; build programs in parallel",
+      "author": "Veradictus",
+      "untrustedBody": "Two changes to `tools/build.py`, and the docs that go with them.\n\n## The linker stopped working past about 1,700 C functions\n\nEvery object was passed to `ld.exe` on the command line. With the functions now\non master that line is over 33,000 characters, and a Windows program accepts\n32,767. Under Wine the SN linker then exits with an error and prints nothing, so\nthe build fails at the boot with an empty `link.log`.\n\nThe linker script already names every object it places, which is what loads\nthem, so the objects on the command line were redundant. They are gone. Output\nis unchanged: all 28 programs still equal retail.\n\n## Builds run in parallel\n\n`tools/build.py all` and `levels` build several programs at once, each in its\nown process (`--jobs N`, default half the cores, at most 8). Compiled objects\nare moved into place whole, since two programs can compile the same shared file.\n\nMeasured on an 18-core Mac with the tools in containers: about 12 minutes\nsequentially, about 7 at eight jobs.",
+      "mergedAt": "2026-10-12T17:46:21Z"
+     },
+     {
+      "number": 155,
+      "title": "feat(src): 54 level functions from the fourth wave",
+      "author": "llesieur99",
+      "untrustedBody": "Fifty-four level functions (16-300 bytes) across eight units: L18_003F80A0.c 17 (3 in the -g8 sibling), L11_004465F8.c 9, L20_0039C448.c 7, L11_00432628.c 6, L00_00426340.c 5 (2 in -g8), L03_002AB5C8.c 4, L16_00403900.c 3, L06_0041DED8.c 3. Two more bodies in L11_00432628.c pass tools/check.py but the placement refuses them (\"needs .rodata at its place\" - switch tables travelling with the function), so they stay assembly, as the three of the previous wave did. Checked: tools/build.py all on this exact tree -> 28 programs OK, no C function left unplaced; tools/progress.py: 1,667 -> 1,721 of 9,101 functions, 163,276 -> 168,280 bytes (3.04%); tools/progress.py --check, python3 -m unittest discover -s tests (20 tests) and tests/check_repository.py pass. Not run: nothing else.",
+      "mergedAt": "2026-10-12T18:18:45Z"
+     },
+     {
+      "number": 156,
+      "title": "feat(src): 47 level functions from the fifth wave",
+      "author": "llesieur99",
+      "untrustedBody": "Forty-seven level functions (32-260 bytes) across eight units: L09_003FEA48.c 11 (2 in the -g8 sibling), L23_0041E418.c 9 (5 in -g8), L00_003EE100.c 7 (1 in -g8), L11_0043E1A0.c 6 (1 in -g8), L09_002F8BA0.c 6, L22_003A5018.c 4 (2 in -g8), L05_00428350.c 3 (1 in -g8), L00_0037E898.c 1 (in -g8). One more body in L11_0043E1A0.c passes tools/check.py but the placement refuses it (\"needs .rodata at its place\" - a switch table travelling with the function), so it stays assembly, as in the two previous waves. Checked: tools/build.py all on this exact tree -> 28 programs OK, no C function left unplaced; tools/progress.py: 1,721 -> 1,799 of 9,101 functions, 168,280 -> 172,952 bytes (3.12%); tools/progress.py --check, python3 -m unittest discover -s tests (20 tests) and tests/check_repository.py pass. Not run: nothing else.",
+      "mergedAt": "2026-10-12T18:26:43Z"
+     },
+     {
+      "number": 158,
+      "title": "feat(src): match 30 shared and level functions",
+      "author": "ThorpenCodes",
+      "untrustedBody": "## What\n\nMatch exactly 30 new distinct functions, adding 1188 unique code bytes and 126 level placements. Matching stopped at 30; no function 31 was begun. One definition per function, with G8 siblings for GP-relative code.\n\n| Scope (includes G8 sibling) | New functions | Unique bytes |\n| --- | ---: | ---: |\n| src/levels/shared/L00_002E5918.c |2|20|\n| src/levels/shared/L01_002A7248.c |1|64|\n| src/levels/shared/L05_003008C0.c |12|316|\n| src/levels/shared/L00_00358D98.c |1|16|\n| src/levels/00_aranos_tutorial/L00_003D54A8.c |7|252|\n| src/levels/08_tabora/L08_002D90C8.c |7|520|\n\nSession-start master 352712d: 1752/9101 functions, 168912/5538056 bytes (3.05%). Reconciled master f784435: 1938 functions, 185256 bytes (3.35%). Final: 1968 functions, 186444 bytes (3.37%). The 186 intervening upstream matches and 16344 bytes are not batch credit. No duplicates were dropped.\n\nRetain 11 useful near misses in nonmatching with markers restored; none is linked or counted. The two vector-copy near miss",
+      "mergedAt": "2026-10-12T20:26:06Z"
+     },
+     {
+      "number": 159,
+      "title": "feat(src): 259 level functions from a 49-worker wave",
+      "author": "llesieur99",
+      "untrustedBody": "Two hundred and fifty-nine level functions across 75 files, matched by 49 workers running in parallel, one unit each (19 to 35 targets per worker, bounded at 18 functions or 150 minutes). Twenty-five of the files are new `-g8` siblings carrying the small-data members, with their markers taken out of the originals. Bodies run from 4 to ~400 bytes; the biggest units are `L11_003D6270.c` 10, `L23_0035CE90.c` 9 (2 in -g8), `L00_0033F678.c` 9, `L02_0040A4A8.c` 8, `L03_00399230.c` 8 (1 in -g8), `L06_00458138.c` 8, `L08_003D8348.c` 8 (in -g8), `L13_00306F38.c` 8, `L00_004224D0.c` 8.\n\nOne body is deliberately not landed and went to `nonmatching/levels/func_L00_00424BB8.c` with a row in the README table: it is exact in 23 of its 27 places, and in `16_snivelak`, `22_dobbo_orbit`, `23_damosel_orbit` and `26_jamming_array` retail holds other constants (`+0x20`/`+0x1C`/`+0x20` against `+0x60`/`+0xE4`/`+0xE8`), so no one source form reaches every place and the placement drops the body everywhere. Wo",
+      "mergedAt": "2026-10-12T20:49:03Z"
+     },
+     {
+      "number": 160,
+      "title": "chore(nonmatching): preserve 160 bounded attempts from the six agent waves",
+      "author": "llesieur99",
+      "untrustedBody": "The six waves of workers that landed 521 functions in `src/` (PRs #149, #151, #153, #155, #156 and #159) left attempts that did not match at every place. `AGENTS.md` and `docs/AGENT_WORKFLOW.md` say what a bounded attempt leaves behind: its C in `nonmatching/<area>/<func>.c`, the `INCLUDE_ASM` marker back in `src/`, and a line in the README saying how far it got and what was tried. This branch does that, instead of leaving the attempts in a scratch directory.\n\n- 154 files under `nonmatching/levels/` and `nonmatching/game/`, each with the worker's own note at the top and the closest C below it;\n- six bodies that are exact but that the build refuses (`needs .rodata at its place, which is not C`), listed with the bodies that link at some of their places only, the way `func_L00_002B1308` already was;\n- one attempt per function: the nine functions the earlier Haiku trial had already preserved are left untouched;\n- a new README section, \"Level functions from the six agent waves (2026-10-12)\"",
+      "mergedAt": "2026-10-12T21:19:05Z"
+     },
+     {
+      "number": 161,
+      "title": "docs(AGENTS): say which language the repository writes in",
+      "author": "llesieur99",
+      "untrustedBody": "The rules covered sources, Plain C, flags per file, compiler output and game data, but not the language the repository writes in. This adds it: everything that lands here is in English - code, comments, commit messages, issues, pull requests, reviews, and the notes kept in `nonmatching/`.\n\nIt came up on 2026-10-13: issue #157 gained a set of wall entries that quoted worker notes in French. That issue has been rewritten in English, and the `nonmatching/` notes left by the six agent waves are being translated the same way.\n\nChecked: `python3 -m unittest discover -s tests` (20 tests) pass. A documentation change only; no `src/` file is touched. Not run: nothing else.",
+      "mergedAt": "2026-10-12T22:23:37Z"
+     },
+     {
+      "number": 162,
+      "title": "docs(AGENTS): the language rule says what it says",
+      "author": "llesieur99",
+      "untrustedBody": "The aside about private conversation has no place in a rule about what the repository publishes.\n\n## What\n\n<!-- The functions matched or the change made, and why. -->\n\n## Checked\n\n<!-- The commands you ran and what they printed, e.g. `tools/build.py all`: 28 programs OK;\nhow many functions this adds (leave `progress/report.json` and the README table out: they are regenerated on master). Say what you did not run. -->",
+      "mergedAt": "2026-10-12T22:26:37Z"
+     },
+     {
+      "number": 163,
+      "title": "fix(src): take the qcopy bodies back out, the Plain C rule forbids them",
+      "author": "llesieur99",
+      "untrustedBody": "Eighteen bodies that had been landed in the agent waves call `qcopy`/`qzero` from `include/common.h`. Those helpers are inline assembly, and AGENTS.md's \"Plain C\" rule - no inline assembly in a function - rules that out as a matching route; `docs/COMPILER-NOTES.md` states it in as many words. They build, but they are not legitimate matches, so they go back to assembly here: `L07_003F4578.c` 4, `L03_00399230.c` 2, `L00_003EE100.c` 2, `L00_003FFA70.c` 2, and one each in `L05_00314E28.c`, `L06_00458138.c`, `L11_00453358.c`, `L16_00403900.c`, `L19_003E9400.c`, `L00_003B3158.c`, `L00_003E3258.c`.\n\nEach body is kept in `nonmatching/` with a note saying why it cannot land, and the README gains a section for them: the shape is right, and only the 128-bit copies need a plain-C spelling that `mode(TI)` and the aggregate forms have not given yet. The markers are back in place, in their address order.\n\nOne body paid for the change, and it is worth knowing: `func_L07_003F8BB0`, plain C, matched at ",
+      "mergedAt": "2026-10-12T22:32:18Z"
+     },
+     {
+      "number": 164,
+      "title": "feat(src): level functions from the seventh wave, twenty units in parallel",
+      "author": "llesieur99",
+      "untrustedBody": "Twenty level units matched at once, one worker each (bounded at 18 functions or 150 minutes per unit, as docs/AGENT_WORKFLOW.md describes). The units are the twenty level files with the most unmatched functions; every body was checked with `tools/check.py` at every place and then by the full build.\n\n**What the batch measured, and it is now written into #157:**\n\n- **The `sda` lever, confirmed independently by four workers.** Read the retail column first, then pick the profile: `lui $r,%hi` (absolute) means staying in the `-G0` file with `__attribute__((sda))` on the symbol - gas then folds `%hi/%lo` into the destination register and the emission order falls into place; `off($gp)` means the `-g8` sibling. It moves the register *and* the order, where rewording the C does not: four spellings of one body produced strictly identical bytes. Its precondition was measured too: the attribute helps only when the symbol is read by that body alone - on a shared symbol it moved an already integrated",
+      "mergedAt": "2026-10-12T22:57:45Z"
+     },
+     {
+      "number": 165,
+      "title": "docs(nonmatching): the wave notes in English, as the rules now ask",
+      "author": "llesieur99",
+      "untrustedBody": "AGENTS.md gained the language rule in #161: everything that lands in the repository is in English, and it says the notes kept in `nonmatching/` are published material and follow the same rule. Thirty of the notes left by the six agent waves were still in the language their worker thought in - this translates them.\n\nThe prose is translated, the data is not: every register name, offset, byte count, instruction name and measured claim stays exactly as it stood, because those notes are the evidence behind each entry. Nothing else is touched - no C body, no detail added or dropped, and the files whose note was already in English are left alone.\n\nChecked: `python3 -m unittest discover -s tests` (20 tests) and `tests/check_repository.py` pass, and a script compares every changed file's bytes below its leading comment against the committed revision, byte for byte: no difference. Not run: `tools/build.py all`, which `nonmatching/` does not take part in.",
+      "mergedAt": "2026-10-12T23:29:18Z"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [
+     {
+      "number": 152,
+      "title": "Reservation: level units being matched by an agent - Contributor coordination",
+      "author": "llesieur99"
+     },
+     {
+      "number": 157,
+      "title": "Archived: matching blocker notes moved to the shared document",
+      "author": "llesieur99"
+     }
+    ],
+    "closed": [
+     {
+      "number": 65,
+      "title": "[Reservation] ThorpenCodes: 5 function(s)",
+      "author": "ThorpenCodes"
+     },
+     {
+      "number": 67,
+      "title": "[Reservation] ThorpenCodes: 1 function(s)",
+      "author": "ThorpenCodes"
+     },
+     {
+      "number": 81,
+      "title": "[Reservation] liolu: 3 function(s)",
+      "author": "liolu"
+     },
+     {
+      "number": 98,
+      "title": "[Reservation] ThorpenCodes: 3 function(s)",
+      "author": "ThorpenCodes"
+     },
+     {
+      "number": 100,
+      "title": "Register USA v2.00 (SCUS_972.68, boot SHA-256 64dbf0d4…) as a reservation reference",
+      "author": "Lynder063"
+     },
+     {
+      "number": 101,
+      "title": "[Reservation] ThorpenCodes: 1 function(s)",
+      "author": "ThorpenCodes"
+     },
+     {
+      "number": 102,
+      "title": "[Reservation] ThorpenCodes: 1 function(s)",
+      "author": "ThorpenCodes"
+     },
+     {
+      "number": 105,
+      "title": "[Reservation] ThorpenCodes: 1 function(s)",
+      "author": "ThorpenCodes"
+     },
+     {
+      "number": 106,
+      "title": "[Reservation] ThorpenCodes: 1 function(s)",
+      "author": "ThorpenCodes"
+     },
+     {
+      "number": 116,
+      "title": "[Reservation] ThorpenCodes: 1 function(s)",
+      "author": "ThorpenCodes"
+     },
+     {
+      "number": 117,
+      "title": "[Reservation] ThorpenCodes: 1 function(s)",
+      "author": "ThorpenCodes"
+     },
+     {
+      "number": 118,
+      "title": "[Reservation] ThorpenCodes: 1 function(s)",
+      "author": "ThorpenCodes"
+     },
+     {
+      "number": 119,
+      "title": "[Reservation] ThorpenCodes: 1 function(s)",
+      "author": "ThorpenCodes"
+     },
+     {
+      "number": 120,
+      "title": "[Reservation] ThorpenCodes: 1 function(s)",
+      "author": "ThorpenCodes"
+     },
+     {
+      "number": 121,
+      "title": "[Reservation] ThorpenCodes: 1 function(s)",
+      "author": "ThorpenCodes"
+     },
+     {
+      "number": 122,
+      "title": "[Reservation] ThorpenCodes: 1 function(s)",
+      "author": "ThorpenCodes"
+     },
+     {
+      "number": 123,
+      "title": "[Reservation] ThorpenCodes: 1 function(s)",
+      "author": "ThorpenCodes"
+     },
+     {
+      "number": 124,
+      "title": "[Reservation] ThorpenCodes: 1 function(s)",
+      "author": "ThorpenCodes"
+     },
+     {
+      "number": 125,
+      "title": "[Reservation] ThorpenCodes: 1 function(s)",
+      "author": "ThorpenCodes"
+     },
+     {
+      "number": 126,
+      "title": "[Reservation] ThorpenCodes: 1 function(s)",
+      "author": "ThorpenCodes"
+     },
+     {
+      "number": 127,
+      "title": "[Reservation] ThorpenCodes: 1 function(s)",
+      "author": "ThorpenCodes"
+     },
+     {
+      "number": 128,
+      "title": "[Reservation] ThorpenCodes: 1 function(s)",
+      "author": "ThorpenCodes"
+     },
+     {
+      "number": 129,
+      "title": "[Reservation] ThorpenCodes: 1 function(s)",
+      "author": "ThorpenCodes"
+     },
+     {
+      "number": 130,
+      "title": "[Reservation] ThorpenCodes: 1 function(s)",
+      "author": "ThorpenCodes"
+     },
+     {
+      "number": 131,
+      "title": "[Reservation] ThorpenCodes: 1 function(s)",
+      "author": "ThorpenCodes"
+     },
+     {
+      "number": 132,
+      "title": "[Reservation] ThorpenCodes: 1 function(s)",
+      "author": "ThorpenCodes"
+     },
+     {
+      "number": 133,
+      "title": "[Reservation] ThorpenCodes: 1 function(s)",
+      "author": "ThorpenCodes"
+     },
+     {
+      "number": 134,
+      "title": "[Reservation] ThorpenCodes: 1 function(s)",
+      "author": "ThorpenCodes"
+     },
+     {
+      "number": 138,
+      "title": "[Reservation] Lynder063: 5 function(s)",
+      "author": "Lynder063"
+     },
+     {
+      "number": 143,
+      "title": "[Reservation] ThorpenCodes: 1 function(s)",
+      "author": "ThorpenCodes"
+     }
+    ]
+   },
+   "releases": [],
+   "progress": {
+    "before": null,
+    "after": {
+     "code": {
+      "done": 245812,
+      "total": 5538056
+     },
+     "functions": {
+      "done": 2438,
+      "total": 9101
+     }
+    }
+   },
+   "contributors": [
+    "llesieur99",
+    "ThorpenCodes",
+    "Veradictus"
+   ]
+  },
+  {
+   "repo": "rac3-decomp",
+   "title": "Up Your Arsenal",
+   "branches": [
+    {
+     "name": "master",
+     "commits": []
+    }
+   ],
+   "commitCount": 0,
+   "pullRequests": {
+    "merged": [],
+    "opened": []
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": null,
+   "contributors": []
+  },
+  {
+   "repo": "rac4-decomp",
+   "title": "Ratchet: Deadlocked",
+   "branches": [
+    {
+     "name": "main",
+     "commits": [
+      {
+       "sha": "2b6f5657470603356ba80f5b2ed3620ba587238d",
+       "title": "Merge pull request #2 from OpenRAC/unify-structure",
+       "author": "Lynder063",
+       "date": "2026-10-12T06:58:13Z"
+      }
+     ]
+    }
+   ],
+   "commitCount": 1,
+   "pullRequests": {
+    "merged": [
+     {
+      "number": 2,
+      "title": "Unify the repository with rac1-decomp: layout, licence, docs, agent queue",
+      "author": "Lynder063",
+      "untrustedBody": "Brings rac-deadlocked-decomp in line with rac1-decomp, the reference layout for the OpenRAC decompilations, and ports rac1's agent queue.\n\n## Commits\n\n- **Relicense under GPL-3.0**, like rac1-decomp and rac2-gc-decomp. libgcc and libm keep their own notices.\n- **Overlay sources and near misses laid out like rac1:** `src/overlays/shared/` holds code in two or more levels (48 files) and `src/overlays/lNN_<level>/` code in one level (29 files). Near misses go to `nonmatching/<area>/func_X.c`, with a README generated by `tools/nonmatching.py`. `tools/layout.py` is the one place that knows where each function lives.\n- **Container and CI fixes:** adds the Dockerfile that `tools/docker/run.sh` falls back to (it was missing). Fixes a `cc.sh` temp-file name collision between parallel compiles, the CI step wording, a wrong flag in a docstring, and a stale `.recomp.json`.\n- **rac1's agent queue ported:** `tools/wave.py` (plan, claim, status, land, stage), `tools/try_func.py`, `tools/claims.py`, `",
+      "mergedAt": "2026-10-12T06:58:14Z"
+     }
+    ],
+    "opened": [
+     {
+      "number": 2,
+      "title": "Unify the repository with rac1-decomp: layout, licence, docs, agent queue",
+      "author": "Lynder063",
+      "untrustedBody": "Brings rac-deadlocked-decomp in line with rac1-decomp, the reference layout for the OpenRAC decompilations, and ports rac1's agent queue.\n\n## Commits\n\n- **Relicense under GPL-3.0**, like rac1-decomp and rac2-gc-decomp. libgcc and libm keep their own notices.\n- **Overlay sources and near misses laid out like rac1:** `src/overlays/shared/` holds code in two or more levels (48 files) and `src/overlays/lNN_<level>/` code in one level (29 files). Near misses go to `nonmatching/<area>/func_X.c`, with a README generated by `tools/nonmatching.py`. `tools/layout.py` is the one place that knows where each function lives.\n- **Container and CI fixes:** adds the Dockerfile that `tools/docker/run.sh` falls back to (it was missing). Fixes a `cc.sh` temp-file name collision between parallel compiles, the CI step wording, a wrong flag in a docstring, and a stale `.recomp.json`.\n- **rac1's agent queue ported:** `tools/wave.py` (plan, claim, status, land, stage), `tools/try_func.py`, `tools/claims.py`, `",
+      "mergedAt": "2026-10-12T06:58:14Z"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [],
+    "closed": [
+     {
+      "number": 1,
+      "title": "What about the last two ratchet and clank ps2 versions for decomp??",
+      "author": "romildolisboa4-netizen"
+     }
+    ]
+   },
+   "releases": [],
+   "progress": {
+    "before": {
+     "code": {
+      "done": 26572,
+      "total": 5175440
+     },
+     "functions": {
+      "done": 243,
+      "total": 15056
+     }
+    },
+    "after": {
+     "code": {
+      "done": 26572,
+      "total": 5175440
+     },
+     "functions": {
+      "done": 243,
+      "total": 15056
+     }
+    }
+   },
+   "contributors": [
+    "Lynder063"
+   ]
+  },
+  {
+   "repo": "openrac-mods",
+   "title": "OpenRAC mods",
+   "branches": [
+    {
+     "name": "master",
+     "commits": []
+    }
+   ],
+   "commitCount": 0,
+   "pullRequests": {
+    "merged": [],
+    "opened": []
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": null,
+   "contributors": []
+  }
+ ]
+}

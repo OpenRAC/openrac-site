@@ -1,0 +1,24 @@
+{
+ "format": 1,
+ "week": "2026-W44",
+ "author": "Lynder063",
+ "tool": "Claude Code",
+ "headline": "Ratchet & Clank reaches 100% matched",
+ "summary": "The first game is fully matched (rac1-decomp#135), and Going Commando rose to 84.74% (rac2-decomp#100). The launcher gained install links (OpenRAC#161). <script>window.__pwned=1</script> unknown#7 stays plain.",
+ "projects": {
+  "rac1-decomp": {
+   "headline": "All functions matched",
+   "summary": "The last 11 functions landed in #135.",
+   "highlights": [
+    "Counting fix: three functions are now counted (#135)."
+   ]
+  },
+  "OpenRAC": {
+   "headline": "Launcher 0.10.0",
+   "summary": "A mod list arrives in development (#161).",
+   "highlights": [
+    "Reported: players asked for rebinding (#250)."
+   ]
+  }
+ }
+}

@@ -1,0 +1,1244 @@
+{
+ "format": 1,
+ "date": "2026-10-29",
+ "totals": {
+  "commits": 65,
+  "pullRequestsMerged": 37,
+  "pullRequestsOpened": 37,
+  "contributors": 14
+ },
+ "projects": [
+  {
+   "repo": "OpenRAC",
+   "title": "OpenRAC launcher",
+   "branches": [
+    {
+     "name": "develop",
+     "commits": [
+      {
+       "sha": "c6adc0d7d91cb028ba660443d85bf39ac9b57e3d",
+       "title": "Enhanced rendering, environment reflections and playable probe placement (#119)",
+       "author": "pezzadev",
+       "date": "2026-10-29T20:37:07Z"
+      },
+      {
+       "sha": "5d778574e13b6850d46971eb3a9227a3b28e8cb4",
+       "title": "fix(port): Exit and the player's language survive Quit Game (#126)",
+       "author": "mateuszklysz",
+       "date": "2026-10-29T20:32:22Z"
+      },
+      {
+       "sha": "25dfc9aa8f2eb439152c39d92a0a2921cf2645a1",
+       "title": "style(port): lay out two new lines as clang-format does and drop stale getenv exceptions (#125)",
+       "author": "mateuszklysz",
+       "date": "2026-10-29T16:59:46Z"
+      },
+      {
+       "sha": "0a9b904cfc9dddbdb2584015627d0a940ac06e6d",
+       "title": "fix(port): Exit leaves and returns with Options like the game's rows (#124)",
+       "author": "mateuszklysz",
+       "date": "2026-10-29T11:54:38Z"
+      },
+      {
+       "sha": "93ac55840d395e37400ef725ed4bd9b07af2de5b",
+       "title": "feat(port): optional fresh pad input and low-latency frames (#122)",
+       "author": "mateuszklysz",
+       "date": "2026-10-29T10:35:46Z"
+      },
+      {
+       "sha": "980c98cb8e325f197d7ff45169bcd57b59a4e0ed",
+       "title": "fix(port): Exit on the NTSC main menu, save overwrite prompt, black loading screens (#121)",
+       "author": "mateuszklysz",
+       "date": "2026-10-29T10:34:46Z"
+      },
+      {
+       "sha": "9161f193f402eabad2a240edb66a7a61e00b1b23",
+       "title": "fix(rac1): a co-op figure's glove opens and throws with its hand (#120)",
+       "author": "Veradictus",
+       "date": "2026-10-29T06:35:05Z"
+      },
+      {
+       "sha": "bd3e1422dc6368d21f046bad1c98dd578a77f65c",
+       "title": "fix(sdk): the templates pin 1.10.1, as the packager requires (#118)",
+       "author": "Veradictus",
+       "date": "2026-10-29T05:41:18Z"
+      },
+      {
+       "sha": "c3a4e3df964eb5e9d1bf5dd8afe77a6e5796f157",
+       "title": "chore(sdk): 1.10.1, the first SDK with Android native mods (#117)",
+       "author": "Veradictus",
+       "date": "2026-10-29T05:03:55Z"
+      },
+      {
+       "sha": "24d9713408354b1cf123b649f8c502262bcc4184",
+       "title": "fix(port): never draw the world from an unusable camera (#114)",
+       "author": "Veradictus",
+       "date": "2026-10-29T04:34:41Z"
+      },
+      {
+       "sha": "61356f1d8e8cd6206d9b963b4ebcc8227985da05",
+       "title": "style(port): lay out the background colour and sky texture lines as clang-format 21.1.8 does (#112)",
+       "author": "Veradictus",
+       "date": "2026-10-29T04:32:44Z"
+      },
+      {
+       "sha": "79349f23ea40496d969dca03adb1b0e99063e7b3",
+       "title": "fix(launcher): the development channel follows develop (#111)",
+       "author": "Veradictus",
+       "date": "2026-10-29T04:32:37Z"
+      },
+      {
+       "sha": "fb740d63b0d28da895c3941b1fffabdc762aec28",
+       "title": "fix(rac1): drones and Novalis sparks, matched C backfills, Exit item, native mods on Android (#110)",
+       "author": "mateuszklysz",
+       "date": "2026-10-29T04:32:29Z"
+      },
+      {
+       "sha": "d721f907d2b08f979c1399e0b2a7e69bb484b240",
+       "title": "fix(port/rac1-ntsc): give FUN_0020db40's places one C, the grid's own (#109)",
+       "author": "Veradictus",
+       "date": "2026-10-29T03:19:33Z"
+      },
+      {
+       "sha": "9954a3bdd24c8edd5dbbfe2c0401268a8c6b47e4",
+       "title": "fix(rac1): the level's background colour, and sky textures and export for modding (#108)",
+       "author": "Veradictus",
+       "date": "2026-10-29T03:19:30Z"
+      },
+      {
+       "sha": "1e8a51f6c8e674e8dcca8330209902b548237528",
+       "title": "feat(launcher): one status panel for the level editor (#107)",
+       "author": "Veradictus",
+       "date": "2026-10-29T03:19:26Z"
+      },
+      {
+       "sha": "d17b9592ca059da53f8bb006f1a81cb589b71544",
+       "title": "chore(import): sync rac1/pal to rac1-decomp 0f0bfcfe (#106)",
+       "author": "Veradictus",
+       "date": "2026-10-29T02:06:06Z"
+      },
+      {
+       "sha": "fdb240ac673b2ef550f0b421210068a67168bfb5",
+       "title": "feat(launcher): start the level editor over from the Mods page (#105)",
+       "author": "Veradictus",
+       "date": "2026-10-29T01:49:45Z"
+      },
+      {
+       "sha": "6ed0431b1e2378b1ec4f81879cc1022bdfddf820",
+       "title": "feat(editor): add ship destinations and cross-level static imports (#104)",
+       "author": "Veradictus",
+       "date": "2026-10-29T01:49:41Z"
+      },
+      {
+       "sha": "4957af90badb193ea2f15fb2038e665490d7d37d",
+       "title": "feat(sdk): add persistent RAC1 savestate support (#103)",
+       "author": "Veradictus",
+       "date": "2026-10-29T01:49:37Z"
+      },
+      {
+       "sha": "27bf3ef6c4a1ea38a594eb5a0a60ff53ab0f91c0",
+       "title": "fix(editor): preserve typed pvar edits in installed builds (#100)",
+       "author": "llesieur99",
+       "date": "2026-10-29T01:11:40Z"
+      },
+      {
+       "sha": "4fce08ca47ce0374930fd8de424b126dff5692e3",
+       "title": "feat: RAC1 online co-op: SDK interface 1.9, the port's play and world calls (#99)",
+       "author": "Veradictus",
+       "date": "2026-10-29T01:10:49Z"
+      }
+     ]
+    },
+    {
+     "name": "master",
+     "commits": []
+    }
+   ],
+   "commitCount": 22,
+   "pullRequests": {
+    "merged": [
+     {
+      "number": 99,
+      "title": "Co-op sweep: the world under menus, deaths reported (mod interface 1.9)",
+      "author": "Veradictus",
+      "untrustedBody": "The co-op mod's sanity sweep found that pausing in one game despawned mobys in the other: the pause menu swaps the game's moby array for its own (`select_moby_context`), so the world calls read the pause menu's mobys, and the mod took the level's for gone. This fixes the port side and adds what the mod needs so that a menu never stops or empties a party's world.\n\n**Port (rac1, PAL and NTSC-U)**\n- The world calls always address the level's own mobys. While the pause menu's context is up they read the level's array from where the game keeps it aside (`alt_moby_array_start` and its end), and they put the level's context up around `CreateMoby`/`DeleteMoby`.\n- The gate, the hits and the stand-in leave the pause menu's own mobys alone.\n- A placed moby the game deleted (state 0xFD) is listed with `OPENRAC_MOBY_DEAD`.\n- While a mod asks for it, the pause menu's tick (`update_pause_menu`) and the freeze dialogs' (`update_mode_freeze`) are wrapped to update the level's mobys first, in the level'",
+      "mergedAt": "2026-10-29T01:10:50Z"
+     },
+     {
+      "number": 100,
+      "title": "fix(editor): ship typed pvar layouts with installed tools",
+      "author": "llesieur99",
+      "untrustedBody": "Replaces #94 after rebuilding on the current master history.\n\nTyped pvar edits could work in a source checkout but be ignored by installed editor tools, which do not carry the decompilation headers used by `class_layouts()`. Generate validated data-only layouts during desktop and Android bundling and load them when headers are absent. Source checkouts continue to use their headers. Invalid packaged definitions fail explicitly instead of becoming a cached empty layout.\n\nAlso ignore the inherited descriptive class metadata Godot saves on instances, while preserving validation of gameplay fields. This fixes the installed-tools defect without changing PAL's existing 60 Hz gameplay selection. Novalis's historical `moveSpeed` field stores travel duration, so larger values make the platform slower.\n\nRebuilt as a focused seven-file patch on current master after the history rewrite; independent of the creator-map framework in #101.\n\n### Fresh validation\n\n- Linux editor suite: 364 tests, 3 expec",
+      "mergedAt": "2026-10-29T01:11:41Z"
+     },
+     {
+      "number": 103,
+      "title": "feat(sdk): add persistent RAC1 savestate support",
+      "author": "Veradictus",
+      "untrustedBody": "Lands #102 by `ReaperOfVeriod` with conflicts resolved against develop.\n\n- Its desktop menu calls (`developer_menu`, `take_developer_menu_action`, `developer_menu_set_label`) are interface 1.10, appended after 1.9's world and play calls (`moby_run` stays the last 1.9 member). `sdk/VERSION` and the templates' `sdk.lock` say 1.10.0.\n- `mods.cpp`, `options_menu.h` and `docs/port/MODS.md` keep both sides: the pause items of 1.9 and the developer menus and snapshot restore of 1.10.\n- `sdk/docs/reference/c-api.md` regenerated.",
+      "mergedAt": "2026-10-29T01:49:38Z"
+     },
+     {
+      "number": 104,
+      "title": "feat(editor): add ship destinations and cross-level static imports",
+      "author": "Veradictus",
+      "untrustedBody": "Lands #101 by `llesieur99` with conflicts resolved against develop.\n\n- `port/game/common/debug_overlay.cpp`: keeps develop's `mods.h` (the play notice hides the overlay badge) and the PR's `openrac/game_host.h` (level names from the game's descriptor).",
+      "mergedAt": "2026-10-29T01:49:42Z"
+     },
+     {
+      "number": 105,
+      "title": "feat(launcher): start the level editor over from the Mods page",
+      "author": "Veradictus",
+      "untrustedBody": "Players had no way to throw away old level data or extract the levels again from the launcher. This adds a **Start over** panel at the bottom of the Mods page's **Level editor** tab, with two buttons. Each one asks first, in a dialog that lists what gets deleted (with sizes) and what is kept.\n\n**Read the levels again**\n- Deletes: the game's copy of the levels (`assets/port/<game>/<disc>` or `<data>/port/<disc>`, along with its `levels-N.json`/`verified-N.json` stamps and visibility data) and the enhanced lighting baked from it (`<data>/probes/<disc>`).\n- Then runs `port-levels` and `port-levels-visibility` straight away. The check runs at the next Play, as before.\n- Keeps: Godot projects, packed levels, imported edits and packs, exports, saves.\n\n**Reset the level editor**\n- Deletes: the Godot projects for that disc (`assets/levels/<game>/<disc>` or `<data>/levels/<disc>`, including `.godot/` and any changes that were never packed) and the exported models and textures (`<data>/exports`)",
+      "mergedAt": "2026-10-29T01:49:46Z"
+     },
+     {
+      "number": 106,
+      "title": "chore(import): sync rac1 to rac1-decomp 0f0bfcfe, NTSC at its pin 8a5972b3",
+      "author": "Veradictus",
+      "untrustedBody": "Brings `games/rac1` (PAL) up to rac1-decomp `0f0bfcfe` (`06eeb2af..0f0bfcfe`, 14 commits, #147–#160: typed pause, menu and memory-card state, MenuScreen callbacks, ObjectRenderClass, hero and camera structs, particle structs, `TrespasserPuzzleVars`). The three-way sync applied every hunk cleanly, with no `.rej`. OpenRAC's own edits to the tree (the 38 files listed in docs/SOURCES.md) are byte-for-byte what they were before the sync.\n\nrac1/ntsc: already at the NTSC decomp pin that rac1-decomp records (`config/versions/us/ntsc_decomp.txt`: `8a5972b3`). Compared with the pinned tree, `games/rac1/ntsc` differs only by the C patches in `OPENRAC_PATCHES.md`, `host/`, `config/us/port_*` and the documented README, CONTRIBUTING, commit-message and license-credit edits. Nothing to import.\n\nThe port needed no changes. The refactor renames types, fields and locals only; the symbol tables in `config/` don't change. None of the 99 identifiers it removes is named by the host C, `hostgen.json`, `libra",
+      "mergedAt": "2026-10-29T02:06:06Z"
+     },
+     {
+      "number": 107,
+      "title": "feat(launcher): one status panel for the level editor",
+      "author": "Veradictus",
+      "untrustedBody": "The Level editor tab is now one panel that says where the player is and offers the one next step, finds out by itself when something changed, and never shows a tool's raw output.\n\n**One status panel** (`EditorFlow.svelte`, states and words in `lib/editorFlow.ts`)\n\n| State | Main button |\n|---|---|\n| No disc / no Godot | Set up the disc / Get Godot |\n| No levels yet | Read the levels and open |\n| Ready to edit | Open in Godot |\n| Changes to pack (names the levels) | Pack your changes |\n| Packed | Play with your edits (turns Mods on, goes to the game) |\n| Packed for another version | Pack again |\n| Needs an update | Update project |\n| Files missing | Repair (backs up, reads again) |\n\nStart over (from #105) is the \"Troubleshoot and start over\" fold at the bottom; error cards point to it. `reset.rs` and its safety rules are unchanged.\n\n**Detected automatically** (`core/src/editor_state.rs`), when the tab opens, the window regains focus and every editor job ends: outdated projects (older sc",
+      "mergedAt": "2026-10-29T03:19:27Z"
+     },
+     {
+      "number": 108,
+      "title": "fix(rac1): the level's background colour, and sky textures and export for modding",
+      "author": "Veradictus",
+      "untrustedBody": "A player set the RC1 Background colour in LevelSettings and saw no change, while fog changed fine. Two things were going on.\n\n**The port ignored the colour.** The game reads it from the level settings at load (`level_gameplay_loading.c` → `SetBackgroundColor` → the frame clear's RGBAQ), but `scene_frame.cpp` cleared to `level.background` from the manifest, which was the sky header's +0 word the game never uses (0 on 14 of 19 levels). `host::GameState` now reads the colour from the view context each frame, like fog, and the clear uses it; the extracted colour stays the fallback for other games.\n\n**It isn't the sky colour.** It is the colour behind the sky. On 15 of 19 PAL levels the first sky shell is an opaque, vertex-coloured dome that covers it; it shows on Rilgar and Umbris, and below the horizon on Orxon and Quartu. The editor README now says so, the sky panorama and manifest take the settings' colour, and packing refuses values outside 0–255 (`SetBackgroundColor` ORs them unmasked",
+      "mergedAt": "2026-10-29T03:19:31Z"
+     },
+     {
+      "number": 109,
+      "title": "fix(port/rac1-ntsc): give FUN_0020db40's places one C, the grid's own",
+      "author": "Veradictus",
+      "untrustedBody": "NTSC logged \"two functions at … in overlay N: FUN_0020db40 and func_0020DB40; keeping the first\" for overlays 12 to 18 and the executable.\n\nThe NTSC catalogue folds `FUN_0020db40` (the moby grid's block free) with its level copies, and two C functions claimed those places: the grid's own `func_0020DB40` in `hand/game_moby_grid.c`, which the grid updater calls, and a carry of PAL's level copy `func_L00_00251A78` (in `hand/functional/`) that hard-wires level 0's bitmap even when the executable's program runs it. This keeps the grid's own, as `func_0020DBA0` already serves `FUN_0020dba0`, and drops the carried copy with its rows in `hand.tsv`, `allow.tsv` and `fcheck.tsv`. Only the table calls that address, so play does not change; the address table loses its 20 duplicates.\n\n`openrac-rac1-ntsc` builds; `rac1-ntsc_call_abi`, `rac1-ntsc_host_table`, `rac1-ntsc_hand_xcheck` and `xcheck_tool` pass; xcheck 168 rows, 0 unexplained.",
+      "mergedAt": "2026-10-29T03:19:34Z"
+     },
+     {
+      "number": 110,
+      "title": "fix(rac1): drones and Novalis sparks, matched C backfills, Exit item, native mods on Android",
+      "author": "mateuszklysz",
+      "untrustedBody": "## Description\n\n## Fixes\n- **hostgen:** a local the decompiled C leaves unset now starts at zero. Clang -O2 deleted code that read such locals: the Drone Device spent ammo and made no drones (NTSC and PAL), and Novalis' sparks piled up at Ratchet's feet as a white orb. Clears all 44 NTSC and 13 PAL uninitialized-use warnings in the generated C.\n- **rac1-ntsc:** the held item is posed on the US disc; Lombyte's start_scene runs and stale drafts are gone; emit_rgba_draw_packet named for the Hoven turret fade; PAL's corrected C for three carried functions.\n- **rac1:** the follow camera, FindMobyByDataId and the wrench trail run the matched C instead of the port's own.\n\n## Features\n- **Exit item** in the main menu and the pause menu, with a Yes/No question in the game's five languages.\n- **Native mods on Android:** new `android-arm64` platform in the game, launcher and SDK; the SDK template's workflow (and sdk.yml) builds it with the NDK. A mod shows as not built for Android until its next ",
+      "mergedAt": "2026-10-29T04:32:30Z"
+     },
+     {
+      "number": 111,
+      "title": "fix(launcher): the development channel follows develop",
+      "author": "Veradictus",
+      "untrustedBody": "`master` is now only updated by release pull requests, so the development channel, which followed `launcher-dev-master`, trailed `develop`'s work by a whole release (its last build is from 2026-10-19).\n\n- `DEV_BRANCH` is `develop` (`launcher/core/src/update.rs`), and OpenRAC's own launcher on the development channel always resolves to `launcher-dev-develop`, so launchers built from master move over at their next update check. Forks still follow the branch they were built from.\n- `launcher.yml` builds on pushes to `develop` as well as `master`, so `launcher-dev-develop` exists.\n- Stable is unchanged: the latest release (tagged on `master`); SDK releases are published with `--latest=false` and don't take it.\n- `launcher/docs/RELEASING.md`: the release pull request from `develop` and the tag on `master`; the preview's mock data says `develop`.\n\nTests: new channel tests for the move from master to develop; launcher core 273 pass, clippy clean; `yarn verify` 203 pass.",
+      "mergedAt": "2026-10-29T04:32:37Z"
+     },
+     {
+      "number": 112,
+      "title": "style(port): lay out #108's lines as clang-format 21.1.8 does",
+      "author": "Veradictus",
+      "untrustedBody": "#108's `checks` job failed on Port conventions: clang-format 21.1.8 lays out six of its changed lines differently (`scene_frame.cpp`, `game_state.cpp`, `level.cpp`, `viewer_test.cpp`). Only those lines are reformatted (git-clang-format against develop before #108); CI's strict check (`check_conventions.py --since … --touched --strict-touched`) passes. The stale `GETENV_EXCEPTIONS` lines in that log are advisories older than #108.",
+      "mergedAt": "2026-10-29T04:32:44Z"
+     },
+     {
+      "number": 114,
+      "title": "fix(port): never draw the world from an unusable camera",
+      "author": "Veradictus",
+      "untrustedBody": "A player sent a screenshot of a black screen crossed by a few long coloured lines around a ship trip (NTSC-U, 0.9.0) and a log that shows nothing unusual. It could not be reproduced: Start at about 50 points across take-offs, flights and landings, F5/F6, the pause menu and quitting to the title all kept a good camera, and replaying 0.9.0's ship departure without #96 (in that build, not on develop) froze the camera in a normal-looking place, not black. The picture fits a camera inside closed geometry (a ship) or a degenerate one.\n\nSo the renderer now refuses an unusable camera and says so:\n- `usable_camera()` / `usable_view()` (`frontend/geometry.{h,cpp}`) refuse non-finite values, an eye more than 1e6 from the origin, forward or up of length outside 0.5–2 or nearly parallel, a view that isn't a rotation, and a projection that doesn't look ahead.\n- `scene_frame.cpp` uses the last good camera instead; with none yet, no world is drawn (the HUD still is). Both GL and Vulkan take their came",
+      "mergedAt": "2026-10-29T04:34:41Z"
+     },
+     {
+      "number": 117,
+      "title": "chore(sdk): 1.10.1, the first SDK with Android native mods",
+      "author": "Veradictus",
+      "untrustedBody": "SDK 1.10.0 was tagged before #110 added the `android-arm64` platform. This bumps `sdk/VERSION` to 1.10.1 so its tag (`sdk-v1.10.1`) builds and publishes the SDK with Android; rac1-mods then pins it and takes the template's `build.yml`. The templates' `sdk.lock` follow once the 1.10.1 zip and its checksum exist.",
+      "mergedAt": "2026-10-29T05:03:55Z"
+     },
+     {
+      "number": 118,
+      "title": "fix(sdk): the templates pin 1.10.1, as the packager requires",
+      "author": "Veradictus",
+      "untrustedBody": "The `sdk-v1.10.1` run failed in `archive`: `package_sdk.py` refuses a version that `sdk/template/sdk.lock` and `sdk/template-script/sdk.lock` don't pin (version and url), and #117 only bumped `sdk/VERSION`. This sets both locks to 1.10.1 (the checksum stays empty until the first fetch, as before). `test_package_sdk` passes locally. After merging, `sdk-v1.10.1` needs to point at the merge commit (no 1.10.1 release was published, so nothing used the old tag).",
+      "mergedAt": "2026-10-29T05:41:19Z"
+     },
+     {
+      "number": 119,
+      "title": "Enhanced rendering, environment reflections and playable probe placement",
+      "author": "pezzadev",
+      "untrustedBody": "This adds baked environment reflections and improves probe placement around playable rooms, corridors, jumps and swimming areas. Enhanced water and authored chrome/glass materials use tiled, box-projected GGX reflections, with local GI as the fallback. During baking, local GI can adapt its density after checking error against a fine reference bake.\r\n\r\nThe branch also includes target-relative motion blur, supported mixed FP16 shader arithmetic (falls back to FP32), low shadow quality, AgX colour/brightness controls, floating water lilies and simpler launcher controls. Separate fixes preserve PAL colour flashes, package the interior inference tool, report bake failures, and prevent reflection textures from colliding with water-deformation bindings.\r\n\r\nProbe merging is split into coordination, replacement search, relocation and coverage policy. Feature documentation is consolidated, source attribution is retained, and generated game assets are excluded.\r\n\r\nPlayable-space inference and upr",
+      "mergedAt": "2026-10-29T20:37:08Z"
+     },
+     {
+      "number": 120,
+      "title": "fix(rac1): a co-op figure's glove opens and throws with its hand",
+      "author": "Veradictus",
+      "untrustedBody": "Watched on another player, the Bomb Glove (and the other gloves, items 10, 17, 20, 25) stayed in its bind pose.\n\nThe hero's glove never animates by its own seq: the game poses it from the hand with `pack_pose`. `figure_items.c` packed the figure's glove pose into an `openrac_guest_static` buffer outside main RAM (logged at 0xE0211BE0), but the renderer (`scene/moby_pose.cpp`) only reads main RAM (addresses masked with 0x01FFFFFF), so it read code there, parsed no key and drew the bind pose.\n\nThe figure's glove pose now goes into one of the game's 16 blend slots (0x800 bytes each from D_001AAF40, main RAM), taken with `find_or_allocate_id_slot` and kept as the game keeps a blending moby's (seq 0xFF, frame = slot), and given back when the glove goes. The glove's own seq is no longer driven from the other game. The NTSC name and address of the slot allocator and its table are added.\n\nChecked headless: the glove's frame pointer is in RAM (0x18f9c0) with a 160-byte packed pose. The PAL and ",
+      "mergedAt": "2026-10-29T06:35:06Z"
+     },
+     {
+      "number": 121,
+      "title": "fix(port): Exit on the NTSC main menu, save overwrite prompt, black loading screens",
+      "author": "mateuszklysz",
+      "untrustedBody": "- Exit now shows in the NTSC-U main menu (the title loop's exit read from the right address).\n- Exit removed from the pause menu; Quit Game covers it in a level.\n- Exit's texts have ids of their own, clear of the mods' pause items.\n- The main menu's rows are raised from the start of the fly-in; Exit and mod rows leave and come back with Options.\n- Yes and No are centred in the Exit question's panel.\n- NTSC memory card prompt answers again (FUN_00221ab8), so a save can be overwritten.\n- Loading screens and new game captions clear to black, no blue/purple flash (regression from #108).\n- Android launcher refreshes its logs and crash reports after the game exits.\n- OPENRAC_PATCHES.md: dropped the \"(new)\" marks.",
+      "mergedAt": "2026-10-29T10:34:47Z"
+     },
+     {
+      "number": 122,
+      "title": "feat(port): optional fresh pad input and low-latency frames",
+      "author": "mateuszklysz",
+      "untrustedBody": "- New setting `fresh_input` (drawer: Sound and game, off by default): the pad is read again right before each tick, so presses reach the game up to a tick sooner.\n- New setting `low_latency_frames` (drawer: Graphics, off by default): frames between ticks are no longer held half a tick behind. With VSync the next tick starts on time; without VSync the half-tick freeze-then-jump is gone. Fewer frames queue for the display (Vulkan: fewest swapchain images and one frame in flight; OpenGL: glFinish after swap).\n- Both are off by default because they shift when a press lands relative to the picture, so tricks timed by feel would land earlier. Game logic and the one pad read per tick are unchanged.\n- Docs: SETTINGS.md, speedrun/REFERENCE.md, CONTROLLERS.md.\n\nTested: debug build, ctest (frontend_pacing has a new test; xcheck_tool fails on develop too), CI checks and launcher green on the fork. Not tested in game with the new switches.",
+      "mergedAt": "2026-10-29T10:35:46Z"
+     },
+     {
+      "number": 124,
+      "title": "fix(port): Exit leaves and returns with Options like the game's rows",
+      "author": "mateuszklysz",
+      "untrustedBody": "**Fix:** Before a switch to or from the main menu starts, the target page's animation for the Exit slot is temporarily swapped for Options', and restored once it ends. Exit merges into Options as the game's rows shrink, then is moved out of sight; on the way back it comes out of Options at its smallest and grows into its row with the other rows.\n\nThis fixes Exit vanishing after going back from a page (it settled on the off-screen frame, or the switch started before the swap), and it no longer drifts down into the footer or slides in from the left.",
+      "mergedAt": "2026-10-29T11:54:39Z"
+     },
+     {
+      "number": 125,
+      "title": "style(port): lay out two new lines as clang-format does and drop stale getenv exceptions",
+      "author": "mateuszklysz",
+      "untrustedBody": "The release PR's Port conventions step failed on two lines in frontend/geometry.cpp and frontend_geometry_test.cpp that clang-format lays out differently. rac1's host C no longer reads OPENRAC_ variables, so its GETENV_EXCEPTIONS entries were stale advisories.",
+      "mergedAt": "2026-10-29T16:59:47Z"
+     },
+     {
+      "number": 126,
+      "title": "fix(port): Exit and the player's language survive Quit Game",
+      "author": "mateuszklysz",
+      "untrustedBody": "## Before\nAfter a game was started and left with Quit Game from the pause menu, the title's main menu showed the Exit row with no text (only its frame), and the language went back to the one the port started with (English for most players), which was then remembered for the next run. Before entering a game, changing the language and Exit worked.\n\n## After\nAfter Quit Game the main menu has its Exit row (and any mods' rows) with their texts again, and the language stays the one the player chose.\n\n## How\n- Quit Game reads the boot program back from the disc, and the port puts the executable's own data back in its place (rac1 `boot.c`), the main menu's page with it: the game's three rows again. `mod_ui.cpp` patched the page only once; it now keeps the rows it made and puts them back whenever the main menu is the game's three rows again (no new game memory is made).\n- The restarted boot program runs InitOnce again, which sets the language from `sceScfGetLanguage`, the language the port star",
+      "mergedAt": "2026-10-29T20:32:22Z"
+     }
+    ],
+    "opened": [
+     {
+      "number": 103,
+      "title": "feat(sdk): add persistent RAC1 savestate support",
+      "author": "Veradictus",
+      "untrustedBody": "Lands #102 by `ReaperOfVeriod` with conflicts resolved against develop.\n\n- Its desktop menu calls (`developer_menu`, `take_developer_menu_action`, `developer_menu_set_label`) are interface 1.10, appended after 1.9's world and play calls (`moby_run` stays the last 1.9 member). `sdk/VERSION` and the templates' `sdk.lock` say 1.10.0.\n- `mods.cpp`, `options_menu.h` and `docs/port/MODS.md` keep both sides: the pause items of 1.9 and the developer menus and snapshot restore of 1.10.\n- `sdk/docs/reference/c-api.md` regenerated.",
+      "mergedAt": "2026-10-29T01:49:38Z"
+     },
+     {
+      "number": 104,
+      "title": "feat(editor): add ship destinations and cross-level static imports",
+      "author": "Veradictus",
+      "untrustedBody": "Lands #101 by `llesieur99` with conflicts resolved against develop.\n\n- `port/game/common/debug_overlay.cpp`: keeps develop's `mods.h` (the play notice hides the overlay badge) and the PR's `openrac/game_host.h` (level names from the game's descriptor).",
+      "mergedAt": "2026-10-29T01:49:42Z"
+     },
+     {
+      "number": 105,
+      "title": "feat(launcher): start the level editor over from the Mods page",
+      "author": "Veradictus",
+      "untrustedBody": "Players had no way to throw away old level data or extract the levels again from the launcher. This adds a **Start over** panel at the bottom of the Mods page's **Level editor** tab, with two buttons. Each one asks first, in a dialog that lists what gets deleted (with sizes) and what is kept.\n\n**Read the levels again**\n- Deletes: the game's copy of the levels (`assets/port/<game>/<disc>` or `<data>/port/<disc>`, along with its `levels-N.json`/`verified-N.json` stamps and visibility data) and the enhanced lighting baked from it (`<data>/probes/<disc>`).\n- Then runs `port-levels` and `port-levels-visibility` straight away. The check runs at the next Play, as before.\n- Keeps: Godot projects, packed levels, imported edits and packs, exports, saves.\n\n**Reset the level editor**\n- Deletes: the Godot projects for that disc (`assets/levels/<game>/<disc>` or `<data>/levels/<disc>`, including `.godot/` and any changes that were never packed) and the exported models and textures (`<data>/exports`)",
+      "mergedAt": "2026-10-29T01:49:46Z"
+     },
+     {
+      "number": 106,
+      "title": "chore(import): sync rac1 to rac1-decomp 0f0bfcfe, NTSC at its pin 8a5972b3",
+      "author": "Veradictus",
+      "untrustedBody": "Brings `games/rac1` (PAL) up to rac1-decomp `0f0bfcfe` (`06eeb2af..0f0bfcfe`, 14 commits, #147–#160: typed pause, menu and memory-card state, MenuScreen callbacks, ObjectRenderClass, hero and camera structs, particle structs, `TrespasserPuzzleVars`). The three-way sync applied every hunk cleanly, with no `.rej`. OpenRAC's own edits to the tree (the 38 files listed in docs/SOURCES.md) are byte-for-byte what they were before the sync.\n\nrac1/ntsc: already at the NTSC decomp pin that rac1-decomp records (`config/versions/us/ntsc_decomp.txt`: `8a5972b3`). Compared with the pinned tree, `games/rac1/ntsc` differs only by the C patches in `OPENRAC_PATCHES.md`, `host/`, `config/us/port_*` and the documented README, CONTRIBUTING, commit-message and license-credit edits. Nothing to import.\n\nThe port needed no changes. The refactor renames types, fields and locals only; the symbol tables in `config/` don't change. None of the 99 identifiers it removes is named by the host C, `hostgen.json`, `libra",
+      "mergedAt": "2026-10-29T02:06:06Z"
+     },
+     {
+      "number": 107,
+      "title": "feat(launcher): one status panel for the level editor",
+      "author": "Veradictus",
+      "untrustedBody": "The Level editor tab is now one panel that says where the player is and offers the one next step, finds out by itself when something changed, and never shows a tool's raw output.\n\n**One status panel** (`EditorFlow.svelte`, states and words in `lib/editorFlow.ts`)\n\n| State | Main button |\n|---|---|\n| No disc / no Godot | Set up the disc / Get Godot |\n| No levels yet | Read the levels and open |\n| Ready to edit | Open in Godot |\n| Changes to pack (names the levels) | Pack your changes |\n| Packed | Play with your edits (turns Mods on, goes to the game) |\n| Packed for another version | Pack again |\n| Needs an update | Update project |\n| Files missing | Repair (backs up, reads again) |\n\nStart over (from #105) is the \"Troubleshoot and start over\" fold at the bottom; error cards point to it. `reset.rs` and its safety rules are unchanged.\n\n**Detected automatically** (`core/src/editor_state.rs`), when the tab opens, the window regains focus and every editor job ends: outdated projects (older sc",
+      "mergedAt": "2026-10-29T03:19:27Z"
+     },
+     {
+      "number": 108,
+      "title": "fix(rac1): the level's background colour, and sky textures and export for modding",
+      "author": "Veradictus",
+      "untrustedBody": "A player set the RC1 Background colour in LevelSettings and saw no change, while fog changed fine. Two things were going on.\n\n**The port ignored the colour.** The game reads it from the level settings at load (`level_gameplay_loading.c` → `SetBackgroundColor` → the frame clear's RGBAQ), but `scene_frame.cpp` cleared to `level.background` from the manifest, which was the sky header's +0 word the game never uses (0 on 14 of 19 levels). `host::GameState` now reads the colour from the view context each frame, like fog, and the clear uses it; the extracted colour stays the fallback for other games.\n\n**It isn't the sky colour.** It is the colour behind the sky. On 15 of 19 PAL levels the first sky shell is an opaque, vertex-coloured dome that covers it; it shows on Rilgar and Umbris, and below the horizon on Orxon and Quartu. The editor README now says so, the sky panorama and manifest take the settings' colour, and packing refuses values outside 0–255 (`SetBackgroundColor` ORs them unmasked",
+      "mergedAt": "2026-10-29T03:19:31Z"
+     },
+     {
+      "number": 109,
+      "title": "fix(port/rac1-ntsc): give FUN_0020db40's places one C, the grid's own",
+      "author": "Veradictus",
+      "untrustedBody": "NTSC logged \"two functions at … in overlay N: FUN_0020db40 and func_0020DB40; keeping the first\" for overlays 12 to 18 and the executable.\n\nThe NTSC catalogue folds `FUN_0020db40` (the moby grid's block free) with its level copies, and two C functions claimed those places: the grid's own `func_0020DB40` in `hand/game_moby_grid.c`, which the grid updater calls, and a carry of PAL's level copy `func_L00_00251A78` (in `hand/functional/`) that hard-wires level 0's bitmap even when the executable's program runs it. This keeps the grid's own, as `func_0020DBA0` already serves `FUN_0020dba0`, and drops the carried copy with its rows in `hand.tsv`, `allow.tsv` and `fcheck.tsv`. Only the table calls that address, so play does not change; the address table loses its 20 duplicates.\n\n`openrac-rac1-ntsc` builds; `rac1-ntsc_call_abi`, `rac1-ntsc_host_table`, `rac1-ntsc_hand_xcheck` and `xcheck_tool` pass; xcheck 168 rows, 0 unexplained.",
+      "mergedAt": "2026-10-29T03:19:34Z"
+     },
+     {
+      "number": 110,
+      "title": "fix(rac1): drones and Novalis sparks, matched C backfills, Exit item, native mods on Android",
+      "author": "mateuszklysz",
+      "untrustedBody": "## Description\n\n## Fixes\n- **hostgen:** a local the decompiled C leaves unset now starts at zero. Clang -O2 deleted code that read such locals: the Drone Device spent ammo and made no drones (NTSC and PAL), and Novalis' sparks piled up at Ratchet's feet as a white orb. Clears all 44 NTSC and 13 PAL uninitialized-use warnings in the generated C.\n- **rac1-ntsc:** the held item is posed on the US disc; Lombyte's start_scene runs and stale drafts are gone; emit_rgba_draw_packet named for the Hoven turret fade; PAL's corrected C for three carried functions.\n- **rac1:** the follow camera, FindMobyByDataId and the wrench trail run the matched C instead of the port's own.\n\n## Features\n- **Exit item** in the main menu and the pause menu, with a Yes/No question in the game's five languages.\n- **Native mods on Android:** new `android-arm64` platform in the game, launcher and SDK; the SDK template's workflow (and sdk.yml) builds it with the NDK. A mod shows as not built for Android until its next ",
+      "mergedAt": "2026-10-29T04:32:30Z"
+     },
+     {
+      "number": 111,
+      "title": "fix(launcher): the development channel follows develop",
+      "author": "Veradictus",
+      "untrustedBody": "`master` is now only updated by release pull requests, so the development channel, which followed `launcher-dev-master`, trailed `develop`'s work by a whole release (its last build is from 2026-10-19).\n\n- `DEV_BRANCH` is `develop` (`launcher/core/src/update.rs`), and OpenRAC's own launcher on the development channel always resolves to `launcher-dev-develop`, so launchers built from master move over at their next update check. Forks still follow the branch they were built from.\n- `launcher.yml` builds on pushes to `develop` as well as `master`, so `launcher-dev-develop` exists.\n- Stable is unchanged: the latest release (tagged on `master`); SDK releases are published with `--latest=false` and don't take it.\n- `launcher/docs/RELEASING.md`: the release pull request from `develop` and the tag on `master`; the preview's mock data says `develop`.\n\nTests: new channel tests for the move from master to develop; launcher core 273 pass, clippy clean; `yarn verify` 203 pass.",
+      "mergedAt": "2026-10-29T04:32:37Z"
+     },
+     {
+      "number": 112,
+      "title": "style(port): lay out #108's lines as clang-format 21.1.8 does",
+      "author": "Veradictus",
+      "untrustedBody": "#108's `checks` job failed on Port conventions: clang-format 21.1.8 lays out six of its changed lines differently (`scene_frame.cpp`, `game_state.cpp`, `level.cpp`, `viewer_test.cpp`). Only those lines are reformatted (git-clang-format against develop before #108); CI's strict check (`check_conventions.py --since … --touched --strict-touched`) passes. The stale `GETENV_EXCEPTIONS` lines in that log are advisories older than #108.",
+      "mergedAt": "2026-10-29T04:32:44Z"
+     },
+     {
+      "number": 113,
+      "title": "fix(port): the Drone Device makes its drones again",
+      "author": "Veradictus",
+      "untrustedBody": "A player reported the Drone Device using ammo and making no drones (NTSC-U, Batalia). It happens on every disc version and on develop.\n\n**Cause: a miscompile, not the game's code.** The matched C of `replenish_hero_drones` (PAL `func_L00_002CF170`, NTSC `FUN_L00_002cdcc0`) passes a local to `spawn_hero_drone` before anything has set it, which on the PS2 just passes the register's leftover value. To clang that read is undefined behaviour, and at -O2 it deletes the whole spawn loop: the port took one ammo, cleared `hero+0x1FF5` and returned. Before the fix the compiled function has no call to `spawn_hero_drone`; after it, it does.\n\n**Fix:** the game C is compiled with `-ftrivial-auto-var-init=zero` (`port/cmake/Games.cmake`, behind `check_c_compiler_flag`, warning when the compiler lacks it), so an unset local reads as zero as it would in a register the game cleared. The matched C is unchanged. clang flags a few more reads of this kind that the flag also covers (PAL: `map_menu_filters.c`"
+     },
+     {
+      "number": 114,
+      "title": "fix(port): never draw the world from an unusable camera",
+      "author": "Veradictus",
+      "untrustedBody": "A player sent a screenshot of a black screen crossed by a few long coloured lines around a ship trip (NTSC-U, 0.9.0) and a log that shows nothing unusual. It could not be reproduced: Start at about 50 points across take-offs, flights and landings, F5/F6, the pause menu and quitting to the title all kept a good camera, and replaying 0.9.0's ship departure without #96 (in that build, not on develop) froze the camera in a normal-looking place, not black. The picture fits a camera inside closed geometry (a ship) or a degenerate one.\n\nSo the renderer now refuses an unusable camera and says so:\n- `usable_camera()` / `usable_view()` (`frontend/geometry.{h,cpp}`) refuse non-finite values, an eye more than 1e6 from the origin, forward or up of length outside 0.5–2 or nearly parallel, a view that isn't a rotation, and a projection that doesn't look ahead.\n- `scene_frame.cpp` uses the last good camera instead; with none yet, no world is drawn (the HUD still is). Both GL and Vulkan take their came",
+      "mergedAt": "2026-10-29T04:34:41Z"
+     },
+     {
+      "number": 115,
+      "title": "chore(release): 0.10.0",
+      "author": "Veradictus",
+      "untrustedBody": "The version bump for v0.10.0, and its release notes.\n\n- `launcher/package.json`, `launcher/src-tauri/tauri.conf.json`, `launcher/Cargo.toml` (workspace version) and `launcher/Cargo.lock`: 0.9.0 → 0.10.0. The game's own version (`build_info::version()`, `port/cmake/BuildInfo.cmake`) is read from `tauri.conf.json`, so it follows. The SDK and the mods keep their versions.\n- `launcher/release-notes/0.10.0.md`: everything since `launcher-v0.9.0`, the 99 commits of the old history (now in 6360471e) and #99–#114, for players and modders. RELEASING.md keeps release notes there rather than in a root CHANGELOG: the release job uses the file as the release's text, the update prompt shows it, and `publish.yml` publishes the draft by itself once the tag's build and master's checks pass and this file is on master.\n\nChecks, on the Mac:\n- `corepack yarn install --immutable` and `corepack yarn verify`: typecheck, lint, format, 203 tests pass.\n- `cargo fmt --all --check`; `cargo test -p openrac-launcher",
+      "mergedAt": "2026-10-30T14:28:58Z"
+     },
+     {
+      "number": 116,
+      "title": "Release v0.10.0",
+      "author": "Veradictus",
+      "untrustedBody": "Everything on `develop` since v0.9.0, for release as **v0.10.0**.\n\n> **#115 (`chore/release-0.10.0`) must merge into `develop` first**, so that this PR carries the version bump and `launcher/release-notes/0.10.0.md`. Until then it would release as 0.9.0.\n\n## Release checklist (from `launcher/docs/RELEASING.md`)\n\n- [x] Merge #115 (the bump and the notes) into `develop`.\n- [x] Merge this PR into `master`.\n- [x] Tag the merged commit on `master` and push the tag:\n  `git fetch origin && git checkout master && git pull --ff-only && git tag launcher-v0.10.0 && git push origin launcher-v0.10.0`\n- [x] The launcher workflow builds every system and leaves a draft release `v0.10.0`. Check it (`gh release view launcher-v0.10.0`) and publish it (`gh release edit launcher-v0.10.0 --draft=false --latest`). `publish.yml` also publishes it by itself once the tag's build and master's checks pass, since the notes file is on master.\n- [x] Check the live updater manifest: `curl -sSfL https://github.com/Ope",
+      "mergedAt": "2026-10-30T14:33:17Z"
+     },
+     {
+      "number": 117,
+      "title": "chore(sdk): 1.10.1, the first SDK with Android native mods",
+      "author": "Veradictus",
+      "untrustedBody": "SDK 1.10.0 was tagged before #110 added the `android-arm64` platform. This bumps `sdk/VERSION` to 1.10.1 so its tag (`sdk-v1.10.1`) builds and publishes the SDK with Android; rac1-mods then pins it and takes the template's `build.yml`. The templates' `sdk.lock` follow once the 1.10.1 zip and its checksum exist.",
+      "mergedAt": "2026-10-29T05:03:55Z"
+     },
+     {
+      "number": 118,
+      "title": "fix(sdk): the templates pin 1.10.1, as the packager requires",
+      "author": "Veradictus",
+      "untrustedBody": "The `sdk-v1.10.1` run failed in `archive`: `package_sdk.py` refuses a version that `sdk/template/sdk.lock` and `sdk/template-script/sdk.lock` don't pin (version and url), and #117 only bumped `sdk/VERSION`. This sets both locks to 1.10.1 (the checksum stays empty until the first fetch, as before). `test_package_sdk` passes locally. After merging, `sdk-v1.10.1` needs to point at the merge commit (no 1.10.1 release was published, so nothing used the old tag).",
+      "mergedAt": "2026-10-29T05:41:19Z"
+     },
+     {
+      "number": 119,
+      "title": "Enhanced rendering, environment reflections and playable probe placement",
+      "author": "pezzadev",
+      "untrustedBody": "This adds baked environment reflections and improves probe placement around playable rooms, corridors, jumps and swimming areas. Enhanced water and authored chrome/glass materials use tiled, box-projected GGX reflections, with local GI as the fallback. During baking, local GI can adapt its density after checking error against a fine reference bake.\r\n\r\nThe branch also includes target-relative motion blur, supported mixed FP16 shader arithmetic (falls back to FP32), low shadow quality, AgX colour/brightness controls, floating water lilies and simpler launcher controls. Separate fixes preserve PAL colour flashes, package the interior inference tool, report bake failures, and prevent reflection textures from colliding with water-deformation bindings.\r\n\r\nProbe merging is split into coordination, replacement search, relocation and coverage policy. Feature documentation is consolidated, source attribution is retained, and generated game assets are excluded.\r\n\r\nPlayable-space inference and upr",
+      "mergedAt": "2026-10-29T20:37:08Z"
+     },
+     {
+      "number": 120,
+      "title": "fix(rac1): a co-op figure's glove opens and throws with its hand",
+      "author": "Veradictus",
+      "untrustedBody": "Watched on another player, the Bomb Glove (and the other gloves, items 10, 17, 20, 25) stayed in its bind pose.\n\nThe hero's glove never animates by its own seq: the game poses it from the hand with `pack_pose`. `figure_items.c` packed the figure's glove pose into an `openrac_guest_static` buffer outside main RAM (logged at 0xE0211BE0), but the renderer (`scene/moby_pose.cpp`) only reads main RAM (addresses masked with 0x01FFFFFF), so it read code there, parsed no key and drew the bind pose.\n\nThe figure's glove pose now goes into one of the game's 16 blend slots (0x800 bytes each from D_001AAF40, main RAM), taken with `find_or_allocate_id_slot` and kept as the game keeps a blending moby's (seq 0xFF, frame = slot), and given back when the glove goes. The glove's own seq is no longer driven from the other game. The NTSC name and address of the slot allocator and its table are added.\n\nChecked headless: the glove's frame pointer is in RAM (0x18f9c0) with a 160-byte packed pose. The PAL and ",
+      "mergedAt": "2026-10-29T06:35:06Z"
+     },
+     {
+      "number": 121,
+      "title": "fix(port): Exit on the NTSC main menu, save overwrite prompt, black loading screens",
+      "author": "mateuszklysz",
+      "untrustedBody": "- Exit now shows in the NTSC-U main menu (the title loop's exit read from the right address).\n- Exit removed from the pause menu; Quit Game covers it in a level.\n- Exit's texts have ids of their own, clear of the mods' pause items.\n- The main menu's rows are raised from the start of the fly-in; Exit and mod rows leave and come back with Options.\n- Yes and No are centred in the Exit question's panel.\n- NTSC memory card prompt answers again (FUN_00221ab8), so a save can be overwritten.\n- Loading screens and new game captions clear to black, no blue/purple flash (regression from #108).\n- Android launcher refreshes its logs and crash reports after the game exits.\n- OPENRAC_PATCHES.md: dropped the \"(new)\" marks.",
+      "mergedAt": "2026-10-29T10:34:47Z"
+     },
+     {
+      "number": 122,
+      "title": "feat(port): optional fresh pad input and low-latency frames",
+      "author": "mateuszklysz",
+      "untrustedBody": "- New setting `fresh_input` (drawer: Sound and game, off by default): the pad is read again right before each tick, so presses reach the game up to a tick sooner.\n- New setting `low_latency_frames` (drawer: Graphics, off by default): frames between ticks are no longer held half a tick behind. With VSync the next tick starts on time; without VSync the half-tick freeze-then-jump is gone. Fewer frames queue for the display (Vulkan: fewest swapchain images and one frame in flight; OpenGL: glFinish after swap).\n- Both are off by default because they shift when a press lands relative to the picture, so tricks timed by feel would land earlier. Game logic and the one pad read per tick are unchanged.\n- Docs: SETTINGS.md, speedrun/REFERENCE.md, CONTROLLERS.md.\n\nTested: debug build, ctest (frontend_pacing has a new test; xcheck_tool fails on develop too), CI checks and launcher green on the fork. Not tested in game with the new switches.",
+      "mergedAt": "2026-10-29T10:35:46Z"
+     },
+     {
+      "number": 123,
+      "title": "feat(launcher): mod updates at start, saved mod links, a mods mark on saves, and pad bindings",
+      "author": "Lynder063",
+      "untrustedBody": "Four things players asked for: the launcher offers the mods' updates when it starts, Add a mod lists the links you already used, a save written with mods loaded is marked in the launcher and on the game's own memory card page, and the pad's sixteen buttons can be bound in the game's settings file.\nThe save mark is a small file beside the save, never a change to the save itself; a binding left empty keeps the key or button the port already used, and Escape always pauses.\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)",
+      "mergedAt": "2026-10-30T18:04:37Z"
+     },
+     {
+      "number": 124,
+      "title": "fix(port): Exit leaves and returns with Options like the game's rows",
+      "author": "mateuszklysz",
+      "untrustedBody": "**Fix:** Before a switch to or from the main menu starts, the target page's animation for the Exit slot is temporarily swapped for Options', and restored once it ends. Exit merges into Options as the game's rows shrink, then is moved out of sight; on the way back it comes out of Options at its smallest and grows into its row with the other rows.\n\nThis fixes Exit vanishing after going back from a page (it settled on the off-screen frame, or the switch started before the swap), and it no longer drifts down into the footer or slides in from the left.",
+      "mergedAt": "2026-10-29T11:54:39Z"
+     },
+     {
+      "number": 125,
+      "title": "style(port): lay out two new lines as clang-format does and drop stale getenv exceptions",
+      "author": "mateuszklysz",
+      "untrustedBody": "The release PR's Port conventions step failed on two lines in frontend/geometry.cpp and frontend_geometry_test.cpp that clang-format lays out differently. rac1's host C no longer reads OPENRAC_ variables, so its GETENV_EXCEPTIONS entries were stale advisories.",
+      "mergedAt": "2026-10-29T16:59:47Z"
+     },
+     {
+      "number": 126,
+      "title": "fix(port): Exit and the player's language survive Quit Game",
+      "author": "mateuszklysz",
+      "untrustedBody": "## Before\nAfter a game was started and left with Quit Game from the pause menu, the title's main menu showed the Exit row with no text (only its frame), and the language went back to the one the port started with (English for most players), which was then remembered for the next run. Before entering a game, changing the language and Exit worked.\n\n## After\nAfter Quit Game the main menu has its Exit row (and any mods' rows) with their texts again, and the language stays the one the player chose.\n\n## How\n- Quit Game reads the boot program back from the disc, and the port puts the executable's own data back in its place (rac1 `boot.c`), the main menu's page with it: the game's three rows again. `mod_ui.cpp` patched the page only once; it now keeps the rows it made and puts them back whenever the main menu is the game's three rows again (no new game memory is made).\n- The restarted boot program runs InitOnce again, which sets the language from `sceScfGetLanguage`, the language the port star",
+      "mergedAt": "2026-10-29T20:32:22Z"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [
+    {
+     "tag": "sdk-v1.10.0",
+     "name": "Mod SDK 1.10.0",
+     "publishedAt": "2026-10-29T02:06:06Z"
+    },
+    {
+     "tag": "sdk-v1.10.1",
+     "name": "Mod SDK 1.10.1",
+     "publishedAt": "2026-10-29T06:04:30Z"
+    }
+   ],
+   "progress": null,
+   "contributors": [
+    "llesieur99",
+    "Lynder063",
+    "mateuszklysz",
+    "pezzadev",
+    "Veradictus"
+   ]
+  },
+  {
+   "repo": "rac1-decomp",
+   "title": "Ratchet & Clank",
+   "branches": [
+    {
+     "name": "main",
+     "commits": []
+    }
+   ],
+   "commitCount": 0,
+   "pullRequests": {
+    "merged": [],
+    "opened": [
+     {
+      "number": 161,
+      "title": "refactor(readability): clarify generated names across game code",
+      "author": "Lynder063",
+      "untrustedBody": "Clarify generated names and comments while preserving descriptive names, types and code placement.\n1,251 executable C functions exact; canonical report build, layout, image and all-version/report checks pass."
+     }
+    ]
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": null,
+   "contributors": [
+    "Lynder063"
+   ]
+  },
+  {
+   "repo": "rac2-decomp",
+   "title": "Going Commando",
+   "branches": [
+    {
+     "name": "master",
+     "commits": [
+      {
+       "sha": "96927f872c709e13aaa0f32265bb81a5531bf7ed",
+       "title": "Merge pull request #369 from bigbeno37/fix/progress-linked-code",
+       "author": "Lynder063",
+       "date": "2026-10-29T09:14:16Z"
+      },
+      {
+       "sha": "4acbea477443bfe36a3d617c1b5c543986f56253",
+       "title": "test(build): the parallel build's prefixes, and the strict test on one prefix",
+       "author": "Veradictus",
+       "date": "2026-10-29T07:37:21Z"
+      },
+      {
+       "sha": "73472fdf21832bc43763cb0039231b86052a1a16",
+       "title": "chore(progress): 7100 of 8578 functions (PAL 4979 of 8672, US2 6646 of 8634)",
+       "author": "Veradictus",
+       "date": "2026-10-29T07:34:06Z"
+      },
+      {
+       "sha": "1b9f3af8b6bb8932965145c1a167c4bf6b84b00b",
+       "title": "perf(build): a Wine prefix per program building at once",
+       "author": "Veradictus",
+       "date": "2026-10-29T07:30:10Z"
+      },
+      {
+       "sha": "e38c86ab938d53e7ca6dce5c3fb9ef2c22bc3775",
+       "title": "Merge pull request #368 from bigbeno37/match/carry-over-842",
+       "author": "Veradictus",
+       "date": "2026-10-29T06:48:52Z"
+      },
+      {
+       "sha": "e50845ce9df3d6d7da3759eec551e5d123566939",
+       "title": "chore(progress): refresh 6258 of 8578 functions and all release reports",
+       "author": "llesieur99",
+       "date": "2026-10-29T05:32:53Z"
+      },
+      {
+       "sha": "077d26673e766ad3c6185988b4fb36f7ac5a6b75",
+       "title": "Merge pull request #366 from OpenRAC/review/open-prs-integration",
+       "author": "llesieur99",
+       "date": "2026-10-29T05:27:16Z"
+      },
+      {
+       "sha": "fb095612a45f3014f8840d48974ae683a2ba1796",
+       "title": "Merge pull request #362 from cadelass/nonmatching-func_002DE618",
+       "author": "llesieur99",
+       "date": "2026-10-29T04:21:41Z"
+      },
+      {
+       "sha": "526dab784f067676fce1edee7ea128a022dae15b",
+       "title": "feat(src): match 21 functions and retain reviewed reconstructions (#364)",
+       "author": "llesieur99",
+       "date": "2026-10-29T03:57:00Z"
+      }
+     ]
+    }
+   ],
+   "commitCount": 9,
+   "pullRequests": {
+    "merged": [
+     {
+      "number": 361,
+      "title": "feat(src): eight functions in C, 28 near misses",
+      "author": "DrLegitamate",
+      "untrustedBody": "Eight functions in C, plus near-miss records, from my #152 batches 3 and 4.\n\n## Matched (8 distinct functions, 87 placements)\n\n| Function | Bytes | Places | Unit |\n| --- | ---: | ---: | --- |\n| `func_002B8108` | 1,040 | 28 | `src/game/002B7E28-g8.c` |\n| `func_00333048` | 1,128 | 28 | `src/game/0032EB28-g8.c` |\n| `func_L00_0042A698` | 604 | 27 | `src/levels/shared/L00_00426340-g8.c` |\n| `func_L12_004293A0` | 620 | 1 | `src/levels/12_todano/L12_0041E3E8.c` |\n| `func_L14_003E2688` | 604 | 1 | `src/levels/14_aranos_prison/L14_00304190-g8.c` |\n| `func_L03_003D22C8` | 592 | 1 | `src/levels/03_endako/L03_00399230-g8.c` |\n| `func_L15_00434D28` | 612 | 1 | `src/levels/15_gorn/L15_004328E8.c` |\n| `func_L17_003CC850` | 608 | 1 | `src/levels/17_smolg/L17_003C7C70.c` |\n\nNotes:\n- `func_002B8108`: the talking-moby block at `D_001B178C` is declared as one aggregate (also covering the message word at +0x10). As three scalars, cc1's fixed-scalar/varying-struct alias rule lets the following node loads mo",
+      "mergedAt": "2026-10-29T05:27:18Z"
+     },
+     {
+      "number": 362,
+      "title": "docs(nonmatching): func_002DE618, 212/212 with the table pointers swapped",
+      "author": "cadelass",
+      "untrustedBody": "Near miss for `func_002DE618` (212 bytes, boot + 27 levels): 212/212 bytes, 0/28 places. It replaces the 188-byte draft from 2414789a.\n\nThe function looks up a key in the five-entry chunk table at `D_001B1F50`. If the entry has flag 2 set, it clears flag 4 and calls `func_002B7AD0` when the byte at `D_001F2840 + 0xDB` is set. It then clears flag 2 and returns 0.\n\n## What still differs\n\nEvery instruction matches retail except the registers of the two reduced table pointers. Retail walks the keys in `$a1` and the flags in `$a2`, and the loop ends on the keys pointer. This source swaps the two pointers, which gives 10 differing lines.\n\nTwo changes fixed what the earlier draft was missing:\n- Indexing with `i * 2` keeps the `$s2` byte offset and the base for the final `&= ~2` separate from the flags walk. Pointer walks merge them, which is why the old draft was 188 bytes.\n- A local `u8 *root = (u8 *)D_001F2840` gives retail's hoisted `%hi` in `$t0` and the address in `$s0`.\n\nAbout 25 other ",
+      "mergedAt": "2026-10-29T04:21:42Z"
+     },
+     {
+      "number": 363,
+      "title": "feat(src): Seven level functions in C from their near misses",
+      "author": "xx255q",
+      "untrustedBody": "Seven level functions in C from their near misses, each exact on USA v1.01.\r\n\r\n- `func_L00_002A4D18` (152 bytes, 25 places), `src/levels/shared/L00_002A3B80.c`: every store goes through the one base pointer, in retail's order. `D_001A73A0` is cleared through the documented incomplete-array `sda` declaration (retail's `lui $at; sw`, COMPILER-NOTES.md) instead of the draft's `volatile`.\r\n- `func_L04_00404068` (144 bytes, 2 places), `src/levels/shared/L04_00402D90.c`: the phase at +0x1FC steps down by 0.1 and wraps up by 8 at -8, written like its matched twins in `L02_002B5F50.c`. The parameter is `void *` as the unit's later declaration says, and the helper is called by its catalogue name `func_L00_002ECFE8` (the draft used a numeric name).\r\n- `func_L22_002B7328` (440 bytes, 2 places), new unit `src/levels/shared/L22_002A8B98-qcopy.c` (`-O2 -G0 -ffunction-sections -frac2-qcopy`, as the draft recorded): the draft's body, with the mode word declared as the incomplete `sda` array `L04_002CC",
+      "mergedAt": "2026-10-29T05:27:18Z"
+     },
+     {
+      "number": 364,
+      "title": "feat(src): match 21 functions and retain reviewed reconstructions",
+      "author": "llesieur99",
+      "untrustedBody": "## What\n\nMatch **21 primary functions**, adding **12,284 distinct code bytes**, and retain **95 investigations** in `nonmatching/` with their measured limits and reopening conditions.\n\n| Function | Bytes | Carrying placements: US / US2 / PAL |\n| --- | ---: | ---: |\n| `func_00120F00` - libgcc throw | 476 | 1 / 1 / 1 |\n| `func_001210E0` - libgcc rethrow | 484 | 1 / 1 / 1 |\n| `func_002977A8` - compressed occlusion decoder | 560 | 28 / 28 / 28 |\n| `func_0029F0C8` - resident moby constructor | 624 | 28 / 28 / absent |\n| `func_002C8A38` - drifting particle update | 612 | 28 / 28 / absent |\n| `func_002DBC10` - pause prompt | 624 | 28 / absent / absent |\n| `func_002FEE70` - effect steering | 572 | 28 / 28 / 28 |\n| `func_0031CDF8` - paired world quads | 632 | 2 / 2 / 2 |\n| `func_L00_003200F8` - color-swapped explosion | 788 | 13 / 13 / absent |\n| `func_L00_00322BE0` - transform history | 744 | 27 / 27 / 27 |\n| `func_L00_003AD7C8` - rotating quads | 612 | 27 / 27 / absent |\n| `func_L00_003E7E40`",
+      "mergedAt": "2026-10-29T03:57:01Z"
+     },
+     {
+      "number": 365,
+      "title": "feat(src): match two functions and retain claimed near misses",
+      "author": "ReaperOfVeriod",
+      "untrustedBody": "## What\n\nThis branch contains two matched functions:\n\n- `func_002B5BC0`\n- `func_0034FA30`\n\nIt also retains the measured C near misses and blocker findings gathered for the claimed function set in `nonmatching/`, `nonmatching/README.md`, and `docs/MATCHING-BLOCKERS.md`. The generated progress report and README progress table are unchanged.\n\n## Validation\n\n- `python3 tools/build.py all --strict`: all 28 programs reported `OK`; every loaded byte equals retail.\n- `python3 -m unittest discover -s tests`: 313 tests, `OK`.\n- `python3 tests/check_repository.py`: repository checks passed.\n- `python3 tools/progress.py --check`: passed; report remains behind for maintainer refresh.\n- `git diff --check`: passed.\n\nNot run: `python3 tools/progress.py`; the report is maintained on master after merges.",
+      "mergedAt": "2026-10-29T05:27:18Z"
+     },
+     {
+      "number": 366,
+      "title": "feat(src): integrate 15 reviewed contributor matches across releases",
+      "author": "llesieur99",
+      "untrustedBody": "## What\n\nIntegrate the reviewed contributions from #361, #363 and #365 on top of merged #362 and #364. This branch preserves the original contributor heads and resolves their overlaps without rewriting their branches.\n\n- Retain 15 new C functions (7,116 distinct USA v1.01 bytes): seven from #361, seven from #363, and the collision query from #365.\n- Keep `func_00333048` in `nonmatching`: the retail hit-vector normalization precedes its first identified XYZ initialization. Correct the retained allocator return declarations without inventing initialization.\n- Use catalogue names for new level calls, preserve float return contracts, and describe the Aranos quad as four vertices, four colours and four UV pairs. Preserve Todano's measured first-allocation guard.\n- Resolve Gorn's PAL callee variant through the documented function-scoped reference, so the caller does not require an absent C body in PAL.\n- Retain useful alternative near misses, keep #362's newer chunk-table draft, and avoid re",
+      "mergedAt": "2026-10-29T05:27:16Z"
+     },
+     {
+      "number": 367,
+      "title": "chore(progress): refresh all three reports after contributor integration",
+      "author": "llesieur99",
+      "untrustedBody": "## What\n\nRefresh the three release reports and their README/version tables from merged master `077d2667`, after integrating #361, #362, #363, #364 and #365 with the review corrections in #366.\n\n| Release | Matched functions | Matched code | Coverage |\n| --- | ---: | ---: | ---: |\n| USA v1.01 | 6,258 / 8,578 | 3,028,612 / 5,525,780 bytes | 54.81% |\n| USA v2.00 | 5,890 / 8,634 | 1,790,936 / 5,580,268 bytes | 32.09% |\n| PAL | 4,630 / 8,672 | 997,492 / 5,704,612 bytes | 17.49% |\n\nUSA v1.01 gains 36 C functions and 19,400 distinct bytes. Its 335 original-assembly functions are unchanged. Near misses and interface corrections to existing C add no matching credit.\n\n## Checked\n\n- Final merged source tree equals the reviewed integration tree. All 5,030 compiled inputs match the final validation snapshot.\n- Full strict builds of the three releases plus the final Gorn rebuilds verify 84 programs byte-identical with zero C fallback. The last changed source unit is exclusive to Gorn; all three Gorn",
+      "mergedAt": "2026-10-29T05:32:54Z"
+     },
+     {
+      "number": 368,
+      "title": "feat(src): carry over 842 functions matched in my fork",
+      "author": "bigbeno37",
+      "untrustedBody": "## What\n\n842 functions as C: 158 boot and 684 level functions, 609,116 bytes, 9,399 placements in USA v1.01. They were matched with AI agents (Claude) in my own fork, and every commit carries a `Co-Authored-By` trailer. There are 45 commits of 10 to 20 functions each (most 17 to 20), one `include/names.h` commit and one docs commit.\n\n- Each function replaces its `INCLUDE_ASM` marker in place, or moves into a unit of its own when it needs other flags (637 new units, 319 new `config/cflags.txt` lines; each commit says which). Six existing `config/cflags.txt` lines move, and one duplicate line goes.\n- For functions that are now C, this removes their 687 near-miss drafts from `nonmatching/` (683 README rows) and their 28 functional drafts from `nonmatching/functional/` (with their `functional.tsv` rows).\n- `include/names.h`: readable aliases for 426 of these functions, plus `FastDecTimer`, `FloatToInt`, `IsPointInCuboid` and `PlayMobySound`, which arrive with the commits whose C calls them",
+      "mergedAt": "2026-10-29T06:48:53Z"
+     },
+     {
+      "number": 369,
+      "title": "fix(progress): linked code is the code of complete units, as objdiff sums it",
+      "author": "bigbeno37",
+      "untrustedBody": "## What\n\n`tools/progress.py` now counts the report's `complete_code` (ByteMatch's \"Fully linked\" code, which [shows](https://bytematch.dev/OpenRAC/rac2-decomp) 0 of 5,525,780 bytes today) as the code of the complete units. Until now it was all or nothing over every function of the total and of each category, so it would stay at 0% until the whole game matched.\n\nThat is how the format is meant to add up, and how rac1-decomp already does it:\n\n- objdiff's `report generate` gives a complete unit `complete_code` = `total_code` ([`report.rs` L339–343](https://github.com/encounter/objdiff/blob/9aeec9cbab1a056ade7dc1f1625aacc41b0f8511/objdiff-cli/src/cmd/report.rs#L339-L343)) and sums the units into the [total](https://github.com/encounter/objdiff/blob/9aeec9cbab1a056ade7dc1f1625aacc41b0f8511/objdiff-cli/src/cmd/report.rs#L161) and into [each category](https://github.com/encounter/objdiff/blob/9aeec9cbab1a056ade7dc1f1625aacc41b0f8511/objdiff-core/src/bindings/report.rs#L147-L167).\n- rac1-decom",
+      "mergedAt": "2026-10-29T09:14:17Z"
+     }
+    ],
+    "opened": [
+     {
+      "number": 365,
+      "title": "feat(src): match two functions and retain claimed near misses",
+      "author": "ReaperOfVeriod",
+      "untrustedBody": "## What\n\nThis branch contains two matched functions:\n\n- `func_002B5BC0`\n- `func_0034FA30`\n\nIt also retains the measured C near misses and blocker findings gathered for the claimed function set in `nonmatching/`, `nonmatching/README.md`, and `docs/MATCHING-BLOCKERS.md`. The generated progress report and README progress table are unchanged.\n\n## Validation\n\n- `python3 tools/build.py all --strict`: all 28 programs reported `OK`; every loaded byte equals retail.\n- `python3 -m unittest discover -s tests`: 313 tests, `OK`.\n- `python3 tests/check_repository.py`: repository checks passed.\n- `python3 tools/progress.py --check`: passed; report remains behind for maintainer refresh.\n- `git diff --check`: passed.\n\nNot run: `python3 tools/progress.py`; the report is maintained on master after merges.",
+      "mergedAt": "2026-10-29T05:27:18Z"
+     },
+     {
+      "number": 366,
+      "title": "feat(src): integrate 15 reviewed contributor matches across releases",
+      "author": "llesieur99",
+      "untrustedBody": "## What\n\nIntegrate the reviewed contributions from #361, #363 and #365 on top of merged #362 and #364. This branch preserves the original contributor heads and resolves their overlaps without rewriting their branches.\n\n- Retain 15 new C functions (7,116 distinct USA v1.01 bytes): seven from #361, seven from #363, and the collision query from #365.\n- Keep `func_00333048` in `nonmatching`: the retail hit-vector normalization precedes its first identified XYZ initialization. Correct the retained allocator return declarations without inventing initialization.\n- Use catalogue names for new level calls, preserve float return contracts, and describe the Aranos quad as four vertices, four colours and four UV pairs. Preserve Todano's measured first-allocation guard.\n- Resolve Gorn's PAL callee variant through the documented function-scoped reference, so the caller does not require an absent C body in PAL.\n- Retain useful alternative near misses, keep #362's newer chunk-table draft, and avoid re",
+      "mergedAt": "2026-10-29T05:27:16Z"
+     },
+     {
+      "number": 367,
+      "title": "chore(progress): refresh all three reports after contributor integration",
+      "author": "llesieur99",
+      "untrustedBody": "## What\n\nRefresh the three release reports and their README/version tables from merged master `077d2667`, after integrating #361, #362, #363, #364 and #365 with the review corrections in #366.\n\n| Release | Matched functions | Matched code | Coverage |\n| --- | ---: | ---: | ---: |\n| USA v1.01 | 6,258 / 8,578 | 3,028,612 / 5,525,780 bytes | 54.81% |\n| USA v2.00 | 5,890 / 8,634 | 1,790,936 / 5,580,268 bytes | 32.09% |\n| PAL | 4,630 / 8,672 | 997,492 / 5,704,612 bytes | 17.49% |\n\nUSA v1.01 gains 36 C functions and 19,400 distinct bytes. Its 335 original-assembly functions are unchanged. Near misses and interface corrections to existing C add no matching credit.\n\n## Checked\n\n- Final merged source tree equals the reviewed integration tree. All 5,030 compiled inputs match the final validation snapshot.\n- Full strict builds of the three releases plus the final Gorn rebuilds verify 84 programs byte-identical with zero C fallback. The last changed source unit is exclusive to Gorn; all three Gorn",
+      "mergedAt": "2026-10-29T05:32:54Z"
+     },
+     {
+      "number": 368,
+      "title": "feat(src): carry over 842 functions matched in my fork",
+      "author": "bigbeno37",
+      "untrustedBody": "## What\n\n842 functions as C: 158 boot and 684 level functions, 609,116 bytes, 9,399 placements in USA v1.01. They were matched with AI agents (Claude) in my own fork, and every commit carries a `Co-Authored-By` trailer. There are 45 commits of 10 to 20 functions each (most 17 to 20), one `include/names.h` commit and one docs commit.\n\n- Each function replaces its `INCLUDE_ASM` marker in place, or moves into a unit of its own when it needs other flags (637 new units, 319 new `config/cflags.txt` lines; each commit says which). Six existing `config/cflags.txt` lines move, and one duplicate line goes.\n- For functions that are now C, this removes their 687 near-miss drafts from `nonmatching/` (683 README rows) and their 28 functional drafts from `nonmatching/functional/` (with their `functional.tsv` rows).\n- `include/names.h`: readable aliases for 426 of these functions, plus `FastDecTimer`, `FloatToInt`, `IsPointInCuboid` and `PlayMobySound`, which arrive with the commits whose C calls them",
+      "mergedAt": "2026-10-29T06:48:53Z"
+     },
+     {
+      "number": 369,
+      "title": "fix(progress): linked code is the code of complete units, as objdiff sums it",
+      "author": "bigbeno37",
+      "untrustedBody": "## What\n\n`tools/progress.py` now counts the report's `complete_code` (ByteMatch's \"Fully linked\" code, which [shows](https://bytematch.dev/OpenRAC/rac2-decomp) 0 of 5,525,780 bytes today) as the code of the complete units. Until now it was all or nothing over every function of the total and of each category, so it would stay at 0% until the whole game matched.\n\nThat is how the format is meant to add up, and how rac1-decomp already does it:\n\n- objdiff's `report generate` gives a complete unit `complete_code` = `total_code` ([`report.rs` L339–343](https://github.com/encounter/objdiff/blob/9aeec9cbab1a056ade7dc1f1625aacc41b0f8511/objdiff-cli/src/cmd/report.rs#L339-L343)) and sums the units into the [total](https://github.com/encounter/objdiff/blob/9aeec9cbab1a056ade7dc1f1625aacc41b0f8511/objdiff-cli/src/cmd/report.rs#L161) and into [each category](https://github.com/encounter/objdiff/blob/9aeec9cbab1a056ade7dc1f1625aacc41b0f8511/objdiff-core/src/bindings/report.rs#L147-L167).\n- rac1-decom",
+      "mergedAt": "2026-10-29T09:14:17Z"
+     },
+     {
+      "number": 370,
+      "title": "feat(src): func_002AD980 in C from its near miss",
+      "author": "xx255q",
+      "untrustedBody": "`func_002AD980` (500 bytes, 23 places), `src/game/002AA800.c`, exact on USA v1.01.\r\n\r\nMaps an object to its slot: fixed slots for thirteen object types, the hero's own slot for the hero or its rider, otherwise the index of the resident kind it matches. Two changes from the draft in `nonmatching/game/func_002AD980.c` gave retail's table-loop allocation and base-plus-field addressing:\r\n- the rider pointer at +0xB8 is read each time it is tested, instead of being held in a local;\r\n- each resident kind is read through a pointer to its record (`KindRecord *rec = &D_00239BA0[D_00139568[i]]`).\r\n\r\nRemoves the draft from `nonmatching/`.\r\n\r\n**Checks** (USA v1.01, upstream 4acbea4 with this change):\r\n- `tools/check.py func_002AD980`: 23 of 23 places match.\r\n- `tools/build.py all --strict`: exit 0, all 28 programs OK.\r\n- `python3 -m unittest discover -s tests`: 315 tests OK (with game data).\r\n- `tests/check_repository.py`: repository checks passed.\r\n- `tools/progress.py --check`: passes; the repor",
+      "mergedAt": "2026-10-31T18:39:16Z"
+     },
+     {
+      "number": 371,
+      "title": "feat(src): func_L00_002A6008 in C from its near miss",
+      "author": "xx255q",
+      "untrustedBody": "Keeps the hero's held object: creates it at the hero's position the first time, then poses it on the hand joint and picks its animation from the hero's state. One pointer local holds the new object's position field and later the held object, which gives retail's argument registers in the creation block. The unit now takes the shared types and qcopy from common.h.\n\n## What\n\n<!-- The functions matched or the change made, and why. -->\n\n## Checked\n\n<!-- The commands you ran and what they printed, e.g. `tools/build.py all`: 28 programs OK;\nhow many functions this adds (leave `progress/report.json` and the README table out: they are regenerated on master). Say what you did not run. -->",
+      "mergedAt": "2026-10-31T18:39:09Z"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": {
+    "before": {
+     "code": {
+      "done": 3009212,
+      "total": 5525780
+     },
+     "functions": {
+      "done": 6222,
+      "total": 8578
+     },
+     "data": {
+      "done": 0,
+      "total": 383391
+     }
+    },
+    "after": {
+     "code": {
+      "done": 3637728,
+      "total": 5525780
+     },
+     "functions": {
+      "done": 7100,
+      "total": 8578
+     },
+     "data": {
+      "done": 0,
+      "total": 383391
+     }
+    }
+   },
+   "contributors": [
+    "bigbeno37",
+    "cadelass",
+    "DrLegitamate",
+    "llesieur99",
+    "Lynder063",
+    "ReaperOfVeriod",
+    "Veradictus",
+    "xx255q"
+   ]
+  },
+  {
+   "repo": "rac3-decomp",
+   "title": "Up Your Arsenal",
+   "branches": [
+    {
+     "name": "master",
+     "commits": [
+      {
+       "sha": "cd0e7c20fd8a93116566ba2e024fa2f3536bd30c",
+       "title": "chore(progress): NTSC-U 5677 of 16222 functions (8.38%)",
+       "author": "Veradictus",
+       "date": "2026-10-29T15:42:23Z"
+      },
+      {
+       "sha": "44c86b7af20f2bff5ae3d70561cebdd0b0e10b04",
+       "title": "Merge pull request #1 from llesieur99/codex/ntsc-float-setter-20261025",
+       "author": "Veradictus",
+       "date": "2026-10-29T15:36:36Z"
+      }
+     ]
+    }
+   ],
+   "commitCount": 2,
+   "pullRequests": {
+    "merged": [
+     {
+      "number": 1,
+      "title": "feat(us): add native frontend routines with NTSC validation",
+      "author": "llesieur99",
+      "untrustedBody": "## Summary\n\nAdd six native NTSC-U routines, in eight program placements:\n\n| Program | Function | Complete body | Role |\n| --- | --- | ---: | --- |\n| frontbin | `func_U_003EB578` | 12 bytes | Store a float at state +0x50 |\n| boot_elf | `func_U_003F0D38` | 12 bytes | The same setter's boot_elf copy |\n| boot_elf | `func_U_003C4CB8` | 200 bytes | Short-counter/state update and RGB extraction |\n| boot_elf | `func_U_003E46B0` | 200 bytes | State-derived ratio and two-float helper call |\n| boot_elf | `func_U_00396860` | 296 bytes | Update the thirteen-entry timer/fade/callback table |\n| boot_elf | `func_U_003C18B0` | 296 bytes | Initialize frontend labels and state from settings |\n| frontbin | `func_U_003BC0F0` | 296 bytes | The same initializer's frontbin copy |\n| boot_elf | `func_U_003B82B8` | 1,108 bytes | Select and draw frontend dialogs, with a compiler-generated jump table |\n\nThe two agent waves add three 296-byte placements and the 1,108-byte dialog routine. The three 296-byte placemen",
+      "mergedAt": "2026-10-29T15:36:36Z"
+     }
+    ],
+    "opened": []
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": {
+    "before": {
+     "code": {
+      "done": 657780,
+      "total": 7546948
+     },
+     "functions": {
+      "done": 5807,
+      "total": 16164
+     }
+    },
+    "after": {
+     "code": {
+      "done": 657780,
+      "total": 7546948
+     },
+     "functions": {
+      "done": 5807,
+      "total": 16164
+     }
+    }
+   },
+   "contributors": [
+    "llesieur99",
+    "Veradictus"
+   ]
+  },
+  {
+   "repo": "rac4-decomp",
+   "title": "Ratchet: Deadlocked",
+   "branches": [
+    {
+     "name": "main",
+     "commits": [
+      {
+       "sha": "749612988ee65ce999b7c8959012b1fc2c5b6641",
+       "title": "chore(progress): 4,151 of 18,085 functions in SCUS_974.65, 4,553 of 18,113 in SCES_532.85",
+       "author": "Veradictus",
+       "date": "2026-10-29T15:42:33Z"
+      },
+      {
+       "sha": "ab87a986cc3221ad611bd001379e8dd78c5c3054",
+       "title": "fix(pal): drop nine more src/pal copies of functions src/ matches on PAL",
+       "author": "Veradictus",
+       "date": "2026-10-29T15:40:42Z"
+      },
+      {
+       "sha": "47bdf766aa02de920ca4456327b0ddbfdc53e815",
+       "title": "Merge pull request #45 from Shaar-games/pal-reconstructions-next",
+       "author": "Veradictus",
+       "date": "2026-10-29T15:37:19Z"
+      },
+      {
+       "sha": "ae543c417e597203e421b76041ecc355a5809627",
+       "title": "chore(progress): 4,151 of 18,085 functions in SCUS_974.65, 4,542 of 18,113 in SCES_532.85",
+       "author": "Veradictus",
+       "date": "2026-10-29T15:36:40Z"
+      },
+      {
+       "sha": "0aa9c26675252a6d04fdb25574e662ec54709a4c",
+       "title": "fix(pal): drop src/pal copies of functions src/ already matches on PAL",
+       "author": "Veradictus",
+       "date": "2026-10-29T15:34:24Z"
+      },
+      {
+       "sha": "9a0fe9a8fae629403ac12341e15634866feb3b40",
+       "title": "docs(notices): join the rac3-decomp donor table rows from #47",
+       "author": "Veradictus",
+       "date": "2026-10-29T15:23:49Z"
+      },
+      {
+       "sha": "9fd13b29bf452c08f8eb726e01dd5a81bcfb55c9",
+       "title": "Merge pull request #43 from Shaar-games/codex/pal-coverage",
+       "author": "Veradictus",
+       "date": "2026-10-29T15:10:09Z"
+      },
+      {
+       "sha": "818da5a5e592b22e0a23cc556bc1a56c646ca464",
+       "title": "Merge pull request #45 from Shaar-games/pal-reconstructions-next",
+       "author": "Veradictus",
+       "date": "2026-10-29T15:10:09Z"
+      },
+      {
+       "sha": "c6c22f68adab0b350671174a1a3dc8e7bbac389d",
+       "title": "Merge pull request #46 from BlindFire1200/pr/batch-1",
+       "author": "Veradictus",
+       "date": "2026-10-29T15:10:08Z"
+      },
+      {
+       "sha": "58d74bbad3951934e6eca45d0d3de8706c8f9209",
+       "title": "Merge pull request #47 from Clank700/codex/match-rac4-family-functions-v2",
+       "author": "Veradictus",
+       "date": "2026-10-29T15:09:43Z"
+      },
+      {
+       "sha": "cc0f75f36631ecea27133788328bd537e1d56472",
+       "title": "Merge pull request #41 from Clank700/codex/match-io-shims",
+       "author": "Lynder063",
+       "date": "2026-10-29T09:27:29Z"
+      }
+     ]
+    }
+   ],
+   "commitCount": 11,
+   "pullRequests": {
+    "merged": [
+     {
+      "number": 41,
+      "title": "Match TTY read/write wrappers (240 bytes)",
+      "author": "Clank700",
+      "untrustedBody": "Add two plain-C TTY I/O wrappers, using the existing per-file Sony GCC 2.9 route:\n\n| Function | Bytes |\n| --- | ---: |\n| `func_00127168` (write wrapper) | 124 |\n| `func_001271E8` (read wrapper) | 116 |\n\nBoth US and PAL reports gain **2 distinct functions / 240 bytes**. Each function has its own commit with synchronized maps/reports. The wrappers use pointer-typed buffers, verified TTY call targets, and the existing shared initialization flag.\n\nThe starting reference is public Lombyte `src/sdk/library/write.c` and `read.c` at [0cf08ef3](https://github.com/lombyte-project/Lombyte/tree/0cf08ef39c8a2e37f122a5fdf5393856d7aefb09/src/sdk/library). Calls/state were retargeted against Deadlocked; the reference and retained newlib attribution are recorded in `THIRD_PARTY_NOTICES.md`. Sony 2.9 is already an upstream compiler route; no compiler discovery, output rewrite, flag-boundary change, inline assembly, or register pin is introduced.\n\nValidation on public main `1e460f3`:\n\n- Full 3,949-source",
+      "mergedAt": "2026-10-29T09:27:30Z"
+     },
+     {
+      "number": 43,
+      "title": "Match 57 PAL functions (7,216 bytes)",
+      "author": "Shaar-games",
+      "untrustedBody": "Adds 57 reconstructed PAL functions, increasing exact SCES_532.85 coverage by **7,216 code bytes**. The existing 4,141 map rows for each region are retained; the new sources have PAL catalogue names and are marked `other` in the US map.\n\n| PAL exact coverage | Before | After |\n| --- | ---: | ---: |\n| Functions | 3,842 | 3,899 |\n| Code bytes | 311,000 | 318,216 |\n| Code percentage | 5.350147% | 5.474285% |\n\n| Source area | Functions | Bytes |\n| --- | ---: | ---: |\n| Core | 2 | 368 |\n| Network | 1 | 104 |\n| Resident menus | 27 | 3,860 |\n| Multiplayer-menu overlay | 19 | 1,896 |\n| Dreadzone-station overlay | 2 | 244 |\n| Shared overlays | 6 | 744 |\n| **Total** | **57** | **7,216** |\n\nTwo previously unresolved functions now match using the repository's existing whole-file Sony GCC 2.9 route (`@ee29 -O2 -G0`): `func_00141518` (204 bytes) and `func_L00_0051BE38` (80 bytes). The Sony compiler reproduces their returning tail jumps. No compiler route or output-rewriting step is added.\n\n`func_004",
+      "mergedAt": "2026-10-29T15:36:40Z"
+     },
+     {
+      "number": 45,
+      "title": "Reconstruct PAL functions in batches of 10 (byte-identical)",
+      "author": "Shaar-games",
+      "untrustedBody": "# PAL reconstruction — one commit per 10 functions\n\n**450 reconstructed PAL functions in 45 commits, each containing exactly 10 functions.** Each function is reconstructed in C from the PAL SCES_532.85 executable, compiled using the authentic PS2 toolchain and checked byte-for-byte after linking at the original address.\n\nThe initial 100-function PR has been extended by **350 of the requested 900 additional functions**. The longer-term target is **1,000 total functions**; **550 more are still outstanding**, and they are not claimed as completed.\n\nThe original 190 function commits were regrouped into 19 ten-function commits **without changing any source, map, report or other tracked file**. The original and regrouped 190-function checkpoints have identical Git trees. Any later additions are separately committed in groups of ten. This PR remains independent from PR #43 and PR #44.\n\n## Verified PAL progress\n\n| Measure | Before this PR | Current branch |\n| --- | ---: | ---: |\n| Exact-matchi",
+      "mergedAt": "2026-10-29T15:37:22Z"
+     },
+     {
+      "number": 46,
+      "title": "Match 276 functions",
+      "author": "BlindFire1200",
+      "untrustedBody": "Matches 276 functions: 181 in game code, 77 in network code (net.text) and 18 in the engine core (core.text). Also adds C for 41 near misses under `nonmatching/`.\r\n\r\n| | Before | After |\r\n| --- | ---: | ---: |\r\n| SCUS_974.65 functions (exact) | 3,822 of 18,085 | 4,093 of 18,085 |\r\n| SCUS_974.65 code (exact) | 5.27% | 5.47% |\r\n| SCES_532.85 functions (exact) | 3,842 of 18,113 | 4,113 of 18,113 |\r\n| SCES_532.85 code (exact) | 5.35% | 5.54% |\r\n\r\nNotes:\r\n- `func_004C8388` was really two functions. `config/functions.tsv` and `config/symbol_addrs.txt` split it into `func_004C8388` (0x8) and `func_004C8390` (0x30), and this PR matches `func_004C8390`.\r\n- ByteMatch and the progress tables count 271 new matches, not 276. `func_004777AC`, `func_00489E1C`, `func_004CD6DC`, `func_004D5BD0` and `func_004FE140` match byte for byte, but `config/*/inventory.tsv` treats each one as part of the function before it. They will count once those neighbours are matched or the inventory splits them.\r\n- ByteMat",
+      "mergedAt": "2026-10-29T15:36:40Z"
+     },
+     {
+      "number": 47,
+      "title": "Match 56 engine and library functions (5,956 US bytes)",
+      "author": "Clank700",
+      "untrustedBody": "Add **56 functions / 5,956 US code bytes**, plus compatible shared-record declarations in seven existing files. The generated reports add 53 PAL functions / 5,908 bytes where these same sources match that version.\n\nThis excludes all 80 source overlaps with #46. The remaining functions were also checked against the current US match map, including functions defined inside other source files.\n\n### Source and compiler details\n\n- 14 compiler-guided siblings: seven record setters and seven object-query setters. Field offsets and selector constants were changed in C and compiled again; the emitted instructions were never edited.\n- 12 one-time initialization getters. Their four-byte flags are defined above the function, following the documented `-G8` rule in `docs/LEVERS.md`. Moving a flag to an extern declaration changed a measured 92-byte function to 100 bytes because the existing assembler policy changed the access form. Each retained flag has a unique C owner and its emitted initial bytes ",
+      "mergedAt": "2026-10-29T15:36:40Z"
+     }
+    ],
+    "opened": [
+     {
+      "number": 45,
+      "title": "Reconstruct PAL functions in batches of 10 (byte-identical)",
+      "author": "Shaar-games",
+      "untrustedBody": "# PAL reconstruction — one commit per 10 functions\n\n**450 reconstructed PAL functions in 45 commits, each containing exactly 10 functions.** Each function is reconstructed in C from the PAL SCES_532.85 executable, compiled using the authentic PS2 toolchain and checked byte-for-byte after linking at the original address.\n\nThe initial 100-function PR has been extended by **350 of the requested 900 additional functions**. The longer-term target is **1,000 total functions**; **550 more are still outstanding**, and they are not claimed as completed.\n\nThe original 190 function commits were regrouped into 19 ten-function commits **without changing any source, map, report or other tracked file**. The original and regrouped 190-function checkpoints have identical Git trees. Any later additions are separately committed in groups of ten. This PR remains independent from PR #43 and PR #44.\n\n## Verified PAL progress\n\n| Measure | Before this PR | Current branch |\n| --- | ---: | ---: |\n| Exact-matchi",
+      "mergedAt": "2026-10-29T15:37:22Z"
+     },
+     {
+      "number": 46,
+      "title": "Match 276 functions",
+      "author": "BlindFire1200",
+      "untrustedBody": "Matches 276 functions: 181 in game code, 77 in network code (net.text) and 18 in the engine core (core.text). Also adds C for 41 near misses under `nonmatching/`.\r\n\r\n| | Before | After |\r\n| --- | ---: | ---: |\r\n| SCUS_974.65 functions (exact) | 3,822 of 18,085 | 4,093 of 18,085 |\r\n| SCUS_974.65 code (exact) | 5.27% | 5.47% |\r\n| SCES_532.85 functions (exact) | 3,842 of 18,113 | 4,113 of 18,113 |\r\n| SCES_532.85 code (exact) | 5.35% | 5.54% |\r\n\r\nNotes:\r\n- `func_004C8388` was really two functions. `config/functions.tsv` and `config/symbol_addrs.txt` split it into `func_004C8388` (0x8) and `func_004C8390` (0x30), and this PR matches `func_004C8390`.\r\n- ByteMatch and the progress tables count 271 new matches, not 276. `func_004777AC`, `func_00489E1C`, `func_004CD6DC`, `func_004D5BD0` and `func_004FE140` match byte for byte, but `config/*/inventory.tsv` treats each one as part of the function before it. They will count once those neighbours are matched or the inventory splits them.\r\n- ByteMat",
+      "mergedAt": "2026-10-29T15:36:40Z"
+     },
+     {
+      "number": 47,
+      "title": "Match 56 engine and library functions (5,956 US bytes)",
+      "author": "Clank700",
+      "untrustedBody": "Add **56 functions / 5,956 US code bytes**, plus compatible shared-record declarations in seven existing files. The generated reports add 53 PAL functions / 5,908 bytes where these same sources match that version.\n\nThis excludes all 80 source overlaps with #46. The remaining functions were also checked against the current US match map, including functions defined inside other source files.\n\n### Source and compiler details\n\n- 14 compiler-guided siblings: seven record setters and seven object-query setters. Field offsets and selector constants were changed in C and compiled again; the emitted instructions were never edited.\n- 12 one-time initialization getters. Their four-byte flags are defined above the function, following the documented `-G8` rule in `docs/LEVERS.md`. Moving a flag to an extern declaration changed a measured 92-byte function to 100 bytes because the existing assembler policy changed the access form. Each retained flag has a unique C owner and its emitted initial bytes ",
+      "mergedAt": "2026-10-29T15:36:40Z"
+     },
+     {
+      "number": 48,
+      "title": "Add PAL C for func_L11_00408DE8; a build note on mfc1 before a branch",
+      "author": "chistianh",
+      "untrustedBody": "**Title:** Add PAL C for func_L11_00408DE8; a build note on mfc1 before a branch\n\nThis adds one PAL-only function, chosen as in #33–#38 (fingerprint in no row of `config/us/functions.tsv`, nothing resident, no `match` or `near` row places it):\n\n| PAL | Where | Size |\n|---|---|---|\n| func_L11_00408DE8 | `src/pal/overlays/l11_tempus_station/` (new folder, named as in `tools/levels.py`) | 108 |\n\nIt stores **150** (`0x96`) in the first word of the new object's data, which may be a 50 Hz frame count (for the US check).\n\nChecks: all 464 files of `src/pal/` MATCH with `tools/check_func.py --version pal`, checked with `src/pal/` set aside. The branch is based on today's `main`. `config/` and the reports are not regenerated.\n\n### Note 1: a nop after `mfc1` that retail does not have\n\nWhen an `mfc1` is followed directly by a branch that reads the same register, GCC writes `#nop` after the `mfc1` and opens the branch's `.set noreorder` block. The driver's GNU as then puts a real `nop` there. Retai",
+      "mergedAt": "2026-10-31T18:41:23Z"
+     },
+     {
+      "number": 49,
+      "title": "tools: expand li.s as SN's assembler does; PAL C for 27 functions it unblocks",
+      "author": "chistianh",
+      "untrustedBody": "**Title:** tools: expand li.s as SN's assembler does; PAL C for 27 functions it unblocks\n\n### The tool change\n\nGCC writes every float constant as `li.s $fN, value`. Retail's assembler, SN's `ps2eeas`, always builds the value in `$at`: `lui`, plus `ori` when the low half is not zero, then `mtc1`. The driver's GNU `as` does that only when the low half is zero. For any other value, at -G8, it puts the value in `.lit4` and loads it with one `lwc1 ...($gp)`. That is one word instead of three, plus a `$gp` access retail does not have. So no function with a float constant like 0.3 or 1.6 could match.\n\n- I checked it on `ps2eeas` itself (`toolchain/sn-prodg-3.01/.../Ps2EeAs.exe`, 1.9.25) on test files: `li.s $f12, 0.08` becomes `lui $at, 0x3DA3; ori $at, $at, 0xD70B; mtc1 $at, $f12`.\n- In the PAL text the `lui`/`ori`/`mtc1 $at` form appears 13,207 times.\n- `tools/ps2eeas_lis.py` (new, in the SN route of `tools/cc.sh` after `ps2eeas_dli.py`) writes that sequence out before the first assembly. `",
+      "mergedAt": "2026-10-31T18:41:22Z"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": {
+    "before": {
+     "code": {
+      "done": 304976,
+      "total": 5782424
+     },
+     "functions": {
+      "done": 3822,
+      "total": 18085
+     }
+    },
+    "after": {
+     "code": {
+      "done": 322264,
+      "total": 5782424
+     },
+     "functions": {
+      "done": 4151,
+      "total": 18085
+     }
+    }
+   },
+   "contributors": [
+    "BlindFire1200",
+    "chistianh",
+    "Clank700",
+    "Lynder063",
+    "Shaar-games",
+    "Veradictus"
+   ]
+  },
+  {
+   "repo": "openrac-mods",
+   "title": "OpenRAC mods",
+   "branches": [
+    {
+     "name": "master",
+     "commits": [
+      {
+       "sha": "892c17401da544daf7efa229b5e672f892e2fe46",
+       "title": "build: build against the mod SDK 1.10.1, the first with Android",
+       "author": "Veradictus",
+       "date": "2026-10-29T06:25:43Z"
+      },
+      {
+       "sha": "113a67b27b1727a3ef494d7c18d98ce2f2894c67",
+       "title": "chore: new patch versions of the native mods, for their Android builds",
+       "author": "Veradictus",
+       "date": "2026-10-29T06:25:43Z"
+      },
+      {
+       "sha": "b5e2689729b8cb14301f7d150ed49ec4082e9e3f",
+       "title": "ci: build the native mods for Android, as the SDK template does",
+       "author": "Veradictus",
+       "date": "2026-10-29T06:25:43Z"
+      },
+      {
+       "sha": "413bd275a5ca3ad17bc5547eee986c6c20cb0184",
+       "title": "fix(multiplayer): a bolt flying to whoever took it runs wherever the camera is",
+       "author": "Veradictus",
+       "date": "2026-10-29T06:24:36Z"
+      },
+      {
+       "sha": "7042c0630b08ecfd67561a89aeb5dbdfae805f7e",
+       "title": "fix(multiplayer): a figure's held item animates between poses as its body does",
+       "author": "Veradictus",
+       "date": "2026-10-29T06:18:28Z"
+      },
+      {
+       "sha": "56228a3ddb81cb36ca19982cb8b49ad677308761",
+       "title": "fix(multiplayer): a bolt taken by another player flies to them before it goes",
+       "author": "Veradictus",
+       "date": "2026-10-29T05:53:29Z"
+      },
+      {
+       "sha": "6147003164a6409fd232143cc78fd39c296b8383",
+       "title": "feat(multiplayer): the verbose log has each received pose's place and this hero's z each tick",
+       "author": "Veradictus",
+       "date": "2026-10-29T05:26:29Z"
+      },
+      {
+       "sha": "0b828a56c34475c2a45f723ec1cfb27717933aaa",
+       "title": "fix(multiplayer): a standing figure no longer bobs",
+       "author": "Veradictus",
+       "date": "2026-10-29T05:26:29Z"
+      },
+      {
+       "sha": "48f60af389cc6220fb58d13b757adb23d0071f32",
+       "title": "chore(multiplayer): version 0.7.2",
+       "author": "Veradictus",
+       "date": "2026-10-29T05:08:34Z"
+      },
+      {
+       "sha": "a3734f2a11169b25aeb2802c6cf1980a264b6ccf",
+       "title": "feat(multiplayer): OPENRAC_MP_LAG holds received messages back, to test a slow link",
+       "author": "Veradictus",
+       "date": "2026-10-29T05:08:23Z"
+      },
+      {
+       "sha": "4e5f899faca584e702853c89be3477777b02552e",
+       "title": "feat(multiplayer): the verbose log says how remote poses arrive and are shown",
+       "author": "Veradictus",
+       "date": "2026-10-29T05:08:12Z"
+      },
+      {
+       "sha": "7d91b6914adf8f3c5ad238b682fa442a315a865a",
+       "title": "fix(multiplayer): remote figures and the host's mobys move smoothly over a slow link",
+       "author": "Veradictus",
+       "date": "2026-10-29T05:07:56Z"
+      },
+      {
+       "sha": "007615a3d858baff21d13325f0505a71615d7d49",
+       "title": "chore(multiplayer): version 0.7.1",
+       "author": "Veradictus",
+       "date": "2026-10-29T02:38:45Z"
+      },
+      {
+       "sha": "efd0bc70507295378f9902c337b018a6a5175bfb",
+       "title": "fix(multiplayer): a member's Ready stands against an older STATE from the host",
+       "author": "Veradictus",
+       "date": "2026-10-29T02:38:45Z"
+      },
+      {
+       "sha": "b887ca311c4432472e37cd91ad7c839663300ed7",
+       "title": "build: build against the mod SDK 1.10.0",
+       "author": "Veradictus",
+       "date": "2026-10-29T02:08:37Z"
+      },
+      {
+       "sha": "7d9e8d62eadfca4490de94f92a74b1976701f80a",
+       "title": "feat(multiplayer): connect to game.openrac.dev by default",
+       "author": "Veradictus",
+       "date": "2026-10-29T01:59:01Z"
+      },
+      {
+       "sha": "ce23cb3d0d99db6ce3bad49bddce5290f3a57f5e",
+       "title": "fix(multiplayer): a bolt flies to the player nearest it",
+       "author": "Veradictus",
+       "date": "2026-10-29T01:01:09Z"
+      },
+      {
+       "sha": "d53f643a18c823c281dbb3547dc4bfe45bc26f39",
+       "title": "docs(multiplayer): point the README at the decisions",
+       "author": "Veradictus",
+       "date": "2026-10-29T00:52:27Z"
+      },
+      {
+       "sha": "a8261cecd8211b2b781b9310cfad398b5b8232e4",
+       "title": "docs(multiplayer): the open decisions and the ones made",
+       "author": "Veradictus",
+       "date": "2026-10-29T00:52:13Z"
+      },
+      {
+       "sha": "4728ccf1ada9ce160cb5e6460f5298f16bab6695",
+       "title": "feat(multiplayer): the party shares items, gold bolts and planets",
+       "author": "Veradictus",
+       "date": "2026-10-29T00:47:52Z"
+      },
+      {
+       "sha": "f5be80f9dd6f6ae04cd6b64b2009c844c58b2584",
+       "title": "feat(multiplayer): bolts are the host's, once in the world",
+       "author": "Veradictus",
+       "date": "2026-10-29T00:34:55Z"
+      }
+     ]
+    }
+   ],
+   "commitCount": 21,
+   "pullRequests": {
+    "merged": [],
+    "opened": []
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [
+    {
+     "tag": "ammo-max-v1.0.2",
+     "name": "ammo-max-v1.0.2",
+     "publishedAt": "2026-10-29T07:19:51Z"
+    },
+    {
+     "tag": "button-swap-v1.0.0",
+     "name": "button-swap-v1.0.0",
+     "publishedAt": "2026-10-29T01:17:24Z"
+    },
+    {
+     "tag": "difficulty-v1.2.2",
+     "name": "difficulty-v1.2.2",
+     "publishedAt": "2026-10-29T01:17:10Z"
+    },
+    {
+     "tag": "difficulty-v1.2.3",
+     "name": "difficulty-v1.2.3",
+     "publishedAt": "2026-10-29T07:16:44Z"
+    },
+    {
+     "tag": "dualsense-v1.0.2",
+     "name": "dualsense-v1.0.2",
+     "publishedAt": "2026-10-29T07:22:20Z"
+    },
+    {
+     "tag": "item-randomizer-v1.0.3",
+     "name": "item-randomizer-v1.0.3",
+     "publishedAt": "2026-10-29T07:18:34Z"
+    },
+    {
+     "tag": "keyboard-mouse-v1.2.4",
+     "name": "keyboard-mouse-v1.2.4",
+     "publishedAt": "2026-10-29T07:19:30Z"
+    },
+    {
+     "tag": "live-splits-v1.0.2",
+     "name": "live-splits-v1.0.2",
+     "publishedAt": "2026-10-29T07:19:03Z"
+    },
+    {
+     "tag": "lock-strafe-v1.0.2",
+     "name": "lock-strafe-v1.0.2",
+     "publishedAt": "2026-10-29T07:18:48Z"
+    },
+    {
+     "tag": "multiplayer-v0.7.1",
+     "name": "multiplayer-v0.7.1",
+     "publishedAt": "2026-10-29T02:54:22Z"
+    },
+    {
+     "tag": "multiplayer-v0.7.3",
+     "name": "multiplayer-v0.7.3",
+     "publishedAt": "2026-10-29T07:20:29Z"
+    },
+    {
+     "tag": "xbox-icons-v1.0.0",
+     "name": "xbox-icons-v1.0.0",
+     "publishedAt": "2026-10-29T01:18:47Z"
+    },
+    {
+     "tag": "xbox-icons-v1.0.1",
+     "name": "xbox-icons-v1.0.1",
+     "publishedAt": "2026-10-29T07:21:43Z"
+    }
+   ],
+   "progress": null,
+   "contributors": [
+    "Veradictus"
+   ]
+  }
+ ]
+}

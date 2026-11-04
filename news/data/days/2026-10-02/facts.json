@@ -1,0 +1,427 @@
+{
+ "format": 1,
+ "date": "2026-10-02",
+ "totals": {
+  "commits": 18,
+  "pullRequestsMerged": 10,
+  "pullRequestsOpened": 10,
+  "contributors": 2
+ },
+ "projects": [
+  {
+   "repo": "OpenRAC",
+   "title": "OpenRAC launcher",
+   "branches": [
+    {
+     "name": "develop",
+     "commits": []
+    },
+    {
+     "name": "master",
+     "commits": []
+    }
+   ],
+   "commitCount": 0,
+   "pullRequests": {
+    "merged": [],
+    "opened": []
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": null,
+   "contributors": []
+  },
+  {
+   "repo": "rac1-decomp",
+   "title": "Ratchet & Clank",
+   "branches": [
+    {
+     "name": "main",
+     "commits": [
+      {
+       "sha": "ec5e159038e1cd0ce31260836c4ab6c31ac06ea1",
+       "title": "John Doe requested removal",
+       "author": "Lynder063",
+       "date": "2026-10-02T22:20:59Z"
+      },
+      {
+       "sha": "3d739f05748f3337b3f8400e744caf60dc995362",
+       "title": "John Doe removal request",
+       "author": "Lynder063",
+       "date": "2026-10-02T22:10:52Z"
+      },
+      {
+       "sha": "ce571f0f19716dd67958fdef27ff9918ba83635f",
+       "title": "Merge pull request #17 from Lynder063/level-18-veldin2",
+       "author": "Lynder063",
+       "date": "2026-10-02T22:08:34Z"
+      },
+      {
+       "sha": "c24e5fcd9df7a60dc84ed322539b9176c57fe2b5",
+       "title": "Merge pull request #16 from Lynder063/level-18-veldin2",
+       "author": "Lynder063",
+       "date": "2026-10-02T13:12:02Z"
+      },
+      {
+       "sha": "5d1b84b01a0735bb9680939b8dcd44ad25023a59",
+       "title": "docs/include: add SaveGameBlockId and SaveLevelBlockId IFF chunk enums and reverse engineering notes",
+       "author": "Lynder063",
+       "date": "2026-10-02T10:05:27Z"
+      },
+      {
+       "sha": "27af2b42cd558d2e92b6c8d7ab9b72c92b47ce3e",
+       "title": "docs/include: add rac2-decomp cross-game intelligence, MobyInstance and Gadget types",
+       "author": "Lynder063",
+       "date": "2026-10-02T09:37:05Z"
+      },
+      {
+       "sha": "0810719ac528215b8f89389e7b3d335ee7e75a39",
+       "title": "feat(stash,names): implement authentic Stash structures from IOPSTASH.IRX and define gGameMode",
+       "author": "Lynder063",
+       "date": "2026-10-02T09:06:43Z"
+      },
+      {
+       "sha": "cd38e5f7b5d2dfd012afd92bef301ca1e40f33ae",
+       "title": "docs: add September 9, 2002 review prototype analysis",
+       "author": "Lynder063",
+       "date": "2026-10-02T08:52:10Z"
+      },
+      {
+       "sha": "9b68c36cd120013b58f70fe98cac4716f7639106",
+       "title": "docs(notes): update research with deep data mining discoveries",
+       "author": "Lynder063",
+       "date": "2026-10-02T08:25:04Z"
+      },
+      {
+       "sha": "168e8027d84784252fc37d5cec32ede3a5991e61",
+       "title": "Merge branch 'main' into level-18-veldin2",
+       "author": "Lynder063",
+       "date": "2026-10-02T08:21:41Z"
+      },
+      {
+       "sha": "c310f219bc72fb24cd3f6e4dab01e64c897c92c6",
+       "title": "feat(overlays): level 18 (Veldin 2): func_L18_002F2AE0 exact match",
+       "author": "Lynder063",
+       "date": "2026-10-02T07:24:10Z"
+      },
+      {
+       "sha": "11ad60029fcb497b671c80db70836e6abdc9744b",
+       "title": "fix(nonmatching): level 18: func_L18_002FDB28 one instruction from exact",
+       "author": "Lynder063",
+       "date": "2026-10-02T07:15:51Z"
+      },
+      {
+       "sha": "2c94a726a815366b36f2425653b323c07af273cf",
+       "title": "feat(overlays): level 18 (Veldin 2): func_L18_002D8070 exact match",
+       "author": "Lynder063",
+       "date": "2026-10-02T07:08:50Z"
+      },
+      {
+       "sha": "ca54f3cde0017bb6e96b8f4c2644eb4508d38eec",
+       "title": "feat(overlays): level 18 (Veldin 2): func_L18_002D70E8 exact match",
+       "author": "Lynder063",
+       "date": "2026-10-02T07:02:16Z"
+      },
+      {
+       "sha": "168e6dbc1bc9a470e57ade3fce3d7d74e0ba1ccb",
+       "title": "feat(overlays): level 18 (Veldin 2): func_L18_002F1AB0 exact match",
+       "author": "Lynder063",
+       "date": "2026-10-02T06:58:40Z"
+      },
+      {
+       "sha": "4bd55a5cff2fb51ec9178905c5b62afe1bc4aa16",
+       "title": "feat(overlays): level 18 (Veldin 2): func_L18_002A8400 exact match",
+       "author": "Lynder063",
+       "date": "2026-10-02T06:34:07Z"
+      },
+      {
+       "sha": "6e5c964784cec7397379fd39abafb49904553cb2",
+       "title": "feat(tools): read a level's own code in Ghidra",
+       "author": "Lynder063",
+       "date": "2026-10-02T00:04:04Z"
+      },
+      {
+       "sha": "200dae83a4ab8e4b9d558f2f5c3a8e410cf674a3",
+       "title": "feat(overlays): func_L05_003053D8 exact match (from the macro-slot fix)",
+       "author": "Lynder063",
+       "date": "2026-10-02T00:01:16Z"
+      }
+     ]
+    }
+   ],
+   "commitCount": 18,
+   "pullRequests": {
+    "merged": [
+     {
+      "number": 14,
+      "title": "Level 18 (Veldin 2): decompile the level's code",
+      "author": "Lynder063",
+      "untrustedBody": "Working PR for level 18 (Veldin 2, `src/overlays/l18_veldin2/`). Everything we get goes in here, matched or not; still a draft.\n\n## Status\n\nLevel 18: **79 of 122 functions exact, 29,360 of 154,848 bytes** (19.0% of the level's code, **26.5%** counting the staged near misses). 42 were already matched before this branch. Two more are matched but invisible to the report, which does not see a definition whose name is an `__asm__` alias (`func_L18_002D6B58`, `func_L18_002F1AB0`); those drop out of the totals instead of counting, which is why the function count fell from 123.\n\nPlus `func_L05_003053D8` (level 5), which the tooling fix below unblocked.\n\nEvery function is checked with `tools/try_func.py` (every byte and relocation at its real level address), re-checked in the final file with `tools/overlay_file_check.py`, and `progress/report.json` is regenerated in the same commit.\n\n## The open functions are in here too\n\nThe closest candidate for **38 of the 43 open functions** is committed un",
+      "mergedAt": "2026-10-02T08:25:08Z"
+     },
+     {
+      "number": 16,
+      "title": "fix(nonmatching): level 18: func_L18_002D93C0 from a size mismatch to…",
+      "author": "Lynder063",
+      "untrustedBody": "… 20 bytes\r\n\r\nTwo things: the byte at entry+0x74 is read unsigned in retail (`lbu`), which needs the D_0013E633 blob declared `unsigned char` through an alias because the file declares it `char`; and the four paths share one store of the result instead of storing per branch. What is left is retail re-materialising `addiu $v0,$zero,-1` on each path against our one register.",
+      "mergedAt": "2026-10-02T13:12:03Z"
+     },
+     {
+      "number": 17,
+      "title": "Level 18 veldin2",
+      "author": "Lynder063",
+      "untrustedBody": "",
+      "mergedAt": "2026-10-02T22:08:34Z"
+     }
+    ],
+    "opened": [
+     {
+      "number": 16,
+      "title": "fix(nonmatching): level 18: func_L18_002D93C0 from a size mismatch to…",
+      "author": "Lynder063",
+      "untrustedBody": "… 20 bytes\r\n\r\nTwo things: the byte at entry+0x74 is read unsigned in retail (`lbu`), which needs the D_0013E633 blob declared `unsigned char` through an alias because the file declares it `char`; and the four paths share one store of the result instead of storing per branch. What is left is retail re-materialising `addiu $v0,$zero,-1` on each path against our one register.",
+      "mergedAt": "2026-10-02T13:12:03Z"
+     },
+     {
+      "number": 17,
+      "title": "Level 18 veldin2",
+      "author": "Lynder063",
+      "untrustedBody": "",
+      "mergedAt": "2026-10-02T22:08:34Z"
+     },
+     {
+      "number": 18,
+      "title": "Level 18: func_L18_002D7310 to size exact (77.9% fuzzy)",
+      "author": "Lynder063",
+      "untrustedBody": "## Summary\n\n- `func_L18_002D7310` (level 18, 484 bytes) goes from a size mismatch (488) to size-exact with 107 bytes off, so its fuzzy score in the report goes from 0 % to 77.9 %. It is staged in `nonmatching/`, not landed.\n- What got it there:\n  - The post-call code is written in both branches, so gcc crossjumps the two calls into retail's single shared `jal`.\n  - Prototype B for `func_L00_0025F4A8` fixes the argument order. Exact callers in l13, l17 and shared already use it: 108 bytes off against 124 (A) and 137 (C).\n  - `((unsigned char *)moby)[0xA4] = 0xFF`. Through a `char *`, gcc turns 0xFF into -1 and shares it with the later `-1` stack argument.\n- What is left: the scheduling order of the argument setup, and which of `$2`/`$3` the shared tail uses.\n\n## Not matched, and why (level 18)\n\n- `func_L18_002D9C78`/`002D9C90`, `002D9440`/`002D9460`, `002E0F90`, `002F1420`/`002F1444`: each is one real function that the catalogue split into two. The first half branches into the second. C",
+      "mergedAt": "2026-10-03T07:36:22Z"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": {
+    "before": {
+     "code": {
+      "done": 625684,
+      "total": 3713196
+     },
+     "functions": {
+      "done": 2599,
+      "total": 5110
+     }
+    },
+    "after": {
+     "code": {
+      "done": 629768,
+      "total": 3712808
+     },
+     "functions": {
+      "done": 2609,
+      "total": 5109
+     }
+    }
+   },
+   "contributors": [
+    "Lynder063"
+   ]
+  },
+  {
+   "repo": "rac2-decomp",
+   "title": "Going Commando",
+   "branches": [
+    {
+     "name": "master",
+     "commits": []
+    }
+   ],
+   "commitCount": 0,
+   "pullRequests": {
+    "merged": [
+     {
+      "number": 2,
+      "title": "docs/include: add save chunk FSM, RaC1 legacy unlock bitmask, and authentic MobyInstance layout",
+      "author": "Lynder063",
+      "untrustedBody": "## What changed\n\nExpands the community reverse engineering reference and engine headers with newly recovered Insomniac save architecture and authentic entity layouts:\n\n1. **Save File Architecture & RaC1 Legacy Import (`include/save.h`, `docs/COMMUNITY-ENGINE-REFERENCE.md`)**:\n   - Documents the Insomniac IFF save chunk IDs (`SaveGameBlockId`) parsed from `mc_gamedata` and `mc_leveldata`.\n   - Explains the memory card save directory structure (`BASCUS-97199` / `BESCES-50916` for RaC1, `BASCUS-97268` / `BESCES-51607` for RaC2).\n   - Details the vendor unlock mechanism on Planet Barlow: scanning `mc0:` and `mc1:`, extracting Chunk 10 (`SAVE_BLOCK_UNLOCKS`), and setting the bolt cost of legacy weapons (Bomb Glove, Pyrocitor, Blaster, Glove of Doom, Suck Cannon) to 0 bolts (free).\n\n2. **Authentic `MobyInstance` Structure (`include/moby.h`, `docs/COMMUNITY-ENGINE-REFERENCE.md`)**:\n   - Replaces the preliminary 0x28-byte approximation with the authentic 256-byte (0x100) structure recovered fr",
+      "mergedAt": "2026-10-02T13:14:31Z"
+     },
+     {
+      "number": 3,
+      "title": "Name 6,356 level functions from the prototype's class identifiers",
+      "author": "llesieur99",
+      "untrustedBody": "## What this adds\n\nThe level overlays' dispatch tables are keyed by **class identifier**, and those identifiers are stable between the prototype builds and the retail. That axis had not been measured: the 2026-10-01 pass tested *position* (same index in both tables) and closed the lead on that basis.\n\n| Table | Records | Named |\n| --- | ---: | ---: |\n| `lvl.vtbl` (3 words per moby) | 5,788 | **5,460** (94.3 %) — 4,843 distinct handlers |\n| `lvl.camvtbl` (5 words per camera) | 217 | **864** |\n| `lvl.sndvtbl` (2 words per sound) | 32 | **32** |\n| | | **6,356 names** |\n\n## The control\n\nIn the prototype extraction several oClass values share one address (the linker merged identical functions). If the identifier transfers, they must also share one retail handler:\n\n- pairs sharing one prototype address: **282**\n- pairs sharing one retail handler: **282 / 282**\n- retail handlers shared by oClass with *different* prototype addresses: **1** (`0x03cfb00`, level 0)\n\nIndependently, **5,598 of 5,78",
+      "mergedAt": "2026-10-02T18:24:04Z"
+     },
+     {
+      "number": 4,
+      "title": "Engine symbol names from the 8 August prototype: one transfers, ten do not",
+      "author": "llesieur99",
+      "untrustedBody": "Adds `docs/ENGINE-SYMBOL-NAMES.md`.\n\nThe CreepNT prototype-research repository binds eleven engine symbols to fixed addresses\nin a linker script (`patches/cust_main_menu_src/frontend.ld`) so that a replacement main\nmenu can be linked against the 8 August 2003 prototype. Those addresses had never been\ntested against the retail image.\n\n**Result: one name transfers, ten do not, and one stays unproven.** Each symbol was judged\none at a time, on what the code at its address must do:\n\n| Symbol | Retail boot at that address | Verdict |\n| --- | --- | --- |\n| `FlushCache` `0x0011aea0` | first of three consecutive SDK cache syscall stubs (number 100) | **transfers** |\n| `sprintf` `0x00115da0` | last two instructions of a function starting at `0x00115d48` | no |\n| `PAD` `0x00138080` | a 32-byte block display setup sends to the IPU by DMA (channel 4, QWC=4) | no |\n| `Settings` `0x00139e18` | zeros, referenced nowhere | unproven - not named |\n| `Level`, `mainmenu_has_finished`, `mainmenu_selected_a",
+      "mergedAt": "2026-10-02T19:08:53Z"
+     },
+     {
+      "number": 5,
+      "title": "Name 102 assert-message carriers, and close the last 59 messages",
+      "author": "llesieur99",
+      "untrustedBody": "Adds `docs/ASSERT-MESSAGE-NAMES.md` and `docs/assert-message-names.tsv`.\n\nAfter the dispatch-table pass, **59 assert messages** localized in the retail boot still had\nno carrying function: no instruction computes their address, in the retail boot or in the\nprototype boot. This closes that family.\n\n**Method.** The prototype's level archives were extracted with our own ISO9660 reader and\nsection reader — 27 levels, 57 070 528 bytes. The level table sits at\n`RC2.HDR + 0x5000 + i*0x3000` (not at the offset an earlier note assumed); that was verified\nagainst the volume's real LBAs. 32 of the 59 messages occur inside the retail level overlays,\nand their carriers were resolved by reference.\n\n**Result: 102 functions named across 25 overlays.**\n\n| Name | Functions |\n| --- | ---: |\n| `DirectionalLightsOverflow` | 25 |\n| `CameraCollPrimTestGridOutOfBounds` | 25 |\n| `LevelDoorLimitExceeded` | 25 |\n| `NpcShowMessageBadId` | 10 |\n| `PathSetWtoDistNullPath` | 7 |\n| `ThermanatorBallsNeededReport` | 5 ",
+      "mergedAt": "2026-10-02T20:24:39Z"
+     },
+     {
+      "number": 6,
+      "title": "Identify which prototype the linker script maps: the 6 August 2003 preview disc",
+      "author": "llesieur99",
+      "untrustedBody": "Adds an update section to `docs/ENGINE-SYMBOL-NAMES.md`: which prototype the linker script\nactually maps.\n\n`patches/_iso_patch.toml` declares where it patches — a boot ELF at file offset `0x229800`,\nsize `1541852`. The **6 August 2003 preview disc** places its boot (`SCUS_972.68`,\n1 541 852 bytes) at **LBA 1107**, exactly that offset, and all three patch sites the file\ndocuments are **byte-identical** there:\n\n| Patch site | What the patch file says it replaces | 6 August boot |\n| --- | --- | --- |\n| `0x0021d0b8` | a store, a return and a stack adjustment | identical |\n| `0x001fc7d4` | a call to `movie()` and its delay-slot load | identical |\n| `0x001fc95c` | the colour build for the \"Alpha/Preview Disk\" text | identical |\n\nSo `frontend.ld` maps the **6 August** image — the repository's \"aug8\" name is not what it\nindexes. The 8 August disc could not be tested (its download returns 404).\n\nThis also settles what the earlier failure meant. On that build the names are right, and\ncheckable o",
+      "mergedAt": "2026-10-02T20:45:00Z"
+     },
+     {
+      "number": 7,
+      "title": "Add a measured survey of the prototype builds: the earliest one is the closest to retail",
+      "author": "llesieur99",
+      "untrustedBody": "Adds `docs/PROTOTYPE-BUILDS.md`: a measured survey of the three 2003 prototype builds we\nhold, and what each is good for.\n\n**None of them carries symbols.** All three boots have zero `.symtab` / `.mdebug`\nsections — the shortcut that gave an authentic `MobyInstance` on a Deadlocked prototype\ndoes not exist for Going Commando on any disc we hold.\n\n**The 7 and 9 September discs are the same code**: identical section tables (same entry\npoint, same `core.*` sizes, same 52 `.DVP.overlay.*` sections), and exactly the same\ncomparison numbers against the retail. They differ by 8 192 bytes of data.\n\n**The useful result inverts the natural assumption — the earliest build is the closest:**\n\n| Identical bytes vs retail | `core.text` | `core.data` | `core.rdata` |\n| --- | ---: | ---: | ---: |\n| 6 August 2003 | **26.5 %** | **93.8 %** | **88.7 %** |\n| 7 September 2003 | 12.1 % | 91.4 % | 22.4 % |\n\nThe September builds add ~11 400 bytes to `core.text`, which shifts everything after it.\n**For byte-cro",
+      "mergedAt": "2026-10-02T22:20:51Z"
+     },
+     {
+      "number": 8,
+      "title": "Document the level archive format, measured rather than inherited",
+      "author": "llesieur99",
+      "untrustedBody": "Adds `docs/LEVEL-ARCHIVE-FORMAT.md`: how this engine family stores its levels, as read with\nour own readers and **verified against the volume's real LBAs** — not inherited from an\nexisting note.\n\n**What it documents**\n\n- the volume (ISO9660, boot and `RC2.HDR` locations, one `LEVEL`/`SCENE` archive pair per level);\n- the level table — `RC2.HDR + 0x5000 + i*0x3000`, level LBA at `+0x0004`, scene LBA at\n  `+0x1804`, checked against the real ISO9660 LBAs for levels 0–5. An existing community\n  note places it at `+0x4888` with a 24-byte stride; **that layout does not hold on these\n  discs**;\n- the archive itself: a header whose data offset is **found by validation rather than\n  assumed**, a 12-byte-range header, then a chained list of\n  `(destination, size, type, entry point)` records followed by their content — seven\n  sections per level (`.lit`, `.bss`, `.data`, `lvl.vtbl`, `lvl.camvtbl`, `lvl.sndvtbl`,\n  `.text`), 27 levels, **57 070 528 bytes**;\n- **the same reader parses the 6 August ",
+      "mergedAt": "2026-10-02T22:28:53Z"
+     }
+    ],
+    "opened": [
+     {
+      "number": 2,
+      "title": "docs/include: add save chunk FSM, RaC1 legacy unlock bitmask, and authentic MobyInstance layout",
+      "author": "Lynder063",
+      "untrustedBody": "## What changed\n\nExpands the community reverse engineering reference and engine headers with newly recovered Insomniac save architecture and authentic entity layouts:\n\n1. **Save File Architecture & RaC1 Legacy Import (`include/save.h`, `docs/COMMUNITY-ENGINE-REFERENCE.md`)**:\n   - Documents the Insomniac IFF save chunk IDs (`SaveGameBlockId`) parsed from `mc_gamedata` and `mc_leveldata`.\n   - Explains the memory card save directory structure (`BASCUS-97199` / `BESCES-50916` for RaC1, `BASCUS-97268` / `BESCES-51607` for RaC2).\n   - Details the vendor unlock mechanism on Planet Barlow: scanning `mc0:` and `mc1:`, extracting Chunk 10 (`SAVE_BLOCK_UNLOCKS`), and setting the bolt cost of legacy weapons (Bomb Glove, Pyrocitor, Blaster, Glove of Doom, Suck Cannon) to 0 bolts (free).\n\n2. **Authentic `MobyInstance` Structure (`include/moby.h`, `docs/COMMUNITY-ENGINE-REFERENCE.md`)**:\n   - Replaces the preliminary 0x28-byte approximation with the authentic 256-byte (0x100) structure recovered fr",
+      "mergedAt": "2026-10-02T13:14:31Z"
+     },
+     {
+      "number": 3,
+      "title": "Name 6,356 level functions from the prototype's class identifiers",
+      "author": "llesieur99",
+      "untrustedBody": "## What this adds\n\nThe level overlays' dispatch tables are keyed by **class identifier**, and those identifiers are stable between the prototype builds and the retail. That axis had not been measured: the 2026-10-01 pass tested *position* (same index in both tables) and closed the lead on that basis.\n\n| Table | Records | Named |\n| --- | ---: | ---: |\n| `lvl.vtbl` (3 words per moby) | 5,788 | **5,460** (94.3 %) — 4,843 distinct handlers |\n| `lvl.camvtbl` (5 words per camera) | 217 | **864** |\n| `lvl.sndvtbl` (2 words per sound) | 32 | **32** |\n| | | **6,356 names** |\n\n## The control\n\nIn the prototype extraction several oClass values share one address (the linker merged identical functions). If the identifier transfers, they must also share one retail handler:\n\n- pairs sharing one prototype address: **282**\n- pairs sharing one retail handler: **282 / 282**\n- retail handlers shared by oClass with *different* prototype addresses: **1** (`0x03cfb00`, level 0)\n\nIndependently, **5,598 of 5,78",
+      "mergedAt": "2026-10-02T18:24:04Z"
+     },
+     {
+      "number": 4,
+      "title": "Engine symbol names from the 8 August prototype: one transfers, ten do not",
+      "author": "llesieur99",
+      "untrustedBody": "Adds `docs/ENGINE-SYMBOL-NAMES.md`.\n\nThe CreepNT prototype-research repository binds eleven engine symbols to fixed addresses\nin a linker script (`patches/cust_main_menu_src/frontend.ld`) so that a replacement main\nmenu can be linked against the 8 August 2003 prototype. Those addresses had never been\ntested against the retail image.\n\n**Result: one name transfers, ten do not, and one stays unproven.** Each symbol was judged\none at a time, on what the code at its address must do:\n\n| Symbol | Retail boot at that address | Verdict |\n| --- | --- | --- |\n| `FlushCache` `0x0011aea0` | first of three consecutive SDK cache syscall stubs (number 100) | **transfers** |\n| `sprintf` `0x00115da0` | last two instructions of a function starting at `0x00115d48` | no |\n| `PAD` `0x00138080` | a 32-byte block display setup sends to the IPU by DMA (channel 4, QWC=4) | no |\n| `Settings` `0x00139e18` | zeros, referenced nowhere | unproven - not named |\n| `Level`, `mainmenu_has_finished`, `mainmenu_selected_a",
+      "mergedAt": "2026-10-02T19:08:53Z"
+     },
+     {
+      "number": 5,
+      "title": "Name 102 assert-message carriers, and close the last 59 messages",
+      "author": "llesieur99",
+      "untrustedBody": "Adds `docs/ASSERT-MESSAGE-NAMES.md` and `docs/assert-message-names.tsv`.\n\nAfter the dispatch-table pass, **59 assert messages** localized in the retail boot still had\nno carrying function: no instruction computes their address, in the retail boot or in the\nprototype boot. This closes that family.\n\n**Method.** The prototype's level archives were extracted with our own ISO9660 reader and\nsection reader — 27 levels, 57 070 528 bytes. The level table sits at\n`RC2.HDR + 0x5000 + i*0x3000` (not at the offset an earlier note assumed); that was verified\nagainst the volume's real LBAs. 32 of the 59 messages occur inside the retail level overlays,\nand their carriers were resolved by reference.\n\n**Result: 102 functions named across 25 overlays.**\n\n| Name | Functions |\n| --- | ---: |\n| `DirectionalLightsOverflow` | 25 |\n| `CameraCollPrimTestGridOutOfBounds` | 25 |\n| `LevelDoorLimitExceeded` | 25 |\n| `NpcShowMessageBadId` | 10 |\n| `PathSetWtoDistNullPath` | 7 |\n| `ThermanatorBallsNeededReport` | 5 ",
+      "mergedAt": "2026-10-02T20:24:39Z"
+     },
+     {
+      "number": 6,
+      "title": "Identify which prototype the linker script maps: the 6 August 2003 preview disc",
+      "author": "llesieur99",
+      "untrustedBody": "Adds an update section to `docs/ENGINE-SYMBOL-NAMES.md`: which prototype the linker script\nactually maps.\n\n`patches/_iso_patch.toml` declares where it patches — a boot ELF at file offset `0x229800`,\nsize `1541852`. The **6 August 2003 preview disc** places its boot (`SCUS_972.68`,\n1 541 852 bytes) at **LBA 1107**, exactly that offset, and all three patch sites the file\ndocuments are **byte-identical** there:\n\n| Patch site | What the patch file says it replaces | 6 August boot |\n| --- | --- | --- |\n| `0x0021d0b8` | a store, a return and a stack adjustment | identical |\n| `0x001fc7d4` | a call to `movie()` and its delay-slot load | identical |\n| `0x001fc95c` | the colour build for the \"Alpha/Preview Disk\" text | identical |\n\nSo `frontend.ld` maps the **6 August** image — the repository's \"aug8\" name is not what it\nindexes. The 8 August disc could not be tested (its download returns 404).\n\nThis also settles what the earlier failure meant. On that build the names are right, and\ncheckable o",
+      "mergedAt": "2026-10-02T20:45:00Z"
+     },
+     {
+      "number": 7,
+      "title": "Add a measured survey of the prototype builds: the earliest one is the closest to retail",
+      "author": "llesieur99",
+      "untrustedBody": "Adds `docs/PROTOTYPE-BUILDS.md`: a measured survey of the three 2003 prototype builds we\nhold, and what each is good for.\n\n**None of them carries symbols.** All three boots have zero `.symtab` / `.mdebug`\nsections — the shortcut that gave an authentic `MobyInstance` on a Deadlocked prototype\ndoes not exist for Going Commando on any disc we hold.\n\n**The 7 and 9 September discs are the same code**: identical section tables (same entry\npoint, same `core.*` sizes, same 52 `.DVP.overlay.*` sections), and exactly the same\ncomparison numbers against the retail. They differ by 8 192 bytes of data.\n\n**The useful result inverts the natural assumption — the earliest build is the closest:**\n\n| Identical bytes vs retail | `core.text` | `core.data` | `core.rdata` |\n| --- | ---: | ---: | ---: |\n| 6 August 2003 | **26.5 %** | **93.8 %** | **88.7 %** |\n| 7 September 2003 | 12.1 % | 91.4 % | 22.4 % |\n\nThe September builds add ~11 400 bytes to `core.text`, which shifts everything after it.\n**For byte-cro",
+      "mergedAt": "2026-10-02T22:20:51Z"
+     },
+     {
+      "number": 8,
+      "title": "Document the level archive format, measured rather than inherited",
+      "author": "llesieur99",
+      "untrustedBody": "Adds `docs/LEVEL-ARCHIVE-FORMAT.md`: how this engine family stores its levels, as read with\nour own readers and **verified against the volume's real LBAs** — not inherited from an\nexisting note.\n\n**What it documents**\n\n- the volume (ISO9660, boot and `RC2.HDR` locations, one `LEVEL`/`SCENE` archive pair per level);\n- the level table — `RC2.HDR + 0x5000 + i*0x3000`, level LBA at `+0x0004`, scene LBA at\n  `+0x1804`, checked against the real ISO9660 LBAs for levels 0–5. An existing community\n  note places it at `+0x4888` with a 24-byte stride; **that layout does not hold on these\n  discs**;\n- the archive itself: a header whose data offset is **found by validation rather than\n  assumed**, a 12-byte-range header, then a chained list of\n  `(destination, size, type, entry point)` records followed by their content — seven\n  sections per level (`.lit`, `.bss`, `.data`, `lvl.vtbl`, `lvl.camvtbl`, `lvl.sndvtbl`,\n  `.text`), 27 levels, **57 070 528 bytes**;\n- **the same reader parses the 6 August ",
+      "mergedAt": "2026-10-02T22:28:53Z"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": null,
+   "contributors": [
+    "llesieur99",
+    "Lynder063"
+   ]
+  },
+  {
+   "repo": "rac3-decomp",
+   "title": "Up Your Arsenal",
+   "branches": [
+    {
+     "name": "master",
+     "commits": []
+    }
+   ],
+   "commitCount": 0,
+   "pullRequests": {
+    "merged": [],
+    "opened": []
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": null,
+   "contributors": []
+  },
+  {
+   "repo": "rac4-decomp",
+   "title": "Ratchet: Deadlocked",
+   "branches": [
+    {
+     "name": "main",
+     "commits": []
+    }
+   ],
+   "commitCount": 0,
+   "pullRequests": {
+    "merged": [],
+    "opened": []
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": null,
+   "contributors": []
+  },
+  {
+   "repo": "openrac-mods",
+   "title": "OpenRAC mods",
+   "branches": [
+    {
+     "name": "master",
+     "commits": []
+    }
+   ],
+   "commitCount": 0,
+   "pullRequests": {
+    "merged": [],
+    "opened": []
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": null,
+   "contributors": []
+  }
+ ]
+}

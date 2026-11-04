@@ -51,6 +51,9 @@ next-env.d.ts
 # Re-created by `next dev`; not part of the project
 /CLAUDE.md
 
+# Python
+__pycache__/
+
 # Playwright
 /test-results/
 /playwright-report/

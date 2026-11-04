@@ -1,0 +1,2427 @@
+{
+ "format": 1,
+ "date": "2026-10-21",
+ "totals": {
+  "commits": 159,
+  "pullRequestsMerged": 62,
+  "pullRequestsOpened": 60,
+  "contributors": 10
+ },
+ "projects": [
+  {
+   "repo": "OpenRAC",
+   "title": "OpenRAC launcher",
+   "branches": [
+    {
+     "name": "develop",
+     "commits": [
+      {
+       "sha": "cb4b8a46458da5f0bfcce30093d366514f738f57",
+       "title": "feat(launcher): keybind settings and presets for mods of interface 1.2",
+       "author": "Veradictus",
+       "date": "2026-10-21T23:59:37Z"
+      },
+      {
+       "sha": "c599937d76b3fe960aa35de2a56ef88cbfbc379d",
+       "title": "feat(sdk): a mod reports the interface its manifest names",
+       "author": "Veradictus",
+       "date": "2026-10-21T23:59:37Z"
+      },
+      {
+       "sha": "1a87871f6653cd2a60b622ee58fbe1dafca70188",
+       "title": "feat(sdk): the keyboard and mouse for mods, interface 1.2",
+       "author": "Veradictus",
+       "date": "2026-10-21T23:59:37Z"
+      },
+      {
+       "sha": "20619d9a0f5c52931343f93d8d9a55d4ec690444",
+       "title": "fix(launcher): a link with several mods keeps its preview after one is installed",
+       "author": "Veradictus",
+       "date": "2026-10-21T23:43:20Z"
+      },
+      {
+       "sha": "99fa0d38264de8a53791127dc750076eeb19f01d",
+       "title": "style(launcher): the job events as rustfmt lays them out",
+       "author": "Veradictus",
+       "date": "2026-10-21T23:16:03Z"
+      },
+      {
+       "sha": "c21e51eebb29e3a07f79918774e27ec3f32b6e64",
+       "title": "feat(launcher): a finished job keeps the folders it wrote",
+       "author": "Veradictus",
+       "date": "2026-10-21T22:54:01Z"
+      },
+      {
+       "sha": "221180ac18f33415be1c2749b0d807c9a9cbf10a",
+       "title": "feat(editor): levels open in Godot lit as the game lights them",
+       "author": "Veradictus",
+       "date": "2026-10-21T22:30:08Z"
+      },
+      {
+       "sha": "15799c4c6bde8cf27ca146197aecd332d244237d",
+       "title": "feat(editor): the exports and imports name the folder they wrote",
+       "author": "Veradictus",
+       "date": "2026-10-21T22:20:57Z"
+      },
+      {
+       "sha": "37d3041d4b0f82de551aacacff2f24ef400b8713",
+       "title": "feat(editor): terrain as a modding family in the asset export and import",
+       "author": "Veradictus",
+       "date": "2026-10-21T22:20:57Z"
+      },
+      {
+       "sha": "3d3d47c069841b6e99bcd32823988814dbbc5beb",
+       "title": "fix(launcher): a native mod's manifest in its repository is a native mod",
+       "author": "Veradictus",
+       "date": "2026-10-21T22:10:24Z"
+      },
+      {
+       "sha": "eae1d0cefdd0481b10f9239431481dc1e32daccf",
+       "title": "feat(sdk): a tag <id>-v<version> releases only that mod",
+       "author": "Veradictus",
+       "date": "2026-10-21T22:00:42Z"
+      },
+      {
+       "sha": "d0f11d06b1ee380f00e483c210ae190a91fe4ad9",
+       "title": "fix(launcher): tauri dev works on its checkout, not an old carried copy",
+       "author": "Veradictus",
+       "date": "2026-10-21T21:58:19Z"
+      },
+      {
+       "sha": "0ffcd2b6336bed4753502b1687f14a726294281f",
+       "title": "feat(port): rac1 hook points for giving items, planets, the vendor and gold bolts",
+       "author": "Veradictus",
+       "date": "2026-10-21T21:54:15Z"
+      },
+      {
+       "sha": "8a02b24d92b89ead3baa339be8e9d700bc6da384",
+       "title": "fix(sdk): the hook reference lists the catalogue's hook points by their ids",
+       "author": "Veradictus",
+       "date": "2026-10-21T21:49:34Z"
+      },
+      {
+       "sha": "c45b8efc05c791f254c712edefaf3d1779e47d4a",
+       "title": "feat(sdk): generate the API reference from the SDK's sources",
+       "author": "Veradictus",
+       "date": "2026-10-21T21:47:57Z"
+      },
+      {
+       "sha": "ccc213dffd90186b7ff9c0c6e489c91cca958e5e",
+       "title": "feat(hostgen): a hook point under a wrap of the port's own",
+       "author": "Veradictus",
+       "date": "2026-10-21T21:47:45Z"
+      },
+      {
+       "sha": "7901134d7b92392114b3e7b7eb0ba2214264e82a",
+       "title": "feat(launcher): more forms of a repository's link, and a plain answer for one GitHub hides",
+       "author": "Veradictus",
+       "date": "2026-10-21T21:47:36Z"
+      },
+      {
+       "sha": "261c1b700c01a37c1fcb1988860f1137ba621a1a",
+       "title": "feat(launcher): script mods in the store, and mod interface 1.1",
+       "author": "Veradictus",
+       "date": "2026-10-21T21:47:35Z"
+      },
+      {
+       "sha": "309b33a479fdfc3873d355da99cb0e64fa5914a5",
+       "title": "feat(sdk): a header-only C++ layer over the mod interface",
+       "author": "Veradictus",
+       "date": "2026-10-21T21:47:35Z"
+      },
+      {
+       "sha": "40505cbd53609c51d75b5f3d12a98104e105a7c9",
+       "title": "feat(port): manifests of script mods",
+       "author": "Veradictus",
+       "date": "2026-10-21T21:47:35Z"
+      },
+      {
+       "sha": "cb26a021067ac69d8adbca132f0f6f060d55908b",
+       "title": "docs(port): design the C++ layer and Luau script mods",
+       "author": "Veradictus",
+       "date": "2026-10-21T21:47:35Z"
+      },
+      {
+       "sha": "db349d40fd6f4c8568d60365e3e37d103fbe46af",
+       "title": "fix(editor): level.json counts the mobys' metal meshes, as check.gd sees them",
+       "author": "Veradictus",
+       "date": "2026-10-21T21:42:19Z"
+      },
+      {
+       "sha": "5510d38a95cd7b5ee1f0c68d73348bf3dd3e4a8d",
+       "title": "feat(editor): the collision block as data, written back byte-exact and edited",
+       "author": "Veradictus",
+       "date": "2026-10-21T21:19:03Z"
+      },
+      {
+       "sha": "c4c120be29ddb388283e5bb69fec58f7906cbea6",
+       "title": "feat(editor): the level's gameplay data in the Godot scene",
+       "author": "Veradictus",
+       "date": "2026-10-21T20:56:27Z"
+      },
+      {
+       "sha": "1689f83b3f773b07d2a7f6692a52165fab4e40db",
+       "title": "feat(editor): catalogue hook names Moby_<Class>_Update and a stable classes.json",
+       "author": "Veradictus",
+       "date": "2026-10-21T20:55:43Z"
+      },
+      {
+       "sha": "744b137a5d4912a3db36114485d1090e2e934304",
+       "title": "feat(editor): the moby behaviour catalogue for modders",
+       "author": "Veradictus",
+       "date": "2026-10-21T20:43:45Z"
+      },
+      {
+       "sha": "c6cc3dd08fc9537af9b59bd4ec4c9d586bdbb564",
+       "title": "feat(sdk): the template is a mod's repository, released by its workflow",
+       "author": "Veradictus",
+       "date": "2026-10-21T20:32:51Z"
+      },
+      {
+       "sha": "4406841e6467a079e00d56fdde090588537e4827",
+       "title": "feat(launcher): mods from a repository's address, checked, with updates",
+       "author": "Veradictus",
+       "date": "2026-10-21T20:26:30Z"
+      },
+      {
+       "sha": "767634e57dfd77d4dc38cc60ea3a77d36c2dfdd7",
+       "title": "docs(port): mods from a git repository, and what a hook point can be",
+       "author": "Veradictus",
+       "date": "2026-10-21T20:22:25Z"
+      },
+      {
+       "sha": "fd005c684a4685b85ef94da492bcb73768c68d51",
+       "title": "fix(launcher): the packages list the launcher among the games",
+       "author": "Veradictus",
+       "date": "2026-10-21T20:06:30Z"
+      },
+      {
+       "sha": "a61db239f03fd1dc1a5f10a70df88184d3c7d8ff",
+       "title": "fix(launcher): the menu entry starts the AppImage, not its passing mount",
+       "author": "Veradictus",
+       "date": "2026-10-21T20:02:38Z"
+      },
+      {
+       "sha": "93540a6132605447f4ff23bca7ced9512daf9790",
+       "title": "fix(launcher): the AppImage's own environment stays in the AppImage",
+       "author": "Veradictus",
+       "date": "2026-10-21T20:02:24Z"
+      },
+      {
+       "sha": "22f33a05a594bc82ffc355ccbd32d35108c17122",
+       "title": "fix(ci): make the SDK workflow's build folder before copying into it",
+       "author": "Veradictus",
+       "date": "2026-10-21T19:53:29Z"
+      },
+      {
+       "sha": "f1c04e799c1c813d009b3ea85c7792b3cd4b64e4",
+       "title": "feat(sdk): a CMake package for building mods",
+       "author": "Veradictus",
+       "date": "2026-10-21T19:48:01Z"
+      },
+      {
+       "sha": "1a9aecc3f55b7856dd663869d1e0f5740c7693ad",
+       "title": "feat(port): find a registered game function by name",
+       "author": "Veradictus",
+       "date": "2026-10-21T19:43:05Z"
+      },
+      {
+       "sha": "2748a039ddf23454daaa26bb6817574a14770ef8",
+       "title": "feat(hostgen): hook points for mods, written as hooks.c",
+       "author": "Veradictus",
+       "date": "2026-10-21T19:43:05Z"
+      },
+      {
+       "sha": "298918edadbccfde2d2fcd34039070f980a1aa02",
+       "title": "feat(sdk): the mod interface's headers",
+       "author": "Veradictus",
+       "date": "2026-10-21T19:16:55Z"
+      },
+      {
+       "sha": "cfa60c457b455773f469ee545831913862fc0701",
+       "title": "fix(hostgen): returns_64 results passed on whole; spilled 32-bit locals",
+       "author": "Daniel Risto",
+       "date": "2026-10-21T16:20:30Z"
+      },
+      {
+       "sha": "1a8dc686e17d023f8dda7496b9f7872d21bde370",
+       "title": "fix(port/rac1-pal): folded functions' places, part 2",
+       "author": "Daniel Risto",
+       "date": "2026-10-21T15:10:21Z"
+      },
+      {
+       "sha": "08a3efcf937241e5c640fd5cadab0574cfc68ba5",
+       "title": "fix(hostgen): the matched C keeps the EE's integer widths",
+       "author": "Daniel Risto",
+       "date": "2026-10-21T12:11:59Z"
+      },
+      {
+       "sha": "ea45c2da160b9d0855d8624d559beee896487ece",
+       "title": "fix(port): the extractor test keeps the hash it hands a version alive",
+       "author": "Veradictus",
+       "date": "2026-10-21T12:00:16Z"
+      },
+      {
+       "sha": "f0a1c423edb0018dae141585884e681b69be4cb2",
+       "title": "fix(port/rac1-pal): level copies run their own code",
+       "author": "Daniel Risto",
+       "date": "2026-10-21T11:56:46Z"
+      },
+      {
+       "sha": "3163c4c8b63ae857814fef8c032594ddd100789d",
+       "title": "fix(port): the threads reading a track are stopped before the program exits",
+       "author": "ReaperOfVeriod",
+       "date": "2026-10-21T02:36:50Z"
+      },
+      {
+       "sha": "92b4b12befe6b8543023a42322e6deb10da569c1",
+       "title": "fix(launcher): a bug sweep of the launcher",
+       "author": "ReaperOfVeriod",
+       "date": "2026-10-21T02:18:19Z"
+      },
+      {
+       "sha": "a25a1dad014b1ded3c37fd74d9a22434dd6fc6a3",
+       "title": "fix(hostgen): a unit read while a shared header is rewritten keeps its definitions",
+       "author": "Veradictus",
+       "date": "2026-10-21T01:10:52Z"
+      }
+     ]
+    },
+    {
+     "name": "master",
+     "commits": [
+      {
+       "sha": "cb4b8a46458da5f0bfcce30093d366514f738f57",
+       "title": "feat(launcher): keybind settings and presets for mods of interface 1.2",
+       "author": "Veradictus",
+       "date": "2026-10-21T23:59:37Z"
+      },
+      {
+       "sha": "c599937d76b3fe960aa35de2a56ef88cbfbc379d",
+       "title": "feat(sdk): a mod reports the interface its manifest names",
+       "author": "Veradictus",
+       "date": "2026-10-21T23:59:37Z"
+      },
+      {
+       "sha": "1a87871f6653cd2a60b622ee58fbe1dafca70188",
+       "title": "feat(sdk): the keyboard and mouse for mods, interface 1.2",
+       "author": "Veradictus",
+       "date": "2026-10-21T23:59:37Z"
+      },
+      {
+       "sha": "20619d9a0f5c52931343f93d8d9a55d4ec690444",
+       "title": "fix(launcher): a link with several mods keeps its preview after one is installed",
+       "author": "Veradictus",
+       "date": "2026-10-21T23:43:20Z"
+      },
+      {
+       "sha": "99fa0d38264de8a53791127dc750076eeb19f01d",
+       "title": "style(launcher): the job events as rustfmt lays them out",
+       "author": "Veradictus",
+       "date": "2026-10-21T23:16:03Z"
+      },
+      {
+       "sha": "c21e51eebb29e3a07f79918774e27ec3f32b6e64",
+       "title": "feat(launcher): a finished job keeps the folders it wrote",
+       "author": "Veradictus",
+       "date": "2026-10-21T22:54:01Z"
+      },
+      {
+       "sha": "221180ac18f33415be1c2749b0d807c9a9cbf10a",
+       "title": "feat(editor): levels open in Godot lit as the game lights them",
+       "author": "Veradictus",
+       "date": "2026-10-21T22:30:08Z"
+      },
+      {
+       "sha": "15799c4c6bde8cf27ca146197aecd332d244237d",
+       "title": "feat(editor): the exports and imports name the folder they wrote",
+       "author": "Veradictus",
+       "date": "2026-10-21T22:20:57Z"
+      },
+      {
+       "sha": "37d3041d4b0f82de551aacacff2f24ef400b8713",
+       "title": "feat(editor): terrain as a modding family in the asset export and import",
+       "author": "Veradictus",
+       "date": "2026-10-21T22:20:57Z"
+      },
+      {
+       "sha": "3d3d47c069841b6e99bcd32823988814dbbc5beb",
+       "title": "fix(launcher): a native mod's manifest in its repository is a native mod",
+       "author": "Veradictus",
+       "date": "2026-10-21T22:10:24Z"
+      },
+      {
+       "sha": "eae1d0cefdd0481b10f9239431481dc1e32daccf",
+       "title": "feat(sdk): a tag <id>-v<version> releases only that mod",
+       "author": "Veradictus",
+       "date": "2026-10-21T22:00:42Z"
+      },
+      {
+       "sha": "d0f11d06b1ee380f00e483c210ae190a91fe4ad9",
+       "title": "fix(launcher): tauri dev works on its checkout, not an old carried copy",
+       "author": "Veradictus",
+       "date": "2026-10-21T21:58:19Z"
+      },
+      {
+       "sha": "0ffcd2b6336bed4753502b1687f14a726294281f",
+       "title": "feat(port): rac1 hook points for giving items, planets, the vendor and gold bolts",
+       "author": "Veradictus",
+       "date": "2026-10-21T21:54:15Z"
+      },
+      {
+       "sha": "8a02b24d92b89ead3baa339be8e9d700bc6da384",
+       "title": "fix(sdk): the hook reference lists the catalogue's hook points by their ids",
+       "author": "Veradictus",
+       "date": "2026-10-21T21:49:34Z"
+      },
+      {
+       "sha": "c45b8efc05c791f254c712edefaf3d1779e47d4a",
+       "title": "feat(sdk): generate the API reference from the SDK's sources",
+       "author": "Veradictus",
+       "date": "2026-10-21T21:47:57Z"
+      },
+      {
+       "sha": "ccc213dffd90186b7ff9c0c6e489c91cca958e5e",
+       "title": "feat(hostgen): a hook point under a wrap of the port's own",
+       "author": "Veradictus",
+       "date": "2026-10-21T21:47:45Z"
+      },
+      {
+       "sha": "7901134d7b92392114b3e7b7eb0ba2214264e82a",
+       "title": "feat(launcher): more forms of a repository's link, and a plain answer for one GitHub hides",
+       "author": "Veradictus",
+       "date": "2026-10-21T21:47:36Z"
+      },
+      {
+       "sha": "261c1b700c01a37c1fcb1988860f1137ba621a1a",
+       "title": "feat(launcher): script mods in the store, and mod interface 1.1",
+       "author": "Veradictus",
+       "date": "2026-10-21T21:47:35Z"
+      },
+      {
+       "sha": "309b33a479fdfc3873d355da99cb0e64fa5914a5",
+       "title": "feat(sdk): a header-only C++ layer over the mod interface",
+       "author": "Veradictus",
+       "date": "2026-10-21T21:47:35Z"
+      },
+      {
+       "sha": "40505cbd53609c51d75b5f3d12a98104e105a7c9",
+       "title": "feat(port): manifests of script mods",
+       "author": "Veradictus",
+       "date": "2026-10-21T21:47:35Z"
+      },
+      {
+       "sha": "cb26a021067ac69d8adbca132f0f6f060d55908b",
+       "title": "docs(port): design the C++ layer and Luau script mods",
+       "author": "Veradictus",
+       "date": "2026-10-21T21:47:35Z"
+      },
+      {
+       "sha": "db349d40fd6f4c8568d60365e3e37d103fbe46af",
+       "title": "fix(editor): level.json counts the mobys' metal meshes, as check.gd sees them",
+       "author": "Veradictus",
+       "date": "2026-10-21T21:42:19Z"
+      },
+      {
+       "sha": "5510d38a95cd7b5ee1f0c68d73348bf3dd3e4a8d",
+       "title": "feat(editor): the collision block as data, written back byte-exact and edited",
+       "author": "Veradictus",
+       "date": "2026-10-21T21:19:03Z"
+      },
+      {
+       "sha": "c4c120be29ddb388283e5bb69fec58f7906cbea6",
+       "title": "feat(editor): the level's gameplay data in the Godot scene",
+       "author": "Veradictus",
+       "date": "2026-10-21T20:56:27Z"
+      },
+      {
+       "sha": "1689f83b3f773b07d2a7f6692a52165fab4e40db",
+       "title": "feat(editor): catalogue hook names Moby_<Class>_Update and a stable classes.json",
+       "author": "Veradictus",
+       "date": "2026-10-21T20:55:43Z"
+      },
+      {
+       "sha": "744b137a5d4912a3db36114485d1090e2e934304",
+       "title": "feat(editor): the moby behaviour catalogue for modders",
+       "author": "Veradictus",
+       "date": "2026-10-21T20:43:45Z"
+      },
+      {
+       "sha": "c6cc3dd08fc9537af9b59bd4ec4c9d586bdbb564",
+       "title": "feat(sdk): the template is a mod's repository, released by its workflow",
+       "author": "Veradictus",
+       "date": "2026-10-21T20:32:51Z"
+      },
+      {
+       "sha": "4406841e6467a079e00d56fdde090588537e4827",
+       "title": "feat(launcher): mods from a repository's address, checked, with updates",
+       "author": "Veradictus",
+       "date": "2026-10-21T20:26:30Z"
+      },
+      {
+       "sha": "767634e57dfd77d4dc38cc60ea3a77d36c2dfdd7",
+       "title": "docs(port): mods from a git repository, and what a hook point can be",
+       "author": "Veradictus",
+       "date": "2026-10-21T20:22:25Z"
+      },
+      {
+       "sha": "fd005c684a4685b85ef94da492bcb73768c68d51",
+       "title": "fix(launcher): the packages list the launcher among the games",
+       "author": "Veradictus",
+       "date": "2026-10-21T20:06:30Z"
+      },
+      {
+       "sha": "a61db239f03fd1dc1a5f10a70df88184d3c7d8ff",
+       "title": "fix(launcher): the menu entry starts the AppImage, not its passing mount",
+       "author": "Veradictus",
+       "date": "2026-10-21T20:02:38Z"
+      },
+      {
+       "sha": "93540a6132605447f4ff23bca7ced9512daf9790",
+       "title": "fix(launcher): the AppImage's own environment stays in the AppImage",
+       "author": "Veradictus",
+       "date": "2026-10-21T20:02:24Z"
+      },
+      {
+       "sha": "22f33a05a594bc82ffc355ccbd32d35108c17122",
+       "title": "fix(ci): make the SDK workflow's build folder before copying into it",
+       "author": "Veradictus",
+       "date": "2026-10-21T19:53:29Z"
+      },
+      {
+       "sha": "f1c04e799c1c813d009b3ea85c7792b3cd4b64e4",
+       "title": "feat(sdk): a CMake package for building mods",
+       "author": "Veradictus",
+       "date": "2026-10-21T19:48:01Z"
+      },
+      {
+       "sha": "1a9aecc3f55b7856dd663869d1e0f5740c7693ad",
+       "title": "feat(port): find a registered game function by name",
+       "author": "Veradictus",
+       "date": "2026-10-21T19:43:05Z"
+      },
+      {
+       "sha": "2748a039ddf23454daaa26bb6817574a14770ef8",
+       "title": "feat(hostgen): hook points for mods, written as hooks.c",
+       "author": "Veradictus",
+       "date": "2026-10-21T19:43:05Z"
+      },
+      {
+       "sha": "298918edadbccfde2d2fcd34039070f980a1aa02",
+       "title": "feat(sdk): the mod interface's headers",
+       "author": "Veradictus",
+       "date": "2026-10-21T19:16:55Z"
+      },
+      {
+       "sha": "cfa60c457b455773f469ee545831913862fc0701",
+       "title": "fix(hostgen): returns_64 results passed on whole; spilled 32-bit locals",
+       "author": "Daniel Risto",
+       "date": "2026-10-21T16:20:30Z"
+      },
+      {
+       "sha": "1a8dc686e17d023f8dda7496b9f7872d21bde370",
+       "title": "fix(port/rac1-pal): folded functions' places, part 2",
+       "author": "Daniel Risto",
+       "date": "2026-10-21T15:10:21Z"
+      },
+      {
+       "sha": "08a3efcf937241e5c640fd5cadab0574cfc68ba5",
+       "title": "fix(hostgen): the matched C keeps the EE's integer widths",
+       "author": "Daniel Risto",
+       "date": "2026-10-21T12:11:59Z"
+      },
+      {
+       "sha": "ea45c2da160b9d0855d8624d559beee896487ece",
+       "title": "fix(port): the extractor test keeps the hash it hands a version alive",
+       "author": "Veradictus",
+       "date": "2026-10-21T12:00:16Z"
+      },
+      {
+       "sha": "f0a1c423edb0018dae141585884e681b69be4cb2",
+       "title": "fix(port/rac1-pal): level copies run their own code",
+       "author": "Daniel Risto",
+       "date": "2026-10-21T11:56:46Z"
+      },
+      {
+       "sha": "3163c4c8b63ae857814fef8c032594ddd100789d",
+       "title": "fix(port): the threads reading a track are stopped before the program exits",
+       "author": "ReaperOfVeriod",
+       "date": "2026-10-21T02:36:50Z"
+      },
+      {
+       "sha": "92b4b12befe6b8543023a42322e6deb10da569c1",
+       "title": "fix(launcher): a bug sweep of the launcher",
+       "author": "ReaperOfVeriod",
+       "date": "2026-10-21T02:18:19Z"
+      },
+      {
+       "sha": "a25a1dad014b1ded3c37fd74d9a22434dd6fc6a3",
+       "title": "fix(hostgen): a unit read while a shared header is rewritten keeps its definitions",
+       "author": "Veradictus",
+       "date": "2026-10-21T01:10:52Z"
+      }
+     ]
+    }
+   ],
+   "commitCount": 45,
+   "pullRequests": {
+    "merged": [
+     {
+      "number": 22,
+      "title": "fix(port): the threads reading a track are stopped before the program exits",
+      "author": "ReaperOfVeriod",
+      "untrustedBody": "## What\n\nA music track is read and decoded on a thread of its own, and the thread was\ndetached: nothing waited for it. The player can close the window while a track\nis being read, and the program then exits (`std::exit`) with that thread still\nrunning. The static destructors take the mutex and the stream list away under\nit, and the thread locks a mutex that no longer exists: a crash at quit, which\nthe crash handler catches and writes a report for. The launcher then says the\ngame stopped unexpectedly, when the player only closed it.\n\nThe readers are kept now, and the program stops them and waits for them before\nit exits: in `leave()` (the window closed, the game ended) and through an\n`atexit` handler for the other ways out (a run of so many frames, an error).\nA reader that is already decoding finishes first, so nothing is taken away\nunder it.\n\n## Why it is not the sound output's thread\n\nThe sound output's own thread was already stopped before the program's globals\ngo (`56413059`, an `at",
+      "mergedAt": "2026-10-21T02:36:51Z"
+     },
+     {
+      "number": 23,
+      "title": "fix(launcher): a bug sweep of the launcher",
+      "author": "ReaperOfVeriod",
+      "untrustedBody": "A bug sweep of the launcher: 32 fixes, each in its own commit. Nothing here\nchanges what the launcher does on purpose; every commit fixes something it did\nby accident.\n\n## The ones that could lose data, or start the wrong thing\n\n- **A backup name could reach outside the memory card.** The name of a backup\n  to restore was joined to the card's folder as it came: an absolute path\n  replaced the card's folder, and `..` climbed out of it. The restore removes\n  the card's own folders first and then copies the backup's into their place,\n  so a name from outside the card replaced the player's saves with another\n  folder's contents. Only a name that is one folder of the card's own\n  (`.backup_…`) is accepted now.\n- **The save list and the save editor read different folders.** A card can\n  hold more than one folder of games (the other disc's, or another game). The\n  list took the first folder `read_dir` happened to give, the editor the first\n  alphabetically: the player clicked a slot and the e",
+      "mergedAt": "2026-10-21T02:18:20Z"
+     },
+     {
+      "number": 25,
+      "title": "fix(port/rac1-pal): level copies run their own code",
+      "author": "Drustburn",
+      "untrustedBody": "## Summary\n\nEvery level program of Ratchet & Clank (PAL) carries its own copy of much of\nthe engine, and a few level functions sit at several places of one program.\ngames/rac1's catalogue folds places of the same shape under one name. To run\nthose copies, the port registers each place under that name, picks a folded\ncall's target from the caller's own instructions, and relocates the\nexecutable's addresses into the level loaded by pairing code. In the places\nbelow this still made a level run a different function's code from the one\nretail runs there, or relocate an address to the wrong place. This PR fixes\nthem in eight commits:\n\n| | Commit | Touches |\n|---|---|---|\n| 1 | fix(port/rac1-pal): give the levels' copies of executable functions their own names | `split_places.tsv` rows; one host variant removed |\n| 2 | fix(port/rac1-pal): the memory-card menu's states 23, 24 and 12 run their own steps in the levels | `split_places.tsv` rows |\n| 3 | fix(port/rac1-pal): level 14's taxi and Play",
+      "mergedAt": "2026-10-21T11:56:46Z"
+     },
+     {
+      "number": 26,
+      "title": "fix(hostgen): the matched C keeps the EE's integer widths",
+      "author": "Drustburn",
+      "untrustedBody": "## Summary\n\nhostgen reads the decompilation's C with Clang's integer widths, and the\nPS2 has other ones. The compiler that built Ratchet & Clank's game code\n(SN's GCC 2.95.3) has a 128-bit `long long`. The EE keeps a 32-bit value\nsign-extended in its 64-bit register, and a register reaches the callee\nwith all its bits, whatever type the C gives it in between. Where the\nmatched C relies on that, the port moved 8 of 16 bytes in quadword\ncopies, and passed colours and texture words to 64-bit parameters with\nanother upper half than retail. This PR makes hostgen read those places\nthe EE's way, in seven commits:\n\n| | Commit | Touches |\n|---|---|---|\n| 1 | fix(hostgen): a mode(TI) cast is 128 bits on any integer type | `prep.py` + test |\n| 2 | fix(hostgen): long long is 128 bits in the game's own units | `prep.py`, `hostgen.py`, rac1-pal `hostgen.json` (`long_long_128`) + tests, README |\n| 3 | fix(hostgen): a 32-bit value passed to a 64-bit parameter is sign-extended | `lower.py` + test |\n| 4",
+      "mergedAt": "2026-10-21T12:12:00Z"
+     },
+     {
+      "number": 27,
+      "title": "fix(port/rac1-pal): folded functions' places, part 2",
+      "author": "Drustburn",
+      "untrustedBody": "## Summary\n\nThis follows #25 (\"level copies run their own code\"). games/rac1's\ncatalogue folds places of the same shape under one name: a small\nwrapper at several places of one program, a routine the levels carry\nmore than once, a `return 0` leaf. The port runs those places with one\nC and picks a place at run time from the caller's own instructions\n(`openrac_folded_call`, `openrac_folded_address`, `openrac_code_in_copy`,\n`openrac_data_in_copy`, `openrac_hook_in_copy`). #25 fixed the places\nwhere a level ran another function's code. This PR fixes seven more\nplaces where that lookup chose the wrong place, or where hostgen lowered\na call or an address through a folded name the wrong way:\n\n| | Commit | Touches |\n|---|---|---|\n| 1 | fix(port): a call the compiler merged into an earlier jal goes where that jal goes | `runtime/guest.cpp` (`openrac_folded_call`, `openrac_hook_in_copy`), `guest.h` docs |\n| 2 | fix(hostgen): a call through a folded wrapper's place passes what the call site passe",
+      "mergedAt": "2026-10-21T15:10:21Z"
+     },
+     {
+      "number": 28,
+      "title": "fix(hostgen): returns_64 results passed on whole; spilled 32-bit locals",
+      "author": "Drustburn",
+      "untrustedBody": "## Summary\n\nThis follows #26 (\"the matched C keeps the EE's integer widths\"). #26\nlisted FastTweenColor (func_001FA8A8) in rac1-pal's `returns_64`: it\npacks its colour with `ppach`/`ppacb` and leaves it zero-extended in\n`$v0` (0x0000000080FFA888), and an int local that receives it keeps\nall 64 bits, as the EE's register does. Three places of the matched C\nstill disagreed with the EE's registers about that colour:\n\n- A function that only hands such a result back (`return\n  FastTweenColor(...)` in an `int` function) was cut to 32 bits, so its\n  callers sign-extended the colour again.\n- An `unsigned int` local kept 64-bit for such a result that takes\n  another 32-bit value on a second path got that value zero-extended\n  by C's conversion, where `addu`, `lui`/`ori` or `lw` leave it\n  sign-extended in the register.\n- A local the original keeps in a stack slot across calls is stored\n  with `sw` and loaded back with `lw`, so on the EE it holds the\n  sign-extended low half, not the whole resul",
+      "mergedAt": "2026-10-21T16:20:31Z"
+     },
+     {
+      "number": 29,
+      "title": "fix(launcher): the AppImage's own environment stays in the AppImage",
+      "author": "ReaperOfVeriod",
+      "untrustedBody": "## What this changes\n\nTwo things about the Linux AppImage, both found by running the released\n0.8.4 AppImage and by running the same build on a Steam Deck.\n\n**The AppImage's environment.** AppImageKit's `AppRun` sets `PYTHONHOME`,\n`PYTHONPATH`, `PERLLIB`, `GST_PLUGIN_SYSTEM_PATH`, `QT_PLUGIN_PATH` and\n`LD_LIBRARY_PATH` before the launcher starts, all pointing into the\nAppImage. This AppImage carries no Perl, no GStreamer and no Qt, so\nthose variables point at nothing — a Qt program told to look for its\nplatform plugin in ten directories that do not exist says \"Could not find\nthe Qt platform plugin\" and stops. The launcher now takes them back\n(`core/src/appimage.rs`): the ones that mean nothing go, and everything\nthe launcher starts (the game, the tools, and the program that opens a\nlink or a folder) gets the system's own environment. The launcher's own\nwebview keeps the AppImage's libraries, since `WebKitWebProcess` finds\nthe AppImage's WebKit nowhere else.\n\n**The webview on a Steam De",
+      "mergedAt": "2026-10-21T20:02:25Z"
+     }
+    ],
+    "opened": [
+     {
+      "number": 25,
+      "title": "fix(port/rac1-pal): level copies run their own code",
+      "author": "Drustburn",
+      "untrustedBody": "## Summary\n\nEvery level program of Ratchet & Clank (PAL) carries its own copy of much of\nthe engine, and a few level functions sit at several places of one program.\ngames/rac1's catalogue folds places of the same shape under one name. To run\nthose copies, the port registers each place under that name, picks a folded\ncall's target from the caller's own instructions, and relocates the\nexecutable's addresses into the level loaded by pairing code. In the places\nbelow this still made a level run a different function's code from the one\nretail runs there, or relocate an address to the wrong place. This PR fixes\nthem in eight commits:\n\n| | Commit | Touches |\n|---|---|---|\n| 1 | fix(port/rac1-pal): give the levels' copies of executable functions their own names | `split_places.tsv` rows; one host variant removed |\n| 2 | fix(port/rac1-pal): the memory-card menu's states 23, 24 and 12 run their own steps in the levels | `split_places.tsv` rows |\n| 3 | fix(port/rac1-pal): level 14's taxi and Play",
+      "mergedAt": "2026-10-21T11:56:46Z"
+     },
+     {
+      "number": 26,
+      "title": "fix(hostgen): the matched C keeps the EE's integer widths",
+      "author": "Drustburn",
+      "untrustedBody": "## Summary\n\nhostgen reads the decompilation's C with Clang's integer widths, and the\nPS2 has other ones. The compiler that built Ratchet & Clank's game code\n(SN's GCC 2.95.3) has a 128-bit `long long`. The EE keeps a 32-bit value\nsign-extended in its 64-bit register, and a register reaches the callee\nwith all its bits, whatever type the C gives it in between. Where the\nmatched C relies on that, the port moved 8 of 16 bytes in quadword\ncopies, and passed colours and texture words to 64-bit parameters with\nanother upper half than retail. This PR makes hostgen read those places\nthe EE's way, in seven commits:\n\n| | Commit | Touches |\n|---|---|---|\n| 1 | fix(hostgen): a mode(TI) cast is 128 bits on any integer type | `prep.py` + test |\n| 2 | fix(hostgen): long long is 128 bits in the game's own units | `prep.py`, `hostgen.py`, rac1-pal `hostgen.json` (`long_long_128`) + tests, README |\n| 3 | fix(hostgen): a 32-bit value passed to a 64-bit parameter is sign-extended | `lower.py` + test |\n| 4",
+      "mergedAt": "2026-10-21T12:12:00Z"
+     },
+     {
+      "number": 27,
+      "title": "fix(port/rac1-pal): folded functions' places, part 2",
+      "author": "Drustburn",
+      "untrustedBody": "## Summary\n\nThis follows #25 (\"level copies run their own code\"). games/rac1's\ncatalogue folds places of the same shape under one name: a small\nwrapper at several places of one program, a routine the levels carry\nmore than once, a `return 0` leaf. The port runs those places with one\nC and picks a place at run time from the caller's own instructions\n(`openrac_folded_call`, `openrac_folded_address`, `openrac_code_in_copy`,\n`openrac_data_in_copy`, `openrac_hook_in_copy`). #25 fixed the places\nwhere a level ran another function's code. This PR fixes seven more\nplaces where that lookup chose the wrong place, or where hostgen lowered\na call or an address through a folded name the wrong way:\n\n| | Commit | Touches |\n|---|---|---|\n| 1 | fix(port): a call the compiler merged into an earlier jal goes where that jal goes | `runtime/guest.cpp` (`openrac_folded_call`, `openrac_hook_in_copy`), `guest.h` docs |\n| 2 | fix(hostgen): a call through a folded wrapper's place passes what the call site passe",
+      "mergedAt": "2026-10-21T15:10:21Z"
+     },
+     {
+      "number": 28,
+      "title": "fix(hostgen): returns_64 results passed on whole; spilled 32-bit locals",
+      "author": "Drustburn",
+      "untrustedBody": "## Summary\n\nThis follows #26 (\"the matched C keeps the EE's integer widths\"). #26\nlisted FastTweenColor (func_001FA8A8) in rac1-pal's `returns_64`: it\npacks its colour with `ppach`/`ppacb` and leaves it zero-extended in\n`$v0` (0x0000000080FFA888), and an int local that receives it keeps\nall 64 bits, as the EE's register does. Three places of the matched C\nstill disagreed with the EE's registers about that colour:\n\n- A function that only hands such a result back (`return\n  FastTweenColor(...)` in an `int` function) was cut to 32 bits, so its\n  callers sign-extended the colour again.\n- An `unsigned int` local kept 64-bit for such a result that takes\n  another 32-bit value on a second path got that value zero-extended\n  by C's conversion, where `addu`, `lui`/`ori` or `lw` leave it\n  sign-extended in the register.\n- A local the original keeps in a stack slot across calls is stored\n  with `sw` and loaded back with `lw`, so on the EE it holds the\n  sign-extended low half, not the whole resul",
+      "mergedAt": "2026-10-21T16:20:31Z"
+     },
+     {
+      "number": 29,
+      "title": "fix(launcher): the AppImage's own environment stays in the AppImage",
+      "author": "ReaperOfVeriod",
+      "untrustedBody": "## What this changes\n\nTwo things about the Linux AppImage, both found by running the released\n0.8.4 AppImage and by running the same build on a Steam Deck.\n\n**The AppImage's environment.** AppImageKit's `AppRun` sets `PYTHONHOME`,\n`PYTHONPATH`, `PERLLIB`, `GST_PLUGIN_SYSTEM_PATH`, `QT_PLUGIN_PATH` and\n`LD_LIBRARY_PATH` before the launcher starts, all pointing into the\nAppImage. This AppImage carries no Perl, no GStreamer and no Qt, so\nthose variables point at nothing — a Qt program told to look for its\nplatform plugin in ten directories that do not exist says \"Could not find\nthe Qt platform plugin\" and stops. The launcher now takes them back\n(`core/src/appimage.rs`): the ones that mean nothing go, and everything\nthe launcher starts (the game, the tools, and the program that opens a\nlink or a folder) gets the system's own environment. The launcher's own\nwebview keeps the AppImage's libraries, since `WebKitWebProcess` finds\nthe AppImage's WebKit nowhere else.\n\n**The webview on a Steam De",
+      "mergedAt": "2026-10-21T20:02:25Z"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [
+    {
+     "tag": "sdk-v1.0.1",
+     "name": "Mod SDK 1.0.1",
+     "publishedAt": "2026-10-21T19:54:27Z"
+    },
+    {
+     "tag": "sdk-v1.0.2",
+     "name": "Mod SDK 1.0.2",
+     "publishedAt": "2026-10-21T20:30:26Z"
+    },
+    {
+     "tag": "sdk-v1.0.3",
+     "name": "Mod SDK 1.0.3",
+     "publishedAt": "2026-10-21T20:33:44Z"
+    },
+    {
+     "tag": "sdk-v1.1.0",
+     "name": "Mod SDK 1.1.0",
+     "publishedAt": "2026-10-21T21:55:26Z"
+    },
+    {
+     "tag": "sdk-v1.1.1",
+     "name": "Mod SDK 1.1.1",
+     "publishedAt": "2026-10-21T22:01:47Z"
+    },
+    {
+     "tag": "sdk-v1.1.2",
+     "name": "Mod SDK 1.1.2",
+     "publishedAt": "2026-10-21T22:32:00Z"
+    }
+   ],
+   "progress": null,
+   "contributors": [
+    "Daniel Risto",
+    "Drustburn",
+    "ReaperOfVeriod",
+    "Veradictus"
+   ]
+  },
+  {
+   "repo": "rac1-decomp",
+   "title": "Ratchet & Clank",
+   "branches": [
+    {
+     "name": "main",
+     "commits": [
+      {
+       "sha": "52b7fe97a2e96da8c15b53ee67ae3de900a2e036",
+       "title": "Merge pull request #111 from OpenRAC/feat/versions-clone",
+       "author": "Veradictus",
+       "date": "2026-10-21T23:30:55Z"
+      },
+      {
+       "sha": "63461cfd96538dd82001be0dd2a7477193cff33b",
+       "title": "Merge pull request #110 from OpenRAC/feat/versions",
+       "author": "Veradictus",
+       "date": "2026-10-21T22:26:50Z"
+      },
+      {
+       "sha": "2b218607b9e96285ede69843100888ae8d51ef3e",
+       "title": "Merge pull request #109 from Drustburn/pr/handwritten-asm",
+       "author": "Lynder063",
+       "date": "2026-10-21T15:33:51Z"
+      },
+      {
+       "sha": "1af07edc9cef0044e6736f05560b4c9c9d5f9cc1",
+       "title": "Merge pull request #108 from Drustburn/pr/matches-1",
+       "author": "Lynder063",
+       "date": "2026-10-21T15:31:53Z"
+      }
+     ]
+    }
+   ],
+   "commitCount": 4,
+   "pullRequests": {
+    "merged": [
+     {
+      "number": 108,
+      "title": "Match nine functions ported from Lombyte (2 executable, 7 level code)",
+      "author": "Drustburn",
+      "untrustedBody": "Nine functions are now C and match exactly: two in the executable and seven in level code, 17,608 bytes in all. Each is adapted from Lombyte's C for the same function in the US build, with PAL symbols and declared the way this build reaches each global (`MACRO_ADDR` / `SDATA` where retail uses the `lui` macro or `$gp`). Each replaces its `INCLUDE_ASM` stub, and the function's staged near miss or functional C is removed with it (`nonmatching/functional.tsv` and `nonmatching/README.md` rows included). `game/loaders` and `game/sound` are now complete. No compiler flags, inline assembly, register pins or `do { } while (0)` barriers are added.\n\n| Function | What it does | File | Size | Levels | From Lombyte | What it took |\n|---|---|---|---|---|---|---|\n| `func_00204340` | registers a shrub render class: slot/id tables, distance threshold, mip packet TEX0/TEX1/MIPTBP1, material map | `src/game/loaders.c` | 1,492 | exe | `register_shrub_render_class` (matched there) | PAL globals |\n| `func_0",
+      "mergedAt": "2026-10-21T15:31:53Z"
+     },
+     {
+      "number": 109,
+      "title": "asm: list memcpy, memmove, memset, func_0011AE1C and func_L00_002001D8 as original assembly",
+      "author": "Drustburn",
+      "untrustedBody": "Five functions that are assembly in the original, classified the way `docs/ASM_CLASSIFICATION.md` does it: listed in `config/handwritten_asm.txt` / `config/overlays/handwritten_asm.txt`, their `INCLUDE_ASM` stub becomes `ASM_FUNC`, and the report counts them as finished original-source work. `ASM_FUNC` is `INCLUDE_ASM` and the same `.s` is included (`tools/organize_asm.py` only moves it to `asm/handwritten/`), so the image is unchanged.\n\nTwo of them rest on a kind of evidence the classification has not used yet: the SDK's own library archives. `docs/ASM_CLASSIFICATION.md` says that changing the published progress policy needs upstream review, so this is a proposal: **please confirm the rule below or tell me what you would rather see.** Each commit stands alone, so any of them can be dropped.\n\n| Function | Name | Size | Where | Evidence |\n|---|---|---|---|---|\n| `func_00115248` | memcpy | 176 | `src/core/00114518.c` | libc.a's `memcpy.o` was assembled from `newlib/libc/machine/r5900/mem",
+      "mergedAt": "2026-10-21T15:33:52Z"
+     },
+     {
+      "number": 110,
+      "title": "feat: PAL v1.00, NTSC-J and NTSC-U as versions alongside PAL v2.00",
+      "author": "Veradictus",
+      "untrustedBody": "One repository for every release we have, the way rac4-decomp covers US and PAL: PAL v2.00 stays the primary target with its build, report and rules untouched, and PAL v1.00, NTSC-J and NTSC-U join it. Details in `docs/VERSIONS.md`.\n\n| Version | Report id | How it is built and counted | Functions | Code |\n| --- | --- | --- | --- | --- |\n| PAL v2.00 | `SCES_509.16` | as before | 5,073 / 5,124 | 98.38% |\n| PAL v1.00 | `SCES_509.16_v1` | here: shared C, own C where bytes differ | 4,827 / 5,097 | 76.55% |\n| NTSC-J v1.02 | `SCPS_150.37` | here, same as PAL v1.00 | 4,951 / 5,109 | 87.30% |\n| NTSC-U v1.00 | `SCUS_971.99` | the NTSC decomp (Lombyte's), submodule `versions/ntsc` | 4,218 / 4,244 (its own count) | 98.72% |\n\n- **Dumps and byte-identical builds.** `tools/versions.py dump/config/check` reads each disc straight from its ISO. `tools/version_build.py` assembles all 20 programs of each version (executable + 19 levels) from per-function assembly with binutils 2.10-ee and matches the disc",
+      "mergedAt": "2026-10-21T22:26:51Z"
+     },
+     {
+      "number": 111,
+      "title": "feat(versions): clone changed references; 35 more PAL v1.00 and NTSC-J functions",
+      "author": "Veradictus",
+      "untrustedBody": "Follow-up to #110, all mechanical (no model, nothing written by hand).\n\n- `tools/version_clone.py` now also explains relocated fields that reach another address in the version: a call to a function the release changed or added, a moved table. It renames that symbol in the version's definition only, to the counterpart at that address or a `func_<TAG>_`/`D_<TAG>_` name for code and data only that release has. The checker resolves those names to the version's own address. Candidates are kept only when EXACT. It ran one function per worker across box1 and box2.\n- 12 more functions for PAL v1.00 (76 in all) and 23 for NTSC-J (94 in all).\n- PAL v1.00 is at 4,839 / 5,097 functions (76.82% code) and NTSC-J at 4,974 / 5,109 (88.05%).\n- 181 PAL v1.00 and 64 NTSC-J functions are left open in `config/versions/<K>/map.tsv` (`differs`/`refs`). Their size changed between releases, so they need real work.\n- The NTSC decomp submodule moves to e437eef7. Both of its PASS gates still pass, and `carry.tsv`",
+      "mergedAt": "2026-10-21T23:30:56Z"
+     }
+    ],
+    "opened": [
+     {
+      "number": 108,
+      "title": "Match nine functions ported from Lombyte (2 executable, 7 level code)",
+      "author": "Drustburn",
+      "untrustedBody": "Nine functions are now C and match exactly: two in the executable and seven in level code, 17,608 bytes in all. Each is adapted from Lombyte's C for the same function in the US build, with PAL symbols and declared the way this build reaches each global (`MACRO_ADDR` / `SDATA` where retail uses the `lui` macro or `$gp`). Each replaces its `INCLUDE_ASM` stub, and the function's staged near miss or functional C is removed with it (`nonmatching/functional.tsv` and `nonmatching/README.md` rows included). `game/loaders` and `game/sound` are now complete. No compiler flags, inline assembly, register pins or `do { } while (0)` barriers are added.\n\n| Function | What it does | File | Size | Levels | From Lombyte | What it took |\n|---|---|---|---|---|---|---|\n| `func_00204340` | registers a shrub render class: slot/id tables, distance threshold, mip packet TEX0/TEX1/MIPTBP1, material map | `src/game/loaders.c` | 1,492 | exe | `register_shrub_render_class` (matched there) | PAL globals |\n| `func_0",
+      "mergedAt": "2026-10-21T15:31:53Z"
+     },
+     {
+      "number": 109,
+      "title": "asm: list memcpy, memmove, memset, func_0011AE1C and func_L00_002001D8 as original assembly",
+      "author": "Drustburn",
+      "untrustedBody": "Five functions that are assembly in the original, classified the way `docs/ASM_CLASSIFICATION.md` does it: listed in `config/handwritten_asm.txt` / `config/overlays/handwritten_asm.txt`, their `INCLUDE_ASM` stub becomes `ASM_FUNC`, and the report counts them as finished original-source work. `ASM_FUNC` is `INCLUDE_ASM` and the same `.s` is included (`tools/organize_asm.py` only moves it to `asm/handwritten/`), so the image is unchanged.\n\nTwo of them rest on a kind of evidence the classification has not used yet: the SDK's own library archives. `docs/ASM_CLASSIFICATION.md` says that changing the published progress policy needs upstream review, so this is a proposal: **please confirm the rule below or tell me what you would rather see.** Each commit stands alone, so any of them can be dropped.\n\n| Function | Name | Size | Where | Evidence |\n|---|---|---|---|---|\n| `func_00115248` | memcpy | 176 | `src/core/00114518.c` | libc.a's `memcpy.o` was assembled from `newlib/libc/machine/r5900/mem",
+      "mergedAt": "2026-10-21T15:33:52Z"
+     },
+     {
+      "number": 110,
+      "title": "feat: PAL v1.00, NTSC-J and NTSC-U as versions alongside PAL v2.00",
+      "author": "Veradictus",
+      "untrustedBody": "One repository for every release we have, the way rac4-decomp covers US and PAL: PAL v2.00 stays the primary target with its build, report and rules untouched, and PAL v1.00, NTSC-J and NTSC-U join it. Details in `docs/VERSIONS.md`.\n\n| Version | Report id | How it is built and counted | Functions | Code |\n| --- | --- | --- | --- | --- |\n| PAL v2.00 | `SCES_509.16` | as before | 5,073 / 5,124 | 98.38% |\n| PAL v1.00 | `SCES_509.16_v1` | here: shared C, own C where bytes differ | 4,827 / 5,097 | 76.55% |\n| NTSC-J v1.02 | `SCPS_150.37` | here, same as PAL v1.00 | 4,951 / 5,109 | 87.30% |\n| NTSC-U v1.00 | `SCUS_971.99` | the NTSC decomp (Lombyte's), submodule `versions/ntsc` | 4,218 / 4,244 (its own count) | 98.72% |\n\n- **Dumps and byte-identical builds.** `tools/versions.py dump/config/check` reads each disc straight from its ISO. `tools/version_build.py` assembles all 20 programs of each version (executable + 19 levels) from per-function assembly with binutils 2.10-ee and matches the disc",
+      "mergedAt": "2026-10-21T22:26:51Z"
+     },
+     {
+      "number": 111,
+      "title": "feat(versions): clone changed references; 35 more PAL v1.00 and NTSC-J functions",
+      "author": "Veradictus",
+      "untrustedBody": "Follow-up to #110, all mechanical (no model, nothing written by hand).\n\n- `tools/version_clone.py` now also explains relocated fields that reach another address in the version: a call to a function the release changed or added, a moved table. It renames that symbol in the version's definition only, to the counterpart at that address or a `func_<TAG>_`/`D_<TAG>_` name for code and data only that release has. The checker resolves those names to the version's own address. Candidates are kept only when EXACT. It ran one function per worker across box1 and box2.\n- 12 more functions for PAL v1.00 (76 in all) and 23 for NTSC-J (94 in all).\n- PAL v1.00 is at 4,839 / 5,097 functions (76.82% code) and NTSC-J at 4,974 / 5,109 (88.05%).\n- 181 PAL v1.00 and 64 NTSC-J functions are left open in `config/versions/<K>/map.tsv` (`differs`/`refs`). Their size changed between releases, so they need real work.\n- The NTSC decomp submodule moves to e437eef7. Both of its PASS gates still pass, and `carry.tsv`",
+      "mergedAt": "2026-10-21T23:30:56Z"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [],
+    "closed": [
+     {
+      "number": 105,
+      "title": "func_00226D50 matches only with an empty do { } while (0): land it as an original debug macro?",
+      "author": "cnobis"
+     }
+    ]
+   },
+   "releases": [],
+   "progress": {
+    "before": {
+     "code": {
+      "done": 3635852,
+      "total": 3713568
+     },
+     "functions": {
+      "done": 5064,
+      "total": 5124
+     },
+     "data": {
+      "done": 3852,
+      "total": 699072
+     }
+    },
+    "after": {
+     "code": {
+      "done": 3653460,
+      "total": 3713568
+     },
+     "functions": {
+      "done": 5073,
+      "total": 5124
+     },
+     "data": {
+      "done": 3852,
+      "total": 699072
+     }
+    }
+   },
+   "contributors": [
+    "Drustburn",
+    "Lynder063",
+    "Veradictus"
+   ]
+  },
+  {
+   "repo": "rac2-decomp",
+   "title": "Going Commando",
+   "branches": [
+    {
+     "name": "master",
+     "commits": [
+      {
+       "sha": "e2fd139376b2c7f132fbcc05efbaa9d943708321",
+       "title": "chore(progress): 4138 of 8601 functions; PAL 3550 of 8693, USA v2.00 3940 of 8655",
+       "author": "Veradictus",
+       "date": "2026-10-21T23:36:35Z"
+      },
+      {
+       "sha": "cce787f0450f783f30e0b969d44f5478730f69f3",
+       "title": "Merge pull request #286 from OpenRAC/match/versions-ports-2",
+       "author": "Veradictus",
+       "date": "2026-10-21T23:36:13Z"
+      },
+      {
+       "sha": "037f55b161539fc56155141dcb804245253332c6",
+       "title": "Merge pull request #284 from GianniGr/match/medium-function-wave-20261021",
+       "author": "Veradictus",
+       "date": "2026-10-21T23:11:01Z"
+      },
+      {
+       "sha": "7ade3e7aaa6711accab5b005af8e0371c3d90dd2",
+       "title": "Merge pull request #283 from bigmak94/match/bigmak94-l02e-20261021",
+       "author": "Veradictus",
+       "date": "2026-10-21T23:10:38Z"
+      },
+      {
+       "sha": "f5a45623ab2f584ef90f65af0c1b523f1c69bfaa",
+       "title": "Merge pull request #281 from bigmak94/compiler/zero-ti-por-20261021",
+       "author": "Veradictus",
+       "date": "2026-10-21T23:09:04Z"
+      },
+      {
+       "sha": "ce1cbedc83cadaa3ed8e8fcfecdbb32e2475e7b6",
+       "title": "Merge pull request #285 from OpenRAC/match/thorpen-eight-reviewed-20261022",
+       "author": "ThorpenCodes",
+       "date": "2026-10-21T22:34:03Z"
+      },
+      {
+       "sha": "75b46773d3b7ef8a6e7fc269f905ccb5ca2797dc",
+       "title": "chore(progress): 4076 of 8601 functions; PAL 3511 of 8693, USA v2.00 3878 of 8655",
+       "author": "Veradictus",
+       "date": "2026-10-21T21:52:47Z"
+      },
+      {
+       "sha": "5dc8029c4086f126be81d147f5dd994a5bc18f91",
+       "title": "Merge pull request #282 from OpenRAC/match/versions-ports-1",
+       "author": "Veradictus",
+       "date": "2026-10-21T21:52:18Z"
+      },
+      {
+       "sha": "d7f43ed546f3b11bcc5d225e4c75e1c1243f0d48",
+       "title": "Merge pull request #280 from OpenRAC/feat/versions-pal-us2",
+       "author": "Veradictus",
+       "date": "2026-10-21T21:34:59Z"
+      },
+      {
+       "sha": "36c6f6c1abdddd8f42bb7fcc59a63c7263e6458a",
+       "title": "Merge pull request #279 from bigmak94/compiler/annulled-wide-stores-20261021",
+       "author": "llesieur99",
+       "date": "2026-10-21T21:01:21Z"
+      },
+      {
+       "sha": "35460d72a73db876261f13da3f507ca17d551b78",
+       "title": "Merge pull request #278 from bigmak94/match/bigmak94-idlist5-20261021",
+       "author": "llesieur99",
+       "date": "2026-10-21T20:40:51Z"
+      },
+      {
+       "sha": "1b59068d933e300ef8bb3e791db1c558e23121a9",
+       "title": "Merge pull request #275 from bigmak94/compiler/qcopy-barrier-20261021",
+       "author": "llesieur99",
+       "date": "2026-10-21T20:35:57Z"
+      },
+      {
+       "sha": "53009ba8fb2475892d53e175545b587c2e7f011b",
+       "title": "Merge pull request #277 from bigmak94/match/bigmak94-l02d-20261021",
+       "author": "llesieur99",
+       "date": "2026-10-21T20:32:27Z"
+      },
+      {
+       "sha": "c8a0b59bf980241c341239b9817b3890439e469c",
+       "title": "Merge pull request #274 from bigmak94/match/bigmak94-game-switch-20261021",
+       "author": "llesieur99",
+       "date": "2026-10-21T20:32:22Z"
+      },
+      {
+       "sha": "8329d2d5469e06cf4b4fa8495fe5c38488d6e37d",
+       "title": "Merge pull request #273 from bigmak94/match/bigmak94-idlist-levels2-20261021",
+       "author": "llesieur99",
+       "date": "2026-10-21T20:32:03Z"
+      },
+      {
+       "sha": "6fa53e1bcbad8a67e3e0016c82aeec2f0a6e6890",
+       "title": "Merge pull request #272 from GianniGr/match/three-waves-20261021",
+       "author": "llesieur99",
+       "date": "2026-10-21T20:31:58Z"
+      },
+      {
+       "sha": "5c3f68a0882a862a86804cee0f1ac2a5ca87ddd9",
+       "title": "Merge pull request #276 from OpenRAC/docs/readme-rac-style",
+       "author": "llesieur99",
+       "date": "2026-10-21T19:48:45Z"
+      },
+      {
+       "sha": "e238b939432f4faca897a539a5f27f97c5f2b87f",
+       "title": "chore(progress): 4019 of 8601 functions",
+       "author": "Veradictus",
+       "date": "2026-10-21T16:12:04Z"
+      },
+      {
+       "sha": "a25136b4c68058e6eaf1a38e55253e54d6f59bfa",
+       "title": "Merge pull request #271 from ReaperOfVeriod/match/lvl24-small-20261021",
+       "author": "Veradictus",
+       "date": "2026-10-21T15:58:21Z"
+      },
+      {
+       "sha": "e7fe306317322903593f488046735e9fa81e86cf",
+       "title": "Merge pull request #264 from bigmak94/compiler/hazard-labels-20261021",
+       "author": "Veradictus",
+       "date": "2026-10-21T15:51:26Z"
+      },
+      {
+       "sha": "ef081c90386525a5ad864bec39f8883c2effc606",
+       "title": "Merge pull request #261 from bigmak94/compiler/opt-in-cygnus-passes-20261021",
+       "author": "Veradictus",
+       "date": "2026-10-21T15:32:22Z"
+      },
+      {
+       "sha": "c7349562902230fb660d221dd539dec118c771c2",
+       "title": "Merge pull request #263 from bigmak94/match/bigmak94-barrier-20261021",
+       "author": "Veradictus",
+       "date": "2026-10-21T15:12:00Z"
+      },
+      {
+       "sha": "9bed6b9e22f76f06fe47ea976d4392707a37b59e",
+       "title": "Merge pull request #260 from bigmak94/match/bigmak94-idlist-levels-20261021",
+       "author": "Veradictus",
+       "date": "2026-10-21T15:11:04Z"
+      },
+      {
+       "sha": "8613858c6120f8f36f6efd103157aef75a4c7840",
+       "title": "Merge pull request #259 from bigmak94/match/bigmak94-fold258-20261021",
+       "author": "Veradictus",
+       "date": "2026-10-21T15:10:58Z"
+      },
+      {
+       "sha": "ab33c323400c4fc20261946d3534901dd2d26a02",
+       "title": "Merge pull request #269 from OpenRAC/match/wave14-wide-20261021",
+       "author": "Veradictus",
+       "date": "2026-10-21T15:10:52Z"
+      },
+      {
+       "sha": "36254daa97702c8ac2d4fb70df869668ce0176b2",
+       "title": "Merge pull request #270 from OpenRAC/match/asm-func-handwritten-20261021",
+       "author": "Veradictus",
+       "date": "2026-10-21T15:10:47Z"
+      },
+      {
+       "sha": "ace3f7be822bae9e85af0ae9010bd5c0dca91986",
+       "title": "Merge pull request #268 from OpenRAC/docs/shared-blocker-notes",
+       "author": "llesieur99",
+       "date": "2026-10-21T09:51:46Z"
+      },
+      {
+       "sha": "732bc4307c2c83c88e6308e73894407fb0c50f26",
+       "title": "Merge pull request #267 from OpenRAC/match/fpadd-followup-scheduling",
+       "author": "llesieur99",
+       "date": "2026-10-21T09:44:05Z"
+      },
+      {
+       "sha": "4a81c4ed50e7a98272359c3903fdf436851343de",
+       "title": "Merge pull request #265 from OpenRAC/compiler/fpadd-shifted-mask",
+       "author": "llesieur99",
+       "date": "2026-10-21T09:05:50Z"
+      },
+      {
+       "sha": "441de72841d6569e606d348486f7678e86b949b8",
+       "title": "Merge pull request #262 from OpenRAC/compiler/vector-copy-addresses",
+       "author": "llesieur99",
+       "date": "2026-10-21T07:32:23Z"
+      },
+      {
+       "sha": "356b450e7ec2dba12d728b4999cd4e0cd0c6a893",
+       "title": "Merge pull request #258 from OpenRAC/build/zero-displacement-store",
+       "author": "llesieur99",
+       "date": "2026-10-21T06:12:20Z"
+      },
+      {
+       "sha": "fc02388b2c2afe7ec0cce93153ba7b76874b8a4b",
+       "title": "Merge pull request #244 from OpenRAC/match/minimax-continue-20261020",
+       "author": "llesieur99",
+       "date": "2026-10-21T05:58:01Z"
+      },
+      {
+       "sha": "67e8b5139788b1921cdae14c234ed9ef61e4a9e5",
+       "title": "Merge pull request #257 from OpenRAC/fix/ee-diagnostics-and-source-barriers",
+       "author": "llesieur99",
+       "date": "2026-10-21T05:56:12Z"
+      },
+      {
+       "sha": "8444cb6e47a4ee8d77aa33cf67c4ecc21e70ac9c",
+       "title": "Merge pull request #249 from bigmak94/match/bigmak94-l02c-20261021",
+       "author": "llesieur99",
+       "date": "2026-10-21T05:47:08Z"
+      },
+      {
+       "sha": "5f4ced809ba60ce93ee51145531c4756dd908952",
+       "title": "Merge pull request #246 from ReaperOfVeriod/match/lvl20-yeedil-waves4-5-20261021",
+       "author": "llesieur99",
+       "date": "2026-10-21T05:45:37Z"
+      },
+      {
+       "sha": "5e6a0a9a6f6da1caaa42144ab1e35bdb7d45d630",
+       "title": "Merge pull request #242 from bigmak94/match/bigmak94-idlist4-20261021",
+       "author": "llesieur99",
+       "date": "2026-10-21T05:21:40Z"
+      },
+      {
+       "sha": "5bdd5c80158a992601e681d6885cf8997b454cd3",
+       "title": "Merge pull request #250 from OpenRAC/match/large-functions-20261020",
+       "author": "llesieur99",
+       "date": "2026-10-21T05:18:52Z"
+      },
+      {
+       "sha": "092569c6569e9a84a8191449ede723606e274e5a",
+       "title": "Merge pull request #254 from OpenRAC/docs/collision-impact-layout-20261021",
+       "author": "llesieur99",
+       "date": "2026-10-21T05:18:46Z"
+      },
+      {
+       "sha": "78cc18b5c0a4465f8229a59589f89ac48624c491",
+       "title": "Merge pull request #253 from OpenRAC/fix/catalogue-residues-20261021",
+       "author": "llesieur99",
+       "date": "2026-10-21T05:18:42Z"
+      },
+      {
+       "sha": "a3f4664acdd6ce42c627fa71722fc80775716bc0",
+       "title": "Merge pull request #252 from OpenRAC/build/cache-validation-20261021",
+       "author": "llesieur99",
+       "date": "2026-10-21T05:18:37Z"
+      },
+      {
+       "sha": "87fdaabb70acfffb91a10cb5ffb1fba3aa41c050",
+       "title": "Merge pull request #256 from OpenRAC/match/thorpen-banked-functions-20261021",
+       "author": "ThorpenCodes",
+       "date": "2026-10-21T04:55:07Z"
+      },
+      {
+       "sha": "8b23616697e025d9e938d59693efe6e9c1e8d036",
+       "title": "Merge pull request #255: refresh progress after the qualified clear profile",
+       "author": "llesieur99",
+       "date": "2026-10-21T04:42:36Z"
+      },
+      {
+       "sha": "eb22acaa3447794b0514d2c74109daf019249b48",
+       "title": "Merge pull request #251: qualify the opt-in quadword clear profile",
+       "author": "llesieur99",
+       "date": "2026-10-21T04:30:56Z"
+      },
+      {
+       "sha": "5ae7e3649312ba6f5100f45bb3a99c618dcd734e",
+       "title": "Merge pull request #245 from OpenRAC/maintenance/pr243-progress-20261020",
+       "author": "llesieur99",
+       "date": "2026-10-21T01:32:53Z"
+      },
+      {
+       "sha": "9bfe5f871a101d9ae20baccd0546f52f1c6926ee",
+       "title": "Merge pull request #243 from OpenRAC/match/wave13-game-shared-20261021",
+       "author": "llesieur99",
+       "date": "2026-10-21T01:29:43Z"
+      }
+     ]
+    }
+   ],
+   "commitCount": 45,
+   "pullRequests": {
+    "merged": [
+     {
+      "number": 242,
+      "title": "feat(src): nine shared functions, 21 placements",
+      "author": "bigmak94",
+      "untrustedBody": "## What\n\nNine shared functions, 2,688 bytes, **21 placements**:\n\n| function | bytes | places | file |\n| --- | ---: | ---: | --- |\n| `func_L02_003CEBB8` | 184 | 2 | `src/levels/shared/L02_003C43F0.c` |\n| `func_L03_003C5B28` | 444 | 2 | `src/levels/shared/L03_003C5B28-g8.c` |\n| `func_L03_003C5DC8` | 288 | 2 | `src/levels/shared/L03_003C5B28-g8.c` |\n| `func_L07_003F6B88` | 184 | 2 | `src/levels/shared/L07_002B3580.c` |\n| `func_L07_003F6F00` | 324 | 4 | `src/levels/shared/L07_002B3580-g8.c` |\n| `func_L12_00428040` | 404 | 2 | `src/levels/shared/L12_003E1CB0-g8.c` |\n| `func_L12_004281D8` | 384 | 2 | `src/levels/shared/L12_003E1CB0-g8.c` |\n| `func_L13_0040A540` | 248 | 3 | `src/levels/shared/L13_00406F18.c` |\n| `func_L13_0040CA70` | 228 | 2 | `src/levels/shared/L13_00406F18.c` |\n\nAll but `func_L07_003F6F00` are id-list walks in the spelling of #232, #233, #235 and #237. What decided them:\n\n- `func_L03_003C5B28` and `func_L03_003C5DC8` read the group count through `$gp`, so they join `func_L0",
+      "mergedAt": "2026-10-21T05:21:40Z"
+     },
+     {
+      "number": 243,
+      "title": "feat(src): match three functions and retain verified wave13 research",
+      "author": "llesieur99",
+      "untrustedBody": "Three functions now match with declarations consistent with the existing callees, across **56 placements**. The fourth original candidate is retained in `nonmatching/` because its byte match depended on an incompatible function prototype.\r\n\r\n| Function | Catalogue size | Verified placements |\r\n| --- | ---: | ---: |\r\n| `func_0027DDC0` | 144 bytes | 28 (boot + 27 levels) |\r\n| `func_00294130` | 76 bytes | 1 (boot) |\r\n| `func_L00_002D3290` | 368 bytes | 27 (levels) |\r\n\r\nThe packet-writer declaration now agrees with its existing `unsigned long long` parameter. Both the new colour-packing function and the existing `func_0027DCE8` caller still match at all 28 placements.\r\n\r\n`func_L00_002B9380` originally declared `func_002AA898` with `direction` last, while the existing definition takes it third. With the correct prototype and argument order, the 340-byte candidate exchanges two argument-setup instructions and matches 0/27 placements. Its complete corrected C, measurements and reopening condi",
+      "mergedAt": "2026-10-21T01:29:44Z"
+     },
+     {
+      "number": 244,
+      "title": "feat(src): match 38 shared and level functions across 307 placements",
+      "author": "Veradictus",
+      "untrustedBody": "## What\n\nMatch **38 functions across 307 placements** in the shared and level code, including the seven functions added in the final wave. Retain incomplete attempts in `nonmatching/` and remove the six records superseded by that final wave.\n\nMaintainer review corrected five external data names to their measured retail bindings: `D_00188660`, `D_00189E20`, `D_L07_0027E8C0`, `D_L12_0027F710`, and `D_L11_001BA8C0`. It also removed an obsolete mismatch comment from a now-matching function. The C remains plain C, with per-file profiles and no source barriers or register pins.\n\n## Checked\n\n- Original 31 additions: **236/236 placements**; all 343 C functions in their affected units: **2,548/2,548 placements**.\n- Final seven additions: **71/71 placements**; all 109 C functions in their affected units: **1,135/1,135 placements**. The two units corrected in that wave were checked again: **42/42 placements across 15 functions**.\n- `python3 tools/build.py all --strict --jobs 8`: **all 28 programs",
+      "mergedAt": "2026-10-21T05:58:01Z"
+     },
+     {
+      "number": 245,
+      "title": "chore(progress): 3789 of 8606 functions, 9.14% code",
+      "author": "llesieur99",
+      "untrustedBody": "Refresh the generated report and README table after the validated integration of #243. The three accepted C functions add **588 distinct bytes and 56 placements**; the incompatible-prototype candidate remains unlinked and uncounted.\r\n\r\n| Measure | Previous report | Updated report |\r\n| --- | ---: | ---: |\r\n| Matched functions | 3,786 | 3,789 |\r\n| Catalogue functions | 8,645 | 8,606 |\r\n| Matched code bytes | 504,904 | 505,492 |\r\n| Catalogue code bytes | 5,529,540 | 5,529,384 |\r\n| Matched code | 9.13% | 9.14% |\r\n\r\nThe denominator also catches up with the **already merged** catalogue cleanup in #241: 39 four-byte rows are removed, with no additional decompilation credit. The updated total contains 3,538 C functions and 251 original assembly functions. C covers 47,165 level placements. Stale hardcoded counts were removed from the introductory prose; the generated table gives the current counts.\r\n\r\nValidation: all 28 programs equal every loaded retail byte; all 56 new placements are included",
+      "mergedAt": "2026-10-21T01:32:54Z"
+     },
+     {
+      "number": 246,
+      "title": "feat(src): level 20 - three more functions matched",
+      "author": "ReaperOfVeriod",
+      "untrustedBody": "## Changes\n\nMatch three more Yeedil functions: `func_L20_0039E0A0`, `func_L20_00409480` and `func_L20_00444138`. Retain the other attempts and their remaining differences in `nonmatching/`.\n\nMaintainer review removed the dead zero guard from `func_L20_00409480`, corrected its explanation and trimmed whitespace in the retained records. The simplified C still matches. The branch includes current master, including the catalogue corrections.\n\n## Validation\n\n- Three new functions: **3/3 placements**. All 32 C functions in the affected units: **32/32 placements**.\n- `python3 tools/build.py all --strict --jobs 8`: **all 28 programs OK**, no rejected C placements, on the combined reviewed integration including PRs #242, #244 (its original 31 functions), #246, #249 and merged #256.\n- `python3 -m unittest discover -s tests`: **47 tests passed**, three toolchain-dependent skips on Windows. The integration suite also passed in the qualified container.\n- `python3 tests/check_repository.py`, `python",
+      "mergedAt": "2026-10-21T05:45:37Z"
+     },
+     {
+      "number": 249,
+      "title": "feat(src): match ten level 2 functions and retain clean near misses",
+      "author": "bigmak94",
+      "untrustedBody": "## Changes\n\nMatch **ten** level 2 functions and retain the remaining useful C attempts in `nonmatching/`.\n\nMaintainer review removed artificial empty `do { } while (0)` compiler barriers. Four functions no longer match without those barriers, so their `INCLUDE_ASM` markers are restored and their clean C is retained:\n\n- `func_L02_003D26B0`, `func_L02_003F1BA8`, `func_L02_0040BBD8`: 552 bytes versus 556 in retail.\n- `func_L02_003FB000`: 284 bytes versus 288 in retail.\n\nThese four are **not counted as matches**. The branch includes current master and preserves the retained candidates without generated artifacts.\n\n## Validation\n\n- Ten accepted additions: all placements exact. All 192 C functions in the affected units: **416/416 placements**.\n- `python3 tools/build.py all --strict --jobs 8`: **all 28 programs OK**, no rejected C placements, on the combined reviewed integration including PRs #242, #244 (its original 31 functions), #246, #249 and merged #256.\n- `python3 -m unittest discover -",
+      "mergedAt": "2026-10-21T05:47:08Z"
+     },
+     {
+      "number": 250,
+      "title": "chore(nonmatching): retain three large graphics and collision reconstructions",
+      "author": "llesieur99",
+      "untrustedBody": "## What\n\nRetain complete C attempts for three large functions so the next attempt can\nstart from measured source instead of a screening note or an empty placeholder.\nThese are **unmatched research candidates** in `nonmatching/`; no linked code or\nprogress totals change, and runtime behavior has not been verified.\n\n| Function | Retail bytes | Candidate bytes | Exact placements | Remaining difference |\n| --- | ---: | ---: | ---: | --- |\n| `func_0027C878` | 1,356 | 1,356 | 0/28 | First differing non-relocation instruction at `+0x418`; descriptor-field and upload-store allocation/scheduling |\n| `func_0030E8A8` | 1,052 | 1,028 | 0/28 | Pointer lifetimes, folded stack-vector copies and reset-path layout |\n| `func_L00_004096B0` | 1,944 | 1,928 | 0/27 | Register assignment, vector-address materialization and branch/store scheduling; frame size agrees at `0x190` |\n\nThe texture descriptor/VRAM upload body and the level collision/impact body are\nnew reconstructions. The motion-response record now",
+      "mergedAt": "2026-10-21T05:18:52Z"
+     },
+     {
+      "number": 251,
+      "title": "build(compiler): qualify an opt-in 128-bit clear scheduling profile",
+      "author": "bigmak94",
+      "untrustedBody": "## What\n\nThe 200-byte `func_L00_003BFF68` was otherwise reconstructed in C but failed at\nall 12 placements because the compiler scheduled its quadword clear and adjacent\nwork differently from retail. This PR adds an **opt-in** scheduling model for\nthe inferred clear macro and matches that function with plain C.\n\n`-frac2-zero-ti-barrier` gives selected zero TImode stores the scheduler\ndependencies/cost/unit of the inferred macro. It is disabled by default and\nenabled per compilation unit in `config/cflags.txt`, currently only for\n`src/levels/shared/L00_003B9CB8.c`. `-fno-rac2-zero-ti-barrier` disables it again.\n\nThe selector is a heuristic: before reload it uses the only zero store between\ncalls/labels/jumps; after reload it recognizes the folded zero-register form.\nAuthored controls demonstrate that it also affects nonzero-displacement stores.\nThat wider behavior is why it is **not applied globally**. Every additional unit\nneeds its own evidence and full-placement checks. No inline ass",
+      "mergedAt": "2026-10-21T04:30:56Z"
+     },
+     {
+      "number": 252,
+      "title": "fix(build): invalidate objects on toolchain changes and add strict checks",
+      "author": "llesieur99",
+      "untrustedBody": "## What\n\nReplacing the compiler or assembler previously left cached C objects eligible\nfor reuse until their sources or flags changed. The cache now tracks the selected\ntoolchain's contents as well as source/header contents, options, runner and\ncompilation implementation. This covers the game and SDK compiler paths; the\ncache stamps remain private under `build/obj/`.\n\nAdd `--strict` to the existing build commands. It fails when any C function is\nrejected and replaced by retail assembly, even if the rebuilt program's bytes\nare equal. Reasons remain in `placed.json`. Normal builds retain fallback for\nexperiments; the contribution instructions now require strict pre-push builds.\n\n## Checked\n\n- `python -m unittest discover -s tests`: **43 passed**, including 11 new\n  regressions for tool replacement with preserved size/mtime, SDK dependencies,\n  source/header/flag changes, legacy-cache migration, missing tools, failed\n  compilation and strict rejection/propagation.\n- `python3 tools/build.p",
+      "mergedAt": "2026-10-21T05:18:38Z"
+     },
+     {
+      "number": 253,
+      "title": "fix(catalogue): exclude five measured residual instruction extents",
+      "author": "llesieur99",
+      "untrustedBody": "## What\n\nResolve the five residual extents documented in #157 section 50:\n`func_00289018`, `func_002A77C0`, `func_002FDB40`, `func_002FED78`, and\n`func_002FF0B0`. These fragments follow complete returns across padding and\nlack a coherent independent entry/exit. Removing catalogue credit does not\nremove their bytes from the rebuilt programs.\n\nThe generator derives size/fingerprint pairs from those measured private boot\nextents and also excludes their exact normalised counterparts. This removes\n**five distinct entries and 22 level placements**, without changing the general\npadding predicate or excluding arbitrary bodies merely because they lack a return.\nThe full rationale and limits are in the existing `docs/LEVELS.md`.\n\nFive markers and their obsolete comments-only screening records are retired.\nNo C implementation was removed; the old notes remain in Git history and were\nalso preserved privately. No generated research report or game bytes are added.\n\n## Checked\n\n- All **27 extents** c",
+      "mergedAt": "2026-10-21T05:18:42Z"
+     },
+     {
+      "number": 254,
+      "title": "docs(engine): qualify retail impact payload and moby collision fields",
+      "author": "llesieur99",
+      "untrustedBody": "## What\n\nMake one small collision subsystem useful to future decompilation and port work:\n\n- Add the measured `Rac2Impact32` payload (0x28 bytes) and a deliberately partial\n  `Rac2MobyCollisionView32` (0xAC-byte prefix) to `include/engine.h`.\n- Use 32-bit address fields so the memory views retain their offsets on a\n  64-bit host. A port must resolve these through its own object/memory mapping.\n- Add the descriptive alias `QueueMobyImpact` for `func_002A8E20` and document\n  the queue's copy offsets, ownership check, strength comparison and flag merge\n  in the existing community engine reference. Unknown fields remain unnamed.\n- Correct the claim that the existing `MobyInstance` layout is qualified for\n  this retail build: its +0x68/+0xA8/+0xAA fields conflict with observed accesses.\n  The old structure is retained with an explicit warning.\n\nThese are measured memory views and descriptive names, not new matching C or\na claim that the entire moby layout has been recovered.\n\n## Checked\n\n- ",
+      "mergedAt": "2026-10-21T05:18:46Z"
+     },
+     {
+      "number": 255,
+      "title": "chore(progress): record 3790 of 8606 functions after the clear profile",
+      "author": "llesieur99",
+      "untrustedBody": "## What\n\nRefresh the two maintained progress outputs after merging #251. The new qualified\nprofile contributes one distinct 200-byte function at 12 level placements.\n\n- **3,790 / 8,606 functions**\n- **505,692 / 5,529,384 code bytes (9.15%)**\n- **47,177 C placements in the 27 levels**\n\nOnly `progress/report.json` and the generated README table change. Open #253's\ncatalogue correction is not counted before merging.\n\n## Checked\n\n- Fresh post-merge `python3 tools/build.py all --jobs 8`: **28 programs OK**, with\n  no rejected C placements.\n- `python3 tools/progress.py` generated the report and table together.\n- Unit tests, repository/progress checks and `git diff --check` pass.\n- Compiler and matching-function validation is recorded in #251; no emulator\n  testing is claimed for this metadata-only refresh.",
+      "mergedAt": "2026-10-21T04:42:36Z"
+     },
+     {
+      "number": 256,
+      "title": "feat(src): match 26 game functions",
+      "author": "ThorpenCodes",
+      "untrustedBody": "Adds 26 new plain-C src/game implementations, each in its own ThorpenCodes commit: **12,664 catalogue bytes and 728 placements**. Existing upstream source is preserved.\n\nValidation on the publication branch:\n- Fresh `tools/build.py all --jobs 1`: boot and all 27 levels OK and byte-identical. All 728 new function placements are recorded as C; no included placement/integration failures.\n- Every new function passes `tools/check.py <function> --diff` at 28/28. All 391 C functions in affected source units also pass every placement.\n- 38 unit tests, `tests/check_repository.py`, `tools/progress.py --check`, Python-tool compilation and `git diff --check` pass.\n- Compiler rebuilt from master's pinned recipe after PR #251; its six compiler regression tests pass.\n\nThe final rebase includes PR #255's README/progress refresh. Source, config, tools, tests and requirements are identical to the successful full-build tree; lightweight checks were rerun after that rebase. This PR does not regenerate pro",
+      "mergedAt": "2026-10-21T04:55:07Z"
+     },
+     {
+      "number": 257,
+      "title": "fix(tools): validate EE diagnostics and reject empty source barriers",
+      "author": "llesieur99",
+      "untrustedBody": "## What\n\nCorrect the function differ's R5900 decoder selection. The old generic decoder could hide the GPR destination of `mult` or misidentify EE instructions, encouraging incorrect handwritten-code classifications in #157.\n\nAdd regression tests for EE operand decoding and for instruction validation at relocation sites. Enforce the existing plain-C rule against empty `do { } while (0)` barriers while preserving meaningful macro blocks, and clarify the catalogue-screening guidance in `AGENTS.md`. CI installs the decoder version already pinned in `requirements.txt`.\n\n## Checked\n\n- `python3 -m unittest discover -s tests`: 52 tests passed on Windows, with three toolchain-dependent skips; the same code passed all 56 tests in the qualified container.\n- `python3 tests/check_repository.py`, `python3 tools/progress.py --check`, `git diff --check`: passed.\n- The reviewed combined integration passed `python3 tools/build.py all --strict --jobs 8`: all 28 programs OK, no rejected C placements. No ",
+      "mergedAt": "2026-10-21T05:56:13Z"
+     },
+     {
+      "number": 258,
+      "title": "fix(compiler): preserve displaced zero stores and match three vector helpers",
+      "author": "llesieur99",
+      "untrustedBody": "## What\n\nResolve the displaced-zero-store part of #248 by restricting the existing compiler fold to register-only memory addresses. Offset stores retain the materialized zero; zero-displacement stores still fold. This is a compiler source correction with a pinned source hash, not an edit to assembly output or a per-function exception.\n\nIntegrate three retained plain-C functions and remove their superseded near-miss records:\n\n| Function | Same C, preceding compiler | Corrected compiler | Placements |\n| --- | ---: | ---: | ---: |\n| `func_L20_0044AB68` | 200 / 204 bytes | 204 / 204 bytes | 1 / 1 |\n| `func_L20_00443908` | 260 / 264 bytes | 264 / 264 bytes | 1 / 1 |\n| `func_L00_003ACC88` | 108 / 112 bytes | 112 / 112 bytes | 27 / 27 |\n\nThe shared helper uses the existing G8 unit with its measured local-vector order. A separate small review-follow-up commit corrects `D_0139768` to its measured `D_00139768` identity and removes an incorrect hardware comment from #256; it changes no function l",
+      "mergedAt": "2026-10-21T06:12:20Z"
+     },
+     {
+      "number": 259,
+      "title": "feat(src): match func_L02_0038C998 and func_L23_0041C578 after #258",
+      "author": "bigmak94",
+      "untrustedBody": "## What\n\nTwo near misses that #258 makes exact. Each was one instruction short: retail clears a local vector with `por $v0,$zero,$zero` and `sq $v0,N($sp)`, which this cc1 folded into `sq $zero,N($sp)`. Since #258 the fold leaves a displaced quadword store alone, and the recorded C of both is now retail's at every place.\n\n| function | bytes | places | file |\n| --- | ---: | ---: | --- |\n| `func_L02_0038C998` | 1,104 | 9 | `src/levels/shared/L02_002B5F50-g8.c` |\n| `func_L23_0041C578` | 312 | 1 | `src/levels/23_damosel_orbit/L23_00416388-g8.c` |\n\nBoth read `$gp` data, so they go in their files' `-g8` siblings: `func_L02_0038C998` after `func_L02_002F1658`, and `func_L23_0041C578` after `func_L23_0041BF18`. Their records leave `nonmatching/`. The C is the records' C, unchanged.\n\nFound by screening every draft in `nonmatching/` with the compiler built from master 356b450 against the one before #258. Of the 1,797 drafts, 17 change, and these two are the only ones that become exact. `func_L07",
+      "mergedAt": "2026-10-21T15:10:59Z"
+     },
+     {
+      "number": 260,
+      "title": "feat(src): thirty-eight id-list functions of other levels",
+      "author": "bigmak94",
+      "untrustedBody": "## What\n\nThirty-eight level functions, 17,140 bytes, one place each, in thirteen levels' own directories (1, 3, 6, 7, 9, 11, 14, 15, 16, 17, 18, 19 and 26). All but one are id-list walks of the family of #232 to #242. The exception is `func_L14_003E4EA0`, a float interpolation that the screen took for a walk. `func_L07_00410930` matches only with the compiler of #258 (see below).\n\n| function | bytes | file |\n| --- | ---: | --- |\n| `func_L01_003CDEA8` | 896 | `src/levels/01_oozla/L01_003CAFE0.c` |\n| `func_L03_003F1470` | 252 | `src/levels/03_endako/L03_003F09C0.c` |\n| `func_L03_00425310` | 712 | `src/levels/03_endako/L03_0041F720.c` |\n| `func_L06_00444168` | 404 | `src/levels/06_notak/L06_0041DED8-g8.c` |\n| `func_L06_00444300` | 384 | `src/levels/06_notak/L06_0041DED8-g8.c` |\n| `func_L07_003E5AC8` | 168 | `src/levels/07_siberius/L07_00389EB8.c` |\n| `func_L07_003E5B70` | 260 | `src/levels/07_siberius/L07_00389EB8.c` |\n| `func_L07_003E6F40` | 168 | `src/levels/07_siberius/L07_00389EB8.c` ",
+      "mergedAt": "2026-10-21T15:11:05Z"
+     },
+     {
+      "number": 261,
+      "title": "build(compiler): opt-in switches for two Cygnus-local passes",
+      "author": "bigmak94",
+      "untrustedBody": "## What\n\nTwo opt-in cc1 switches. Each one turns off a piece of Cygnus's own 1998 work that this tree carries and the GCC 2.95 branch does not have. Four near misses become exact with them (33 placements). As with #251's clear profile, the switches are enabled only per unit in `config/cflags.txt`, and with them off every object is unchanged.\n\n- **`-frac2-gcse-unsplit-edges`** (`transformers/gcse_unsplit_edges.py`, `gcc/gcse.c`). With `-fno-edge-lcm`, the default since patch 0016, `gcse_main` builds its edge lists with `compute_preds_succs (..., 1)`.\n  - The last argument is Cygnus's (\"CYGNUS LOCAL edge splitting/law\", `ChangeLog.Cygnus` 21 January 1998, restricted on 19 May and 14 September 1998). It splits each critical edge that needs no new jump, and the block LCM then inserts a hoisted `%hi` on the new block, in front of a label reached only by jumps.\n  - GCC 2.95.3's `gcse_main` calls a four-argument `compute_preds_succs` that never splits, and its PRE inserts at the end of a bloc",
+      "mergedAt": "2026-10-21T15:32:22Z"
+     },
+     {
+      "number": 262,
+      "title": "build(compiler): unblock vector-copy addresses and two runtime mask cases",
+      "author": "llesieur99",
+      "untrustedBody": "## What\n\nResolve the vector-copy address mechanism from #248 with a **default-off, per-file `-frac2-qcopy` profile**. Ordinary aligned TImode C assignments lower to a grouped `lq`/`sq` pair with register addresses and an explicit scratch register. The pattern retains memory flags and alias sets, rejects explicitly unaligned accesses, and adds no memory barrier. `-fno-rac2-qcopy` restores the default; existing folded-copy units keep their profiles.\n\nAlso resolve two bounded assembler-mask cases from #157: the isolated 64-bit sign bit, and a sign bit followed by a contiguous low run of at least 32 ones. Other masks retain their previous expansion paths.\n\n| New C function | Bytes | Placements |\n| --- | ---: | ---: |\n| `func_L20_0039E158` | 140 | 1 / 1 |\n| `func_L20_0039F210` | 32 | 1 / 1 |\n| `func_00117278` | 884 | 1 / 1 |\n| `func_00122630` | 300 | 1 / 1 |\n\nThe packer and callers share a canonical `DoubleParts` record. The strtol wrapper now declares the real long-return ABI and forwards ",
+      "mergedAt": "2026-10-21T07:32:24Z"
+     },
+     {
+      "number": 263,
+      "title": "feat(src): nine functions with the opt-in clear and copy profiles",
+      "author": "bigmak94",
+      "untrustedBody": "## What\n\nNine near misses that the opt-in profiles of #251 and #262 make exact, 67 placements. Each is a unit of its own with its profile flag, so no other function's flags change. The nine `config/cflags.txt` lines sit beside the maintainers' own profile lines at the top.\n\n| function | bytes | places | unit | profile |\n| --- | ---: | ---: | --- | --- |\n| `func_L02_003EAE10` | 436 | 1 | `src/levels/02_maktar_nebula/L02_003EAE10-g8.c` | `-frac2-zero-ti-barrier` |\n| `func_L13_0040A3B0` | 208 | 3 | `src/levels/shared/L13_0040A3B0.c` | `-frac2-zero-ti-barrier` |\n| `func_L23_003BFE90` | 300 | 1 | `src/levels/23_damosel_orbit/L23_003BFE90.c` | `-frac2-zero-ti-barrier` |\n| `func_L02_003D4ED0` | 252 | 1 | `src/levels/02_maktar_nebula/L02_003D4ED0.c` | `-frac2-qcopy` |\n| `func_L18_004273F0` | 660 | 3 | `src/levels/shared/L18_004273F0-g8.c` | `-frac2-qcopy` |\n| `func_L23_0041C6B0` | 292 | 1 | `src/levels/23_damosel_orbit/L23_0041C6B0-g8.c` | `-frac2-qcopy` |\n| `func_002EE920` | 104 | 28 | `src/g",
+      "mergedAt": "2026-10-21T15:12:00Z"
+     },
+     {
+      "number": 264,
+      "title": "build(compiler): opt-in switch keeping labels on hazard nops",
+      "author": "bigmak94",
+      "untrustedBody": "## What\n\nAn opt-in switch, `-frac2-hazard-labels`, that keeps a code label on the hazard `nop` gas inserts after a coprocessor producer, as retail has it. This gas moves the label behind the nop it inserts, so a branch to that label lands one word later than in retail. Two near misses become exact with it (8 placements). With the switch off, every object is unchanged.\n\n**What retail does.** These are counts over boot and the 27 levels, each function once:\n\n- **The next instruction needs the nop:** 198 branch targets sit right after a hazard producer (71 after a compare, 127 after an `mtc1`), in 148 functions. Every label sits on the nop, and all are reached by forward branches. None of them is in matched C.\n- **Divisions:** 60 labels sit in front of two nops, which is the existing division floor.\n- **The next instruction doesn't need the nop:** 734 labels sit right after the producer with no nop. 75 of these are 8-byte-aligned loop heads, whose `nop` is cc1's `.p2align 3` padding, not ",
+      "mergedAt": "2026-10-21T15:51:27Z"
+     },
+     {
+      "number": 265,
+      "title": "feat(core): match _fpadd_parts with qualified shifted-mask expansion",
+      "author": "llesieur99",
+      "untrustedBody": "## What\n\nMatch `_fpadd_parts` (`func_00122800`), **576 bytes at its one boot placement**, from the retained public GCC source. It uses the SDK compiler profile and the shared `DoubleParts` record; full upstream notices remain in the source and credits.\n\nThe remaining size difference was the assembler expansion of two shifted masks. Patch `0052` now routes positive contiguous runs wider than 32 bits, with zero bits at both ends, through gas's existing shift-based expansion. Each target constant takes three instructions instead of seven. Runs of 32 bits or fewer keep their prior encoding, including the 20-bit shifted mask used by existing matched game code. No source assembly, register pins, output rewriting or function/address special cases are introduced.\n\nThe source hash is pinned and permanent assembler tests cover all 465 selected intervals across four registers plus 30 fixed controls (1,980 outputs). The superseded nonmatching entry is removed; earlier attempts remain in Git histor",
+      "mergedAt": "2026-10-21T09:05:51Z"
+     },
+     {
+      "number": 267,
+      "title": "feat(core): match dpmul with the original fraction union",
+      "author": "llesieur99",
+      "untrustedBody": "## What\n\nMatch **`func_00122B00` (`dpmul`), 680 bytes at its one boot placement**, from the retained public GNU GCC source. The original fraction union matters: simplifying it to a scalar removed an alias dependence and changed the instruction chosen for the rounding branch's delay slot. Restoring that public representation produces the correct `bnel`/store sequence with the existing SDK compiler. All callers use the same `DoubleParts` definition; full upstream notices and credits remain.\n\nTwo loads of `2^63` require the zero-extending assembler seed, while already-matched game code needs the sign-extending default. Patch `0059` adds `--r5900-sign-bit=unsigned`, affecting only that isolated constant. Explicit `signed` selects the unchanged default. The existing per-file flag table forwards standard `-Wa,` arguments to the assembler for both compiler profiles; options remain in the object-cache key. Only the new multiplier opts in. No compiler-output rewriting, function-address special ",
+      "mergedAt": "2026-10-21T09:44:06Z"
+     },
+     {
+      "number": 268,
+      "title": "docs(agents): centralize blocker findings in issue 157",
+      "author": "llesieur99",
+      "untrustedBody": "## What\n\nMake #157 the maintained shared place for matching blockers and solutions. `AGENTS.md` now requires consulting its current knowledge before retrying a blocked target and updating **one persistent comment per contributor**, shared by that contributor's agents.\n\nFindings must identify the target/profile, hypothesis, measured result, remaining difference and next useful experiment or verified fix. Hypotheses, local candidates, pending PRs and merged fixes stay distinct. Maintainers consolidate confirmed results in the issue summary; reservations remain in #152. No new registry or campaign machinery is introduced.\n\n## Checked\n\n- Documentation-only diff, references and consistency reviewed.\n- `python -m unittest discover -s tests`: 61 host tests pass, 7 tool/platform skips.\n- Repository check, progress `--check`, and `git diff --check`: pass.\n- No code changes from merged #267, whose 28-program strict build and 80 container tests passed. No new build or progress regeneration for th",
+      "mergedAt": "2026-10-21T09:51:46Z"
+     },
+     {
+      "number": 269,
+      "title": "feat(src): wave 14 - three matches, 59 placements, and twenty-nine measured near misses",
+      "author": "llesieur99",
+      "untrustedBody": "## What this is\n\nWave 14 of the matching work: ten workers, 43 files of `src/game/` and `src/levels/shared/`,\n479 unfinished functions (8,883 placements) screened per function on the retail bytes.\n\n**Three functions match, 59 placements.**\n\n| function | check |\n| --- | --- |\n| `func_L00_003E70B8` | `27 of 27 places match (src/levels/shared/L00_003E70B8.c)` |\n| `func_L05_00418508` | `4 of 4 places match (src/levels/shared/L05_003D33E8.c)` |\n| `func_00291788` | `28 of 28 places match (src/game/00291758.c)` |\n\n`func_L00_003E70B8` is the one that taught the wave something. It calls two bodies that\n`L00_003E3258.c` holds, and it is in a unit of its own now, for two measured reasons:\n\n* **A call inside one object fixes the distance between the two.** The assembler resolves\n  a call to a body of the same object to an offset, so the two are placed together. The\n  retail keeps more than one copy of both bodies — three copies of the reset routine, two\n  of the scale routine — and which copy a pr",
+      "mergedAt": "2026-10-21T15:10:53Z"
+     },
+     {
+      "number": 270,
+      "title": "feat(src): mark 56 hand-written bodies ASM_FUNC, with the measurement",
+      "author": "llesieur99",
+      "untrustedBody": "## What this is\n\nThe wave-14 workers reported that a number of bodies carry an instruction no C\ncompiles to, and left them for whoever wanted to classify them. This pull request\nclassifies them, with the evidence measured rather than asserted.\n\n`AGENTS.md` allows the `ASM_FUNC` marker when a function\n*\"uses instructions the compiler never emits (COP2/VU0 macro instructions, `$at` as a\nworking register, a return with a live instruction after its delay slot) and a\nmaintainer agrees in review\"*.\n\n## The measurement\n\nEvery C object of the project was scanned, word by word:\n\n```\nthe C objects: 861\n   VU0 (COP2) 0\n   COP3       0\n   MMI        12, of which 12 are the compiler's own form\n```\n\nSo the compiler emits **no** VU0 instruction at all, and no COP3 one. Of the MMI\nunit it emits only two things: the R5900's own SPECIAL2 arithmetic (`mult1`, `madd`)\nand the form `por $rd,$zero,$rt` that copies or zeroes a register\n(`src/levels/shared/L00_002B91C0.c` is a matched function that shows the ",
+      "mergedAt": "2026-10-21T15:10:47Z"
+     },
+     {
+      "number": 271,
+      "title": "feat(src): twenty small unclaimed bodies matched",
+      "author": "ReaperOfVeriod",
+      "untrustedBody": "## What\n\nTwenty small functions, spread over the level directories and `src/core/` — the\nsmallest unclaimed bodies in the project, all at most 200 bytes.\n\n| function | size | file |\n| --- | ---: | --- |\n| `func_00116300` | 96 | `src/core/00115200.c` |\n| `func_00122760` | 156 | `src/core/001213B8.c` |\n| `func_L01_003BDB28` | 132 | `src/levels/01_oozla/L01_003BB9D0.c` |\n| `func_L03_003C85F8` | 100 | `src/levels/03_endako/L03_00399230.c` |\n| `func_L03_003F71E0` | 108 | `src/levels/03_endako/L03_003F09C0.c` |\n| `func_L06_00459B18` | 144 | `src/levels/06_notak/L06_00458138.c` |\n| `func_L06_0045A490` | 112 | `src/levels/06_notak/L06_00458138.c` |\n| `func_L08_004254D0` | 72 | `src/levels/08_tabora/L08_00423970.c` |\n| `func_L10_00417440` | 136 | `src/levels/10_hrugis_cloud/L10_003170D0-g8.c` |\n| `func_L10_004184F0` | 140 | `src/levels/10_hrugis_cloud/L10_003170D0.c` |\n| `func_L11_004395C8` | 116 | `src/levels/11_joba/L11_00432628-g8.c` |\n| `func_L11_004433D8` | 188 | `src/levels/11_joba/L11_00",
+      "mergedAt": "2026-10-21T15:58:21Z"
+     },
+     {
+      "number": 272,
+      "title": "feat(src): match three worker waves",
+      "author": "GianniGr",
+      "untrustedBody": "﻿## What\n\nConsolidate the three matching waves on current `origin/master` and add 16 checker-exact C functions:\n\n- `func_L03_003E3308`, `func_L04_00363CA0`, `func_L04_0039FEF0`, `func_L09_003F69A0`\n- `func_L02_003C5098`, `func_L22_003A64E8`, `func_L22_003F5580`\n- `func_L05_0037BC08`, `func_L05_0037BD40`, `func_L07_003F8AB0`\n- `func_L11_00440238`, `func_L11_00440790`, `func_L01_003B49D8`, `func_L01_003B4AD0`\n- `func_L08_004257A0`, `func_L11_00449970`\n\nAlso preserve the wave workers' measured near misses in `nonmatching/`, including four reported catalogue-fragment findings without changing catalogue tooling. Dedicated per-file compiler profiles are added where required.\n\n## Checked\n\n- `tools/build.py all --strict --jobs 12`: all 28 programs `OK`, exit status 0.\n- `python3 -m unittest discover -s tests`: 65 tests OK, 5 skipped.\n- `python3 tests/check_repository.py`: repository checks passed.\n- `python3 tools/progress.py --check`: passed; the generated report remains untouched.\n- `tools/c",
+      "mergedAt": "2026-10-21T20:31:58Z"
+     },
+     {
+      "number": 273,
+      "title": "Match ten id-list and switch functions of levels 2 to 14",
+      "author": "bigmak94",
+      "untrustedBody": "## What\n\nTen functions of the id-list scope claimed on #152, at 11 places (6,588 bytes). Four are walks. Six are switch functions that now dispatch through the jump table retail already has. This follows #260.\n\n| function | bytes | places | unit |\n| --- | ---: | ---: | --- |\n| `func_L14_003CB608` | 608 | 1 | `src/levels/14_aranos_prison/L14_00304190.c` |\n| `func_L14_003E4BA0` | 764 | 1 | `src/levels/14_aranos_prison/L14_00304190.c` |\n| `func_L11_00441350` | 1100 | 1 | `src/levels/11_joba/L11_0043E1A0.c` |\n| `func_L04_0044AAC8` | 820 | 1 | `src/levels/04_barlow/L04_00422A00-g8.c` |\n| `func_L13_00422CB8` | 1016 | 1 | `src/levels/13_boldan/L13_00306F38.c` |\n| `func_L06_003FDA08` | 1200 | 1 | `src/levels/06_notak/L06_0033BDC0-g8.c` |\n| `func_L03_003C4578` | 644 | 2 | `src/levels/shared/L03_002AB5C8-g8.c` |\n| `func_L02_003F9AF0` | 124 | 1 | `src/levels/02_maktar_nebula/L02_003F5430.c` |\n| `func_L02_003F9B70` | 156 | 1 | `src/levels/02_maktar_nebula/L02_003F5430.c` |\n| `func_L02_003FE1B0` | ",
+      "mergedAt": "2026-10-21T20:32:03Z"
+     },
+     {
+      "number": 274,
+      "title": "Match two game switch functions through retail's jump tables",
+      "author": "bigmak94",
+      "untrustedBody": "## What\n\nTwo game functions at 28 places each, 1,716 bytes in total. Both are switch functions that now dispatch through the jump tables retail already has.\n\n| function | bytes | places | unit | retail table |\n| --- | ---: | ---: | --- | --- |\n| `func_002D5B58` | 732 | 28 | `src/game/002D5540.c` | `D_0026CD60` |\n| `func_002B4C18` | 984 | 28 | `src/game/002B3868-g8.c` | `D_0026CBB0`, `D_0026CBE0` |\n\n**Why the records stopped.** Their records were exact code by `tools/check.py`. But a C `switch` puts its jump table in the object's `.rodata`, which the build cannot place.\n\n**What changed.** Each now uses a computed goto through retail's own table, named by its boot address like `func_002CD8C0`'s `D_0026CD20` (`src/game/002CD8C0-g8.c`). A static array of the case labels keeps the case bodies in the object. We decoded the tables: they map every index to the records' case bodies. The objects have no `.rodata`.\n\n- **`func_002B4C18`.** Its record declared `D_001A8BB8` `volatile` to get two sep",
+      "mergedAt": "2026-10-21T20:32:23Z"
+     },
+     {
+      "number": 275,
+      "title": "Add an opt-in scheduling barrier for the grouped quadword copy (-frac2-qcopy-barrier)",
+      "author": "bigmak94",
+      "untrustedBody": "## What\n\nAn opt-in switch, `-frac2-qcopy-barrier`. It makes #262's grouped 16-byte copy a scheduling barrier, as #251's `-frac2-zero-ti-barrier` does for the clear. With it, twelve near misses become exact (3,616 bytes at 59 places). With the switch off, every object is unchanged.\n\n**What retail does.** With `-frac2-qcopy`, these records already have retail's size, its copy and its register addresses. They differ only in instructions this cc1 moves across the copy: a float constant pulled into the stall before it, the epilogue's restores, a call's argument moves, the next statement's address arithmetic. Retail keeps those on their source side. Each record is exact when, in a scratch copy only, its copy is written as `__asm__ __volatile__(\"lq $2,0(%1)\\n\\tsq $2,0(%0)\" :: \"r\"(dst), \"r\"(src) : \"$2\")`. Both schedulers treat such an asm as a barrier. The original copy was most likely that macro, and `src/` allows no inline assembly. This was reported on #248 and in #157.\n\n**The change.** `to",
+      "mergedAt": "2026-10-21T20:35:57Z"
+     },
+     {
+      "number": 276,
+      "title": "docs(readme): rework it in the shape of rac1-decomp, rac3-decomp and rac5-sm-decomp",
+      "author": "Lynder063",
+      "untrustedBody": "## What\n\nThe README is reworked to the shape of the other OpenRAC decompilations\n([rac1-decomp](https://github.com/OpenRAC/rac1-decomp),\n[rac3-decomp](https://github.com/OpenRAC/rac3-decomp),\n[rac5-sm-decomp](https://github.com/OpenRAC/rac5-sm-decomp)):\n\n- the badge row now carries the OpenRAC website, the Discord, the\n  `progress.yml` report badge and the ByteMatch code/functions shields, in the\n  place of the stale dynamic badge that pointed at the old `llesieur99/rac2-decomp`\n  report;\n- a \"work-in-progress matching decompilation\" introduction, the disc's programs\n  in a table (the boot executable and the 27 level programs), the objective, and\n  the `> [!NOTE]` block about no game assets and `LEGAL.md`;\n- a \"Progress\" section with the version/region/target table and the ByteMatch\n  shields, the generated table (unchanged, between its markers), how a function\n  is counted, and a short \"What counts as a match\";\n- a \"Quick Start\" section: prerequisites (the disc, Python 3.12 and the pi",
+      "mergedAt": "2026-10-21T19:48:46Z"
+     },
+     {
+      "number": 277,
+      "title": "Match eleven level 2 functions and func_L23_00425568",
+      "author": "bigmak94",
+      "untrustedBody": "## What\n\nTwelve functions, 5,552 bytes at 12 places: eleven of level 2 and one of level 23. Most are first attempts at level 2 functions nobody had tried yet.\n\n| function | bytes | places | unit |\n| --- | ---: | ---: | --- |\n| `func_L02_003DBF40` | 152 | 1 | `src/levels/02_maktar_nebula/L02_003DB310-g8.c` |\n| `func_L02_003DB6D8` | 408 | 1 | `src/levels/02_maktar_nebula/L02_003DB310.c` |\n| `func_L02_00401D38` | 416 | 1 | `src/levels/02_maktar_nebula/L02_003F5430-g8.c` |\n| `func_L02_00400948` | 436 | 1 | `src/levels/02_maktar_nebula/L02_003F5430-g8.c` |\n| `func_L02_003FF9A0` | 440 | 1 | `src/levels/02_maktar_nebula/L02_003F5430-g8.c` |\n| `func_L02_003FB4D8` | 196 | 1 | `src/levels/02_maktar_nebula/L02_003F5430.c` |\n| `func_L02_00412808` | 452 | 1 | `src/levels/02_maktar_nebula/L02_0040A4A8.c` |\n| `func_L02_00445200` | 452 | 1 | `src/levels/02_maktar_nebula/L02_0040A4A8.c` |\n| `func_L02_00438B90` | 696 | 1 | `src/levels/02_maktar_nebula/L02_0040A4A8.c` |\n| `func_L02_003007D8` | 680 | 1 | ",
+      "mergedAt": "2026-10-21T20:32:28Z"
+     },
+     {
+      "number": 278,
+      "title": "Match three id-list walks of levels 0, 11 and 22",
+      "author": "bigmak94",
+      "untrustedBody": "## What\n\nThree id-list functions of other levels, at 7 places (2,224 bytes). They are first attempts at functions of our claim on #152.\n\n| function | bytes | places | unit |\n| --- | ---: | ---: | --- |\n| `func_L11_00448DF8` | 668 | 1 | `src/levels/11_joba/L11_004465F8.c` |\n| `func_L22_003F58F8` | 752 | 2 | `src/levels/shared/L22_003A5018-g8.c` |\n| `func_L00_003FDB20` | 804 | 4 | `src/levels/shared/L00_003F8E08.c` |\n\n- **`func_L11_00448DF8`:**\n  - one variable per role, and the halfword `g = self[0x21]` assigned in the loop's test;\n  - the callee's real prototype order, `func_002B3BA8(u8 *, s32, f32, f32, s32, s32)`;\n  - `D_L11_001B359C` declared `sda`, for its same-register `lui`/`lw`;\n  - the pair block's stores in retail's order.\n- **`func_L22_003F58F8`:** goes in the `-g8` sibling, with its floats `sda` and its ints and pointers plain.\n- **`func_L00_003FDB20`:** `priv + (i << 2)` gives retail's `addu` operand order. Its state-2 test is written `if (!(A || B)) { clear } else { set }`",
+      "mergedAt": "2026-10-21T20:40:51Z"
+     },
+     {
+      "number": 279,
+      "title": "Add an opt-in switch keeping wide stores out of annulled delay slots (-frac2-no-annulled-wide-stores)",
+      "author": "bigmak94",
+      "untrustedBody": "## What\n\nAn opt-in switch, `-frac2-no-annulled-wide-stores`. With it, reorg stops putting 64- and 128-bit stores in the annulled delay slot of a branch-likely instruction. Retail's game code never has a wide store there. Two near misses become exact with it (3 places). With the switch off, every object is unchanged.\n\n**What retail does.** Counted over the game's code: the boot from 0x26EA00 and the levels, each catalogue function once, leaving out `ASM_FUNC` ones, 7,825 functions.\n\n- **Annulled slots:** 2,895 stores, every one of them `sw`, `swc1`, `sb` or `sh` (1,433, 962, 294 and 206). There is no `sd` or `sq` among them.\n- **Ordinary slots:** 547 `sq` and 497 `sd`.\n- **Wide loads in annulled slots:** these do occur: 1,215 `ld` and 23 `lq`.\n\nThis cc1's reorg does fill an annulled slot with a wide store, taken from a thread or stolen from the branch target. A loop that starts with a 16-byte clear then ends in `bnel` with the `sq` in its slot, where retail keeps the store at the top of",
+      "mergedAt": "2026-10-21T21:01:21Z"
+     },
+     {
+      "number": 280,
+      "title": "feat: PAL and USA v2.00 releases beside v1.01, one C for all three",
+      "author": "Veradictus",
+      "untrustedBody": "Adds the PAL release (`SCES_516.07`) and the second US release (USA v2.00, Greatest Hits, `SCUS_972.68` again) beside v1.01. One repository, one C source, three reports. v1.01 stays the primary target: its paths, build and report work as before. docs/VERSIONS.md has the details and the totals.\n\n**What changed**\n- `tools/levels.py --version us|pal|us2 dump` reads every program straight from its ISO. It checks that each level converts back to the bytes the disc stores, and records the SHA-1s in `config/programs.tsv`. `check` compares the dumps with them, without the disc.\n- `tools/build.py` and `tools/check.py` take `--version`. Each release uses its own catalogues, dumps, `$gp` and level base, and `build/<version>/`. It links the C of `src/` plus `src/<version>/`.\n- `tools/carry.py` carries v1.01's catalogues to a release by identical code:\n  - every address is masked; constants, stack slots and field offsets are compared, and so are the calls;\n  - a function found that way keeps its v1",
+      "mergedAt": "2026-10-21T21:34:59Z"
+     },
+     {
+      "number": 281,
+      "title": "Add an opt-in switch keeping the por of stack zero stores (-frac2-zero-ti-por)",
+      "author": "bigmak94",
+      "untrustedBody": "## What\n\nAn opt-in switch, `-frac2-zero-ti-por`. With it, a quadword zero stored to `0($sp)` keeps the `por` that plain C gives, as retail's stack clears do; zero stores through any other register still fold. Five near misses become exact with it (5 places). With the switch off, every object is unchanged.\n\n**What retail does.** `rac2_fold_zero_ti_store` turns `por $rX,$zero,$zero` ... `sq $rX,0(reg)` into `sq $zero,0(reg)` when the zero dies at the store. #258 limited it to register-only addresses. That models retail's clear, most likely an inline-asm macro: `sq $zero,0(reg)` 396 times, in 263 functions. These counts take one place per catalogue row, the boot from 0x26EA00 and every shared or level row at its first place.\n\nRetail also stores a `por` zero at displacement 0, 183 times in 153 functions. A store counts when every path into it starts at the `por`, over the function's control flow with delay slots and calls. Every one of those stores is to `0($sp)`: plain C clears of a local",
+      "mergedAt": "2026-10-21T23:09:04Z"
+     },
+     {
+      "number": 282,
+      "title": "feat(src): PAL and USA v2.00 C for 781 functions that changed from v1.01",
+      "author": "Veradictus",
+      "untrustedBody": "C for the release-specific functions (`src/pal/`, `src/us2/`): 471 PAL and 310 USA v2.00. Each is v1.01's C with that release's constants and offsets: 50 Hz timing (30 to 25, 60 to 50, 60.0f to 50.0f), text ids, moved fields and callees. When the v1.01 file has other flags, the C goes in a sibling file with the same flags (`-g8` or a cflags line). No C in `src/` changes.\n\nThree PAL functions are left as assembly. They build to their own bytes, but they refer to v1.01 names that are other places in PAL (one value per name per link).\n\n**Checks**\n- `tools/check.py <fn> --version pal|us2`: every place OK for each function (listed in the commit bodies).\n- `tools/build.py all --strict`: 84 of 84 programs OK across `--version pal`, `--version us2` and v1.01. No C falls back to assembly.\n- `tests/check_repository.py`: passed.\n- `tools/progress.py --check`: passed for every release, and the reports agree.\n\nReports are left to master. Regenerated, they read PAL 3,511 of 8,693 (9.23%), USA v2.00 ",
+      "mergedAt": "2026-10-21T21:52:18Z"
+     },
+     {
+      "number": 283,
+      "title": "Match forty-eight functions: level 2 first attempts and the copy-barrier wave",
+      "author": "bigmak94",
+      "untrustedBody": "## What\n\nForty-eight functions, 28,540 bytes at 75 places: 38 of level 2, 7 of level 23, 1 of level 7, the shared `func_L04_00454BF8` (8 places) and the game's `func_002B5828` (21 places). This follows #277. The last eleven were added before any review, as the last results of our work on this repository.\n\n**Fourteen first attempts**, at functions nobody had tried before:\n\n| function | bytes | places | unit |\n| --- | ---: | ---: | --- |\n| `func_L02_003E8E90` | 428 | 1 | `src/levels/02_maktar_nebula/L02_003E8E90-g8.c` (new, `-G8 -frac2-qcopy`) |\n| `func_L02_003E7F28` | 464 | 1 | `src/levels/02_maktar_nebula/L02_003DB310-g8.c` |\n| `func_L02_003DBFD8` | 480 | 1 | `src/levels/02_maktar_nebula/L02_003DB310-g8.c` |\n| `func_L02_003EEDD0` | 488 | 1 | `src/levels/02_maktar_nebula/L02_003DB310.c` |\n| `func_L02_003E77E0` | 532 | 1 | `src/levels/02_maktar_nebula/L02_003DB310.c` |\n| `func_L02_003E75A8` | 568 | 1 | `src/levels/02_maktar_nebula/L02_003DB310.c` |\n| `func_L02_00400B10` | 440 | 1 | `src/",
+      "mergedAt": "2026-10-21T23:10:39Z"
+     },
+     {
+      "number": 284,
+      "title": "feat(src): match func_L11_003F1DB0",
+      "author": "GianniGr",
+      "untrustedBody": "## What\n\n- Match `func_L11_003F1DB0` as C in the Joba `-g8` source unit.\n- Preserve four bounded medium-function near misses in `nonmatching/`:\n  `func_L06_00420080`, `func_L09_004082D0`, `func_L11_00449AD8`, and\n  `func_L14_004221D8`.\n- This adds 1 matched C function. The progress report and README progress table are untouched.\n\n## Checked\n\n- `tools/check.py func_L11_003F1DB0`: 1 of 1 places match.\n- `tools/build.py level 11 --strict`: `11_joba: OK: 2363208 loaded bytes equal`; exit 0.\n- `python3 -m unittest discover -s tests`: 130 tests OK.\n- `python3 tests/check_repository.py`: repository checks passed.\n- `python3 tools/progress.py --check`: passed; report remains behind by the new C function as expected.\n- `tools/build.py all --strict --jobs 12`: all 28 programs OK; exit 0.\n\nNot run: PAL/US2 release builds, progress regeneration, SDK-only release builds, and emulator tests.",
+      "mergedAt": "2026-10-21T23:11:02Z"
+     },
+     {
+      "number": 285,
+      "title": "feat(src): match eight game functions and retain bounded near misses",
+      "author": "ThorpenCodes",
+      "untrustedBody": "## What\n\nMatch eight plain-C game functions (one commit each): **1,888 catalogue bytes and 224 USA v1.01 placements**. The same C also passes every carried placement in PAL and USA v2.00.\n\n| Function | Catalogue bytes | v1.01 | PAL | v2.00 |\n| --- | ---: | ---: | ---: | ---: |\n| func_00295C70 | 140 | 28/28 | 28/28 | 28/28 |\n| func_002AD250 | 220 | 28/28 | 28/28 | 28/28 |\n| func_002980D0 | 156 | 28/28 | 28/28 | 28/28 |\n| func_002AE730 | 264 | 28/28 | 28/28 | 28/28 |\n| func_002C4F08 | 276 | 28/28 | not carried | 28/28 |\n| func_0034ECB0 | 256 | 28/28 | not carried | 27/27 |\n| func_002C6360 | 376 | 28/28 | not carried | 28/28 |\n| func_00331718 | 200 | 28/28 | 28/28 | 28/28 |\n\nRetain 77 bounded C near misses, each in its own commit with its README entry. Two commits clarify existing upstream draft notes; one records general compiler ordering knowledge and historical near-miss provenance. **88 commits total.** Near misses are never linked or counted as completed matches; their recorded resid",
+      "mergedAt": "2026-10-21T22:34:03Z"
+     },
+     {
+      "number": 286,
+      "title": "feat(src): PAL and USA v2.00 C for 14 more functions, carried mechanically",
+      "author": "Veradictus",
+      "untrustedBody": "The release functions whose v1.01 counterpart was matched since the first port batch. Both passes are model-free:\n- v1.01 C copied to the release marker;\n- constants swapped where the check diff shows them.\n\nLanded: 12 PAL and 2 USA v2.00. The other 42 targets stay open.\n\n**Checks**\n- `tools/check.py <fn> --version pal|us2`: every place OK for each landed function.\n- `tools/build.py all --strict --version pal` and `--version us2`: 56 of 56 programs OK.\n- `tests/check_repository.py`: passed.\n- `tools/progress.py --check`: passed.\n\nThis PR doesn't touch the reports.",
+      "mergedAt": "2026-10-21T23:36:13Z"
+     }
+    ],
+    "opened": [
+     {
+      "number": 243,
+      "title": "feat(src): match three functions and retain verified wave13 research",
+      "author": "llesieur99",
+      "untrustedBody": "Three functions now match with declarations consistent with the existing callees, across **56 placements**. The fourth original candidate is retained in `nonmatching/` because its byte match depended on an incompatible function prototype.\r\n\r\n| Function | Catalogue size | Verified placements |\r\n| --- | ---: | ---: |\r\n| `func_0027DDC0` | 144 bytes | 28 (boot + 27 levels) |\r\n| `func_00294130` | 76 bytes | 1 (boot) |\r\n| `func_L00_002D3290` | 368 bytes | 27 (levels) |\r\n\r\nThe packet-writer declaration now agrees with its existing `unsigned long long` parameter. Both the new colour-packing function and the existing `func_0027DCE8` caller still match at all 28 placements.\r\n\r\n`func_L00_002B9380` originally declared `func_002AA898` with `direction` last, while the existing definition takes it third. With the correct prototype and argument order, the 340-byte candidate exchanges two argument-setup instructions and matches 0/27 placements. Its complete corrected C, measurements and reopening condi",
+      "mergedAt": "2026-10-21T01:29:44Z"
+     },
+     {
+      "number": 244,
+      "title": "feat(src): match 38 shared and level functions across 307 placements",
+      "author": "Veradictus",
+      "untrustedBody": "## What\n\nMatch **38 functions across 307 placements** in the shared and level code, including the seven functions added in the final wave. Retain incomplete attempts in `nonmatching/` and remove the six records superseded by that final wave.\n\nMaintainer review corrected five external data names to their measured retail bindings: `D_00188660`, `D_00189E20`, `D_L07_0027E8C0`, `D_L12_0027F710`, and `D_L11_001BA8C0`. It also removed an obsolete mismatch comment from a now-matching function. The C remains plain C, with per-file profiles and no source barriers or register pins.\n\n## Checked\n\n- Original 31 additions: **236/236 placements**; all 343 C functions in their affected units: **2,548/2,548 placements**.\n- Final seven additions: **71/71 placements**; all 109 C functions in their affected units: **1,135/1,135 placements**. The two units corrected in that wave were checked again: **42/42 placements across 15 functions**.\n- `python3 tools/build.py all --strict --jobs 8`: **all 28 programs",
+      "mergedAt": "2026-10-21T05:58:01Z"
+     },
+     {
+      "number": 245,
+      "title": "chore(progress): 3789 of 8606 functions, 9.14% code",
+      "author": "llesieur99",
+      "untrustedBody": "Refresh the generated report and README table after the validated integration of #243. The three accepted C functions add **588 distinct bytes and 56 placements**; the incompatible-prototype candidate remains unlinked and uncounted.\r\n\r\n| Measure | Previous report | Updated report |\r\n| --- | ---: | ---: |\r\n| Matched functions | 3,786 | 3,789 |\r\n| Catalogue functions | 8,645 | 8,606 |\r\n| Matched code bytes | 504,904 | 505,492 |\r\n| Catalogue code bytes | 5,529,540 | 5,529,384 |\r\n| Matched code | 9.13% | 9.14% |\r\n\r\nThe denominator also catches up with the **already merged** catalogue cleanup in #241: 39 four-byte rows are removed, with no additional decompilation credit. The updated total contains 3,538 C functions and 251 original assembly functions. C covers 47,165 level placements. Stale hardcoded counts were removed from the introductory prose; the generated table gives the current counts.\r\n\r\nValidation: all 28 programs equal every loaded retail byte; all 56 new placements are included",
+      "mergedAt": "2026-10-21T01:32:54Z"
+     },
+     {
+      "number": 246,
+      "title": "feat(src): level 20 - three more functions matched",
+      "author": "ReaperOfVeriod",
+      "untrustedBody": "## Changes\n\nMatch three more Yeedil functions: `func_L20_0039E0A0`, `func_L20_00409480` and `func_L20_00444138`. Retain the other attempts and their remaining differences in `nonmatching/`.\n\nMaintainer review removed the dead zero guard from `func_L20_00409480`, corrected its explanation and trimmed whitespace in the retained records. The simplified C still matches. The branch includes current master, including the catalogue corrections.\n\n## Validation\n\n- Three new functions: **3/3 placements**. All 32 C functions in the affected units: **32/32 placements**.\n- `python3 tools/build.py all --strict --jobs 8`: **all 28 programs OK**, no rejected C placements, on the combined reviewed integration including PRs #242, #244 (its original 31 functions), #246, #249 and merged #256.\n- `python3 -m unittest discover -s tests`: **47 tests passed**, three toolchain-dependent skips on Windows. The integration suite also passed in the qualified container.\n- `python3 tests/check_repository.py`, `python",
+      "mergedAt": "2026-10-21T05:45:37Z"
+     },
+     {
+      "number": 249,
+      "title": "feat(src): match ten level 2 functions and retain clean near misses",
+      "author": "bigmak94",
+      "untrustedBody": "## Changes\n\nMatch **ten** level 2 functions and retain the remaining useful C attempts in `nonmatching/`.\n\nMaintainer review removed artificial empty `do { } while (0)` compiler barriers. Four functions no longer match without those barriers, so their `INCLUDE_ASM` markers are restored and their clean C is retained:\n\n- `func_L02_003D26B0`, `func_L02_003F1BA8`, `func_L02_0040BBD8`: 552 bytes versus 556 in retail.\n- `func_L02_003FB000`: 284 bytes versus 288 in retail.\n\nThese four are **not counted as matches**. The branch includes current master and preserves the retained candidates without generated artifacts.\n\n## Validation\n\n- Ten accepted additions: all placements exact. All 192 C functions in the affected units: **416/416 placements**.\n- `python3 tools/build.py all --strict --jobs 8`: **all 28 programs OK**, no rejected C placements, on the combined reviewed integration including PRs #242, #244 (its original 31 functions), #246, #249 and merged #256.\n- `python3 -m unittest discover -",
+      "mergedAt": "2026-10-21T05:47:08Z"
+     },
+     {
+      "number": 250,
+      "title": "chore(nonmatching): retain three large graphics and collision reconstructions",
+      "author": "llesieur99",
+      "untrustedBody": "## What\n\nRetain complete C attempts for three large functions so the next attempt can\nstart from measured source instead of a screening note or an empty placeholder.\nThese are **unmatched research candidates** in `nonmatching/`; no linked code or\nprogress totals change, and runtime behavior has not been verified.\n\n| Function | Retail bytes | Candidate bytes | Exact placements | Remaining difference |\n| --- | ---: | ---: | ---: | --- |\n| `func_0027C878` | 1,356 | 1,356 | 0/28 | First differing non-relocation instruction at `+0x418`; descriptor-field and upload-store allocation/scheduling |\n| `func_0030E8A8` | 1,052 | 1,028 | 0/28 | Pointer lifetimes, folded stack-vector copies and reset-path layout |\n| `func_L00_004096B0` | 1,944 | 1,928 | 0/27 | Register assignment, vector-address materialization and branch/store scheduling; frame size agrees at `0x190` |\n\nThe texture descriptor/VRAM upload body and the level collision/impact body are\nnew reconstructions. The motion-response record now",
+      "mergedAt": "2026-10-21T05:18:52Z"
+     },
+     {
+      "number": 251,
+      "title": "build(compiler): qualify an opt-in 128-bit clear scheduling profile",
+      "author": "bigmak94",
+      "untrustedBody": "## What\n\nThe 200-byte `func_L00_003BFF68` was otherwise reconstructed in C but failed at\nall 12 placements because the compiler scheduled its quadword clear and adjacent\nwork differently from retail. This PR adds an **opt-in** scheduling model for\nthe inferred clear macro and matches that function with plain C.\n\n`-frac2-zero-ti-barrier` gives selected zero TImode stores the scheduler\ndependencies/cost/unit of the inferred macro. It is disabled by default and\nenabled per compilation unit in `config/cflags.txt`, currently only for\n`src/levels/shared/L00_003B9CB8.c`. `-fno-rac2-zero-ti-barrier` disables it again.\n\nThe selector is a heuristic: before reload it uses the only zero store between\ncalls/labels/jumps; after reload it recognizes the folded zero-register form.\nAuthored controls demonstrate that it also affects nonzero-displacement stores.\nThat wider behavior is why it is **not applied globally**. Every additional unit\nneeds its own evidence and full-placement checks. No inline ass",
+      "mergedAt": "2026-10-21T04:30:56Z"
+     },
+     {
+      "number": 252,
+      "title": "fix(build): invalidate objects on toolchain changes and add strict checks",
+      "author": "llesieur99",
+      "untrustedBody": "## What\n\nReplacing the compiler or assembler previously left cached C objects eligible\nfor reuse until their sources or flags changed. The cache now tracks the selected\ntoolchain's contents as well as source/header contents, options, runner and\ncompilation implementation. This covers the game and SDK compiler paths; the\ncache stamps remain private under `build/obj/`.\n\nAdd `--strict` to the existing build commands. It fails when any C function is\nrejected and replaced by retail assembly, even if the rebuilt program's bytes\nare equal. Reasons remain in `placed.json`. Normal builds retain fallback for\nexperiments; the contribution instructions now require strict pre-push builds.\n\n## Checked\n\n- `python -m unittest discover -s tests`: **43 passed**, including 11 new\n  regressions for tool replacement with preserved size/mtime, SDK dependencies,\n  source/header/flag changes, legacy-cache migration, missing tools, failed\n  compilation and strict rejection/propagation.\n- `python3 tools/build.p",
+      "mergedAt": "2026-10-21T05:18:38Z"
+     },
+     {
+      "number": 253,
+      "title": "fix(catalogue): exclude five measured residual instruction extents",
+      "author": "llesieur99",
+      "untrustedBody": "## What\n\nResolve the five residual extents documented in #157 section 50:\n`func_00289018`, `func_002A77C0`, `func_002FDB40`, `func_002FED78`, and\n`func_002FF0B0`. These fragments follow complete returns across padding and\nlack a coherent independent entry/exit. Removing catalogue credit does not\nremove their bytes from the rebuilt programs.\n\nThe generator derives size/fingerprint pairs from those measured private boot\nextents and also excludes their exact normalised counterparts. This removes\n**five distinct entries and 22 level placements**, without changing the general\npadding predicate or excluding arbitrary bodies merely because they lack a return.\nThe full rationale and limits are in the existing `docs/LEVELS.md`.\n\nFive markers and their obsolete comments-only screening records are retired.\nNo C implementation was removed; the old notes remain in Git history and were\nalso preserved privately. No generated research report or game bytes are added.\n\n## Checked\n\n- All **27 extents** c",
+      "mergedAt": "2026-10-21T05:18:42Z"
+     },
+     {
+      "number": 254,
+      "title": "docs(engine): qualify retail impact payload and moby collision fields",
+      "author": "llesieur99",
+      "untrustedBody": "## What\n\nMake one small collision subsystem useful to future decompilation and port work:\n\n- Add the measured `Rac2Impact32` payload (0x28 bytes) and a deliberately partial\n  `Rac2MobyCollisionView32` (0xAC-byte prefix) to `include/engine.h`.\n- Use 32-bit address fields so the memory views retain their offsets on a\n  64-bit host. A port must resolve these through its own object/memory mapping.\n- Add the descriptive alias `QueueMobyImpact` for `func_002A8E20` and document\n  the queue's copy offsets, ownership check, strength comparison and flag merge\n  in the existing community engine reference. Unknown fields remain unnamed.\n- Correct the claim that the existing `MobyInstance` layout is qualified for\n  this retail build: its +0x68/+0xA8/+0xAA fields conflict with observed accesses.\n  The old structure is retained with an explicit warning.\n\nThese are measured memory views and descriptive names, not new matching C or\na claim that the entire moby layout has been recovered.\n\n## Checked\n\n- ",
+      "mergedAt": "2026-10-21T05:18:46Z"
+     },
+     {
+      "number": 255,
+      "title": "chore(progress): record 3790 of 8606 functions after the clear profile",
+      "author": "llesieur99",
+      "untrustedBody": "## What\n\nRefresh the two maintained progress outputs after merging #251. The new qualified\nprofile contributes one distinct 200-byte function at 12 level placements.\n\n- **3,790 / 8,606 functions**\n- **505,692 / 5,529,384 code bytes (9.15%)**\n- **47,177 C placements in the 27 levels**\n\nOnly `progress/report.json` and the generated README table change. Open #253's\ncatalogue correction is not counted before merging.\n\n## Checked\n\n- Fresh post-merge `python3 tools/build.py all --jobs 8`: **28 programs OK**, with\n  no rejected C placements.\n- `python3 tools/progress.py` generated the report and table together.\n- Unit tests, repository/progress checks and `git diff --check` pass.\n- Compiler and matching-function validation is recorded in #251; no emulator\n  testing is claimed for this metadata-only refresh.",
+      "mergedAt": "2026-10-21T04:42:36Z"
+     },
+     {
+      "number": 256,
+      "title": "feat(src): match 26 game functions",
+      "author": "ThorpenCodes",
+      "untrustedBody": "Adds 26 new plain-C src/game implementations, each in its own ThorpenCodes commit: **12,664 catalogue bytes and 728 placements**. Existing upstream source is preserved.\n\nValidation on the publication branch:\n- Fresh `tools/build.py all --jobs 1`: boot and all 27 levels OK and byte-identical. All 728 new function placements are recorded as C; no included placement/integration failures.\n- Every new function passes `tools/check.py <function> --diff` at 28/28. All 391 C functions in affected source units also pass every placement.\n- 38 unit tests, `tests/check_repository.py`, `tools/progress.py --check`, Python-tool compilation and `git diff --check` pass.\n- Compiler rebuilt from master's pinned recipe after PR #251; its six compiler regression tests pass.\n\nThe final rebase includes PR #255's README/progress refresh. Source, config, tools, tests and requirements are identical to the successful full-build tree; lightweight checks were rerun after that rebase. This PR does not regenerate pro",
+      "mergedAt": "2026-10-21T04:55:07Z"
+     },
+     {
+      "number": 257,
+      "title": "fix(tools): validate EE diagnostics and reject empty source barriers",
+      "author": "llesieur99",
+      "untrustedBody": "## What\n\nCorrect the function differ's R5900 decoder selection. The old generic decoder could hide the GPR destination of `mult` or misidentify EE instructions, encouraging incorrect handwritten-code classifications in #157.\n\nAdd regression tests for EE operand decoding and for instruction validation at relocation sites. Enforce the existing plain-C rule against empty `do { } while (0)` barriers while preserving meaningful macro blocks, and clarify the catalogue-screening guidance in `AGENTS.md`. CI installs the decoder version already pinned in `requirements.txt`.\n\n## Checked\n\n- `python3 -m unittest discover -s tests`: 52 tests passed on Windows, with three toolchain-dependent skips; the same code passed all 56 tests in the qualified container.\n- `python3 tests/check_repository.py`, `python3 tools/progress.py --check`, `git diff --check`: passed.\n- The reviewed combined integration passed `python3 tools/build.py all --strict --jobs 8`: all 28 programs OK, no rejected C placements. No ",
+      "mergedAt": "2026-10-21T05:56:13Z"
+     },
+     {
+      "number": 258,
+      "title": "fix(compiler): preserve displaced zero stores and match three vector helpers",
+      "author": "llesieur99",
+      "untrustedBody": "## What\n\nResolve the displaced-zero-store part of #248 by restricting the existing compiler fold to register-only memory addresses. Offset stores retain the materialized zero; zero-displacement stores still fold. This is a compiler source correction with a pinned source hash, not an edit to assembly output or a per-function exception.\n\nIntegrate three retained plain-C functions and remove their superseded near-miss records:\n\n| Function | Same C, preceding compiler | Corrected compiler | Placements |\n| --- | ---: | ---: | ---: |\n| `func_L20_0044AB68` | 200 / 204 bytes | 204 / 204 bytes | 1 / 1 |\n| `func_L20_00443908` | 260 / 264 bytes | 264 / 264 bytes | 1 / 1 |\n| `func_L00_003ACC88` | 108 / 112 bytes | 112 / 112 bytes | 27 / 27 |\n\nThe shared helper uses the existing G8 unit with its measured local-vector order. A separate small review-follow-up commit corrects `D_0139768` to its measured `D_00139768` identity and removes an incorrect hardware comment from #256; it changes no function l",
+      "mergedAt": "2026-10-21T06:12:20Z"
+     },
+     {
+      "number": 259,
+      "title": "feat(src): match func_L02_0038C998 and func_L23_0041C578 after #258",
+      "author": "bigmak94",
+      "untrustedBody": "## What\n\nTwo near misses that #258 makes exact. Each was one instruction short: retail clears a local vector with `por $v0,$zero,$zero` and `sq $v0,N($sp)`, which this cc1 folded into `sq $zero,N($sp)`. Since #258 the fold leaves a displaced quadword store alone, and the recorded C of both is now retail's at every place.\n\n| function | bytes | places | file |\n| --- | ---: | ---: | --- |\n| `func_L02_0038C998` | 1,104 | 9 | `src/levels/shared/L02_002B5F50-g8.c` |\n| `func_L23_0041C578` | 312 | 1 | `src/levels/23_damosel_orbit/L23_00416388-g8.c` |\n\nBoth read `$gp` data, so they go in their files' `-g8` siblings: `func_L02_0038C998` after `func_L02_002F1658`, and `func_L23_0041C578` after `func_L23_0041BF18`. Their records leave `nonmatching/`. The C is the records' C, unchanged.\n\nFound by screening every draft in `nonmatching/` with the compiler built from master 356b450 against the one before #258. Of the 1,797 drafts, 17 change, and these two are the only ones that become exact. `func_L07",
+      "mergedAt": "2026-10-21T15:10:59Z"
+     },
+     {
+      "number": 260,
+      "title": "feat(src): thirty-eight id-list functions of other levels",
+      "author": "bigmak94",
+      "untrustedBody": "## What\n\nThirty-eight level functions, 17,140 bytes, one place each, in thirteen levels' own directories (1, 3, 6, 7, 9, 11, 14, 15, 16, 17, 18, 19 and 26). All but one are id-list walks of the family of #232 to #242. The exception is `func_L14_003E4EA0`, a float interpolation that the screen took for a walk. `func_L07_00410930` matches only with the compiler of #258 (see below).\n\n| function | bytes | file |\n| --- | ---: | --- |\n| `func_L01_003CDEA8` | 896 | `src/levels/01_oozla/L01_003CAFE0.c` |\n| `func_L03_003F1470` | 252 | `src/levels/03_endako/L03_003F09C0.c` |\n| `func_L03_00425310` | 712 | `src/levels/03_endako/L03_0041F720.c` |\n| `func_L06_00444168` | 404 | `src/levels/06_notak/L06_0041DED8-g8.c` |\n| `func_L06_00444300` | 384 | `src/levels/06_notak/L06_0041DED8-g8.c` |\n| `func_L07_003E5AC8` | 168 | `src/levels/07_siberius/L07_00389EB8.c` |\n| `func_L07_003E5B70` | 260 | `src/levels/07_siberius/L07_00389EB8.c` |\n| `func_L07_003E6F40` | 168 | `src/levels/07_siberius/L07_00389EB8.c` ",
+      "mergedAt": "2026-10-21T15:11:05Z"
+     },
+     {
+      "number": 261,
+      "title": "build(compiler): opt-in switches for two Cygnus-local passes",
+      "author": "bigmak94",
+      "untrustedBody": "## What\n\nTwo opt-in cc1 switches. Each one turns off a piece of Cygnus's own 1998 work that this tree carries and the GCC 2.95 branch does not have. Four near misses become exact with them (33 placements). As with #251's clear profile, the switches are enabled only per unit in `config/cflags.txt`, and with them off every object is unchanged.\n\n- **`-frac2-gcse-unsplit-edges`** (`transformers/gcse_unsplit_edges.py`, `gcc/gcse.c`). With `-fno-edge-lcm`, the default since patch 0016, `gcse_main` builds its edge lists with `compute_preds_succs (..., 1)`.\n  - The last argument is Cygnus's (\"CYGNUS LOCAL edge splitting/law\", `ChangeLog.Cygnus` 21 January 1998, restricted on 19 May and 14 September 1998). It splits each critical edge that needs no new jump, and the block LCM then inserts a hoisted `%hi` on the new block, in front of a label reached only by jumps.\n  - GCC 2.95.3's `gcse_main` calls a four-argument `compute_preds_succs` that never splits, and its PRE inserts at the end of a bloc",
+      "mergedAt": "2026-10-21T15:32:22Z"
+     },
+     {
+      "number": 262,
+      "title": "build(compiler): unblock vector-copy addresses and two runtime mask cases",
+      "author": "llesieur99",
+      "untrustedBody": "## What\n\nResolve the vector-copy address mechanism from #248 with a **default-off, per-file `-frac2-qcopy` profile**. Ordinary aligned TImode C assignments lower to a grouped `lq`/`sq` pair with register addresses and an explicit scratch register. The pattern retains memory flags and alias sets, rejects explicitly unaligned accesses, and adds no memory barrier. `-fno-rac2-qcopy` restores the default; existing folded-copy units keep their profiles.\n\nAlso resolve two bounded assembler-mask cases from #157: the isolated 64-bit sign bit, and a sign bit followed by a contiguous low run of at least 32 ones. Other masks retain their previous expansion paths.\n\n| New C function | Bytes | Placements |\n| --- | ---: | ---: |\n| `func_L20_0039E158` | 140 | 1 / 1 |\n| `func_L20_0039F210` | 32 | 1 / 1 |\n| `func_00117278` | 884 | 1 / 1 |\n| `func_00122630` | 300 | 1 / 1 |\n\nThe packer and callers share a canonical `DoubleParts` record. The strtol wrapper now declares the real long-return ABI and forwards ",
+      "mergedAt": "2026-10-21T07:32:24Z"
+     },
+     {
+      "number": 263,
+      "title": "feat(src): nine functions with the opt-in clear and copy profiles",
+      "author": "bigmak94",
+      "untrustedBody": "## What\n\nNine near misses that the opt-in profiles of #251 and #262 make exact, 67 placements. Each is a unit of its own with its profile flag, so no other function's flags change. The nine `config/cflags.txt` lines sit beside the maintainers' own profile lines at the top.\n\n| function | bytes | places | unit | profile |\n| --- | ---: | ---: | --- | --- |\n| `func_L02_003EAE10` | 436 | 1 | `src/levels/02_maktar_nebula/L02_003EAE10-g8.c` | `-frac2-zero-ti-barrier` |\n| `func_L13_0040A3B0` | 208 | 3 | `src/levels/shared/L13_0040A3B0.c` | `-frac2-zero-ti-barrier` |\n| `func_L23_003BFE90` | 300 | 1 | `src/levels/23_damosel_orbit/L23_003BFE90.c` | `-frac2-zero-ti-barrier` |\n| `func_L02_003D4ED0` | 252 | 1 | `src/levels/02_maktar_nebula/L02_003D4ED0.c` | `-frac2-qcopy` |\n| `func_L18_004273F0` | 660 | 3 | `src/levels/shared/L18_004273F0-g8.c` | `-frac2-qcopy` |\n| `func_L23_0041C6B0` | 292 | 1 | `src/levels/23_damosel_orbit/L23_0041C6B0-g8.c` | `-frac2-qcopy` |\n| `func_002EE920` | 104 | 28 | `src/g",
+      "mergedAt": "2026-10-21T15:12:00Z"
+     },
+     {
+      "number": 264,
+      "title": "build(compiler): opt-in switch keeping labels on hazard nops",
+      "author": "bigmak94",
+      "untrustedBody": "## What\n\nAn opt-in switch, `-frac2-hazard-labels`, that keeps a code label on the hazard `nop` gas inserts after a coprocessor producer, as retail has it. This gas moves the label behind the nop it inserts, so a branch to that label lands one word later than in retail. Two near misses become exact with it (8 placements). With the switch off, every object is unchanged.\n\n**What retail does.** These are counts over boot and the 27 levels, each function once:\n\n- **The next instruction needs the nop:** 198 branch targets sit right after a hazard producer (71 after a compare, 127 after an `mtc1`), in 148 functions. Every label sits on the nop, and all are reached by forward branches. None of them is in matched C.\n- **Divisions:** 60 labels sit in front of two nops, which is the existing division floor.\n- **The next instruction doesn't need the nop:** 734 labels sit right after the producer with no nop. 75 of these are 8-byte-aligned loop heads, whose `nop` is cc1's `.p2align 3` padding, not ",
+      "mergedAt": "2026-10-21T15:51:27Z"
+     },
+     {
+      "number": 265,
+      "title": "feat(core): match _fpadd_parts with qualified shifted-mask expansion",
+      "author": "llesieur99",
+      "untrustedBody": "## What\n\nMatch `_fpadd_parts` (`func_00122800`), **576 bytes at its one boot placement**, from the retained public GCC source. It uses the SDK compiler profile and the shared `DoubleParts` record; full upstream notices remain in the source and credits.\n\nThe remaining size difference was the assembler expansion of two shifted masks. Patch `0052` now routes positive contiguous runs wider than 32 bits, with zero bits at both ends, through gas's existing shift-based expansion. Each target constant takes three instructions instead of seven. Runs of 32 bits or fewer keep their prior encoding, including the 20-bit shifted mask used by existing matched game code. No source assembly, register pins, output rewriting or function/address special cases are introduced.\n\nThe source hash is pinned and permanent assembler tests cover all 465 selected intervals across four registers plus 30 fixed controls (1,980 outputs). The superseded nonmatching entry is removed; earlier attempts remain in Git histor",
+      "mergedAt": "2026-10-21T09:05:51Z"
+     },
+     {
+      "number": 266,
+      "title": "feat(src): two level functions matched, wave 24 near misses recorded",
+      "author": "ReaperOfVeriod",
+      "untrustedBody": "## What this matches\n\nTwo level functions, matched byte for byte:\n\n- `func_L03_003C85F8` (03_endako) — the routine that copies a level's name string into\n  the object and calls `func_312898` / `func_2EEFE0` / `func_31B920` on it.\n- `func_L17_003CC798` (17_smolg) — the routine that turns a vector into the object's\n  frame, then into the world with the matrix at +0xC0, and reports whether the first two\n  coordinates stay below the two bounds.  The 128-bit copies are `TI128` values\n  (`mode(TI)`), the union with the four floats is what the compiler folds.\n\n## What else changed\n\nThe near-miss notes for the functions of this wave that stay unmatched, with the\nretail's body decoded instruction by instruction and the measurement of the best\ncandidate found:\n\n- `func_L17_003E4860` — the branch-likely wall is gone: with the walk written as\n  `for (;;)` and a `break`, this cc1 emits the retail's `bltzl` and `bnel` with the\n  halfword load in their delay slots.  The candidate is now the retail's "
+     },
+     {
+      "number": 267,
+      "title": "feat(core): match dpmul with the original fraction union",
+      "author": "llesieur99",
+      "untrustedBody": "## What\n\nMatch **`func_00122B00` (`dpmul`), 680 bytes at its one boot placement**, from the retained public GNU GCC source. The original fraction union matters: simplifying it to a scalar removed an alias dependence and changed the instruction chosen for the rounding branch's delay slot. Restoring that public representation produces the correct `bnel`/store sequence with the existing SDK compiler. All callers use the same `DoubleParts` definition; full upstream notices and credits remain.\n\nTwo loads of `2^63` require the zero-extending assembler seed, while already-matched game code needs the sign-extending default. Patch `0059` adds `--r5900-sign-bit=unsigned`, affecting only that isolated constant. Explicit `signed` selects the unchanged default. The existing per-file flag table forwards standard `-Wa,` arguments to the assembler for both compiler profiles; options remain in the object-cache key. Only the new multiplier opts in. No compiler-output rewriting, function-address special ",
+      "mergedAt": "2026-10-21T09:44:06Z"
+     },
+     {
+      "number": 268,
+      "title": "docs(agents): centralize blocker findings in issue 157",
+      "author": "llesieur99",
+      "untrustedBody": "## What\n\nMake #157 the maintained shared place for matching blockers and solutions. `AGENTS.md` now requires consulting its current knowledge before retrying a blocked target and updating **one persistent comment per contributor**, shared by that contributor's agents.\n\nFindings must identify the target/profile, hypothesis, measured result, remaining difference and next useful experiment or verified fix. Hypotheses, local candidates, pending PRs and merged fixes stay distinct. Maintainers consolidate confirmed results in the issue summary; reservations remain in #152. No new registry or campaign machinery is introduced.\n\n## Checked\n\n- Documentation-only diff, references and consistency reviewed.\n- `python -m unittest discover -s tests`: 61 host tests pass, 7 tool/platform skips.\n- Repository check, progress `--check`, and `git diff --check`: pass.\n- No code changes from merged #267, whose 28-program strict build and 80 container tests passed. No new build or progress regeneration for th",
+      "mergedAt": "2026-10-21T09:51:46Z"
+     },
+     {
+      "number": 269,
+      "title": "feat(src): wave 14 - three matches, 59 placements, and twenty-nine measured near misses",
+      "author": "llesieur99",
+      "untrustedBody": "## What this is\n\nWave 14 of the matching work: ten workers, 43 files of `src/game/` and `src/levels/shared/`,\n479 unfinished functions (8,883 placements) screened per function on the retail bytes.\n\n**Three functions match, 59 placements.**\n\n| function | check |\n| --- | --- |\n| `func_L00_003E70B8` | `27 of 27 places match (src/levels/shared/L00_003E70B8.c)` |\n| `func_L05_00418508` | `4 of 4 places match (src/levels/shared/L05_003D33E8.c)` |\n| `func_00291788` | `28 of 28 places match (src/game/00291758.c)` |\n\n`func_L00_003E70B8` is the one that taught the wave something. It calls two bodies that\n`L00_003E3258.c` holds, and it is in a unit of its own now, for two measured reasons:\n\n* **A call inside one object fixes the distance between the two.** The assembler resolves\n  a call to a body of the same object to an offset, so the two are placed together. The\n  retail keeps more than one copy of both bodies — three copies of the reset routine, two\n  of the scale routine — and which copy a pr",
+      "mergedAt": "2026-10-21T15:10:53Z"
+     },
+     {
+      "number": 270,
+      "title": "feat(src): mark 56 hand-written bodies ASM_FUNC, with the measurement",
+      "author": "llesieur99",
+      "untrustedBody": "## What this is\n\nThe wave-14 workers reported that a number of bodies carry an instruction no C\ncompiles to, and left them for whoever wanted to classify them. This pull request\nclassifies them, with the evidence measured rather than asserted.\n\n`AGENTS.md` allows the `ASM_FUNC` marker when a function\n*\"uses instructions the compiler never emits (COP2/VU0 macro instructions, `$at` as a\nworking register, a return with a live instruction after its delay slot) and a\nmaintainer agrees in review\"*.\n\n## The measurement\n\nEvery C object of the project was scanned, word by word:\n\n```\nthe C objects: 861\n   VU0 (COP2) 0\n   COP3       0\n   MMI        12, of which 12 are the compiler's own form\n```\n\nSo the compiler emits **no** VU0 instruction at all, and no COP3 one. Of the MMI\nunit it emits only two things: the R5900's own SPECIAL2 arithmetic (`mult1`, `madd`)\nand the form `por $rd,$zero,$rt` that copies or zeroes a register\n(`src/levels/shared/L00_002B91C0.c` is a matched function that shows the ",
+      "mergedAt": "2026-10-21T15:10:47Z"
+     },
+     {
+      "number": 271,
+      "title": "feat(src): twenty small unclaimed bodies matched",
+      "author": "ReaperOfVeriod",
+      "untrustedBody": "## What\n\nTwenty small functions, spread over the level directories and `src/core/` — the\nsmallest unclaimed bodies in the project, all at most 200 bytes.\n\n| function | size | file |\n| --- | ---: | --- |\n| `func_00116300` | 96 | `src/core/00115200.c` |\n| `func_00122760` | 156 | `src/core/001213B8.c` |\n| `func_L01_003BDB28` | 132 | `src/levels/01_oozla/L01_003BB9D0.c` |\n| `func_L03_003C85F8` | 100 | `src/levels/03_endako/L03_00399230.c` |\n| `func_L03_003F71E0` | 108 | `src/levels/03_endako/L03_003F09C0.c` |\n| `func_L06_00459B18` | 144 | `src/levels/06_notak/L06_00458138.c` |\n| `func_L06_0045A490` | 112 | `src/levels/06_notak/L06_00458138.c` |\n| `func_L08_004254D0` | 72 | `src/levels/08_tabora/L08_00423970.c` |\n| `func_L10_00417440` | 136 | `src/levels/10_hrugis_cloud/L10_003170D0-g8.c` |\n| `func_L10_004184F0` | 140 | `src/levels/10_hrugis_cloud/L10_003170D0.c` |\n| `func_L11_004395C8` | 116 | `src/levels/11_joba/L11_00432628-g8.c` |\n| `func_L11_004433D8` | 188 | `src/levels/11_joba/L11_00",
+      "mergedAt": "2026-10-21T15:58:21Z"
+     },
+     {
+      "number": 272,
+      "title": "feat(src): match three worker waves",
+      "author": "GianniGr",
+      "untrustedBody": "﻿## What\n\nConsolidate the three matching waves on current `origin/master` and add 16 checker-exact C functions:\n\n- `func_L03_003E3308`, `func_L04_00363CA0`, `func_L04_0039FEF0`, `func_L09_003F69A0`\n- `func_L02_003C5098`, `func_L22_003A64E8`, `func_L22_003F5580`\n- `func_L05_0037BC08`, `func_L05_0037BD40`, `func_L07_003F8AB0`\n- `func_L11_00440238`, `func_L11_00440790`, `func_L01_003B49D8`, `func_L01_003B4AD0`\n- `func_L08_004257A0`, `func_L11_00449970`\n\nAlso preserve the wave workers' measured near misses in `nonmatching/`, including four reported catalogue-fragment findings without changing catalogue tooling. Dedicated per-file compiler profiles are added where required.\n\n## Checked\n\n- `tools/build.py all --strict --jobs 12`: all 28 programs `OK`, exit status 0.\n- `python3 -m unittest discover -s tests`: 65 tests OK, 5 skipped.\n- `python3 tests/check_repository.py`: repository checks passed.\n- `python3 tools/progress.py --check`: passed; the generated report remains untouched.\n- `tools/c",
+      "mergedAt": "2026-10-21T20:31:58Z"
+     },
+     {
+      "number": 273,
+      "title": "Match ten id-list and switch functions of levels 2 to 14",
+      "author": "bigmak94",
+      "untrustedBody": "## What\n\nTen functions of the id-list scope claimed on #152, at 11 places (6,588 bytes). Four are walks. Six are switch functions that now dispatch through the jump table retail already has. This follows #260.\n\n| function | bytes | places | unit |\n| --- | ---: | ---: | --- |\n| `func_L14_003CB608` | 608 | 1 | `src/levels/14_aranos_prison/L14_00304190.c` |\n| `func_L14_003E4BA0` | 764 | 1 | `src/levels/14_aranos_prison/L14_00304190.c` |\n| `func_L11_00441350` | 1100 | 1 | `src/levels/11_joba/L11_0043E1A0.c` |\n| `func_L04_0044AAC8` | 820 | 1 | `src/levels/04_barlow/L04_00422A00-g8.c` |\n| `func_L13_00422CB8` | 1016 | 1 | `src/levels/13_boldan/L13_00306F38.c` |\n| `func_L06_003FDA08` | 1200 | 1 | `src/levels/06_notak/L06_0033BDC0-g8.c` |\n| `func_L03_003C4578` | 644 | 2 | `src/levels/shared/L03_002AB5C8-g8.c` |\n| `func_L02_003F9AF0` | 124 | 1 | `src/levels/02_maktar_nebula/L02_003F5430.c` |\n| `func_L02_003F9B70` | 156 | 1 | `src/levels/02_maktar_nebula/L02_003F5430.c` |\n| `func_L02_003FE1B0` | ",
+      "mergedAt": "2026-10-21T20:32:03Z"
+     },
+     {
+      "number": 274,
+      "title": "Match two game switch functions through retail's jump tables",
+      "author": "bigmak94",
+      "untrustedBody": "## What\n\nTwo game functions at 28 places each, 1,716 bytes in total. Both are switch functions that now dispatch through the jump tables retail already has.\n\n| function | bytes | places | unit | retail table |\n| --- | ---: | ---: | --- | --- |\n| `func_002D5B58` | 732 | 28 | `src/game/002D5540.c` | `D_0026CD60` |\n| `func_002B4C18` | 984 | 28 | `src/game/002B3868-g8.c` | `D_0026CBB0`, `D_0026CBE0` |\n\n**Why the records stopped.** Their records were exact code by `tools/check.py`. But a C `switch` puts its jump table in the object's `.rodata`, which the build cannot place.\n\n**What changed.** Each now uses a computed goto through retail's own table, named by its boot address like `func_002CD8C0`'s `D_0026CD20` (`src/game/002CD8C0-g8.c`). A static array of the case labels keeps the case bodies in the object. We decoded the tables: they map every index to the records' case bodies. The objects have no `.rodata`.\n\n- **`func_002B4C18`.** Its record declared `D_001A8BB8` `volatile` to get two sep",
+      "mergedAt": "2026-10-21T20:32:23Z"
+     },
+     {
+      "number": 275,
+      "title": "Add an opt-in scheduling barrier for the grouped quadword copy (-frac2-qcopy-barrier)",
+      "author": "bigmak94",
+      "untrustedBody": "## What\n\nAn opt-in switch, `-frac2-qcopy-barrier`. It makes #262's grouped 16-byte copy a scheduling barrier, as #251's `-frac2-zero-ti-barrier` does for the clear. With it, twelve near misses become exact (3,616 bytes at 59 places). With the switch off, every object is unchanged.\n\n**What retail does.** With `-frac2-qcopy`, these records already have retail's size, its copy and its register addresses. They differ only in instructions this cc1 moves across the copy: a float constant pulled into the stall before it, the epilogue's restores, a call's argument moves, the next statement's address arithmetic. Retail keeps those on their source side. Each record is exact when, in a scratch copy only, its copy is written as `__asm__ __volatile__(\"lq $2,0(%1)\\n\\tsq $2,0(%0)\" :: \"r\"(dst), \"r\"(src) : \"$2\")`. Both schedulers treat such an asm as a barrier. The original copy was most likely that macro, and `src/` allows no inline assembly. This was reported on #248 and in #157.\n\n**The change.** `to",
+      "mergedAt": "2026-10-21T20:35:57Z"
+     },
+     {
+      "number": 276,
+      "title": "docs(readme): rework it in the shape of rac1-decomp, rac3-decomp and rac5-sm-decomp",
+      "author": "Lynder063",
+      "untrustedBody": "## What\n\nThe README is reworked to the shape of the other OpenRAC decompilations\n([rac1-decomp](https://github.com/OpenRAC/rac1-decomp),\n[rac3-decomp](https://github.com/OpenRAC/rac3-decomp),\n[rac5-sm-decomp](https://github.com/OpenRAC/rac5-sm-decomp)):\n\n- the badge row now carries the OpenRAC website, the Discord, the\n  `progress.yml` report badge and the ByteMatch code/functions shields, in the\n  place of the stale dynamic badge that pointed at the old `llesieur99/rac2-decomp`\n  report;\n- a \"work-in-progress matching decompilation\" introduction, the disc's programs\n  in a table (the boot executable and the 27 level programs), the objective, and\n  the `> [!NOTE]` block about no game assets and `LEGAL.md`;\n- a \"Progress\" section with the version/region/target table and the ByteMatch\n  shields, the generated table (unchanged, between its markers), how a function\n  is counted, and a short \"What counts as a match\";\n- a \"Quick Start\" section: prerequisites (the disc, Python 3.12 and the pi",
+      "mergedAt": "2026-10-21T19:48:46Z"
+     },
+     {
+      "number": 277,
+      "title": "Match eleven level 2 functions and func_L23_00425568",
+      "author": "bigmak94",
+      "untrustedBody": "## What\n\nTwelve functions, 5,552 bytes at 12 places: eleven of level 2 and one of level 23. Most are first attempts at level 2 functions nobody had tried yet.\n\n| function | bytes | places | unit |\n| --- | ---: | ---: | --- |\n| `func_L02_003DBF40` | 152 | 1 | `src/levels/02_maktar_nebula/L02_003DB310-g8.c` |\n| `func_L02_003DB6D8` | 408 | 1 | `src/levels/02_maktar_nebula/L02_003DB310.c` |\n| `func_L02_00401D38` | 416 | 1 | `src/levels/02_maktar_nebula/L02_003F5430-g8.c` |\n| `func_L02_00400948` | 436 | 1 | `src/levels/02_maktar_nebula/L02_003F5430-g8.c` |\n| `func_L02_003FF9A0` | 440 | 1 | `src/levels/02_maktar_nebula/L02_003F5430-g8.c` |\n| `func_L02_003FB4D8` | 196 | 1 | `src/levels/02_maktar_nebula/L02_003F5430.c` |\n| `func_L02_00412808` | 452 | 1 | `src/levels/02_maktar_nebula/L02_0040A4A8.c` |\n| `func_L02_00445200` | 452 | 1 | `src/levels/02_maktar_nebula/L02_0040A4A8.c` |\n| `func_L02_00438B90` | 696 | 1 | `src/levels/02_maktar_nebula/L02_0040A4A8.c` |\n| `func_L02_003007D8` | 680 | 1 | ",
+      "mergedAt": "2026-10-21T20:32:28Z"
+     },
+     {
+      "number": 278,
+      "title": "Match three id-list walks of levels 0, 11 and 22",
+      "author": "bigmak94",
+      "untrustedBody": "## What\n\nThree id-list functions of other levels, at 7 places (2,224 bytes). They are first attempts at functions of our claim on #152.\n\n| function | bytes | places | unit |\n| --- | ---: | ---: | --- |\n| `func_L11_00448DF8` | 668 | 1 | `src/levels/11_joba/L11_004465F8.c` |\n| `func_L22_003F58F8` | 752 | 2 | `src/levels/shared/L22_003A5018-g8.c` |\n| `func_L00_003FDB20` | 804 | 4 | `src/levels/shared/L00_003F8E08.c` |\n\n- **`func_L11_00448DF8`:**\n  - one variable per role, and the halfword `g = self[0x21]` assigned in the loop's test;\n  - the callee's real prototype order, `func_002B3BA8(u8 *, s32, f32, f32, s32, s32)`;\n  - `D_L11_001B359C` declared `sda`, for its same-register `lui`/`lw`;\n  - the pair block's stores in retail's order.\n- **`func_L22_003F58F8`:** goes in the `-g8` sibling, with its floats `sda` and its ints and pointers plain.\n- **`func_L00_003FDB20`:** `priv + (i << 2)` gives retail's `addu` operand order. Its state-2 test is written `if (!(A || B)) { clear } else { set }`",
+      "mergedAt": "2026-10-21T20:40:51Z"
+     },
+     {
+      "number": 279,
+      "title": "Add an opt-in switch keeping wide stores out of annulled delay slots (-frac2-no-annulled-wide-stores)",
+      "author": "bigmak94",
+      "untrustedBody": "## What\n\nAn opt-in switch, `-frac2-no-annulled-wide-stores`. With it, reorg stops putting 64- and 128-bit stores in the annulled delay slot of a branch-likely instruction. Retail's game code never has a wide store there. Two near misses become exact with it (3 places). With the switch off, every object is unchanged.\n\n**What retail does.** Counted over the game's code: the boot from 0x26EA00 and the levels, each catalogue function once, leaving out `ASM_FUNC` ones, 7,825 functions.\n\n- **Annulled slots:** 2,895 stores, every one of them `sw`, `swc1`, `sb` or `sh` (1,433, 962, 294 and 206). There is no `sd` or `sq` among them.\n- **Ordinary slots:** 547 `sq` and 497 `sd`.\n- **Wide loads in annulled slots:** these do occur: 1,215 `ld` and 23 `lq`.\n\nThis cc1's reorg does fill an annulled slot with a wide store, taken from a thread or stolen from the branch target. A loop that starts with a 16-byte clear then ends in `bnel` with the `sq` in its slot, where retail keeps the store at the top of",
+      "mergedAt": "2026-10-21T21:01:21Z"
+     },
+     {
+      "number": 280,
+      "title": "feat: PAL and USA v2.00 releases beside v1.01, one C for all three",
+      "author": "Veradictus",
+      "untrustedBody": "Adds the PAL release (`SCES_516.07`) and the second US release (USA v2.00, Greatest Hits, `SCUS_972.68` again) beside v1.01. One repository, one C source, three reports. v1.01 stays the primary target: its paths, build and report work as before. docs/VERSIONS.md has the details and the totals.\n\n**What changed**\n- `tools/levels.py --version us|pal|us2 dump` reads every program straight from its ISO. It checks that each level converts back to the bytes the disc stores, and records the SHA-1s in `config/programs.tsv`. `check` compares the dumps with them, without the disc.\n- `tools/build.py` and `tools/check.py` take `--version`. Each release uses its own catalogues, dumps, `$gp` and level base, and `build/<version>/`. It links the C of `src/` plus `src/<version>/`.\n- `tools/carry.py` carries v1.01's catalogues to a release by identical code:\n  - every address is masked; constants, stack slots and field offsets are compared, and so are the calls;\n  - a function found that way keeps its v1",
+      "mergedAt": "2026-10-21T21:34:59Z"
+     },
+     {
+      "number": 281,
+      "title": "Add an opt-in switch keeping the por of stack zero stores (-frac2-zero-ti-por)",
+      "author": "bigmak94",
+      "untrustedBody": "## What\n\nAn opt-in switch, `-frac2-zero-ti-por`. With it, a quadword zero stored to `0($sp)` keeps the `por` that plain C gives, as retail's stack clears do; zero stores through any other register still fold. Five near misses become exact with it (5 places). With the switch off, every object is unchanged.\n\n**What retail does.** `rac2_fold_zero_ti_store` turns `por $rX,$zero,$zero` ... `sq $rX,0(reg)` into `sq $zero,0(reg)` when the zero dies at the store. #258 limited it to register-only addresses. That models retail's clear, most likely an inline-asm macro: `sq $zero,0(reg)` 396 times, in 263 functions. These counts take one place per catalogue row, the boot from 0x26EA00 and every shared or level row at its first place.\n\nRetail also stores a `por` zero at displacement 0, 183 times in 153 functions. A store counts when every path into it starts at the `por`, over the function's control flow with delay slots and calls. Every one of those stores is to `0($sp)`: plain C clears of a local",
+      "mergedAt": "2026-10-21T23:09:04Z"
+     },
+     {
+      "number": 282,
+      "title": "feat(src): PAL and USA v2.00 C for 781 functions that changed from v1.01",
+      "author": "Veradictus",
+      "untrustedBody": "C for the release-specific functions (`src/pal/`, `src/us2/`): 471 PAL and 310 USA v2.00. Each is v1.01's C with that release's constants and offsets: 50 Hz timing (30 to 25, 60 to 50, 60.0f to 50.0f), text ids, moved fields and callees. When the v1.01 file has other flags, the C goes in a sibling file with the same flags (`-g8` or a cflags line). No C in `src/` changes.\n\nThree PAL functions are left as assembly. They build to their own bytes, but they refer to v1.01 names that are other places in PAL (one value per name per link).\n\n**Checks**\n- `tools/check.py <fn> --version pal|us2`: every place OK for each function (listed in the commit bodies).\n- `tools/build.py all --strict`: 84 of 84 programs OK across `--version pal`, `--version us2` and v1.01. No C falls back to assembly.\n- `tests/check_repository.py`: passed.\n- `tools/progress.py --check`: passed for every release, and the reports agree.\n\nReports are left to master. Regenerated, they read PAL 3,511 of 8,693 (9.23%), USA v2.00 ",
+      "mergedAt": "2026-10-21T21:52:18Z"
+     },
+     {
+      "number": 283,
+      "title": "Match forty-eight functions: level 2 first attempts and the copy-barrier wave",
+      "author": "bigmak94",
+      "untrustedBody": "## What\n\nForty-eight functions, 28,540 bytes at 75 places: 38 of level 2, 7 of level 23, 1 of level 7, the shared `func_L04_00454BF8` (8 places) and the game's `func_002B5828` (21 places). This follows #277. The last eleven were added before any review, as the last results of our work on this repository.\n\n**Fourteen first attempts**, at functions nobody had tried before:\n\n| function | bytes | places | unit |\n| --- | ---: | ---: | --- |\n| `func_L02_003E8E90` | 428 | 1 | `src/levels/02_maktar_nebula/L02_003E8E90-g8.c` (new, `-G8 -frac2-qcopy`) |\n| `func_L02_003E7F28` | 464 | 1 | `src/levels/02_maktar_nebula/L02_003DB310-g8.c` |\n| `func_L02_003DBFD8` | 480 | 1 | `src/levels/02_maktar_nebula/L02_003DB310-g8.c` |\n| `func_L02_003EEDD0` | 488 | 1 | `src/levels/02_maktar_nebula/L02_003DB310.c` |\n| `func_L02_003E77E0` | 532 | 1 | `src/levels/02_maktar_nebula/L02_003DB310.c` |\n| `func_L02_003E75A8` | 568 | 1 | `src/levels/02_maktar_nebula/L02_003DB310.c` |\n| `func_L02_00400B10` | 440 | 1 | `src/",
+      "mergedAt": "2026-10-21T23:10:39Z"
+     },
+     {
+      "number": 284,
+      "title": "feat(src): match func_L11_003F1DB0",
+      "author": "GianniGr",
+      "untrustedBody": "## What\n\n- Match `func_L11_003F1DB0` as C in the Joba `-g8` source unit.\n- Preserve four bounded medium-function near misses in `nonmatching/`:\n  `func_L06_00420080`, `func_L09_004082D0`, `func_L11_00449AD8`, and\n  `func_L14_004221D8`.\n- This adds 1 matched C function. The progress report and README progress table are untouched.\n\n## Checked\n\n- `tools/check.py func_L11_003F1DB0`: 1 of 1 places match.\n- `tools/build.py level 11 --strict`: `11_joba: OK: 2363208 loaded bytes equal`; exit 0.\n- `python3 -m unittest discover -s tests`: 130 tests OK.\n- `python3 tests/check_repository.py`: repository checks passed.\n- `python3 tools/progress.py --check`: passed; report remains behind by the new C function as expected.\n- `tools/build.py all --strict --jobs 12`: all 28 programs OK; exit 0.\n\nNot run: PAL/US2 release builds, progress regeneration, SDK-only release builds, and emulator tests.",
+      "mergedAt": "2026-10-21T23:11:02Z"
+     },
+     {
+      "number": 285,
+      "title": "feat(src): match eight game functions and retain bounded near misses",
+      "author": "ThorpenCodes",
+      "untrustedBody": "## What\n\nMatch eight plain-C game functions (one commit each): **1,888 catalogue bytes and 224 USA v1.01 placements**. The same C also passes every carried placement in PAL and USA v2.00.\n\n| Function | Catalogue bytes | v1.01 | PAL | v2.00 |\n| --- | ---: | ---: | ---: | ---: |\n| func_00295C70 | 140 | 28/28 | 28/28 | 28/28 |\n| func_002AD250 | 220 | 28/28 | 28/28 | 28/28 |\n| func_002980D0 | 156 | 28/28 | 28/28 | 28/28 |\n| func_002AE730 | 264 | 28/28 | 28/28 | 28/28 |\n| func_002C4F08 | 276 | 28/28 | not carried | 28/28 |\n| func_0034ECB0 | 256 | 28/28 | not carried | 27/27 |\n| func_002C6360 | 376 | 28/28 | not carried | 28/28 |\n| func_00331718 | 200 | 28/28 | 28/28 | 28/28 |\n\nRetain 77 bounded C near misses, each in its own commit with its README entry. Two commits clarify existing upstream draft notes; one records general compiler ordering knowledge and historical near-miss provenance. **88 commits total.** Near misses are never linked or counted as completed matches; their recorded resid",
+      "mergedAt": "2026-10-21T22:34:03Z"
+     },
+     {
+      "number": 286,
+      "title": "feat(src): PAL and USA v2.00 C for 14 more functions, carried mechanically",
+      "author": "Veradictus",
+      "untrustedBody": "The release functions whose v1.01 counterpart was matched since the first port batch. Both passes are model-free:\n- v1.01 C copied to the release marker;\n- constants swapped where the check diff shows them.\n\nLanded: 12 PAL and 2 USA v2.00. The other 42 targets stay open.\n\n**Checks**\n- `tools/check.py <fn> --version pal|us2`: every place OK for each landed function.\n- `tools/build.py all --strict --version pal` and `--version us2`: 56 of 56 programs OK.\n- `tests/check_repository.py`: passed.\n- `tools/progress.py --check`: passed.\n\nThis PR doesn't touch the reports.",
+      "mergedAt": "2026-10-21T23:36:13Z"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [
+     {
+      "number": 247,
+      "title": "Three C bodies in src/ that do not match: one extra nop after mfc1",
+      "author": "ReaperOfVeriod"
+     },
+     {
+      "number": 248,
+      "title": "128-bit matching: qualified zero-store and vector-copy compiler profiles",
+      "author": "ReaperOfVeriod"
+     }
+    ],
+    "closed": [
+     {
+      "number": 247,
+      "title": "Three C bodies in src/ that do not match: one extra nop after mfc1",
+      "author": "ReaperOfVeriod"
+     },
+     {
+      "number": 248,
+      "title": "128-bit matching: qualified zero-store and vector-copy compiler profiles",
+      "author": "ReaperOfVeriod"
+     }
+    ]
+   },
+   "releases": [],
+   "progress": {
+    "before": {
+     "code": {
+      "done": 504904,
+      "total": 5529540
+     },
+     "functions": {
+      "done": 3786,
+      "total": 8645
+     },
+     "data": {
+      "done": 0,
+      "total": 383391
+     }
+    },
+    "after": {
+     "code": {
+      "done": 705368,
+      "total": 5529156
+     },
+     "functions": {
+      "done": 4138,
+      "total": 8601
+     },
+     "data": {
+      "done": 0,
+      "total": 383391
+     }
+    }
+   },
+   "contributors": [
+    "bigmak94",
+    "GianniGr",
+    "llesieur99",
+    "Lynder063",
+    "ReaperOfVeriod",
+    "ThorpenCodes",
+    "Veradictus"
+   ]
+  },
+  {
+   "repo": "rac3-decomp",
+   "title": "Up Your Arsenal",
+   "branches": [
+    {
+     "name": "master",
+     "commits": [
+      {
+       "sha": "c7d5d2c1ecaf37227be039ba6d82e00ff0aa5c35",
+       "title": "docs(versions): PAL builds and checks on a Mac through wibo-macos",
+       "author": "Veradictus",
+       "date": "2026-10-21T23:51:22Z"
+      },
+      {
+       "sha": "ca1fe22085975062fe13c9c2b6c37fc8eea18764",
+       "title": "feat(tools): carry_us.sh and asm_build.py run on a Mac",
+       "author": "Veradictus",
+       "date": "2026-10-21T23:51:22Z"
+      },
+      {
+       "sha": "75a3b0e459c4ca21ef216122c16d4b68a95fa640",
+       "title": "chore(us): carry the two VU0 functions to NTSC-U",
+       "author": "Veradictus",
+       "date": "2026-10-21T22:55:29Z"
+      },
+      {
+       "sha": "13d550dc9603d1580892bd5e49bd4d4ff0b022f0",
+       "title": "fix(tools): check.py says when a match needs TEXT_PADDING in its file",
+       "author": "Veradictus",
+       "date": "2026-10-21T22:55:29Z"
+      },
+      {
+       "sha": "65bf596f78660fd19893e93553b5d6b3ea410229",
+       "title": "fix(frontbin): func_0038D5F0 and func_0038D688 are hand-written VU0 code",
+       "author": "Veradictus",
+       "date": "2026-10-21T22:55:29Z"
+      },
+      {
+       "sha": "80bac759b8bdded48464b6252567c8896ae8dd21",
+       "title": "chore(us): carry the whole-file build to NTSC-U",
+       "author": "Veradictus",
+       "date": "2026-10-21T20:48:03Z"
+      },
+      {
+       "sha": "6eccad287b1e2ef11e7daae9564b8b7378225d9f",
+       "title": "feat(us): func_U_00391B70, NTSC-U's func_003963D0",
+       "author": "Veradictus",
+       "date": "2026-10-21T20:48:03Z"
+      },
+      {
+       "sha": "45c65592c54ada1388b907fa6adb2abb181e9ea5",
+       "title": "feat(tools): build whole PAL files into NTSC-U where a block does not reproduce alone",
+       "author": "Veradictus",
+       "date": "2026-10-21T20:48:03Z"
+      },
+      {
+       "sha": "7f0236c2c2d5cd636983eceb03f5cff6f5649a45",
+       "title": "chore(us): carry the aliases, the ports and the refresh to NTSC-U",
+       "author": "Veradictus",
+       "date": "2026-10-21T20:28:30Z"
+      },
+      {
+       "sha": "18ef5b0cecc93fbe7d7df3a3dba85c8ce7afabce",
+       "title": "chore(levels): regenerate PAL's catalogue from its inventory",
+       "author": "Veradictus",
+       "date": "2026-10-21T20:28:30Z"
+      },
+      {
+       "sha": "a89a16025897aa1f786cb5808659d7446558e02d",
+       "title": "feat(us): 31 functions of NTSC-U's own",
+       "author": "Veradictus",
+       "date": "2026-10-21T20:28:30Z"
+      },
+      {
+       "sha": "666b7b76271a73f9cb3e39c3b08a628579741c4e",
+       "title": "feat(tools): NTSC-U's own C, and ports of constant-only differences",
+       "author": "Veradictus",
+       "date": "2026-10-21T20:28:30Z"
+      },
+      {
+       "sha": "ef9772a5ab36b07f1be034aca94f12c20cb351ea",
+       "title": "fix(levels): alias the names that are two places on NTSC-U",
+       "author": "Veradictus",
+       "date": "2026-10-21T20:28:30Z"
+      },
+      {
+       "sha": "692096da8023e3253a4f1afb4a99d3299cd04280",
+       "title": "feat(us): NTSC-U built from the shared C",
+       "author": "Veradictus",
+       "date": "2026-10-21T19:25:44Z"
+      },
+      {
+       "sha": "fd9f2880cc209c22851c17d578151fb77393ae24",
+       "title": "feat(tools): build the shared C into the NTSC-U programs",
+       "author": "Veradictus",
+       "date": "2026-10-21T19:25:44Z"
+      },
+      {
+       "sha": "11b11af265d0de1fe7bd1102d5b47089f7caed9c",
+       "title": "refactor(frontbin,boot_elf): use the documented size hint for lui globals",
+       "author": "Veradictus",
+       "date": "2026-10-21T19:25:44Z"
+      },
+      {
+       "sha": "7261e94a6d0d434751ec61ed53f2e69c84b42c7d",
+       "title": "fix(tools): pair the front ends by aligning their code",
+       "author": "Veradictus",
+       "date": "2026-10-21T19:25:44Z"
+      },
+      {
+       "sha": "1cc96b746068cc545354f47553dd0ac0511886a6",
+       "title": "fix(tools): never carry a status from another kind of check",
+       "author": "Veradictus",
+       "date": "2026-10-21T18:43:15Z"
+      },
+      {
+       "sha": "fb68b35a43470be1a91097b47d32a320a03896fe",
+       "title": "feat(progress): report NTSC-U beside PAL",
+       "author": "Veradictus",
+       "date": "2026-10-21T18:41:19Z"
+      },
+      {
+       "sha": "52051a073f92c871825a6822cd3c4c2fac365641",
+       "title": "fix(tools): check split and multi-function sources the way the build compiles them",
+       "author": "Veradictus",
+       "date": "2026-10-21T18:41:19Z"
+      },
+      {
+       "sha": "f0092c5c23e0d6469fce500c9f21a4dbf74a7f4d",
+       "title": "feat(tools): check PAL's source against the NTSC-U disc",
+       "author": "Veradictus",
+       "date": "2026-10-21T18:41:19Z"
+      },
+      {
+       "sha": "467da0ab903b00c58c645dadc52fd113228284a0",
+       "title": "refactor(frontbin,boot_elf): name the data hard-coded addresses read",
+       "author": "Veradictus",
+       "date": "2026-10-21T18:41:19Z"
+      },
+      {
+       "sha": "e8b04d8bad070330d4353564206b01a1949f7374",
+       "title": "feat(us): the NTSC-U disc's programs and functions",
+       "author": "Veradictus",
+       "date": "2026-10-21T18:33:00Z"
+      },
+      {
+       "sha": "666441a01eb60b13477d5886ab0ab7d884ecf719",
+       "title": "feat(tools): build a disc's programs from assembly alone",
+       "author": "Veradictus",
+       "date": "2026-10-21T18:33:00Z"
+      },
+      {
+       "sha": "70dda91168b4b2617366e7ef07d4ed42b9ee1317",
+       "title": "feat(tools): read the NTSC-U disc beside PAL",
+       "author": "Veradictus",
+       "date": "2026-10-21T18:33:00Z"
+      },
+      {
+       "sha": "e8eddb0f1aa9d9ac7bf2fcad279e46a545ef4b11",
+       "title": "docs(contributing): drop the Code of Conduct, fold it into CONTRIBUTING",
+       "author": "Lynder063",
+       "date": "2026-10-21T17:15:19Z"
+      },
+      {
+       "sha": "4feb5ee38f8a30c87da37bd52ca93b722ab6aaa3",
+       "title": "docs(conduct): give the OpenRAC community address as a report route",
+       "author": "Lynder063",
+       "date": "2026-10-21T17:08:07Z"
+      },
+      {
+       "sha": "e923010ea3c347102016de5f5557a6e1d0a50e12",
+       "title": "feat: Ratchet & Clank 3 decompilation",
+       "author": "Veradictus",
+       "date": "2026-10-21T17:06:23Z"
+      }
+     ]
+    }
+   ],
+   "commitCount": 28,
+   "pullRequests": {
+    "merged": [],
+    "opened": []
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": {
+    "before": null,
+    "after": {
+     "code": {
+      "done": 632632,
+      "total": 7546948
+     },
+     "functions": {
+      "done": 5193,
+      "total": 16164
+     }
+    }
+   },
+   "contributors": [
+    "Lynder063",
+    "Veradictus"
+   ]
+  },
+  {
+   "repo": "rac4-decomp",
+   "title": "Ratchet: Deadlocked",
+   "branches": [
+    {
+     "name": "main",
+     "commits": [
+      {
+       "sha": "2f32b6ebf920abf585727be617acddd62e80f36b",
+       "title": "Update ByteMatch links in README.md",
+       "author": "Lynder063",
+       "date": "2026-10-21T18:26:30Z"
+      },
+      {
+       "sha": "9ae23b31358b3ebf9a61bf2bdbbf97147ba8d92a",
+       "title": "Update ByteMatch links for rac-4-decomp",
+       "author": "Lynder063",
+       "date": "2026-10-21T18:25:39Z"
+      },
+      {
+       "sha": "a111a874e1db064cab7a5a38380d191b86e69e87",
+       "title": "Merge pull request #25 from chistianh/pal-oficial-2",
+       "author": "Veradictus",
+       "date": "2026-10-21T16:23:26Z"
+      },
+      {
+       "sha": "219c4bfa44d8f8a0c7c3c09f52c099db10e76f52",
+       "title": "Merge pull request #24 from chistianh/pal-oficial",
+       "author": "Veradictus",
+       "date": "2026-10-21T14:53:20Z"
+      },
+      {
+       "sha": "b6e987ec2833697c9069514fe63f474e151f18fb",
+       "title": "Merge pull request #18 from OpenRAC/spare",
+       "author": "Lynder063",
+       "date": "2026-10-21T10:22:45Z"
+      },
+      {
+       "sha": "f778b81ad625b01c576a8e594144c2437135db71",
+       "title": "Merge pull request #23 from OpenRAC/batch/b4-held-and-permuter",
+       "author": "Veradictus",
+       "date": "2026-10-21T09:46:27Z"
+      },
+      {
+       "sha": "b5f92291a79595f184d8fceb7205f2af5a60dbb5",
+       "title": "Merge pull request #22 from OpenRAC/batch/b3-m2c-externs",
+       "author": "Veradictus",
+       "date": "2026-10-21T08:38:12Z"
+      },
+      {
+       "sha": "72f0f6ca80ffb95bed6eb22d804974af9ccfbfbd",
+       "title": "Merge pull request #21 from OpenRAC/batch/b2-machine-drafts",
+       "author": "Veradictus",
+       "date": "2026-10-21T07:57:52Z"
+      },
+      {
+       "sha": "89872767f0fbf24943b8fb0e498d5217b2300ffc",
+       "title": "Merge pull request #20 from OpenRAC/batch/b1-small-functions",
+       "author": "Veradictus",
+       "date": "2026-10-21T07:49:14Z"
+      },
+      {
+       "sha": "0227faa99da777b372e229283902e70c454d706b",
+       "title": "Merge pull request #19 from OpenRAC/fix/new-us-names",
+       "author": "Veradictus",
+       "date": "2026-10-21T07:36:22Z"
+      },
+      {
+       "sha": "531d9f276dba05dfc8f5cdb9a961378da4dbd216",
+       "title": "Merge pull request #17 from OpenRAC/feat/pal-levels",
+       "author": "Veradictus",
+       "date": "2026-10-21T07:07:58Z"
+      }
+     ]
+    }
+   ],
+   "commitCount": 11,
+   "pullRequests": {
+    "merged": [
+     {
+      "number": 17,
+      "title": "feat: extract and build every level from both discs, recount functions from the binaries",
+      "author": "Veradictus",
+      "untrustedBody": "Levels pulled out of the discs properly, every program built byte-identical, and the functions recounted from the binaries. No matching in here, just restructure.\n\n**Both discs**\n- `tools/levels.py dump` reads the main program and all 49 programs (main image, frontbin, 47 levels) straight from the ISO's table of contents. No wrench unpack needed.\n- `tools/build_levels.py` rebuilds every program from its assembly and checks it against the disc: 49/49 MATCH on US (SCUS_974.65) and on PAL (SCES_532.85).\n- US is the primary target; PAL is the second version. Tools take `--version us|pal`, tables live in `config/us/` and `config/pal/`.\n\n**Counting (rac1-decomp's rules)**\n- Starts, joined pieces, padding and linker remnants found from the binaries; each distinct function counted once (copy levels, frontbin's second link of the menu code, k-th copy rule).\n- US: 15,056 functions / 5,175,440 bytes before, 18,085 / 5,782,424 now. The old list left 452 KB of the menu `.text` uncut and counted lev",
+      "mergedAt": "2026-10-21T07:07:59Z"
+     },
+     {
+      "number": 18,
+      "title": "Spare",
+      "author": "Lynder063",
+      "untrustedBody": "",
+      "mergedAt": "2026-10-21T10:22:46Z"
+     },
+     {
+      "number": 19,
+      "title": "fix(match_map): count new C under US catalogue names",
+      "author": "Veradictus",
+      "untrustedBody": "New C for functions the old US lists never had (the holes in the menu text, frontbin, level code) now maps straight to its US catalogue place, like src/pal/ does on PAL. The audit skips those names and says so, and reads level code from the US dumps when private/overlays isn't there. No count changes on main.",
+      "mergedAt": "2026-10-21T07:36:23Z"
+     },
+     {
+      "number": 20,
+      "title": "feat: match 463 small functions",
+      "author": "Veradictus",
+      "untrustedBody": "463 two-instruction functions: empty bodies, constant returns, single loads and stores through $gp or an argument. All of them were in the holes the old function list never cut, or in level code it counted as one. Each one checked with tools/check_func.py and the stock flags, and `match` in config/us/map.tsv.\n\nUS: 2,480 of 18,085 functions (3.71% code, fuzzy 4.19%). PAL: 2,435 of 18,113 (3.53%).",
+      "mergedAt": "2026-10-21T07:49:15Z"
+     },
+     {
+      "number": 21,
+      "title": "feat: match 425 small functions from machine drafts",
+      "author": "Veradictus",
+      "untrustedBody": "425 functions where the m2c draft, cleaned to plain C, already builds to the US bytes with the stock flags (call wrappers, field getters and setters, small leaf functions). Drafts that hardcode a global's address were left out. Each is `match` in config/us/map.tsv.\n\nThe legacy audit now reports two names as not exact: func_00547A98 and func_L01_004F3100. The old function lists cut them too short (36 and 28 bytes). The catalogue sizes are 44 and 36, and the C matches those.\n\nUS: 2,905 of 18,085 functions. PAL: 2,875 rows match.",
+      "mergedAt": "2026-10-21T07:57:52Z"
+     },
+     {
+      "number": 22,
+      "title": "feat: match 68 small functions from machine drafts",
+      "author": "Veradictus",
+      "untrustedBody": "m2c drafts again, this time with $gp-relative and absolute addresses turned into extern globals (D_XXXXXXXX) instead of hardcoded addresses. Each one builds to the US bytes with the stock flags and shows `match` in config/us/map.tsv.\n\nThe legacy audit now also flags func_00161890: the old list gave it 160 bytes, but the catalogue cuts it at 32, and the C matches those 32.\n\nUS: 2,973 of 18,085 functions.",
+      "mergedAt": "2026-10-21T08:38:13Z"
+     },
+     {
+      "number": 23,
+      "title": "feat: match 14 more functions, stage closer near misses",
+      "author": "Veradictus",
+      "untrustedBody": "- 13 m2c drafts held back from #21 because they hardcoded addresses: the addresses are now extern globals (unsized arrays where retail loads through lui), or the 0x constants turned out to be masks, not addresses.\n- func_004E7638 from the permuter: statement order and one temporary.\n- 21 near misses in nonmatching/ replaced by closer permuter results (tools/nonmatching.py stage only keeps a result that is closer), and func_004E7638 dropped from nonmatching/.\n\nAll matches pass tools/check_func.py with the stock flags and show `match` in config/us/map.tsv. US: 2,987 of 18,085 functions.",
+      "mergedAt": "2026-10-21T09:46:27Z"
+     },
+     {
+      "number": 24,
+      "title": "Add PAL versions of 16 functions whose US C differs on PAL (src/pal/)",
+      "author": "chistianh",
+      "untrustedBody": "These are `differs` rows of config/pal/map.tsv listed in docs/levels.md: the US C in src/ builds only to the US bytes. Each file here is the US C with the constants that table lists changed to the PAL values (50 Hz timings, 25/30 frame counts, a float 50.0 against 60.0, animation ids), named after the PAL function. Every one gives MATCH with\n`tools/check_func.py --version pal NAME file.c` on SCES_532.85 (checked with the final files), and a deliberately wrong constant gives BYTES.\n\nNot done here, because tools/match_map.py and tools/progress.py need the US dumps (baserom/us/main.elf), which this contributor does not have: config/us/map.tsv, config/pal/map.tsv and the two progress reports still need regenerating.",
+      "mergedAt": "2026-10-21T14:53:20Z"
+     },
+     {
+      "number": 25,
+      "title": "Add PAL C for the remaining 16 `differs` functions; use PAL callee names in src/pal/",
+      "author": "chistianh",
+      "untrustedBody": "This finishes the docs/levels.md table of US functions that differ on PAL: with these 16 every row has PAL C in `src/pal/`.\n\n**7 functions whose PAL twin differs only by constants or global offsets**\nfunc_004F6660, func_L00_00599F58, func_L00_006BB798, func_L00_007158A0, func_L00_00718458, func_L01_0055B6A8, func_L41_003DFDA0. These are 50 Hz timings (×5/6), shifted globals and one hardcoded address. Globals are named after the PAL address their instructions reach: HI16/LO16 pairs, and `$gp` = 0x2259FF for GPREL16.\n\n**9 functions that changed for PAL (no PAL twin of the US code)**\nEach PAL function was found between the nearest US neighbours that `config/pal/map.tsv` places on PAL, then confirmed by the shape of its code (89–98% alike; the next candidate was far below).\n\n| US | PAL | What changed on PAL |\n|---|---|---|\n| func_004A2698 | func_004A3388 | the menu has five entries (texts 0x153 and 0x154 added) |\n| func_004AD3E0 | func_004AE260 | also sets +0x158 of the entry to -1 |\n| fun",
+      "mergedAt": "2026-10-21T16:23:26Z"
+     }
+    ],
+    "opened": [
+     {
+      "number": 17,
+      "title": "feat: extract and build every level from both discs, recount functions from the binaries",
+      "author": "Veradictus",
+      "untrustedBody": "Levels pulled out of the discs properly, every program built byte-identical, and the functions recounted from the binaries. No matching in here, just restructure.\n\n**Both discs**\n- `tools/levels.py dump` reads the main program and all 49 programs (main image, frontbin, 47 levels) straight from the ISO's table of contents. No wrench unpack needed.\n- `tools/build_levels.py` rebuilds every program from its assembly and checks it against the disc: 49/49 MATCH on US (SCUS_974.65) and on PAL (SCES_532.85).\n- US is the primary target; PAL is the second version. Tools take `--version us|pal`, tables live in `config/us/` and `config/pal/`.\n\n**Counting (rac1-decomp's rules)**\n- Starts, joined pieces, padding and linker remnants found from the binaries; each distinct function counted once (copy levels, frontbin's second link of the menu code, k-th copy rule).\n- US: 15,056 functions / 5,175,440 bytes before, 18,085 / 5,782,424 now. The old list left 452 KB of the menu `.text` uncut and counted lev",
+      "mergedAt": "2026-10-21T07:07:59Z"
+     },
+     {
+      "number": 18,
+      "title": "Spare",
+      "author": "Lynder063",
+      "untrustedBody": "",
+      "mergedAt": "2026-10-21T10:22:46Z"
+     },
+     {
+      "number": 19,
+      "title": "fix(match_map): count new C under US catalogue names",
+      "author": "Veradictus",
+      "untrustedBody": "New C for functions the old US lists never had (the holes in the menu text, frontbin, level code) now maps straight to its US catalogue place, like src/pal/ does on PAL. The audit skips those names and says so, and reads level code from the US dumps when private/overlays isn't there. No count changes on main.",
+      "mergedAt": "2026-10-21T07:36:23Z"
+     },
+     {
+      "number": 20,
+      "title": "feat: match 463 small functions",
+      "author": "Veradictus",
+      "untrustedBody": "463 two-instruction functions: empty bodies, constant returns, single loads and stores through $gp or an argument. All of them were in the holes the old function list never cut, or in level code it counted as one. Each one checked with tools/check_func.py and the stock flags, and `match` in config/us/map.tsv.\n\nUS: 2,480 of 18,085 functions (3.71% code, fuzzy 4.19%). PAL: 2,435 of 18,113 (3.53%).",
+      "mergedAt": "2026-10-21T07:49:15Z"
+     },
+     {
+      "number": 21,
+      "title": "feat: match 425 small functions from machine drafts",
+      "author": "Veradictus",
+      "untrustedBody": "425 functions where the m2c draft, cleaned to plain C, already builds to the US bytes with the stock flags (call wrappers, field getters and setters, small leaf functions). Drafts that hardcode a global's address were left out. Each is `match` in config/us/map.tsv.\n\nThe legacy audit now reports two names as not exact: func_00547A98 and func_L01_004F3100. The old function lists cut them too short (36 and 28 bytes). The catalogue sizes are 44 and 36, and the C matches those.\n\nUS: 2,905 of 18,085 functions. PAL: 2,875 rows match.",
+      "mergedAt": "2026-10-21T07:57:52Z"
+     },
+     {
+      "number": 22,
+      "title": "feat: match 68 small functions from machine drafts",
+      "author": "Veradictus",
+      "untrustedBody": "m2c drafts again, this time with $gp-relative and absolute addresses turned into extern globals (D_XXXXXXXX) instead of hardcoded addresses. Each one builds to the US bytes with the stock flags and shows `match` in config/us/map.tsv.\n\nThe legacy audit now also flags func_00161890: the old list gave it 160 bytes, but the catalogue cuts it at 32, and the C matches those 32.\n\nUS: 2,973 of 18,085 functions.",
+      "mergedAt": "2026-10-21T08:38:13Z"
+     },
+     {
+      "number": 23,
+      "title": "feat: match 14 more functions, stage closer near misses",
+      "author": "Veradictus",
+      "untrustedBody": "- 13 m2c drafts held back from #21 because they hardcoded addresses: the addresses are now extern globals (unsized arrays where retail loads through lui), or the 0x constants turned out to be masks, not addresses.\n- func_004E7638 from the permuter: statement order and one temporary.\n- 21 near misses in nonmatching/ replaced by closer permuter results (tools/nonmatching.py stage only keeps a result that is closer), and func_004E7638 dropped from nonmatching/.\n\nAll matches pass tools/check_func.py with the stock flags and show `match` in config/us/map.tsv. US: 2,987 of 18,085 functions.",
+      "mergedAt": "2026-10-21T09:46:27Z"
+     },
+     {
+      "number": 24,
+      "title": "Add PAL versions of 16 functions whose US C differs on PAL (src/pal/)",
+      "author": "chistianh",
+      "untrustedBody": "These are `differs` rows of config/pal/map.tsv listed in docs/levels.md: the US C in src/ builds only to the US bytes. Each file here is the US C with the constants that table lists changed to the PAL values (50 Hz timings, 25/30 frame counts, a float 50.0 against 60.0, animation ids), named after the PAL function. Every one gives MATCH with\n`tools/check_func.py --version pal NAME file.c` on SCES_532.85 (checked with the final files), and a deliberately wrong constant gives BYTES.\n\nNot done here, because tools/match_map.py and tools/progress.py need the US dumps (baserom/us/main.elf), which this contributor does not have: config/us/map.tsv, config/pal/map.tsv and the two progress reports still need regenerating.",
+      "mergedAt": "2026-10-21T14:53:20Z"
+     },
+     {
+      "number": 25,
+      "title": "Add PAL C for the remaining 16 `differs` functions; use PAL callee names in src/pal/",
+      "author": "chistianh",
+      "untrustedBody": "This finishes the docs/levels.md table of US functions that differ on PAL: with these 16 every row has PAL C in `src/pal/`.\n\n**7 functions whose PAL twin differs only by constants or global offsets**\nfunc_004F6660, func_L00_00599F58, func_L00_006BB798, func_L00_007158A0, func_L00_00718458, func_L01_0055B6A8, func_L41_003DFDA0. These are 50 Hz timings (×5/6), shifted globals and one hardcoded address. Globals are named after the PAL address their instructions reach: HI16/LO16 pairs, and `$gp` = 0x2259FF for GPREL16.\n\n**9 functions that changed for PAL (no PAL twin of the US code)**\nEach PAL function was found between the nearest US neighbours that `config/pal/map.tsv` places on PAL, then confirmed by the shape of its code (89–98% alike; the next candidate was far below).\n\n| US | PAL | What changed on PAL |\n|---|---|---|\n| func_004A2698 | func_004A3388 | the menu has five entries (texts 0x153 and 0x154 added) |\n| func_004AD3E0 | func_004AE260 | also sets +0x158 of the entry to -1 |\n| fun",
+      "mergedAt": "2026-10-21T16:23:26Z"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": {
+    "before": {
+     "code": {
+      "done": 213856,
+      "total": 5175440
+     },
+     "functions": {
+      "done": 2019,
+      "total": 15056
+     }
+    },
+    "after": {
+     "code": {
+      "done": 232744,
+      "total": 5782424
+     },
+     "functions": {
+      "done": 3165,
+      "total": 18085
+     }
+    }
+   },
+   "contributors": [
+    "chistianh",
+    "Lynder063",
+    "Veradictus"
+   ]
+  },
+  {
+   "repo": "openrac-mods",
+   "title": "OpenRAC mods",
+   "branches": [
+    {
+     "name": "master",
+     "commits": [
+      {
+       "sha": "e7414185913fe8f838340e8274040a9353522939",
+       "title": "fix(lock-strafe): its page links to the master branch",
+       "author": "Veradictus",
+       "date": "2026-10-21T23:56:46Z"
+      },
+      {
+       "sha": "7d19c5794382486753dfad2c7e94f10e8104e753",
+       "title": "docs: the mods are GPL-3.0; the SDK they are built with is MIT",
+       "author": "Veradictus",
+       "date": "2026-10-21T22:30:08Z"
+      },
+      {
+       "sha": "6d9caf54e6f9128ab51ba096f28875ed7edebea0",
+       "title": "build: pin the mod SDK 1.1.1, whose workflow releases one mod per tag",
+       "author": "Veradictus",
+       "date": "2026-10-21T22:02:27Z"
+      },
+      {
+       "sha": "56146ed8950f3543ba952961b24bbfb6d1054760",
+       "title": "fix(item-randomizer): built for the mod interface 1.1",
+       "author": "Veradictus",
+       "date": "2026-10-21T21:57:13Z"
+      },
+      {
+       "sha": "59f416cfc273f6c57194126e656bfe1cb9bfea6f",
+       "title": "build: pin the mod SDK 1.1.0; link the modding guides",
+       "author": "Veradictus",
+       "date": "2026-10-21T21:56:44Z"
+      },
+      {
+       "sha": "c60898061075944918e2a8000f6cae1c5c593c11",
+       "title": "fix(lock-strafe): built for the mod interface 1.1",
+       "author": "Veradictus",
+       "date": "2026-10-21T21:56:44Z"
+      },
+      {
+       "sha": "dd576b650c2acc1f2d6b3352f865d72f0167b32e",
+       "title": "test(lock-strafe): the load test's host takes hook points by their ids",
+       "author": "Veradictus",
+       "date": "2026-10-21T21:56:44Z"
+      },
+      {
+       "sha": "0d657ad820340d7638379f0d25d9c7b93e9a8af8",
+       "title": "docs: native and script mods, and button-swap",
+       "author": "Veradictus",
+       "date": "2026-10-21T21:56:44Z"
+      },
+      {
+       "sha": "858f30363b58c4628028f471593c7b01fa12f9ff",
+       "title": "ci: the SDK template's workflow, which packages script mods",
+       "author": "Veradictus",
+       "date": "2026-10-21T21:56:28Z"
+      },
+      {
+       "sha": "e806814f294f3f126c0edeaf8b0418b0dc1e20f7",
+       "title": "feat(button-swap): a script mod that swaps two buttons",
+       "author": "Veradictus",
+       "date": "2026-10-21T21:56:28Z"
+      },
+      {
+       "sha": "3c1132819cb734bdb5c4ba016da4dd1d55f4768b",
+       "title": "docs(lock-strafe): the mod is C++ now",
+       "author": "Veradictus",
+       "date": "2026-10-21T21:56:28Z"
+      },
+      {
+       "sha": "a87fdce3c47efb574625472593437a0850682cfd",
+       "title": "test(lock-strafe): the load test checks the interface the SDK names",
+       "author": "Veradictus",
+       "date": "2026-10-21T21:56:28Z"
+      },
+      {
+       "sha": "968e9a4b1b70e532f0a9c90958f72524a7bedeb5",
+       "title": "feat(lock-strafe): the mod in C++ on the SDK's openrac/mod.hpp",
+       "author": "Veradictus",
+       "date": "2026-10-21T21:56:28Z"
+      },
+      {
+       "sha": "40d9303ee974f91f0460021bb17aa875da4e9c0b",
+       "title": "docs(item-randomizer): how to play it, and how it works",
+       "author": "Veradictus",
+       "date": "2026-10-21T21:55:24Z"
+      },
+      {
+       "sha": "2b0542b95046418981dade2adca924982a1659f6",
+       "title": "feat(item-randomizer): a seeded item randomizer with logic, on OpenRAC's item hook points",
+       "author": "Veradictus",
+       "date": "2026-10-21T21:55:24Z"
+      },
+      {
+       "sha": "3c11cc26bab24fe250e76127fb6ff5176014f2fe",
+       "title": "build: pin the mod SDK 1.0.3",
+       "author": "Veradictus",
+       "date": "2026-10-21T20:34:17Z"
+      },
+      {
+       "sha": "1475f8b3d756026b78c91b67f3c0660f1885aaad",
+       "title": "fix: LF line endings on every system, as the SDK template's",
+       "author": "Veradictus",
+       "date": "2026-10-21T20:34:17Z"
+      },
+      {
+       "sha": "1d266c0f36d5c167fded3c2e23a6fd4948cc854c",
+       "title": "build: pin the mod SDK 1.0.2; install from the launcher by link",
+       "author": "Veradictus",
+       "date": "2026-10-21T20:31:14Z"
+      },
+      {
+       "sha": "11237440719179ebf78951d318ba84be2350cd53",
+       "title": "ci: the SDK template's workflow, with SHA256SUMS and published releases",
+       "author": "Veradictus",
+       "date": "2026-10-21T20:31:14Z"
+      },
+      {
+       "sha": "7c11ca00e36c814b8e56d8d331df47852c3af271",
+       "title": "build: pin the mod SDK 1.0.1",
+       "author": "Veradictus",
+       "date": "2026-10-21T19:53:41Z"
+      },
+      {
+       "sha": "9e0f75111f4957c0e243a4a67a3466e375fa03ef",
+       "title": "ci: build, test and package every mod for Windows, Linux and macOS",
+       "author": "Veradictus",
+       "date": "2026-10-21T19:50:49Z"
+      },
+      {
+       "sha": "9a5e91f833129b2a9c4ce08839d968501eca4b4e",
+       "title": "docs: what the mods are, how to build and install them",
+       "author": "Veradictus",
+       "date": "2026-10-21T19:50:49Z"
+      },
+      {
+       "sha": "4464658230f61cb6683b78131eed67d1128ffa64",
+       "title": "feat(lock-strafe): the strafe as a mod on OpenRAC's interface 1.0",
+       "author": "Veradictus",
+       "date": "2026-10-21T19:50:49Z"
+      },
+      {
+       "sha": "8485d17503db1e5f025e5cfd6f7e54d87165a635",
+       "title": "build: a CMake project on the released mod SDK, pinned",
+       "author": "Veradictus",
+       "date": "2026-10-21T19:50:48Z"
+      },
+      {
+       "sha": "a6ef6d76353e3950428e8de96d57d200fc54d7e2",
+       "title": "feat(lock-strafe): the strafe decision and its test, from OpenRAC",
+       "author": "Veradictus",
+       "date": "2026-10-21T19:50:48Z"
+      },
+      {
+       "sha": "5ceefb551cbc4c7f1833c58ac5f0e547b81828d5",
+       "title": "chore: GPL-3.0 license, ignores and C formatting",
+       "author": "Veradictus",
+       "date": "2026-10-21T19:50:48Z"
+      }
+     ]
+    }
+   ],
+   "commitCount": 26,
+   "pullRequests": {
+    "merged": [],
+    "opened": []
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [
+    {
+     "tag": "item-randomizer-v1.0.0",
+     "name": "item-randomizer-v1.0.0",
+     "publishedAt": "2026-10-21T22:32:26Z"
+    },
+    {
+     "tag": "lock-strafe-v1.0.0",
+     "name": "lock-strafe-v1.0.0",
+     "publishedAt": "2026-10-21T22:05:48Z"
+    }
+   ],
+   "progress": null,
+   "contributors": [
+    "Veradictus"
+   ]
+  }
+ ]
+}
