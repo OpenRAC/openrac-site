@@ -158,10 +158,11 @@ export function segments(value: string, known: readonly string[], owner?: string
 export const newsPercent = ({ done, total }: NewsRatio) => (done / total) * 100;
 export const formatPercent = (r: NewsRatio) => `${newsPercent(r).toFixed(2)}%`;
 
-/** How far code matching moved over the day, in points, to two decimals; null when it stood still or is unknown. */
+/** How far code matching moved over the day, between the two-decimal figures people see; null when those read the same or are unknown. */
 export function progressChange(p: NewsProject["progress"]): string | null {
   if (!p?.before?.code || !p.after.code) return null;
-  const change = Number((newsPercent(p.after.code) - newsPercent(p.before.code)).toFixed(2));
+  const shown = (r: NewsRatio) => Number(newsPercent(r).toFixed(2));
+  const change = Number((shown(p.after.code) - shown(p.before.code)).toFixed(2));
   return change === 0 ? null : `${change > 0 ? "+" : "−"}${Math.abs(change).toFixed(2)}`;
 }
 

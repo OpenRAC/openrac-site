@@ -11,6 +11,7 @@ export default function AiView() {
         <p>Parts of this project are built with the help of AI coding assistants. We think that should be stated plainly rather than hidden, so here is how we use it and where we draw the line.</p>
         <h3>What it does here</h3>
         <p>Matching decompilation is unusually well suited to machine help because success is objective. A function either compiles to the original bytes or it does not. An assistant proposes C, the compiler judges it, and that result is the only thing that counts. A wrong guess costs nothing and never ships.</p>
+        <p>Our daily news reports are written with AI as well. A named person uses a tool of their choice, reads the result and submits it for review, and each report says who wrote it and with what. Those reports are checked against the day&apos;s public GitHub data, and you can report a mistake from any of them.</p>
         <h3>What it does not do</h3>
         <p>AI does not decide what the project is. People set the goals, review what lands, and answer for it. Every accepted function is reproducible from the public toolchain, so anyone can check the work without trusting the tool that helped write it.</p>
         <h3>Our rules</h3>

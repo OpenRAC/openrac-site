@@ -16,7 +16,7 @@ export default function SiteFooter() {
         </Link>
         <div className="grid gap-2">
           <p className="max-w-[820px]">
-            OpenRAC · unofficial community project · <Link className={a} href="/mods" transitionTypes={PAGE_TRANSITION}>Mods</Link> · <Link className={a} href="/#legal" transitionTypes={PAGE_TRANSITION}>Legal</Link> ·{" "}
+            OpenRAC · unofficial community project · <Link className={a} href="/mods" transitionTypes={PAGE_TRANSITION}>Mods</Link> · <Link className={a} href="/news" transitionTypes={PAGE_TRANSITION}>News</Link> · <Link className={a} href="/#legal" transitionTypes={PAGE_TRANSITION}>Legal</Link> ·{" "}
             <a className={a} href="https://github.com/OpenRAC">GitHub</a> · <a className={a} href={DISCORD_URL}>Discord</a>
           </p>
           <p className="max-w-[820px]">

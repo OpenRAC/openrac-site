@@ -117,6 +117,8 @@ export function llmsTxt(site: string, progress: ProgressMap, mods: ModText[]): s
 - [Progress data](${site}/progress.json): the numbers above as JSON, refreshed with the page
 - [Mods](${site}/mods): community mods for the PC port, installed into the launcher in one click with their dependencies
 - [Mod list data](${site}/mods.json): every listed mod as JSON
+- [News](${site}/news): what happens across the projects each day, with reports written by named people using AI tools
+- [News feed](${site}/news.xml): the written reports as RSS
 - [Full text](${site}/llms-full.txt): this file plus the FAQ in full
 
 ${modsSection(site, mods)}
@@ -203,6 +205,32 @@ export function homeLd(site: string, release?: LauncherRelease | null) {
       },
       orgLd(site),
       ...(release ? [launcherLd(site, release)] : []),
+    ],
+  };
+}
+
+/** A day's written report as a schema.org Article: its named author, and how it was made. */
+export function newsDayLd(site: string, r: { date: string; headline: string; summary: string; author: string; tool: string }) {
+  const url = `${site}/news/${r.date}`;
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Article",
+        "@id": `${url}#report`,
+        headline: r.headline,
+        description: r.summary,
+        url,
+        datePublished: r.date,
+        author: { "@type": "Person", name: r.author, url: `https://github.com/${encodeURIComponent(r.author)}` },
+        creditText: `Written by ${r.author} with ${r.tool} from public GitHub data`,
+        isPartOf: { "@id": `${site}/#website` },
+      },
+      breadcrumbLd([
+        { name: "Home", url: `${site}/` },
+        { name: "News", url: `${site}/news` },
+        { name: r.date, url },
+      ]),
     ],
   };
 }

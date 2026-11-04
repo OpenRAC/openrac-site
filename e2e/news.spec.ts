@@ -45,6 +45,36 @@ test("a day with only facts invites a report and stays out of search", async ({ 
   await expect(page.locator('meta[name="robots"][content*="noindex"]')).toHaveCount(1);
 });
 
+test("the site points to the news: nav, home card, footer, sitemap, llms.txt", async ({ page, request }) => {
+  await page.goto("/");
+  await expect(page.getByRole("navigation").first().getByRole("link", { name: "News", exact: true })).toBeAttached();
+  const card = page.locator("#news");
+  await expect(card).toContainText("87.68%");
+  await expect(card).toContainText("Written by");
+  await card.getByRole("link", { name: "Read the day's news" }).click();
+  await expect(page).toHaveURL(new RegExp(`/news/${DAY}$`));
+  await expect(page.getByRole("navigation").first().getByRole("link", { name: "News", exact: true })).toHaveAttribute("aria-current", "page");
+  await expect(page.getByRole("contentinfo").getByRole("link", { name: "News" })).toHaveAttribute("href", "/news");
+  const ld = JSON.parse((await page.locator('script[type="application/ld+json"]').first().textContent()) ?? "{}");
+  expect(ld["@graph"][0].author.name).toBe("Lynder063");
+  const sitemap = await request.get("/sitemap.xml").then((r) => r.text());
+  expect(sitemap).toContain(`/news/${DAY}<`);
+  expect(sitemap).not.toContain("/news/2026-11-02");
+  expect(await request.get("/llms.txt").then((r) => r.text())).toContain("/news.xml");
+});
+
+test("the header still fits with News at its tightest widths", async ({ page }) => {
+  for (const width of [821, 900, 1023, 1024]) {
+    await page.setViewportSize({ width, height: 700 });
+    await page.goto(`/news/${DAY}`);
+    expect(await page.evaluate(() => document.documentElement.scrollWidth - innerWidth), `sideways scroll at ${width}`).toBeLessThanOrEqual(0);
+    const overflow = await page.locator("header nav").evaluate((nav) => nav.scrollWidth - nav.clientWidth);
+    expect(overflow, `nav overflow at ${width}`).toBeLessThanOrEqual(0);
+    const bar = await page.locator("header").boundingBox();
+    expect(bar!.height, `one line at ${width}`).toBeLessThanOrEqual(52);
+  }
+});
+
 test("moving between days: next, previous and the calendar", async ({ page }) => {
   await page.goto(`/news/${DAY}`);
   await page.getByRole("link", { name: "‹ Monday, 2 November 2026" }).click();

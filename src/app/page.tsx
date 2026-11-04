@@ -6,12 +6,14 @@ import Credits from "@/components/sections/Credits";
 import Download from "@/components/sections/Download";
 import Faq from "@/components/sections/Faq";
 import Hero from "@/components/sections/Hero";
+import LatestNews from "@/components/sections/LatestNews";
 import HowItWorks from "@/components/sections/HowItWorks";
 import Legal from "@/components/sections/Legal";
 import Progress from "@/components/sections/Progress";
 import Resources from "@/components/sections/Resources";
 import { getActivity } from "@/lib/activity";
 import { getModCatalog } from "@/lib/mods";
+import { getLatestReports } from "@/lib/news";
 import { isWithdrawn } from "@/lib/mods/logic";
 import { homeLd, ldJson, siteUrl } from "@/lib/machine";
 import { getProgress } from "@/lib/progress";
@@ -22,7 +24,7 @@ export const revalidate = 300;
 
 /** The home page: every section in order, with the progress, activity and latest launcher builds loaded on the server. */
 export default async function Home() {
-  const [progress, commits, release, dev, { catalog }] = await Promise.all([getProgress(), getActivity(), getLauncherRelease(), getDevBuild(), getModCatalog()]);
+  const [progress, commits, release, dev, { catalog }, [news]] = await Promise.all([getProgress(), getActivity(), getLauncherRelease(), getDevBuild(), getModCatalog(), getLatestReports(1)]);
   // Counted as on /mods, so the two numbers agree.
   const mods = catalog.mods.filter((m) => !isWithdrawn(catalog.revoked, m.id)).length;
 
@@ -34,6 +36,7 @@ export default async function Home() {
       <Download release={release} dev={dev} />
       <Progress progress={progress} />
       <Contribute />
+      {news && <LatestNews report={news} />}
       <Activity commits={commits} />
       <HowItWorks />
       <Resources />

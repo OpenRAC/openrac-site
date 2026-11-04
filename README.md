@@ -45,6 +45,7 @@ the same data as the page (`src/lib/machine.ts`), so it never says anything the 
 | `/llms.txt` | a short Markdown map of the site for AI tools ([llmstxt.org](https://llmstxt.org)) |
 | `/llms-full.txt` | the same, plus the FAQ in full |
 | `/mods.json` | every listed mod as JSON, open to any origin (CORS) |
+| `/news.xml` | the written news reports as RSS |
 | `/robots.txt` | allows everything; `Content-Signal: search=yes, ai-input=yes, ai-train=yes` says so explicitly |
 
 The home page and every mod page also carry schema.org JSON-LD (the projects as `SoftwareSourceCode`, mods as
@@ -62,6 +63,13 @@ the index build and served from this site (`/mods/media/...`), so visitors never
 - Mod pages show the latest comments of the mod's GitHub Discussion (needs `GITHUB_TOKEN`); commenting happens on GitHub.
 
 Browser tests: `npm run test:e2e` (Playwright) builds the site against the shared fixture index and runs `e2e/`.
+
+## News
+
+`/news` shows what happens across the projects each UTC day, read on the server from
+[openrac-news](https://github.com/OpenRAC/openrac-news) (`NEWS_DATA_URL` in `.env.example`), so a new day needs no deploy.
+A job there collects each day's facts from GitHub with no AI. People add written reports through pull requests, using their
+own AI tools, and every report names its author and tool. Text from those files is only ever shown as plain text.
 
 ## GitHub access
 

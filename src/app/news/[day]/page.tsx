@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import PageTransition from "@/components/layout/PageTransition";
 import DayCalendar from "@/components/news/DayCalendar";
 import { ProgressLine, projectStyle, ReportText, WrittenBy } from "@/components/news/parts";
+import { ldJson, newsDayLd, siteUrl } from "@/lib/machine";
 import { getNewsDay, getNewsDays } from "@/lib/news";
 import { formatDay, isActive, isNewsDay, neighbours, NEWS_CONTRIBUTING } from "@/lib/news/logic";
 import { newsAlternates } from "@/lib/news/metadata";
@@ -56,6 +57,7 @@ export default async function NewsDayPage(props: PageProps<"/news/[day]">) {
   return (
     <PageTransition>
       <main className="mx-auto max-w-[1080px] px-4 pb-12 pt-8">
+        {report && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: ldJson(newsDayLd(siteUrl(), report)) }} />}
         <p className="mb-2 font-orbitron text-[12px] font-bold uppercase tracking-[.2em] text-amber">
           <time dateTime={day}>{formatDay(day)}</time>
         </p>
@@ -96,7 +98,7 @@ export default async function NewsDayPage(props: PageProps<"/news/[day]">) {
                         <Link href={`/news/${day}/${p.repo}`} className="grid gap-2.5 rounded-xl border border-line bg-panel px-4 py-3.5 no-underline transition-colors hover:border-amber">
                           <span className="flex flex-wrap items-center gap-2">
                             <span className="rounded-full border border-line px-2.5 py-1 font-orbitron text-[11px] font-semibold tracking-wider text-gold" style={projectStyle(p.repo)}>{p.title}</span>
-                            <span className="text-[13px] text-dim">{p.commitCount} landed · {p.merged.length} merged · {p.opened.length} opened</span>
+                            <span className="text-[13px] text-dim">{p.commitCount} {p.commitCount === 1 ? "commit" : "commits"} · {p.merged.length} merged · {p.opened.length} opened</span>
                           </span>
                           {section && <span className="font-semibold text-hi">{section.headline}</span>}
                           {p.progress && <ProgressLine progress={p.progress} />}

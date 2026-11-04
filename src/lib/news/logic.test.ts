@@ -99,6 +99,8 @@ test("progress reads as the site shows it", () => {
   assert.equal(progressChange({ before: p.after, after: p.after }), null);
   assert.equal(progressChange({ before: null, after: p.after }), null);
   assert.equal(progressChange(null), null);
+  // Up by a hair, but both read 8.72%: no change to show.
+  assert.equal(progressChange({ before: { code: { done: 87201, total: 1000000 } }, after: { code: { done: 87204, total: 1000000 } } }), null);
 });
 
 test("totals come through unchanged, and a project with no activity reads as inactive", () => {
