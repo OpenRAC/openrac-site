@@ -2,6 +2,7 @@ import type { Element, Root, RootContent } from "hast";
 import ReactMarkdown, { type Components } from "react-markdown";
 import rehypeRaw from "rehype-raw";
 import rehypeSanitize, { defaultSchema } from "rehype-sanitize";
+import rehypeSlug from "rehype-slug";
 import remarkGfm from "remark-gfm";
 
 /** GitHub's allow-list, less <picture> and <source>: their srcset would load from other servers. Dropping them leaves the <img> inside. */
@@ -45,15 +46,19 @@ function resolve(href: string, base?: string): string | null {
  */
 function componentsFor(base?: string): Components {
   return {
-    a: ({ href = "", children }) => {
+    a: ({ href = "", id, node, children }) => {
+      const anchor = id ?? node?.properties.name?.toString(); // a footnote's way back, or an old-style <a name="x">: something in-page links land on
+      // The allow-list prefixes every id, so a page's own #details can't be a README's target: links follow.
+      const inPage = href.match(/^#(?:user-content-)?(.+)/);
+      if (inPage) return <a id={anchor} href={`#user-content-${inPage[1]}`}>{children}</a>;
       const to = href ? resolve(href, base) : null; // the allow-list can leave a link with no address
-      if (to === null) return <>{children}</>;
+      if (to === null) return anchor ? <a id={anchor}>{children}</a> : <>{children}</>;
       return external(to) ? (
-        <a href={to} rel="nofollow ugc noopener noreferrer">
+        <a id={anchor} href={to} rel="nofollow ugc noopener noreferrer">
           {children}
         </a>
       ) : (
-        <a href={to}>{children}</a>
+        <a id={anchor} href={to}>{children}</a>
       );
     },
     img: ({ src, alt }) => {
@@ -75,21 +80,22 @@ function componentsFor(base?: string): Components {
         <table>{children}</table>
       </div>
     ),
-    h1: ({ children }) => <h2>{children}</h2>,
-    h2: ({ children }) => <h3>{children}</h3>,
-    h3: ({ children }) => <h4>{children}</h4>,
-    h4: ({ children }) => <h5>{children}</h5>,
+    h1: ({ id, children }) => <h2 id={id}>{children}</h2>,
+    h2: ({ id, children }) => <h3 id={id}>{children}</h3>,
+    h3: ({ id, children }) => <h4 id={id}>{children}</h4>,
+    h4: ({ id, children }) => <h5 id={id}>{children}</h5>,
   };
 }
 
 /**
  * Renders Markdown on the server to React elements (raw HTML goes through the allow-list, never injected as is).
  * `base`: the address relative links are read against (a mod's folder in its repository, at its release).
+ * `anchors`: give headings ids for in-page links; only for text shown once on a page, as ids must be unique.
  */
-export default function Markdown({ children, base }: { children: string; base?: string }) {
+export default function Markdown({ children, base, anchors }: { children: string; base?: string; anchors?: boolean }) {
   return (
     <div className="prose prose-invert prose-openrac max-w-none">
-      <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw, [rehypeSanitize, schema], unlinkPictures]} components={componentsFor(base)}>
+      <ReactMarkdown remarkPlugins={[remarkGfm]} remarkRehypeOptions={{ clobberPrefix: "" }} rehypePlugins={[rehypeRaw, ...(anchors ? [rehypeSlug] : []), [rehypeSanitize, schema], unlinkPictures]} components={componentsFor(base)}>
         {children}
       </ReactMarkdown>
     </div>

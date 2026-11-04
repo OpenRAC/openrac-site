@@ -138,6 +138,29 @@ test("README from a second index renders inert", async ({ page }) => {
   await expect(page.locator('#about a', { hasText: "docs" })).toHaveAttribute("href", /^https:\/\/github\.com\/OpenRAC\/openrac-mods\/blob\/evil-readme-v1\.2\.0\/camera-base\/docs\/setup\.md$/);
 });
 
+test("README: in-page links reach its headings and footnotes, never the page's own sections", async ({ page }) => {
+  await page.goto("/mods/evil-readme");
+  await revealAll(page);
+  const heading = page.locator("#about h3#user-content-set-up");
+  await expect(heading).toHaveText("Set up");
+  await expect(page.locator('#about a[href="#details"]')).toHaveCount(0);
+  await expect(page.locator('#about a[href="#user-content-details"]')).toHaveCount(1);
+  await expect(page.locator('#about a[href="#user-content-set-up"]')).toHaveCount(2);
+  await page.locator("#about a", { hasText: "to setup" }).click();
+  await expect(page).toHaveURL(/#user-content-set-up$/);
+  await expect(heading).toBeInViewport();
+  // Clear of the stuck header and contents bar, once the smooth scroll has settled.
+  const nav = page.getByRole("navigation", { name: "On this page" });
+  await expect.poll(async () => (await heading.boundingBox())!.y - (await nav.boundingBox())!.y - (await nav.boundingBox())!.height).toBeGreaterThanOrEqual(0);
+  await page.locator('#about sup a[href="#user-content-fn-1"]').click();
+  await expect(page.locator("#about li#user-content-fn-1")).toContainText("A footnote.");
+  await expect(page.locator("#about li#user-content-fn-1")).toBeInViewport();
+  await expect(page.locator('#about a[href="#user-content-fnref-1"]')).toHaveCount(1);
+  await expect(page.locator("#about sup a#user-content-fnref-1")).toHaveCount(1);
+  await expect(page.locator('#about a[href="#user-content-old-anchor"]')).toHaveCount(1);
+  await expect(page.locator("#about a#user-content-old-anchor")).toHaveCount(1);
+});
+
 test("SEO: title, canonical, share card, JSON-LD, robots and sitemap", async ({ page, request }) => {
   await page.goto("/mods/lock-strafe");
   await expect(page).toHaveTitle("Lock-strafe · R&C1 mod · OpenRAC");

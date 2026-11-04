@@ -215,6 +215,8 @@
 .prose-openrac :where(code):not(:where(pre *))::before,
 .prose-openrac :where(code):not(:where(pre *))::after { content: none; }
 .prose-openrac :where(img) { border-radius: 0.75rem; }
+/* An in-page link lands below the mod page's stuck contents bar (html's scroll-padding clears the header). */
+.prose-openrac :where([id^="user-content-"]) { scroll-margin-top: 4.5rem; }
 /* A long name or address in an author's text wraps instead of running off a phone's screen. */
 .prose-openrac { overflow-wrap: break-word; }
 .prose-openrac :where(code):not(:where(pre *)) { overflow-wrap: anywhere; }
