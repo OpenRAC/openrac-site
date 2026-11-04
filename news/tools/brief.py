@@ -177,6 +177,8 @@ def template(week: str, facts: dict, login: str) -> dict:
         "week": week,
         "author": login,
         "tool": "",
+        "title": "",
+        "description": "",
         "headline": "",
         "summary": "",
         "projects": {p["repo"]: {"headline": "", "summary": "", "highlights": []} for p in facts["projects"] if active(p)},

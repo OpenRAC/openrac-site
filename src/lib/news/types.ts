@@ -89,6 +89,9 @@ export interface NewsReport {
   week: string;
   author: string;
   tool: string;
+  /** For search results and link previews; see news/AGENTS.md. */
+  title: string;
+  description: string;
   headline: string;
   summary: string;
   projects: Record<string, NewsReportSection>;

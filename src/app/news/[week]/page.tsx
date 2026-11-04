@@ -6,7 +6,7 @@ import { accentStyle, gameOf, NoReport, ProjectCard, ReportSection, ReportText, 
 import Backdrop from "@/components/ui/Backdrop";
 import { ldJson, newsWeekLd, siteUrl } from "@/lib/machine";
 import { getNewsIndex, getNewsWeek } from "@/lib/news";
-import { formatShortDay, formatWeekName, formatWeekRange, isActive, isNewsWeek, leadProject, neighbours, reportSources } from "@/lib/news/logic";
+import { authorUrl, formatShortDay, formatWeekName, formatWeekRange, isActive, isNewsWeek, leadProject, neighbours, reportSources } from "@/lib/news/logic";
 import { newsAlternates } from "@/lib/news/metadata";
 
 // Built ahead from the news/ folder. An address not in it reaches the page, which answers with our own 404.
@@ -18,15 +18,21 @@ export async function generateMetadata(props: PageProps<"/news/[week]">): Promis
   const { week } = await props.params;
   if (!isNewsWeek(week)) return { title: "News not found", robots: { index: false } };
   const data = await getNewsWeek(week);
-  const title = `${formatWeekName(week)} · News`;
+  const url = `/news/${week}`;
   // Facts alone make a thin page: only weeks with a written report are offered to search engines.
-  if (data?.report.status !== "ok") return { title, description: `What happened across the OpenRAC projects in ${formatWeekName(week)}.`, robots: { index: false }, alternates: newsAlternates(`/news/${week}`) };
-  const { report } = data.report;
+  if (data?.report.status !== "ok") {
+    const title = `${formatWeekName(week)} · News`;
+    const description = `What happened across the OpenRAC projects in ${formatWeekName(week)}.`;
+    return { title, description, robots: { index: false }, alternates: newsAlternates(url), openGraph: { title: `${title} · OpenRAC`, description, url, type: "website" }, twitter: { card: "summary_large_image", title: `${title} · OpenRAC`, description } };
+  }
+  const { title, description, author } = data.report.report;
   return {
-    title: `${report.headline} · News`,
-    description: report.summary.slice(0, 155),
-    alternates: newsAlternates(`/news/${week}`),
-    openGraph: { title: report.headline, description: report.summary.slice(0, 200), url: `/news/${week}`, type: "article", publishedTime: `${data.facts.end}T23:59:59Z` },
+    title,
+    description,
+    authors: [{ name: author, url: authorUrl(author) }],
+    alternates: newsAlternates(url),
+    openGraph: { title, description, url, type: "article", siteName: "OpenRAC", publishedTime: `${data.facts.end}T23:59:59Z`, authors: [authorUrl(author)], section: "News" },
+    twitter: { card: "summary_large_image", title, description },
   };
 }
 

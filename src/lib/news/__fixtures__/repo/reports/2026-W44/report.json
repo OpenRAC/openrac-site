@@ -3,6 +3,8 @@
  "week": "2026-W44",
  "author": "Lynder063",
  "tool": "Claude Code",
+ "title": "Ratchet & Clank reaches 100% matched",
+ "description": "The first game is fully matched, Going Commando rises to 84.74%, and the launcher gains install links.",
  "headline": "Ratchet & Clank reaches 100% matched",
  "summary": "The first game is fully matched (rac1-decomp#135), and Going Commando rose to 84.74% (rac2-decomp#100). The launcher gained install links (OpenRAC#161). <script>window.__pwned=1</script> unknown#7 stays plain.",
  "projects": {

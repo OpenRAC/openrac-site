@@ -19,6 +19,9 @@ from pathlib import Path
 
 from common import FORMAT, ROOT, day_path, is_week, report_path, week_days
 
+TITLE_MAX = 55
+DESCRIPTION_MIN = 70
+DESCRIPTION_MAX = 155
 HEADLINE_MAX = 120
 SUMMARY_MAX = 1200
 PROJECT_SUMMARY_MAX = 800
@@ -38,7 +41,7 @@ def refs_of(project: dict) -> set[int]:
 
 def text_fields(report: dict) -> list[tuple[str, str, str | None]]:
     """Every sentence-bearing field as (where, text, the project a bare #n belongs to)."""
-    out = [("headline", report.get("headline", ""), None), ("summary", report.get("summary", ""), None)]
+    out = [("title", report.get("title", ""), None), ("description", report.get("description", ""), None), ("headline", report.get("headline", ""), None), ("summary", report.get("summary", ""), None)]
     projects = report.get("projects")
     for repo, section in (projects.items() if isinstance(projects, dict) else ()):
         if not isinstance(section, dict):
@@ -86,7 +89,7 @@ def check_report(report: object, facts: dict, week: str, day_text: str = "") -> 
     if not isinstance(report, dict):
         return ["a report must be a JSON object"]
     errors: list[str] = []
-    allowed = {"format", "week", "author", "tool", "headline", "summary", "projects"}
+    allowed = {"format", "week", "author", "tool", "title", "description", "headline", "summary", "projects"}
     errors += [f"unknown field: {k}" for k in report if k not in allowed]
     if report.get("format") != FORMAT:
         errors.append(f"format must be {FORMAT}")
@@ -102,6 +105,20 @@ def check_report(report: object, facts: dict, week: str, day_text: str = "") -> 
             errors.append(f"{key} is required")
         elif len(value) > limit:
             errors.append(f"{key} is over {limit} characters")
+
+    # What search results and link previews show. Written for that, so a page never shows text cut off mid-sentence.
+    title, description = report.get("title"), report.get("description")
+    if not (isinstance(title, str) and title.strip()):
+        errors.append("title is required: the page's title in search results and link previews")
+    elif len(title) > TITLE_MAX:
+        errors.append(f"title is over {TITLE_MAX} characters, so search results would cut it off")
+    if not (isinstance(description, str) and description.strip()):
+        errors.append("description is required: the sentence shown in search results and link previews")
+    elif not DESCRIPTION_MIN <= len(description) <= DESCRIPTION_MAX:
+        errors.append(f"description must be {DESCRIPTION_MIN} to {DESCRIPTION_MAX} characters, and is {len(description)}")
+    for key, value in (("title", title), ("description", description)):
+        if isinstance(value, str) and "#" in value:
+            errors.append(f"{key}: no citations here; it is shown outside the page, where they would not be links")
 
     by_repo = {p["repo"]: p for p in facts["projects"]}
     sections = report.get("projects")
