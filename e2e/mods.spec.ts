@@ -121,9 +121,17 @@ test("README from a second index renders inert", async ({ page }) => {
   page.on("request", (r) => requests.push(r.url()));
   await page.goto("/mods/evil-readme");
   await revealAll(page);
-  await expect(page.locator("#about")).toContainText("<script>"); // shown as text, never run
+  await expect(page.locator("#about script, #about iframe, #about picture, #about source, #about img, #about [onerror], #about [style]")).toHaveCount(0);
+  await expect(page.locator("#about")).not.toContainText("<");
+  await expect(page.locator("#about")).not.toContainText("hidden note");
   expect(await page.evaluate(() => (window as unknown as { __pwned?: number }).__pwned)).toBeUndefined();
   await expect(page.locator('#about a[href^="javascript:"]')).toHaveCount(0);
+  // HTML written for GitHub is real markup here, and a badge is its link's text, not a link within a link.
+  await expect(page.locator("#about b", { hasText: "raw html" })).toBeVisible();
+  await expect(page.locator('#about a[href="https://example.com/release"]')).toHaveText("Download");
+  await expect(page.locator("#about a a")).toHaveCount(0);
+  await expect(page.locator("#about a", { hasText: "Title picture" })).toHaveAttribute("href", "https://evil.example/title.png");
+  await expect(page.locator('#about a[href*="decoration"]')).toHaveCount(0);
   await expect(page.locator('#about a[href="https://example.com"]')).toHaveAttribute("rel", "nofollow ugc noopener noreferrer");
   expect(requests.some((u) => u.includes("evil.example"))).toBe(false); // the tracker picture is a link, not a load
   // A relative link points into the mod's repository at its release, never at this site.

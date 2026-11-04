@@ -64,7 +64,7 @@
    "featured": false,
    "recommends": [],
    "suggests": [],
-   "readme": "# Evil\n\n<script>window.__pwned=1</script>\n\n<img src=x onerror=\"window.__pwned=2\">\n\n[click](javascript:window.__pwned=3)\n\n![tracker](https://evil.example/pixel.png)\n\n[ok](https://example.com)\n\n<b>raw html</b>\n\n[docs](docs/setup.md)\n",
+   "readme": "# Evil\n\n<script>window.__pwned=1</script>\n\n<img src=x onerror=\"window.__pwned=2\">\n\n[click](javascript:window.__pwned=3)\n\n![tracker](https://evil.example/pixel.png)\n\n[ok](https://example.com)\n\n<b>raw html</b>\n\n<a href=\"https://example.com/release\"><img src=\"https://evil.example/badge.svg\" alt=\"Download\"></a>\n\n<picture><source srcset=\"https://evil.example/source.png\"><img src=\"https://evil.example/title.png\" alt=\"Title picture\"></picture>\n\n<img src=\"https://evil.example/decoration.png\" alt=\"\">\n\n<iframe src=\"https://evil.example/frame\"></iframe>\n\n<div style=\"position:fixed\">styled</div>\n\n<!-- hidden note -->\n\n[docs](docs/setup.md)\n",
    "media": {
     "icon": {
      "hash": "c6bf3d641933",
