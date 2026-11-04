@@ -59,7 +59,7 @@ export default async function NewsWeekProjectPage(props: PageProps<"/news/[week]
             <WrittenBy report={report} />
           </section>
         )}
-        <ProjectFacts project={project} />
+        <ProjectFacts project={project} period="week" />
         {!isActive(project) && <p className="text-soft">Nothing landed on this project this week.</p>}
         <p className="text-[14px]">{githubLink(repo)}</p>
         {others.length > 0 && (

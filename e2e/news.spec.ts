@@ -119,7 +119,7 @@ test("a project's week: work grouped in plain words, long lists folded", async (
   await expect(page.locator("main")).not.toContainText("feat(src):");
   await page.goto(`/news/${WEEK}/OpenRAC`);
   await expect(page.getByRole("link", { name: "Launcher 0.10.0" })).toHaveAttribute("href", /releases\/tag\/launcher-v0\.10\.0$/);
-  await expect(page.getByRole("heading", { name: "Proposed, not merged yet (1)" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Opened this week, not merged by its end (1)" })).toBeVisible();
 });
 
 test("days: facts, moving between them and the calendar", async ({ page }) => {
