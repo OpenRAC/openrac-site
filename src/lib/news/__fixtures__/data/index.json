@@ -1,8 +1,0 @@
-{
- "format": 1,
- "days": [
-  { "date": "2026-11-03", "report": true },
-  { "date": "2026-11-02", "report": false },
-  { "date": "2026-10-31", "report": false }
- ]
-}

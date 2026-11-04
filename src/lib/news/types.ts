@@ -1,8 +1,17 @@
 /** The news as the site shows it: only the fields it displays, read from OpenRAC/openrac-news (format 1). */
 
-export interface NewsDay {
-  date: string;
+export interface NewsWeekEntry {
+  week: string;
+  start: string;
+  end: string;
+  finished: boolean;
   report: boolean;
+}
+
+export interface NewsIndex {
+  weeks: NewsWeekEntry[];
+  /** Days with facts, newest first. */
+  days: string[];
 }
 
 export interface NewsRatio {
@@ -30,17 +39,20 @@ export interface NewsRelease {
   name: string;
 }
 
+export type NewsProgress = { before: NewsMeasures | null; after: NewsMeasures } | null;
+
 export interface NewsProject {
   repo: string;
   title: string;
   commitCount: number;
+  /** Only in a day's facts; a week adds them up. */
   branches: { name: string; commits: NewsCommit[] }[];
   merged: NewsItem[];
   opened: NewsItem[];
   issuesOpened: NewsItem[];
   issuesClosed: NewsItem[];
   releases: NewsRelease[];
-  progress: { before: NewsMeasures | null; after: NewsMeasures } | null;
+  progress: NewsProgress;
   contributors: string[];
 }
 
@@ -51,8 +63,18 @@ export interface NewsTotals {
   contributors: number;
 }
 
-export interface NewsFacts {
+export interface NewsDayFacts {
   date: string;
+  totals: NewsTotals;
+  projects: NewsProject[];
+}
+
+export interface NewsWeekFacts {
+  week: string;
+  start: string;
+  end: string;
+  /** The week's days that have facts, oldest first. */
+  days: string[];
   totals: NewsTotals;
   projects: NewsProject[];
 }
@@ -63,14 +85,36 @@ export interface NewsReportSection {
   highlights: string[];
 }
 
+export interface NewsMedia {
+  file: string;
+  alt: string;
+  caption: string;
+  repo?: string;
+}
+
 export interface NewsReport {
-  date: string;
+  week: string;
   author: string;
   tool: string;
   headline: string;
   summary: string;
   projects: Record<string, NewsReportSection>;
+  media: NewsMedia[];
 }
+
+/**
+ * Why a week does or does not show a report. "unavailable" (it could not be read just now) and
+ * "invalid" (it was read, and is not one this site can show) must not look like "none" (nobody has written it),
+ * or visitors would be asked to write a report that already exists.
+ */
+export type NewsReportState = { status: "ok"; report: NewsReport } | { status: "none" } | { status: "unavailable" } | { status: "invalid" };
 
 /** A piece of report text: plain words, or a citation turned into a link. */
 export type NewsSegment = string | { label: string; href: string };
+
+export interface NewsSource {
+  repo: string;
+  number: number;
+  title: string;
+  href: string;
+}

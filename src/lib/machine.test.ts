@@ -1,6 +1,6 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { breadcrumbLd, homeLd, ldJson, llmsFullTxt, llmsTxt, modLd, modsIndexLd, progressJson } from "./machine.ts";
+import { breadcrumbLd, homeLd, ldJson, llmsFullTxt, llmsTxt, modLd, modsIndexLd, newsWeekLd, progressJson } from "./machine.ts";
 import { PROJECTS } from "./projects.ts";
 
 const SITE = "https://openrac.dev";
@@ -53,6 +53,22 @@ test("llms.txt names every project, its numbers and the mods", () => {
   assert.ok(t.includes(`[Mods](${SITE}/mods)`));
   assert.ok(!t.includes("/blog"));
   assert.ok(!llmsTxt(SITE, progress, []).includes("## Mods"));
+});
+
+test("llms.txt names the news and its feed", () => {
+  const t = llmsTxt(SITE, progress, []);
+  assert.ok(t.includes(`[News](${SITE}/news)`));
+  assert.ok(t.includes(`[News feed](${SITE}/news.xml)`));
+});
+
+test("a news report's JSON-LD names its author and tool, and cannot break out of its script", () => {
+  const ld = newsWeekLd(SITE, { week: "2026-W44", end: "2026-11-01", headline: "</script><b>", summary: "s", author: "alice", tool: "Claude Code" });
+  const article = ld["@graph"][0] as Record<string, unknown>;
+  assert.equal(article["@type"], "Article");
+  assert.equal(article.url, `${SITE}/news/2026-W44`);
+  assert.deepEqual(article.author, { "@type": "Person", name: "alice", url: "https://github.com/alice" });
+  assert.match(String(article.creditText), /alice with Claude Code/);
+  assert.ok(!ldJson(ld).includes("</script>"));
 });
 
 test("llms-full.txt carries the FAQ and the mods", () => {

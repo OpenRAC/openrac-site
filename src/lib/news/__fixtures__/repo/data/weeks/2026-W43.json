@@ -1,0 +1,32 @@
+{
+ "format": 1,
+ "week": "2026-W43",
+ "start": "2026-10-19",
+ "end": "2026-10-25",
+ "days": [],
+ "totals": {
+  "commits": 0,
+  "pullRequestsMerged": 0,
+  "pullRequestsOpened": 0,
+  "contributors": 0
+ },
+ "projects": [
+  {
+   "repo": "rac3-decomp",
+   "title": "Up Your Arsenal",
+   "commitCount": 0,
+   "activeDays": [],
+   "pullRequests": {
+    "merged": [],
+    "opened": []
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": null,
+   "contributors": []
+  }
+ ]
+}

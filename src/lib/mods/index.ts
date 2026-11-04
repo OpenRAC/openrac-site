@@ -33,7 +33,7 @@ export type IndexError = "timeout" | "http" | "parse";
 export const isNextSignal = (e: unknown) => typeof (e as { digest?: unknown } | null)?.digest === "string";
 
 // A plain field, not a constructor parameter property: Node runs the tests with type stripping only.
-class FetchError extends Error {
+export class FetchError extends Error {
   kind: IndexError;
   constructor(kind: IndexError) {
     super(kind);
