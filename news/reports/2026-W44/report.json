@@ -1,0 +1,53 @@
+{
+ "format": 1,
+ "week": "2026-W44",
+ "author": "Lynder063",
+ "tool": "Claude Code",
+ "headline": "Ratchet & Clank reaches 100% matched, and Going Commando climbs to 84.74%",
+ "summary": "The first game is now fully matched: its last 11 functions landed this week (rac1-decomp#135), so all of its code compiles to the same bytes as the original. Going Commando's matched code rose from 14.04% to 84.74%, driven by large batches such as 780 functions (rac2-decomp#333) and 453 more (rac2-decomp#384). Deadlocked moved from 4.54% to 6.07%. The launcher released version 0.10.0, and its development line gained a signed mod list with one-click install links (OpenRAC#161). Development work also added safer starts after a crash (OpenRAC#131) and Android 9 support (OpenRAC#77).",
+ "projects": {
+  "rac1-decomp": {
+   "headline": "All 5,116 functions matched",
+   "summary": "Ratchet & Clank went from 98.48% to 100.00% of code matched. The last 11 functions landed in #135. Work has since moved to tidying the source without changing the game.",
+   "highlights": [
+    "Counting fix: three ported overlay functions are now counted correctly (#128).",
+    "Cleanup: the last private pause menu views were converted (#185)."
+   ]
+  },
+  "rac2-decomp": {
+   "headline": "Matched code rises from 14.04% to 84.74%",
+   "summary": "Matched functions went from 4,351 to 7,760 of about 8,600. The largest batches matched 780 functions (#333) and 453 functions (#384), and #386 took the USA release to 84.6%.",
+   "highlights": [
+    "Other releases: #386 also reports USA v2.00 at 80.9% and PAL at 54.1%."
+   ]
+  },
+  "rac3-decomp": {
+   "headline": "Native front-end routines added",
+   "summary": "Up Your Arsenal added native front-end routines with NTSC validation (#1). Its code figure stayed at 8.72%.",
+   "highlights": []
+  },
+  "rac4-decomp": {
+   "headline": "Code matching rises from 4.54% to 6.07%",
+   "summary": "Deadlocked merged many small batches of matched PAL functions, including 274 runtime and library functions (#40) and 276 more in another batch (#46). The figure the site shows is for NTSC-U.",
+   "highlights": []
+  },
+  "OpenRAC": {
+   "headline": "Launcher 0.10.0, and mods with one-click install in development",
+   "summary": "Launcher 0.10.0 was released this week. Separately, the development line gained a signed mod list, install links, dependencies and automatic updates (#161), which reach players in a later release.",
+   "highlights": [
+    "Safer starts: Safe rendering turns on after a crashed start (#131).",
+    "More devices: Android 9 support was added (#77).",
+    "Smoother play: a more precise frame limiter (#146) and optional low-latency frames (#122).",
+    "Steam: the launcher can add itself to Steam, with its pictures (#184).",
+    "Reported problems: players hit failures preparing Enhanced Graphics (#141, #173) and asked for controller remapping (#135)."
+   ]
+  },
+  "openrac-mods": {
+   "headline": "A signed mod list and Archipelago support",
+   "summary": "The mods repository gained a signed index and submission bot (#7) and Archipelago multiworld support (#5).",
+   "highlights": [
+    "Openness: each mod's listing now states whether AI helped make it (#33)."
+   ]
+  }
+ }
+}

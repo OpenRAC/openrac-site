@@ -1,0 +1,929 @@
+{
+ "format": 1,
+ "date": "2026-10-13",
+ "totals": {
+  "commits": 77,
+  "pullRequestsMerged": 9,
+  "pullRequestsOpened": 13,
+  "contributors": 7
+ },
+ "projects": [
+  {
+   "repo": "OpenRAC",
+   "title": "OpenRAC launcher",
+   "branches": [
+    {
+     "name": "develop",
+     "commits": [
+      {
+       "sha": "9691361bf2a0631aef2b8bb90966d83fcd9fea7f",
+       "title": "fix(hostgen): align typedef'd vector locals to a quadword",
+       "author": "Lynder063",
+       "date": "2026-10-13T17:38:06Z"
+      },
+      {
+       "sha": "a7142fae8858feda8bdaffee684d56acb45334dc",
+       "title": "fix(port): split func_00216270's places that call other functions",
+       "author": "Lynder063",
+       "date": "2026-10-13T17:35:53Z"
+      },
+      {
+       "sha": "3e07ddf7adf9ab818649965ab58985312b75a05f",
+       "title": "ci: build the port and the launcher's rpm on Fedora 44",
+       "author": "Lynder063",
+       "date": "2026-10-13T17:20:43Z"
+      },
+      {
+       "sha": "01ff8d782ef7458662c2ac91df801b88ef3e2d63",
+       "title": "fix(launcher): Linux desktop entries written once, one in the menu, and WebKit's DMA-BUF renderer off on NVIDIA Wayland",
+       "author": "Lynder063",
+       "date": "2026-10-13T17:18:31Z"
+      },
+      {
+       "sha": "41f31256d2521fb35e4553effbc282a68d6943a8",
+       "title": "ci(launcher): build the installers on Windows, Linux and macOS",
+       "author": "Veradictus",
+       "date": "2026-10-13T16:45:26Z"
+      },
+      {
+       "sha": "4d63f27a24bfe0b45e0390c2c5fd64edde6f7fc7",
+       "title": "feat(port): the window's icon and Wayland app id",
+       "author": "Lynder063",
+       "date": "2026-10-13T16:28:25Z"
+      },
+      {
+       "sha": "944bff32625b57272717c986d61132c6be0ae7f1",
+       "title": "feat(launcher): one game page, with the developer's actions under it",
+       "author": "Veradictus",
+       "date": "2026-10-13T16:01:03Z"
+      },
+      {
+       "sha": "588222ae29a8a681fcb7dae4922b83ff2838d112",
+       "title": "fix(port): populate quad tbp/cbp and skip unresolved effect quads",
+       "author": "Lynder063",
+       "date": "2026-10-13T13:42:21Z"
+      },
+      {
+       "sha": "84231bf75c81617c6d5f218b630c0acac03d5634",
+       "title": "docs(port): the backfilled functions and each level's next blocker",
+       "author": "Lynder063",
+       "date": "2026-10-13T07:39:53Z"
+      },
+      {
+       "sha": "a61d08b81d07bf8cfb896e951463b8f63ff69bd4",
+       "title": "docs(workflow): when to stop matching, and the functional C that takes its place",
+       "author": "Veradictus",
+       "date": "2026-10-13T07:06:10Z"
+      },
+      {
+       "sha": "31f96c6f32bf9282e27d0f5191fc3d4d576288d4",
+       "title": "fix(rac1-pal): register the two split variants of func_L00_0025D390",
+       "author": "Lynder063",
+       "date": "2026-10-13T07:04:24Z"
+      },
+      {
+       "sha": "1ddc7c78f7fb4d42533cd3718005a19049c0a4d5",
+       "title": "docs(port): the handoff for levels 4 and 12, and the blocker of each level",
+       "author": "Lynder063",
+       "date": "2026-10-13T06:59:26Z"
+      },
+      {
+       "sha": "c7a5361316483e620c36b6f091e02a3846633abb",
+       "title": "fix(hostgen): a local vector or matrix starts on a quadword in its frame",
+       "author": "Lynder063",
+       "date": "2026-10-13T06:44:46Z"
+      },
+      {
+       "sha": "2ff044c2b11b150bfbf3eeeeb07d15a44efe9226",
+       "title": "feat(port): OPENRAC_TRACE_CD logs each disc read",
+       "author": "Lynder063",
+       "date": "2026-10-13T06:38:36Z"
+      },
+      {
+       "sha": "7fbedcca573783215352bf9c3eda1b9877b44b16",
+       "title": "test(hostgen): a header declaration a definition contradicts is dropped",
+       "author": "Lynder063",
+       "date": "2026-10-13T06:01:15Z"
+      },
+      {
+       "sha": "310782384c8c74e1384c42e24e12d2d5d6e7e046",
+       "title": "feat(launcher): one main button per game, a tile per game, developer details behind developer tools",
+       "author": "Veradictus",
+       "date": "2026-10-13T06:01:01Z"
+      }
+     ]
+    },
+    {
+     "name": "master",
+     "commits": [
+      {
+       "sha": "9691361bf2a0631aef2b8bb90966d83fcd9fea7f",
+       "title": "fix(hostgen): align typedef'd vector locals to a quadword",
+       "author": "Lynder063",
+       "date": "2026-10-13T17:38:06Z"
+      },
+      {
+       "sha": "a7142fae8858feda8bdaffee684d56acb45334dc",
+       "title": "fix(port): split func_00216270's places that call other functions",
+       "author": "Lynder063",
+       "date": "2026-10-13T17:35:53Z"
+      },
+      {
+       "sha": "3e07ddf7adf9ab818649965ab58985312b75a05f",
+       "title": "ci: build the port and the launcher's rpm on Fedora 44",
+       "author": "Lynder063",
+       "date": "2026-10-13T17:20:43Z"
+      },
+      {
+       "sha": "01ff8d782ef7458662c2ac91df801b88ef3e2d63",
+       "title": "fix(launcher): Linux desktop entries written once, one in the menu, and WebKit's DMA-BUF renderer off on NVIDIA Wayland",
+       "author": "Lynder063",
+       "date": "2026-10-13T17:18:31Z"
+      },
+      {
+       "sha": "41f31256d2521fb35e4553effbc282a68d6943a8",
+       "title": "ci(launcher): build the installers on Windows, Linux and macOS",
+       "author": "Veradictus",
+       "date": "2026-10-13T16:45:26Z"
+      },
+      {
+       "sha": "4d63f27a24bfe0b45e0390c2c5fd64edde6f7fc7",
+       "title": "feat(port): the window's icon and Wayland app id",
+       "author": "Lynder063",
+       "date": "2026-10-13T16:28:25Z"
+      },
+      {
+       "sha": "944bff32625b57272717c986d61132c6be0ae7f1",
+       "title": "feat(launcher): one game page, with the developer's actions under it",
+       "author": "Veradictus",
+       "date": "2026-10-13T16:01:03Z"
+      },
+      {
+       "sha": "588222ae29a8a681fcb7dae4922b83ff2838d112",
+       "title": "fix(port): populate quad tbp/cbp and skip unresolved effect quads",
+       "author": "Lynder063",
+       "date": "2026-10-13T13:42:21Z"
+      },
+      {
+       "sha": "84231bf75c81617c6d5f218b630c0acac03d5634",
+       "title": "docs(port): the backfilled functions and each level's next blocker",
+       "author": "Lynder063",
+       "date": "2026-10-13T07:39:53Z"
+      },
+      {
+       "sha": "a61d08b81d07bf8cfb896e951463b8f63ff69bd4",
+       "title": "docs(workflow): when to stop matching, and the functional C that takes its place",
+       "author": "Veradictus",
+       "date": "2026-10-13T07:06:10Z"
+      },
+      {
+       "sha": "31f96c6f32bf9282e27d0f5191fc3d4d576288d4",
+       "title": "fix(rac1-pal): register the two split variants of func_L00_0025D390",
+       "author": "Lynder063",
+       "date": "2026-10-13T07:04:24Z"
+      },
+      {
+       "sha": "1ddc7c78f7fb4d42533cd3718005a19049c0a4d5",
+       "title": "docs(port): the handoff for levels 4 and 12, and the blocker of each level",
+       "author": "Lynder063",
+       "date": "2026-10-13T06:59:26Z"
+      },
+      {
+       "sha": "c7a5361316483e620c36b6f091e02a3846633abb",
+       "title": "fix(hostgen): a local vector or matrix starts on a quadword in its frame",
+       "author": "Lynder063",
+       "date": "2026-10-13T06:44:46Z"
+      },
+      {
+       "sha": "2ff044c2b11b150bfbf3eeeeb07d15a44efe9226",
+       "title": "feat(port): OPENRAC_TRACE_CD logs each disc read",
+       "author": "Lynder063",
+       "date": "2026-10-13T06:38:36Z"
+      },
+      {
+       "sha": "7fbedcca573783215352bf9c3eda1b9877b44b16",
+       "title": "test(hostgen): a header declaration a definition contradicts is dropped",
+       "author": "Lynder063",
+       "date": "2026-10-13T06:01:15Z"
+      },
+      {
+       "sha": "310782384c8c74e1384c42e24e12d2d5d6e7e046",
+       "title": "feat(launcher): one main button per game, a tile per game, developer details behind developer tools",
+       "author": "Veradictus",
+       "date": "2026-10-13T06:01:01Z"
+      }
+     ]
+    }
+   ],
+   "commitCount": 16,
+   "pullRequests": {
+    "merged": [],
+    "opened": []
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [
+    {
+     "tag": "launcher-v0.3.0",
+     "name": "v0.3.0",
+     "publishedAt": "2026-10-13T23:05:34Z"
+    }
+   ],
+   "progress": null,
+   "contributors": [
+    "Lynder063",
+    "Veradictus"
+   ]
+  },
+  {
+   "repo": "rac1-decomp",
+   "title": "Ratchet & Clank",
+   "branches": [
+    {
+     "name": "main",
+     "commits": [
+      {
+       "sha": "45abcbb75a28a22a1e06a1b744c21630a3980a2c",
+       "title": "Merge pull request #61 from Veradictus/main",
+       "author": "Veradictus",
+       "date": "2026-10-13T22:40:01Z"
+      },
+      {
+       "sha": "0b5b7faaaee9b017de98909c09e5cd77d2e396cc",
+       "title": "Merge pull request #59 from Veradictus/main",
+       "author": "Veradictus",
+       "date": "2026-10-13T16:41:16Z"
+      },
+      {
+       "sha": "8fb34dc873fa892ef1694a985dafffb9e4c20dfe",
+       "title": "Merge pull request #54 from cnobis/feat/func_L00_0024BD18",
+       "author": "Lynder063",
+       "date": "2026-10-13T14:45:08Z"
+      },
+      {
+       "sha": "a56867603220b91490c439c99520207f63bd4331",
+       "title": "feat(nonmatching): func_L09_002EEF80 functional",
+       "author": "Lynder063",
+       "date": "2026-10-13T14:26:16Z"
+      },
+      {
+       "sha": "fa8029a395547ab7398f0218992294ff4a3fa6bf",
+       "title": "feat(nonmatching): func_L07_003121D0 functional",
+       "author": "Lynder063",
+       "date": "2026-10-13T14:19:56Z"
+      },
+      {
+       "sha": "6a7e4af729eaa25e18c02f704e9b725581a60e19",
+       "title": "feat(nonmatching): func_L08_00259040 and func_L12_002E43A8 functional",
+       "author": "Lynder063",
+       "date": "2026-10-13T14:12:55Z"
+      },
+      {
+       "sha": "e0f1ebdeaf05bd556ae4506de59653f2eb83e29e",
+       "title": "feat(nonmatching): func_L03_002DDEF8 and func_L01_0022D688 functional",
+       "author": "Lynder063",
+       "date": "2026-10-13T14:05:59Z"
+      },
+      {
+       "sha": "361f52d7aebeb279570662713b9b3874ba87b7a6",
+       "title": "feat(nonmatching): func_L01_00262FE8 and func_L01_0030F318 functional",
+       "author": "Lynder063",
+       "date": "2026-10-13T13:53:46Z"
+      },
+      {
+       "sha": "716f462dc62b4d37b8a0dc6ab87790723000a6a2",
+       "title": "feat(nonmatching): accept 154 clean near misses and 3 functional moby updates",
+       "author": "Lynder063",
+       "date": "2026-10-13T13:30:48Z"
+      },
+      {
+       "sha": "66189a07ddfcbb7130164480349377b27bb31712",
+       "title": "feat(nonmatching): func_L12_0030A880 and func_L11_00310058 near misses accepted",
+       "author": "Lynder063",
+       "date": "2026-10-13T12:02:22Z"
+      },
+      {
+       "sha": "6881bbbd0bd221040eac07b7fb6bbd6f9354f599",
+       "title": "docs(nonmatching): func_L01_0030C090 is medium until it runs",
+       "author": "Lynder063",
+       "date": "2026-10-13T11:47:12Z"
+      },
+      {
+       "sha": "efea07d1e86c4678bda72bb05733b8942fdb092a",
+       "title": "feat(nonmatching): func_L01_0030C090 functional, Novalis tutorial-hint moby update",
+       "author": "Lynder063",
+       "date": "2026-10-13T11:47:11Z"
+      },
+      {
+       "sha": "553e973a1208b85909f3690c53cc49d387adad84",
+       "title": "feat(nonmatching): func_L03_002DC920 functional, Kerwan class 909 NPC update",
+       "author": "Lynder063",
+       "date": "2026-10-13T11:47:10Z"
+      },
+      {
+       "sha": "94584fcf126b88ba0feda8d6b41515f578f2f956",
+       "title": "feat(nonmatching): func_L11_0030F4F8 functional, VU chain table piece moby update",
+       "author": "Lynder063",
+       "date": "2026-10-13T11:47:08Z"
+      },
+      {
+       "sha": "b08868f8683a3872561281b26112f0daec711296",
+       "title": "feat(nonmatching): func_L04_002D9270 functional, Eudora drifting-moby update",
+       "author": "Lynder063",
+       "date": "2026-10-13T11:47:07Z"
+      },
+      {
+       "sha": "66d2edad1ce4f0debd5539677d14435958171e62",
+       "title": "feat(nonmatching): func_L10_002CB030 functional, level 10 linked-moby state machine update",
+       "author": "Lynder063",
+       "date": "2026-10-13T11:47:06Z"
+      },
+      {
+       "sha": "2efc0e7805398621d61856eed22615042b0ff894",
+       "title": "feat(nonmatching): func_L12_00307C08 functional, colour pulse of a moby and its children",
+       "author": "Lynder063",
+       "date": "2026-10-13T11:42:35Z"
+      },
+      {
+       "sha": "b6d3bbc4b7f0a86b2dcc94a173ed79fbc1b2896e",
+       "title": "docs(nonmatching): func_L12_00307DB0 is medium until it runs",
+       "author": "Lynder063",
+       "date": "2026-10-13T11:34:13Z"
+      },
+      {
+       "sha": "0a7535b0c5ed7a13a22215cf4d9fd289471ab989",
+       "title": "feat(nonmatching): func_L12_00307DB0 functional, path-following moby update (level 12)",
+       "author": "Lynder063",
+       "date": "2026-10-13T11:34:13Z"
+      },
+      {
+       "sha": "65e0493addd08312d0949c9f194b41f844c38048",
+       "title": "feat(nonmatching): func_L03_002DBC38 functional, level 3 Helga update and head-look tail",
+       "author": "Lynder063",
+       "date": "2026-10-13T11:30:57Z"
+      },
+      {
+       "sha": "f5f4ecc11fc1497b4a17002e407d985f0a1997df",
+       "title": "feat(nonmatching): func_L11_0030EC70 functional, class 1157 cutscene state machine",
+       "author": "Lynder063",
+       "date": "2026-10-13T11:30:55Z"
+      },
+      {
+       "sha": "6c00266f3603f4a91beba4233f18c4636f3b22a7",
+       "title": "feat(nonmatching): func_L01_002FE4C0 functional, Novalis water surface effect update",
+       "author": "Lynder063",
+       "date": "2026-10-13T11:30:54Z"
+      },
+      {
+       "sha": "6f69e6f573857d01f53f423b9159cd1c92df8bbe",
+       "title": "feat(nonmatching): func_L04_00293578 functional, Eudora moby animation channel init",
+       "author": "Lynder063",
+       "date": "2026-10-13T11:30:53Z"
+      },
+      {
+       "sha": "92e94d5789132c9b58281f95f5a70e90050c268d",
+       "title": "feat(nonmatching): func_L03_002DDDF8 functional, a moby that rises 4 units above its home",
+       "author": "Lynder063",
+       "date": "2026-10-13T11:28:20Z"
+      },
+      {
+       "sha": "cd7c23be7be81f84eabdab483631d734534b85f6",
+       "title": "feat(nonmatching): func_L01_002F6540 functional, rail-following moby update (path mover state machine)",
+       "author": "Lynder063",
+       "date": "2026-10-13T11:13:40Z"
+      },
+      {
+       "sha": "ea2fc65429bd99ddbf3fcfc8e474d9bfdf6b2841",
+       "title": "feat(nonmatching): func_L11_0030E620 functional, Pokitaru cutscene helper moby posing",
+       "author": "Lynder063",
+       "date": "2026-10-13T11:09:32Z"
+      },
+      {
+       "sha": "c9b8e72378f47f0593c024ace9e8a611a5ca4198",
+       "title": "feat(nonmatching): func_L07_0030E8B8 functional, level 07 turret-like moby update",
+       "author": "Lynder063",
+       "date": "2026-10-13T11:09:32Z"
+      },
+      {
+       "sha": "3e10047fd4791bc27236df3a0c37df2dc765a902",
+       "title": "feat(nonmatching): func_L12_003061E0 functional, Hoven leaping creature update",
+       "author": "Lynder063",
+       "date": "2026-10-13T11:09:32Z"
+      },
+      {
+       "sha": "e09ec0aad379d4071a378902683d3778ad974d88",
+       "title": "feat(nonmatching): func_L10_002BFBB8 functional, Orxon spark bursts, puffs and shake countdown",
+       "author": "Lynder063",
+       "date": "2026-10-13T11:09:32Z"
+      },
+      {
+       "sha": "b296aee81bc04307798a104269a1ec0c6b4a3e5a",
+       "title": "feat(nonmatching): func_L01_002F0040 functional, Novalis moby hit and target-search helper",
+       "author": "Lynder063",
+       "date": "2026-10-13T11:01:37Z"
+      },
+      {
+       "sha": "0c1c92566f6f4e48022f31aadff1ad92286f0b8a",
+       "title": "feat(nonmatching): func_L07_0030E370 functional, Umbris shuttle-moby state machine",
+       "author": "Lynder063",
+       "date": "2026-10-13T11:01:37Z"
+      },
+      {
+       "sha": "bf87db061b2db20f3d892d66cdaeb1396b25edd2",
+       "title": "feat(nonmatching): func_L07_0031C2B0 functional, level 7 two-position mover update",
+       "author": "Lynder063",
+       "date": "2026-10-13T11:01:37Z"
+      },
+      {
+       "sha": "72997023742cda12a408c4fe46c2ab69afa301e9",
+       "title": "feat(nonmatching): func_L03_002D44A0 and func_L01_0026EFB8 functional",
+       "author": "Lynder063",
+       "date": "2026-10-13T07:47:56Z"
+      },
+      {
+       "sha": "d4b2723f2262e850f55810daeeaa5ff29f1e35e0",
+       "title": "feat(nonmatching): func_L12_002EB2E8 functional, Hoven flying-enemy update",
+       "author": "Lynder063",
+       "date": "2026-10-13T07:31:34Z"
+      },
+      {
+       "sha": "76e68099416104a17e9ddd3c60c36b436ac2d915",
+       "title": "feat(nonmatching): func_L01_002EF078 functional, Novalis enemy moby state machine",
+       "author": "Lynder063",
+       "date": "2026-10-13T07:31:34Z"
+      },
+      {
+       "sha": "a0633edb3a34f09b2224b1abc493079c5031065f",
+       "title": "feat(nonmatching): func_L00_002A5158 functional, water grid ripple impulse",
+       "author": "Lynder063",
+       "date": "2026-10-13T07:30:04Z"
+      },
+      {
+       "sha": "ce95f696a8ed2642fdc23fabe9b445466b9bebd0",
+       "title": "docs(nonmatching): func_L00_0025EFC0 is medium until it runs",
+       "author": "Lynder063",
+       "date": "2026-10-13T07:28:31Z"
+      },
+      {
+       "sha": "26838a84801a80a400919e86db0d879a834c715d",
+       "title": "feat(nonmatching): func_L00_0025EFC0 functional, nearest point on a spline path",
+       "author": "Lynder063",
+       "date": "2026-10-13T07:28:31Z"
+      },
+      {
+       "sha": "5c14d97ae0d45792db017f5fbb6342e77cff2012",
+       "title": "feat(nonmatching): func_L04_002CB800 functional, Eudora vehicle moby update",
+       "author": "Lynder063",
+       "date": "2026-10-13T07:28:17Z"
+      },
+      {
+       "sha": "c3b7dd1213522b5869d2f6699b377e8ffa572de7",
+       "title": "fix(nonmatching): no blank line at the end of functional.tsv",
+       "author": "Lynder063",
+       "date": "2026-10-13T07:15:21Z"
+      },
+      {
+       "sha": "a2e1e768131365b07e4ad922f91e7c90530172fc",
+       "title": "feat(nonmatching): func_L12_002E8640 functional, Hoven creature moby update",
+       "author": "Lynder063",
+       "date": "2026-10-13T07:15:16Z"
+      },
+      {
+       "sha": "e9467350044f7a2eaf731ba7d290e35d66d38c7d",
+       "title": "feat(nonmatching): func_L01_002E1FE0 functional, Novalis moby state machine",
+       "author": "Lynder063",
+       "date": "2026-10-13T07:15:16Z"
+      },
+      {
+       "sha": "7dd13013c2145fa622bbac17aac3b1d442752923",
+       "title": "feat(nonmatching): func_L13_002C3840 functional, blarg space fighter moby update",
+       "author": "Lynder063",
+       "date": "2026-10-13T07:13:43Z"
+      },
+      {
+       "sha": "47da22326b42de6f39cac32ec40fdb7de703008c",
+       "title": "feat(nonmatching): func_L07_0030C3E0 functional, Umbris class 871 path-chain update",
+       "author": "Lynder063",
+       "date": "2026-10-13T07:13:43Z"
+      },
+      {
+       "sha": "2e7b4b135b04288e41c1fa33b351ddd5e0922acd",
+       "title": "feat(nonmatching): func_L10_00299D18 functional, Orxon moby update with planet bits and help message",
+       "author": "Lynder063",
+       "date": "2026-10-13T07:13:43Z"
+      },
+      {
+       "sha": "7b93d75e11cecc50b2f767773c6f4a6088e6a844",
+       "title": "docs(nonmatching): the confidence line on the four functional files written for the port",
+       "author": "Lynder063",
+       "date": "2026-10-13T07:06:28Z"
+      },
+      {
+       "sha": "ceab48c8fe5b1514dc12f7b7d76f33bd5090cf6f",
+       "title": "feat(nonmatching): func_L03_002ED138 and func_L11_00317598 functional, func_L18_002EAB58 near miss accepted",
+       "author": "Lynder063",
+       "date": "2026-10-13T07:05:53Z"
+      },
+      {
+       "sha": "0b6d276b88c3561d2379829ba308bb48bac637d0",
+       "title": "feat(nonmatching): func_L00_00286068 near miss accepted for the port",
+       "author": "Lynder063",
+       "date": "2026-10-13T06:56:49Z"
+      },
+      {
+       "sha": "a034cc02a75fae43841e89a7870c1f584b56650b",
+       "title": "feat(nonmatching): func_L04_0029FEC8 functional, the swarm moby of level 4",
+       "author": "Lynder063",
+       "date": "2026-10-13T06:47:40Z"
+      },
+      {
+       "sha": "a15d737eb118dbd580bfeab820ee03635c82ecf4",
+       "title": "feat(nonmatching): func_L12_002C0310 functional, the class 19 moby update of level 12",
+       "author": "Lynder063",
+       "date": "2026-10-13T06:04:45Z"
+      },
+      {
+       "sha": "d79fffdba5779a3d55d96bc49c0e637fcbe3b12f",
+       "title": "notes: func_0012C8B0 first candidate (216/224), three-mult cse blocker",
+       "author": "Lynder063",
+       "date": "2026-10-13T06:02:25Z"
+      },
+      {
+       "sha": "f59b0340a86bacd2c9e24d5c6e73df9bf147e7a9",
+       "title": "notes: func_0012AC80 more shift=0 variants, no gain",
+       "author": "Lynder063",
+       "date": "2026-10-13T05:58:58Z"
+      },
+      {
+       "sha": "a264bcdb6308e5ffd65f08fd652e4ca7f6ee94d9",
+       "title": "Merge branches 'main' and 'main' of github.com:OpenRAC/rac1-decomp",
+       "author": "Lynder063",
+       "date": "2026-10-13T05:57:58Z"
+      }
+     ]
+    }
+   ],
+   "commitCount": 53,
+   "pullRequests": {
+    "merged": [
+     {
+      "number": 54,
+      "title": "feat(overlays): func_L00_0024BD18 exact match",
+      "author": "cnobis",
+      "untrustedBody": "The card menu's state step: it clears menu flags 4 and 2, then picks the next state from the flags and the card status. The catalogue has it as three pieces (`config/overlays/joined.tsv`), so it finishes `func_L00_0024BD84` and `func_L00_0024BDB8` too.\n\nFound by playing the native port: going from the title to New Game with a memory card stopped on this function. With it, that path reaches Veldin.\n\n## Verification\n\nRun on macOS (Docker):\n\n- `tools/try_func.py`: EXACT\n- `tools/overlay_file_check.py src/overlays/shared/menu_00249720.c`: 1 file, 0 problems\n- `tools/build_sn.sh`: 1155 exact, every function at its retail address\n- `tools/gen_progress_report.py --check`: current (4294/5109)\n\nGenerated with [Claude Code](https://claude.com/claude-code)",
+      "mergedAt": "2026-10-13T14:45:09Z"
+     },
+     {
+      "number": 59,
+      "title": "Porting Stuff",
+      "author": "Veradictus",
+      "untrustedBody": "Minor bug fixes and other backfills.",
+      "mergedAt": "2026-10-13T16:41:16Z"
+     },
+     {
+      "number": 61,
+      "title": "feat: 35 more matches, 149 functions of functional C for the port, 22 fragments joined",
+      "author": "Veradictus",
+      "untrustedBody": "Seven commits on top of main (PR #54 is already merged in).\n\nMatches: 4,294 -> 4,329 of 5,109 functions, 80.28% -> 81.10% of code.\n\n- 30 functions ported from the NTSC decomp with OpenRAC's tools/port.py.\n  It carried the C of 143 functions that are the same instructions in both\n  versions; 40 came out as the retail bytes here and 30 landed (three stopped\n  matching once they sat in their file, the rest were not stubs).\n- 3 small level functions matched outright: func_L00_0024A3B0,\n  func_L00_00284E70, func_L10_002D8ED8. Two joined pieces count with them.\n\nFunctional C for the native port, in nonmatching/functional/ with rows in\nfunctional.tsv. None of it is a match and the report does not count it.\n\n- 28 carried from the NTSC decomp: 14 it has matched that PAL's compiler\n  turns into other bytes, 14 from its pending drafts.\n- 73 functions of 400 bytes to 4 KB, written from the assembly.\n- 48 functions of 400 bytes and under, joined ones written whole under\n  their first name.\n\nWhat is",
+      "mergedAt": "2026-10-13T22:40:01Z"
+     }
+    ],
+    "opened": [
+     {
+      "number": 56,
+      "title": "feat(overlays): two ammo functions and func_L00_002347B8",
+      "author": "cnobis",
+      "untrustedBody": "Three exact matches in `help_00232560.c`, one commit each. Each branches into code after its own end, so `config/overlays/joined.tsv` gains or completes their rows (the same pattern as `func_L00_0025B478`):\n\n- `func_L00_00234638`: takes ammo from a weapon (pieces `func_L00_00234674`, `func_001E97C8`)\n- `func_L00_00234718`: a weapon's ammo, or 1 without an ammo limit (piece `func_00208238`)\n- `func_L00_002347B8`: a switch on the word at 0x1414D4 (piece `func_001E9768` added)\n\nAll three are on the native port's path from the fire button.\n\n## Verification\n\nRun on macOS (Docker):\n\n- `tools/try_func.py`: EXACT for each\n- `tools/overlay_file_check.py src/overlays/shared/help_00232560.c`: 1 file, 0 problems\n- `tools/build_sn.sh`: every function at its retail address\n- `tools/gen_progress_report.py --check`: current (4333/5109)\n\nGenerated with [Claude Code](https://claude.com/claude-code)",
+      "mergedAt": "2026-10-14T01:28:49Z"
+     },
+     {
+      "number": 57,
+      "title": "feat(overlays): exact-matched three shared overlay functions",
+      "author": "cblackler19",
+      "untrustedBody": "## Summary\n\nReplaces three shared overlay assembly stubs with **byte-exact C implementations**, matching 940 bytes of retail code.\n\n- `func_L00_00250478` — 336 bytes\n- `func_L00_0025C710` — 152 bytes\n- `func_L00_002E72E8` — 452 bytes\n\nTwo implementations adapt MIT-licensed source from Lombyte, with attribution added to `THIRD_PARTY_NOTICES.md`.\n\nRegenerates `progress/report.json`, increasing matched functions from **4,291 to 4,294** and overall code completion to **80.30%**.\n\n## Verification\n\n- All three implementations match retail exactly.\n- Whole-file overlay check: **3 files, 0 problems**.\n- Executable build: **0 size mismatches**, with every function at its retail address.\n- Progress report regenerated and verified current.\n- `git diff --check` passed.\n\n---\n\nAssisted by GPT-6.1 Sol",
+      "mergedAt": "2026-10-14T01:41:39Z"
+     },
+     {
+      "number": 58,
+      "title": "feat(overlays): thirteen functions that return through shared fragments",
+      "author": "cnobis",
+      "untrustedBody": "Thirteen exact matches, one commit each, and the progress report in its own last commit. Each function branches to code after its own end (the shared return fragments `func_001E97C8`, `func_00208238`, `func_001E9768`, `func_L00_002347F0`), so each gains a row in `config/overlays/joined.tsv`. `func_L00_002CC390` returns through two consecutive copies of `func_001E97C8`, so its row lists that piece twice. `try_func`, `overlay_file_check` and `gen_progress_report.py --check` all take it.\n\n## Slot 4 of the enemy class tables\n\nFour of them are the same accessor, slot 4 of a moby class's 6-word table: the moby's pvars plus an offset, or 0 without a moby or pvars. Each was the last function of some class tables still in assembly, so this completes eleven of them:\n\n| Function | Offset | Classes |\n|---|---|---|\n| `func_L00_002D6CB0` | 0xD0 | horny_toad (749), gadgebot (1906, the ones Drek releases in the final fight) |\n| `func_L01_002F31D0` | 0x60 | peckbot, scoutbot, robosquawker, mine, chompe",
+      "mergedAt": "2026-10-14T01:50:35Z"
+     },
+     {
+      "number": 59,
+      "title": "Porting Stuff",
+      "author": "Veradictus",
+      "untrustedBody": "Minor bug fixes and other backfills.",
+      "mergedAt": "2026-10-13T16:41:16Z"
+     },
+     {
+      "number": 60,
+      "title": "feat(overlays): seven split functions adapted from Lombyte",
+      "author": "cnobis",
+      "untrustedBody": "Seven functions Lombyte has matched whole, which this project's catalogue splits into pieces. `tools/port.py` only offers functions of the same size in both builds, so it never carried these over. Each takes Lombyte's C with every symbol renamed to its PAL address, one commit each, then the credit in `THIRD_PARTY_NOTICES.md`, then the progress report.\n\n| Function | Lombyte | Pieces in `config/overlays/joined.tsv` |\n|---|---|---|\n| `func_L00_001EB578` | `FUN_L00_001eb1f8` | row completed: had one of its three pieces |\n| `func_L05_002559B8` | `FUN_L05_002551d0` | new row |\n| `func_L00_00264BB0` | `FUN_L00_00263b38` | new row |\n| `func_L00_002E9838` | `FUN_L00_002e8388` | new row |\n| `func_L03_002DDEF8` | `FUN_L03_002dcb30` | row already right |\n| `func_L06_00305C38` | `FUN_L06_003047f8` | row already right |\n| `func_L14_00307660` | `FUN_L14_003061d8` | row gains its second piece |\n\n`lombyte.py todo` lists more of the same kind (213 functions matched there and not here, many of them split",
+      "mergedAt": "2026-10-14T02:00:47Z"
+     },
+     {
+      "number": 61,
+      "title": "feat: 35 more matches, 149 functions of functional C for the port, 22 fragments joined",
+      "author": "Veradictus",
+      "untrustedBody": "Seven commits on top of main (PR #54 is already merged in).\n\nMatches: 4,294 -> 4,329 of 5,109 functions, 80.28% -> 81.10% of code.\n\n- 30 functions ported from the NTSC decomp with OpenRAC's tools/port.py.\n  It carried the C of 143 functions that are the same instructions in both\n  versions; 40 came out as the retail bytes here and 30 landed (three stopped\n  matching once they sat in their file, the rest were not stubs).\n- 3 small level functions matched outright: func_L00_0024A3B0,\n  func_L00_00284E70, func_L10_002D8ED8. Two joined pieces count with them.\n\nFunctional C for the native port, in nonmatching/functional/ with rows in\nfunctional.tsv. None of it is a match and the report does not count it.\n\n- 28 carried from the NTSC decomp: 14 it has matched that PAL's compiler\n  turns into other bytes, 14 from its pending drafts.\n- 73 functions of 400 bytes to 4 KB, written from the assembly.\n- 48 functions of 400 bytes and under, joined ones written whole under\n  their first name.\n\nWhat is",
+      "mergedAt": "2026-10-13T22:40:01Z"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": {
+    "before": {
+     "code": {
+      "done": 2963672,
+      "total": 3712808
+     },
+     "functions": {
+      "done": 4264,
+      "total": 5109
+     }
+    },
+    "after": {
+     "code": {
+      "done": 3011244,
+      "total": 3712808
+     },
+     "functions": {
+      "done": 4329,
+      "total": 5109
+     }
+    }
+   },
+   "contributors": [
+    "cblackler19",
+    "cnobis",
+    "Lynder063",
+    "Veradictus"
+   ]
+  },
+  {
+   "repo": "rac2-decomp",
+   "title": "Going Commando",
+   "branches": [
+    {
+     "name": "master",
+     "commits": [
+      {
+       "sha": "8f9e7333fca2c6b0a9943ae331ae71f567db2b50",
+       "title": "Merge pull request #171 from OpenRAC/chore/progress-20261013",
+       "author": "llesieur99",
+       "date": "2026-10-13T14:07:14Z"
+      },
+      {
+       "sha": "852309d1264cfb06fd62e1417d3b9d5d3efd86d3",
+       "title": "Merge pull request #170 from OpenRAC/match/thorpen-src-game-bank",
+       "author": "ThorpenCodes",
+       "date": "2026-10-13T13:00:45Z"
+      },
+      {
+       "sha": "bdd5d848d4aa2c69756caf161d4872ec0e09ef20",
+       "title": "Merge pull request #169 from OpenRAC/match/wave9-20261013",
+       "author": "llesieur99",
+       "date": "2026-10-13T06:22:48Z"
+      },
+      {
+       "sha": "c30cba6d5c647cefc11508cfc12cc9a24695afec",
+       "title": "docs(agents): when to stop on a function",
+       "author": "Veradictus",
+       "date": "2026-10-13T06:22:05Z"
+      },
+      {
+       "sha": "94793f581e0232bd1b88798552da6505636dcdfd",
+       "title": "Merge pull request #168 from OpenRAC/match/aranos-completion-20261013",
+       "author": "llesieur99",
+       "date": "2026-10-13T03:57:09Z"
+      },
+      {
+       "sha": "ca00e2befa2fbf558a11ef72248668f99676cc71",
+       "title": "feat(src): match 30 shared game functions (#167)",
+       "author": "ThorpenCodes",
+       "date": "2026-10-13T03:38:09Z"
+      },
+      {
+       "sha": "8b490f56b8e46a1b749b54fd898946a4f09c1cca",
+       "title": "docs: clarify exclusive contributor scope coordination",
+       "author": "ThorpenCodes",
+       "date": "2026-10-13T02:20:42Z"
+      },
+      {
+       "sha": "e008b17ddd8554061537fd5bab5ec517ab7c35a1",
+       "title": "Merge pull request #166 from OpenRAC/match/wave8-20261013",
+       "author": "llesieur99",
+       "date": "2026-10-13T00:58:32Z"
+      }
+     ]
+    }
+   ],
+   "commitCount": 8,
+   "pullRequests": {
+    "merged": [
+     {
+      "number": 166,
+      "title": "feat(src): level functions from the eighth wave, forty units in parallel",
+      "author": "llesieur99",
+      "untrustedBody": "Forty level units matched in parallel, one worker each, bounded at 18 functions or 150 minutes. The catalogue frontier entries are filtered out of the targets this time, which is what the last two waves asked for: 271 of 3,514 candidates had no `jr $ra` in their span and were dropped before anyone was assigned one.\n\n**120 functions added** (2,438 -> 2,558 of 9,101, 4.80%), across 47 level files plus 9 new `-g8` siblings. Every body was checked with `tools/check.py` at every place and then by the full build.\n\nWhat the wave measured is in #157: the `$gp` choice is made by GAS, not cc1 (out of a delay slot the macro always becomes `lui $at,%hi ; op %lo($at)`, inside one it becomes gp-relative, so the symbol name has to follow slot versus flow); the callee-saved allocation is a density, `floor_log2(refs)*refs/live_length` with `loop_depth` added to the reference count, and `cc1 -dl` dumps refs and live lengths per pseudo; if-conversion of an `if/else` over a constant only yields to two `go",
+      "mergedAt": "2026-10-13T00:58:32Z"
+     },
+     {
+      "number": 167,
+      "title": "feat(src): match 30 shared game functions",
+      "author": "ThorpenCodes",
+      "untrustedBody": "## What\n\nReplace 30 assembly markers in `src/game/` with equivalent C, covering state resets, transfer bookkeeping, vector updates and UI helpers. `func_002B7F58` is excluded because it already has an upstream implementation.\n\nGP-relative routines use `-g8.c` siblings. Four callers use separate C units to resolve helper calls independently in each level. `func_002DF750` also uses a separate unit to retain the game compiler instead of the original unit's SDK override. Existing compiler flags and generated progress files are unchanged.\n\n## Checked\n\n- `tools/check.py <function> --diff`: all 30 functions pass every known placement (29 at 28/28; `func_002F5D10` at 23/23).\n- `python3 tools/build.py all --jobs 4`: **28/28 programs OK**, every loaded byte equal to retail, with no C functions excluded. Windows Python 3.12 runs the splitting/expansion helpers with the pinned dependencies; the GNU compiler and Wine tools run under WSL. No build-script or compiler changes.\n- `python3 -m unittest d",
+      "mergedAt": "2026-10-13T03:38:09Z"
+     },
+     {
+      "number": 168,
+      "title": "feat(src): match 30 Aranos and shared functions; correct three entries",
+      "author": "llesieur99",
+      "untrustedBody": "## What\n\nAdd 30 plain-C functions (4,404 distinct catalogue bytes): five Aranos Tutorial bodies and 25 shared support functions. The Aranos bodies are `00338FB8`, `003618D8`, `003CF9B0`, `003E7768` and `003EB3B8`. Shared work includes callback loops, dispatch wrappers, GP state updates, and recovery of `002D4A38` at all 27 places using an opaque `sda` reference under the existing G0 profile.\n\nCorrect three measured Aranos entry boundaries in the catalogue generator, preserving their end addresses and leaving the preceding epilogue bytes in assembly. The corrected `003D54B0` body groups with Siberius `003EBC90`, so one shared definition replaces two markers. The generated catalogue now contains 9,100 distinct functions.\n\nPreserve 73 complete nonmatching C attempts with measured limitations in `nonmatching/README.md`; repaired declarations and symbolic names are identified as needing renewed placement checks. Aranos is **12 of 40 level-specific functions in C**, with 28 still remaining. ",
+      "mergedAt": "2026-10-13T03:57:09Z"
+     },
+     {
+      "number": 169,
+      "title": "feat(src): match 157 level functions and remove unused assembly helpers",
+      "author": "llesieur99",
+      "untrustedBody": "## What\r\n\r\nAdd **157 plain-C level functions, 21,916 distinct catalogue bytes**, compared with current `master` (`94793f5`). No existing C definition is removed. This replaces the earlier incorrect claim of 211 additions.\r\n\r\nRemove five inherited, unused inline-assembly helpers: two local `qcopy` definitions and `qcopy`, `qcopy_nc`, `qzero` from `include/common.h`. None has a caller in `src/` or the functional ports. Symbol aliases remain unchanged; they name linker symbols and do not emit instructions. No matching C body is demoted for this cleanup.\r\n\r\nPreserve 74 standalone nonmatching attempts, with restored source-unit declarations and measured refusal notes indexed in `nonmatching/README.md`. Incorrect or incomplete extracts are preserved privately and excluded from the contribution. Declaration repairs are not new match measurements; nonmatching candidates are neither linked nor credited.\r\n\r\n`tools/check.py` and `tools/build.py` use the same source-unit compiler. The full build a",
+      "mergedAt": "2026-10-13T06:22:48Z"
+     },
+     {
+      "number": 170,
+      "title": "feat(src): add 106 exact src/game matches",
+      "author": "ThorpenCodes",
+      "untrustedBody": "## What\r\n\r\nAdd 106 new unique exact `src/game/` functions for Ratchet & Clank: Going Commando, PS2 USA v1.01 / `SCUS_972.68`: **14,548 distinct catalogue bytes and 2,461 placements**.\r\n\r\nReconciled the authoritative local bank (`local/rac2-game-matching`, `9a7b4481cb0968ac250812784ddc530a2cf817ae`) against current master (`bdd5d848d4aa2c69756caf161d4872ec0e09ef20`): 117 candidates / 16,148 bytes / 2,739 placements; **0 already upstream**, 106 published, and 11 excluded (1,600 bytes / 278 placements). The recovery branch remains local and unchanged. Only source changes are included; the existing `-g8.c` placement and SDA declarations are preserved.\r\n\r\n## Checked\r\n\r\n- `python3 tools/check.py <function> --diff` for every published function: **106/106 functions, 2,461/2,461 known placements passed**.\r\n- `python3 tools/build.py all --jobs 1`, using the established Python 3.12.15 / WSL / Wine environment and existing short-path linker wrapper: **boot and all 27 levels OK; all 28 programs byt",
+      "mergedAt": "2026-10-13T13:00:45Z"
+     },
+     {
+      "number": 171,
+      "title": "chore(progress): refresh RAC2 match report after merged PRs",
+      "author": "llesieur99",
+      "untrustedBody": "## What\n\nRefresh the maintainer-generated progress report and the README progress table after merged source PRs #167–#170. The published report was behind the source and still used the old 9,101-function catalogue. The new report records **2,881 of 9,100 distinct functions** and **309,824 of 5,533,600 bytes (5.60%)**, up from 2,558 of 9,101 and 265,132 of 5,538,056 bytes (4.79%). The 27 levels now have 36,986 C placements in the README table, up from 32,907. No source, compiler, catalogue or tool file changes are included.\n\nThis is the report-only maintainer regeneration that follows source merges; the prior source PRs intentionally left these two generated files alone.\n\n## Checked\n\n- `python3 tools/build.py all --jobs 8`: boot and all 27 levels `OK`, every loaded program byte-equal to retail. The 583 unique source files were compiled freshly in the private runtime before this build, avoiding stale objects.\n- Independent audit: all 28 output ELF images equal their retail references; al",
+      "mergedAt": "2026-10-13T14:07:15Z"
+     }
+    ],
+    "opened": [
+     {
+      "number": 166,
+      "title": "feat(src): level functions from the eighth wave, forty units in parallel",
+      "author": "llesieur99",
+      "untrustedBody": "Forty level units matched in parallel, one worker each, bounded at 18 functions or 150 minutes. The catalogue frontier entries are filtered out of the targets this time, which is what the last two waves asked for: 271 of 3,514 candidates had no `jr $ra` in their span and were dropped before anyone was assigned one.\n\n**120 functions added** (2,438 -> 2,558 of 9,101, 4.80%), across 47 level files plus 9 new `-g8` siblings. Every body was checked with `tools/check.py` at every place and then by the full build.\n\nWhat the wave measured is in #157: the `$gp` choice is made by GAS, not cc1 (out of a delay slot the macro always becomes `lui $at,%hi ; op %lo($at)`, inside one it becomes gp-relative, so the symbol name has to follow slot versus flow); the callee-saved allocation is a density, `floor_log2(refs)*refs/live_length` with `loop_depth` added to the reference count, and `cc1 -dl` dumps refs and live lengths per pseudo; if-conversion of an `if/else` over a constant only yields to two `go",
+      "mergedAt": "2026-10-13T00:58:32Z"
+     },
+     {
+      "number": 167,
+      "title": "feat(src): match 30 shared game functions",
+      "author": "ThorpenCodes",
+      "untrustedBody": "## What\n\nReplace 30 assembly markers in `src/game/` with equivalent C, covering state resets, transfer bookkeeping, vector updates and UI helpers. `func_002B7F58` is excluded because it already has an upstream implementation.\n\nGP-relative routines use `-g8.c` siblings. Four callers use separate C units to resolve helper calls independently in each level. `func_002DF750` also uses a separate unit to retain the game compiler instead of the original unit's SDK override. Existing compiler flags and generated progress files are unchanged.\n\n## Checked\n\n- `tools/check.py <function> --diff`: all 30 functions pass every known placement (29 at 28/28; `func_002F5D10` at 23/23).\n- `python3 tools/build.py all --jobs 4`: **28/28 programs OK**, every loaded byte equal to retail, with no C functions excluded. Windows Python 3.12 runs the splitting/expansion helpers with the pinned dependencies; the GNU compiler and Wine tools run under WSL. No build-script or compiler changes.\n- `python3 -m unittest d",
+      "mergedAt": "2026-10-13T03:38:09Z"
+     },
+     {
+      "number": 168,
+      "title": "feat(src): match 30 Aranos and shared functions; correct three entries",
+      "author": "llesieur99",
+      "untrustedBody": "## What\n\nAdd 30 plain-C functions (4,404 distinct catalogue bytes): five Aranos Tutorial bodies and 25 shared support functions. The Aranos bodies are `00338FB8`, `003618D8`, `003CF9B0`, `003E7768` and `003EB3B8`. Shared work includes callback loops, dispatch wrappers, GP state updates, and recovery of `002D4A38` at all 27 places using an opaque `sda` reference under the existing G0 profile.\n\nCorrect three measured Aranos entry boundaries in the catalogue generator, preserving their end addresses and leaving the preceding epilogue bytes in assembly. The corrected `003D54B0` body groups with Siberius `003EBC90`, so one shared definition replaces two markers. The generated catalogue now contains 9,100 distinct functions.\n\nPreserve 73 complete nonmatching C attempts with measured limitations in `nonmatching/README.md`; repaired declarations and symbolic names are identified as needing renewed placement checks. Aranos is **12 of 40 level-specific functions in C**, with 28 still remaining. ",
+      "mergedAt": "2026-10-13T03:57:09Z"
+     },
+     {
+      "number": 169,
+      "title": "feat(src): match 157 level functions and remove unused assembly helpers",
+      "author": "llesieur99",
+      "untrustedBody": "## What\r\n\r\nAdd **157 plain-C level functions, 21,916 distinct catalogue bytes**, compared with current `master` (`94793f5`). No existing C definition is removed. This replaces the earlier incorrect claim of 211 additions.\r\n\r\nRemove five inherited, unused inline-assembly helpers: two local `qcopy` definitions and `qcopy`, `qcopy_nc`, `qzero` from `include/common.h`. None has a caller in `src/` or the functional ports. Symbol aliases remain unchanged; they name linker symbols and do not emit instructions. No matching C body is demoted for this cleanup.\r\n\r\nPreserve 74 standalone nonmatching attempts, with restored source-unit declarations and measured refusal notes indexed in `nonmatching/README.md`. Incorrect or incomplete extracts are preserved privately and excluded from the contribution. Declaration repairs are not new match measurements; nonmatching candidates are neither linked nor credited.\r\n\r\n`tools/check.py` and `tools/build.py` use the same source-unit compiler. The full build a",
+      "mergedAt": "2026-10-13T06:22:48Z"
+     },
+     {
+      "number": 170,
+      "title": "feat(src): add 106 exact src/game matches",
+      "author": "ThorpenCodes",
+      "untrustedBody": "## What\r\n\r\nAdd 106 new unique exact `src/game/` functions for Ratchet & Clank: Going Commando, PS2 USA v1.01 / `SCUS_972.68`: **14,548 distinct catalogue bytes and 2,461 placements**.\r\n\r\nReconciled the authoritative local bank (`local/rac2-game-matching`, `9a7b4481cb0968ac250812784ddc530a2cf817ae`) against current master (`bdd5d848d4aa2c69756caf161d4872ec0e09ef20`): 117 candidates / 16,148 bytes / 2,739 placements; **0 already upstream**, 106 published, and 11 excluded (1,600 bytes / 278 placements). The recovery branch remains local and unchanged. Only source changes are included; the existing `-g8.c` placement and SDA declarations are preserved.\r\n\r\n## Checked\r\n\r\n- `python3 tools/check.py <function> --diff` for every published function: **106/106 functions, 2,461/2,461 known placements passed**.\r\n- `python3 tools/build.py all --jobs 1`, using the established Python 3.12.15 / WSL / Wine environment and existing short-path linker wrapper: **boot and all 27 levels OK; all 28 programs byt",
+      "mergedAt": "2026-10-13T13:00:45Z"
+     },
+     {
+      "number": 171,
+      "title": "chore(progress): refresh RAC2 match report after merged PRs",
+      "author": "llesieur99",
+      "untrustedBody": "## What\n\nRefresh the maintainer-generated progress report and the README progress table after merged source PRs #167–#170. The published report was behind the source and still used the old 9,101-function catalogue. The new report records **2,881 of 9,100 distinct functions** and **309,824 of 5,533,600 bytes (5.60%)**, up from 2,558 of 9,101 and 265,132 of 5,538,056 bytes (4.79%). The 27 levels now have 36,986 C placements in the README table, up from 32,907. No source, compiler, catalogue or tool file changes are included.\n\nThis is the report-only maintainer regeneration that follows source merges; the prior source PRs intentionally left these two generated files alone.\n\n## Checked\n\n- `python3 tools/build.py all --jobs 8`: boot and all 27 levels `OK`, every loaded program byte-equal to retail. The 583 unique source files were compiled freshly in the private runtime before this build, avoiding stale objects.\n- Independent audit: all 28 output ELF images equal their retail references; al",
+      "mergedAt": "2026-10-13T14:07:15Z"
+     },
+     {
+      "number": 172,
+      "title": "Multi language doc",
+      "author": "platypet2217-star",
+      "untrustedBody": "## Multi language doc\n\n<!-- Multi language doc to help us enjoy our mother tongue. -->\n\n## Checked\n\n<!-- It doesn’t contain any undiscovered features, but as for the language-switch function, I’ve discovered that it’s buried within the files; what it does contain are the translation texts, which have been confirmed. I can’t yet say for certain that it’s fully translated – that will become clear in time. -->",
+      "mergedAt": "2026-10-14T00:02:55Z"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": {
+    "before": {
+     "code": {
+      "done": 245812,
+      "total": 5538056
+     },
+     "functions": {
+      "done": 2438,
+      "total": 9101
+     }
+    },
+    "after": {
+     "code": {
+      "done": 309824,
+      "total": 5533600
+     },
+     "functions": {
+      "done": 2881,
+      "total": 9100
+     }
+    }
+   },
+   "contributors": [
+    "llesieur99",
+    "platypet2217-star",
+    "ThorpenCodes",
+    "Veradictus"
+   ]
+  },
+  {
+   "repo": "rac3-decomp",
+   "title": "Up Your Arsenal",
+   "branches": [
+    {
+     "name": "master",
+     "commits": []
+    }
+   ],
+   "commitCount": 0,
+   "pullRequests": {
+    "merged": [],
+    "opened": []
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": null,
+   "contributors": []
+  },
+  {
+   "repo": "rac4-decomp",
+   "title": "Ratchet: Deadlocked",
+   "branches": [
+    {
+     "name": "main",
+     "commits": []
+    }
+   ],
+   "commitCount": 0,
+   "pullRequests": {
+    "merged": [],
+    "opened": []
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": null,
+   "contributors": []
+  },
+  {
+   "repo": "openrac-mods",
+   "title": "OpenRAC mods",
+   "branches": [
+    {
+     "name": "master",
+     "commits": []
+    }
+   ],
+   "commitCount": 0,
+   "pullRequests": {
+    "merged": [],
+    "opened": []
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": null,
+   "contributors": []
+  }
+ ]
+}

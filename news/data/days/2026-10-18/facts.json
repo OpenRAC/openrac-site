@@ -1,0 +1,1056 @@
+{
+ "format": 1,
+ "date": "2026-10-18",
+ "totals": {
+  "commits": 58,
+  "pullRequestsMerged": 9,
+  "pullRequestsOpened": 11,
+  "contributors": 6
+ },
+ "projects": [
+  {
+   "repo": "OpenRAC",
+   "title": "OpenRAC launcher",
+   "branches": [
+    {
+     "name": "develop",
+     "commits": [
+      {
+       "sha": "79584537e3f488bfd9c49e153aeb35ef44715330",
+       "title": "chore(launcher): 0.8.0",
+       "author": "Veradictus",
+       "date": "2026-10-18T23:30:10Z"
+      },
+      {
+       "sha": "ae83b122b076ed03334075642eb38166a5606068",
+       "title": "feat(port/runtime): the R5900's instructions for C written from assembly",
+       "author": "Veradictus",
+       "date": "2026-10-18T22:47:56Z"
+      },
+      {
+       "sha": "6a7185410185041cd9ecbf2bce560edeaf0a3cd4",
+       "title": "feat(port): openrac_game_picture_wider, how much wider than 4:3 the picture is",
+       "author": "Veradictus",
+       "date": "2026-10-18T22:30:46Z"
+      },
+      {
+       "sha": "f07117c48c073505cd990802f432ac1d7c58da85",
+       "title": "fix(port): a 2D primitive that covers no pixel of the chip draws nothing",
+       "author": "Veradictus",
+       "date": "2026-10-18T22:24:05Z"
+      },
+      {
+       "sha": "092c5f1937a94eb4a3e24a706eb1129191b56a00",
+       "title": "fix(port): hostgen relocates literal addresses as the globals at them",
+       "author": "Veradictus",
+       "date": "2026-10-18T22:14:36Z"
+      },
+      {
+       "sha": "acf3705e17d640343ac00459a7558a285d40b128",
+       "title": "feat(port/rac1-ntsc): the levels' joint pose on the port's evaluator",
+       "author": "Veradictus",
+       "date": "2026-10-18T22:14:36Z"
+      },
+      {
+       "sha": "173f5863094c6dbd1778f76bac9ca0c5eb36d4af",
+       "title": "fix(rac1/ntsc): the port finds create_moby under the PAL name the C calls",
+       "author": "Veradictus",
+       "date": "2026-10-18T22:14:36Z"
+      },
+      {
+       "sha": "deb6de52051d6b89ac1df0fdc2457666d68a3de8",
+       "title": "fix(port/rac1): LightTies and LightShrubs take one argument",
+       "author": "Veradictus",
+       "date": "2026-10-18T22:14:36Z"
+      },
+      {
+       "sha": "f60ffe1156bdf45c797ebdaeb341c24538450ddb",
+       "title": "fix(port): PSMZ24 is six nibbles a pixel when textures are reinterpreted",
+       "author": "Veradictus",
+       "date": "2026-10-18T22:14:36Z"
+      },
+      {
+       "sha": "17466cd80465c530e3ed0f66710d59c28e945630",
+       "title": "fix(rac1/ntsc): Batalia's moby spawns call FUN_0020c4f8",
+       "author": "Veradictus",
+       "date": "2026-10-18T22:14:36Z"
+      },
+      {
+       "sha": "73f35d1c5751864f6c5943b0705bb1f457cf4e29",
+       "title": "fix(port/rac1-ntsc): undo three wrong corrections of the US pass",
+       "author": "Veradictus",
+       "date": "2026-10-18T22:14:36Z"
+      },
+      {
+       "sha": "e8512b1bc795eb5d27d4bbaa70295b38f93c6d1e",
+       "title": "fix(rac1/ntsc): the air meter's update passes its HUD element on",
+       "author": "Veradictus",
+       "date": "2026-10-18T22:14:36Z"
+      },
+      {
+       "sha": "0d9d25c51978be7d693cafa93ec985d2ca01f158",
+       "title": "feat(port): log the level's game mode with OPENRAC_DEBUG",
+       "author": "Veradictus",
+       "date": "2026-10-18T22:14:36Z"
+      },
+      {
+       "sha": "fc7c8e96a790c116f4e0e6c433ff1819a880dde8",
+       "title": "feat(port): OPENRAC_AUDIO_TICKED, sounds that advance with the ticks",
+       "author": "Veradictus",
+       "date": "2026-10-18T22:14:36Z"
+      },
+      {
+       "sha": "b26160644a072cefc1c724ce97c2ff194601003f",
+       "title": "feat(port): a lock-strafe setting and its Options row",
+       "author": "Veradictus",
+       "date": "2026-10-18T22:14:36Z"
+      },
+      {
+       "sha": "abef4c5a425246e8e3579673d8709287cf1e8183",
+       "title": "feat(launcher): a redesign around a list of the games, a faster launcher, and Size Matters",
+       "author": "Lynder063",
+       "date": "2026-10-18T21:49:39Z"
+      },
+      {
+       "sha": "96f6299b84d39c0d20af65c5e7c1c86a0af0691a",
+       "title": "fix(editor): class scripts follow the decompilation's readable names",
+       "author": "Veradictus",
+       "date": "2026-10-18T19:36:14Z"
+      },
+      {
+       "sha": "7a4f9f3a8d24ec4aa62ed7b4e1458da60c72ce69",
+       "title": "feat(tools): fcheck_gate records fcheck verdicts for backfilled C",
+       "author": "Veradictus",
+       "date": "2026-10-18T19:29:49Z"
+      },
+      {
+       "sha": "010555f2ed8b3d9d5db9324ed35969be64ad4f39",
+       "title": "fix(port/rac1-pal): the print core stays the port's on Linux ARM64",
+       "author": "Veradictus",
+       "date": "2026-10-18T19:27:35Z"
+      },
+      {
+       "sha": "35daca37e083d9e63aadac522105669831b9ae15",
+       "title": "docs(launcher): 0.7.5 notes: PAL crash fixes, the decomp syncs, the developer disc switch",
+       "author": "Veradictus",
+       "date": "2026-10-18T19:07:49Z"
+      },
+      {
+       "sha": "f6cccea32470e6739eeec34c1f0a6d91be0dc18c",
+       "title": "feat(launcher): let a developer with two discs of a game pick one",
+       "author": "Veradictus",
+       "date": "2026-10-18T18:35:40Z"
+      },
+      {
+       "sha": "b6ef6e1574c745ce38d56d37e876b2a35f5ad47e",
+       "title": "chore(rac1/ntsc): sync the NTSC decomp to 7ba4ca0d",
+       "author": "Veradictus",
+       "date": "2026-10-18T17:44:30Z"
+      },
+      {
+       "sha": "755119724f8371856f01b2408cd38465d35707f2",
+       "title": "fix(launcher): format desktop entry integration writes",
+       "author": "Lynder063",
+       "date": "2026-10-18T17:33:35Z"
+      },
+      {
+       "sha": "0d02342f9f5461a7ca3d998cf6a60e23794d42e5",
+       "title": "fix(hostgen): read the decompilation's readable names as address names",
+       "author": "Lynder063",
+       "date": "2026-10-18T17:25:39Z"
+      },
+      {
+       "sha": "7864fc5bbde3d355a3669bdf24cb15983ee0b67a",
+       "title": "fix(launcher): no console windows on Windows",
+       "author": "Lynder063",
+       "date": "2026-10-18T16:05:13Z"
+      },
+      {
+       "sha": "65aecb28e936617e6dbdd61811ae6caf8623cef5",
+       "title": "feat(port): five rows on the in-game Video options page",
+       "author": "Lynder063",
+       "date": "2026-10-18T15:53:56Z"
+      },
+      {
+       "sha": "e0615f2e2d8e37f19aa53f7ca9f3ee3d0ffdd46c",
+       "title": "feat(port): Video options in the in-game pause menu",
+       "author": "Lynder063",
+       "date": "2026-10-18T15:49:40Z"
+      },
+      {
+       "sha": "e15b06bd75c4048292399af18a92e05999a1b6a3",
+       "title": "fix(rac1-pal): the level programs' joint pose from the port's evaluator",
+       "author": "Lynder063",
+       "date": "2026-10-18T15:22:15Z"
+      },
+      {
+       "sha": "6e435ec9374ff1a9c9fb8083efabbabdbecb8313",
+       "title": "feat(port): OPENRAC_HIDDEN runs with a window that is never shown",
+       "author": "Lynder063",
+       "date": "2026-10-18T15:22:15Z"
+      },
+      {
+       "sha": "a6bbe73c61cdfa48d6695c77b69bb80ad8363b37",
+       "title": "fix(hostgen): records defined in a unit's own cast macros",
+       "author": "Lynder063",
+       "date": "2026-10-18T15:22:15Z"
+      },
+      {
+       "sha": "c84fa792d780f67f0950da6e96454d9c5b29abc0",
+       "title": "fix(launcher): default installDir to user OpenRAC directory and migrate active data",
+       "author": "Lynder063",
+       "date": "2026-10-18T15:22:15Z"
+      },
+      {
+       "sha": "6c32d3d9e909d4a16a2453e99dde66aeefd3410d",
+       "title": "fix(launcher): use installer-specific updater manifest keys",
+       "author": "ReaperOfVeriod",
+       "date": "2026-10-18T13:53:58Z"
+      },
+      {
+       "sha": "6d00d8835c0d98f1221b58213eec0462c7342547",
+       "title": "fix(launcher): set XCURSOR_THEME fallback on Wayland to prevent GTK cursor assertion crash",
+       "author": "Lynder063",
+       "date": "2026-10-18T09:05:24Z"
+      },
+      {
+       "sha": "a0dc0b635278c152cd488dfd2f18109da2f4f8f4",
+       "title": "fix(port): install Linux desktop entry and icons for KDE Wayland taskbar",
+       "author": "Lynder063",
+       "date": "2026-10-18T08:49:40Z"
+      },
+      {
+       "sha": "af388a6d801abfd039be2bfe02dfe97f68376f82",
+       "title": "perf(platform): detect discrete GPU on Linux multi-GPU systems",
+       "author": "Lynder063",
+       "date": "2026-10-18T08:19:56Z"
+      },
+      {
+       "sha": "fa6ba6a892275aba0fe85a8e2f79e464a0ada1f7",
+       "title": "fix(port/rac1-pal): remap camera routines to fix post-update queue crash",
+       "author": "Lynder063",
+       "date": "2026-10-18T08:05:01Z"
+      },
+      {
+       "sha": "0a25d9be65b2637da0c12e7c8b915787107c8509",
+       "title": "docs(launcher): 0.7.4 notes: the vendor's salesman on the US disc",
+       "author": "Veradictus",
+       "date": "2026-10-18T07:08:29Z"
+      },
+      {
+       "sha": "ae51a3adc5768f0dcc3ab0e0ec37b74c1e5f5dae",
+       "title": "fix(port/rac1-ntsc): fast_arc_sin reads its constants at 0x1606A0 again",
+       "author": "Veradictus",
+       "date": "2026-10-18T07:06:30Z"
+      },
+      {
+       "sha": "184b9513a23930e2954b951f6a2efd814b59d342",
+       "title": "chore(rac1/ntsc): sync the NTSC decomp to 013055ae",
+       "author": "Veradictus",
+       "date": "2026-10-18T06:32:08Z"
+      },
+      {
+       "sha": "3082d0ec63b70324b6d521b5a2fc182e7b9a999a",
+       "title": "chore(launcher): 0.7.4",
+       "author": "Veradictus",
+       "date": "2026-10-18T06:21:18Z"
+      },
+      {
+       "sha": "20cf36b1d99f2c675e8d7545bdaccaef7adb93c3",
+       "title": "fix(rac1/ntsc): calls that drop arguments or results retail passes in registers",
+       "author": "Veradictus",
+       "date": "2026-10-18T06:18:16Z"
+      },
+      {
+       "sha": "be7caa443781723eab32a5196bc3bc4fb0e3fcc3",
+       "title": "feat(port): carry_functions.py, a version's C for every function another has none for",
+       "author": "Veradictus",
+       "date": "2026-10-18T05:53:31Z"
+      },
+      {
+       "sha": "446a97f59c4de597525d9a7ac2bb825518a8d2e8",
+       "title": "fix(rac1/pal): the last unreviewed functional C checked; two corrected",
+       "author": "Veradictus",
+       "date": "2026-10-18T05:07:10Z"
+      },
+      {
+       "sha": "929dd1cd5996ef0e661ae3807fe89082a53f4226",
+       "title": "feat(launcher): the running job under Play is a phase, a bar and a Details box",
+       "author": "Veradictus",
+       "date": "2026-10-18T04:52:36Z"
+      },
+      {
+       "sha": "541440536ce33ea3ec4d16e65715d0ceb9a974b1",
+       "title": "fix(port): a call through a reordering cast reaches the function as on the EE",
+       "author": "Veradictus",
+       "date": "2026-10-18T04:31:09Z"
+      },
+      {
+       "sha": "e2132348f9c839f0a424cf7afb8bdf52460ff030",
+       "title": "fix(rac1/pal): FastVecCross computes the whole result before storing it",
+       "author": "Veradictus",
+       "date": "2026-10-18T03:58:25Z"
+      },
+      {
+       "sha": "d51e0566efa6e7b4867af2e611ab7c8c4af12369",
+       "title": "fix(launcher): build the game before checking its levels",
+       "author": "Veradictus",
+       "date": "2026-10-18T03:57:50Z"
+      },
+      {
+       "sha": "789be10d3620023cbcb9b52c2ce77c782f1f9770",
+       "title": "fix(rac1/pal): the rest of the gameplay-critical functional C checked",
+       "author": "Veradictus",
+       "date": "2026-10-18T03:12:27Z"
+      },
+      {
+       "sha": "eeeb85f7a09e845dc07f82c64561be1aa81fadcc",
+       "title": "chore(rac1/ntsc): sync the NTSC decomp to 623e6d97",
+       "author": "Veradictus",
+       "date": "2026-10-18T02:41:15Z"
+      },
+      {
+       "sha": "49a02a93f3cac660dc548b2e1b0493d9b6cf21a6",
+       "title": "feat(launcher): crash notice and a game's logs and crash reports",
+       "author": "Veradictus",
+       "date": "2026-10-18T02:23:35Z"
+      },
+      {
+       "sha": "47d767bd42ccfd3567f7934c8dd18c17370412cc",
+       "title": "feat(port): crash reports and one log per session",
+       "author": "Veradictus",
+       "date": "2026-10-18T02:08:56Z"
+      }
+     ]
+    },
+    {
+     "name": "master",
+     "commits": [
+      {
+       "sha": "79584537e3f488bfd9c49e153aeb35ef44715330",
+       "title": "chore(launcher): 0.8.0",
+       "author": "Veradictus",
+       "date": "2026-10-18T23:30:10Z"
+      },
+      {
+       "sha": "ae83b122b076ed03334075642eb38166a5606068",
+       "title": "feat(port/runtime): the R5900's instructions for C written from assembly",
+       "author": "Veradictus",
+       "date": "2026-10-18T22:47:56Z"
+      },
+      {
+       "sha": "6a7185410185041cd9ecbf2bce560edeaf0a3cd4",
+       "title": "feat(port): openrac_game_picture_wider, how much wider than 4:3 the picture is",
+       "author": "Veradictus",
+       "date": "2026-10-18T22:30:46Z"
+      },
+      {
+       "sha": "f07117c48c073505cd990802f432ac1d7c58da85",
+       "title": "fix(port): a 2D primitive that covers no pixel of the chip draws nothing",
+       "author": "Veradictus",
+       "date": "2026-10-18T22:24:05Z"
+      },
+      {
+       "sha": "092c5f1937a94eb4a3e24a706eb1129191b56a00",
+       "title": "fix(port): hostgen relocates literal addresses as the globals at them",
+       "author": "Veradictus",
+       "date": "2026-10-18T22:14:36Z"
+      },
+      {
+       "sha": "acf3705e17d640343ac00459a7558a285d40b128",
+       "title": "feat(port/rac1-ntsc): the levels' joint pose on the port's evaluator",
+       "author": "Veradictus",
+       "date": "2026-10-18T22:14:36Z"
+      },
+      {
+       "sha": "173f5863094c6dbd1778f76bac9ca0c5eb36d4af",
+       "title": "fix(rac1/ntsc): the port finds create_moby under the PAL name the C calls",
+       "author": "Veradictus",
+       "date": "2026-10-18T22:14:36Z"
+      },
+      {
+       "sha": "deb6de52051d6b89ac1df0fdc2457666d68a3de8",
+       "title": "fix(port/rac1): LightTies and LightShrubs take one argument",
+       "author": "Veradictus",
+       "date": "2026-10-18T22:14:36Z"
+      },
+      {
+       "sha": "f60ffe1156bdf45c797ebdaeb341c24538450ddb",
+       "title": "fix(port): PSMZ24 is six nibbles a pixel when textures are reinterpreted",
+       "author": "Veradictus",
+       "date": "2026-10-18T22:14:36Z"
+      },
+      {
+       "sha": "17466cd80465c530e3ed0f66710d59c28e945630",
+       "title": "fix(rac1/ntsc): Batalia's moby spawns call FUN_0020c4f8",
+       "author": "Veradictus",
+       "date": "2026-10-18T22:14:36Z"
+      },
+      {
+       "sha": "73f35d1c5751864f6c5943b0705bb1f457cf4e29",
+       "title": "fix(port/rac1-ntsc): undo three wrong corrections of the US pass",
+       "author": "Veradictus",
+       "date": "2026-10-18T22:14:36Z"
+      },
+      {
+       "sha": "e8512b1bc795eb5d27d4bbaa70295b38f93c6d1e",
+       "title": "fix(rac1/ntsc): the air meter's update passes its HUD element on",
+       "author": "Veradictus",
+       "date": "2026-10-18T22:14:36Z"
+      },
+      {
+       "sha": "0d9d25c51978be7d693cafa93ec985d2ca01f158",
+       "title": "feat(port): log the level's game mode with OPENRAC_DEBUG",
+       "author": "Veradictus",
+       "date": "2026-10-18T22:14:36Z"
+      },
+      {
+       "sha": "fc7c8e96a790c116f4e0e6c433ff1819a880dde8",
+       "title": "feat(port): OPENRAC_AUDIO_TICKED, sounds that advance with the ticks",
+       "author": "Veradictus",
+       "date": "2026-10-18T22:14:36Z"
+      },
+      {
+       "sha": "b26160644a072cefc1c724ce97c2ff194601003f",
+       "title": "feat(port): a lock-strafe setting and its Options row",
+       "author": "Veradictus",
+       "date": "2026-10-18T22:14:36Z"
+      },
+      {
+       "sha": "abef4c5a425246e8e3579673d8709287cf1e8183",
+       "title": "feat(launcher): a redesign around a list of the games, a faster launcher, and Size Matters",
+       "author": "Lynder063",
+       "date": "2026-10-18T21:49:39Z"
+      },
+      {
+       "sha": "96f6299b84d39c0d20af65c5e7c1c86a0af0691a",
+       "title": "fix(editor): class scripts follow the decompilation's readable names",
+       "author": "Veradictus",
+       "date": "2026-10-18T19:36:14Z"
+      },
+      {
+       "sha": "7a4f9f3a8d24ec4aa62ed7b4e1458da60c72ce69",
+       "title": "feat(tools): fcheck_gate records fcheck verdicts for backfilled C",
+       "author": "Veradictus",
+       "date": "2026-10-18T19:29:49Z"
+      },
+      {
+       "sha": "010555f2ed8b3d9d5db9324ed35969be64ad4f39",
+       "title": "fix(port/rac1-pal): the print core stays the port's on Linux ARM64",
+       "author": "Veradictus",
+       "date": "2026-10-18T19:27:35Z"
+      },
+      {
+       "sha": "35daca37e083d9e63aadac522105669831b9ae15",
+       "title": "docs(launcher): 0.7.5 notes: PAL crash fixes, the decomp syncs, the developer disc switch",
+       "author": "Veradictus",
+       "date": "2026-10-18T19:07:49Z"
+      },
+      {
+       "sha": "f6cccea32470e6739eeec34c1f0a6d91be0dc18c",
+       "title": "feat(launcher): let a developer with two discs of a game pick one",
+       "author": "Veradictus",
+       "date": "2026-10-18T18:35:40Z"
+      },
+      {
+       "sha": "b6ef6e1574c745ce38d56d37e876b2a35f5ad47e",
+       "title": "chore(rac1/ntsc): sync the NTSC decomp to 7ba4ca0d",
+       "author": "Veradictus",
+       "date": "2026-10-18T17:44:30Z"
+      },
+      {
+       "sha": "755119724f8371856f01b2408cd38465d35707f2",
+       "title": "fix(launcher): format desktop entry integration writes",
+       "author": "Lynder063",
+       "date": "2026-10-18T17:33:35Z"
+      },
+      {
+       "sha": "0d02342f9f5461a7ca3d998cf6a60e23794d42e5",
+       "title": "fix(hostgen): read the decompilation's readable names as address names",
+       "author": "Lynder063",
+       "date": "2026-10-18T17:25:39Z"
+      },
+      {
+       "sha": "7864fc5bbde3d355a3669bdf24cb15983ee0b67a",
+       "title": "fix(launcher): no console windows on Windows",
+       "author": "Lynder063",
+       "date": "2026-10-18T16:05:13Z"
+      },
+      {
+       "sha": "65aecb28e936617e6dbdd61811ae6caf8623cef5",
+       "title": "feat(port): five rows on the in-game Video options page",
+       "author": "Lynder063",
+       "date": "2026-10-18T15:53:56Z"
+      },
+      {
+       "sha": "e0615f2e2d8e37f19aa53f7ca9f3ee3d0ffdd46c",
+       "title": "feat(port): Video options in the in-game pause menu",
+       "author": "Lynder063",
+       "date": "2026-10-18T15:49:40Z"
+      },
+      {
+       "sha": "e15b06bd75c4048292399af18a92e05999a1b6a3",
+       "title": "fix(rac1-pal): the level programs' joint pose from the port's evaluator",
+       "author": "Lynder063",
+       "date": "2026-10-18T15:22:15Z"
+      },
+      {
+       "sha": "6e435ec9374ff1a9c9fb8083efabbabdbecb8313",
+       "title": "feat(port): OPENRAC_HIDDEN runs with a window that is never shown",
+       "author": "Lynder063",
+       "date": "2026-10-18T15:22:15Z"
+      },
+      {
+       "sha": "a6bbe73c61cdfa48d6695c77b69bb80ad8363b37",
+       "title": "fix(hostgen): records defined in a unit's own cast macros",
+       "author": "Lynder063",
+       "date": "2026-10-18T15:22:15Z"
+      },
+      {
+       "sha": "c84fa792d780f67f0950da6e96454d9c5b29abc0",
+       "title": "fix(launcher): default installDir to user OpenRAC directory and migrate active data",
+       "author": "Lynder063",
+       "date": "2026-10-18T15:22:15Z"
+      },
+      {
+       "sha": "6c32d3d9e909d4a16a2453e99dde66aeefd3410d",
+       "title": "fix(launcher): use installer-specific updater manifest keys",
+       "author": "ReaperOfVeriod",
+       "date": "2026-10-18T13:53:58Z"
+      },
+      {
+       "sha": "6d00d8835c0d98f1221b58213eec0462c7342547",
+       "title": "fix(launcher): set XCURSOR_THEME fallback on Wayland to prevent GTK cursor assertion crash",
+       "author": "Lynder063",
+       "date": "2026-10-18T09:05:24Z"
+      },
+      {
+       "sha": "a0dc0b635278c152cd488dfd2f18109da2f4f8f4",
+       "title": "fix(port): install Linux desktop entry and icons for KDE Wayland taskbar",
+       "author": "Lynder063",
+       "date": "2026-10-18T08:49:40Z"
+      },
+      {
+       "sha": "af388a6d801abfd039be2bfe02dfe97f68376f82",
+       "title": "perf(platform): detect discrete GPU on Linux multi-GPU systems",
+       "author": "Lynder063",
+       "date": "2026-10-18T08:19:56Z"
+      },
+      {
+       "sha": "fa6ba6a892275aba0fe85a8e2f79e464a0ada1f7",
+       "title": "fix(port/rac1-pal): remap camera routines to fix post-update queue crash",
+       "author": "Lynder063",
+       "date": "2026-10-18T08:05:01Z"
+      },
+      {
+       "sha": "0a25d9be65b2637da0c12e7c8b915787107c8509",
+       "title": "docs(launcher): 0.7.4 notes: the vendor's salesman on the US disc",
+       "author": "Veradictus",
+       "date": "2026-10-18T07:08:29Z"
+      },
+      {
+       "sha": "ae51a3adc5768f0dcc3ab0e0ec37b74c1e5f5dae",
+       "title": "fix(port/rac1-ntsc): fast_arc_sin reads its constants at 0x1606A0 again",
+       "author": "Veradictus",
+       "date": "2026-10-18T07:06:30Z"
+      },
+      {
+       "sha": "184b9513a23930e2954b951f6a2efd814b59d342",
+       "title": "chore(rac1/ntsc): sync the NTSC decomp to 013055ae",
+       "author": "Veradictus",
+       "date": "2026-10-18T06:32:08Z"
+      },
+      {
+       "sha": "3082d0ec63b70324b6d521b5a2fc182e7b9a999a",
+       "title": "chore(launcher): 0.7.4",
+       "author": "Veradictus",
+       "date": "2026-10-18T06:21:18Z"
+      },
+      {
+       "sha": "20cf36b1d99f2c675e8d7545bdaccaef7adb93c3",
+       "title": "fix(rac1/ntsc): calls that drop arguments or results retail passes in registers",
+       "author": "Veradictus",
+       "date": "2026-10-18T06:18:16Z"
+      },
+      {
+       "sha": "be7caa443781723eab32a5196bc3bc4fb0e3fcc3",
+       "title": "feat(port): carry_functions.py, a version's C for every function another has none for",
+       "author": "Veradictus",
+       "date": "2026-10-18T05:53:31Z"
+      },
+      {
+       "sha": "446a97f59c4de597525d9a7ac2bb825518a8d2e8",
+       "title": "fix(rac1/pal): the last unreviewed functional C checked; two corrected",
+       "author": "Veradictus",
+       "date": "2026-10-18T05:07:10Z"
+      },
+      {
+       "sha": "929dd1cd5996ef0e661ae3807fe89082a53f4226",
+       "title": "feat(launcher): the running job under Play is a phase, a bar and a Details box",
+       "author": "Veradictus",
+       "date": "2026-10-18T04:52:36Z"
+      },
+      {
+       "sha": "541440536ce33ea3ec4d16e65715d0ceb9a974b1",
+       "title": "fix(port): a call through a reordering cast reaches the function as on the EE",
+       "author": "Veradictus",
+       "date": "2026-10-18T04:31:09Z"
+      },
+      {
+       "sha": "e2132348f9c839f0a424cf7afb8bdf52460ff030",
+       "title": "fix(rac1/pal): FastVecCross computes the whole result before storing it",
+       "author": "Veradictus",
+       "date": "2026-10-18T03:58:25Z"
+      },
+      {
+       "sha": "d51e0566efa6e7b4867af2e611ab7c8c4af12369",
+       "title": "fix(launcher): build the game before checking its levels",
+       "author": "Veradictus",
+       "date": "2026-10-18T03:57:50Z"
+      },
+      {
+       "sha": "789be10d3620023cbcb9b52c2ce77c782f1f9770",
+       "title": "fix(rac1/pal): the rest of the gameplay-critical functional C checked",
+       "author": "Veradictus",
+       "date": "2026-10-18T03:12:27Z"
+      },
+      {
+       "sha": "eeeb85f7a09e845dc07f82c64561be1aa81fadcc",
+       "title": "chore(rac1/ntsc): sync the NTSC decomp to 623e6d97",
+       "author": "Veradictus",
+       "date": "2026-10-18T02:41:15Z"
+      },
+      {
+       "sha": "49a02a93f3cac660dc548b2e1b0493d9b6cf21a6",
+       "title": "feat(launcher): crash notice and a game's logs and crash reports",
+       "author": "Veradictus",
+       "date": "2026-10-18T02:23:35Z"
+      },
+      {
+       "sha": "47d767bd42ccfd3567f7934c8dd18c17370412cc",
+       "title": "feat(port): crash reports and one log per session",
+       "author": "Veradictus",
+       "date": "2026-10-18T02:08:56Z"
+      }
+     ]
+    }
+   ],
+   "commitCount": 51,
+   "pullRequests": {
+    "merged": [
+     {
+      "number": 13,
+      "title": "fix(launcher): use installer-specific updater manifest keys",
+      "author": "ReaperOfVeriod",
+      "untrustedBody": "RPM/DEB/MSI installs now receive matching payloads instead of an AppImage, fixing 'Update failed: invalid updater binary format'.",
+      "mergedAt": "2026-10-18T13:53:58Z"
+     },
+     {
+      "number": 14,
+      "title": "Launcher redesign around a list of the games, a faster launcher, and Size Matters",
+      "author": "Lynder063",
+      "untrustedBody": "## What this does\n\nThe launcher is reworked so a player sees one game at a time, simply, and a developer's tools stay out of the way until switched on. Every game gets the same weight. The rework follows OpenGOAL's launcher: it opens straight onto the game you last played, with all the games in a list on the left, all the same size. Size Matters (rac5) joins as the fifth game, and the launcher does less work while idle or when its window regains focus.\n\nThe commits are grouped so each can be reviewed on its own:\n\n| Commit | What |\n|---|---|\n| `chore(import)` rac5/ntsc | The Size Matters decomp imported whole, at 57b02525 |\n| `feat(tools)` | A build pinned by its boot's SHA-256 alone (the rac5 project records only that) |\n| `feat(rac5)` | `games/rac5/game.json`, docs, CI step, the launcher's actions, theme and Chakra Petch font |\n| `chore` | README tables regenerated |\n| `feat(launcher)` backup notes | The core reads a backup's note back from its folder name |\n| `feat(launcher)` redesig",
+      "mergedAt": "2026-10-18T21:49:39Z"
+     }
+    ],
+    "opened": [
+     {
+      "number": 13,
+      "title": "fix(launcher): use installer-specific updater manifest keys",
+      "author": "ReaperOfVeriod",
+      "untrustedBody": "RPM/DEB/MSI installs now receive matching payloads instead of an AppImage, fixing 'Update failed: invalid updater binary format'.",
+      "mergedAt": "2026-10-18T13:53:58Z"
+     },
+     {
+      "number": 14,
+      "title": "Launcher redesign around a list of the games, a faster launcher, and Size Matters",
+      "author": "Lynder063",
+      "untrustedBody": "## What this does\n\nThe launcher is reworked so a player sees one game at a time, simply, and a developer's tools stay out of the way until switched on. Every game gets the same weight. The rework follows OpenGOAL's launcher: it opens straight onto the game you last played, with all the games in a list on the left, all the same size. Size Matters (rac5) joins as the fifth game, and the launcher does less work while idle or when its window regains focus.\n\nThe commits are grouped so each can be reviewed on its own:\n\n| Commit | What |\n|---|---|\n| `chore(import)` rac5/ntsc | The Size Matters decomp imported whole, at 57b02525 |\n| `feat(tools)` | A build pinned by its boot's SHA-256 alone (the rac5 project records only that) |\n| `feat(rac5)` | `games/rac5/game.json`, docs, CI step, the launcher's actions, theme and Chakra Petch font |\n| `chore` | README tables regenerated |\n| `feat(launcher)` backup notes | The core reads a backup's note back from its folder name |\n| `feat(launcher)` redesig",
+      "mergedAt": "2026-10-18T21:49:39Z"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [],
+    "closed": [
+     {
+      "number": 12,
+      "title": "Crashing on launch OpenRAC.Launcher_0.5.0_amd64.AppImage",
+      "author": "MaxConz"
+     }
+    ]
+   },
+   "releases": [
+    {
+     "tag": "launcher-v0.7.1",
+     "name": "v0.7.1",
+     "publishedAt": "2026-10-18T03:06:09Z"
+    },
+    {
+     "tag": "launcher-v0.7.2",
+     "name": "v0.7.2",
+     "publishedAt": "2026-10-18T03:38:43Z"
+    },
+    {
+     "tag": "launcher-v0.7.3",
+     "name": "v0.7.3",
+     "publishedAt": "2026-10-18T07:10:00Z"
+    },
+    {
+     "tag": "launcher-v0.7.4",
+     "name": "v0.7.4",
+     "publishedAt": "2026-10-18T07:31:55Z"
+    },
+    {
+     "tag": "launcher-v0.7.5",
+     "name": "v0.7.5",
+     "publishedAt": "2026-10-18T20:00:45Z"
+    }
+   ],
+   "progress": null,
+   "contributors": [
+    "Lynder063",
+    "ReaperOfVeriod",
+    "Veradictus"
+   ]
+  },
+  {
+   "repo": "rac1-decomp",
+   "title": "Ratchet & Clank",
+   "branches": [
+    {
+     "name": "main",
+     "commits": [
+      {
+       "sha": "2e43062c55091dc0ffbfbceb4b814e3025ea0ba4",
+       "title": "Merge upstream/main into main",
+       "author": "Veradictus",
+       "date": "2026-10-18T17:57:16Z"
+      },
+      {
+       "sha": "4e08034ebc4854bea75a43c6e5ccc2fc8b4c80e1",
+       "title": "fix(tools): fcheck finds OpenRAC in its current folder",
+       "author": "Veradictus",
+       "date": "2026-10-18T03:52:04Z"
+      },
+      {
+       "sha": "5a841676f7cc3d38f0102652361632bf9261926e",
+       "title": "fix: two calls named with the arguments and result retail has",
+       "author": "Veradictus",
+       "date": "2026-10-18T03:10:45Z"
+      },
+      {
+       "sha": "f4a9f72240f80c2fa0772bcdf2a105f9164735bc",
+       "title": "feat: 8 level functions ported from the NTSC decomp",
+       "author": "Veradictus",
+       "date": "2026-10-18T02:40:06Z"
+      }
+     ]
+    }
+   ],
+   "commitCount": 4,
+   "pullRequests": {
+    "merged": [
+     {
+      "number": 89,
+      "title": "Feat/to 95",
+      "author": "Lynder063",
+      "untrustedBody": "",
+      "mergedAt": "2026-10-18T14:07:43Z"
+     },
+     {
+      "number": 90,
+      "title": "Split 8 functions from the linker remnants in front of them; match 3",
+      "author": "xx255q",
+      "untrustedBody": "Eight unfinished executable functions started with dead-strip remnants (`addiu $sp,$sp,N; nop` runs) that splat had folded in, so they could never match from C. This splits them the same way 646055d0 split the 22 core functions: real starts in `config/symbol_addrs.txt`, remnants in `config/linker_remnants.txt`, `LINKER_REMNANT` in the source. The image is unchanged.\n\n| Was | Real start | File | Remnant | Result |\n|---|---|---|---|---|\n| `func_00226808` | `func_00226818` | game/pause | 12 B | **exact** (216 B) |\n| `func_00120C58` | `func_00120C60` | core/001208E8 | 8 B | **exact** (60 B) |\n| `func_0023B510` | `func_0023B578` | game/vendor | 104 B | **exact** (84 B) |\n| `func_001F1088` | `func_001F10A0` | game/draw | 24 B | split only |\n| `func_00214770` | `func_00214778` | game/mobyutil | 8 B | split only |\n| `func_0022BEB0` | `func_0022BEF0` | game/skyfunc | 64 B | split only |\n| `func_0022F4C0` | `func_0022F4C8` | game/space | 8 B | split only |\n| `func_001F9810` | `func_001F9840` | g",
+      "mergedAt": "2026-10-18T06:13:38Z"
+     },
+     {
+      "number": 91,
+      "title": "Match _type2id, _lastFrame and _printf; build libmpeg with 2.9-ee-991111-01",
+      "author": "xx255q",
+      "untrustedBody": "Five more executable functions, all ported from Lombyte (MIT) and credited in the source. With these, every decompiled function in the executable is exact: the `func_0012C278` near-miss that was on main is gone.\n\n### Matches\n- **`func_0012AC80` (`_type2id`, libmpeg, 136 bytes)**: from Lombyte's `src/sdk/library/type2id.c`.\n- **`func_0012C278` (`_lastFrame`, libmpeg, 124 bytes)**: from Lombyte's `src/sdk/library/_lastFrame.c`. Replaces the 40/124 near-miss.\n- **`func_0011A0A0` (`_printf`, libkernl, 1516 bytes)**: from Lombyte's `src/sdk/debug/printf_impl.c`, with its `ARG` macro written out inline and the file's existing `int (const char *, va_list)` prototype.\n- **`func_0012EB18` (`snd_SendCurrentBatch`, 989snd, 276 bytes)**: from Lombyte's `src/audio/rpc/snd_send_current_batch.c`, PAL symbols, batch arrays declared with `SDATA`.\n- **`func_001F4868` (`GetEffectTex`, game/draw, 328 bytes)**: from Lombyte's `src/rendering/effects/get_effect_texture.c`. It's defined as `func_001F4868_r` (",
+      "mergedAt": "2026-10-18T13:20:29Z"
+     },
+     {
+      "number": 92,
+      "title": "Match SetPalMode, transition_do_transition and update_menu_grid_selection (Lombyte ports)Match/next3",
+      "author": "xx255q",
+      "untrustedBody": "Three executable functions matched, all ported from Lombyte (MIT) with PAL changes worked out from the assembly. Each carries an Adapted from Lombyte (MIT): <path>, <name>. comment.\nFunction\nName\nSize\nPAL changes from Lombyte's US version\nfunc_001F3890\nSetPalMode\n768\nOnly the order of the two image-buffer stores\nfunc_001EBB48\ntransition_do_transition\n1256\nD_0015EEE8 saved around func_00209DC0; no rand(): the attract level starts at 1, steps through (level + 1) % 4 and skips 0; func_0012EC30 replaces the US global-table read\nfunc_0021C840\nupdate_menu_grid_selection\n1368\nReturns 0 right after following the back page; item select is refused while menu_system + 0x148 is set, and sets it to 10\nThe last commit removes the three functions' staged drafts (and the old func_001F3890 note), with their functional.tsv and README rows.\nFull build: 1205/1205 audited exact, no byte mismatch, every function at its retail address. progress/report.json regenerated: 4808/5118 functions, and transition.c i",
+      "mergedAt": "2026-10-18T18:16:46Z"
+     }
+    ],
+    "opened": [
+     {
+      "number": 90,
+      "title": "Split 8 functions from the linker remnants in front of them; match 3",
+      "author": "xx255q",
+      "untrustedBody": "Eight unfinished executable functions started with dead-strip remnants (`addiu $sp,$sp,N; nop` runs) that splat had folded in, so they could never match from C. This splits them the same way 646055d0 split the 22 core functions: real starts in `config/symbol_addrs.txt`, remnants in `config/linker_remnants.txt`, `LINKER_REMNANT` in the source. The image is unchanged.\n\n| Was | Real start | File | Remnant | Result |\n|---|---|---|---|---|\n| `func_00226808` | `func_00226818` | game/pause | 12 B | **exact** (216 B) |\n| `func_00120C58` | `func_00120C60` | core/001208E8 | 8 B | **exact** (60 B) |\n| `func_0023B510` | `func_0023B578` | game/vendor | 104 B | **exact** (84 B) |\n| `func_001F1088` | `func_001F10A0` | game/draw | 24 B | split only |\n| `func_00214770` | `func_00214778` | game/mobyutil | 8 B | split only |\n| `func_0022BEB0` | `func_0022BEF0` | game/skyfunc | 64 B | split only |\n| `func_0022F4C0` | `func_0022F4C8` | game/space | 8 B | split only |\n| `func_001F9810` | `func_001F9840` | g",
+      "mergedAt": "2026-10-18T06:13:38Z"
+     },
+     {
+      "number": 91,
+      "title": "Match _type2id, _lastFrame and _printf; build libmpeg with 2.9-ee-991111-01",
+      "author": "xx255q",
+      "untrustedBody": "Five more executable functions, all ported from Lombyte (MIT) and credited in the source. With these, every decompiled function in the executable is exact: the `func_0012C278` near-miss that was on main is gone.\n\n### Matches\n- **`func_0012AC80` (`_type2id`, libmpeg, 136 bytes)**: from Lombyte's `src/sdk/library/type2id.c`.\n- **`func_0012C278` (`_lastFrame`, libmpeg, 124 bytes)**: from Lombyte's `src/sdk/library/_lastFrame.c`. Replaces the 40/124 near-miss.\n- **`func_0011A0A0` (`_printf`, libkernl, 1516 bytes)**: from Lombyte's `src/sdk/debug/printf_impl.c`, with its `ARG` macro written out inline and the file's existing `int (const char *, va_list)` prototype.\n- **`func_0012EB18` (`snd_SendCurrentBatch`, 989snd, 276 bytes)**: from Lombyte's `src/audio/rpc/snd_send_current_batch.c`, PAL symbols, batch arrays declared with `SDATA`.\n- **`func_001F4868` (`GetEffectTex`, game/draw, 328 bytes)**: from Lombyte's `src/rendering/effects/get_effect_texture.c`. It's defined as `func_001F4868_r` (",
+      "mergedAt": "2026-10-18T13:20:29Z"
+     },
+     {
+      "number": 92,
+      "title": "Match SetPalMode, transition_do_transition and update_menu_grid_selection (Lombyte ports)Match/next3",
+      "author": "xx255q",
+      "untrustedBody": "Three executable functions matched, all ported from Lombyte (MIT) with PAL changes worked out from the assembly. Each carries an Adapted from Lombyte (MIT): <path>, <name>. comment.\nFunction\nName\nSize\nPAL changes from Lombyte's US version\nfunc_001F3890\nSetPalMode\n768\nOnly the order of the two image-buffer stores\nfunc_001EBB48\ntransition_do_transition\n1256\nD_0015EEE8 saved around func_00209DC0; no rand(): the attract level starts at 1, steps through (level + 1) % 4 and skips 0; func_0012EC30 replaces the US global-table read\nfunc_0021C840\nupdate_menu_grid_selection\n1368\nReturns 0 right after following the back page; item select is refused while menu_system + 0x148 is set, and sets it to 10\nThe last commit removes the three functions' staged drafts (and the old func_001F3890 note), with their functional.tsv and README rows.\nFull build: 1205/1205 audited exact, no byte mismatch, every function at its retail address. progress/report.json regenerated: 4808/5118 functions, and transition.c i",
+      "mergedAt": "2026-10-18T18:16:46Z"
+     },
+     {
+      "number": 93,
+      "title": "Match sceCdRead, the libmpeg bitstream peek and kprintf's float helper with their original assemblers; keep retail's fill between core jump tables",
+      "author": "xx255q",
+      "untrustedBody": "**Branch:** `cdread-gas210`. Merge this one first.\r\n\r\nAll three functions only match when their objects are assembled by the assembler retail used rather than the build's usual one. Two need **GNU as 2.10-ee-001003-1**, already in the sn-prodg-24 mirror (`toolchain/sn-prodg-24/local/sce/ee/gcc/bin/ee-as`); the third needs the DTL-S13010 build of 2.9-ee (below).\r\n\r\n**sceCdRead** (`func_00121750`, 480 bytes, written from the assembly). 2.10-ee fills SignalSema's call slot with the volatile word load just before it.\r\n- `config/core_text.objects` gets an optional fifth column. `gas210` (set for `00121750.o` only) makes `tools/fix_volatile_slot.py --loads` model that call-slot load; other objects keep the store-only rule. `tools/tests/test_volatile_call_slot.py` covers the rule's limits (7 tests).\r\n\r\n**Bitstream peek** (`func_0012AAA8`, 28 bytes; the C is one shift). 2.10-ee puts the final int conversion in the return's delay slot; the old assembler gives 32 bytes. This is the function that",
+      "mergedAt": "2026-10-19T05:20:01Z"
+     },
+     {
+      "number": 94,
+      "title": "Split func_001F10A0: a 36-byte remnant in front of func_001F10C8 (the debug-menu handler)",
+      "author": "xx255q",
+      "untrustedBody": "`func_001F10A0` opens with ten instructions C cannot produce (a `daddu` and five `addiu $sp,$sp,N` runs with nops), the same dead-strip remnant shape as the earlier splits in 433afce. Its real start is `0x1F10C8`:\n\n- `config/symbol_addrs.txt` declares `func_001F10C8`.\n- `config/linker_remnants.txt` lists `text/func_001F10A0`, and `draw.c` includes it with `LINKER_REMNANT`.\n- The image is unchanged.\n\n`func_001F10C8` is 4932 bytes, the same code as `func_L00_001F4918`, the debug-menu handler shared by all 19 level programs. `nonmatching/game/func_001F10C8.c` is the level draft with the level symbols mapped to the executable's, each pair read off matching relocations (level small data sits 0x40 below the executable's). It is **BYTES 153/4932**, against the level draft's 169, and can be checked with `try_func.py` without the level dumps. A fix found there should carry over to the level copies.\n\nFull build: 1215/1215 audited exact, every function at its retail address, the whole image match",
+      "mergedAt": "2026-10-19T05:20:01Z"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": {
+    "before": {
+     "code": {
+      "done": 3427760,
+      "total": 3712808
+     },
+     "functions": {
+      "done": 4725,
+      "total": 5109
+     },
+     "data": {
+      "done": 3064,
+      "total": 699072
+     }
+    },
+    "after": {
+     "code": {
+      "done": 3488000,
+      "total": 3712772
+     },
+     "functions": {
+      "done": 4806,
+      "total": 5118
+     },
+     "data": {
+      "done": 3400,
+      "total": 699072
+     }
+    }
+   },
+   "contributors": [
+    "Lynder063",
+    "Veradictus",
+    "xx255q"
+   ]
+  },
+  {
+   "repo": "rac2-decomp",
+   "title": "Going Commando",
+   "branches": [
+    {
+     "name": "master",
+     "commits": [
+      {
+       "sha": "0d8430cd331756def3edea446248356739b1c487",
+       "title": "Merge pull request #209 from OpenRAC/match/thorpen-five-functions-20261019",
+       "author": "ThorpenCodes",
+       "date": "2026-10-18T21:10:39Z"
+      },
+      {
+       "sha": "8c5adfab32d07d97ef3e6f6f8f891dd087de545f",
+       "title": "Merge pull request #208 from OpenRAC/match/level-setup-and-state-20261018",
+       "author": "Veradictus",
+       "date": "2026-10-18T19:07:46Z"
+      },
+      {
+       "sha": "f614180fac38bf35c684efe7624216aefcf97ac7",
+       "title": "Merge pull request #207 from OpenRAC/match/thorpen-four-functions-20261018",
+       "author": "ThorpenCodes",
+       "date": "2026-10-18T04:57:26Z"
+      }
+     ]
+    }
+   ],
+   "commitCount": 3,
+   "pullRequests": {
+    "merged": [
+     {
+      "number": 207,
+      "title": "feat(src): match four game functions",
+      "author": "ThorpenCodes",
+      "untrustedBody": "## What\n\nAdd four new exact plain-C src/game functions for Going Commando USA v1.01 / SCUS_972.68, each in its own commit: 1,052 catalogue bytes and 58 placements. All four remained assembly markers on freshly fetched master.\n\nHistorical caller-ABI/integration exclusions, core candidates, catalogue fixes, and near misses remain outside this PR. Compiler policy and generated progress/README remain unchanged.\n\n## Checked\n\n- `python3 tools/build.py all --jobs 1`: boot and all 27 levels byte-identical; 28 programs OK. All 58 new C placements included, no placement/dependency failures.\n- `python3 tools/check.py <function> --diff`: every known placement passed; counts below.\n- `python3 -m unittest discover -s tests`: 25 tests passed.\n- `python3 tests/check_repository.py`: passed.\n- `python3 tools/progress.py --check`: passed.\n- `git diff --check`: passed; full diff manually reviewed and policy scan passed.\n\n| Function | Catalogue bytes | Checker placements |\n| --- | ---: | ---: |\n| `func_002",
+      "mergedAt": "2026-10-18T04:57:27Z"
+     },
+     {
+      "number": 208,
+      "title": "feat(src): match twenty-one level functions",
+      "author": "Veradictus",
+      "untrustedBody": "Twenty-one level functions go from assembly to C, in two commits:\n\n- **Six setup and state functions** (bbdb7ee0): shared state reset, settings initialisation and completion rewards, Barlow and Joba setup, and a Damosel object-state transition. They add 2,524 catalogue bytes across 70 placements for SCUS_972.68. The two shared initialisers stay in their existing `-g8` units.\n- **Fifteen more** (5acf9869): Oozla, Notak, Tabora, Joba (eight), Aranos Prison, Gorn, Damosel and Yeedil. They are particle and effect spawners, object state updates and setup routines.\n\nDobbo's `func_L09_003FDA38` stays as assembly: one instruction is off at +0x90, which is one instruction too many.\n\n`tools/build.py all --jobs 12`: all 28 programs OK, loaded bytes equal. After the Dobbo stub was restored, `tools/build.py level 9` is OK too. Tests, `tests/check_repository.py` and `tools/progress.py --check` pass. The progress report is left for master to regenerate after the merge, as usual.",
+      "mergedAt": "2026-10-18T19:07:46Z"
+     },
+     {
+      "number": 209,
+      "title": "feat(src): match five game functions",
+      "author": "ThorpenCodes",
+      "untrustedBody": "## What\n\nAdd five new exact plain-C src/game functions for Going Commando USA v1.01 / SCUS_972.68, each in its own commit: 1,944 catalogue bytes and 140 placements. All five remained assembly markers on freshly fetched master.\n\nHistorical caller-ABI/integration exclusions, core candidates, catalogue fixes, and near misses remain outside this PR. Compiler policy and generated progress/README remain unchanged.\n\n## Checked\n\n- `python3 tools/build.py all --jobs 1`: boot and all 27 levels byte-identical; 28 programs OK. All 140 new C placements included, no placement/dependency failures.\n- `python3 tools/check.py <function> --diff`: every known placement passed; counts below.\n- `python3 -m unittest discover -s tests`: 25 tests passed.\n- `python3 tests/check_repository.py`: passed.\n- `python3 tools/progress.py --check`: passed.\n- `git diff --check`: passed; full diff manually reviewed and policy scan passed.\n\n| Function | Catalogue bytes | Checker placements |\n| --- | ---: | ---: |\n| `func_0",
+      "mergedAt": "2026-10-18T21:10:40Z"
+     }
+    ],
+    "opened": [
+     {
+      "number": 207,
+      "title": "feat(src): match four game functions",
+      "author": "ThorpenCodes",
+      "untrustedBody": "## What\n\nAdd four new exact plain-C src/game functions for Going Commando USA v1.01 / SCUS_972.68, each in its own commit: 1,052 catalogue bytes and 58 placements. All four remained assembly markers on freshly fetched master.\n\nHistorical caller-ABI/integration exclusions, core candidates, catalogue fixes, and near misses remain outside this PR. Compiler policy and generated progress/README remain unchanged.\n\n## Checked\n\n- `python3 tools/build.py all --jobs 1`: boot and all 27 levels byte-identical; 28 programs OK. All 58 new C placements included, no placement/dependency failures.\n- `python3 tools/check.py <function> --diff`: every known placement passed; counts below.\n- `python3 -m unittest discover -s tests`: 25 tests passed.\n- `python3 tests/check_repository.py`: passed.\n- `python3 tools/progress.py --check`: passed.\n- `git diff --check`: passed; full diff manually reviewed and policy scan passed.\n\n| Function | Catalogue bytes | Checker placements |\n| --- | ---: | ---: |\n| `func_002",
+      "mergedAt": "2026-10-18T04:57:27Z"
+     },
+     {
+      "number": 208,
+      "title": "feat(src): match twenty-one level functions",
+      "author": "Veradictus",
+      "untrustedBody": "Twenty-one level functions go from assembly to C, in two commits:\n\n- **Six setup and state functions** (bbdb7ee0): shared state reset, settings initialisation and completion rewards, Barlow and Joba setup, and a Damosel object-state transition. They add 2,524 catalogue bytes across 70 placements for SCUS_972.68. The two shared initialisers stay in their existing `-g8` units.\n- **Fifteen more** (5acf9869): Oozla, Notak, Tabora, Joba (eight), Aranos Prison, Gorn, Damosel and Yeedil. They are particle and effect spawners, object state updates and setup routines.\n\nDobbo's `func_L09_003FDA38` stays as assembly: one instruction is off at +0x90, which is one instruction too many.\n\n`tools/build.py all --jobs 12`: all 28 programs OK, loaded bytes equal. After the Dobbo stub was restored, `tools/build.py level 9` is OK too. Tests, `tests/check_repository.py` and `tools/progress.py --check` pass. The progress report is left for master to regenerate after the merge, as usual.",
+      "mergedAt": "2026-10-18T19:07:46Z"
+     },
+     {
+      "number": 209,
+      "title": "feat(src): match five game functions",
+      "author": "ThorpenCodes",
+      "untrustedBody": "## What\n\nAdd five new exact plain-C src/game functions for Going Commando USA v1.01 / SCUS_972.68, each in its own commit: 1,944 catalogue bytes and 140 placements. All five remained assembly markers on freshly fetched master.\n\nHistorical caller-ABI/integration exclusions, core candidates, catalogue fixes, and near misses remain outside this PR. Compiler policy and generated progress/README remain unchanged.\n\n## Checked\n\n- `python3 tools/build.py all --jobs 1`: boot and all 27 levels byte-identical; 28 programs OK. All 140 new C placements included, no placement/dependency failures.\n- `python3 tools/check.py <function> --diff`: every known placement passed; counts below.\n- `python3 -m unittest discover -s tests`: 25 tests passed.\n- `python3 tests/check_repository.py`: passed.\n- `python3 tools/progress.py --check`: passed.\n- `git diff --check`: passed; full diff manually reviewed and policy scan passed.\n\n| Function | Catalogue bytes | Checker placements |\n| --- | ---: | ---: |\n| `func_0",
+      "mergedAt": "2026-10-18T21:10:40Z"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": {
+    "before": {
+     "code": {
+      "done": 360448,
+      "total": 5533600
+     },
+     "functions": {
+      "done": 3303,
+      "total": 9100
+     },
+     "data": {
+      "done": 0,
+      "total": 383391
+     }
+    },
+    "after": {
+     "code": {
+      "done": 360448,
+      "total": 5533600
+     },
+     "functions": {
+      "done": 3303,
+      "total": 9100
+     },
+     "data": {
+      "done": 0,
+      "total": 383391
+     }
+    }
+   },
+   "contributors": [
+    "ThorpenCodes",
+    "Veradictus"
+   ]
+  },
+  {
+   "repo": "rac3-decomp",
+   "title": "Up Your Arsenal",
+   "branches": [
+    {
+     "name": "master",
+     "commits": []
+    }
+   ],
+   "commitCount": 0,
+   "pullRequests": {
+    "merged": [],
+    "opened": []
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": null,
+   "contributors": []
+  },
+  {
+   "repo": "rac4-decomp",
+   "title": "Ratchet: Deadlocked",
+   "branches": [
+    {
+     "name": "main",
+     "commits": []
+    }
+   ],
+   "commitCount": 0,
+   "pullRequests": {
+    "merged": [],
+    "opened": [
+     {
+      "number": 4,
+      "title": "Further decomp (>2% matched code)",
+      "author": "skast96",
+      "untrustedBody": "Threw in some extra token usage to get it to 2%.",
+      "mergedAt": "2026-10-19T17:01:09Z"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": null,
+   "contributors": [
+    "skast96"
+   ]
+  },
+  {
+   "repo": "openrac-mods",
+   "title": "OpenRAC mods",
+   "branches": [
+    {
+     "name": "master",
+     "commits": []
+    }
+   ],
+   "commitCount": 0,
+   "pullRequests": {
+    "merged": [],
+    "opened": []
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": null,
+   "contributors": []
+  }
+ ]
+}

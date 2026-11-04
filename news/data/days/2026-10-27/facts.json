@@ -1,0 +1,894 @@
+{
+ "format": 1,
+ "date": "2026-10-27",
+ "totals": {
+  "commits": 33,
+  "pullRequestsMerged": 24,
+  "pullRequestsOpened": 33,
+  "contributors": 9
+ },
+ "projects": [
+  {
+   "repo": "OpenRAC",
+   "title": "OpenRAC launcher",
+   "branches": [
+    {
+     "name": "develop",
+     "commits": [
+      {
+       "sha": "e081b47dfb07d9e35f3e7569a9c71226ac9fe055",
+       "title": "feat(port): support Android 9 (API 28) (#77)",
+       "author": "Lynder063",
+       "date": "2026-10-27T21:09:39Z"
+      },
+      {
+       "sha": "9110b6b929b01746ba8e4f00cdea532054bc207f",
+       "title": "chore(tools): restore the retail interpreter as a test-only tree for the backfill gate",
+       "author": "Veradictus",
+       "date": "2026-10-27T20:56:51Z"
+      },
+      {
+       "sha": "7b7c755bc9941cc58192ed99884c9b0700032f5d",
+       "title": "feat(port): read rac2's functional C table as candidates",
+       "author": "Veradictus",
+       "date": "2026-10-27T20:50:10Z"
+      },
+      {
+       "sha": "3dd77e0ed0f934bf7ba746cf35b7a5a1edf660e9",
+       "title": "chore(import): backport three exact RAC1 PAL functions (#73)",
+       "author": "llesieur99",
+       "date": "2026-10-27T11:38:46Z"
+      },
+      {
+       "sha": "375a4683ecc6a5d7072d3be60affecb9105c501b",
+       "title": "fix(rac1/pal): triage overlay assembly from its own directory (#72)",
+       "author": "llesieur99",
+       "date": "2026-10-27T11:38:42Z"
+      },
+      {
+       "sha": "a5e86fd878adbc31bdfdaedda52ade61b84986d5",
+       "title": "feat: diagnostics recordings, faster frames on weak devices, and rendering fixes (#75)",
+       "author": "mateuszklysz",
+       "date": "2026-10-27T06:48:10Z"
+      }
+     ]
+    },
+    {
+     "name": "master",
+     "commits": [
+      {
+       "sha": "e081b47dfb07d9e35f3e7569a9c71226ac9fe055",
+       "title": "feat(port): support Android 9 (API 28) (#77)",
+       "author": "Lynder063",
+       "date": "2026-10-27T21:09:39Z"
+      },
+      {
+       "sha": "9110b6b929b01746ba8e4f00cdea532054bc207f",
+       "title": "chore(tools): restore the retail interpreter as a test-only tree for the backfill gate",
+       "author": "Veradictus",
+       "date": "2026-10-27T20:56:51Z"
+      },
+      {
+       "sha": "7b7c755bc9941cc58192ed99884c9b0700032f5d",
+       "title": "feat(port): read rac2's functional C table as candidates",
+       "author": "Veradictus",
+       "date": "2026-10-27T20:50:10Z"
+      },
+      {
+       "sha": "3dd77e0ed0f934bf7ba746cf35b7a5a1edf660e9",
+       "title": "chore(import): backport three exact RAC1 PAL functions (#73)",
+       "author": "llesieur99",
+       "date": "2026-10-27T11:38:46Z"
+      },
+      {
+       "sha": "375a4683ecc6a5d7072d3be60affecb9105c501b",
+       "title": "fix(rac1/pal): triage overlay assembly from its own directory (#72)",
+       "author": "llesieur99",
+       "date": "2026-10-27T11:38:42Z"
+      },
+      {
+       "sha": "a5e86fd878adbc31bdfdaedda52ade61b84986d5",
+       "title": "feat: diagnostics recordings, faster frames on weak devices, and rendering fixes (#75)",
+       "author": "mateuszklysz",
+       "date": "2026-10-27T06:48:10Z"
+      }
+     ]
+    }
+   ],
+   "commitCount": 6,
+   "pullRequests": {
+    "merged": [
+     {
+      "number": 70,
+      "title": "ci: bump the actions group across 2 directories with 2 updates",
+      "author": "dependabot[bot]",
+      "untrustedBody": "Bumps the actions group with 1 update in the / directory: [actions/setup-python](https://github.com/actions/setup-python).\nBumps the actions group with 1 update in the /.github/actions/launcher-toolchain directory: [Swatinem/rust-cache](https://github.com/swatinem/rust-cache).\n\nUpdates `actions/setup-python` from 7.0.0 to 7.1.0\n<details>\n<summary>Release notes</summary>\n<p><em>Sourced from <a href=\"https://github.com/actions/setup-python/releases\">actions/setup-python's releases</a>.</em></p>\n<blockquote>\n<h2>v7.1.0</h2>\n<h2>What's Changed</h2>\n<h3>Enhancements</h3>\n<ul>\n<li>Add <code>mirror</code> and <code>mirror-token</code> inputs for custom Python distribution sources by <a href=\"https://github.com/luhenry\"><code>@​luhenry</code></a> in <a href=\"https://redirect.github.com/actions/setup-python/pull/1302\">actions/setup-python#1302</a></li>\n<li>Improve error message clarity by <a href=\"https://github.com/v-lmvysakh\"><code>@​v-lmvysakh</code></a> in <a href=\"https://redirect.github.c",
+      "mergedAt": "2026-10-27T17:45:39Z"
+     },
+     {
+      "number": 72,
+      "title": "fix(rac1/pal): triage overlay assembly from its own directory",
+      "author": "llesieur99",
+      "untrustedBody": "## Problem\n\n`games/rac1/tools/triage.py` only looked in the executable's `asm/nonmatchings` directories. Unmatched level functions consequently appeared blocked by missing assembly even when their assembly was present under `asm/overlays`.\n\n## Change\n\n- Recognize level symbols with the existing `rank_candidates.OVERLAY_NAME` pattern and use its `OVERLAY_ASM` directory.\n- Classify those bodies as game text, as `rank_candidates.check_names` already does.\n- Preserve executable routing, genuine blocker classification and missing-assembly checks.\n- Add five asset-free regression tests for shared/level overlays, missing overlay assembly, game text and core text.\n\nWith the PAL snapshot from #71 and locally supplied assembly, this fixes 14 false missing-assembly reports: 12 entries return to the work queue, while two remain correctly blocked as handwritten assembly. The counts depend on that source snapshot; some entries are joined fragments rather than independent C functions.\n\nThis is a tool",
+      "mergedAt": "2026-10-27T11:38:43Z"
+     },
+     {
+      "number": 73,
+      "title": "chore(import): backport only three exact RAC1 PAL functions",
+      "author": "llesieur99",
+      "untrustedBody": "Replaces the overly broad snapshot synchronization in #71. This branch starts at current `OpenRAC/OpenRAC:master` (`07c23356`) and backports only the three exact functions from `OpenRAC/rac1-decomp` commit `9bf26d6227af`.\n\n| Function | Existing file under `games/rac1/src/overlays/shared/` | Bytes |\n|---|---|---:|\n| `func_L00_0020FC18` — update hero item mobys | `help_0020CDF0.c` | 1,828 |\n| `func_L00_002B8AE8` — pyrocitor update | `vendor_002B33E8.c` | 2,624 |\n| `func_L00_002DF410` — suck beam update | `vendor_002D9438.c` | 4,220 |\n\n## Scope\n\n- Three assembly stubs replaced by existing upstream C, adapted to this branch's symbol names and three existing `Hero` field names. These are upstream matches, not new decompilation claims.\n- Their three obsolete staged candidates removed, with only their rows removed from the near-miss index.\n- Only these three entries added to the regional maps; the associated reports regenerated. Each report changes exactly these three functions: **+3 function",
+      "mergedAt": "2026-10-27T11:38:47Z"
+     },
+     {
+      "number": 75,
+      "title": "feat: diagnostics recordings, faster frames on weak devices, and rendering fixes",
+      "author": "mateuszklysz",
+      "untrustedBody": "## Diagnostics recording\n\n- **Record diagnostics**: in the Android drawer (Developer tools), the PC Developer menu, or with Ctrl+F3. It records 15 s to 2 min, or until stopped, and gives a short Markdown report plus the frames as `.jsonl`, zipped into `perf_<game>_<time>.zip`. The report is copied to the clipboard.\n- **What the report says**:\n  - the device, the GPU and driver, CPU clocks and thermal state, and the settings;\n  - frame-time percentiles;\n  - a CPU/GPU-bound verdict, and how much slower a processor and GPU could be and still hold 60 fps;\n  - every timed section;\n  - a time line and the worst frames;\n  - the hottest functions of the window and render threads (sampled; Linux and Android).\n- **Simulate slow CPU** (2x, 4x, 6x) emulates a weaker processor on a fast device.\n- **Finer measurements**: the GPU time of the whole Vulkan frame, measured outside render passes, so it is right on tiled GPUs. The window thread's frame is split into parts, the scene is split into timed pa",
+      "mergedAt": "2026-10-27T06:48:11Z"
+     },
+     {
+      "number": 77,
+      "title": "feat(port): support Android 9 (API 28)",
+      "author": "mateuszklysz",
+      "untrustedBody": "- Android minimum lowered from 10 (API 29) to 9 (API 28): minSdk, the android-arm64 preset and Embree's Android build.\n- Custom GPU drivers (Turnip) load on Android 9: libadrenotools gets a folder for the patched system libraries, since memfd is not certain below Android 10. Android 10+ unchanged.\n- Same renderer, Enhanced graphics and effects on every version; nothing turned off.\n- On Android 9 uninstalling does not ask to keep the app's data, and the system WebView stays at Chrome 138.\n- Docs and comments updated (docs/port/ANDROID.md).\n\nTested: CI green (Android NDK build at API 28 and APK, desktop builds, checks).\nNot tested: a physical Android 9 phone (game memory via memfd, GLES drivers, Turnip on Adreno, WebView).",
+      "mergedAt": "2026-10-27T16:53:53Z"
+     },
+     {
+      "number": 80,
+      "title": "fix(rac1): camera collision moby for camera proxy and flip",
+      "author": "Lynder063",
+      "untrustedBody": "Each level's camera code makes a collision moby (class 1007); the port called an empty stub instead.\nFixed for PAL and NTSC-U; the moby now exists on Kerwan in both.",
+      "mergedAt": "2026-10-27T18:06:57Z"
+     },
+     {
+      "number": 81,
+      "title": "fix(rac1): Giant Clank Quit menu Exit makes Clank small",
+      "author": "Lynder063",
+      "untrustedBody": "Exit called an empty stub instead of Quartu's end-of-Giant-Clank function, so Clank stayed giant.\nThe stub is now a level hook on PAL and NTSC-U; vehicle_mode goes 2 to 0 after Exit on both.",
+      "mergedAt": "2026-10-27T18:29:26Z"
+     },
+     {
+      "number": 82,
+      "title": "feat(sdk): views of the game and a shared Vulkan device, interface 1.4",
+      "author": "Lynder063",
+      "untrustedBody": "Gets the port ready for a VR mod, without adding one. A native mod can now show the game in a headset; the mod owns OpenXR, and the port links no VR library.\n\nThe motivation is a future port of the Ratchet & Clank VR mod by [npiriou](https://github.com/npiriou) ([Rerac-vr](https://github.com/npiriou/Rerac-vr), made for ReRAC), which we have permission to bring to OpenRAC. No code of it is in this PR.\n\n## What a mod gets (interface 1.4, SDK 1.4.0)\n\n- **`graphics()`**: what the port draws with. OpenGL gives `gl_proc`; Vulkan gives the instance, physical device, device and queue (family and index).\n- **`on_views(mod, &source)`**: in each frame that draws the scene, the mod asks for up to 4 views: an eye's pose relative to the game's camera plus an `XrFovf` field of view, the world only, or the 2D alone for a panel. The port draws each one from the same scene and copies it into the mod's GL texture or `VkImage`. It calls `end()` once the frame is submitted (where `xrEndFrame` goes) and `cl",
+      "mergedAt": "2026-10-27T19:25:33Z"
+     }
+    ],
+    "opened": [
+     {
+      "number": 77,
+      "title": "feat(port): support Android 9 (API 28)",
+      "author": "mateuszklysz",
+      "untrustedBody": "- Android minimum lowered from 10 (API 29) to 9 (API 28): minSdk, the android-arm64 preset and Embree's Android build.\n- Custom GPU drivers (Turnip) load on Android 9: libadrenotools gets a folder for the patched system libraries, since memfd is not certain below Android 10. Android 10+ unchanged.\n- Same renderer, Enhanced graphics and effects on every version; nothing turned off.\n- On Android 9 uninstalling does not ask to keep the app's data, and the system WebView stays at Chrome 138.\n- Docs and comments updated (docs/port/ANDROID.md).\n\nTested: CI green (Android NDK build at API 28 and APK, desktop builds, checks).\nNot tested: a physical Android 9 phone (game memory via memfd, GLES drivers, Turnip on Adreno, WebView).",
+      "mergedAt": "2026-10-27T16:53:53Z"
+     },
+     {
+      "number": 80,
+      "title": "fix(rac1): camera collision moby for camera proxy and flip",
+      "author": "Lynder063",
+      "untrustedBody": "Each level's camera code makes a collision moby (class 1007); the port called an empty stub instead.\nFixed for PAL and NTSC-U; the moby now exists on Kerwan in both.",
+      "mergedAt": "2026-10-27T18:06:57Z"
+     },
+     {
+      "number": 81,
+      "title": "fix(rac1): Giant Clank Quit menu Exit makes Clank small",
+      "author": "Lynder063",
+      "untrustedBody": "Exit called an empty stub instead of Quartu's end-of-Giant-Clank function, so Clank stayed giant.\nThe stub is now a level hook on PAL and NTSC-U; vehicle_mode goes 2 to 0 after Exit on both.",
+      "mergedAt": "2026-10-27T18:29:26Z"
+     },
+     {
+      "number": 82,
+      "title": "feat(sdk): views of the game and a shared Vulkan device, interface 1.4",
+      "author": "Lynder063",
+      "untrustedBody": "Gets the port ready for a VR mod, without adding one. A native mod can now show the game in a headset; the mod owns OpenXR, and the port links no VR library.\n\nThe motivation is a future port of the Ratchet & Clank VR mod by [npiriou](https://github.com/npiriou) ([Rerac-vr](https://github.com/npiriou/Rerac-vr), made for ReRAC), which we have permission to bring to OpenRAC. No code of it is in this PR.\n\n## What a mod gets (interface 1.4, SDK 1.4.0)\n\n- **`graphics()`**: what the port draws with. OpenGL gives `gl_proc`; Vulkan gives the instance, physical device, device and queue (family and index).\n- **`on_views(mod, &source)`**: in each frame that draws the scene, the mod asks for up to 4 views: an eye's pose relative to the game's camera plus an `XrFovf` field of view, the world only, or the 2D alone for a panel. The port draws each one from the same scene and copies it into the mod's GL texture or `VkImage`. It calls `end()` once the frame is submitted (where `xrEndFrame` goes) and `cl",
+      "mergedAt": "2026-10-27T19:25:33Z"
+     },
+     {
+      "number": 83,
+      "title": "perf(enhanced): GTAO composite without a depth copy",
+      "author": "Lynder063",
+      "untrustedBody": "GTAO composite samples the prepass depth, no copy: -0.96 ms on Radeon 610M, frames identical.\nrender_bench --level no longer crashes on real levels (moby class ids).\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)",
+      "mergedAt": "2026-10-28T02:58:05Z"
+     },
+     {
+      "number": 84,
+      "title": "feat(mods): add reusable map packs and native map sessions",
+      "author": "llesieur99",
+      "untrustedBody": "Adds the reusable tools for a creator to export an edited Godot world as a named map mod and launch it in OpenRAC. This patch contains the framework, documentation and synthetic tests; it includes no authored game map or disc-derived assets.\n\nThe exporter `editor/map_mod.py` combines a project's terrain and the selected level's packed gameplay/collision files into a format-3 map pack. Older tools reject this format. The launcher installs map packs through Mods, identifies them as maps and passes `--map` so an incompatible executable refuses the session. Stacking enforces one active map and the correct disc version.\n\nThe native startup reads the map's name, template level, spawn, heading and scene settings. It starts a fresh session, disables campaign memory cards and sets the class-0 placement before the game's hero/camera initialization. By default it omits disc movies and sends skip input for skippable in-game scenes through the game's existing Start/shoulder/Cross path. `--keep-movi",
+      "mergedAt": "2026-10-28T03:13:28Z"
+     },
+     {
+      "number": 85,
+      "title": "feat: backfill gate for rac2 boot and menu code",
+      "author": "Veradictus",
+      "untrustedBody": "The backfill gate now covers Going Commando (USA v1.01) for boot, title and front-end menu code. Level functions are next.\n\n- **Interpreter** (`tools/interpreter/`, test-only, never built by the port or launcher):\n  - capture phases, call spreading and call counts;\n  - fcheck now compares from the same kernel and services state, using the capture run's hooks and disc;\n  - a run where every state is skipped no longer counts as SAME;\n  - addresses of the function's own code compare relative to its entry;\n  - instruction budgets for slow or waiting runs;\n  - a check for misaligned accesses.\n- **`tools/fcheck_gate.py`:** rac2 is a game profile alongside rac1, with its paths, `$gp`, the level base, the boot ELF's two segments, the catalogues and the press scripts. It has 5 new tests and rac1's tests still pass. The verdict table `port/game/rac2-ntsc/fcheck.tsv` starts empty.\n- **docs/port/BACKFILL.md:** the rac2 commands, scope and calibration results.\n\n**Calibration:** the 513 matched boot",
+      "mergedAt": "2026-10-28T03:13:24Z"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [
+     {
+      "number": 76,
+      "title": "RaC1 can no longer do camera flip and camera proxy",
+      "author": "limjiancheng1129-coder"
+     },
+     {
+      "number": 78,
+      "title": "Unable to close game or launcher cleanly",
+      "author": "Billabong1985"
+     },
+     {
+      "number": 79,
+      "title": "Anyway for PCSX2 save compatibility if it isn't already available?",
+      "author": "MsNxtCypher"
+     }
+    ],
+    "closed": [
+     {
+      "number": 76,
+      "title": "RaC1 can no longer do camera flip and camera proxy",
+      "author": "limjiancheng1129-coder"
+     },
+     {
+      "number": 79,
+      "title": "Anyway for PCSX2 save compatibility if it isn't already available?",
+      "author": "MsNxtCypher"
+     }
+    ]
+   },
+   "releases": [],
+   "progress": null,
+   "contributors": [
+    "llesieur99",
+    "Lynder063",
+    "mateuszklysz",
+    "Veradictus"
+   ]
+  },
+  {
+   "repo": "rac1-decomp",
+   "title": "Ratchet & Clank",
+   "branches": [
+    {
+     "name": "main",
+     "commits": [
+      {
+       "sha": "209d3381ebaa8c06d5df98eeabad4adad45bdfb7",
+       "title": "refactor(hero): type sound slots and draw queue, eliminate private hero structs in overlays (#145)",
+       "author": "Lynder063",
+       "date": "2026-10-27T23:50:07Z"
+      },
+      {
+       "sha": "713eaff8ae4c8bfc10d7a847b215b627adfdbfa5",
+       "title": "refactor(mpeg): eliminate dummy structs and type MpegDecoder and MpegRefImage in 00125630 (#144)",
+       "author": "Lynder063",
+       "date": "2026-10-27T23:17:12Z"
+      },
+      {
+       "sha": "891b61de9cb3da82d6cdca529213c872a306425b",
+       "title": "refactor(particles): type particle payloads and eliminate duplicate structs in effect_particle_updates (#143)",
+       "author": "Lynder063",
+       "date": "2026-10-27T22:45:47Z"
+      },
+      {
+       "sha": "bc779087b1a7553ee35e6389124ed202c1a797ab",
+       "title": "refactor(memcard): introduce include/memcard.h and type memory card state (#142)",
+       "author": "Lynder063",
+       "date": "2026-10-27T22:09:49Z"
+      },
+      {
+       "sha": "86d70c7ef443b8bad3e74d85a352bbdc77bd69d7",
+       "title": "Merge pull request #141 from OpenRAC/feat/hero-globals-overlays",
+       "author": "Lynder063",
+       "date": "2026-10-27T21:42:12Z"
+      },
+      {
+       "sha": "ebb984cf8ad79146fdf4197b54a06ee4a17af855",
+       "title": "Merge pull request #140 from OpenRAC/feat/hero-globals-tidy",
+       "author": "Lynder063",
+       "date": "2026-10-27T21:15:19Z"
+      },
+      {
+       "sha": "88fe48a4e8a9d23c7c948d92257317dc7b45a60e",
+       "title": "Merge pull request #139 from OpenRAC/feat/names-2",
+       "author": "Lynder063",
+       "date": "2026-10-27T20:39:14Z"
+      },
+      {
+       "sha": "0a1d6889e86c880f3e41eeedeb60e74af2853295",
+       "title": "Merge pull request #138 from xx255q/clean/sce-cd-init-no-pin",
+       "author": "Lynder063",
+       "date": "2026-10-27T18:24:18Z"
+      },
+      {
+       "sha": "170a6a701541c70d229d76d77bcb3b2c49316ceb",
+       "title": "Merge pull request #137 from OpenRAC/feat/struct-tidy",
+       "author": "Lynder063",
+       "date": "2026-10-27T17:06:52Z"
+      },
+      {
+       "sha": "2d159c816f4989f533cc5236ef7d5f87d0ca62a4",
+       "title": "Merge pull request #133 from llesieur99/codex/rac1-gcc323-float-20261027",
+       "author": "Lynder063",
+       "date": "2026-10-27T14:29:00Z"
+      },
+      {
+       "sha": "044a6c26d7967bdc595d09693d83fef2ba8fcfa7",
+       "title": "Merge pull request #136 from OpenRAC/feat/names-tidy",
+       "author": "Lynder063",
+       "date": "2026-10-27T11:56:19Z"
+      },
+      {
+       "sha": "808de579932c342c9e56b819134365e566fc125f",
+       "title": "Merge pull request #135 from OpenRAC/feat/last-batch",
+       "author": "Lynder063",
+       "date": "2026-10-27T11:19:37Z"
+      },
+      {
+       "sha": "6bcb0645dde917b9532b4d9796e51fb50956003c",
+       "title": "Merge pull request #134 from OpenRAC/feat/beam-match",
+       "author": "Lynder063",
+       "date": "2026-10-27T08:22:47Z"
+      },
+      {
+       "sha": "d6213678dc19e4294a6563170b528d3c2f674ea7",
+       "title": "Merge pull request #132 from OpenRAC/feat/freeze-match",
+       "author": "Lynder063",
+       "date": "2026-10-27T06:58:51Z"
+      }
+     ]
+    }
+   ],
+   "commitCount": 14,
+   "pullRequests": {
+    "merged": [
+     {
+      "number": 132,
+      "title": "feat(src): match func_001FD3E8",
+      "author": "Lynder063",
+      "untrustedBody": "Matches the freeze screen update (2856 bytes): sound_update is called as returning int (as draw.c does), and the x1C value shares the case 3 switch index.\nTwo freeze.c externs get MACRO_ADDR; the staged near-miss is removed.\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)",
+      "mergedAt": "2026-10-27T06:58:51Z"
+     },
+     {
+      "number": 133,
+      "title": "Match scalar min/max in C with pinned PS2DEV GCC 3.2.3",
+      "author": "llesieur99",
+      "untrustedBody": "Reconstructs `func_001F9B90` (`max_float`) and `func_001F9B98` (`min_float`) as ordinary C comparisons, exactly 8 bytes each. GCC 2.95 adds a register copy; the published PS2DEV GCC 3.2.3 frontend emits the required scalar operations and preserves the existing `FastAbsF` and `IntToFloat` bodies.\n\nThe entire `fastfunc.c` object uses an explicit compiler profile with file-wide `-ffast-math`. Setup pins and verifies the GNU release and published PS2DEV patch. The original assembler/linker pipeline remains unchanged. This change introduces no custom compiler patches, instruction edits, register bindings, inline-assembly wrappers, or HLE. It is a reconstruction toolchain, not a claim about retail's original compiler.\n\nValidation against main `044a6c26`, head `c9617943`:\n- Fresh PAL v2 build: all **1,251 audited routines byte-exact**, all retail addresses correct, **zero loaded-image byte differences**. This repository-wide total includes upstream's tagged-assembly routines; this PR adds onl",
+      "mergedAt": "2026-10-27T14:29:01Z"
+     },
+     {
+      "number": 134,
+      "title": "feat(overlays): match func_L00_002BA7C8",
+      "author": "Lynder063",
+      "untrustedBody": "Matches the walloper beam builder func_L00_002BA7C8 (5292 bytes), body ported from Lombyte's project.\nFull PAL build is byte-exact; pal_v1 matches too.\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)",
+      "mergedAt": "2026-10-27T08:22:48Z"
+     },
+     {
+      "number": 135,
+      "title": "feat(src): match the last 11 functions",
+      "author": "Lynder063",
+      "untrustedBody": "Matches the last 11 PAL functions; 9 use small tagged inline asm or register pins (/* inline asm: */, /* register pin: */).\nHandwritten functions stay original asm; try_func now accepts overlay ASM_FUNC stubs.\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)",
+      "mergedAt": "2026-10-27T11:19:37Z"
+     },
+     {
+      "number": 136,
+      "title": "chore(names): adopt NTSC decomp names and name 247 more symbols",
+      "author": "Lynder063",
+      "untrustedBody": "Follows the NTSC decomp pin to 3b85bba0 and adopts its names; names 247 functions and globals from the code (config/names_local.tsv).\nBuild is byte-exact; only names changed.\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)",
+      "mergedAt": "2026-10-27T11:56:19Z"
+     },
+     {
+      "number": 137,
+      "title": "chore(tidy): hero and moby pvars offsets to struct fields",
+      "author": "Lynder063",
+      "untrustedBody": "Turns raw hero (14088) and moby pvars (~6600) byte-offset accesses into struct fields (tools/tidy/rawhero.py, rawpvars.py), and drops two register pins in update_colliding_effect_particle.\nBuild is byte-exact.\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)",
+      "mergedAt": "2026-10-27T17:06:53Z"
+     },
+     {
+      "number": 138,
+      "title": "core: sceCdInit (func_001211B0) without the register pin",
+      "author": "xx255q",
+      "untrustedBody": "Removes the register pin (`register int m __asm__(\"$4\")`) from `sce_cd_init` (func_001211B0, sceCdInit) in `src/core/001208E8.c`.\n\nRetail keeps the shared `-1` in `$a0`; without the pin, local-alloc put it in `$v1`. Passing `cd_scmd_sync`'s non-blocking argument through a local (`int no_wait = 1;`) changes the allocation order so the `-1` lands in `$a0` again, with no pin, inline asm or barrier.\n\n- Same object code as the pinned version (function bytes and relocations compared).\n- The permuter result it was reduced from is `tools/try_func.py` EXACT against retail.\n- Passes `tools/integrate.py`'s banned-construct check.\n\nFound with decomp-permuter (passes that write empty blocks, dummy arithmetic and the like disabled), then reduced by hand to the one change that matters.\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)",
+      "mergedAt": "2026-10-27T18:24:18Z"
+     },
+     {
+      "number": 139,
+      "title": "feat(src): two more pure-C matches and struct tidy for 60 files",
+      "author": "Lynder063",
+      "untrustedBody": "Pure C for draw_vendor_effects and rilgar_sharkigator_update (no pins/asm left), NTSC pin to 8a5972b, and raw offsets to struct fields in 60 files (tools/tidy/rawstruct.py).\nBuild is byte-exact.\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)",
+      "mergedAt": "2026-10-27T20:39:15Z"
+     },
+     {
+      "number": 140,
+      "title": "refactor(pause): promote MenuScreen to shared header and type 160+ raw accesses",
+      "author": "Lynder063",
+      "untrustedBody": "Promotes MenuScreen and component unions to include/menu.h, removes duplicate private structs in pause.c, and types over 160 raw offsets.\nBuild is byte-exact.",
+      "mergedAt": "2026-10-27T21:15:20Z"
+     },
+     {
+      "number": 141,
+      "title": "refactor(overlays): type 600+ direct hero_globals_base accesses and merge private moby structs",
+      "author": "Lynder063",
+      "untrustedBody": "Extends rawhero to type direct hero_globals_base accesses across 94 overlay files and adds moby aliases to conv.py.\nBuild is byte-exact.",
+      "mergedAt": "2026-10-27T21:42:13Z"
+     },
+     {
+      "number": 142,
+      "title": "refactor(memcard): introduce include/memcard.h and type memory card state",
+      "author": "Lynder063",
+      "untrustedBody": "Introduces shared struct MemoryCardState, McCard, and McSaveSlot in include/memcard.h.\nReplaces 50+ raw offset accesses and private structs in menu.c and pause.c while maintaining exact match.",
+      "mergedAt": "2026-10-27T22:09:49Z"
+     },
+     {
+      "number": 143,
+      "title": "refactor(particles): type particle payloads and eliminate duplicate structs in effect_particle_updates",
+      "author": "Lynder063",
+      "untrustedBody": "Eliminate private wrapper structs in effect_particle_updates.c and type particle payload data blocks directly.\nVerify byte-exactness across all 1251 decompiled functions and overlays.",
+      "mergedAt": "2026-10-27T22:45:48Z"
+     },
+     {
+      "number": 144,
+      "title": "refactor(mpeg): eliminate dummy structs and type MpegDecoder and MpegRefImage in 00125630",
+      "author": "Lynder063",
+      "untrustedBody": "Eliminate dummy structs MbDec, MpegVdec, PicExt, State, Cpr8Mpeg, Cpr8Pic in src/core/00125630.c.\nMap raw offsets to fields on MpegDecoder and MpegRefImage with zero byte mismatch.",
+      "mergedAt": "2026-10-27T23:17:12Z"
+     },
+     {
+      "number": 145,
+      "title": "refactor(hero): type sound slots and draw queue, eliminate private hero structs in overlays",
+      "author": "Lynder063",
+      "untrustedBody": "Type hero sound slots and draw queue in shared headers.\nEliminate duplicate private structs across hero idle/animation and ledge grab overlays.",
+      "mergedAt": "2026-10-27T23:50:07Z"
+     }
+    ],
+    "opened": [
+     {
+      "number": 132,
+      "title": "feat(src): match func_001FD3E8",
+      "author": "Lynder063",
+      "untrustedBody": "Matches the freeze screen update (2856 bytes): sound_update is called as returning int (as draw.c does), and the x1C value shares the case 3 switch index.\nTwo freeze.c externs get MACRO_ADDR; the staged near-miss is removed.\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)",
+      "mergedAt": "2026-10-27T06:58:51Z"
+     },
+     {
+      "number": 133,
+      "title": "Match scalar min/max in C with pinned PS2DEV GCC 3.2.3",
+      "author": "llesieur99",
+      "untrustedBody": "Reconstructs `func_001F9B90` (`max_float`) and `func_001F9B98` (`min_float`) as ordinary C comparisons, exactly 8 bytes each. GCC 2.95 adds a register copy; the published PS2DEV GCC 3.2.3 frontend emits the required scalar operations and preserves the existing `FastAbsF` and `IntToFloat` bodies.\n\nThe entire `fastfunc.c` object uses an explicit compiler profile with file-wide `-ffast-math`. Setup pins and verifies the GNU release and published PS2DEV patch. The original assembler/linker pipeline remains unchanged. This change introduces no custom compiler patches, instruction edits, register bindings, inline-assembly wrappers, or HLE. It is a reconstruction toolchain, not a claim about retail's original compiler.\n\nValidation against main `044a6c26`, head `c9617943`:\n- Fresh PAL v2 build: all **1,251 audited routines byte-exact**, all retail addresses correct, **zero loaded-image byte differences**. This repository-wide total includes upstream's tagged-assembly routines; this PR adds onl",
+      "mergedAt": "2026-10-27T14:29:01Z"
+     },
+     {
+      "number": 134,
+      "title": "feat(overlays): match func_L00_002BA7C8",
+      "author": "Lynder063",
+      "untrustedBody": "Matches the walloper beam builder func_L00_002BA7C8 (5292 bytes), body ported from Lombyte's project.\nFull PAL build is byte-exact; pal_v1 matches too.\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)",
+      "mergedAt": "2026-10-27T08:22:48Z"
+     },
+     {
+      "number": 135,
+      "title": "feat(src): match the last 11 functions",
+      "author": "Lynder063",
+      "untrustedBody": "Matches the last 11 PAL functions; 9 use small tagged inline asm or register pins (/* inline asm: */, /* register pin: */).\nHandwritten functions stay original asm; try_func now accepts overlay ASM_FUNC stubs.\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)",
+      "mergedAt": "2026-10-27T11:19:37Z"
+     },
+     {
+      "number": 136,
+      "title": "chore(names): adopt NTSC decomp names and name 247 more symbols",
+      "author": "Lynder063",
+      "untrustedBody": "Follows the NTSC decomp pin to 3b85bba0 and adopts its names; names 247 functions and globals from the code (config/names_local.tsv).\nBuild is byte-exact; only names changed.\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)",
+      "mergedAt": "2026-10-27T11:56:19Z"
+     },
+     {
+      "number": 137,
+      "title": "chore(tidy): hero and moby pvars offsets to struct fields",
+      "author": "Lynder063",
+      "untrustedBody": "Turns raw hero (14088) and moby pvars (~6600) byte-offset accesses into struct fields (tools/tidy/rawhero.py, rawpvars.py), and drops two register pins in update_colliding_effect_particle.\nBuild is byte-exact.\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)",
+      "mergedAt": "2026-10-27T17:06:53Z"
+     },
+     {
+      "number": 138,
+      "title": "core: sceCdInit (func_001211B0) without the register pin",
+      "author": "xx255q",
+      "untrustedBody": "Removes the register pin (`register int m __asm__(\"$4\")`) from `sce_cd_init` (func_001211B0, sceCdInit) in `src/core/001208E8.c`.\n\nRetail keeps the shared `-1` in `$a0`; without the pin, local-alloc put it in `$v1`. Passing `cd_scmd_sync`'s non-blocking argument through a local (`int no_wait = 1;`) changes the allocation order so the `-1` lands in `$a0` again, with no pin, inline asm or barrier.\n\n- Same object code as the pinned version (function bytes and relocations compared).\n- The permuter result it was reduced from is `tools/try_func.py` EXACT against retail.\n- Passes `tools/integrate.py`'s banned-construct check.\n\nFound with decomp-permuter (passes that write empty blocks, dummy arithmetic and the like disabled), then reduced by hand to the one change that matters.\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)",
+      "mergedAt": "2026-10-27T18:24:18Z"
+     },
+     {
+      "number": 139,
+      "title": "feat(src): two more pure-C matches and struct tidy for 60 files",
+      "author": "Lynder063",
+      "untrustedBody": "Pure C for draw_vendor_effects and rilgar_sharkigator_update (no pins/asm left), NTSC pin to 8a5972b, and raw offsets to struct fields in 60 files (tools/tidy/rawstruct.py).\nBuild is byte-exact.\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)",
+      "mergedAt": "2026-10-27T20:39:15Z"
+     },
+     {
+      "number": 140,
+      "title": "refactor(pause): promote MenuScreen to shared header and type 160+ raw accesses",
+      "author": "Lynder063",
+      "untrustedBody": "Promotes MenuScreen and component unions to include/menu.h, removes duplicate private structs in pause.c, and types over 160 raw offsets.\nBuild is byte-exact.",
+      "mergedAt": "2026-10-27T21:15:20Z"
+     },
+     {
+      "number": 141,
+      "title": "refactor(overlays): type 600+ direct hero_globals_base accesses and merge private moby structs",
+      "author": "Lynder063",
+      "untrustedBody": "Extends rawhero to type direct hero_globals_base accesses across 94 overlay files and adds moby aliases to conv.py.\nBuild is byte-exact.",
+      "mergedAt": "2026-10-27T21:42:13Z"
+     },
+     {
+      "number": 142,
+      "title": "refactor(memcard): introduce include/memcard.h and type memory card state",
+      "author": "Lynder063",
+      "untrustedBody": "Introduces shared struct MemoryCardState, McCard, and McSaveSlot in include/memcard.h.\nReplaces 50+ raw offset accesses and private structs in menu.c and pause.c while maintaining exact match.",
+      "mergedAt": "2026-10-27T22:09:49Z"
+     },
+     {
+      "number": 143,
+      "title": "refactor(particles): type particle payloads and eliminate duplicate structs in effect_particle_updates",
+      "author": "Lynder063",
+      "untrustedBody": "Eliminate private wrapper structs in effect_particle_updates.c and type particle payload data blocks directly.\nVerify byte-exactness across all 1251 decompiled functions and overlays.",
+      "mergedAt": "2026-10-27T22:45:48Z"
+     },
+     {
+      "number": 144,
+      "title": "refactor(mpeg): eliminate dummy structs and type MpegDecoder and MpegRefImage in 00125630",
+      "author": "Lynder063",
+      "untrustedBody": "Eliminate dummy structs MbDec, MpegVdec, PicExt, State, Cpr8Mpeg, Cpr8Pic in src/core/00125630.c.\nMap raw offsets to fields on MpegDecoder and MpegRefImage with zero byte mismatch.",
+      "mergedAt": "2026-10-27T23:17:12Z"
+     },
+     {
+      "number": 145,
+      "title": "refactor(hero): type sound slots and draw queue, eliminate private hero structs in overlays",
+      "author": "Lynder063",
+      "untrustedBody": "Type hero sound slots and draw queue in shared headers.\nEliminate duplicate private structs across hero idle/animation and ledge grab overlays.",
+      "mergedAt": "2026-10-27T23:50:07Z"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": {
+    "before": {
+     "code": {
+      "done": 3692624,
+      "total": 3713488
+     },
+     "functions": {
+      "done": 5104,
+      "total": 5117
+     },
+     "data": {
+      "done": 3852,
+      "total": 699072
+     }
+    },
+    "after": {
+     "code": {
+      "done": 3713096,
+      "total": 3713096
+     },
+     "functions": {
+      "done": 5116,
+      "total": 5116
+     },
+     "data": {
+      "done": 3984,
+      "total": 699072
+     }
+    }
+   },
+   "contributors": [
+    "llesieur99",
+    "Lynder063",
+    "xx255q"
+   ]
+  },
+  {
+   "repo": "rac2-decomp",
+   "title": "Going Commando",
+   "branches": [
+    {
+     "name": "master",
+     "commits": [
+      {
+       "sha": "d40c7e50be8a123229f2ce1c0674a21c579e80ca",
+       "title": "fix(levels): keep both functions added to L10_00424028-g8.c",
+       "author": "Veradictus",
+       "date": "2026-10-27T23:59:51Z"
+      },
+      {
+       "sha": "adb28976855efa3e1362ea6aa45ec7a0e396fe15",
+       "title": "Merge branch 'pr-341' into train/prs-0335-0341",
+       "author": "Veradictus",
+       "date": "2026-10-27T23:34:15Z"
+      },
+      {
+       "sha": "9c32f58486154db2b4344b9eae659e2f8a12a58b",
+       "title": "Merge branch 'pr-340' into train/prs-0335-0341",
+       "author": "Veradictus",
+       "date": "2026-10-27T23:33:50Z"
+      },
+      {
+       "sha": "d3b6804ed9fa148aa4236ad7e375b651a507ceae",
+       "title": "Merge branch 'pr-339' into train/prs-0335-0341",
+       "author": "Veradictus",
+       "date": "2026-10-27T23:33:33Z"
+      },
+      {
+       "sha": "b31015aa6c24fab03da03b1a128ff8b569ea9083",
+       "title": "Merge branch 'pr-338' into train/prs-0335-0341",
+       "author": "Veradictus",
+       "date": "2026-10-27T23:33:21Z"
+      },
+      {
+       "sha": "507dd8ac78e0face734b70926ee10fe94e7ec795",
+       "title": "Merge branch 'pr-337' into train/prs-0335-0341",
+       "author": "Veradictus",
+       "date": "2026-10-27T23:33:21Z"
+      },
+      {
+       "sha": "627a90454c4511482fa69dbdad50cc3a0c256d1b",
+       "title": "Merge branch 'pr-336' into train/prs-0335-0341",
+       "author": "Veradictus",
+       "date": "2026-10-27T23:33:21Z"
+      },
+      {
+       "sha": "5eaf2dd8a1997a2125cbeee1d99adb5022cf53b8",
+       "title": "feat(src): match three particle routines",
+       "author": "Clank700",
+       "date": "2026-10-27T15:05:02Z"
+      },
+      {
+       "sha": "1243c8ea0466f6f37092882d4ca4dc928139efe4",
+       "title": "fix(levels): assembly units for the pal and us2 copies of func_L08_00318F90",
+       "author": "Veradictus",
+       "date": "2026-10-27T04:57:23Z"
+      },
+      {
+       "sha": "91456a8d087e308fac3a0bb2a3dd6f865bdd0b14",
+       "title": "chore(progress): 5514 of 8584 functions",
+       "author": "Veradictus",
+       "date": "2026-10-27T04:54:45Z"
+      },
+      {
+       "sha": "429072cdd058838cd616e1718e19616aeef62028",
+       "title": "Merge pull request #334 from OpenRAC/pr/small-functions",
+       "author": "Veradictus",
+       "date": "2026-10-27T04:34:58Z"
+      },
+      {
+       "sha": "ceb6491bab2d07d60f295bd81bcc04be49a89339",
+       "title": "chore(progress): 5395 of 8584 functions",
+       "author": "Veradictus",
+       "date": "2026-10-27T02:02:16Z"
+      },
+      {
+       "sha": "c17a4a285a1d98e81bbb5137f81537080de29054",
+       "title": "Merge pull request #333 from OpenRAC/pr/large-functions",
+       "author": "Veradictus",
+       "date": "2026-10-27T01:44:13Z"
+      }
+     ]
+    }
+   ],
+   "commitCount": 13,
+   "pullRequests": {
+    "merged": [
+     {
+      "number": 333,
+      "title": "Match 780 functions, with compiler and assembler fixes measured against retail",
+      "author": "Veradictus",
+      "untrustedBody": "# Match 780 functions, with compiler and assembler fixes measured against retail\n\nThis adds C for 777 v1.01 functions and three release-specific ones, plus the\ncompiler and assembler changes that got them there. Most of it is large level code:\n166 of the functions are over 1 KB, and the biggest are the per-level hero state\nhandlers (30 to 37 KB each).\n\nIt is rebased onto master after #329, #331 and #332. 55 functions were matched both\nhere and in those PRs, mostly #329's `-rc2.c` units. Master's versions stay. Ours are\ngone: their units, flags lines and marker edits are removed, and the batch commits that\ncarried them were renumbered. One commit had only such duplicates and was dropped.\nEach of master's 55 still passes `tools/check.py` under this branch's compiler\ndefaults in all three releases (see Verification).\n\n## What is matched\n\n| Area | Functions | Bytes | Notes |\n| --- | ---: | ---: | --- |\n| Boot: `src/core/` | 39 | | |\n| Boot: `src/game/` | 212 | | |\n| Boot, total | 251 | 128",
+      "mergedAt": "2026-10-27T01:44:14Z"
+     },
+     {
+      "number": 334,
+      "title": "feat: 119 small functions exact match",
+      "author": "Veradictus",
+      "untrustedBody": "119 more functions match exactly, nearly all under 200 bytes, in boot and the levels.\n\n- 115 are plain C matches, each in its own unit and using only that file's documented flags.\n- 4 matched after their catalogue rows were corrected to start after linker filler (`func_00120354`, `func_00130A8C`, `func_0028FF50`, `func_L00_00428EE0`). These use the same `FUNCTION_ENTRY_OFFSETS` rule as before, and the change is recorded in docs/LEVELS.md.\n- Where a function only exists in one release, it is demoted with `tools/carry.py --demote` and gets its own copy under `src/pal/` or `src/us2/`.\n\nEvery function passes check.py at each of its places in USA v1.01, PAL and v2.00. The full `build.py all --strict` build matches in all three releases, all 28 programs each.\n\nNot done: `func_00115E28` is really two functions (`abort`, then a separate assert-style printer at `00115E38`). Splitting it adds a catalogue row, so it is noted in docs/LEVELS.md for later.\n\nThe progress report is not touched here. I",
+      "mergedAt": "2026-10-27T04:34:59Z"
+     }
+    ],
+    "opened": [
+     {
+      "number": 333,
+      "title": "Match 780 functions, with compiler and assembler fixes measured against retail",
+      "author": "Veradictus",
+      "untrustedBody": "# Match 780 functions, with compiler and assembler fixes measured against retail\n\nThis adds C for 777 v1.01 functions and three release-specific ones, plus the\ncompiler and assembler changes that got them there. Most of it is large level code:\n166 of the functions are over 1 KB, and the biggest are the per-level hero state\nhandlers (30 to 37 KB each).\n\nIt is rebased onto master after #329, #331 and #332. 55 functions were matched both\nhere and in those PRs, mostly #329's `-rc2.c` units. Master's versions stay. Ours are\ngone: their units, flags lines and marker edits are removed, and the batch commits that\ncarried them were renumbered. One commit had only such duplicates and was dropped.\nEach of master's 55 still passes `tools/check.py` under this branch's compiler\ndefaults in all three releases (see Verification).\n\n## What is matched\n\n| Area | Functions | Bytes | Notes |\n| --- | ---: | ---: | --- |\n| Boot: `src/core/` | 39 | | |\n| Boot: `src/game/` | 212 | | |\n| Boot, total | 251 | 128",
+      "mergedAt": "2026-10-27T01:44:14Z"
+     },
+     {
+      "number": 334,
+      "title": "feat: 119 small functions exact match",
+      "author": "Veradictus",
+      "untrustedBody": "119 more functions match exactly, nearly all under 200 bytes, in boot and the levels.\n\n- 115 are plain C matches, each in its own unit and using only that file's documented flags.\n- 4 matched after their catalogue rows were corrected to start after linker filler (`func_00120354`, `func_00130A8C`, `func_0028FF50`, `func_L00_00428EE0`). These use the same `FUNCTION_ENTRY_OFFSETS` rule as before, and the change is recorded in docs/LEVELS.md.\n- Where a function only exists in one release, it is demoted with `tools/carry.py --demote` and gets its own copy under `src/pal/` or `src/us2/`.\n\nEvery function passes check.py at each of its places in USA v1.01, PAL and v2.00. The full `build.py all --strict` build matches in all three releases, all 28 programs each.\n\nNot done: `func_00115E28` is really two functions (`abort`, then a separate assert-style printer at `00115E38`). Splitting it adds a catalogue row, so it is noted in docs/LEVELS.md for later.\n\nThe progress report is not touched here. I",
+      "mergedAt": "2026-10-27T04:34:59Z"
+     },
+     {
+      "number": 335,
+      "title": "feat(src): match three particle routines",
+      "author": "Clank700",
+      "untrustedBody": "## What\n\nMatch three particle routines on USA v1.01, totaling 1,104 distinct bytes:\n\n- `func_002C01F8` (236 bytes): updates particle appearance and position, advances a 31-step animation counter, and expires the particle when its timer reaches zero.\n- `func_002C65A0` (420 bytes): allocates a particle and initializes position, velocity/gravity, color/alpha, size steps, lifetime and its existing update callback.\n- `func_002C4B50` (448 bytes): moves a falling particle, samples the floor after crossing an integer coordinate, applies gravity and removes particles outside the bounds or below the floor.\n\nThe source lives in three sibling units; the owning file keeps one reference to each definition. C01F8 uses its filename-selected `-G8` profile for four measured scalar small-data accesses. C65A0 retains the original owning unit's `-g` profile, including the existing label-sensitive division padding. C4B50 uses aligned `mode(TI)` assignments and `-mno-split-addresses` to reproduce the observe",
+      "mergedAt": "2026-10-28T00:21:51Z"
+     },
+     {
+      "number": 336,
+      "title": "feat: 4 functions ported from rac1-decomp exact match",
+      "author": "Veradictus",
+      "untrustedBody": "4 functions now match exactly by reusing the C of their rac1-decomp counterparts. Each rac1 twin was found by instruction shape, and its C builds to rac2's bytes without edits. Symbols that have no rac2 name yet keep the `r1_` prefix, as AGENTS.md describes.\n\n| Function | Size | Places | rac1 source |\n|---|---|---|---|\n| `func_002C2FD8` | 288 B | 28 | `func_L00_00273E08` |\n| `func_L00_00308408` | 304 B | 27 | `func_L07_00270BE0` |\n| `func_L00_0042B038` | 348 B | 7 | `func_L01_0031B2F0` |\n| `func_L00_004290C0` | 220 B | 12 | `func_L10_002F6E38` |\n\nEach one passes check.py at every place in USA v1.01, PAL and v2.00. The full `build.py all --strict` build matches in all three releases, all 28 programs each. The progress report is not touched here.",
+      "mergedAt": "2026-10-28T00:21:51Z"
+     },
+     {
+      "number": 337,
+      "title": "feat(src): ten small level functions in C",
+      "author": "DrLegitamate",
+      "untrustedBody": "## What\n\nTen small level functions in C, six near misses recorded, and six catalogue rows documented that are not matchable as they stand. Scope as reserved in my #152 comment.\n\n**Matched**\n\n- `func_L13_00406E30` (228 bytes; levels 13, 14, 16), `src/levels/shared/L13_002D5ED8.c`: compares an object's choice (0, 1 or 2) with its opponent's; 2 for a draw, 1 for a win, else 0. The table pointer `D_L13_001B291C` is declared `section(\".sdata\")`, as `L13_0040A720-ai.c` already declares it.\n- `func_L22_00334F78` (252 bytes; levels 22, 23), `src/levels/shared/L22_002D0C98.c`: fills a kind-5 record. Uses `qcopy`, so the file includes `common.h` instead of repeating its typedefs; the unused prototypes of `func_2F4BE0`/`func_2F4BD0` are corrected to what retail passes.\n- `func_L22_003398B8` (256 bytes; levels 22, 23), new sibling `src/levels/shared/L22_002D0C98-g8.c` (`$gp` read): fills a kind-0x1F record through three vector helpers.\n- `func_L04_003FBD80` (372 bytes; levels 04, 11), `src/levels/",
+      "mergedAt": "2026-10-28T00:21:51Z"
+     },
+     {
+      "number": 338,
+      "title": "feat(src): mark six DMA wait loops ASM_FUNC",
+      "author": "DrLegitamate",
+      "untrustedBody": "## What\n\nSix 40-byte boot bodies in `src/game/002EEB00.c` marked `ASM_FUNC`: `func_002F1E60`, `func_002F29E4`, `func_002F2A0C`, `func_002F32AC`, `func_002F32D4`, `func_002F4F78`. Each is the same wait loop on a hardware channel register (`-0x3000` or `-0x2C00` off `$a0`):\n\n```\nlw   $at, off($a0)\nnop ; nop ; nop\nandi $at, $at, 0x100\nnop\nbnez $at, <self>\nnop\njr   $ra\nlui  $ra, 0x7000\n```\n\nThey use `$at` as their working register and write `$ra` in the return's delay slot, which cc1 never emits. This is AGENTS.md's second \"Handwritten assembly\" criterion, which asks for a maintainer's agreement in review: please accept or reject the classification on its own. It is kept separate from my matching PR #337 for that reason. These rows are in my #152 reservation.\n\n## Checked\n\nOn `origin/master` @ `1243c8ea`:\n\n- `python3 tools/build.py boot --strict`: `boot: OK: 2521763 loaded bytes equal; 2074 C functions (408308 bytes)` (unchanged; the six stay assembly).\n- `python3 -m unittest discover -s te",
+      "mergedAt": "2026-10-28T00:21:51Z"
+     },
+     {
+      "number": 339,
+      "title": "feat(src): 27 functions exact match",
+      "author": "Lynder063",
+      "untrustedBody": "27 functions of 200-600 bytes now match; func_0028E458 stays assembly in pal.\ntools/build.py all --strict is OK for all 28 programs in us, pal and us2; near misses are in nonmatching/.\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)",
+      "mergedAt": "2026-10-28T00:21:51Z"
+     },
+     {
+      "number": 340,
+      "title": "match three functions (us v1.01)",
+      "author": "conor-sometimes",
+      "untrustedBody": "Three matched functions plus one recorded near-miss for the US v1.01 build.\n\nEach function builds and byte-matches retail (`tools/build.py`); `tools/check_repository.py` and `tools/progress.py --check` pass. `progress/report.json` and the README table are left for the maintainer refresh per `AGENTS.md`.\n\n**Matches**\n\n- **`func_L00_0037E670`** (shared) — sets a fade value to its default (0) or its raised value and clears the flag. `src/levels/shared/L00_0037E668.c`.\n- **`func_00335C60`** (boot) — object init: stores a global pointer into the struct, forwards two fields to `func_00336ED0`, then calls `func_00335870`. Needs `-mno-split-addresses`, so it lives in a `00335C60-nosplit.c` sibling with the matching `config/cflags.txt` entry.\n- **`func_L11_00458A98`** (Joba, l11) — a 9-argument spawned-object init (flag masking, two `qcopy` vector copies, two callbacks), in an `L11_00453358-g8.c` sibling.\n\n**Near-miss**\n\n- **`func_L03_003E18D8`** recorded in `nonmatching/levels/` (remaining dif",
+      "mergedAt": "2026-10-28T00:21:51Z"
+     },
+     {
+      "number": 341,
+      "title": "feat(src): 33 more functions exact match",
+      "author": "Lynder063",
+      "untrustedBody": "33 more level and boot functions of 200-600 bytes now match; this PR builds on #339.\ntools/build.py all --strict is OK for all 28 programs in us, pal and us2; near misses are in nonmatching/.\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)"
+     },
+     {
+      "number": 342,
+      "title": "feat: slots and gate driver for functional C",
+      "author": "Veradictus",
+      "untrustedBody": "This sets rac2 up for a C backfill: functional C for the native port, kept apart from matching C and never counted.\n\n- **`nonmatching/functional/` and `nonmatching/functional.tsv`** (empty) use the same layout as rac1-decomp. `tests/check_repository.py` now checks that every listed function is still `INCLUDE_ASM` in `src/` and that its file exists. `tools/progress.py` reads only `src/`, so nothing listed here can be counted.\n- **`tools/fcheck.py`** is the gate's driver for boot functions. It compiles a candidate with its unit's own flags and places the function at a scratch address, along with:\n  - its own read-only data and jump tables;\n  - `$gp` references, range-checked;\n  - literals;\n  - static helpers.\n\n  OpenRAC's test-only interpreter then compares it with retail on captured calls. It has 11 tests in `tests/test_fcheck.py`.\n- **`nonmatching/README.md`** explains how to run the gate.\n\nThe OpenRAC side is OpenRAC/OpenRAC#85. Calibration: the 513 matched boot functions reached by t",
+      "mergedAt": "2026-10-28T03:17:02Z"
+     },
+     {
+      "number": 343,
+      "title": "feat(src): match 23 functions (10,592 unique bytes)",
+      "author": "llesieur99",
+      "untrustedBody": "## What\r\n\r\nMatch **23 remaining 200–600 byte functions: 10,592 distinct USA code bytes**, accepted at **632 carrying placements across the three releases**. No missing canonical release identity is treated as a pass.\r\n\r\n| Function | Bytes | US places | US2 places | PAL places |\r\n| --- | ---: | ---: | ---: | ---: |\r\n| func_00281EB8 | 480 | 28 | 28 | 28 |\r\n| func_002AA548 | 492 | 28 | 28 | 28 |\r\n| func_002B0178 | 476 | 23 | 23 | 23 |\r\n| func_00312EB0 | 576 | 28 | 28 | ABSENT |\r\n| func_0034A808 | 552 | 28 | 28 | 28 |\r\n| func_L00_002AA750 | 484 | 22 | 22 | ABSENT |\r\n| func_L00_002B3F68 | 592 | 27 | 27 | ABSENT |\r\n| func_L00_003C58E8 | 560 | 27 | 27 | ABSENT |\r\n| func_L01_00331E08 | 448 | 3 | 3 | ABSENT |\r\n| func_L02_003CCCC8 | 472 | 2 | 2 | ABSENT |\r\n| func_L02_003D6EE0 | 352 | 2 | 2 | 2 |\r\n| func_L03_003C9FB8 | 384 | 2 | 2 | ABSENT |\r\n| func_L03_003CAB80 | 292 | 2 | 2 | 2 |\r\n| func_L03_003CC238 | 576 | 2 | 2 | ABSENT |\r\n| func_L03_003E3678 | 212 | 8 | 8 | ABSENT |\r\n| func_L03_00409AB0 | 3",
+      "mergedAt": "2026-10-28T00:01:09Z"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": {
+    "before": {
+     "code": {
+      "done": 854500,
+      "total": 5527532
+     },
+     "functions": {
+      "done": 4618,
+      "total": 8584
+     },
+     "data": {
+      "done": 0,
+      "total": 383391
+     }
+    },
+    "after": {
+     "code": {
+      "done": 2445608,
+      "total": 5525916
+     },
+     "functions": {
+      "done": 5514,
+      "total": 8584
+     },
+     "data": {
+      "done": 0,
+      "total": 383391
+     }
+    }
+   },
+   "contributors": [
+    "Clank700",
+    "conor-sometimes",
+    "DrLegitamate",
+    "llesieur99",
+    "Lynder063",
+    "Veradictus"
+   ]
+  },
+  {
+   "repo": "rac3-decomp",
+   "title": "Up Your Arsenal",
+   "branches": [
+    {
+     "name": "master",
+     "commits": []
+    }
+   ],
+   "commitCount": 0,
+   "pullRequests": {
+    "merged": [],
+    "opened": []
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": null,
+   "contributors": []
+  },
+  {
+   "repo": "rac4-decomp",
+   "title": "Ratchet: Deadlocked",
+   "branches": [
+    {
+     "name": "main",
+     "commits": []
+    }
+   ],
+   "commitCount": 0,
+   "pullRequests": {
+    "merged": [],
+    "opened": [
+     {
+      "number": 39,
+      "title": "feat(core): match func_00161380",
+      "author": "BlindFire1200",
+      "untrustedBody": "func_00161380 (core.text, 200 bytes) matched in src/core/00161380.c. The same C also matches PAL's func_00161390.\n\n- MATCH with tools/check_func.py under the stock flags. match_map places it on PAL as func_00161390. The stack struct's two groups of stores are written in retail's order (second group first).\n- Full build: audit_matches 2,946 exact (was 2,945). The same 3 not exact, and the same 18 audit_relocs mismatches and 2 unresolved as main, none in this function.\n- match_map and progress regenerated for US and PAL: 3,599/18,085 (US), 3,614/18,113 (PAL).",
+      "mergedAt": "2026-10-28T14:03:03Z"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": null,
+   "contributors": [
+    "BlindFire1200"
+   ]
+  },
+  {
+   "repo": "openrac-mods",
+   "title": "OpenRAC mods",
+   "branches": [
+    {
+     "name": "master",
+     "commits": []
+    }
+   ],
+   "commitCount": 0,
+   "pullRequests": {
+    "merged": [],
+    "opened": []
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": null,
+   "contributors": []
+  }
+ ]
+}

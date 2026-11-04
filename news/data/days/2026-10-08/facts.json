@@ -1,0 +1,608 @@
+{
+ "format": 1,
+ "date": "2026-10-08",
+ "totals": {
+  "commits": 28,
+  "pullRequestsMerged": 16,
+  "pullRequestsOpened": 16,
+  "contributors": 7
+ },
+ "projects": [
+  {
+   "repo": "OpenRAC",
+   "title": "OpenRAC launcher",
+   "branches": [
+    {
+     "name": "develop",
+     "commits": [
+      {
+       "sha": "b36b4d2f822b6f9d2a39612c2c47bf868f296951",
+       "title": "perf(runtime): draw on several threads, decoded textures, faster inner loops",
+       "author": "Veradictus",
+       "date": "2026-10-08T23:59:44Z"
+      },
+      {
+       "sha": "07dacab15c0cb6fae4219e5538aabd81283dba40",
+       "title": "feat(runtime): software GS model, GIF, VIF1 and DMA chain decoding, a demo",
+       "author": "Veradictus",
+       "date": "2026-10-08T21:01:27Z"
+      },
+      {
+       "sha": "e97c1d5b3323a08d4811ba7a00a7ced8ee3d6f77",
+       "title": "docs(policy): the top level is GPL-3.0-or-later",
+       "author": "Veradictus",
+       "date": "2026-10-08T18:09:07Z"
+      },
+      {
+       "sha": "bac5cc409d190a37d87a148f1984371b09fa8720",
+       "title": "chore(import): sync rac3/ntsc with rac3-uya-decomp at bfd8278",
+       "author": "Veradictus",
+       "date": "2026-10-08T03:11:07Z"
+      },
+      {
+       "sha": "85e67b3be322435e8761a0fca66aaf4d55cc2a62",
+       "title": "ci(rac2): install rabbitizer for the project's tool tests",
+       "author": "Veradictus",
+       "date": "2026-10-08T02:56:02Z"
+      }
+     ]
+    },
+    {
+     "name": "master",
+     "commits": [
+      {
+       "sha": "b36b4d2f822b6f9d2a39612c2c47bf868f296951",
+       "title": "perf(runtime): draw on several threads, decoded textures, faster inner loops",
+       "author": "Veradictus",
+       "date": "2026-10-08T23:59:44Z"
+      },
+      {
+       "sha": "07dacab15c0cb6fae4219e5538aabd81283dba40",
+       "title": "feat(runtime): software GS model, GIF, VIF1 and DMA chain decoding, a demo",
+       "author": "Veradictus",
+       "date": "2026-10-08T21:01:27Z"
+      },
+      {
+       "sha": "e97c1d5b3323a08d4811ba7a00a7ced8ee3d6f77",
+       "title": "docs(policy): the top level is GPL-3.0-or-later",
+       "author": "Veradictus",
+       "date": "2026-10-08T18:09:07Z"
+      },
+      {
+       "sha": "bac5cc409d190a37d87a148f1984371b09fa8720",
+       "title": "chore(import): sync rac3/ntsc with rac3-uya-decomp at bfd8278",
+       "author": "Veradictus",
+       "date": "2026-10-08T03:11:07Z"
+      },
+      {
+       "sha": "85e67b3be322435e8761a0fca66aaf4d55cc2a62",
+       "title": "ci(rac2): install rabbitizer for the project's tool tests",
+       "author": "Veradictus",
+       "date": "2026-10-08T02:56:02Z"
+      }
+     ]
+    }
+   ],
+   "commitCount": 5,
+   "pullRequests": {
+    "merged": [],
+    "opened": [
+     {
+      "number": 2,
+      "title": "feat(launcher): scaffold a desktop launcher for all four games",
+      "author": "Veradictus",
+      "untrustedBody": "A Tauri 2 desktop app in `launcher/` that puts OpenRAC behind buttons for every version in `games/` (rac1 PAL and NTSC-U, rac2, rac3, rac4): find your discs, place each build's inputs, set up, build, check, play in PCSX2, and open the level editor. It runs the checkout's own tools and streams their output; it hard-codes nothing a `game.json` already says.\n\nThis is **scaffolding**: the app, its look, the catalogue, the job runner and the repository-wide actions work; most per-game actions are written from each game's docs but not yet run from the launcher. `launcher/docs/INTEGRATION.md` is the handoff for connecting them.\n\n## What's in it\n\n- **`launcher/core/`** (Rust, no window): the catalogue from `games/*/game.json` and `progress/summary.json`; each version's disc and input status (names, sizes, links; never hashes an image); settings; detection of the checkout, Python, PCSX2, Godot and Docker; a job runner that streams output and cancels a job's whole process tree.\n- **`launcher/act",
+      "mergedAt": "2026-10-09T04:16:49Z"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": null,
+   "contributors": [
+    "Veradictus"
+   ]
+  },
+  {
+   "repo": "rac1-decomp",
+   "title": "Ratchet & Clank",
+   "branches": [
+    {
+     "name": "main",
+     "commits": [
+      {
+       "sha": "6ded75da99da1d7dec69bf76af7e46dc24b3c14c",
+       "title": "Decompile 25 small functions (menu, help, vendor, sound, and vibuf helpers)",
+       "author": "Lynder063",
+       "date": "2026-10-08T22:18:05Z"
+      },
+      {
+       "sha": "d9cf6452a5923102855152d08d6963b1c653fcf9",
+       "title": "Decompile 5 small functions (menu card state helpers, vibuf CHCR/tag)",
+       "author": "Lynder063",
+       "date": "2026-10-08T21:06:25Z"
+      },
+      {
+       "sha": "5fb90abd2c1ce2b3e9c4d822003ebba94be4964b",
+       "title": "Merge pull request #44 from dev-gian/feat/eight-overlay-matches",
+       "author": "Lynder063",
+       "date": "2026-10-08T20:52:20Z"
+      },
+      {
+       "sha": "a35ffbee49bb74c70b7b3e3492085d415f652038",
+       "title": "Merge pull request #42 from dev-gian/feat/rilgar-batalia-matches",
+       "author": "Veradictus",
+       "date": "2026-10-08T17:40:42Z"
+      },
+      {
+       "sha": "b8f9355792ac169d9cc3e6ab786320222053e564",
+       "title": "Merge pull request #43 from Veradictus/main",
+       "author": "Veradictus",
+       "date": "2026-10-08T17:25:37Z"
+      },
+      {
+       "sha": "57a67ccdd944b987f26790d24217a42af6c1a232",
+       "title": "Decompile func_L00_00274788 in partupd_00272158.c",
+       "author": "Lynder063",
+       "date": "2026-10-08T16:30:06Z"
+      },
+      {
+       "sha": "66e8846af3bd18674896ee3e8f3d32bc45543b34",
+       "title": "Match func_L00_0024A490 and func_L00_0024A5C0 (menu coordinate checks) with joined fragments",
+       "author": "Lynder063",
+       "date": "2026-10-08T15:30:53Z"
+      },
+      {
+       "sha": "bc6fc23b2470ecfca26a7fe43f276864e6707973",
+       "title": "Match func_L10_002DB278 in l10_orxon vendor (1040 bytes)",
+       "author": "Lynder063",
+       "date": "2026-10-08T15:10:49Z"
+      },
+      {
+       "sha": "7eb3f264198a7265a148987e523bbb53da69730c",
+       "title": "overlay: decompile func_L00_00247478 (joined with func_L00_002474C4) and clean up matched remnants",
+       "author": "Lynder063",
+       "date": "2026-10-08T14:24:12Z"
+      },
+      {
+       "sha": "60263b55d39059ed7aa83f6cb9691dcdffbe2a4d",
+       "title": "Merge pull request #41 from Veradictus/main",
+       "author": "Lynder063",
+       "date": "2026-10-08T14:02:57Z"
+      },
+      {
+       "sha": "6f599e083e76c26186a6f583773247c35ae0d059",
+       "title": "overlay(l15): decompile func_L15_002F8D30 (joined with func_L15_002F8D9C)",
+       "author": "Lynder063",
+       "date": "2026-10-08T13:48:00Z"
+      },
+      {
+       "sha": "0689a769d0a9a4cbdec59b7b5cad1e528c1800dd",
+       "title": "overlay: decompile func_L00_001EBDA0 (UpdateAllCameras__Fi)",
+       "author": "Lynder063",
+       "date": "2026-10-08T13:34:07Z"
+      },
+      {
+       "sha": "2856ebe3d23688064486b6cefe4d876bffe2cd9e",
+       "title": "Match func_L05_0030D3F0 (UpdateMoby_812) in Rilgar overlay",
+       "author": "Lynder063",
+       "date": "2026-10-08T12:45:27Z"
+      },
+      {
+       "sha": "7c1b32b84030acf93c6658efb994ae4c5e90e2e4",
+       "title": "Decompile func_L03_002ECD40 (ActivateCamera_14) in Kerwan overlay",
+       "author": "Lynder063",
+       "date": "2026-10-08T12:35:38Z"
+      },
+      {
+       "sha": "b098a97227cb25a9299c3436020bc84dcd3af54f",
+       "title": "Match func_L13_002EE8E0 (UpdateMoby_404) in Gemlik overlay",
+       "author": "Lynder063",
+       "date": "2026-10-08T08:43:05Z"
+      },
+      {
+       "sha": "392b2a1eae171f3ae7053e4bc9fa125d32a99b89",
+       "title": "Match func_L15_002EC8B0 (UpdateMoby_1419) in Quartu overlay",
+       "author": "Lynder063",
+       "date": "2026-10-08T08:34:04Z"
+      },
+      {
+       "sha": "10eb5bd562d87685a61b22e359c6dec7b9801c26",
+       "title": "Match func_L04_002E4458 (UpdateMoby_1190) in Eudora overlay",
+       "author": "Lynder063",
+       "date": "2026-10-08T08:16:50Z"
+      },
+      {
+       "sha": "b6f4ade74d75a7603136a6072026c3c732d8ac4c",
+       "title": "Match func_L03_002D4CE0 in Kerwan overlay",
+       "author": "Lynder063",
+       "date": "2026-10-08T08:03:22Z"
+      },
+      {
+       "sha": "50a1635c44693d9be70b5f6065626e041e75f054",
+       "title": "Match func_L10_002DA678 in Orxon overlay",
+       "author": "Lynder063",
+       "date": "2026-10-08T07:48:12Z"
+      },
+      {
+       "sha": "7026fdfeb9818c816a8b1d5320075019a4543cf7",
+       "title": "Merge pull request #40 from Veradictus/main",
+       "author": "Lynder063",
+       "date": "2026-10-08T06:28:39Z"
+      },
+      {
+       "sha": "60f32549bc5daff717fa02539718f5fb0e1ff713",
+       "title": "Merge pull request #37 from OpenRAC/qwen-fixes-and-matches",
+       "author": "Lynder063",
+       "date": "2026-10-08T06:16:28Z"
+      },
+      {
+       "sha": "de7820be7881ddfbdb9929065fc9e21b54e7b3ac",
+       "title": "Merge pull request #39 from dev-gian/feat/overlay-4-matches",
+       "author": "Lynder063",
+       "date": "2026-10-08T06:03:34Z"
+      },
+      {
+       "sha": "ed9c4e920b531cf47f4128a22dd34fb668d6b5dc",
+       "title": "Merge pull request #38 from OpenRAC/qwen-experiment",
+       "author": "Lynder063",
+       "date": "2026-10-08T06:03:15Z"
+      }
+     ]
+    }
+   ],
+   "commitCount": 23,
+   "pullRequests": {
+    "merged": [
+     {
+      "number": 37,
+      "title": "qwen trying to decompile",
+      "author": "Lynder063",
+      "untrustedBody": "",
+      "mergedAt": "2026-10-08T06:16:28Z"
+     },
+     {
+      "number": 38,
+      "title": "add func_L03_002E99F0.c",
+      "author": "Lynder063",
+      "untrustedBody": "",
+      "mergedAt": "2026-10-08T06:03:15Z"
+     },
+     {
+      "number": 39,
+      "title": "feat(overlays): four overlay functions, exact matches",
+      "author": "dev-gian",
+      "untrustedBody": "Four overlay functions matched byte-for-byte, as a small first PR:\n\n- `func_L01_002F0850` (shared): nearest moby of type 0x26F with flag 0x1000, from an id list\n- `func_L15_001FED10` (shared)\n- `func_L14_002FFF08` (l14_oltanis)\n- `func_L00_002E0CB8` (shared)\n\nEach was checked with the strict overlay check against its real address in its level, and every other C function in the same files still builds exact. The three superseded `nonmatching/` staged files are removed; `nonmatching/README.md` and `progress/report.json` are regenerated (3424 -> 3428 matched functions, 57.32% -> 57.35% matched code).\n\nVerification: `build_sn.sh` 1055 exact, 0 size mismatches at 661bb60; `gen_progress_report.py --check` passes on a clean copy of exactly these files (no `asm/`, no `baserom/`).\n\nNotes for review:\n\n- **Base:** this is verified on 661bb60. `main` has been red since 8753a55, because its progress report is out of date for `func_0011E860`, `func_0011EF28` and `func_0011F4F8`, so this PR's CI may ",
+      "mergedAt": "2026-10-08T06:03:35Z"
+     },
+     {
+      "number": 40,
+      "title": "Stop helping the compiler, plus another 1.9% of the game",
+      "author": "Veradictus",
+      "untrustedBody": "## The part everyone will read\r\n\r\nTurns out a few of our build steps were doing GCC 2.95's homework for it. Apparently a 25-year-old compiler is supposed to suffer alone, so now it does.\r\n\r\nWhat's gone:\r\n- `fix_tail_calls.py`, `fix_trunc_slot.py` and `fix_core_spills.py`, which touched up the compiler's output after the fact.\r\n- Per-function flags. GCC 2.95 only takes flags per file, so now we do too (`config/file_cflags.txt`). Four level functions moved into files of their own to keep theirs. Level files are our own grouping anyway; retail never saw them.\r\n\r\nWe measured the damage before deleting anything. 12 functions depended on all of it: 2,404 bytes, 0.06% of the code. Seven still match with a whole-file flag. Five (620 bytes) are assembly again, including `_exit`, all 8 bytes of it, so `core/crt0` is no longer a complete unit. Our condolences to crt0.\r\n\r\nThe `ps2eeas` emulation stays, and now it comes with receipts. We never used SN's real assembler because it died with a stack o",
+      "mergedAt": "2026-10-08T06:28:39Z"
+     },
+     {
+      "number": 41,
+      "title": "Twenty Haikus walk into a decomp: 41 more functions, plus GPT's movie work",
+      "author": "Veradictus",
+      "untrustedBody": "## What happened\n\nWe pointed up to twenty Haiku agents at every level function nobody had matched yet, smallest first, and let them run until the queue was empty. They are cheap and fast, and they are about as good at long functions as you'd expect.\n\nHow it went, by size:\n- Up to about 1 KB, small functions retried and untried ones: 21 exact.\n- 1.5 to 1.8 KB: 3 exact.\n- 1.7 to 4 KB: 0 of 128. They get within a few bytes and then argue with the register allocator until their budget runs out.\n\nSo the cheap tier works on small functions and stops at around 1.5 KB. Its closest attempts are staged in `nonmatching/` for whoever wants to finish them. Several are 4 to 12 bytes off or a single register swap away.\n\nPatterns they found that worked, all plain C:\n- An unused local array reproduces a gap retail leaves in its stack frame (func_L04_002CF440 is the shortest example: one call and a `char buf[80]`).\n- Writing switch cases in retail's block order, with a label for every state, keeps the j",
+      "mergedAt": "2026-10-08T14:02:58Z"
+     },
+     {
+      "number": 42,
+      "title": "Match 8 functions in Rilgar and Batalia overlays",
+      "author": "dev-gian",
+      "untrustedBody": "Eight overlay functions matched byte-for-byte, in two commits:\n\n- **Rilgar (3):** `func_L05_0029CA28`, `func_L05_002D3078`, `func_L05_00308268`\n- **Batalia (5):** `func_L08_002DFBC0` (UpdateMoby_438), `func_L08_002F2A08` (UpdateMoby_600), `func_L08_00307A98` (UpdateMoby_1283), `func_L08_002E30E8`, `func_L08_002E6500`\n\nMatched code goes from 60.198% to 60.372% (3,674 to 3,682 functions, 6,444 bytes).\n\nVerification, on top of upstream `main` at 57a67ccd:\n- `build_sn.sh` (with the Linux `ee-gcc-2.9-991111-01`): 1097 of 1098 exact, 0 size mismatches, everything at its retail address.\n- `tools/overlay_file_check.py` on all five changed source files: 0 problems.\n- `progress/report.json` regenerated; `gen_progress_report.py --check` passes. The report is in the second commit.\n- The eight staged `nonmatching/` files for these functions are removed and the README is regenerated.\n\nPlain C only, no inline asm, pins or barriers, no Sony SDK material, and `src/game/movie/` is untouched. Matched wit",
+      "mergedAt": "2026-10-08T17:40:42Z"
+     },
+     {
+      "number": 43,
+      "title": "Four big ones from Lombyte, courtesy of GPT",
+      "author": "Veradictus",
+      "untrustedBody": "GPT's last batch: four executable functions adapted from Lombyte, with the PAL differences rebuilt from the retail assembly.\n\n- func_00117118: `_vfprintf_r`, from Lombyte's reconstruction of newlib's vfprintf. Newlib's BSD notice is now in THIRD_PARTY_NOTICES.md.\n- func_00209E68: memory-card state update.\n- func_00205E70: map overlay renderer.\n- func_00230A90: resident gameplay and cinematic state update.\n\nAll four are listed in THIRD_PARTY_NOTICES.md. Its closest level attempts are staged in `nonmatching/`.\n\nAgainst upstream's current report: 60.15% → 60.81% code, complete units 128 → 131.\n\nFull build: 1,101 of 1,102 executable functions exact, 1 known near miss, and the image matches retail. `--check` passes.",
+      "mergedAt": "2026-10-08T17:25:37Z"
+     },
+     {
+      "number": 44,
+      "title": "Match 8 functions in Batalia, Pokitaru, Hoven and Gemlik overlays",
+      "author": "dev-gian",
+      "untrustedBody": "Eight overlay functions matched byte-for-byte, in one commit:\n\n- **Batalia:** `func_L08_002EB980` (UpdateMoby_468/469), `func_L08_002E9CB0`\n- **Pokitaru:** `func_L11_0030A748`, `func_L11_00312BD8`\n- **Hoven:** `func_L12_002ED228` (UpdateMoby_336)\n- **Gemlik:** `func_L13_00308FA8` (UpdateMoby_1261), `func_L13_0030E280` (UpdateMoby_1805)\n- **Shared:** `func_L14_002B4C70`\n\nMatched code goes from 60.985% to 61.134% (3,686 to 3,694 functions).\n\nVerification, on top of current upstream `main` (a35ffbee, no newer commits when this was opened):\n- `build_sn.sh` with the Linux `ee-gcc-2.9-991111-01`: 1101 of 1102 exact, 0 size mismatches, everything at its retail address.\n- `tools/overlay_file_check.py` on all eight changed source files: 0 problems.\n- `progress/report.json` regenerated from that build; `gen_progress_report.py --check` passes.\n- Each change replaces exactly one `INCLUDE_ASM` stub (checked that none of them was already C on upstream). The four staged `nonmatching/` files that exis",
+      "mergedAt": "2026-10-08T20:52:21Z"
+     }
+    ],
+    "opened": [
+     {
+      "number": 41,
+      "title": "Twenty Haikus walk into a decomp: 41 more functions, plus GPT's movie work",
+      "author": "Veradictus",
+      "untrustedBody": "## What happened\n\nWe pointed up to twenty Haiku agents at every level function nobody had matched yet, smallest first, and let them run until the queue was empty. They are cheap and fast, and they are about as good at long functions as you'd expect.\n\nHow it went, by size:\n- Up to about 1 KB, small functions retried and untried ones: 21 exact.\n- 1.5 to 1.8 KB: 3 exact.\n- 1.7 to 4 KB: 0 of 128. They get within a few bytes and then argue with the register allocator until their budget runs out.\n\nSo the cheap tier works on small functions and stops at around 1.5 KB. Its closest attempts are staged in `nonmatching/` for whoever wants to finish them. Several are 4 to 12 bytes off or a single register swap away.\n\nPatterns they found that worked, all plain C:\n- An unused local array reproduces a gap retail leaves in its stack frame (func_L04_002CF440 is the shortest example: one call and a `char buf[80]`).\n- Writing switch cases in retail's block order, with a label for every state, keeps the j",
+      "mergedAt": "2026-10-08T14:02:58Z"
+     },
+     {
+      "number": 42,
+      "title": "Match 8 functions in Rilgar and Batalia overlays",
+      "author": "dev-gian",
+      "untrustedBody": "Eight overlay functions matched byte-for-byte, in two commits:\n\n- **Rilgar (3):** `func_L05_0029CA28`, `func_L05_002D3078`, `func_L05_00308268`\n- **Batalia (5):** `func_L08_002DFBC0` (UpdateMoby_438), `func_L08_002F2A08` (UpdateMoby_600), `func_L08_00307A98` (UpdateMoby_1283), `func_L08_002E30E8`, `func_L08_002E6500`\n\nMatched code goes from 60.198% to 60.372% (3,674 to 3,682 functions, 6,444 bytes).\n\nVerification, on top of upstream `main` at 57a67ccd:\n- `build_sn.sh` (with the Linux `ee-gcc-2.9-991111-01`): 1097 of 1098 exact, 0 size mismatches, everything at its retail address.\n- `tools/overlay_file_check.py` on all five changed source files: 0 problems.\n- `progress/report.json` regenerated; `gen_progress_report.py --check` passes. The report is in the second commit.\n- The eight staged `nonmatching/` files for these functions are removed and the README is regenerated.\n\nPlain C only, no inline asm, pins or barriers, no Sony SDK material, and `src/game/movie/` is untouched. Matched wit",
+      "mergedAt": "2026-10-08T17:40:42Z"
+     },
+     {
+      "number": 43,
+      "title": "Four big ones from Lombyte, courtesy of GPT",
+      "author": "Veradictus",
+      "untrustedBody": "GPT's last batch: four executable functions adapted from Lombyte, with the PAL differences rebuilt from the retail assembly.\n\n- func_00117118: `_vfprintf_r`, from Lombyte's reconstruction of newlib's vfprintf. Newlib's BSD notice is now in THIRD_PARTY_NOTICES.md.\n- func_00209E68: memory-card state update.\n- func_00205E70: map overlay renderer.\n- func_00230A90: resident gameplay and cinematic state update.\n\nAll four are listed in THIRD_PARTY_NOTICES.md. Its closest level attempts are staged in `nonmatching/`.\n\nAgainst upstream's current report: 60.15% → 60.81% code, complete units 128 → 131.\n\nFull build: 1,101 of 1,102 executable functions exact, 1 known near miss, and the image matches retail. `--check` passes.",
+      "mergedAt": "2026-10-08T17:25:37Z"
+     },
+     {
+      "number": 44,
+      "title": "Match 8 functions in Batalia, Pokitaru, Hoven and Gemlik overlays",
+      "author": "dev-gian",
+      "untrustedBody": "Eight overlay functions matched byte-for-byte, in one commit:\n\n- **Batalia:** `func_L08_002EB980` (UpdateMoby_468/469), `func_L08_002E9CB0`\n- **Pokitaru:** `func_L11_0030A748`, `func_L11_00312BD8`\n- **Hoven:** `func_L12_002ED228` (UpdateMoby_336)\n- **Gemlik:** `func_L13_00308FA8` (UpdateMoby_1261), `func_L13_0030E280` (UpdateMoby_1805)\n- **Shared:** `func_L14_002B4C70`\n\nMatched code goes from 60.985% to 61.134% (3,686 to 3,694 functions).\n\nVerification, on top of current upstream `main` (a35ffbee, no newer commits when this was opened):\n- `build_sn.sh` with the Linux `ee-gcc-2.9-991111-01`: 1101 of 1102 exact, 0 size mismatches, everything at its retail address.\n- `tools/overlay_file_check.py` on all eight changed source files: 0 problems.\n- `progress/report.json` regenerated from that build; `gen_progress_report.py --check` passes.\n- Each change replaces exactly one `INCLUDE_ASM` stub (checked that none of them was already C on upstream). The four staged `nonmatching/` files that exis",
+      "mergedAt": "2026-10-08T20:52:21Z"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": {
+    "before": {
+     "code": {
+      "done": 2132588,
+      "total": 3712808
+     },
+     "functions": {
+      "done": 3427,
+      "total": 5109
+     }
+    },
+    "after": {
+     "code": {
+      "done": 2270576,
+      "total": 3712808
+     },
+     "functions": {
+      "done": 3717,
+      "total": 5109
+     }
+    }
+   },
+   "contributors": [
+    "dev-gian",
+    "Lynder063",
+    "Veradictus"
+   ]
+  },
+  {
+   "repo": "rac2-decomp",
+   "title": "Going Commando",
+   "branches": [
+    {
+     "name": "master",
+     "commits": []
+    }
+   ],
+   "commitCount": 0,
+   "pullRequests": {
+    "merged": [
+     {
+      "number": 49,
+      "title": "campaign: retain bounded C4130 new-function refusals",
+      "author": "llesieur99",
+      "untrustedBody": "Record a bounded C4130/Qwen experiment on two genuinely uncovered boot functions, with all refusals retained and no source integration or C coverage change.\n\n- `FUN_001302E0`: three semantically valid proposals reproduce the same 32-byte body with six differing bytes; the loop stops on the repeated compiled result.\n- `FUN_00131760`: one semantically valid proposal produces 28 bytes against the complete 32-byte reference; unsupported and repeated proposals remain in the private research trace.\n- Selection checked Ghidra function boundaries, caller dataflow, all 28 published proof files and existing register history. Target-specific native probes exercise signed-shift edge cases and all 256 byte values without assuming valid BCD digits.\n\nOnly the canonical experiment register and its generated queue change. Candidate sources, retail bytes, tools and compiler artifacts remain private. Full-image integration was not attempted and no matching credit is added.\n\nValidation: 110 campaign tests",
+      "mergedAt": "2026-10-08T02:43:02Z"
+     },
+     {
+      "number": 50,
+      "title": "campaign: reserve Qwen overnight targets from parent reconstruction",
+      "author": "llesieur99",
+      "untrustedBody": "Reserve the independent Qwen campaign's entire target set before the parent reconstruction campaign resumes. The canonical register now blocks 312 overnight targets and nine prior unreviewed Qwen targets, with reference/body/call-shape hashes and the research-branch pointer. Parent work excludes matching copies across programs; reservation expiry alone does not reopen a refused trial.\n\nThis records ownership and planning only. It adds zero matching or integration credit, changes no C source or compiler profile, and does not merge the Qwen research branch. The queue is regenerated through the maintained campaign tool.\n\nValidation: 110 campaign tests pass; generated campaign views and proof-derived README progress checks pass; scoped diff/privacy checks pass. Original game data, selection receipts and runtime paths remain private.",
+      "mergedAt": "2026-10-08T05:09:19Z"
+     },
+     {
+      "number": 51,
+      "title": "Integrate 40,664 native C bytes with full-image proofs",
+      "author": "llesieur99",
+      "untrustedBody": "## What this changes\n\nAdds **519 native placements / 40,664 physical C bytes** across 27 overlays, raising accepted physical coverage from 531,224 to **571,888 bytes**, while retaining previous controls and excluding all Qwen reservations. Shared implementations, explicit bindings and observed catalogue descriptions are documented in [batch evidence](docs/NATIVE-PARENT-40K-EVIDENCE.md); campaign publication errors now retain the real measured trial without replaying compilation.\n\n## Type\n\n- [x] A matched function (C that reproduces retail bytes)\n- [x] A level placement / catalogue change\n- [x] Tooling or tests\n- [x] Documentation\n\n## Proof\n\nCommand, with environment variables bound to the project's pinned private references and owned toolchains:\n\n```powershell\npython scripts/campaign.py --runtime \"$env:RAC2_RUNTIME\" integrate -- --manifest \"$env:RAC2_MANIFEST\" --toolchain \"$env:RAC2_ASM_TOOLCHAIN\" --c-toolchain \"$env:RAC2_C_TOOLCHAIN\" --sdk-binding \"$env:RAC2_SDK_BINDING\" --program-job",
+      "mergedAt": "2026-10-08T07:26:19Z"
+     },
+     {
+      "number": 52,
+      "title": "decomp: add 46,312 exact C bytes in native and small-data units",
+      "author": "llesieur99",
+      "untrustedBody": "## What this changes\n\nAdd **46,312 new exact physical C bytes /485 overlay placements**, bringing accepted coverage from 571,888 to **618,200 bytes**. This comprises 116 placements in the existing native units and 369 in separate small-data units; every old function, binding, profile and generated prefix is preserved. All reserved Qwen targets and equivalent copies remain excluded.\n\nSource-layout capture now handles one complete small-data module per overlay as well as the original single-function template. Two regression tests cover full-module recapture and ambiguous/stale modules. Catalogues record factual function behavior; original retail boundaries and unknown game roles remain explicit limits. See [batch evidence](https://github.com/OpenRAC/rac2-gc-decomp/blob/d2096e4ca53eb08f673edb782405b293fd7cd122/docs/NATIVE-GP-46K-EVIDENCE.md).\n\n## Type\n\n- [x] A matched function (C that reproduces retail bytes)\n- [x] A level placement / catalogue change\n- [x] Tooling or tests\n- [x] Document",
+      "mergedAt": "2026-10-08T10:34:56Z"
+     },
+     {
+      "number": 53,
+      "title": "Match 41,180 bytes of scalar state and command functions",
+      "author": "llesieur99",
+      "untrustedBody": "Reconstruct 1,003 complete placements (41,180 new physical C bytes) across existing native and separate G8 units. The 44 distinct qualified C sources retain previous source prefixes and record observed effects with inferred ABI/data views.\n\nFix cross-unit helper promotion during integration: an imported helper that becomes a defined small-data function now resolves against the complete provider union. Matching definitions keep their ELF function identity; conflicting addresses are rejected.\n\nValidation:\n- The 40,000-byte minimum passed before reconstruction, both standalone and across all 53 affected complete units (4,846 functions).\n- Fresh official qualification reproduced all 53 objects exactly.\n- Boot and all 27 overlay PT_LOAD bytes and metadata match: 79,486,851 compared bytes.\n- 686 tests pass, two skipped. Both new promotion regressions fail against the previous implementation.\n\nEvidence and measured coverage are recorded in docs/NATIVE-SCALAR-41K-EVIDENCE.md and docs/SOURCE-LA",
+      "mergedAt": "2026-10-08T13:29:03Z"
+     },
+     {
+      "number": 54,
+      "title": "decomp: match boot FUN_0011B0A0 absolute-cell clear (+12 C bytes)",
+      "author": "liolu",
+      "untrustedBody": "## What this changes\n\nMatch boot `FUN_0011B0A0` (12 bytes), which clears the aligned 32-bit cell at\n`0x00134688`. The source authored by liolu is preserved, and the original commit\n`0634723e4a72597252b5e4385ca0e62cdbe0d72a` remains in the merge ancestry.\n\nThe contribution is reconciled with current `RAC2`, preserving its preceding\n40,876-byte lot. Accepted physical C coverage grows from **700,256 to 700,268**\nbytes; regenerated conservative unique coverage is **178,724 / 44,400,168** bytes.\n\nIndependent review found one direct caller, which overwrites `V0` immediately\nafter return. The catalogue reference count is corrected from zero to one.\nThe original data type, complete data-object boundaries and game purpose remain\nunknown beyond the observed word store. See\n[the evidence note](https://github.com/liolu/rac2-gc-decomp/blob/1675cd720ab15d3844de82fb370ecacd1f5fc804/docs/PR54-RESIDENT-CELL-CLEAR-EVIDENCE.md).\n\n## Type\n\n- [x] A matched function\n- [x] Catalogue changes\n- [ ] Tooling or ",
+      "mergedAt": "2026-10-08T23:30:31Z"
+     },
+     {
+      "number": 55,
+      "title": "decomp: integrate 40,876 reviewed C bytes and preserve shared imports",
+      "author": "llesieur99",
+      "untrustedBody": "## What this changes\n\nIntegrate 40,876 additional ordinary-C bytes across 1,256 physical placements\nfrom 48 admitted source entries. Accepted physical coverage reaches 700,256 bytes;\nregenerated conservative unique coverage is 178,712 / 44,400,168 bytes.\n\nNew boot helper definitions can make existing shared calls reference local\nsection symbols that overlay links discard, resolving the calls to zero. Record\na separate link object that remaps only proven resident-import relocation symbol\nindexes. Instructions and symbol-table bytes stay intact; the raw compiler\nobject and actual linked object retain distinct, checked proof identities.\nThe evidence note records replicated placements, exclusions and negative results.\n\n## Type\n\n- [x] Matched C functions\n- [x] Level placements and catalogue changes\n- [x] Tooling and tests\n- [x] Documentation\n\n## Proof\n\nReproduce with a matching legally acquired reference image, the qualified tool\nsuite and a private SDK binding prepared through the document",
+      "mergedAt": "2026-10-08T21:54:34Z"
+     },
+     {
+      "number": 57,
+      "title": "docs: explain updating contributor branches before review",
+      "author": "llesieur99",
+      "untrustedBody": "## What this changes\n\nThe beginner guide now explicitly explains how to update an existing contribution\nbranch when upstream `RAC2` advances. Contributors preserve local work, verify\ntheir upstream remote, fetch and merge the current target, then regenerate and\nvalidate affected source/proof/progress outputs before requesting review.\n\nThe instructions address the generated-file reconciliation needed during #54.\nThey retain both contributors' changes and experiment history, link the maintained\nworkflows, require a normal fork push and CI on the final commit, and keep private\nbindings local. Documentation-only changes use documentation checks.\n\n## Type\n\n- [x] Documentation\n- [ ] Matched function or catalogue changes\n- [ ] Tooling or workflow changes\n\n## Checks\n\n- `git diff --check` passes.\n- All added commands and local Markdown links were reviewed.\n- The original guide is preserved except for the inserted update section and\n  the following section number.\n- No game reconstruction is nee",
+      "mergedAt": "2026-10-08T23:45:29Z"
+     }
+    ],
+    "opened": [
+     {
+      "number": 48,
+      "title": "Update target PAL",
+      "author": "platypet2217-star",
+      "untrustedBody": "<!--\r\nKeep this short. A reviewer must be able to reproduce your result with the command you paste.\r\n-->\r\n\r\n## What this changes\r\n\r\n<!-- One or two sentences: which file(s), and why. -->\r\n\r\n## Type\r\n\r\n- [ ] A matched function (C that reproduces retail bytes)\r\n- [ ] A level placement / catalogue change\r\n- [ ] Tooling or tests\r\n- [ ] Documentation\r\n\r\n## Proof\r\n\r\n<!--\r\nEvery match needs a proof: the exact command, and its result.\r\nExample:\r\n  python scripts/check_candidates.py --reference <boot.elf> --toolchain <ProDG-3.01> --runtime <dir>\r\n  -> all catalogued symbols \"matched\": true, \"different_bytes\": 0\r\n-->\r\n\r\n- Command:\r\n- Result:\r\n\r\n## Checks\r\n\r\n- [ ] `python -m unittest discover -s tests -v` passes\r\n- [ ] Every changed program still gates: all loaded bytes of both PT_LOAD segments compare\r\n      equal to retail (boot, and each level overlay touched)\r\n- [ ] No retail-derived file in the diff — no `boot.elf`, overlays, disc images, extracted\r\n      `.bin`/`.o`, `asm/`, `build/`, runti"
+     },
+     {
+      "number": 49,
+      "title": "campaign: retain bounded C4130 new-function refusals",
+      "author": "llesieur99",
+      "untrustedBody": "Record a bounded C4130/Qwen experiment on two genuinely uncovered boot functions, with all refusals retained and no source integration or C coverage change.\n\n- `FUN_001302E0`: three semantically valid proposals reproduce the same 32-byte body with six differing bytes; the loop stops on the repeated compiled result.\n- `FUN_00131760`: one semantically valid proposal produces 28 bytes against the complete 32-byte reference; unsupported and repeated proposals remain in the private research trace.\n- Selection checked Ghidra function boundaries, caller dataflow, all 28 published proof files and existing register history. Target-specific native probes exercise signed-shift edge cases and all 256 byte values without assuming valid BCD digits.\n\nOnly the canonical experiment register and its generated queue change. Candidate sources, retail bytes, tools and compiler artifacts remain private. Full-image integration was not attempted and no matching credit is added.\n\nValidation: 110 campaign tests",
+      "mergedAt": "2026-10-08T02:43:02Z"
+     },
+     {
+      "number": 50,
+      "title": "campaign: reserve Qwen overnight targets from parent reconstruction",
+      "author": "llesieur99",
+      "untrustedBody": "Reserve the independent Qwen campaign's entire target set before the parent reconstruction campaign resumes. The canonical register now blocks 312 overnight targets and nine prior unreviewed Qwen targets, with reference/body/call-shape hashes and the research-branch pointer. Parent work excludes matching copies across programs; reservation expiry alone does not reopen a refused trial.\n\nThis records ownership and planning only. It adds zero matching or integration credit, changes no C source or compiler profile, and does not merge the Qwen research branch. The queue is regenerated through the maintained campaign tool.\n\nValidation: 110 campaign tests pass; generated campaign views and proof-derived README progress checks pass; scoped diff/privacy checks pass. Original game data, selection receipts and runtime paths remain private.",
+      "mergedAt": "2026-10-08T05:09:19Z"
+     },
+     {
+      "number": 51,
+      "title": "Integrate 40,664 native C bytes with full-image proofs",
+      "author": "llesieur99",
+      "untrustedBody": "## What this changes\n\nAdds **519 native placements / 40,664 physical C bytes** across 27 overlays, raising accepted physical coverage from 531,224 to **571,888 bytes**, while retaining previous controls and excluding all Qwen reservations. Shared implementations, explicit bindings and observed catalogue descriptions are documented in [batch evidence](docs/NATIVE-PARENT-40K-EVIDENCE.md); campaign publication errors now retain the real measured trial without replaying compilation.\n\n## Type\n\n- [x] A matched function (C that reproduces retail bytes)\n- [x] A level placement / catalogue change\n- [x] Tooling or tests\n- [x] Documentation\n\n## Proof\n\nCommand, with environment variables bound to the project's pinned private references and owned toolchains:\n\n```powershell\npython scripts/campaign.py --runtime \"$env:RAC2_RUNTIME\" integrate -- --manifest \"$env:RAC2_MANIFEST\" --toolchain \"$env:RAC2_ASM_TOOLCHAIN\" --c-toolchain \"$env:RAC2_C_TOOLCHAIN\" --sdk-binding \"$env:RAC2_SDK_BINDING\" --program-job",
+      "mergedAt": "2026-10-08T07:26:19Z"
+     },
+     {
+      "number": 52,
+      "title": "decomp: add 46,312 exact C bytes in native and small-data units",
+      "author": "llesieur99",
+      "untrustedBody": "## What this changes\n\nAdd **46,312 new exact physical C bytes /485 overlay placements**, bringing accepted coverage from 571,888 to **618,200 bytes**. This comprises 116 placements in the existing native units and 369 in separate small-data units; every old function, binding, profile and generated prefix is preserved. All reserved Qwen targets and equivalent copies remain excluded.\n\nSource-layout capture now handles one complete small-data module per overlay as well as the original single-function template. Two regression tests cover full-module recapture and ambiguous/stale modules. Catalogues record factual function behavior; original retail boundaries and unknown game roles remain explicit limits. See [batch evidence](https://github.com/OpenRAC/rac2-gc-decomp/blob/d2096e4ca53eb08f673edb782405b293fd7cd122/docs/NATIVE-GP-46K-EVIDENCE.md).\n\n## Type\n\n- [x] A matched function (C that reproduces retail bytes)\n- [x] A level placement / catalogue change\n- [x] Tooling or tests\n- [x] Document",
+      "mergedAt": "2026-10-08T10:34:56Z"
+     },
+     {
+      "number": 53,
+      "title": "Match 41,180 bytes of scalar state and command functions",
+      "author": "llesieur99",
+      "untrustedBody": "Reconstruct 1,003 complete placements (41,180 new physical C bytes) across existing native and separate G8 units. The 44 distinct qualified C sources retain previous source prefixes and record observed effects with inferred ABI/data views.\n\nFix cross-unit helper promotion during integration: an imported helper that becomes a defined small-data function now resolves against the complete provider union. Matching definitions keep their ELF function identity; conflicting addresses are rejected.\n\nValidation:\n- The 40,000-byte minimum passed before reconstruction, both standalone and across all 53 affected complete units (4,846 functions).\n- Fresh official qualification reproduced all 53 objects exactly.\n- Boot and all 27 overlay PT_LOAD bytes and metadata match: 79,486,851 compared bytes.\n- 686 tests pass, two skipped. Both new promotion regressions fail against the previous implementation.\n\nEvidence and measured coverage are recorded in docs/NATIVE-SCALAR-41K-EVIDENCE.md and docs/SOURCE-LA",
+      "mergedAt": "2026-10-08T13:29:03Z"
+     },
+     {
+      "number": 54,
+      "title": "decomp: match boot FUN_0011B0A0 absolute-cell clear (+12 C bytes)",
+      "author": "liolu",
+      "untrustedBody": "## What this changes\n\nMatch boot `FUN_0011B0A0` (12 bytes), which clears the aligned 32-bit cell at\n`0x00134688`. The source authored by liolu is preserved, and the original commit\n`0634723e4a72597252b5e4385ca0e62cdbe0d72a` remains in the merge ancestry.\n\nThe contribution is reconciled with current `RAC2`, preserving its preceding\n40,876-byte lot. Accepted physical C coverage grows from **700,256 to 700,268**\nbytes; regenerated conservative unique coverage is **178,724 / 44,400,168** bytes.\n\nIndependent review found one direct caller, which overwrites `V0` immediately\nafter return. The catalogue reference count is corrected from zero to one.\nThe original data type, complete data-object boundaries and game purpose remain\nunknown beyond the observed word store. See\n[the evidence note](https://github.com/liolu/rac2-gc-decomp/blob/1675cd720ab15d3844de82fb370ecacd1f5fc804/docs/PR54-RESIDENT-CELL-CLEAR-EVIDENCE.md).\n\n## Type\n\n- [x] A matched function\n- [x] Catalogue changes\n- [ ] Tooling or ",
+      "mergedAt": "2026-10-08T23:30:31Z"
+     },
+     {
+      "number": 55,
+      "title": "decomp: integrate 40,876 reviewed C bytes and preserve shared imports",
+      "author": "llesieur99",
+      "untrustedBody": "## What this changes\n\nIntegrate 40,876 additional ordinary-C bytes across 1,256 physical placements\nfrom 48 admitted source entries. Accepted physical coverage reaches 700,256 bytes;\nregenerated conservative unique coverage is 178,712 / 44,400,168 bytes.\n\nNew boot helper definitions can make existing shared calls reference local\nsection symbols that overlay links discard, resolving the calls to zero. Record\na separate link object that remaps only proven resident-import relocation symbol\nindexes. Instructions and symbol-table bytes stay intact; the raw compiler\nobject and actual linked object retain distinct, checked proof identities.\nThe evidence note records replicated placements, exclusions and negative results.\n\n## Type\n\n- [x] Matched C functions\n- [x] Level placements and catalogue changes\n- [x] Tooling and tests\n- [x] Documentation\n\n## Proof\n\nReproduce with a matching legally acquired reference image, the qualified tool\nsuite and a private SDK binding prepared through the document",
+      "mergedAt": "2026-10-08T21:54:34Z"
+     },
+     {
+      "number": 56,
+      "title": "docs: refresh SOURCE-LAYOUT integration figures to the current accepted lot",
+      "author": "ThorpenCodes",
+      "untrustedBody": "## What\n\n`docs/SOURCE-LAYOUT.md` carries an integration-coverage paragraph that still\ndescribed the lot published before `64dc1a8` (\"integrate 40,876 reviewed C\nbytes\"), so every figure in it disagreed with `progress/report.json`.\n\n`README.md` and `progress/decompilation.svg` are freshness-checked by\n`readme_progress.py`; this prose is not, so it was free to drift.\n\n## Corrections\n\n| Figure | Was | Now | Source |\n| --- | ---: | ---: | --- |\n| Accepted bytes | 659,380 | 700,256 | `report.json` `integrated_code_bytes` |\n| Boot functions | 244 | 288 | `report.json` `integrated_functions` |\n| Boot bytes | 13,456 | 14,908 | `report.json` `g1.integrated_c_bytes` |\n| Overlay placements | 9,373 | 10,585 | sum of the 27 `progress/levels` proofs |\n| Overlay bytes | 645,924 | 685,348 | sum of `report.json` `g3[].integrated_c_bytes` |\n| Latest batch placements | 1,003 | 1,256 | `QWEN-RECOVERY-41K-EVIDENCE.md` |\n| Latest batch bytes | 41,180 | 40,876 | `QWEN-RECOVERY-41K-EVIDENCE.md` |\n| Translatio"
+     },
+     {
+      "number": 57,
+      "title": "docs: explain updating contributor branches before review",
+      "author": "llesieur99",
+      "untrustedBody": "## What this changes\n\nThe beginner guide now explicitly explains how to update an existing contribution\nbranch when upstream `RAC2` advances. Contributors preserve local work, verify\ntheir upstream remote, fetch and merge the current target, then regenerate and\nvalidate affected source/proof/progress outputs before requesting review.\n\nThe instructions address the generated-file reconciliation needed during #54.\nThey retain both contributors' changes and experiment history, link the maintained\nworkflows, require a normal fork push and CI on the final commit, and keep private\nbindings local. Documentation-only changes use documentation checks.\n\n## Type\n\n- [x] Documentation\n- [ ] Matched function or catalogue changes\n- [ ] Tooling or workflow changes\n\n## Checks\n\n- `git diff --check` passes.\n- All added commands and local Markdown links were reviewed.\n- The original guide is preserved except for the inserted update section and\n  the following section number.\n- No game reconstruction is nee",
+      "mergedAt": "2026-10-08T23:45:29Z"
+     },
+     {
+      "number": 58,
+      "title": "docs: fix the complete contributor baseline instructions",
+      "author": "ThorpenCodes",
+      "untrustedBody": "## Summary\nCorrect the contributor guide's complete C baseline route: the current SDK-bound boot must use campaign.py integrate because build.py does not accept --sdk-binding. Preserve the assembly-only setup check and record the contributor's successful baseline action. This adds no matching credit.\n\n## Scope\n- Type: documentation\n- Validated base: c28a723a7d43f18a81060554654acc7a855ce8f8\n- Reservation: N/A: documentation and an already completed baseline action; no new function work\n- Targets: docs/START-HERE.md and config/campaign-register.json\n\n## Validation\n- Command: python scripts/source_layout.py --check --inventory-check progress/source-inventory.json\n- Result: maintainer check passed after refreshing this branch against c28a723a. The register merge retains every record from both parents; only the original guide and zero-credit baseline action differ from upstream.\n- Command: python scripts/campaign.py --runtime <runtime> views --check\n- Result: maintainer check passed on the ",
+      "mergedAt": "2026-10-09T03:05:32Z"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": null,
+   "contributors": [
+    "liolu",
+    "llesieur99",
+    "platypet2217-star",
+    "ThorpenCodes"
+   ]
+  },
+  {
+   "repo": "rac3-decomp",
+   "title": "Up Your Arsenal",
+   "branches": [
+    {
+     "name": "master",
+     "commits": []
+    }
+   ],
+   "commitCount": 0,
+   "pullRequests": {
+    "merged": [],
+    "opened": []
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": null,
+   "contributors": []
+  },
+  {
+   "repo": "rac4-decomp",
+   "title": "Ratchet: Deadlocked",
+   "branches": [
+    {
+     "name": "main",
+     "commits": []
+    }
+   ],
+   "commitCount": 0,
+   "pullRequests": {
+    "merged": [],
+    "opened": []
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": null,
+   "contributors": []
+  },
+  {
+   "repo": "openrac-mods",
+   "title": "OpenRAC mods",
+   "branches": [
+    {
+     "name": "master",
+     "commits": []
+    }
+   ],
+   "commitCount": 0,
+   "pullRequests": {
+    "merged": [],
+    "opened": []
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": null,
+   "contributors": []
+  }
+ ]
+}

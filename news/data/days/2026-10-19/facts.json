@@ -1,0 +1,1281 @@
+{
+ "format": 1,
+ "date": "2026-10-19",
+ "totals": {
+  "commits": 79,
+  "pullRequestsMerged": 16,
+  "pullRequestsOpened": 22,
+  "contributors": 8
+ },
+ "projects": [
+  {
+   "repo": "OpenRAC",
+   "title": "OpenRAC launcher",
+   "branches": [
+    {
+     "name": "develop",
+     "commits": [
+      {
+       "sha": "6dc286f7a1acd0c023281ee50bc2eef651aa27e2",
+       "title": "fix(port): mobys at the sides of a wide picture keep their effects",
+       "author": "Veradictus",
+       "date": "2026-10-19T23:20:41Z"
+      },
+      {
+       "sha": "c1cdf0b0ee9ea44db306cef46048a2a9b5ef3f65",
+       "title": "fix(port): hostgen keeps candidates' statics apart and a superseded declaration's prototype",
+       "author": "Veradictus",
+       "date": "2026-10-19T22:24:39Z"
+      },
+      {
+       "sha": "871f937720df7e9958764d637aa7b1fcdcb50f2e",
+       "title": "ci(launcher): a release's text is its notes from launcher/release-notes",
+       "author": "Veradictus",
+       "date": "2026-10-19T20:56:46Z"
+      },
+      {
+       "sha": "76ce4c07b34198757e6018609fae5e459fbcd4f6",
+       "title": "feat(port): ask Vulkan for portability drivers and their subset",
+       "author": "Veradictus",
+       "date": "2026-10-19T20:21:10Z"
+      },
+      {
+       "sha": "02f046face1af653e4f287c544e77b11be1aba57",
+       "title": "feat(launcher): save a desktop renderer and start the game with Vulkan",
+       "author": "Veradictus",
+       "date": "2026-10-19T19:48:30Z"
+      },
+      {
+       "sha": "5e51c5a97293f9434f383d72138e5f357224e020",
+       "title": "fix(port): read the 2D layer's CLUTs at draw time again",
+       "author": "Veradictus",
+       "date": "2026-10-19T19:11:51Z"
+      },
+      {
+       "sha": "a7a74841d0ed81099ab9b4c4bd10569d030c633b",
+       "title": "fix(rac1/ntsc): FUN_L00_002c89e8 takes PAL's corrected bounds and spiral scale",
+       "author": "Veradictus",
+       "date": "2026-10-19T18:53:52Z"
+      },
+      {
+       "sha": "b1fc66f5e3316777f622837c56f51379b15b458f",
+       "title": "feat(port): OPENRAC_SOUND_LOG also logs stops and still-playing questions",
+       "author": "Veradictus",
+       "date": "2026-10-19T18:26:00Z"
+      },
+      {
+       "sha": "6655ca9864c316184795c873d7bf44b23f1d2894",
+       "title": "fix(rac1/ntsc): the Pyrocitor's update takes PAL's corrected functional C",
+       "author": "Veradictus",
+       "date": "2026-10-19T18:26:00Z"
+      },
+      {
+       "sha": "a518400fc4ef643bcbf88082aa7877ca915296ba",
+       "title": "fix(port): texture conversion refuses sizes the chip cannot sample",
+       "author": "Veradictus",
+       "date": "2026-10-19T18:26:00Z"
+      },
+      {
+       "sha": "a8c1830a818c7a1da4ac69b763f20d3ea9247f74",
+       "title": "fix(launcher): an outdated game is built again before it is played",
+       "author": "Veradictus",
+       "date": "2026-10-19T17:38:41Z"
+      },
+      {
+       "sha": "8bc958decf13e682541be9ce008a9a3986ddda66",
+       "title": "fix(port): hostgen's input fingerprint covers the assembly and the disc",
+       "author": "Veradictus",
+       "date": "2026-10-19T17:31:23Z"
+      },
+      {
+       "sha": "6baddb4bdcdcab8b509b12f9ba1e6879548296f0",
+       "title": "feat(port): Android support, with launcher and port changes",
+       "author": "mateuszklysz",
+       "date": "2026-10-19T17:28:09Z"
+      },
+      {
+       "sha": "0d57986a5fffd59e5ec0a36f48166ea8e04ad4a4",
+       "title": "fix(launcher): Play no longer builds a game that is built",
+       "author": "Lynder063",
+       "date": "2026-10-19T15:29:40Z"
+      },
+      {
+       "sha": "1b3e862ca55c31dd0a8498781333146fb4bb6c41",
+       "title": "fix(port): space only while the ship flies through it (state 4)",
+       "author": "Lynder063",
+       "date": "2026-10-19T14:40:26Z"
+      },
+      {
+       "sha": "a97dd76ed95a6d75eb267bc65b244bdf54d82480",
+       "title": "feat(tools): build_port.py --clean and a stamp of what was built",
+       "author": "Lynder063",
+       "date": "2026-10-19T14:35:29Z"
+      },
+      {
+       "sha": "2a0c4186f7b37ef9aafdf36a4d510b25b1150b15",
+       "title": "fix(port): the flight between planets draws the flight world's sky",
+       "author": "Lynder063",
+       "date": "2026-10-19T14:14:58Z"
+      },
+      {
+       "sha": "c2c58eeb6457a503b2b33610006479c85d105c2a",
+       "title": "fix(port): a garbage TEX0 no longer crashes the texture pool",
+       "author": "Lynder063",
+       "date": "2026-10-19T13:41:31Z"
+      },
+      {
+       "sha": "6596020d29d6c72c2bb67c2440eca79712515d1c",
+       "title": "fix(pause): the description box keeps the font TEX0 whole",
+       "author": "Veradictus",
+       "date": "2026-10-19T09:57:52Z"
+      },
+      {
+       "sha": "e689fecd3622530f5bba9dfe9eac053371ee7ca2",
+       "title": "docs(rac1/ntsc): record the hand-item update's moby argument in OPENRAC_PATCHES.md",
+       "author": "Veradictus",
+       "date": "2026-10-19T09:29:51Z"
+      },
+      {
+       "sha": "2c03d438c70d8689c96002eed2da163edaec0944",
+       "title": "fix(port): pause menu Weapons page crash from the routed hero-item hooks",
+       "author": "Veradictus",
+       "date": "2026-10-19T09:28:20Z"
+      },
+      {
+       "sha": "07af0ecea50e9950d3e0d5db3d23641483f1e61f",
+       "title": "fix(port): route the pause menu's hero-item hooks to the level's functions",
+       "author": "Veradictus",
+       "date": "2026-10-19T09:09:33Z"
+      },
+      {
+       "sha": "1a83afbcf7b7c24bd59498d2afdb38438f6bcc11",
+       "title": "feat(port): the Strafe row says it is experimental",
+       "author": "Veradictus",
+       "date": "2026-10-19T08:41:34Z"
+      },
+      {
+       "sha": "c1504b85108b1316a78a7f28f62a746586a85c10",
+       "title": "feat(port): play the walk or run backwards while strafing back",
+       "author": "Veradictus",
+       "date": "2026-10-19T08:06:17Z"
+      },
+      {
+       "sha": "bcea772091ac023882555fdfe2579efbddb1a916",
+       "title": "fix(port/rac1-pal): no fcheck row for func_L00_00244AE0, matched upstream",
+       "author": "Veradictus",
+       "date": "2026-10-19T07:33:18Z"
+      },
+      {
+       "sha": "71e508115a4478366503a782e6492999101f6856",
+       "title": "fix(port/hostgen): write a local enum's constants once per file",
+       "author": "Veradictus",
+       "date": "2026-10-19T07:16:09Z"
+      },
+      {
+       "sha": "c535335c78bdd99856675bdbb19dc8cf99e263e5",
+       "title": "fix(tools): fcheck gate captures executable functions the catalogue took into their neighbour",
+       "author": "Veradictus",
+       "date": "2026-10-19T06:38:07Z"
+      },
+      {
+       "sha": "55c248b53039920059756a7af330df14273149d3",
+       "title": "fix(tools): fcheck gate resolves folded callees and survives more candidates",
+       "author": "Veradictus",
+       "date": "2026-10-19T06:37:12Z"
+      },
+      {
+       "sha": "9ef810626bd4b48d93ee302f7335f4025824a9ce",
+       "title": "feat(tools): fcheck gate checks level code from captures in every level",
+       "author": "Veradictus",
+       "date": "2026-10-19T06:37:12Z"
+      },
+      {
+       "sha": "0345566314c659b37941856608b89bfba78d1b02",
+       "title": "fix(port/rac1-pal): fcheck verdicts follow the sync to 6a72939b",
+       "author": "Veradictus",
+       "date": "2026-10-19T06:36:28Z"
+      },
+      {
+       "sha": "fc1e55c28e0aaf99a02b74692336cf3b292d2517",
+       "title": "chore(rac1/pal): sync rac1-decomp to 6a72939b",
+       "author": "Veradictus",
+       "date": "2026-10-19T06:36:27Z"
+      },
+      {
+       "sha": "75f8c906d1547a6be76859c67401678661687c16",
+       "title": "fix(port): xcheck.py reads a hostgen.json without \"names\" (hostgen's defaults)",
+       "author": "Veradictus",
+       "date": "2026-10-19T06:02:20Z"
+      },
+      {
+       "sha": "99efa425b1ce3d73ccdbebb4aef408bb94a51127",
+       "title": "feat(port): xcheck.py checks a version's hand C against its retail code",
+       "author": "Veradictus",
+       "date": "2026-10-19T05:37:50Z"
+      },
+      {
+       "sha": "fdee1b4ac31212c3a7f510325a45439ea6885fe2",
+       "title": "test(port): Pokitaru's fighter boards later on US by the disc's own code",
+       "author": "Veradictus",
+       "date": "2026-10-19T05:19:01Z"
+      },
+      {
+       "sha": "318cf3f34c22a298bcadba55d77efd6026c5e3a6",
+       "title": "fix(rac1/ntsc): the ambient-sound moby's draw callback is its own wrapper (FUN_L07_002f8058)",
+       "author": "Veradictus",
+       "date": "2026-10-19T05:19:01Z"
+      },
+      {
+       "sha": "93ac575e9d35dded896883bb537c3954641e4b8a",
+       "title": "fix(port/rac1-ntsc): the carried files' quadword helpers copy again",
+       "author": "Veradictus",
+       "date": "2026-10-19T05:19:01Z"
+      },
+      {
+       "sha": "200f18ce2048a4050084fc33c406cc51ed9b893d",
+       "title": "fix(port/hostgen): the address of one place of a folded wrapper is that place",
+       "author": "Veradictus",
+       "date": "2026-10-19T05:18:48Z"
+      },
+      {
+       "sha": "4b13bda8cb6127ecb62da7022042cfec53315e5e",
+       "title": "feat(port): strafe decisions for Hold L2-R2 and Lock with weapons",
+       "author": "Veradictus",
+       "date": "2026-10-19T04:40:49Z"
+      },
+      {
+       "sha": "248f424816f0811c785903db662b0a22952d56cc",
+       "title": "fix(port/rac1-ntsc): Rilgar's race HUD panels print NTSC-U's texts",
+       "author": "Veradictus",
+       "date": "2026-10-19T04:06:39Z"
+      },
+      {
+       "sha": "9ef8a1644d425e885f5d925dca8d2a07877e8d29",
+       "title": "feat(port): libgcc's 64-bit unsigned divide and double conversion as host rows",
+       "author": "Veradictus",
+       "date": "2026-10-19T04:06:23Z"
+      },
+      {
+       "sha": "681de37445b946602826dd7d21624261968aa523",
+       "title": "fix(port): pair addresses formed in a call's delay slot when relocating",
+       "author": "Veradictus",
+       "date": "2026-10-19T02:55:03Z"
+      },
+      {
+       "sha": "1bb952182c406bcc8e4d39f048d5fd44beae4446",
+       "title": "fix(port): take only the pause Options page's focus for a list",
+       "author": "Veradictus",
+       "date": "2026-10-19T02:34:27Z"
+      },
+      {
+       "sha": "823383452ea3e60a6c2cd6789b7b0da2193133cd",
+       "title": "feat(port): scene-relative skips and control-relative writes for scripted runs",
+       "author": "Veradictus",
+       "date": "2026-10-19T01:12:38Z"
+      },
+      {
+       "sha": "ba6476f52f755c95477735ed4a4e1e7850a117cd",
+       "title": "chore(rac1/ntsc): sync the NTSC decomp to 1f4c0415",
+       "author": "Veradictus",
+       "date": "2026-10-19T00:23:32Z"
+      },
+      {
+       "sha": "ca0656eab9ab380628c64bc3c5e3e050e57335dc",
+       "title": "fix(port/rac1): the tie textures' level copies are DmaTieTextures",
+       "author": "Veradictus",
+       "date": "2026-10-19T00:01:53Z"
+      }
+     ]
+    },
+    {
+     "name": "master",
+     "commits": [
+      {
+       "sha": "6dc286f7a1acd0c023281ee50bc2eef651aa27e2",
+       "title": "fix(port): mobys at the sides of a wide picture keep their effects",
+       "author": "Veradictus",
+       "date": "2026-10-19T23:20:41Z"
+      },
+      {
+       "sha": "c1cdf0b0ee9ea44db306cef46048a2a9b5ef3f65",
+       "title": "fix(port): hostgen keeps candidates' statics apart and a superseded declaration's prototype",
+       "author": "Veradictus",
+       "date": "2026-10-19T22:24:39Z"
+      },
+      {
+       "sha": "871f937720df7e9958764d637aa7b1fcdcb50f2e",
+       "title": "ci(launcher): a release's text is its notes from launcher/release-notes",
+       "author": "Veradictus",
+       "date": "2026-10-19T20:56:46Z"
+      },
+      {
+       "sha": "76ce4c07b34198757e6018609fae5e459fbcd4f6",
+       "title": "feat(port): ask Vulkan for portability drivers and their subset",
+       "author": "Veradictus",
+       "date": "2026-10-19T20:21:10Z"
+      },
+      {
+       "sha": "02f046face1af653e4f287c544e77b11be1aba57",
+       "title": "feat(launcher): save a desktop renderer and start the game with Vulkan",
+       "author": "Veradictus",
+       "date": "2026-10-19T19:48:30Z"
+      },
+      {
+       "sha": "5e51c5a97293f9434f383d72138e5f357224e020",
+       "title": "fix(port): read the 2D layer's CLUTs at draw time again",
+       "author": "Veradictus",
+       "date": "2026-10-19T19:11:51Z"
+      },
+      {
+       "sha": "a7a74841d0ed81099ab9b4c4bd10569d030c633b",
+       "title": "fix(rac1/ntsc): FUN_L00_002c89e8 takes PAL's corrected bounds and spiral scale",
+       "author": "Veradictus",
+       "date": "2026-10-19T18:53:52Z"
+      },
+      {
+       "sha": "b1fc66f5e3316777f622837c56f51379b15b458f",
+       "title": "feat(port): OPENRAC_SOUND_LOG also logs stops and still-playing questions",
+       "author": "Veradictus",
+       "date": "2026-10-19T18:26:00Z"
+      },
+      {
+       "sha": "6655ca9864c316184795c873d7bf44b23f1d2894",
+       "title": "fix(rac1/ntsc): the Pyrocitor's update takes PAL's corrected functional C",
+       "author": "Veradictus",
+       "date": "2026-10-19T18:26:00Z"
+      },
+      {
+       "sha": "a518400fc4ef643bcbf88082aa7877ca915296ba",
+       "title": "fix(port): texture conversion refuses sizes the chip cannot sample",
+       "author": "Veradictus",
+       "date": "2026-10-19T18:26:00Z"
+      },
+      {
+       "sha": "a8c1830a818c7a1da4ac69b763f20d3ea9247f74",
+       "title": "fix(launcher): an outdated game is built again before it is played",
+       "author": "Veradictus",
+       "date": "2026-10-19T17:38:41Z"
+      },
+      {
+       "sha": "8bc958decf13e682541be9ce008a9a3986ddda66",
+       "title": "fix(port): hostgen's input fingerprint covers the assembly and the disc",
+       "author": "Veradictus",
+       "date": "2026-10-19T17:31:23Z"
+      },
+      {
+       "sha": "6baddb4bdcdcab8b509b12f9ba1e6879548296f0",
+       "title": "feat(port): Android support, with launcher and port changes",
+       "author": "mateuszklysz",
+       "date": "2026-10-19T17:28:09Z"
+      },
+      {
+       "sha": "0d57986a5fffd59e5ec0a36f48166ea8e04ad4a4",
+       "title": "fix(launcher): Play no longer builds a game that is built",
+       "author": "Lynder063",
+       "date": "2026-10-19T15:29:40Z"
+      },
+      {
+       "sha": "1b3e862ca55c31dd0a8498781333146fb4bb6c41",
+       "title": "fix(port): space only while the ship flies through it (state 4)",
+       "author": "Lynder063",
+       "date": "2026-10-19T14:40:26Z"
+      },
+      {
+       "sha": "a97dd76ed95a6d75eb267bc65b244bdf54d82480",
+       "title": "feat(tools): build_port.py --clean and a stamp of what was built",
+       "author": "Lynder063",
+       "date": "2026-10-19T14:35:29Z"
+      },
+      {
+       "sha": "2a0c4186f7b37ef9aafdf36a4d510b25b1150b15",
+       "title": "fix(port): the flight between planets draws the flight world's sky",
+       "author": "Lynder063",
+       "date": "2026-10-19T14:14:58Z"
+      },
+      {
+       "sha": "c2c58eeb6457a503b2b33610006479c85d105c2a",
+       "title": "fix(port): a garbage TEX0 no longer crashes the texture pool",
+       "author": "Lynder063",
+       "date": "2026-10-19T13:41:31Z"
+      },
+      {
+       "sha": "6596020d29d6c72c2bb67c2440eca79712515d1c",
+       "title": "fix(pause): the description box keeps the font TEX0 whole",
+       "author": "Veradictus",
+       "date": "2026-10-19T09:57:52Z"
+      },
+      {
+       "sha": "e689fecd3622530f5bba9dfe9eac053371ee7ca2",
+       "title": "docs(rac1/ntsc): record the hand-item update's moby argument in OPENRAC_PATCHES.md",
+       "author": "Veradictus",
+       "date": "2026-10-19T09:29:51Z"
+      },
+      {
+       "sha": "2c03d438c70d8689c96002eed2da163edaec0944",
+       "title": "fix(port): pause menu Weapons page crash from the routed hero-item hooks",
+       "author": "Veradictus",
+       "date": "2026-10-19T09:28:20Z"
+      },
+      {
+       "sha": "07af0ecea50e9950d3e0d5db3d23641483f1e61f",
+       "title": "fix(port): route the pause menu's hero-item hooks to the level's functions",
+       "author": "Veradictus",
+       "date": "2026-10-19T09:09:33Z"
+      },
+      {
+       "sha": "1a83afbcf7b7c24bd59498d2afdb38438f6bcc11",
+       "title": "feat(port): the Strafe row says it is experimental",
+       "author": "Veradictus",
+       "date": "2026-10-19T08:41:34Z"
+      },
+      {
+       "sha": "c1504b85108b1316a78a7f28f62a746586a85c10",
+       "title": "feat(port): play the walk or run backwards while strafing back",
+       "author": "Veradictus",
+       "date": "2026-10-19T08:06:17Z"
+      },
+      {
+       "sha": "bcea772091ac023882555fdfe2579efbddb1a916",
+       "title": "fix(port/rac1-pal): no fcheck row for func_L00_00244AE0, matched upstream",
+       "author": "Veradictus",
+       "date": "2026-10-19T07:33:18Z"
+      },
+      {
+       "sha": "71e508115a4478366503a782e6492999101f6856",
+       "title": "fix(port/hostgen): write a local enum's constants once per file",
+       "author": "Veradictus",
+       "date": "2026-10-19T07:16:09Z"
+      },
+      {
+       "sha": "c535335c78bdd99856675bdbb19dc8cf99e263e5",
+       "title": "fix(tools): fcheck gate captures executable functions the catalogue took into their neighbour",
+       "author": "Veradictus",
+       "date": "2026-10-19T06:38:07Z"
+      },
+      {
+       "sha": "55c248b53039920059756a7af330df14273149d3",
+       "title": "fix(tools): fcheck gate resolves folded callees and survives more candidates",
+       "author": "Veradictus",
+       "date": "2026-10-19T06:37:12Z"
+      },
+      {
+       "sha": "9ef810626bd4b48d93ee302f7335f4025824a9ce",
+       "title": "feat(tools): fcheck gate checks level code from captures in every level",
+       "author": "Veradictus",
+       "date": "2026-10-19T06:37:12Z"
+      },
+      {
+       "sha": "0345566314c659b37941856608b89bfba78d1b02",
+       "title": "fix(port/rac1-pal): fcheck verdicts follow the sync to 6a72939b",
+       "author": "Veradictus",
+       "date": "2026-10-19T06:36:28Z"
+      },
+      {
+       "sha": "fc1e55c28e0aaf99a02b74692336cf3b292d2517",
+       "title": "chore(rac1/pal): sync rac1-decomp to 6a72939b",
+       "author": "Veradictus",
+       "date": "2026-10-19T06:36:27Z"
+      },
+      {
+       "sha": "75f8c906d1547a6be76859c67401678661687c16",
+       "title": "fix(port): xcheck.py reads a hostgen.json without \"names\" (hostgen's defaults)",
+       "author": "Veradictus",
+       "date": "2026-10-19T06:02:20Z"
+      },
+      {
+       "sha": "99efa425b1ce3d73ccdbebb4aef408bb94a51127",
+       "title": "feat(port): xcheck.py checks a version's hand C against its retail code",
+       "author": "Veradictus",
+       "date": "2026-10-19T05:37:50Z"
+      },
+      {
+       "sha": "fdee1b4ac31212c3a7f510325a45439ea6885fe2",
+       "title": "test(port): Pokitaru's fighter boards later on US by the disc's own code",
+       "author": "Veradictus",
+       "date": "2026-10-19T05:19:01Z"
+      },
+      {
+       "sha": "318cf3f34c22a298bcadba55d77efd6026c5e3a6",
+       "title": "fix(rac1/ntsc): the ambient-sound moby's draw callback is its own wrapper (FUN_L07_002f8058)",
+       "author": "Veradictus",
+       "date": "2026-10-19T05:19:01Z"
+      },
+      {
+       "sha": "93ac575e9d35dded896883bb537c3954641e4b8a",
+       "title": "fix(port/rac1-ntsc): the carried files' quadword helpers copy again",
+       "author": "Veradictus",
+       "date": "2026-10-19T05:19:01Z"
+      },
+      {
+       "sha": "200f18ce2048a4050084fc33c406cc51ed9b893d",
+       "title": "fix(port/hostgen): the address of one place of a folded wrapper is that place",
+       "author": "Veradictus",
+       "date": "2026-10-19T05:18:48Z"
+      },
+      {
+       "sha": "4b13bda8cb6127ecb62da7022042cfec53315e5e",
+       "title": "feat(port): strafe decisions for Hold L2-R2 and Lock with weapons",
+       "author": "Veradictus",
+       "date": "2026-10-19T04:40:49Z"
+      },
+      {
+       "sha": "248f424816f0811c785903db662b0a22952d56cc",
+       "title": "fix(port/rac1-ntsc): Rilgar's race HUD panels print NTSC-U's texts",
+       "author": "Veradictus",
+       "date": "2026-10-19T04:06:39Z"
+      },
+      {
+       "sha": "9ef8a1644d425e885f5d925dca8d2a07877e8d29",
+       "title": "feat(port): libgcc's 64-bit unsigned divide and double conversion as host rows",
+       "author": "Veradictus",
+       "date": "2026-10-19T04:06:23Z"
+      },
+      {
+       "sha": "681de37445b946602826dd7d21624261968aa523",
+       "title": "fix(port): pair addresses formed in a call's delay slot when relocating",
+       "author": "Veradictus",
+       "date": "2026-10-19T02:55:03Z"
+      },
+      {
+       "sha": "1bb952182c406bcc8e4d39f048d5fd44beae4446",
+       "title": "fix(port): take only the pause Options page's focus for a list",
+       "author": "Veradictus",
+       "date": "2026-10-19T02:34:27Z"
+      },
+      {
+       "sha": "823383452ea3e60a6c2cd6789b7b0da2193133cd",
+       "title": "feat(port): scene-relative skips and control-relative writes for scripted runs",
+       "author": "Veradictus",
+       "date": "2026-10-19T01:12:38Z"
+      },
+      {
+       "sha": "ba6476f52f755c95477735ed4a4e1e7850a117cd",
+       "title": "chore(rac1/ntsc): sync the NTSC decomp to 1f4c0415",
+       "author": "Veradictus",
+       "date": "2026-10-19T00:23:32Z"
+      },
+      {
+       "sha": "ca0656eab9ab380628c64bc3c5e3e050e57335dc",
+       "title": "fix(port/rac1): the tie textures' level copies are DmaTieTextures",
+       "author": "Veradictus",
+       "date": "2026-10-19T00:01:53Z"
+      }
+     ]
+    }
+   ],
+   "commitCount": 45,
+   "pullRequests": {
+    "merged": [
+     {
+      "number": 15,
+      "title": "Add Android support + other changes",
+      "author": "mateuszklysz",
+      "untrustedBody": "## Added\r\n\r\n**Game**\r\n- Android build for arm64 (Android 10 or newer) as an SDL3 activity, in its own process and task.\r\n- **OpenGL ES 3.2** renderer path. Shaders are still written once and translated for ES.\r\n- **Vulkan renderer**, with a fallback to OpenGL ES when Vulkan can't start.\r\n- **Custom Adreno drivers** (Turnip and similar) through libadrenotools.\r\n- **On-screen pad** in the DualShock 2 style, shown only after you touch the screen.\r\n- **In-game options drawer**, like in an emulator: graphics, sound, game options, developer tools and Quit. Opens with the options button, Back or Guide.\r\n\r\n**Launcher**\r\n- Runs on Android through **Tauri 2**, with the same interface as on the desktop.\r\n- Full **controller navigation**: d-pad or stick, A, B, LB and RB. Works on the desktop too.\r\n- Disc import with Android's file picker, including **.chd** images.\r\n- **Game setup on the device** with a bundled Python. It keeps running in the background, with a notification.\r\n- GPU driver packages",
+      "mergedAt": "2026-10-19T17:28:10Z"
+     }
+    ],
+    "opened": [
+     {
+      "number": 15,
+      "title": "Add Android support + other changes",
+      "author": "mateuszklysz",
+      "untrustedBody": "## Added\r\n\r\n**Game**\r\n- Android build for arm64 (Android 10 or newer) as an SDL3 activity, in its own process and task.\r\n- **OpenGL ES 3.2** renderer path. Shaders are still written once and translated for ES.\r\n- **Vulkan renderer**, with a fallback to OpenGL ES when Vulkan can't start.\r\n- **Custom Adreno drivers** (Turnip and similar) through libadrenotools.\r\n- **On-screen pad** in the DualShock 2 style, shown only after you touch the screen.\r\n- **In-game options drawer**, like in an emulator: graphics, sound, game options, developer tools and Quit. Opens with the options button, Back or Guide.\r\n\r\n**Launcher**\r\n- Runs on Android through **Tauri 2**, with the same interface as on the desktop.\r\n- Full **controller navigation**: d-pad or stick, A, B, LB and RB. Works on the desktop too.\r\n- Disc import with Android's file picker, including **.chd** images.\r\n- **Game setup on the device** with a bundled Python. It keeps running in the background, with a notification.\r\n- GPU driver packages",
+      "mergedAt": "2026-10-19T17:28:10Z"
+     },
+     {
+      "number": 16,
+      "title": "fix(port): support Windows diagnostic reports and regression runs",
+      "author": "pezzadev",
+      "untrustedBody": "On Windows, periodic `OPENRAC_REACH` reports remained at their first successful snapshot because the CRT `rename` refuses an existing destination. The gameplay regression runner also rejected built games because it searched for `openrac-<game>` without Windows' `.exe` suffix.\n\nUse `MoveFileExA(..., MOVEFILE_REPLACE_EXISTING)` to publish completed reports on Windows, retaining the prior destination on replacement failure. Select the platform's executable filename in the regression runner. Add coverage for repeated report writes, failed replacement, missing parent directories, and Windows/Unix runner selection.\n\nValidation:\n\n- NTSC-U native build succeeds on Windows with Clang 19.1.1.\n- Focused CTest `runtime` and `rac1-ntsc_call_abi`: 2/2 pass; zero known-target signature mismatches.\n- Regression-tool unit tests: 27 pass. The new tests reproduce the respective Windows failures before the fixes.\n- The normal NTSC-U New Game path reached Veldin and completed 660 scripted control ticks, ex",
+      "mergedAt": "2026-10-20T01:08:30Z"
+     },
+     {
+      "number": 17,
+      "title": "feat(rac1): render Ratchet shadow volumes",
+      "author": "pezzadev",
+      "untrustedBody": "Render Ratchet’s shadow volumes in the native PAL and NTSC ports using the retail sphere/capsule proxies posed with his animation.\n\nUse the game’s shadow direction, ground-height clipping, distance fade and 25% darkening. Select the correct direction-table address for each version and interpolate shadows with the displayed pose.\n\nValidation: the Windows NTSC build passes. NTSC gameplay checks sampled all 17 Blarg Station lighting zones with no shadow-direction mismatches.\n\nPAL needs build and in-game testing. The silhouette geometry is a functional native implementation; retail pixel equivalence is not established. Shadows on other mobys are not included.",
+      "mergedAt": "2026-10-20T01:08:33Z"
+     },
+     {
+      "number": 18,
+      "title": "fix(port): keep Vulkan instance buffers in the frame ring",
+      "author": "pezzadev",
+      "untrustedBody": "Fix corrupted and disappearing Vulkan geometry by keeping instanced vertex data in the frame ring. Persistent instance buffers reproduce the failure on the AMD Radeon 780M Windows driver; per-vertex and index buffers still retain persistent storage.\n\nValidated with the NTSC build, all 10 OpenGL/Vulkan renderer checks, 20-frame renderer replays of Veldin and Novalis, and an in-game Novalis comparison against OpenGL. Other planets and GPUs remain untested.",
+      "mergedAt": "2026-10-20T01:08:27Z"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [
+    {
+     "tag": "launcher-v0.8.0",
+     "name": "v0.8.0",
+     "publishedAt": "2026-10-19T09:53:37Z"
+    },
+    {
+     "tag": "launcher-v0.8.1",
+     "name": "v0.8.1",
+     "publishedAt": "2026-10-19T21:20:44Z"
+    }
+   ],
+   "progress": null,
+   "contributors": [
+    "Lynder063",
+    "mateuszklysz",
+    "pezzadev",
+    "Veradictus"
+   ]
+  },
+  {
+   "repo": "rac1-decomp",
+   "title": "Ratchet & Clank",
+   "branches": [
+    {
+     "name": "main",
+     "commits": [
+      {
+       "sha": "2897435e5fc7607de6a0dff3a184bffc2df8b21c",
+       "title": "feat: match func_001F10C8 + func_L00_001F4918 (debug menu), func_001FBE80, func_L15_002D7C00, func_L00_002D1E68, func_00203F68, func_00129690",
+       "author": "Lynder063",
+       "date": "2026-10-19T19:15:44Z"
+      },
+      {
+       "sha": "2c7160201c3235f66db7971606890e855457e947",
+       "title": "split func_L06_0024A080: a 32-byte remnant in front of func_L06_0024A0A0; match it",
+       "author": "Lynder063",
+       "date": "2026-10-19T18:45:02Z"
+      },
+      {
+       "sha": "e3f59293677ddafee28b7a8243c0882d59e9a4ac",
+       "title": "fix(tools): ps2eeas_nops measures the second assembly too; match func_L00_002AE278",
+       "author": "Lynder063",
+       "date": "2026-10-19T18:37:23Z"
+      },
+      {
+       "sha": "cac86a4cfc9a16e6700554fc6af2b33ad6888641",
+       "title": "nonmatching: drop 11 functional drafts of functions already matched in C",
+       "author": "Lynder063",
+       "date": "2026-10-19T18:26:57Z"
+      },
+      {
+       "sha": "065bda025d06d803495b51ee4bd8937dff7cb242",
+       "title": "feat: match func_L06_00303858 (plain counted loop, Lombyte's shape)",
+       "author": "Lynder063",
+       "date": "2026-10-19T17:07:56Z"
+      },
+      {
+       "sha": "923639e549132b2405b2126cd6d4e73dfa7bf50c",
+       "title": "Merge remote-tracking branch 'origin/main'",
+       "author": "Lynder063",
+       "date": "2026-10-19T16:41:02Z"
+      },
+      {
+       "sha": "1f289de582807e3a1eca67986fcb5c28f8b84120",
+       "title": "feat: match func_L00_001EAD88 (joined, 6 pieces) and func_00120858; list 14 level fastfunc helpers as hand-written",
+       "author": "Lynder063",
+       "date": "2026-10-19T16:40:57Z"
+      },
+      {
+       "sha": "c3fb94250b85910eaaf57ced4a44587533644c23",
+       "title": "feat: libvu0 and drawquad VU0 functions as C with inline VU0 asm; list seven hand-written",
+       "author": "Lynder063",
+       "date": "2026-10-19T16:02:23Z"
+      },
+      {
+       "sha": "ed37cb873bbed173fff581eac9309fcf0224d898",
+       "title": "feat: match func_L15_002C6950, func_L12_0030A880",
+       "author": "Lynder063",
+       "date": "2026-10-19T15:52:24Z"
+      },
+      {
+       "sha": "37787a1b4d79f3e6e9b3a07dcc06b7f2153d6633",
+       "title": "feat: match func_L12_00304038, func_L00_00261B00, func_L00_00277208",
+       "author": "Lynder063",
+       "date": "2026-10-19T15:35:38Z"
+      },
+      {
+       "sha": "e35f40996c1db42604689f4d5145af77cdb7fff1",
+       "title": "Merge feat/to-100 into main",
+       "author": "Lynder063",
+       "date": "2026-10-19T15:23:21Z"
+      },
+      {
+       "sha": "d43212f8ba36287c5b70f4d693f345cc08ed6792",
+       "title": "Merge pull request #102 from xx255q/match/engine-trail",
+       "author": "Lynder063",
+       "date": "2026-10-19T15:17:31Z"
+      },
+      {
+       "sha": "5b7e23ab09dc711c8c087a7041d055b4119e8ab6",
+       "title": "Merge pull request #101 from xx255q/levels/handwritten-asm",
+       "author": "Lynder063",
+       "date": "2026-10-19T15:07:27Z"
+      },
+      {
+       "sha": "953f18041412d430fe64cbd17813483d59a6eff5",
+       "title": "Merge pull request #98 from OpenRAC/claude/wonderful-keller-iuaf17",
+       "author": "Lynder063",
+       "date": "2026-10-19T15:07:11Z"
+      },
+      {
+       "sha": "1db496d28a2a0f518f582fcb0eddf98936027ba6",
+       "title": "Merge pull request #100 from xx255q/cleanup/landed-near-misses",
+       "author": "Lynder063",
+       "date": "2026-10-19T13:15:08Z"
+      },
+      {
+       "sha": "7f2d2c1e62f3a4b30fbe8c4ec035f0c903fac02c",
+       "title": "Merge pull request #99 from xx255q/match/setimagetag-and-oltanis-camera",
+       "author": "Lynder063",
+       "date": "2026-10-19T12:02:31Z"
+      },
+      {
+       "sha": "81f2e31b7c596c61cc5af70c3f6361e5388682f3",
+       "title": "Merge pull request #97 from OpenRAC/feat/to-100",
+       "author": "Lynder063",
+       "date": "2026-10-19T10:56:57Z"
+      },
+      {
+       "sha": "a6b285da1beb0e3b0825bff132584ab2e786a41f",
+       "title": "Merge upstream/main into main",
+       "author": "Veradictus",
+       "date": "2026-10-19T07:07:01Z"
+      },
+      {
+       "sha": "54a6ea0711a360281160f0b46d1140a4532fda8e",
+       "title": "fix: four functional C files fcheck found different, and three unused callee parameters",
+       "author": "Veradictus",
+       "date": "2026-10-19T07:06:52Z"
+      },
+      {
+       "sha": "6a72939bafff11b28fee52fa6e2099c6fb684ea9",
+       "title": "perf(tools): overlay_asm disassembles the levels in parallel",
+       "author": "Veradictus",
+       "date": "2026-10-19T05:19:58Z"
+      },
+      {
+       "sha": "e9f5239eab0e52e715d878f90f3c44813debc4d3",
+       "title": "chore(progress): regenerate the report after merging #93, #94 and #95",
+       "author": "Veradictus",
+       "date": "2026-10-19T05:18:51Z"
+      },
+      {
+       "sha": "469b43321b5781994d85f0e19a362cc1f45e0192",
+       "title": "Merge pull request #95 from Veradictus/refactor/camera",
+       "author": "Veradictus",
+       "date": "2026-10-19T03:48:14Z"
+      },
+      {
+       "sha": "4a142f0dd7f61a7f909519fa26926b201e8fc422",
+       "title": "Merge pull request #94 from xx255q/split/debug-menu",
+       "author": "Veradictus",
+       "date": "2026-10-19T03:45:42Z"
+      },
+      {
+       "sha": "f1518e7e0c303fbec7ce687dde38462654b77d0b",
+       "title": "Merge pull request #93 from xx255q/cdread-gas210",
+       "author": "Veradictus",
+       "date": "2026-10-19T03:43:21Z"
+      },
+      {
+       "sha": "731c2a79e70b2b7603d0adaa350a3f0b9736859b",
+       "title": "Merge upstream/main into main",
+       "author": "Veradictus",
+       "date": "2026-10-19T03:35:03Z"
+      },
+      {
+       "sha": "1f80d043a09c403e3462970342ddb0ef3a353c7e",
+       "title": "chore(nonmatching): regenerate the index",
+       "author": "Veradictus",
+       "date": "2026-10-19T03:33:11Z"
+      },
+      {
+       "sha": "e0d3b886612df9c6be7677d7221f46f2fd7d0984",
+       "title": "docs(nonmatching): fcheck verdicts in every functional file's header",
+       "author": "Veradictus",
+       "date": "2026-10-19T03:26:19Z"
+      },
+      {
+       "sha": "0c5f8c4592be9c54a0a3e8f08b0f907247692858",
+       "title": "fix(nonmatching): drop functional.tsv's row for func_L00_001F8750",
+       "author": "Veradictus",
+       "date": "2026-10-19T03:25:36Z"
+      },
+      {
+       "sha": "53b3dc871fe3ea6704ef1870ba76227661a423c9",
+       "title": "fix(nonmatching): OpenRAC's checked corrections to 23 functional files",
+       "author": "Veradictus",
+       "date": "2026-10-19T03:25:26Z"
+      },
+      {
+       "sha": "c36aeb20b29860e51601451528f170c0ebad15e8",
+       "title": "feat(nonmatching): functional C from OpenRAC's port backfill",
+       "author": "Veradictus",
+       "date": "2026-10-19T03:25:04Z"
+      },
+      {
+       "sha": "fdb1017be959e2a5b5cff77383df5daae73f7fb2",
+       "title": "Merge upstream/main into main",
+       "author": "Veradictus",
+       "date": "2026-10-19T03:14:20Z"
+      }
+     ]
+    }
+   ],
+   "commitCount": 31,
+   "pullRequests": {
+    "merged": [
+     {
+      "number": 93,
+      "title": "Match sceCdRead, the libmpeg bitstream peek and kprintf's float helper with their original assemblers; keep retail's fill between core jump tables",
+      "author": "xx255q",
+      "untrustedBody": "**Branch:** `cdread-gas210`. Merge this one first.\r\n\r\nAll three functions only match when their objects are assembled by the assembler retail used rather than the build's usual one. Two need **GNU as 2.10-ee-001003-1**, already in the sn-prodg-24 mirror (`toolchain/sn-prodg-24/local/sce/ee/gcc/bin/ee-as`); the third needs the DTL-S13010 build of 2.9-ee (below).\r\n\r\n**sceCdRead** (`func_00121750`, 480 bytes, written from the assembly). 2.10-ee fills SignalSema's call slot with the volatile word load just before it.\r\n- `config/core_text.objects` gets an optional fifth column. `gas210` (set for `00121750.o` only) makes `tools/fix_volatile_slot.py --loads` model that call-slot load; other objects keep the store-only rule. `tools/tests/test_volatile_call_slot.py` covers the rule's limits (7 tests).\r\n\r\n**Bitstream peek** (`func_0012AAA8`, 28 bytes; the C is one shift). 2.10-ee puts the final int conversion in the return's delay slot; the old assembler gives 32 bytes. This is the function that",
+      "mergedAt": "2026-10-19T05:20:01Z"
+     },
+     {
+      "number": 94,
+      "title": "Split func_001F10A0: a 36-byte remnant in front of func_001F10C8 (the debug-menu handler)",
+      "author": "xx255q",
+      "untrustedBody": "`func_001F10A0` opens with ten instructions C cannot produce (a `daddu` and five `addiu $sp,$sp,N` runs with nops), the same dead-strip remnant shape as the earlier splits in 433afce. Its real start is `0x1F10C8`:\n\n- `config/symbol_addrs.txt` declares `func_001F10C8`.\n- `config/linker_remnants.txt` lists `text/func_001F10A0`, and `draw.c` includes it with `LINKER_REMNANT`.\n- The image is unchanged.\n\n`func_001F10C8` is 4932 bytes, the same code as `func_L00_001F4918`, the debug-menu handler shared by all 19 level programs. `nonmatching/game/func_001F10C8.c` is the level draft with the level symbols mapped to the executable's, each pair read off matching relocations (level small data sits 0x40 below the executable's). It is **BYTES 153/4932**, against the level draft's 169, and can be checked with `try_func.py` without the level dumps. A fix found there should carry over to the level copies.\n\nFull build: 1215/1215 audited exact, every function at its retail address, the whole image match",
+      "mergedAt": "2026-10-19T05:20:01Z"
+     },
+     {
+      "number": 95,
+      "title": "refactor(camera): the camera code reads its state by named fields",
+      "author": "Veradictus",
+      "untrustedBody": "The camera system stops talking in raw offsets. All 40 camera functions (`src/game/camera.c` and the shared level copies `camera_001EB508.c`, `camera_001ED6D8.c`, `camera_001FC308.c`) now read their state through `include/camera.h`: `CameraSystem` (`gCamera`), `Camera` (the 48 slots), `CameraType`, `CameraDef`/`CameraInfo`, `CameraShake`, `CameraFollow`, `CamBlend` (lerp and orbit) and `DebugFreeCam`. Offsets are checked at compile time. The per-file aliases and private typedefs these replaced are gone.\n\nByte-neutral throughout: `tools/build_sn.sh` gives 1217 of 1217 exact, every function at its retail address. One rule the bytes insisted on: a sub-block reached through its own symbol keeps a pointer to it (`CamBlend *b = &gCamera.blend; b->phase = 0;` matches, `gCamera.blend.phase = 0` moves 10 bytes). One function, `Camera_ActivationCheckPriority`, keeps `state[8]`/`state[9]` raw with a comment, because the field form moved 26 bytes.\n\nAlso in here:\n- `tools/file_check.py`: builds one",
+      "mergedAt": "2026-10-19T05:20:01Z"
+     },
+     {
+      "number": 96,
+      "title": "Arguments retail passes in registers, NTSC ports, and the port's functional C",
+      "author": "Veradictus",
+      "untrustedBody": "What OpenRAC's native port turned up in this decomp, sent back, plus the functional C it wrote along the way.\n\n**Calls that drop what retail passes in registers** (a82cf741, 14f4ed57, 5a841676). Matched C that calls a function with fewer arguments than it takes, or ignores a result its callers read, still matches, because the register happens to hold the right value on the console. A port that translates the C passes 0 instead. 25 matched functions, the HUD's text width, and two more now name the arguments and results retail has. Same bytes.\n\n**8 level functions ported from the NTSC decomp** (f4a9f722), each exact here.\n\n**The port's functional C** (c36aeb20, 53b3dc87, 0c5f8c45, e0d3b886, 1f80d043):\n- 83 functional files for functions this repo still has as assembly. 17 of them replace an older near miss's row with a corrected version that says what it fixed. The near-miss files stay where they are.\n- 23 existing functional files take OpenRAC's later, checked corrections, e.g. FastVecC",
+      "mergedAt": "2026-10-19T05:20:01Z"
+     },
+     {
+      "number": 97,
+      "title": "feat: batch — func_L14_00303430, func_L14_002E0538 (own files), func_…",
+      "author": "Lynder063",
+      "untrustedBody": "…L08_00303998, func_L00_002BE2A0; plain C for func_L18_002F1AB0, func_L18_002D6B58\n\nfunc_L14_00303430 builds with -fno-sched-spec and func_L14_002E0538 with -fno-gcse in files of their own: their old files' other functions change under those flags (docs/BUILD_FIDELITY.md rule 2).",
+      "mergedAt": "2026-10-19T10:56:58Z"
+     },
+     {
+      "number": 98,
+      "title": "refactor: shared Hero, Camera and Pad types in place of the last private copies; function comments",
+      "author": "Lynder063",
+      "untrustedBody": "## Summary\n\nAudit of the remaining private struct copies under `src/overlays/`, one commit per file, plus staged near misses for large shared functions. `main` is merged in.\n\n### Cleanup\n- `help_00232560.c`: `Hero_234800_34800` → `Hero` (hero.h), `Vec_234800_34800` → `Vec4A`; casts where the copy's type differed (`moby` passed as an int, `unk4F8` stored into `unk360`).\n- `vendor_002E1660.c`: `Moby_2E8210`, `Moby_2E8AC8` and `Wrap_2E8AC8` were camera slots (state buffer at 0x70, handoff/transition state at 0x7D/0x7E), not mobys → `Camera` (camera.h).\n- `draw_001F3A78.c`, `vendor_002A5218.c`: `Pad_1F3E20`, `Pad_2D9F08` → `PadState`, plus a `PadDwords` view added to pad.h for the two 64-bit button-pair reads (a cast of the field's address, or a union the address is cast to, changes GCC 2.95's schedule: SIZE 2544/2504 vs 2540, 28 bytes). `Vec_2D9F08` → `Vec4A`.\n- `partupd_0026A130.c`: `Moby_26ff10` is the 0x40-byte particle record, not the Moby → renamed `Part_26ff10` (kept private: there ",
+      "mergedAt": "2026-10-19T15:07:12Z"
+     },
+     {
+      "number": 99,
+      "title": "Match/setimagetag and oltanis camera",
+      "author": "xx255q",
+      "untrustedBody": "Two functions, one commit each (the movie one on its own, per docs/MOVIE.md).\n\n**setImageTag** (`func_0023C5E0`, 452 bytes): the movie code's DMA/GIF tag builder for a grid of 16x16 image blocks.\n- Written from the retail assembly only; `config/movie_provenance.tsv` has its `asm only` row.\n- Under `disp.c`'s `-mno-split-addresses` it stopped 39 bytes short; `disp.c` is now built without that flag. `D_0015EF84`/`D_0015EFB8` are `MACRO_ADDR`, and the display flags `D_001612E0`/`D_001612E4` go from `NOT_SDA` to `MACRO_ADDR` so `startDisplay`/`endDisplay` stay exact. All three C functions in `disp.c` are EXACT.\n- That the file flag was the obstacle came out of a ChatGPT session; its C wasn't used, only the flag and declaration change, rechecked here.\n\n**func_L14_00316E60** (880 bytes, level 14 Oltanis): starts the vendor camera, measuring its three paths and aiming it at the hero.\n- Adapted from Lombyte (MIT): `src/overlays/l14/gameplay/entities/morphoray.c`, `FUN_L14_003159d8`, with PAL s",
+      "mergedAt": "2026-10-19T12:02:32Z"
+     },
+     {
+      "number": 100,
+      "title": "nonmatching: remove two near misses that have since matched",
+      "author": "xx255q",
+      "untrustedBody": "Removes two staged near misses whose functions are now EXACT in `src/overlays/`:\n\n| Function | Removed file | Matched in |\n|---|---|---|\n| `func_L14_00316E60` (ActivateCamera) | `nonmatching/l14_oltanis/func_L14_00316E60.c` | #99 (its draft should have gone with it) |\n| `func_L00_002D2E60` | `nonmatching/shared/func_L00_002D2E60.c` | earlier, in `vendor_002D1168.c` |\n\nPer docs/NONMATCHING.md, landing a function removes its staged file. `nonmatching/README.md` is regenerated with `tools/nonmatching.py`'s `index()`; the only rows that change are these two, which now point at the functions' port C.\n\nLeft alone on purpose:\n- Port C (`functional.tsv` entries, including `functional/func_L14_00316E60.c` and `game/func_L00_002D2E60.c`). It's kept for the native port.\n- Drafts for `ASM_FUNC` handwritten functions in `nonmatching/game/`.\n\nNo code or report change: the report only scores staged files for functions that aren't matched.\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code",
+      "mergedAt": "2026-10-19T13:15:09Z"
+     },
+     {
+      "number": 101,
+      "title": "overlays: list hand-written level functions as original assembly",
+      "author": "xx255q",
+      "untrustedBody": "Level code has functions written as assembly in the original, like the executable's `config/handwritten_asm.txt`. Until now it had no way to say so: they sit as `INCLUDE_ASM` stubs that can never be matched in C and are counted as unfinished. This adds the level-code counterpart, built the same way as the level linker remnants (`config/overlays/linker_remnants.txt` / `LINKER_REMNANT`).\n\ndocs/ASM_CLASSIFICATION.md notes that changing the published progress policy needs upstream review, so this is a proposal. Happy to narrow the list or change the approach.\n\n**What changes**\n- `config/overlays/handwritten_asm.txt`: 67 entries, covering 94 catalogue entries / 51,748 bytes once joined pieces are counted.\n- `src/overlays/`: each entry's `INCLUDE_ASM(\"asm/overlays\", …)` becomes `ASM_FUNC(\"asm/overlays\", …)`. `ASM_FUNC` is `INCLUDE_ASM`, so the image is unchanged.\n- `tools/gen_progress_report.py`:\n  - counts listed functions as finished, in both the build and `--check`;\n  - checks the list ag",
+      "mergedAt": "2026-10-19T15:07:27Z"
+     },
+     {
+      "number": 102,
+      "title": "Match the engine-trail ribbon builder (func_0022F738)",
+      "author": "xx255q",
+      "untrustedBody": "`func_0022F738` in `src/game/space.c`, the space flights' engine-trail ribbon builder (1,188 bytes), is now C and matches exactly: the 0x210-byte frame, every instruction, and the 4 alignment bytes after it. There are no new flags, inline assembly, register pins or barriers.\n\nWhat closed the last differences (from a 62-byte near miss):\n1. The two engine rings are inside the trail state struct at their real offset, +0xC0 of `D_0013E130`, so they still live at 0x0013E1F0 / 0x0013E3F0. This changes which address expressions GCC shares, and gives retail's order of the cross-product calls.\n2. The across/side normal vectors are grouped in one workspace struct, with the same stack layout, and the engine index is declared in its loop. That reproduces every spill slot.\n3. The second vertex loop sets its position pointer in its own `for` initializer, after the first draw, which gives retail's setup around that draw.\n\n**Checks**\n- `tools/file_check.py src/game/space.c`: 15 C functions, 0 not exac",
+      "mergedAt": "2026-10-19T15:17:32Z"
+     },
+     {
+      "number": 103,
+      "title": "Feat/to 100",
+      "author": "Lynder063",
+      "untrustedBody": "",
+      "mergedAt": "2026-10-19T15:23:32Z"
+     },
+     {
+      "number": 104,
+      "title": "feat(functional): port C for hand-written assembly, checked against retail in an EE emulator",
+      "author": "Lynder063",
+      "untrustedBody": "## Summary\n\nHand-written assembly counts as finished for matching, but the native port still needs C for it. This adds behaviour-equivalent C for 45 hand-written functions that had none. The files are in `nonmatching/functional/`, each with a row in `nonmatching/functional.tsv`.\n\n**Checked against retail (35):**\n- **Small helpers:** bit length (`func_001F9968`); quadword copy and clear, and word fill (`func_001F9A98`, `func_001F99D8`, `func_001F99B0`); countdown timer tick (`func_001F9938`); set vector length in 3D and 2D (`func_001F9DC0`, `func_001F9E10`).\n- **Hardware and tables:** DMA reset (`func_0020C268`); record-table fill (`func_00212508`); VIF1 interrupt handler (`func_00235118`).\n- **Matrix math:** rotation about Z, X and Y (`func_001253F8`, `func_001254A0`, `func_00125548`).\n- **Draw and quad:** `func_001FA8F0`, `func_001F7C60`, `func_001F91B8`, `func_001F8B6C`.\n- **Sky:** triangle packet, vertex transform, tile visibility, sprites and tiles (`func_0022D3F8`, `func_0022D2AC`",
+      "mergedAt": "2026-10-19T16:04:33Z"
+     }
+    ],
+    "opened": [
+     {
+      "number": 95,
+      "title": "refactor(camera): the camera code reads its state by named fields",
+      "author": "Veradictus",
+      "untrustedBody": "The camera system stops talking in raw offsets. All 40 camera functions (`src/game/camera.c` and the shared level copies `camera_001EB508.c`, `camera_001ED6D8.c`, `camera_001FC308.c`) now read their state through `include/camera.h`: `CameraSystem` (`gCamera`), `Camera` (the 48 slots), `CameraType`, `CameraDef`/`CameraInfo`, `CameraShake`, `CameraFollow`, `CamBlend` (lerp and orbit) and `DebugFreeCam`. Offsets are checked at compile time. The per-file aliases and private typedefs these replaced are gone.\n\nByte-neutral throughout: `tools/build_sn.sh` gives 1217 of 1217 exact, every function at its retail address. One rule the bytes insisted on: a sub-block reached through its own symbol keeps a pointer to it (`CamBlend *b = &gCamera.blend; b->phase = 0;` matches, `gCamera.blend.phase = 0` moves 10 bytes). One function, `Camera_ActivationCheckPriority`, keeps `state[8]`/`state[9]` raw with a comment, because the field form moved 26 bytes.\n\nAlso in here:\n- `tools/file_check.py`: builds one",
+      "mergedAt": "2026-10-19T05:20:01Z"
+     },
+     {
+      "number": 96,
+      "title": "Arguments retail passes in registers, NTSC ports, and the port's functional C",
+      "author": "Veradictus",
+      "untrustedBody": "What OpenRAC's native port turned up in this decomp, sent back, plus the functional C it wrote along the way.\n\n**Calls that drop what retail passes in registers** (a82cf741, 14f4ed57, 5a841676). Matched C that calls a function with fewer arguments than it takes, or ignores a result its callers read, still matches, because the register happens to hold the right value on the console. A port that translates the C passes 0 instead. 25 matched functions, the HUD's text width, and two more now name the arguments and results retail has. Same bytes.\n\n**8 level functions ported from the NTSC decomp** (f4a9f722), each exact here.\n\n**The port's functional C** (c36aeb20, 53b3dc87, 0c5f8c45, e0d3b886, 1f80d043):\n- 83 functional files for functions this repo still has as assembly. 17 of them replace an older near miss's row with a corrected version that says what it fixed. The near-miss files stay where they are.\n- 23 existing functional files take OpenRAC's later, checked corrections, e.g. FastVecC",
+      "mergedAt": "2026-10-19T05:20:01Z"
+     },
+     {
+      "number": 97,
+      "title": "feat: batch — func_L14_00303430, func_L14_002E0538 (own files), func_…",
+      "author": "Lynder063",
+      "untrustedBody": "…L08_00303998, func_L00_002BE2A0; plain C for func_L18_002F1AB0, func_L18_002D6B58\n\nfunc_L14_00303430 builds with -fno-sched-spec and func_L14_002E0538 with -fno-gcse in files of their own: their old files' other functions change under those flags (docs/BUILD_FIDELITY.md rule 2).",
+      "mergedAt": "2026-10-19T10:56:58Z"
+     },
+     {
+      "number": 98,
+      "title": "refactor: shared Hero, Camera and Pad types in place of the last private copies; function comments",
+      "author": "Lynder063",
+      "untrustedBody": "## Summary\n\nAudit of the remaining private struct copies under `src/overlays/`, one commit per file, plus staged near misses for large shared functions. `main` is merged in.\n\n### Cleanup\n- `help_00232560.c`: `Hero_234800_34800` → `Hero` (hero.h), `Vec_234800_34800` → `Vec4A`; casts where the copy's type differed (`moby` passed as an int, `unk4F8` stored into `unk360`).\n- `vendor_002E1660.c`: `Moby_2E8210`, `Moby_2E8AC8` and `Wrap_2E8AC8` were camera slots (state buffer at 0x70, handoff/transition state at 0x7D/0x7E), not mobys → `Camera` (camera.h).\n- `draw_001F3A78.c`, `vendor_002A5218.c`: `Pad_1F3E20`, `Pad_2D9F08` → `PadState`, plus a `PadDwords` view added to pad.h for the two 64-bit button-pair reads (a cast of the field's address, or a union the address is cast to, changes GCC 2.95's schedule: SIZE 2544/2504 vs 2540, 28 bytes). `Vec_2D9F08` → `Vec4A`.\n- `partupd_0026A130.c`: `Moby_26ff10` is the 0x40-byte particle record, not the Moby → renamed `Part_26ff10` (kept private: there ",
+      "mergedAt": "2026-10-19T15:07:12Z"
+     },
+     {
+      "number": 99,
+      "title": "Match/setimagetag and oltanis camera",
+      "author": "xx255q",
+      "untrustedBody": "Two functions, one commit each (the movie one on its own, per docs/MOVIE.md).\n\n**setImageTag** (`func_0023C5E0`, 452 bytes): the movie code's DMA/GIF tag builder for a grid of 16x16 image blocks.\n- Written from the retail assembly only; `config/movie_provenance.tsv` has its `asm only` row.\n- Under `disp.c`'s `-mno-split-addresses` it stopped 39 bytes short; `disp.c` is now built without that flag. `D_0015EF84`/`D_0015EFB8` are `MACRO_ADDR`, and the display flags `D_001612E0`/`D_001612E4` go from `NOT_SDA` to `MACRO_ADDR` so `startDisplay`/`endDisplay` stay exact. All three C functions in `disp.c` are EXACT.\n- That the file flag was the obstacle came out of a ChatGPT session; its C wasn't used, only the flag and declaration change, rechecked here.\n\n**func_L14_00316E60** (880 bytes, level 14 Oltanis): starts the vendor camera, measuring its three paths and aiming it at the hero.\n- Adapted from Lombyte (MIT): `src/overlays/l14/gameplay/entities/morphoray.c`, `FUN_L14_003159d8`, with PAL s",
+      "mergedAt": "2026-10-19T12:02:32Z"
+     },
+     {
+      "number": 100,
+      "title": "nonmatching: remove two near misses that have since matched",
+      "author": "xx255q",
+      "untrustedBody": "Removes two staged near misses whose functions are now EXACT in `src/overlays/`:\n\n| Function | Removed file | Matched in |\n|---|---|---|\n| `func_L14_00316E60` (ActivateCamera) | `nonmatching/l14_oltanis/func_L14_00316E60.c` | #99 (its draft should have gone with it) |\n| `func_L00_002D2E60` | `nonmatching/shared/func_L00_002D2E60.c` | earlier, in `vendor_002D1168.c` |\n\nPer docs/NONMATCHING.md, landing a function removes its staged file. `nonmatching/README.md` is regenerated with `tools/nonmatching.py`'s `index()`; the only rows that change are these two, which now point at the functions' port C.\n\nLeft alone on purpose:\n- Port C (`functional.tsv` entries, including `functional/func_L14_00316E60.c` and `game/func_L00_002D2E60.c`). It's kept for the native port.\n- Drafts for `ASM_FUNC` handwritten functions in `nonmatching/game/`.\n\nNo code or report change: the report only scores staged files for functions that aren't matched.\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code",
+      "mergedAt": "2026-10-19T13:15:09Z"
+     },
+     {
+      "number": 101,
+      "title": "overlays: list hand-written level functions as original assembly",
+      "author": "xx255q",
+      "untrustedBody": "Level code has functions written as assembly in the original, like the executable's `config/handwritten_asm.txt`. Until now it had no way to say so: they sit as `INCLUDE_ASM` stubs that can never be matched in C and are counted as unfinished. This adds the level-code counterpart, built the same way as the level linker remnants (`config/overlays/linker_remnants.txt` / `LINKER_REMNANT`).\n\ndocs/ASM_CLASSIFICATION.md notes that changing the published progress policy needs upstream review, so this is a proposal. Happy to narrow the list or change the approach.\n\n**What changes**\n- `config/overlays/handwritten_asm.txt`: 67 entries, covering 94 catalogue entries / 51,748 bytes once joined pieces are counted.\n- `src/overlays/`: each entry's `INCLUDE_ASM(\"asm/overlays\", …)` becomes `ASM_FUNC(\"asm/overlays\", …)`. `ASM_FUNC` is `INCLUDE_ASM`, so the image is unchanged.\n- `tools/gen_progress_report.py`:\n  - counts listed functions as finished, in both the build and `--check`;\n  - checks the list ag",
+      "mergedAt": "2026-10-19T15:07:27Z"
+     },
+     {
+      "number": 102,
+      "title": "Match the engine-trail ribbon builder (func_0022F738)",
+      "author": "xx255q",
+      "untrustedBody": "`func_0022F738` in `src/game/space.c`, the space flights' engine-trail ribbon builder (1,188 bytes), is now C and matches exactly: the 0x210-byte frame, every instruction, and the 4 alignment bytes after it. There are no new flags, inline assembly, register pins or barriers.\n\nWhat closed the last differences (from a 62-byte near miss):\n1. The two engine rings are inside the trail state struct at their real offset, +0xC0 of `D_0013E130`, so they still live at 0x0013E1F0 / 0x0013E3F0. This changes which address expressions GCC shares, and gives retail's order of the cross-product calls.\n2. The across/side normal vectors are grouped in one workspace struct, with the same stack layout, and the engine index is declared in its loop. That reproduces every spill slot.\n3. The second vertex loop sets its position pointer in its own `for` initializer, after the first draw, which gives retail's setup around that draw.\n\n**Checks**\n- `tools/file_check.py src/game/space.c`: 15 C functions, 0 not exac",
+      "mergedAt": "2026-10-19T15:17:32Z"
+     },
+     {
+      "number": 103,
+      "title": "Feat/to 100",
+      "author": "Lynder063",
+      "untrustedBody": "",
+      "mergedAt": "2026-10-19T15:23:32Z"
+     },
+     {
+      "number": 104,
+      "title": "feat(functional): port C for hand-written assembly, checked against retail in an EE emulator",
+      "author": "Lynder063",
+      "untrustedBody": "## Summary\n\nHand-written assembly counts as finished for matching, but the native port still needs C for it. This adds behaviour-equivalent C for 45 hand-written functions that had none. The files are in `nonmatching/functional/`, each with a row in `nonmatching/functional.tsv`.\n\n**Checked against retail (35):**\n- **Small helpers:** bit length (`func_001F9968`); quadword copy and clear, and word fill (`func_001F9A98`, `func_001F99D8`, `func_001F99B0`); countdown timer tick (`func_001F9938`); set vector length in 3D and 2D (`func_001F9DC0`, `func_001F9E10`).\n- **Hardware and tables:** DMA reset (`func_0020C268`); record-table fill (`func_00212508`); VIF1 interrupt handler (`func_00235118`).\n- **Matrix math:** rotation about Z, X and Y (`func_001253F8`, `func_001254A0`, `func_00125548`).\n- **Draw and quad:** `func_001FA8F0`, `func_001F7C60`, `func_001F91B8`, `func_001F8B6C`.\n- **Sky:** triangle packet, vertex transform, tile visibility, sprites and tiles (`func_0022D3F8`, `func_0022D2AC`",
+      "mergedAt": "2026-10-19T16:04:33Z"
+     },
+     {
+      "number": 106,
+      "title": "match func_L01_002F0728 (elevator partner spawn)",
+      "author": "xx255q",
+      "untrustedBody": "Matches `func_L01_002F0728`, the elevator's partner-spawn function. It's shared by levels 01, 05 and 11, and all three copies are exact.\n\n**What it does:** it picks the class that pairs with this moby's (0x23C → 0x361, 0x361 → 0x362), walks its group's entity list (`D_L01_001ABFC0[group]`, bit 15 marks the last entry) for a live moby of that class, copies this moby's update distance, draw distance, spawn frame, flags, position, rotation and two pvar floats onto it, refreshes it with `func_L00_00251E30` and returns it.\n\n**What made it exact** (it had been 2/296 bytes off):\n- The entity table (`D_L01_00160058`) is read after the null-list test. Reading it before kept the list base address live longer and swapped two register pairs.\n- Both \"not found\" exits share one `return 0`. Retail falls into it from the list test and jumps back to it from the scan loop.\n\n**Changes**\n- `src/overlays/shared/vendor_002B90A8.c`: C definition in place of the `INCLUDE_ASM` stub (applied with `tools/integra",
+      "mergedAt": "2026-10-20T08:34:26Z"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [
+     {
+      "number": 105,
+      "title": "func_00226D50 matches only with an empty do { } while (0): land it as an original debug macro?",
+      "author": "cnobis"
+     }
+    ],
+    "closed": []
+   },
+   "releases": [],
+   "progress": {
+    "before": {
+     "code": {
+      "done": 3488000,
+      "total": 3712772
+     },
+     "functions": {
+      "done": 4806,
+      "total": 5118
+     },
+     "data": {
+      "done": 3400,
+      "total": 699072
+     }
+    },
+    "after": {
+     "code": {
+      "done": 3628644,
+      "total": 3713568
+     },
+     "functions": {
+      "done": 5053,
+      "total": 5124
+     },
+     "data": {
+      "done": 3852,
+      "total": 699072
+     }
+    }
+   },
+   "contributors": [
+    "Lynder063",
+    "Veradictus",
+    "xx255q"
+   ]
+  },
+  {
+   "repo": "rac2-decomp",
+   "title": "Going Commando",
+   "branches": [
+    {
+     "name": "master",
+     "commits": [
+      {
+       "sha": "f755bdee11ac56062af725fee34cc3341fa09bea",
+       "title": "Merge pull request #212 from OpenRAC/docs/moby-source-validation",
+       "author": "llesieur99",
+       "date": "2026-10-19T08:12:07Z"
+      },
+      {
+       "sha": "2aa5db4fd24d6d2f11ae9f8b3748752ed86b3c07",
+       "title": "Merge pull request #211 from OpenRAC/docs/moby-community-labels",
+       "author": "llesieur99",
+       "date": "2026-10-19T07:45:57Z"
+      }
+     ]
+    }
+   ],
+   "commitCount": 2,
+   "pullRequests": {
+    "merged": [
+     {
+      "number": 211,
+      "title": "Add sourced Wrench class labels to Moby dispatch entries",
+      "author": "llesieur99",
+      "untrustedBody": "## What\n\nThe dispatch TSV identifies update handlers by numeric class, but does not tell a reader that class 2425 is Wrench's **Fan**, or that 4057 is **Secret Door**. Append `class_label` and `class_label_source` to the existing `docs/moby-dispatch.tsv`, adding 12 attributed community labels with immutable links to their exact public Wrench declarations.\n\nAll 6,688 rows retain their original eight fields, order, addresses and proposed function names. Labels describe classes, not the full behaviour of shared handlers: the 12 rows resolve to 9 canonical functions. Unknown labels remain empty. The existing guide explains provenance, catalogue lookup and the distinction from designer symbols, and corrects its Ghidra script path. A toolchain-free test checks TSV shape, paired provenance, Moby namespace and consistent labels.\n\nNo second registry, generated resource catalogue, new dependency or game assets. No C or function names changed; 0 functions added. The raw TSV diff includes empty tr",
+      "mergedAt": "2026-10-19T07:45:58Z"
+     },
+     {
+      "number": 212,
+      "title": "Complete Moby label coverage with explicit source qualification",
+      "author": "llesieur99",
+      "untrustedBody": "## What\n\nComplete the existing Moby dispatch TSV's coverage of the audited Wrench metadata, Replanetizer's 228-entry RAC2 model list and all explicit APRac2 model IDs. The table now has **198 named classes / 2,661 labelled rows**. Every source-provided Moby ID with an existing dispatch row is represented; no handler rows are invented for models absent from the table.\n\nAppend `class_label_basis` so coverage does not imply semantic verification:\n\n| Basis | Classes | Rows | Qualification |\n| --- | ---: | ---: | --- |\n| `ps2-source` | 61 | 1,309 | An attributable Wrench PS2 declaration or explicit APRac2 USA v1.01 model ID supports the name. |\n| `ps3-source-only` | 137 | 1,352 | Replanetizer supplies the name; its identity on PS2 remains unconfirmed. |\n\nAll 2,661 numeric class/handler pairs agree with the matching PS2 ISO's `lvl.vtbl`. This verifies dispatch association, **not the semantic correctness of PS3-only names**. No PS3 addresses are transferred, no function is renamed, and no C p",
+      "mergedAt": "2026-10-19T08:12:07Z"
+     }
+    ],
+    "opened": [
+     {
+      "number": 210,
+      "title": "feat(tools): match external texture packs to original resource keys",
+      "author": "llesieur99",
+      "untrustedBody": "## What\n\nAdd `tools/texture_matches.py` so contributors can compare an external PCSX2 HD pack with their own extracted originals without publishing either input. The tool joins complete resource keys, preserves shared occurrences and duplicate pack keys, and writes metadata only under ignored `build/`.\n\n- Reconstruct supported full PSMT8 / PSMT8H keys from indexed original PNGs, including the full palette and dimensions.\n- Optionally join original PCSX2 dump filename keys. Keep region/mip information and normalize numeric padding plus the retired TCC bit.\n- Distinguish unmatched, unsupported and invalid inputs; protect existing output and avoid embedding absolute input paths in reports.\n- Add an English setup/limitations guide, provenance in `CREDITS.md`, and 18 synthetic tests. CI installs the optional image dependencies so the image tests run rather than skip.\n\nA `key_match` is identifier correspondence, not authentication of replacement pixels, material binding or an EE function. Th"
+     },
+     {
+      "number": 211,
+      "title": "Add sourced Wrench class labels to Moby dispatch entries",
+      "author": "llesieur99",
+      "untrustedBody": "## What\n\nThe dispatch TSV identifies update handlers by numeric class, but does not tell a reader that class 2425 is Wrench's **Fan**, or that 4057 is **Secret Door**. Append `class_label` and `class_label_source` to the existing `docs/moby-dispatch.tsv`, adding 12 attributed community labels with immutable links to their exact public Wrench declarations.\n\nAll 6,688 rows retain their original eight fields, order, addresses and proposed function names. Labels describe classes, not the full behaviour of shared handlers: the 12 rows resolve to 9 canonical functions. Unknown labels remain empty. The existing guide explains provenance, catalogue lookup and the distinction from designer symbols, and corrects its Ghidra script path. A toolchain-free test checks TSV shape, paired provenance, Moby namespace and consistent labels.\n\nNo second registry, generated resource catalogue, new dependency or game assets. No C or function names changed; 0 functions added. The raw TSV diff includes empty tr",
+      "mergedAt": "2026-10-19T07:45:58Z"
+     },
+     {
+      "number": 212,
+      "title": "Complete Moby label coverage with explicit source qualification",
+      "author": "llesieur99",
+      "untrustedBody": "## What\n\nComplete the existing Moby dispatch TSV's coverage of the audited Wrench metadata, Replanetizer's 228-entry RAC2 model list and all explicit APRac2 model IDs. The table now has **198 named classes / 2,661 labelled rows**. Every source-provided Moby ID with an existing dispatch row is represented; no handler rows are invented for models absent from the table.\n\nAppend `class_label_basis` so coverage does not imply semantic verification:\n\n| Basis | Classes | Rows | Qualification |\n| --- | ---: | ---: | --- |\n| `ps2-source` | 61 | 1,309 | An attributable Wrench PS2 declaration or explicit APRac2 USA v1.01 model ID supports the name. |\n| `ps3-source-only` | 137 | 1,352 | Replanetizer supplies the name; its identity on PS2 remains unconfirmed. |\n\nAll 2,661 numeric class/handler pairs agree with the matching PS2 ISO's `lvl.vtbl`. This verifies dispatch association, **not the semantic correctness of PS3-only names**. No PS3 addresses are transferred, no function is renamed, and no C p",
+      "mergedAt": "2026-10-19T08:12:07Z"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": {
+    "before": {
+     "code": {
+      "done": 360448,
+      "total": 5533600
+     },
+     "functions": {
+      "done": 3303,
+      "total": 9100
+     },
+     "data": {
+      "done": 0,
+      "total": 383391
+     }
+    },
+    "after": {
+     "code": {
+      "done": 360448,
+      "total": 5533600
+     },
+     "functions": {
+      "done": 3303,
+      "total": 9100
+     },
+     "data": {
+      "done": 0,
+      "total": 383391
+     }
+    }
+   },
+   "contributors": [
+    "llesieur99"
+   ]
+  },
+  {
+   "repo": "rac3-decomp",
+   "title": "Up Your Arsenal",
+   "branches": [
+    {
+     "name": "master",
+     "commits": []
+    }
+   ],
+   "commitCount": 0,
+   "pullRequests": {
+    "merged": [],
+    "opened": []
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": null,
+   "contributors": []
+  },
+  {
+   "repo": "rac4-decomp",
+   "title": "Ratchet: Deadlocked",
+   "branches": [
+    {
+     "name": "main",
+     "commits": [
+      {
+       "sha": "c03e7b31fd984467752cabcc6622daf73daf373b",
+       "title": "Merge pull request #4 from skast96/aut-39-code-2pct",
+       "author": "Lynder063",
+       "date": "2026-10-19T17:01:09Z"
+      }
+     ]
+    }
+   ],
+   "commitCount": 1,
+   "pullRequests": {
+    "merged": [
+     {
+      "number": 4,
+      "title": "Further decomp (>2% matched code)",
+      "author": "skast96",
+      "untrustedBody": "Threw in some extra token usage to get it to 2%.",
+      "mergedAt": "2026-10-19T17:01:09Z"
+     }
+    ],
+    "opened": [
+     {
+      "number": 5,
+      "title": "Make the build and try tools run natively on Windows",
+      "author": "chistianh",
+      "untrustedBody": "The README says Windows works natively with Git Bash (`bash tools/build.sh`), but on a plain Windows install every compile failed:\n\n1. `cc.sh`, `build_libgcc.sh`, `build_libm.sh`, `compile_variants.sh` and `try_variants.py` always call `wine`, which does not exist on Windows (the 32-bit compilers run directly there).\n2. `try_func.py` writes `Path.relative_to()` into `compile.sh`, which gives backslashes on Windows; bash reads them as escapes, so the compile never runs (it reported `COMPILE failed` for every candidate, and left stray `buildtry…log` files in the repo root).\n3. `try_func.py` / `try_variants.py` fall back to `tools/docker/run.sh` when `wine` is missing, which on Windows is not needed (and usually not installed).\n4. `setup_asm.sh` uses `venv/bin/python`, but on Windows the venv's interpreter is `venv/Scripts/python.exe`. `cc.sh` also runs the assembler fix-up scripts with plain `python`, which needs rabbitizer and pyelftools from the venv.\n\n**Changes**\n- Call the compiler t",
+      "mergedAt": "2026-10-20T06:39:44Z"
+     },
+     {
+      "number": 6,
+      "title": "Another decomp wave",
+      "author": "skast96",
+      "untrustedBody": "Let a few models handle the next wave. \n\nFyi. \n- Luna High is cheap but really bad. \n- Sol 6.1 with Mid is pretty decent.\n- Opus 5.5 is a bit better but not by far than Sol.",
+      "mergedAt": "2026-10-20T06:39:54Z"
+     },
+     {
+      "number": 7,
+      "title": "[PAL-verified] Match 17 shared overlay functions (moby helpers)",
+      "author": "chistianh",
+      "untrustedBody": "**Draft — needs an NTSC-U check before it can be merged.**\n\n17 shared overlay functions, matched against the **PAL build (SCES-53285)**: each source compiles through `tools/cc.sh` to the PAL bytes, masked exactly like `tools/audit_matches.py`. I don't have an NTSC-U disc, so `audit_matches.py`, `audit_relocs.py` and `progress/report.json` could not be run on `SCUS_974.65`; that is why the progress check will fail here.\n\nWhy they should match NTSC-U too: of the 1,515 functions already matched in this repo, 1,502 are byte-identical in PAL (the rest are mostly 989snd). The PAL address of each function comes from an NTSC→PAL map built by aligning `config/functions.tsv` / `config/overlay_functions.tsv` with the PAL function list (blind test: ~98% of known functions placed correctly). A wrong map entry can only make a candidate fail, never pass.\n\n**What is in it**\n- 14 moby helpers (class id at `+0xBC`, pvar at `+0xAC`): pvar flag tests and resets, a scale from the class data, a vector retur",
+      "mergedAt": "2026-10-20T22:43:09Z"
+     },
+     {
+      "number": 8,
+      "title": "Match 21 shared overlay functions (moby helpers, part 2), verified on PAL",
+      "author": "chistianh",
+      "untrustedBody": "Second batch from the same zone as #7 (moby/pvar helpers in shared overlay code).\n\nAll 21 functions compile with tools/cc.sh to the PAL (SCES-53285) bytes, masked like tools/audit_matches.py, checked from their final location in src/overlays/shared/. A deliberately broken copy was rejected by the same check. None of them exist in upstream main.\n\nSame caveat as #7: not yet checked against SCUS_974.65 (audit_matches, audit_relocs and progress/report.json need the NTSC baserom).\n\nIndependent of #7 (different files), but it only makes sense to merge after you are happy with how #7 is handled.\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)",
+      "mergedAt": "2026-10-20T22:43:13Z"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": {
+    "before": {
+     "code": {
+      "done": 68920,
+      "total": 5175440
+     },
+     "functions": {
+      "done": 808,
+      "total": 15056
+     }
+    },
+    "after": {
+     "code": {
+      "done": 125180,
+      "total": 5175440
+     },
+     "functions": {
+      "done": 1566,
+      "total": 15056
+     }
+    }
+   },
+   "contributors": [
+    "chistianh",
+    "Lynder063",
+    "skast96"
+   ]
+  },
+  {
+   "repo": "openrac-mods",
+   "title": "OpenRAC mods",
+   "branches": [
+    {
+     "name": "master",
+     "commits": []
+    }
+   ],
+   "commitCount": 0,
+   "pullRequests": {
+    "merged": [],
+    "opened": []
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": null,
+   "contributors": []
+  }
+ ]
+}

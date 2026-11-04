@@ -2,19 +2,16 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import PageTransition from "@/components/layout/PageTransition";
-import { accentStyle, Freshness, Gallery, gameOf, NoReport, ProjectCard, ReportSection, ReportText, Sources, WrittenBy } from "@/components/news/parts";
+import { accentStyle, gameOf, NoReport, ProjectCard, ReportSection, ReportText, Sources, WrittenBy } from "@/components/news/parts";
 import Backdrop from "@/components/ui/Backdrop";
 import { ldJson, newsWeekLd, siteUrl } from "@/lib/machine";
 import { getNewsIndex, getNewsWeek } from "@/lib/news";
 import { formatShortDay, formatWeekName, formatWeekRange, isActive, isNewsWeek, leadProject, neighbours, reportSources } from "@/lib/news/logic";
 import { newsAlternates } from "@/lib/news/metadata";
 
-// A report can arrive any time after its week, so weeks are rebuilt in the background like the list.
-export const revalidate = 3600;
-
+// Built ahead from the news/ folder. An address not in it reaches the page, which answers with our own 404.
 export async function generateStaticParams() {
-  // An unreachable source gives no pages here, never a failed build: they render on demand instead.
-  return ((await getNewsIndex())?.index.weeks ?? []).slice(0, 26).map((w) => ({ week: w.week }));
+  return ((await getNewsIndex())?.weeks ?? []).map((w) => ({ week: w.week }));
 }
 
 export async function generateMetadata(props: PageProps<"/news/[week]">): Promise<Metadata> {
@@ -37,10 +34,8 @@ export async function generateMetadata(props: PageProps<"/news/[week]">): Promis
 export default async function NewsWeekPage(props: PageProps<"/news/[week]">) {
   const { week } = await props.params;
   if (!isNewsWeek(week)) notFound();
-  const loaded = await getNewsIndex();
-  if (!loaded) throw new Error("The list of weeks could not be read");
-  const entry = loaded.index.weeks.find((w) => w.week === week);
-  if (!entry) notFound();
+  const index = await getNewsIndex();
+  if (!index?.weeks.some((w) => w.week === week)) notFound();
   const data = await getNewsWeek(week);
   if (!data) throw new Error(`${week} could not be read`);
 
@@ -56,29 +51,19 @@ export default async function NewsWeekPage(props: PageProps<"/news/[week]">) {
   });
   const lead = leadProject(active);
   const game = gameOf(lead?.repo);
-  const picture = report?.media[0];
-  const allWeeks = loaded.index.weeks.map((w) => w.week);
+  const allWeeks = index.weeks.map((w) => w.week);
   const { older, newer } = neighbours(allWeeks, week);
   const { totals } = facts;
-  // eslint-disable-next-line react-hooks/purity -- a server component, rebuilt hourly
-  const now = Date.now();
-
   return (
     <PageTransition>
       <main className="pb-12" style={accentStyle(lead?.repo)}>
         {report && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: ldJson(newsWeekLd(siteUrl(), { ...report, end: facts.end })) }} />}
         <header className="relative isolate overflow-hidden border-b border-line">
-          {picture ? (
-            // eslint-disable-next-line @next/next/no-img-element -- decoration here: the gallery below shows it with its description
-            <img src={`/news/media/${week}/${picture.file}`} alt="" className="absolute inset-0 -z-10 size-full object-cover" />
-          ) : (
-            game && <Backdrop src={game.image} fallback={game.fallbackImage} />
-          )}
+          {game && <Backdrop src={game.image} fallback={game.fallbackImage} />}
           <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-ink via-ink/85 to-ink/50" />
           <div className="relative mx-auto grid min-h-[clamp(260px,32vw,380px)] max-w-[820px] content-end gap-2.5 px-4 pb-7 pt-14">
             <p className="font-orbitron text-[12px] font-bold uppercase tracking-[.16em] text-(--tx)">
               {formatWeekName(week)} · <time dateTime={facts.end}>{formatWeekRange(facts.start, facts.end)}</time>
-              {!entry.finished && " · so far"}
             </p>
             <h1 className="font-audiowide text-[clamp(26px,4.4vw,42px)] leading-[1.15] text-hi [overflow-wrap:anywhere]">{report ? report.headline : "What happened this week"}</h1>
             <p className="text-[14px] text-soft">
@@ -88,18 +73,14 @@ export default async function NewsWeekPage(props: PageProps<"/news/[week]">) {
         </header>
 
         <div className="mx-auto mt-7 grid max-w-[820px] gap-7 px-4">
-          <Freshness stale={data.stale} newest={loaded.index.days[0]} now={now} />
           {report ? (
             <section aria-label="The week in brief" className="grid gap-3">
               <p className="text-[17px] leading-relaxed text-body [overflow-wrap:anywhere] sm:text-[18px]"><ReportText text={report.summary} known={known} /></p>
               <WrittenBy report={report} sources={reportSources(report, facts.projects).length} />
             </section>
-          ) : entry.finished || state.status !== "none" ? (
-            <NoReport state={state.status === "ok" ? "none" : state.status} />
           ) : (
-            <p className="text-soft">This week isn&apos;t over yet. Its report can be written once it is.</p>
+            <NoReport state={state.status === "invalid" ? "invalid" : "none"} />
           )}
-          {report && <Gallery week={week} media={report.media} />}
 
           <section aria-labelledby="projects" className="grid gap-5">
             <h2 id="projects" className="font-orbitron text-lg font-bold text-gold">{report ? "Project by project" : "Projects"}</h2>

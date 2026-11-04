@@ -20,22 +20,5 @@
     "Reported: players asked for rebinding (#250)."
    ]
   }
- },
- "media": [
-  {
-   "file": "menu.png",
-   "alt": "The launcher's mods tab",
-   "caption": "The new mods tab",
-   "repo": "OpenRAC"
-  },
-  {
-   "file": "gone.png",
-   "alt": "A picture that is missing",
-   "caption": "This one fails to load"
-  },
-  {
-   "file": "fake.png",
-   "alt": "A file pretending to be a picture"
-  }
- ]
+ }
 }

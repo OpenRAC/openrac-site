@@ -4,8 +4,10 @@ name: Test
 
 on:
   pull_request:
+    paths-ignore: ["news/**"]
   push:
     branches: [main]
+    paths-ignore: ["news/**"]
 
 permissions:
   contents: read

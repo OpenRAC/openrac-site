@@ -1,0 +1,62 @@
+{
+  "org": "OpenRAC",
+  "projects": [
+    {
+      "repo": "OpenRAC",
+      "title": "OpenRAC launcher",
+      "branches": [
+        "develop",
+        "master"
+      ],
+      "about": "The launcher players download, and the native PC port it sets up. Releases named with a v number are the launcher, for players; Mod SDK releases are for mod authors."
+    },
+    {
+      "repo": "rac1-decomp",
+      "title": "Ratchet & Clank",
+      "branches": [
+        "main"
+      ],
+      "progress": "progress/report.json",
+      "about": "Matching decompilation of the first game (2002).",
+      "measures": "PAL"
+    },
+    {
+      "repo": "rac2-decomp",
+      "title": "Going Commando",
+      "branches": [
+        "master"
+      ],
+      "progress": "progress/report.json",
+      "about": "Matching decompilation of Going Commando (2003).",
+      "measures": "USA v1.01"
+    },
+    {
+      "repo": "rac3-decomp",
+      "title": "Up Your Arsenal",
+      "branches": [
+        "master"
+      ],
+      "progress": "progress/report.json",
+      "about": "Matching decompilation of Up Your Arsenal (2004).",
+      "measures": "PAL"
+    },
+    {
+      "repo": "rac4-decomp",
+      "title": "Ratchet: Deadlocked",
+      "branches": [
+        "main"
+      ],
+      "progress": "progress/report.json",
+      "about": "Matching decompilation of Ratchet: Deadlocked (2005).",
+      "measures": "NTSC-U"
+    },
+    {
+      "repo": "openrac-mods",
+      "title": "OpenRAC mods",
+      "branches": [
+        "master"
+      ],
+      "about": "Community mods. Each release is one mod's version, named after the mod."
+    }
+  ]
+}

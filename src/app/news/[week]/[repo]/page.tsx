@@ -2,18 +2,16 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import PageTransition from "@/components/layout/PageTransition";
-import { accentStyle, Freshness, githubLink, NoReport, ProjectCard, ReportSection, WrittenBy } from "@/components/news/parts";
+import { accentStyle, githubLink, ProjectCard, ReportSection, WrittenBy } from "@/components/news/parts";
 import ProjectFacts from "@/components/news/ProjectFacts";
 import { getNewsIndex, getNewsWeek } from "@/lib/news";
 import { formatWeekName, isActive, isNewsWeek } from "@/lib/news/logic";
 import { newsAlternates } from "@/lib/news/metadata";
 
-export const revalidate = 3600;
-
-// Built on first visit and then kept like the rest. Without this the loading screen would start a 200
-// response before the page knows the address is wrong, and an unknown one could not be a real 404.
+// Built ahead from the news/ folder. An address not in it reaches the page, which answers with our own 404.
 export async function generateStaticParams() {
-  return [];
+  const weeks = await Promise.all(((await getNewsIndex())?.weeks ?? []).map((w) => getNewsWeek(w.week)));
+  return weeks.flatMap((w) => (w ? w.facts.projects.map((p) => ({ week: w.facts.week, repo: p.repo })) : []));
 }
 
 export async function generateMetadata(props: PageProps<"/news/[week]/[repo]">): Promise<Metadata> {
@@ -28,9 +26,7 @@ export async function generateMetadata(props: PageProps<"/news/[week]/[repo]">):
 export default async function NewsWeekProjectPage(props: PageProps<"/news/[week]/[repo]">) {
   const { week, repo } = await props.params;
   if (!isNewsWeek(week)) notFound();
-  const loaded = await getNewsIndex();
-  if (!loaded) throw new Error("The list of weeks could not be read");
-  if (!loaded.index.weeks.some((w) => w.week === week)) notFound();
+  if (!(await getNewsIndex())?.weeks.some((w) => w.week === week)) notFound();
   const data = await getNewsWeek(week);
   if (!data) throw new Error(`${week} could not be read`);
   const project = data.facts.projects.find((p) => p.repo === repo);
@@ -40,9 +36,6 @@ export default async function NewsWeekProjectPage(props: PageProps<"/news/[week]
   const report = data.report.status === "ok" ? data.report.report : null;
   const section = report?.projects[repo];
   const others = data.facts.projects.filter((p) => isActive(p) && p.repo !== repo);
-  // eslint-disable-next-line react-hooks/purity -- a server component, rebuilt hourly
-  const now = Date.now();
-
   return (
     <PageTransition>
       <main className="mx-auto grid max-w-[820px] gap-6 px-4 pb-12 pt-8" style={accentStyle(repo)}>
@@ -50,8 +43,6 @@ export default async function NewsWeekProjectPage(props: PageProps<"/news/[week]
           <Link href={`/news/${week}`} className="inline-flex min-h-11 items-center text-amber underline underline-offset-2">‹ {formatWeekName(week)}</Link>
         </p>
         <h1 className="font-audiowide text-[clamp(26px,4vw,38px)] leading-tight text-hi">{project.title}</h1>
-        <Freshness stale={data.stale} newest={loaded.index.days[0]} now={now} />
-        {data.report.status === "unavailable" && <NoReport state="unavailable" />}
         <ProjectCard project={project} />
         {section && report && (
           <section aria-label="This project's report" className="grid gap-3">

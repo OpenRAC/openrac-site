@@ -20,10 +20,11 @@ test("/news lists the reports, the weeks waiting for one and the latest facts", 
   await expect(page.getByRole("heading", { level: 1, name: "News" })).toBeVisible();
   await expect(page.getByRole("heading", { level: 2, name: "Ratchet & Clank reaches 100% matched" })).toBeVisible();
   await expect(page.getByText("By @Lynder063 with Claude Code")).toBeVisible();
-  // A week with no report is listed once, and the unfinished one is not asked for yet.
+  await expect(page.getByText("Updated weekly. Figures up to Tuesday, 3 November 2026.")).toBeVisible();
+  // A week with no report is listed, and an unfinished one is not there at all.
   await expect(page.getByRole("link", { name: /Week 43, 2026/ })).toBeVisible();
-  await expect(page.getByRole("link", { name: /Week 45, 2026/ })).toHaveCount(0);
-  await expect(page.getByRole("link", { name: "Help write one" })).toHaveAttribute("href", /openrac-news\/blob\/main\/CONTRIBUTING\.md$/);
+  await expect(page.getByRole("link", { name: /Week 46, 2026/ })).toHaveCount(0);
+  await expect(page.getByRole("link", { name: "Help write one" })).toHaveAttribute("href", /openrac-site\/blob\/main\/news\/CONTRIBUTING\.md$/);
   await page.getByRole("link", { name: "Ratchet & Clank reaches 100% matched" }).click();
   await expect(page).toHaveURL(new RegExp(`/news/${WEEK}$`));
 });
@@ -37,7 +38,7 @@ test("a reported week: the conclusion first, who wrote it, sources and project s
   await expect(brief).toContainText("@Lynder063");
   await expect(brief).toContainText("Claude Code");
   await expect(brief).toContainText("Based on 4 linked pull requests and issues.");
-  await expect(brief.getByRole("link", { name: "Report a mistake" })).toHaveAttribute("href", "https://github.com/OpenRAC/openrac-news/issues");
+  await expect(brief.getByRole("link", { name: "Report a mistake" })).toHaveAttribute("href", "https://github.com/OpenRAC/openrac-site/issues");
   // The sources are on show, with real titles, without a click.
   await expect(page.getByText("Sources (4)")).toBeVisible();
   await expect(page.locator("details[open]").getByText("Match the last 11 functions")).toBeVisible();
@@ -80,33 +81,6 @@ test("the report states are told apart", async ({ page }) => {
   await expect(page.getByRole("link", { name: "Help write it" })).toHaveCount(0);
   await expect(page.locator("article h3")).toHaveText(["Up Your Arsenal"]);
   await expect(noIndex(page)).toHaveCount(1);
-  // An unfinished week does not ask for a report yet.
-  await page.goto("/news/2026-W45");
-  await expect(page.getByText("This week isn't over yet.")).toBeVisible();
-  await expect(page.getByText("· so far")).toBeVisible();
-});
-
-test("pictures: listed ones served safely, with their words kept if one fails", async ({ page, request }) => {
-  const good = await request.get(`/news/media/${WEEK}/menu.png`);
-  expect(good.status()).toBe(200);
-  expect(good.headers()["content-type"]).toBe("image/png");
-  expect(good.headers()["x-content-type-options"]).toBe("nosniff");
-  for (const [path, status] of [
-    [`/news/media/${WEEK}/unlisted.png`, 404],
-    [`/news/media/${WEEK}/..%2F..%2Fdata%2Findex.json`, 404],
-    [`/news/media/${WEEK}/evil.svg`, 404],
-    [`/news/media/2026-W43/menu.png`, 404],
-    [`/news/media/nope/menu.png`, 404],
-    [`/news/media/${WEEK}/fake.png`, 502],
-    [`/news/media/${WEEK}/gone.png`, 502],
-  ] as const) {
-    expect((await request.get(path)).status(), path).toBe(status);
-  }
-  await page.goto(`/news/${WEEK}`);
-  await expect(page.getByRole("img", { name: "The launcher's mods tab" })).toBeVisible();
-  await expect(page.locator("figure", { hasText: "The new mods tab" }).getByRole("link")).toHaveAttribute("href", `/news/media/${WEEK}/menu.png`);
-  // The broken picture still says what it showed.
-  await expect(page.locator("figure", { hasText: "This one fails to load" }).locator("img")).toHaveAttribute("alt", "A picture that is missing");
 });
 
 test("a project's week: work grouped in plain words, long lists folded", async ({ page }) => {
@@ -144,12 +118,16 @@ test("a project's day shows each commit", async ({ page }) => {
   await expect(page.getByRole("heading", { name: "New (1)" })).toBeVisible();
 });
 
-for (const path of ["/news/2020-W01", "/news/not-a-week", "/news/2026-W54", `/news/${WEEK}/nope`, `/news/${WEEK}/..%2F..%2Fsecrets`, "/news/days/2020-01-01", "/news/days/2026-02-30", `/news/days/${DAY}/nope`]) {
+for (const path of ["/news/2020-W01", "/news/not-a-week", "/news/2026-W54", `/news/${WEEK}/nope`, `/news/${WEEK}/..%2F..%2Fsecrets`, "/news/days/2020-01-01", "/news/days/2026-02-30", "/news/2026-W46", `/news/days/${DAY}/nope`]) {
   test(`${path} is a real 404`, async ({ page }) => {
     expect((await page.goto(path))?.status()).toBe(404);
     await expect(page.getByRole("link", { name: "All news" })).toBeVisible();
   });
 }
+
+test("pictures are not served: there is no such route", async ({ page }) => {
+  expect((await page.goto("/news/media/2026-W44/menu.png"))?.status()).toBe(404);
+});
 
 test("the feed is valid RSS of written reports only", async ({ request, page }) => {
   const res = await request.get("/news.xml");

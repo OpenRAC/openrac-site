@@ -1,0 +1,1029 @@
+{
+ "format": 1,
+ "date": "2026-10-22",
+ "totals": {
+  "commits": 48,
+  "pullRequestsMerged": 16,
+  "pullRequestsOpened": 27,
+  "contributors": 8
+ },
+ "projects": [
+  {
+   "repo": "OpenRAC",
+   "title": "OpenRAC launcher",
+   "branches": [
+    {
+     "name": "develop",
+     "commits": [
+      {
+       "sha": "c1e040d000ce7449b8033dc737c745210944723b",
+       "title": "fix(port): keep each of a name's contradicting declarations apart",
+       "author": "Lynder063",
+       "date": "2026-10-22T17:48:47Z"
+      },
+      {
+       "sha": "7acc4291b249e06f3f539901b1d1643c00970b67",
+       "title": "fix(port): keep hostgen's Clang checks out of ccache",
+       "author": "Lynder063",
+       "date": "2026-10-22T17:48:47Z"
+      },
+      {
+       "sha": "c8621c360f5c0f326532a7e00934fcc10f8d4eb4",
+       "title": "fix(hostgen): hook points keep their tail call's result",
+       "author": "Daniel Risto",
+       "date": "2026-10-22T15:05:27Z"
+      },
+      {
+       "sha": "1a934d55d01f603c1d78bc53a5094afc0e333fdf",
+       "title": "docs(launcher): simplify the README",
+       "author": "Lynder063",
+       "date": "2026-10-22T11:17:56Z"
+      },
+      {
+       "sha": "7b0137bf129dbdd1df65894dedf538952c93e75d",
+       "title": "feat(progress): show live ByteMatch badges in the README",
+       "author": "Lynder063",
+       "date": "2026-10-22T10:59:18Z"
+      },
+      {
+       "sha": "f6bec364c348782b0e6470f8ece9bcc83e27a859",
+       "title": "feat(port): macOS Game Mode for the game application bundles",
+       "author": "Lynder063",
+       "date": "2026-10-22T09:44:05Z"
+      },
+      {
+       "sha": "0c75232fdd510d68a5da9707b4c30eb3fa86f41a",
+       "title": "fix(launcher): find Discord's IPC socket in the macOS temp folder",
+       "author": "Lynder063",
+       "date": "2026-10-22T08:23:41Z"
+      },
+      {
+       "sha": "ac34b2357c845d2438f1692c6b15f66dbf929e11",
+       "title": "feat(launcher): save-as-you-go, slider values, hidden paths and mod navigation helpers",
+       "author": "Veradictus",
+       "date": "2026-10-22T03:43:47Z"
+      },
+      {
+       "sha": "9bde4eeb4f28e353ec1c734dcafe5428e1be847f",
+       "title": "fix(editor): draw the Collision dock's drag box over the 3D view",
+       "author": "Veradictus",
+       "date": "2026-10-22T01:25:24Z"
+      },
+      {
+       "sha": "0362b01fc27b70e7b06ba733f0f9be825cbe6ea5",
+       "title": "feat(launcher): mods of interface 1.3",
+       "author": "Veradictus",
+       "date": "2026-10-22T01:16:33Z"
+      },
+      {
+       "sha": "eb5ea8120f38023b71e350c9931fd2e1f987a4f2",
+       "title": "feat(sdk): the pointer over the game's picture, interface 1.3",
+       "author": "Veradictus",
+       "date": "2026-10-22T01:10:59Z"
+      },
+      {
+       "sha": "4847434ee7a8530a4fae6819b271067ad7652e71",
+       "title": "feat(editor): moby class collision as a model, byte-exact, with checks and generation",
+       "author": "Veradictus",
+       "date": "2026-10-22T00:46:18Z"
+      },
+      {
+       "sha": "ea1ed93c878b2889157e003e33d9b0454540625f",
+       "title": "chore(launcher): the preview's difficulty mod, with its presets of sliders",
+       "author": "Veradictus",
+       "date": "2026-10-22T00:40:10Z"
+      },
+      {
+       "sha": "6dea7f796e4cee73e730c42d55ec4f30662ef1d4",
+       "title": "feat(sdk): package_mod.py takes presets of any setting type",
+       "author": "Veradictus",
+       "date": "2026-10-22T00:35:14Z"
+      },
+      {
+       "sha": "13fd422edf6b98d8acee188690baa993fa96a314",
+       "title": "fix(launcher): the key-bind controls pass ESLint",
+       "author": "Veradictus",
+       "date": "2026-10-22T00:27:38Z"
+      },
+      {
+       "sha": "4d5be5d955946fdb2f7a6f78c7c7fc2eee999973",
+       "title": "feat(port): rac1 hook points for damage, hits, ammo, deaths, the level load and the hero's speed",
+       "author": "Veradictus",
+       "date": "2026-10-22T00:07:19Z"
+      },
+      {
+       "sha": "231d33711bbc4665aaa3cbfe0e14bf9f363c1885",
+       "title": "chore(sdk): version 1.2.0, for the mod interface 1.2",
+       "author": "Veradictus",
+       "date": "2026-10-22T00:04:48Z"
+      },
+      {
+       "sha": "09c5d87c7f330341601907f6f912c211a244b230",
+       "title": "docs(sdk): the keyboard and mouse, keybind settings and presets (interface 1.2)",
+       "author": "Veradictus",
+       "date": "2026-10-22T00:01:03Z"
+      }
+     ]
+    },
+    {
+     "name": "master",
+     "commits": [
+      {
+       "sha": "c1e040d000ce7449b8033dc737c745210944723b",
+       "title": "fix(port): keep each of a name's contradicting declarations apart",
+       "author": "Lynder063",
+       "date": "2026-10-22T17:48:47Z"
+      },
+      {
+       "sha": "7acc4291b249e06f3f539901b1d1643c00970b67",
+       "title": "fix(port): keep hostgen's Clang checks out of ccache",
+       "author": "Lynder063",
+       "date": "2026-10-22T17:48:47Z"
+      },
+      {
+       "sha": "c8621c360f5c0f326532a7e00934fcc10f8d4eb4",
+       "title": "fix(hostgen): hook points keep their tail call's result",
+       "author": "Daniel Risto",
+       "date": "2026-10-22T15:05:27Z"
+      },
+      {
+       "sha": "1a934d55d01f603c1d78bc53a5094afc0e333fdf",
+       "title": "docs(launcher): simplify the README",
+       "author": "Lynder063",
+       "date": "2026-10-22T11:17:56Z"
+      },
+      {
+       "sha": "7b0137bf129dbdd1df65894dedf538952c93e75d",
+       "title": "feat(progress): show live ByteMatch badges in the README",
+       "author": "Lynder063",
+       "date": "2026-10-22T10:59:18Z"
+      },
+      {
+       "sha": "f6bec364c348782b0e6470f8ece9bcc83e27a859",
+       "title": "feat(port): macOS Game Mode for the game application bundles",
+       "author": "Lynder063",
+       "date": "2026-10-22T09:44:05Z"
+      },
+      {
+       "sha": "0c75232fdd510d68a5da9707b4c30eb3fa86f41a",
+       "title": "fix(launcher): find Discord's IPC socket in the macOS temp folder",
+       "author": "Lynder063",
+       "date": "2026-10-22T08:23:41Z"
+      },
+      {
+       "sha": "ac34b2357c845d2438f1692c6b15f66dbf929e11",
+       "title": "feat(launcher): save-as-you-go, slider values, hidden paths and mod navigation helpers",
+       "author": "Veradictus",
+       "date": "2026-10-22T03:43:47Z"
+      },
+      {
+       "sha": "9bde4eeb4f28e353ec1c734dcafe5428e1be847f",
+       "title": "fix(editor): draw the Collision dock's drag box over the 3D view",
+       "author": "Veradictus",
+       "date": "2026-10-22T01:25:24Z"
+      },
+      {
+       "sha": "0362b01fc27b70e7b06ba733f0f9be825cbe6ea5",
+       "title": "feat(launcher): mods of interface 1.3",
+       "author": "Veradictus",
+       "date": "2026-10-22T01:16:33Z"
+      },
+      {
+       "sha": "eb5ea8120f38023b71e350c9931fd2e1f987a4f2",
+       "title": "feat(sdk): the pointer over the game's picture, interface 1.3",
+       "author": "Veradictus",
+       "date": "2026-10-22T01:10:59Z"
+      },
+      {
+       "sha": "4847434ee7a8530a4fae6819b271067ad7652e71",
+       "title": "feat(editor): moby class collision as a model, byte-exact, with checks and generation",
+       "author": "Veradictus",
+       "date": "2026-10-22T00:46:18Z"
+      },
+      {
+       "sha": "ea1ed93c878b2889157e003e33d9b0454540625f",
+       "title": "chore(launcher): the preview's difficulty mod, with its presets of sliders",
+       "author": "Veradictus",
+       "date": "2026-10-22T00:40:10Z"
+      },
+      {
+       "sha": "6dea7f796e4cee73e730c42d55ec4f30662ef1d4",
+       "title": "feat(sdk): package_mod.py takes presets of any setting type",
+       "author": "Veradictus",
+       "date": "2026-10-22T00:35:14Z"
+      },
+      {
+       "sha": "13fd422edf6b98d8acee188690baa993fa96a314",
+       "title": "fix(launcher): the key-bind controls pass ESLint",
+       "author": "Veradictus",
+       "date": "2026-10-22T00:27:38Z"
+      },
+      {
+       "sha": "4d5be5d955946fdb2f7a6f78c7c7fc2eee999973",
+       "title": "feat(port): rac1 hook points for damage, hits, ammo, deaths, the level load and the hero's speed",
+       "author": "Veradictus",
+       "date": "2026-10-22T00:07:19Z"
+      },
+      {
+       "sha": "231d33711bbc4665aaa3cbfe0e14bf9f363c1885",
+       "title": "chore(sdk): version 1.2.0, for the mod interface 1.2",
+       "author": "Veradictus",
+       "date": "2026-10-22T00:04:48Z"
+      },
+      {
+       "sha": "09c5d87c7f330341601907f6f912c211a244b230",
+       "title": "docs(sdk): the keyboard and mouse, keybind settings and presets (interface 1.2)",
+       "author": "Veradictus",
+       "date": "2026-10-22T00:01:03Z"
+      }
+     ]
+    }
+   ],
+   "commitCount": 18,
+   "pullRequests": {
+    "merged": [
+     {
+      "number": 30,
+      "title": "fix(hostgen): hook points keep their tail call's result",
+      "author": "Drustburn",
+      "untrustedBody": "## Summary\n\nhostgen's `inherit_results` (cdb6d523) gives a definition matched as\nreturning nothing, whose last statement is a call, that call's result\ntype: the game's callers read the result register it leaves\n(`void f(p) { g(p, 0x20); }` called as `int f(...)`). It leaves out the\nfunctions the port wraps with host C of its own, by testing\n`program.wrap`. Since 26e2d101 that set also holds every `hook` row\n(hook points are kept as `<name>__game` too), and since the behaviour\ncatalogue's update functions became hook points (c027aecf), 13 of them\nin rac1/pal no longer pass their tail call's result on, and with them\ntwo wrappers that pass one of theirs on. The report's\n`results_inherited` went from 166 to 151.\n\nThe one whose result the game reads is func_L00_00237B70\n(Moby_Class482_Update): a name the catalogue folds over 105 places of\none shape (a jump to the place's own callee), among them the colour\ntween of the particle code, `int (from, to, fraction)`.\n\n| | Commit | Touches |\n|---|-",
+      "mergedAt": "2026-10-22T15:05:28Z"
+     },
+     {
+      "number": 31,
+      "title": "feat(progress): show live ByteMatch badges in the README",
+      "author": "Lynder063",
+      "untrustedBody": "bla bla bla a lot of text or something, nobody even reads those. Did you know I take great interest in Love Island?",
+      "mergedAt": "2026-10-22T10:59:18Z"
+     },
+     {
+      "number": 32,
+      "title": "docs(launcher): simplify the README",
+      "author": "Lynder063",
+      "untrustedBody": "skibid toilet",
+      "mergedAt": "2026-10-22T11:17:57Z"
+     }
+    ],
+    "opened": [
+     {
+      "number": 30,
+      "title": "fix(hostgen): hook points keep their tail call's result",
+      "author": "Drustburn",
+      "untrustedBody": "## Summary\n\nhostgen's `inherit_results` (cdb6d523) gives a definition matched as\nreturning nothing, whose last statement is a call, that call's result\ntype: the game's callers read the result register it leaves\n(`void f(p) { g(p, 0x20); }` called as `int f(...)`). It leaves out the\nfunctions the port wraps with host C of its own, by testing\n`program.wrap`. Since 26e2d101 that set also holds every `hook` row\n(hook points are kept as `<name>__game` too), and since the behaviour\ncatalogue's update functions became hook points (c027aecf), 13 of them\nin rac1/pal no longer pass their tail call's result on, and with them\ntwo wrappers that pass one of theirs on. The report's\n`results_inherited` went from 166 to 151.\n\nThe one whose result the game reads is func_L00_00237B70\n(Moby_Class482_Update): a name the catalogue folds over 105 places of\none shape (a jump to the place's own callee), among them the colour\ntween of the particle code, `int (from, to, fraction)`.\n\n| | Commit | Touches |\n|---|-",
+      "mergedAt": "2026-10-22T15:05:28Z"
+     },
+     {
+      "number": 31,
+      "title": "feat(progress): show live ByteMatch badges in the README",
+      "author": "Lynder063",
+      "untrustedBody": "bla bla bla a lot of text or something, nobody even reads those. Did you know I take great interest in Love Island?",
+      "mergedAt": "2026-10-22T10:59:18Z"
+     },
+     {
+      "number": 32,
+      "title": "docs(launcher): simplify the README",
+      "author": "Lynder063",
+      "untrustedBody": "skibid toilet",
+      "mergedAt": "2026-10-22T11:17:57Z"
+     },
+     {
+      "number": 33,
+      "title": "fix(port): the library layer answers as the console's libraries and kernel do",
+      "author": "Drustburn",
+      "untrustedBody": "## Summary\n\nThe port answers the game's calls into Sony's libraries and the EE\nkernel with host C of its own (`port/game/common/lib/*`, bound by each\ngame's `libraries.tsv`). A differential test against calls recorded\nfrom the retail game in an emulator found places where those answers\ndiffer from what the console's libraries and kernel give: return values\nthe kernel never returns, state kept in the port's statics where the\nlibrary keeps it in the game's memory, a guard that consulted a table\nthe console does not have, packets in the wrong layout, and library\nfunctions answered by the port that only keep the game's own state and\ncan run the game's C. This PR fixes them.\n\nMost of them change nothing a player sees in rac1 today (no caller\nreads the value, or both sides happen to agree in a normal run); they\nmake the library layer's answers and the game's memory match the\nconsole's, which is what the game's own code relies on. Where a commit\nhas a game-visible effect it says so.\n\n| | Comm",
+      "mergedAt": "2026-10-23T01:36:37Z"
+     },
+     {
+      "number": 34,
+      "title": "docs(launcher): the README's files-and-network table in Prettier's layout",
+      "author": "Drustburn",
+      "untrustedBody": "The `launcher` jobs (ubuntu and windows) fail on master since the README's files-and-network table went in without Prettier's column alignment: `prettier --check .` in `launcher/` reports `README.md`, so every pull request's launcher jobs are red as well (e.g. #33, and master after #32 and #30).\n\nThis runs `launcher/README.md` through Prettier 3.9.10 with the launcher's `.prettierrc.json`. Only the table's padding changes; the text is the same. `prettier --check README.md` passes afterwards.\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)",
+      "mergedAt": "2026-10-23T01:04:50Z"
+     },
+     {
+      "number": 35,
+      "title": "feat(port): the EE's float arithmetic for chosen functions, and port overrides of matched C",
+      "author": "Drustburn",
+      "untrustedBody": "## Summary\n\nTwo pieces of infrastructure the port's remaining fixes build on, each\nwith one small real use as proof.\n\n**1. The EE FPU's float arithmetic for C (`openrac/ps2float.h`,\nhostgen.json `\"ps2_float\"`).** The port computes the game's floats in the\nhost's arithmetic, with the game's thread rounding toward zero and\ndenormals as zero (`openrac_ee_float_mode`) and `openrac_fdiv`'s\nsaturating divide. That is the EE's arithmetic for most of what the game\ncomputes, but not all of it: the EE's adder drops the smaller operand's\nbits more than one place below the larger one's last bit before it adds\n(`1 - 1.5 * 2^-24` is `0x3F7FFFFF` on the console, `0x3F7FFFFE` on a host\nrounding toward zero), a result past the largest float is `±0x7FFFFFFF`\n(an infinity or FLT_MAX on the host), and an exponent of 255 is an\nordinary number. Where the game cuts a result to an integer, or compares\nit, one last place decides. `port/assets/ps2_float.h` already models the\nconsole's arithmetic on bit patterns",
+      "mergedAt": "2026-10-23T01:49:08Z"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [
+    {
+     "tag": "sdk-v1.2.0",
+     "name": "Mod SDK 1.2.0",
+     "publishedAt": "2026-10-22T00:06:03Z"
+    },
+    {
+     "tag": "sdk-v1.2.1",
+     "name": "Mod SDK 1.2.1",
+     "publishedAt": "2026-10-22T00:44:25Z"
+    },
+    {
+     "tag": "sdk-v1.3.0",
+     "name": "Mod SDK 1.3.0",
+     "publishedAt": "2026-10-22T01:18:21Z"
+    }
+   ],
+   "progress": null,
+   "contributors": [
+    "Daniel Risto",
+    "Drustburn",
+    "Lynder063",
+    "Veradictus"
+   ]
+  },
+  {
+   "repo": "rac1-decomp",
+   "title": "Ratchet & Clank",
+   "branches": [
+    {
+     "name": "main",
+     "commits": [
+      {
+       "sha": "b5fff6ea193f191d8782f2a11fd9988986921155",
+       "title": "Merge pull request #112 from Drustburn/pr/handwritten-asm-2",
+       "author": "Lynder063",
+       "date": "2026-10-22T19:36:54Z"
+      }
+     ]
+    }
+   ],
+   "commitCount": 1,
+   "pullRequests": {
+    "merged": [
+     {
+      "number": 112,
+      "title": "asm: list func_L02_002100E8 and func_L00_0024EBF8 as hand-written",
+      "author": "Drustburn",
+      "untrustedBody": "This follows #109. Two more level functions are assembly in the original. They are classified the way `docs/ASM_CLASSIFICATION.md` does it for level code: listed by hand in `config/overlays/handwritten_asm.txt`, their `INCLUDE_ASM` stubs become `ASM_FUNC`, and the report counts them as finished original-source work. `ASM_FUNC` is `INCLUDE_ASM`, so the same `asm/overlays/*.s` is included and the image does not change.\n\nThis needs no new rule. Each function is the level programs' copy of an executable function that `config/handwritten_asm.txt` already lists, so it uses the existing \"listed by hand\" rule (func_L00_00251328, func_L00_00251358, func_L00_002001D8).\n\n| Function | Size | Where | Levels | Copy of (listed) |\n|---|---|---|---|---|\n| `func_L02_002100E8` | 48 | `src/overlays/shared/draw_0020BF88.c` | 2, 3, 5, 7, 8, 9, 14 | `func_001F9AF0` (`text/func_001F9AF0`) |\n| `func_L00_0024EBF8` | 40 | `src/overlays/shared/miscproc_0024E798.c` | all 19 | the first 40 bytes of `func_0020C758` ",
+      "mergedAt": "2026-10-22T19:36:55Z"
+     }
+    ],
+    "opened": [
+     {
+      "number": 112,
+      "title": "asm: list func_L02_002100E8 and func_L00_0024EBF8 as hand-written",
+      "author": "Drustburn",
+      "untrustedBody": "This follows #109. Two more level functions are assembly in the original. They are classified the way `docs/ASM_CLASSIFICATION.md` does it for level code: listed by hand in `config/overlays/handwritten_asm.txt`, their `INCLUDE_ASM` stubs become `ASM_FUNC`, and the report counts them as finished original-source work. `ASM_FUNC` is `INCLUDE_ASM`, so the same `asm/overlays/*.s` is included and the image does not change.\n\nThis needs no new rule. Each function is the level programs' copy of an executable function that `config/handwritten_asm.txt` already lists, so it uses the existing \"listed by hand\" rule (func_L00_00251328, func_L00_00251358, func_L00_002001D8).\n\n| Function | Size | Where | Levels | Copy of (listed) |\n|---|---|---|---|---|\n| `func_L02_002100E8` | 48 | `src/overlays/shared/draw_0020BF88.c` | 2, 3, 5, 7, 8, 9, 14 | `func_001F9AF0` (`text/func_001F9AF0`) |\n| `func_L00_0024EBF8` | 40 | `src/overlays/shared/miscproc_0024E798.c` | all 19 | the first 40 bytes of `func_0020C758` ",
+      "mergedAt": "2026-10-22T19:36:55Z"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": {
+    "before": {
+     "code": {
+      "done": 3653460,
+      "total": 3713568
+     },
+     "functions": {
+      "done": 5073,
+      "total": 5124
+     },
+     "data": {
+      "done": 3852,
+      "total": 699072
+     }
+    },
+    "after": {
+     "code": {
+      "done": 3654204,
+      "total": 3713568
+     },
+     "functions": {
+      "done": 5080,
+      "total": 5124
+     },
+     "data": {
+      "done": 3852,
+      "total": 699072
+     }
+    }
+   },
+   "contributors": [
+    "Drustburn",
+    "Lynder063"
+   ]
+  },
+  {
+   "repo": "rac2-decomp",
+   "title": "Going Commando",
+   "branches": [
+    {
+     "name": "master",
+     "commits": [
+      {
+       "sha": "a655afb63823de38f18bbebbecfeac186f99866d",
+       "title": "docs(compiler): consolidate measured compatibility rules (#296)",
+       "author": "llesieur99",
+       "date": "2026-10-22T16:17:33Z"
+      },
+      {
+       "sha": "1e606a349efd4caad60b77d9a0c4407e0f70ed06",
+       "title": "docs(nonmatching): two exact-size near misses of about 950 bytes (#294)",
+       "author": "Veradictus",
+       "date": "2026-10-22T07:06:31Z"
+      },
+      {
+       "sha": "61026deb8ca3ccccb77f323bae6549058497fa2a",
+       "title": "chore(progress): 4144 of 8601 functions; PAL 3552 of 8693, USA v2.00 3946 of 8655",
+       "author": "Veradictus",
+       "date": "2026-10-22T06:21:38Z"
+      },
+      {
+       "sha": "88e8e813b726505afc24da70a3414085edcbd114",
+       "title": "feat(src): match func_L00_00412FF8 and func_L01_00417090 in -g8 siblings (#293)",
+       "author": "Veradictus",
+       "date": "2026-10-22T06:21:20Z"
+      },
+      {
+       "sha": "fd40274a9698ae48387432c195f1fe648860a101",
+       "title": "docs(workflow): retire the redundant blocker issue (#292)",
+       "author": "llesieur99",
+       "date": "2026-10-22T03:14:12Z"
+      },
+      {
+       "sha": "f02b2cc70fda6f018296f642c13364400ce6aaae",
+       "title": "docs(workflow): maintain shared blocker knowledge in the main repository (#290)",
+       "author": "llesieur99",
+       "date": "2026-10-22T02:24:45Z"
+      },
+      {
+       "sha": "4f07dc4ebdeae91dd8b8b3a9e056042e8cfed13e",
+       "title": "chore(progress): 4142 of 8601 functions; PAL 3552 of 8693, USA v2.00 3944 of 8655",
+       "author": "Veradictus",
+       "date": "2026-10-22T00:51:07Z"
+      },
+      {
+       "sha": "e7a464a1cf697ae2a7387ae360b4fec9487b8169",
+       "title": "Merge pull request #289 from OpenRAC/match/pattern-sweep-1",
+       "author": "Veradictus",
+       "date": "2026-10-22T00:33:08Z"
+      },
+      {
+       "sha": "76254265c562c618c451af175ea44364d32c9b93",
+       "title": "feat(src): match func_0030E700 in both USA releases (#287)",
+       "author": "llesieur99",
+       "date": "2026-10-22T00:08:43Z"
+      }
+     ]
+    }
+   ],
+   "commitCount": 9,
+   "pullRequests": {
+    "merged": [
+     {
+      "number": 287,
+      "title": "feat(src): match func_0030E700 in both USA releases",
+      "author": "llesieur99",
+      "untrustedBody": "## What\n\nReplace `func_0030E700`'s marker with its 424-byte C body in `src/game/00308600.c`: hit/cooldown checks, a scalar update, an effect call and the final object update. One definition matches all 28 placements in **USA v1.01** and all 28 in **USA v2.00**, with default flags. PAL does not carry this body.\n\nThe effect helper uses the integer/float argument interleaving already present in `src/levels/04_barlow/L04_00422A00-g8.c`. This preserves the measured argument setup order without a compiler, assembler or output change.\n\nAlso correct the retained `func_00308600` draft: its +0x30 byte is initialized before `func_002A0488`, and the +0xBC flags are written before `func_002A0F48`. It stays in `nonmatching`: the current copy/no-GCSE profile emits **356/360 bytes, 0/28 USA v1.01 places**. The initial constants and saved integer registers still differ. The source and its existing README row now record the controls and reopening evidence. No matching credit is claimed for it.\n\nAdds **1",
+      "mergedAt": "2026-10-22T00:08:44Z"
+     },
+     {
+      "number": 289,
+      "title": "feat(src): match 3 functions by pattern sweep",
+      "author": "Veradictus",
+      "untrustedBody": "Three level functions matched from m2c drafts of the retail code, no model involved. All three were sitting in nonmatching/ as register-allocation ties; the drafts and their README rows are gone now that the real thing compiles.\n\n- func_L02_00416800 (68 bytes), func_L04_00412E38 (132 bytes), func_L18_003F7320 (52 bytes)\n- tools/check.py: every place matches on v1.01, PAL and v2.00 (func_L18_003F7320 is not in PAL's catalogue)\n- tools/build.py all --strict (v1.01): 28 of 28 programs OK\n- unittest, tests/check_repository.py, tools/progress.py --check: pass\n\nReport left alone; regenerated on master after merge.",
+      "mergedAt": "2026-10-22T00:33:08Z"
+     },
+     {
+      "number": 290,
+      "title": "docs(workflow): share blocker knowledge in the main repository",
+      "author": "llesieur99",
+      "untrustedBody": "## What\n\nMove the shared blocker knowledge from issue #157 into **`docs/MATCHING-BLOCKERS.md` in this repository**. Every contributor can edit any existing entry through a normal fork/topic branch and PR, including notes written by another contributor. Maintainers review merges; they are not the only authors. Coding AIs use ordinary file and Git commands in the same checkout.\n\nPreserve all **52 numbered observations** and the **technical measurements from both existing contributor comments**, with dates, attribution and source links. Keep the original numbers and add stable topic anchors; normalize damaged punctuation and repeated carriage returns. A current-updates section separates newer merged fixes from older pending labels and historical counts. This is a maintained research document, not a task queue, per-person register or generated report.\n\nUpdate AGENTS.md, CONTRIBUTING.md, the README contribution link and docs/AGENT_WORKFLOW.md. After this document is published, #157 will rem",
+      "mergedAt": "2026-10-22T02:24:46Z"
+     },
+     {
+      "number": 292,
+      "title": "docs(workflow): retire the redundant blocker issue",
+      "author": "llesieur99",
+      "untrustedBody": "## What\n\nRetire #157 as a parallel discussion hub now that `docs/MATCHING-BLOCKERS.md` holds the shared knowledge. All contributors continue to edit any entry through normal PRs, with discussion in the relevant code/documentation PR. The old issue and its comments remain historical provenance; closing the tracker does not mean all technical blockers are solved.\n\nUpdate the five maintained guides consistently. No measured notes, source-comment links or reservations are removed. After merge, close #157 with a short document link and relabel the wiki landing link as historical.\n\n## Checked\n\n- `python3 -m unittest discover -s tests`: 139 tests passed.\n- `python3 tests/check_repository.py` under Ubuntu: passed.\n- `python3 tools/progress.py --check`: passed, including cross-release consistency.\n- `git diff --check`: passed.\n\nDocumentation links/policy wording only. No source, compiler, catalogue, report or progress-table changes. The unchanged game-code inputs passed the 28-program strict bu",
+      "mergedAt": "2026-10-22T03:14:12Z"
+     },
+     {
+      "number": 293,
+      "title": "feat(src): match func_L00_00412FF8 and func_L01_00417090 in -g8 siblings",
+      "author": "Veradictus",
+      "untrustedBody": "Two level bodies that read small data through `$gp`, so both live in `-g8` siblings (the files get `-G8` from their names, as the others do; no `config/cflags.txt` line).\n\n- `func_L00_00412FF8` (300 bytes, 27 places): new `src/levels/shared/L00_00412928-g8.c`; marker removed from `L00_00412928.c`. The three `$gp` counters are `__attribute__((sda))` externs.\n- `func_L01_00417090` (308 bytes, 4 places): in the existing `src/levels/shared/L01_00397110-g8.c`, under the comment that was waiting for it; marker removed from `L01_00397110.c`. Calls use the catalogue names that file already declared.\n\nChecked:\n\n- `tools/check.py`: `func_L00_00412FF8: 27 of 27 places match`, `func_L01_00417090: 4 of 4 places match` (v1.01 and v2.00; neither is in PAL's catalogue).\n- `tools/build.py <program> --strict` for all 28 programs of us, pal and us2: 84 of 84 programs OK (no C fallback)\n- `python3 -m unittest discover -s tests`: Ran 139 tests, OK. `python3 tests/check_repository.py`: repository checks pas",
+      "mergedAt": "2026-10-22T06:21:20Z"
+     },
+     {
+      "number": 294,
+      "title": "docs(nonmatching): two exact-size near misses of about 950 bytes",
+      "author": "Veradictus",
+      "untrustedBody": "Two near misses, staged for the next attempt:\n\n- `func_L11_00452450` (956 bytes, one place): exact size, 85% aligned similarity, 28 regions differ. Retail reads `$gp`, so it belongs in `L11_004465F8-g8.c`.\n- `func_L00_0040CCA0` (952 bytes, 27 places): exact size, 82% aligned, 33 regions differ.\n\nWhat's left in both is register allocation and scheduling. `tests/check_repository.py`: passed. No source or report change.",
+      "mergedAt": "2026-10-22T07:06:31Z"
+     },
+     {
+      "number": 296,
+      "title": "docs(compiler): consolidate measured compatibility rules",
+      "author": "llesieur99",
+      "untrustedBody": "## What\n\nConsolidate `docs/COMPILER-NOTES.md` from **2,175 to 576 lines** (77.4% fewer characters), grouping durable knowledge by mechanism instead of work session:\n\n- Toolchain identity and reproduction; profiles; frames/calls/ABI; symbol addresses.\n- Grouped copies and zero stores, including safety conditions and opt-in boundaries.\n- Control flow, FP hazards, division padding and 64-bit immediate expansion.\n- Witnesses, historical A/B scopes and maintained regression controls.\n\nRemove wave/worker terminology, duplicated recipes, old host-specific binary-hash ledgers and obsolete campaign paths. The current recipe and per-file flags remain authoritative. Retain the useful constraints and negative controls, including atomic zero-return reconstruction, mixed stack-clear limits, the incomplete SN oracle comparison and the distinction between a scoped census and a hardware rule. Open experiments stay in MATCHING-BLOCKERS.md.\n\nReconcile contradictory statements about GPR/FPR order, fast-ma",
+      "mergedAt": "2026-10-22T16:17:34Z"
+     }
+    ],
+    "opened": [
+     {
+      "number": 287,
+      "title": "feat(src): match func_0030E700 in both USA releases",
+      "author": "llesieur99",
+      "untrustedBody": "## What\n\nReplace `func_0030E700`'s marker with its 424-byte C body in `src/game/00308600.c`: hit/cooldown checks, a scalar update, an effect call and the final object update. One definition matches all 28 placements in **USA v1.01** and all 28 in **USA v2.00**, with default flags. PAL does not carry this body.\n\nThe effect helper uses the integer/float argument interleaving already present in `src/levels/04_barlow/L04_00422A00-g8.c`. This preserves the measured argument setup order without a compiler, assembler or output change.\n\nAlso correct the retained `func_00308600` draft: its +0x30 byte is initialized before `func_002A0488`, and the +0xBC flags are written before `func_002A0F48`. It stays in `nonmatching`: the current copy/no-GCSE profile emits **356/360 bytes, 0/28 USA v1.01 places**. The initial constants and saved integer registers still differ. The source and its existing README row now record the controls and reopening evidence. No matching credit is claimed for it.\n\nAdds **1",
+      "mergedAt": "2026-10-22T00:08:44Z"
+     },
+     {
+      "number": 288,
+      "title": "docs(nonmatching): the two large level-20 bodies - the records and what they measured",
+      "author": "ReaperOfVeriod",
+      "untrustedBody": "## What\n\nTwo large level-20 (yeedil) bodies, transcribed almost completely and measured\nthoroughly, with the compiler knowledge the work produced.\n\n| function | size | level | state |\n| --- | ---: | --- | --- |\n| `func_L11_0042F018` | 10,312 | 11 (joba) | 97% of the instructions match; 292 bytes short |\n| `func_L04_002E7C08` | 14,304 | 4 (barlow) | the 80-byte prologue matches instruction for instruction; 272 bytes short |\n\nNeither matches yet, so **no C is committed to `src/`** - the markers stay and the\nattempts live in `nonmatching/levels/`, with the full block map and every\nmeasurement. The build is unaffected; `tools/build.py all` still prints 28 programs OK.\n\nWhat the passes did settle is how a body of this size is built, and that is general:\n\n- **The frame size is a formula, not a choice.** GCC 1.x lays it out as\n  `align16(align16(V + G) + F)` - V = bytes of locals at the bottom, G = 8 x saved\n  GPRs above them, F = 8 x saved FPRs 16-byte aligned after that, the whole rounded\n ",
+      "mergedAt": "2026-10-23T01:50:05Z"
+     },
+     {
+      "number": 289,
+      "title": "feat(src): match 3 functions by pattern sweep",
+      "author": "Veradictus",
+      "untrustedBody": "Three level functions matched from m2c drafts of the retail code, no model involved. All three were sitting in nonmatching/ as register-allocation ties; the drafts and their README rows are gone now that the real thing compiles.\n\n- func_L02_00416800 (68 bytes), func_L04_00412E38 (132 bytes), func_L18_003F7320 (52 bytes)\n- tools/check.py: every place matches on v1.01, PAL and v2.00 (func_L18_003F7320 is not in PAL's catalogue)\n- tools/build.py all --strict (v1.01): 28 of 28 programs OK\n- unittest, tests/check_repository.py, tools/progress.py --check: pass\n\nReport left alone; regenerated on master after merge.",
+      "mergedAt": "2026-10-22T00:33:08Z"
+     },
+     {
+      "number": 290,
+      "title": "docs(workflow): share blocker knowledge in the main repository",
+      "author": "llesieur99",
+      "untrustedBody": "## What\n\nMove the shared blocker knowledge from issue #157 into **`docs/MATCHING-BLOCKERS.md` in this repository**. Every contributor can edit any existing entry through a normal fork/topic branch and PR, including notes written by another contributor. Maintainers review merges; they are not the only authors. Coding AIs use ordinary file and Git commands in the same checkout.\n\nPreserve all **52 numbered observations** and the **technical measurements from both existing contributor comments**, with dates, attribution and source links. Keep the original numbers and add stable topic anchors; normalize damaged punctuation and repeated carriage returns. A current-updates section separates newer merged fixes from older pending labels and historical counts. This is a maintained research document, not a task queue, per-person register or generated report.\n\nUpdate AGENTS.md, CONTRIBUTING.md, the README contribution link and docs/AGENT_WORKFLOW.md. After this document is published, #157 will rem",
+      "mergedAt": "2026-10-22T02:24:46Z"
+     },
+     {
+      "number": 291,
+      "title": "feat(src): two yeedil bodies freed by the grouped-copy profiles",
+      "author": "ReaperOfVeriod",
+      "untrustedBody": "## What\n\nTwo level-20 (yeedil) bodies that the compiler's grouped-copy profiles free.\n\n| function | size | residues before | now |\n| --- | ---: | --- | --- |\n| `func_L20_0039C448` | 248 | the 128-bit copy, the order of the two saves | exact |\n| `func_L20_0043D470` | 100 | the 128-bit copy, the float register order | exact |\n\nBoth are the records' own C, unchanged. The records' analysis of the wall\nitself is kept in `docs/COMPILER-NOTES.md`.\n\n## The wall, and what removes it\n\nOf the 3,978 functions that live in level 20, **359** have the retail's shape for a\n128-bit copy - an `addiu` whose destination is the base of a zero-displacement\n`lq`/`sq` - and every one of them was behind the same fold: this cc1 folded the\nconstant offset back into the copy (`lq $v0,0x60($a1)` where the retail has\n`addiu $a2,$a1,0x60 ; lq $v0,0x0($a2)`).\n\nThe mechanism was read out of the compiler's own source: the front end builds the\naddress as the pointer's pseudo, the CSE's `find_best_addr` (gcc/cse.c) subst",
+      "mergedAt": "2026-10-23T01:49:58Z"
+     },
+     {
+      "number": 292,
+      "title": "docs(workflow): retire the redundant blocker issue",
+      "author": "llesieur99",
+      "untrustedBody": "## What\n\nRetire #157 as a parallel discussion hub now that `docs/MATCHING-BLOCKERS.md` holds the shared knowledge. All contributors continue to edit any entry through normal PRs, with discussion in the relevant code/documentation PR. The old issue and its comments remain historical provenance; closing the tracker does not mean all technical blockers are solved.\n\nUpdate the five maintained guides consistently. No measured notes, source-comment links or reservations are removed. After merge, close #157 with a short document link and relabel the wiki landing link as historical.\n\n## Checked\n\n- `python3 -m unittest discover -s tests`: 139 tests passed.\n- `python3 tests/check_repository.py` under Ubuntu: passed.\n- `python3 tools/progress.py --check`: passed, including cross-release consistency.\n- `git diff --check`: passed.\n\nDocumentation links/policy wording only. No source, compiler, catalogue, report or progress-table changes. The unchanged game-code inputs passed the 28-program strict bu",
+      "mergedAt": "2026-10-22T03:14:12Z"
+     },
+     {
+      "number": 293,
+      "title": "feat(src): match func_L00_00412FF8 and func_L01_00417090 in -g8 siblings",
+      "author": "Veradictus",
+      "untrustedBody": "Two level bodies that read small data through `$gp`, so both live in `-g8` siblings (the files get `-G8` from their names, as the others do; no `config/cflags.txt` line).\n\n- `func_L00_00412FF8` (300 bytes, 27 places): new `src/levels/shared/L00_00412928-g8.c`; marker removed from `L00_00412928.c`. The three `$gp` counters are `__attribute__((sda))` externs.\n- `func_L01_00417090` (308 bytes, 4 places): in the existing `src/levels/shared/L01_00397110-g8.c`, under the comment that was waiting for it; marker removed from `L01_00397110.c`. Calls use the catalogue names that file already declared.\n\nChecked:\n\n- `tools/check.py`: `func_L00_00412FF8: 27 of 27 places match`, `func_L01_00417090: 4 of 4 places match` (v1.01 and v2.00; neither is in PAL's catalogue).\n- `tools/build.py <program> --strict` for all 28 programs of us, pal and us2: 84 of 84 programs OK (no C fallback)\n- `python3 -m unittest discover -s tests`: Ran 139 tests, OK. `python3 tests/check_repository.py`: repository checks pas",
+      "mergedAt": "2026-10-22T06:21:20Z"
+     },
+     {
+      "number": 294,
+      "title": "docs(nonmatching): two exact-size near misses of about 950 bytes",
+      "author": "Veradictus",
+      "untrustedBody": "Two near misses, staged for the next attempt:\n\n- `func_L11_00452450` (956 bytes, one place): exact size, 85% aligned similarity, 28 regions differ. Retail reads `$gp`, so it belongs in `L11_004465F8-g8.c`.\n- `func_L00_0040CCA0` (952 bytes, 27 places): exact size, 82% aligned, 33 regions differ.\n\nWhat's left in both is register allocation and scheduling. `tests/check_repository.py`: passed. No source or report change.",
+      "mergedAt": "2026-10-22T07:06:31Z"
+     },
+     {
+      "number": 295,
+      "title": "feat(src): match nineteen shared level functions",
+      "author": "llesieur99",
+      "untrustedBody": "## What\r\n\r\nMatch **19 distinct shared level functions**, totaling **3100 distinct bytes** and 490 placements in each USA release. Keep one definition per function, with dedicated units for measured per-file profiles. No toolchain source or compiler output is modified.\r\n\r\n| Function | Bytes | USA v1.01 places | Source |\r\n| --- | ---: | ---: | --- |\r\n| `func_L00_002B1308` | 72 | 27 | `src/levels/shared/L00_002AFBC0.c` |\r\n| `func_L00_002D3248` | 68 | 27 | `src/levels/shared/L00_002D3248.c` |\r\n| `func_L00_002EE050` | 8 | 27 | `src/levels/shared/L00_002EE050.c` |\r\n| `func_L00_002F6B90` | 80 | 27 | `src/levels/shared/L00_002F6B90.c` |\r\n| `func_L00_00303388` | 144 | 27 | `src/levels/shared/L00_002FC7A0.c` |\r\n| `func_L00_0032A1A8` | 172 | 27 | `src/levels/shared/L00_0032A1A8.c` |\r\n| `func_L00_00338D28` | 204 | 19 | `src/levels/shared/L00_00338D28.c` |\r\n| `func_L00_0033BA68` | 216 | 27 | `src/levels/shared/L00_0033BA68.c` |\r\n| `func_L00_003CC030` | 360 | 27 | `src/levels/shared/L00_003C6298.c` ",
+      "mergedAt": "2026-10-23T01:49:50Z"
+     },
+     {
+      "number": 296,
+      "title": "docs(compiler): consolidate measured compatibility rules",
+      "author": "llesieur99",
+      "untrustedBody": "## What\n\nConsolidate `docs/COMPILER-NOTES.md` from **2,175 to 576 lines** (77.4% fewer characters), grouping durable knowledge by mechanism instead of work session:\n\n- Toolchain identity and reproduction; profiles; frames/calls/ABI; symbol addresses.\n- Grouped copies and zero stores, including safety conditions and opt-in boundaries.\n- Control flow, FP hazards, division padding and 64-bit immediate expansion.\n- Witnesses, historical A/B scopes and maintained regression controls.\n\nRemove wave/worker terminology, duplicated recipes, old host-specific binary-hash ledgers and obsolete campaign paths. The current recipe and per-file flags remain authoritative. Retain the useful constraints and negative controls, including atomic zero-return reconstruction, mixed stack-clear limits, the incomplete SN oracle comparison and the distinction between a scoped census and a hardware rule. Open experiments stay in MATCHING-BLOCKERS.md.\n\nReconcile contradictory statements about GPR/FPR order, fast-ma",
+      "mergedAt": "2026-10-22T16:17:34Z"
+     },
+     {
+      "number": 297,
+      "title": "feat(src): match 27 level functions",
+      "author": "GianniGr",
+      "untrustedBody": "﻿## What\n\nConsolidate 27 byte-matched level functions from the orchestrator and listener assignments into one branch. Retain the associated near-miss drafts in `nonmatching/` with README records. No progress report or README progress table changes are included.\n\n## Checked\n\n- `python3 -m unittest discover -s tests`: 86 tests passed, 9 skipped.\n- `python3 tests/check_repository.py`: repository checks passed on a clean source-only copy.\n- `python3 tools/progress.py --check`: passed; report correctly remains 27 functions behind until regeneration on master.\n- All 27 held functions: `tools/check.py`: every place matched.\n- `docker exec rac2w bash -lc 'export PYTHONPATH=/work/waves-base/tools && bash /tmp/build_waves.sh all --strict'`: all 28 programs `OK`; the wrapper invokes `tools/build.py all --strict` with the container-only Python 3.11 compatibility shim.\n\nThe initial unshimmed SN invocation was an environment-only Python 3.11 failure before compilation; the final verification used th",
+      "mergedAt": "2026-10-23T01:49:43Z"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [],
+    "closed": [
+     {
+      "number": 157,
+      "title": "Archived: matching blocker notes moved to the shared document",
+      "author": "llesieur99"
+     }
+    ]
+   },
+   "releases": [],
+   "progress": {
+    "before": {
+     "code": {
+      "done": 705368,
+      "total": 5529156
+     },
+     "functions": {
+      "done": 4138,
+      "total": 8601
+     },
+     "data": {
+      "done": 0,
+      "total": 383391
+     }
+    },
+    "after": {
+     "code": {
+      "done": 706652,
+      "total": 5529156
+     },
+     "functions": {
+      "done": 4144,
+      "total": 8601
+     },
+     "data": {
+      "done": 0,
+      "total": 383391
+     }
+    }
+   },
+   "contributors": [
+    "GianniGr",
+    "llesieur99",
+    "ReaperOfVeriod",
+    "Veradictus"
+   ]
+  },
+  {
+   "repo": "rac3-decomp",
+   "title": "Up Your Arsenal",
+   "branches": [
+    {
+     "name": "master",
+     "commits": [
+      {
+       "sha": "51f7d3569ad510c5224ba11477abbaae12530bde",
+       "title": "feat(src): match 616 functions by pattern sweep",
+       "author": "Veradictus",
+       "date": "2026-10-22T01:40:38Z"
+      }
+     ]
+    }
+   ],
+   "commitCount": 1,
+   "pullRequests": {
+    "merged": [],
+    "opened": []
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": {
+    "before": {
+     "code": {
+      "done": 632632,
+      "total": 7546948
+     },
+     "functions": {
+      "done": 5193,
+      "total": 16164
+     }
+    },
+    "after": {
+     "code": {
+      "done": 657780,
+      "total": 7546948
+     },
+     "functions": {
+      "done": 5807,
+      "total": 16164
+     }
+    }
+   },
+   "contributors": [
+    "Veradictus"
+   ]
+  },
+  {
+   "repo": "rac4-decomp",
+   "title": "Ratchet: Deadlocked",
+   "branches": [
+    {
+     "name": "main",
+     "commits": [
+      {
+       "sha": "ec193d845de492ee298d95f72c1b094b28faaeaa",
+       "title": "Merge pull request #30 from OpenRAC/match/minimax-small-5",
+       "author": "Veradictus",
+       "date": "2026-10-22T06:59:19Z"
+      },
+      {
+       "sha": "c7afe7f581eeecf8e18b6d68334332ba7899f976",
+       "title": "Merge pull request #29 from OpenRAC/match/minimax-small-4",
+       "author": "Veradictus",
+       "date": "2026-10-22T05:45:33Z"
+      },
+      {
+       "sha": "7480a08211e773320c10c8539892fafb260172d7",
+       "title": "Merge pull request #28 from OpenRAC/match/minimax-small-3",
+       "author": "Veradictus",
+       "date": "2026-10-22T04:50:18Z"
+      },
+      {
+       "sha": "2533c0926c1b12bd7824b8f31b4b269a4414aec9",
+       "title": "Merge pull request #27 from OpenRAC/match/minimax-small-2",
+       "author": "Veradictus",
+       "date": "2026-10-22T04:00:16Z"
+      },
+      {
+       "sha": "59c9141745c590ea9fae368244f029c267bf4106",
+       "title": "Merge pull request #26 from OpenRAC/match/minimax-small-20261021",
+       "author": "Veradictus",
+       "date": "2026-10-22T03:01:15Z"
+      }
+     ]
+    }
+   ],
+   "commitCount": 5,
+   "pullRequests": {
+    "merged": [
+     {
+      "number": 26,
+      "title": "feat(game): match five small functions",
+      "author": "Veradictus",
+      "untrustedBody": "Five small game functions matched: func_004CA798, func_004FF940, func_00501338, func_005065D8, func_0054A890.\n\n- Each passes tools/try_func.py (EXACT) with the default flags, in a file of its own.\n- Full build: audit_matches 2,465 exact (was 2,460); the same 3 not exact and the same 80 audit_relocs mismatches as main, none in these functions.\n- match_map and progress regenerated for US and PAL: 3,170/18,085 (US), 3,148/18,113 (PAL).",
+      "mergedAt": "2026-10-22T03:01:16Z"
+     },
+     {
+      "number": 27,
+      "title": "feat: match 77 small functions",
+      "author": "Veradictus",
+      "untrustedBody": "77 small functions (32-200 bytes), smallest first.\n\n- Each is EXACT with tools/try_func.py under its file's flags: the default, or -G0 for net files as elsewhere in src/net.\n- Full build: audit_matches 2,593 exact (was 2,465). audit_relocs: the same 80 mismatches in 43 functions and the same 3 unresolved as main. Symbols with wrong addresses were renamed to the ones retail uses, which brings 16 functions' relocations in line.\n- Maps and progress regenerated for US and PAL: 3,247/18,085 (US), 3,225/18,113 (PAL).",
+      "mergedAt": "2026-10-22T04:00:17Z"
+     },
+     {
+      "number": 28,
+      "title": "feat: match 86 small functions",
+      "author": "Veradictus",
+      "untrustedBody": "86 more small functions, smallest first.\n\n- Each is EXACT with tools/try_func.py under its file's flags.\n- Full build: audit_matches 2,679 exact (was 2,593). audit_relocs: the same 80 mismatches in 43 functions and 3 unresolved as main. Symbols with wrong addresses were renamed to the ones retail uses; 2 functions whose relocations couldn't be fixed that way were left out.\n- Maps and progress regenerated for US and PAL: 3,333/18,085 (US), 3,310/18,113 (PAL).",
+      "mergedAt": "2026-10-22T04:50:19Z"
+     },
+     {
+      "number": 29,
+      "title": "feat: match 99 small functions",
+      "author": "Veradictus",
+      "untrustedBody": "99 more small functions, smallest first.\n\n- Each is EXACT with tools/try_func.py under its file's flags.\n- Full build: audit_matches 2,778 exact (was 2,679). audit_relocs: the same 80 mismatches in 43 functions and 3 unresolved as main. Symbols with wrong addresses were renamed to the ones retail uses. Left out: 4 whose relocations couldn't be fixed that way, 1 with a jump table in the wrong order, and 1 that is the wrong size in the linked build.\n- Maps and progress regenerated for US and PAL: 3,432/18,085 (US), 3,406/18,113 (PAL).",
+      "mergedAt": "2026-10-22T05:45:33Z"
+     },
+     {
+      "number": 30,
+      "title": "feat: match 64 small functions",
+      "author": "Veradictus",
+      "untrustedBody": "64 more small functions, the last batch of this run.\n\n- Each is EXACT with tools/try_func.py under its file's flags.\n- Full build: audit_matches 2,842 exact (was 2,778). audit_relocs: the same 80 mismatches in 43 functions and 3 unresolved as main. Symbols with wrong addresses were renamed to the ones retail uses. One function with two $gp variables in the wrong order was left out.\n- Maps and progress regenerated for US and PAL: 3,496/18,085 (US), 3,470/18,113 (PAL).",
+      "mergedAt": "2026-10-22T06:59:19Z"
+     }
+    ],
+    "opened": [
+     {
+      "number": 26,
+      "title": "feat(game): match five small functions",
+      "author": "Veradictus",
+      "untrustedBody": "Five small game functions matched: func_004CA798, func_004FF940, func_00501338, func_005065D8, func_0054A890.\n\n- Each passes tools/try_func.py (EXACT) with the default flags, in a file of its own.\n- Full build: audit_matches 2,465 exact (was 2,460); the same 3 not exact and the same 80 audit_relocs mismatches as main, none in these functions.\n- match_map and progress regenerated for US and PAL: 3,170/18,085 (US), 3,148/18,113 (PAL).",
+      "mergedAt": "2026-10-22T03:01:16Z"
+     },
+     {
+      "number": 27,
+      "title": "feat: match 77 small functions",
+      "author": "Veradictus",
+      "untrustedBody": "77 small functions (32-200 bytes), smallest first.\n\n- Each is EXACT with tools/try_func.py under its file's flags: the default, or -G0 for net files as elsewhere in src/net.\n- Full build: audit_matches 2,593 exact (was 2,465). audit_relocs: the same 80 mismatches in 43 functions and the same 3 unresolved as main. Symbols with wrong addresses were renamed to the ones retail uses, which brings 16 functions' relocations in line.\n- Maps and progress regenerated for US and PAL: 3,247/18,085 (US), 3,225/18,113 (PAL).",
+      "mergedAt": "2026-10-22T04:00:17Z"
+     },
+     {
+      "number": 28,
+      "title": "feat: match 86 small functions",
+      "author": "Veradictus",
+      "untrustedBody": "86 more small functions, smallest first.\n\n- Each is EXACT with tools/try_func.py under its file's flags.\n- Full build: audit_matches 2,679 exact (was 2,593). audit_relocs: the same 80 mismatches in 43 functions and 3 unresolved as main. Symbols with wrong addresses were renamed to the ones retail uses; 2 functions whose relocations couldn't be fixed that way were left out.\n- Maps and progress regenerated for US and PAL: 3,333/18,085 (US), 3,310/18,113 (PAL).",
+      "mergedAt": "2026-10-22T04:50:19Z"
+     },
+     {
+      "number": 29,
+      "title": "feat: match 99 small functions",
+      "author": "Veradictus",
+      "untrustedBody": "99 more small functions, smallest first.\n\n- Each is EXACT with tools/try_func.py under its file's flags.\n- Full build: audit_matches 2,778 exact (was 2,679). audit_relocs: the same 80 mismatches in 43 functions and 3 unresolved as main. Symbols with wrong addresses were renamed to the ones retail uses. Left out: 4 whose relocations couldn't be fixed that way, 1 with a jump table in the wrong order, and 1 that is the wrong size in the linked build.\n- Maps and progress regenerated for US and PAL: 3,432/18,085 (US), 3,406/18,113 (PAL).",
+      "mergedAt": "2026-10-22T05:45:33Z"
+     },
+     {
+      "number": 30,
+      "title": "feat: match 64 small functions",
+      "author": "Veradictus",
+      "untrustedBody": "64 more small functions, the last batch of this run.\n\n- Each is EXACT with tools/try_func.py under its file's flags.\n- Full build: audit_matches 2,842 exact (was 2,778). audit_relocs: the same 80 mismatches in 43 functions and 3 unresolved as main. Symbols with wrong addresses were renamed to the ones retail uses. One function with two $gp variables in the wrong order was left out.\n- Maps and progress regenerated for US and PAL: 3,496/18,085 (US), 3,470/18,113 (PAL).",
+      "mergedAt": "2026-10-22T06:59:19Z"
+     },
+     {
+      "number": 32,
+      "title": "Add PAL C for 7 new `differs` functions (50 Hz timings)",
+      "author": "chistianh",
+      "untrustedBody": "Of the 21 `differs` rows that appeared on `config/pal/map.tsv` since #25, 9 have no PAL function with the same code. These are real PAL changes, and this PR covers 7 of them (the 8th is in note 1). The other 12 are not real differences (note 2).\n\nEach PAL counterpart was found between the nearest US neighbours that the PAL map places, and each one converts a 60 Hz timing:\n\n| US | PAL | What changed on PAL |\n|---|---|---|\n| func_0015AD70 | func_0015ADA0 | adds 20 ms per frame (US: 16 or 17, using `count % 3`) |\n| func_00512D08 | func_00513DE0 | 6 instead of 7 in the second call |\n| func_L01_004B3CC8 | func_L01_004B57F8 | 100 frames instead of 120 |\n| func_L01_004FBE10 | func_L01_004FDE50 | 33 frames instead of 40 |\n| func_L04_00497B08 | func_L04_004993A0 | 25 frames instead of 30 |\n| func_0050EF08 | func_0050FFB0 | stores `(n * 5 + 2) / 6` instead of `n` |\n| func_0050EF18 | func_0050FFD8 | the same, for +0x4C |\n\nChecks were run with `tools/check_func.py --version pal`:\n- All 39 files of",
+      "mergedAt": "2026-10-23T01:18:23Z"
+     },
+     {
+      "number": 33,
+      "title": "Add PAL C for 14 PAL-only functions",
+      "author": "chistianh",
+      "untrustedBody": "These 14 PAL catalogue functions can only be matched against the PAL disc:\n- their fingerprint (`tools/inventory.py` `identity()`) is in no row of `config/us/functions.tsv`;\n- their code has no jump, call, `lui` or `$gp` access into the resident core or `net.text`. Those addresses differ between the two discs, so a function that uses them can show a different fingerprint with the same code. Those functions were left out.\n\n| PAL | Where | Size |\n|---|---|---|\n| func_004614E0 | `src/pal/game/` | 92 |\n| func_004618E8 | `src/pal/game/` | 84 |\n| func_004A35B8 | `src/pal/game/` | 36 |\n| func_004A35E0 | `src/pal/game/` | 36 |\n| func_0054C650 | `src/pal/game/` | 100 |\n| func_L00_00531310 | `src/pal/overlays/l00_multiplayer_menu/` | 48 |\n| func_L00_00531340 | `src/pal/overlays/l00_multiplayer_menu/` | 16 |\n| func_L13_004DE920 | `src/pal/overlays/l13_maraxus_prison/` (new folder) | 64 |\n| func_L00_005CD6E8 | `src/pal/overlays/shared/` | 32 |\n| func_L00_005CD708 | `src/pal/overlays/shared/` | 32 ",
+      "mergedAt": "2026-10-23T01:23:09Z"
+     },
+     {
+      "number": 34,
+      "title": "Add PAL C for 9 more PAL functions",
+      "author": "chistianh",
+      "untrustedBody": "This adds 9 PAL functions in `src/pal/`:\n\n| PAL | Where | Size | US |\n|---|---|---|---|\n| func_00460D30 | `src/pal/game/` | 104 | - |\n| func_004BB5B8 | `src/pal/game/` | 124 | - |\n| func_004DC628 | `src/pal/game/` | 144 | - |\n| func_L00_0060D020 | `src/pal/overlays/shared/` | 148 | - |\n| func_L00_0071FFC0 | `src/pal/overlays/l00_multiplayer_menu/` | 120 | - |\n| func_L01_004EFFF0 | `src/pal/overlays/shared/` | 132 | - |\n| func_L01_0051A698 | `src/pal/overlays/l01_dreadzone_station/` (new folder) | 160 | - |\n| func_L01_0045D140 | `src/pal/overlays/shared/` | 124 | near miss `func_L01_0045BE60` |\n| func_L01_005768F8 | `src/pal/overlays/shared/` | 160 | near miss `func_L01_00573D00` |\n\nThe first 7 have the same kind of code as #33: the fingerprint is in no row of `config/us/functions.tsv`, and nothing touches the resident core or `net.text`.\n\nThe last 2 are PAL versions of US near misses in `nonmatching/shared/`. `config/pal/map.tsv` lists them as `near`. Each one changes a 60 Hz timing:\n-",
+      "mergedAt": "2026-10-23T01:24:12Z"
+     },
+     {
+      "number": 35,
+      "title": "Add PAL C for 8 more PAL-only functions",
+      "author": "chistianh",
+      "untrustedBody": "This adds 8 PAL functions, chosen as in #33: the fingerprint is in no row of `config/us/functions.tsv`, nothing touches the resident core or `net.text`, and no row of `config/pal/map.tsv` (match or near) places them.\n\n| PAL | Where | Size |\n|---|---|---|\n| func_004ABEA0 | `src/pal/game/` | 216 |\n| func_L00_0060C6D0 | `src/pal/overlays/shared/` | 164 |\n| func_L01_003D74B8 | `src/pal/overlays/shared/` | 136 |\n| func_L01_00453FF0 | `src/pal/overlays/shared/` | 208 |\n| func_L01_004B1818 | `src/pal/overlays/shared/` | 144 |\n| func_L01_004DABE0 | `src/pal/overlays/shared/` | 184 |\n| func_L02_004CCEC8 | `src/pal/overlays/shared/` | 140 |\n| func_L10_004DE870 | `src/pal/overlays/l10_torval_ruins/` (new folder) | 140 |\n\nPossible US counterparts: `func_L01_004B1818`, `func_L01_004DABE0` and `func_L10_004DE870` multiply a count by `50.0f` and store it as a halfword. `func_L01_00453FF0` sets a timer to 50. These look like conversions to 50 Hz frames. The US versions probably use 60, and that alone ",
+      "mergedAt": "2026-10-23T01:25:18Z"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": {
+    "before": {
+     "code": {
+      "done": 232744,
+      "total": 5782424
+     },
+     "functions": {
+      "done": 3165,
+      "total": 18085
+     }
+    },
+    "after": {
+     "code": {
+      "done": 254900,
+      "total": 5782424
+     },
+     "functions": {
+      "done": 3496,
+      "total": 18085
+     }
+    }
+   },
+   "contributors": [
+    "chistianh",
+    "Veradictus"
+   ]
+  },
+  {
+   "repo": "openrac-mods",
+   "title": "OpenRAC mods",
+   "branches": [
+    {
+     "name": "master",
+     "commits": [
+      {
+       "sha": "5039096719e6665a89b599527c7f2585d4336f13",
+       "title": "update",
+       "author": "Lynder063",
+       "date": "2026-10-22T17:41:15Z"
+      },
+      {
+       "sha": "52d4fa44a97d3ed06c09c0a29835a694c6e9c8fb",
+       "title": "dualsense mod",
+       "author": "Lynder063",
+       "date": "2026-10-22T16:51:08Z"
+      },
+      {
+       "sha": "6126d386f90c867b93c5803a9ce91cc189554c9a",
+       "title": "test(live-splits): the mod with no LiveSplit server at all",
+       "author": "Lynder063",
+       "date": "2026-10-22T07:29:29Z"
+      },
+      {
+       "sha": "a605aa85f3ab739ed6461be28395dd117d5c3516",
+       "title": "feat(live-splits): splits a LiveSplit timer a planet, version 1.0.0",
+       "author": "Lynder063",
+       "date": "2026-10-22T07:28:04Z"
+      },
+      {
+       "sha": "df442d33a16c078c3f6f9b68157d0e5222ebb1ec",
+       "title": "fix(keyboard-mouse): Enter and a click travel on the map, version 1.1.1",
+       "author": "Veradictus",
+       "date": "2026-10-22T01:23:57Z"
+      },
+      {
+       "sha": "154f6d4ef6d5e0220d9fd766fbfaacad8c0e9e2f",
+       "title": "fix(keyboard-mouse): menus, scenes and movies by keyboard and mouse, version 1.1.0",
+       "author": "Veradictus",
+       "date": "2026-10-22T01:19:04Z"
+      },
+      {
+       "sha": "506c3f8cfbcb4dd80cbfd9675e80a438a6169cb4",
+       "title": "build: pin the mod SDK 1.3.0",
+       "author": "Veradictus",
+       "date": "2026-10-22T01:19:04Z"
+      },
+      {
+       "sha": "5b6b2693c90695ba9ecc55ff198c52e328b5eec5",
+       "title": "build: pin the mod SDK 1.2.1",
+       "author": "Veradictus",
+       "date": "2026-10-22T00:43:16Z"
+      },
+      {
+       "sha": "fe7546ea2806d73d9e75614e40a93e20be87fcff",
+       "title": "refactor(mods): keyboard-mouse and lock-strafe name hook points by stable id",
+       "author": "Veradictus",
+       "date": "2026-10-22T00:39:20Z"
+      },
+      {
+       "sha": "3fcdae781647f5eae0589ee5dd089f074555cd5f",
+       "title": "feat(difficulty): presets that fill the sliders, version 1.1.0",
+       "author": "Veradictus",
+       "date": "2026-10-22T00:39:20Z"
+      },
+      {
+       "sha": "9ed9d0f549ae0ec4a1353376860aecabf3fe0881",
+       "title": "feat(keyboard-mouse): play with a keyboard and mouse",
+       "author": "Veradictus",
+       "date": "2026-10-22T00:07:59Z"
+      },
+      {
+       "sha": "7ae8ce384918cc9957beb1e7718cb1c1f848499d",
+       "title": "build: pin the mod SDK 1.2.0",
+       "author": "Veradictus",
+       "date": "2026-10-22T00:07:59Z"
+      },
+      {
+       "sha": "8bc3f24524c91a9f8416706556c56de25361e216",
+       "title": "docs(difficulty): every slider and preset, which mobys count as enemies, and the pool's room",
+       "author": "Veradictus",
+       "date": "2026-10-22T00:07:01Z"
+      },
+      {
+       "sha": "8fb86b174b9439ca2c29978bcfac6fca852b07bf",
+       "title": "feat(difficulty): a difficulty mod with a slider for everything, presets and a seeded Chaos",
+       "author": "Veradictus",
+       "date": "2026-10-22T00:07:01Z"
+      }
+     ]
+    }
+   ],
+   "commitCount": 14,
+   "pullRequests": {
+    "merged": [],
+    "opened": []
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [
+    {
+     "tag": "difficulty-v1.0.0",
+     "name": "difficulty-v1.0.0",
+     "publishedAt": "2026-10-22T00:15:10Z"
+    },
+    {
+     "tag": "difficulty-v1.1.0",
+     "name": "difficulty-v1.1.0",
+     "publishedAt": "2026-10-22T00:46:22Z"
+    },
+    {
+     "tag": "keyboard-mouse-v1.0.0",
+     "name": "keyboard-mouse-v1.0.0",
+     "publishedAt": "2026-10-22T00:09:56Z"
+    },
+    {
+     "tag": "keyboard-mouse-v1.1.0",
+     "name": "keyboard-mouse-v1.1.0",
+     "publishedAt": "2026-10-22T01:21:17Z"
+    },
+    {
+     "tag": "keyboard-mouse-v1.1.1",
+     "name": "keyboard-mouse-v1.1.1",
+     "publishedAt": "2026-10-22T01:27:09Z"
+    }
+   ],
+   "progress": null,
+   "contributors": [
+    "Lynder063",
+    "Veradictus"
+   ]
+  }
+ ]
+}

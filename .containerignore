@@ -6,6 +6,11 @@ node_modules
 .env*
 deploy
 scripts
+# Only the news data goes into the image, not its tools.
+news/tools
+news/config
+news/prompts
+news/*.md
 coverage
 *.log
 *.md

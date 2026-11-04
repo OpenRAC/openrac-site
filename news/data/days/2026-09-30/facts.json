@@ -1,0 +1,235 @@
+{
+ "format": 1,
+ "date": "2026-09-30",
+ "totals": {
+  "commits": 3,
+  "pullRequestsMerged": 3,
+  "pullRequestsOpened": 3,
+  "contributors": 2
+ },
+ "projects": [
+  {
+   "repo": "OpenRAC",
+   "title": "OpenRAC launcher",
+   "branches": [
+    {
+     "name": "develop",
+     "commits": []
+    },
+    {
+     "name": "master",
+     "commits": []
+    }
+   ],
+   "commitCount": 0,
+   "pullRequests": {
+    "merged": [],
+    "opened": []
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": null,
+   "contributors": []
+  },
+  {
+   "repo": "rac1-decomp",
+   "title": "Ratchet & Clank",
+   "branches": [
+    {
+     "name": "main",
+     "commits": [
+      {
+       "sha": "8e3593b93ac160ef06b3e64add552e468b0e19cd",
+       "title": "Merge pull request #12 from Veradictus/main",
+       "author": "Lynder063",
+       "date": "2026-09-30T17:08:01Z"
+      },
+      {
+       "sha": "4060048fb1dc5bb9bf80f380d1cf7858692e23ef",
+       "title": "Merge pull request #11 from Lynder063/refactor/planet-levels-and-names",
+       "author": "Lynder063",
+       "date": "2026-09-30T15:22:55Z"
+      },
+      {
+       "sha": "c7e8326ca3b25d8c3f2c23f0558947fb51bb8080",
+       "title": "Merge pull request #10 from Veradictus/main",
+       "author": "Lynder063",
+       "date": "2026-09-30T09:12:16Z"
+      }
+     ]
+    }
+   ],
+   "commitCount": 3,
+   "pullRequests": {
+    "merged": [
+     {
+      "number": 10,
+      "title": "feat(overlays): 76 level-specific exact matches across 17 levels",
+      "author": "Veradictus",
+      "untrustedBody": "## Summary\r\n\r\n76 more functions that exist in only one level, matched (8,144 bytes).\r\nThey cover every level from 01 to 18 except 14.\r\n\r\n| Level | Functions | Bytes |\r\n|---|---|---|\r\n| 01 | 5 | 368 |\r\n| 02 | 6 | 688 |\r\n| 03 | 6 | 488 |\r\n| 04 | 3 | 240 |\r\n| 05 | 2 | 156 |\r\n| 06 | 3 | 184 |\r\n| 07 | 7 | 740 |\r\n| 08 | 2 | 212 |\r\n| 09 | 2 | 256 |\r\n| 10 | 1 | 144 |\r\n| 11 | 14 | 1,408 |\r\n| 12 | 8 | 912 |\r\n| 13 | 4 | 620 |\r\n| 15 | 1 | 140 |\r\n| 16 | 1 | 72 |\r\n| 17 | 3 | 552 |\r\n| 18 | 8 | 964 |\r\n\r\nThey range from 16 to 244 bytes. Most are moby spawners and state\r\nhandlers, written in plain C (`qcopy()` for the vector copies, no pins,\r\nbarriers or inline asm).\r\n\r\n## Progress\r\n\r\n| | Before | After |\r\n|---|---|---|\r\n| Headline (functions) | 1,623 / 4,987 | 1,699 / 4,987 |\r\n| Headline (code) | 7.97% | 8.19% |\r\n| Level code | 1.04% | 1.30% |\r\n| Level-specific code | 1,620 bytes (0.08%) | 9,764 bytes (0.48%) |\r\n| Common level code | 2.68% | 2.68% |\r\n\r\nOnly `src/overlays/lNN/` and `progress/report.json",
+      "mergedAt": "2026-09-30T09:12:17Z"
+     },
+     {
+      "number": 11,
+      "title": "Planet-named level dirs, readable symbol names (names.h), overlay regression fix",
+      "author": "Lynder063",
+      "untrustedBody": "## Summary\n\n- **Levels:** each `src/overlays/lNN/` directory is renamed to `lNN_<planet>/`. The mapping lives in one table, `tools/levels.py`, and `overlay_src.py` and `gen_progress_report.py` read it. Symbols and baserom paths keep the number.\n- **Names:** a new `config/names.tsv` names 1027 symbols. The generated `include/names.h` provides 399 macros that map readable names onto the `func_`/`D_` address names. `tools/names.py apply` rewrote 961 uses inside function bodies. Definitions, declarations and stubs keep their address names, so no tool is affected.\n- **Fix:** `func_L00_00265558` had regressed to 88/96 bytes in its file, which made `gen_progress_report.py --check` fail on `main`. Both it and `func_L00_002653A0` are now exact.\n- **Tool fix:** `tools/lombyte.py map` crashed on `func_LNN_` names and would misalign on Lombyte's new overlay units.\n- **Docs:** added `docs/NAMES.md` and an OVERLAYS.md \"Levels\" section. SIBLING_DECOMPS.md gains RC1, including the per-object compiler ",
+      "mergedAt": "2026-09-30T15:22:55Z"
+     },
+     {
+      "number": 12,
+      "title": "feat(overlays): 156 level-code matches, variant catalogue, queue-wave workflow",
+      "author": "Veradictus",
+      "untrustedBody": "## Summary\r\n\r\n156 more level functions matched (30,944 bytes), a catalogue that tells\r\napart functions differing only in a constant, and the agent workflow that\r\nproduced most of the matches, documented in full. Your main is merged in\r\n(planet directories, `names.h`, the movie revert and the rule on sources).\r\n\r\n## Matches\r\n\r\n| Source | Functions |\r\n|---|---|\r\n| Sonnet queue workers, five waves | 84 |\r\n| Cloned from matched functions with no model (`overlay_variants.py clone`) | 52 |\r\n| A second agent, verified here | 20 |\r\n\r\nEvery function passes the strict overlay check in its landed file. One\r\nworker match was rejected at review (it read an unassigned local).\r\n\r\n## Progress\r\n\r\n| | Before | After |\r\n|---|---|---|\r\n| Functions | 1,621 / 4,987 | 1,777 / 5,111 |\r\n| Code | 7.93% | 8.72% |\r\n| Level code | 1.30% | 2.24% |\r\n| Common level code | 2.68% | 3.58% |\r\n| Level-specific code | 0.48% | 1.45% |\r\n| Executable | 53.88% | 53.88% |\r\n\r\nThe function total grows by 124 because of the catalo",
+      "mergedAt": "2026-09-30T17:08:02Z"
+     }
+    ],
+    "opened": [
+     {
+      "number": 10,
+      "title": "feat(overlays): 76 level-specific exact matches across 17 levels",
+      "author": "Veradictus",
+      "untrustedBody": "## Summary\r\n\r\n76 more functions that exist in only one level, matched (8,144 bytes).\r\nThey cover every level from 01 to 18 except 14.\r\n\r\n| Level | Functions | Bytes |\r\n|---|---|---|\r\n| 01 | 5 | 368 |\r\n| 02 | 6 | 688 |\r\n| 03 | 6 | 488 |\r\n| 04 | 3 | 240 |\r\n| 05 | 2 | 156 |\r\n| 06 | 3 | 184 |\r\n| 07 | 7 | 740 |\r\n| 08 | 2 | 212 |\r\n| 09 | 2 | 256 |\r\n| 10 | 1 | 144 |\r\n| 11 | 14 | 1,408 |\r\n| 12 | 8 | 912 |\r\n| 13 | 4 | 620 |\r\n| 15 | 1 | 140 |\r\n| 16 | 1 | 72 |\r\n| 17 | 3 | 552 |\r\n| 18 | 8 | 964 |\r\n\r\nThey range from 16 to 244 bytes. Most are moby spawners and state\r\nhandlers, written in plain C (`qcopy()` for the vector copies, no pins,\r\nbarriers or inline asm).\r\n\r\n## Progress\r\n\r\n| | Before | After |\r\n|---|---|---|\r\n| Headline (functions) | 1,623 / 4,987 | 1,699 / 4,987 |\r\n| Headline (code) | 7.97% | 8.19% |\r\n| Level code | 1.04% | 1.30% |\r\n| Level-specific code | 1,620 bytes (0.08%) | 9,764 bytes (0.48%) |\r\n| Common level code | 2.68% | 2.68% |\r\n\r\nOnly `src/overlays/lNN/` and `progress/report.json",
+      "mergedAt": "2026-09-30T09:12:17Z"
+     },
+     {
+      "number": 11,
+      "title": "Planet-named level dirs, readable symbol names (names.h), overlay regression fix",
+      "author": "Lynder063",
+      "untrustedBody": "## Summary\n\n- **Levels:** each `src/overlays/lNN/` directory is renamed to `lNN_<planet>/`. The mapping lives in one table, `tools/levels.py`, and `overlay_src.py` and `gen_progress_report.py` read it. Symbols and baserom paths keep the number.\n- **Names:** a new `config/names.tsv` names 1027 symbols. The generated `include/names.h` provides 399 macros that map readable names onto the `func_`/`D_` address names. `tools/names.py apply` rewrote 961 uses inside function bodies. Definitions, declarations and stubs keep their address names, so no tool is affected.\n- **Fix:** `func_L00_00265558` had regressed to 88/96 bytes in its file, which made `gen_progress_report.py --check` fail on `main`. Both it and `func_L00_002653A0` are now exact.\n- **Tool fix:** `tools/lombyte.py map` crashed on `func_LNN_` names and would misalign on Lombyte's new overlay units.\n- **Docs:** added `docs/NAMES.md` and an OVERLAYS.md \"Levels\" section. SIBLING_DECOMPS.md gains RC1, including the per-object compiler ",
+      "mergedAt": "2026-09-30T15:22:55Z"
+     },
+     {
+      "number": 12,
+      "title": "feat(overlays): 156 level-code matches, variant catalogue, queue-wave workflow",
+      "author": "Veradictus",
+      "untrustedBody": "## Summary\r\n\r\n156 more level functions matched (30,944 bytes), a catalogue that tells\r\napart functions differing only in a constant, and the agent workflow that\r\nproduced most of the matches, documented in full. Your main is merged in\r\n(planet directories, `names.h`, the movie revert and the rule on sources).\r\n\r\n## Matches\r\n\r\n| Source | Functions |\r\n|---|---|\r\n| Sonnet queue workers, five waves | 84 |\r\n| Cloned from matched functions with no model (`overlay_variants.py clone`) | 52 |\r\n| A second agent, verified here | 20 |\r\n\r\nEvery function passes the strict overlay check in its landed file. One\r\nworker match was rejected at review (it read an unassigned local).\r\n\r\n## Progress\r\n\r\n| | Before | After |\r\n|---|---|---|\r\n| Functions | 1,621 / 4,987 | 1,777 / 5,111 |\r\n| Code | 7.93% | 8.72% |\r\n| Level code | 1.30% | 2.24% |\r\n| Common level code | 2.68% | 3.58% |\r\n| Level-specific code | 0.48% | 1.45% |\r\n| Executable | 53.88% | 53.88% |\r\n\r\nThe function total grows by 124 because of the catalo",
+      "mergedAt": "2026-09-30T17:08:02Z"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": {
+    "before": {
+     "code": {
+      "done": 294196,
+      "total": 3692336
+     },
+     "functions": {
+      "done": 1623,
+      "total": 4987
+     }
+    },
+    "after": {
+     "code": {
+      "done": 323648,
+      "total": 3713628
+     },
+     "functions": {
+      "done": 1777,
+      "total": 5111
+     }
+    }
+   },
+   "contributors": [
+    "Lynder063",
+    "Veradictus"
+   ]
+  },
+  {
+   "repo": "rac2-decomp",
+   "title": "Going Commando",
+   "branches": [
+    {
+     "name": "master",
+     "commits": []
+    }
+   ],
+   "commitCount": 0,
+   "pullRequests": {
+    "merged": [],
+    "opened": []
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": null,
+   "contributors": []
+  },
+  {
+   "repo": "rac3-decomp",
+   "title": "Up Your Arsenal",
+   "branches": [
+    {
+     "name": "master",
+     "commits": []
+    }
+   ],
+   "commitCount": 0,
+   "pullRequests": {
+    "merged": [],
+    "opened": []
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": null,
+   "contributors": []
+  },
+  {
+   "repo": "rac4-decomp",
+   "title": "Ratchet: Deadlocked",
+   "branches": [
+    {
+     "name": "main",
+     "commits": []
+    }
+   ],
+   "commitCount": 0,
+   "pullRequests": {
+    "merged": [],
+    "opened": []
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": null,
+   "contributors": []
+  },
+  {
+   "repo": "openrac-mods",
+   "title": "OpenRAC mods",
+   "branches": [
+    {
+     "name": "master",
+     "commits": []
+    }
+   ],
+   "commitCount": 0,
+   "pullRequests": {
+    "merged": [],
+    "opened": []
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": null,
+   "contributors": []
+  }
+ ]
+}
