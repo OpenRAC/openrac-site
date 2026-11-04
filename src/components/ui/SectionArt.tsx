@@ -72,6 +72,17 @@ const ART: Record<string, ReactNode> = {
     </>
   ),
   // a feed of recent commits, with a clock
+  news: (
+    <>
+      <Burst d={burst(60, 48, 40, 10, 0.4)} />
+      <rect x="22" y="16" width="62" height="64" rx="5" fill={PANEL} {...line} />
+      <rect x="31" y="25" width="44" height="17" rx="2" fill={GOLD} {...line} strokeWidth={2} />
+      {[52, 62, 72].map((y, i) => (
+        <path key={y} d={`M32 ${y}h${[42, 42, 26][i]}`} stroke={WHITE} strokeWidth={3} strokeLinecap="round" />
+      ))}
+      <path d="M84 30h10v42a8 8 0 0 1-8 8h-2" fill={GOLD_DARK} {...line} />
+    </>
+  ),
   activity: (
     <>
       <Burst d={burst(60, 48, 40, 10, 0.4)} />

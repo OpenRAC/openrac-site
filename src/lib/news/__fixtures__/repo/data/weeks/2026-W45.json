@@ -1,0 +1,40 @@
+{
+ "format": 1,
+ "week": "2026-W45",
+ "start": "2026-11-02",
+ "end": "2026-11-08",
+ "days": [
+  "2026-11-02",
+  "2026-11-03"
+ ],
+ "totals": {
+  "commits": 2,
+  "pullRequestsMerged": 0,
+  "pullRequestsOpened": 0,
+  "contributors": 1
+ },
+ "projects": [
+  {
+   "repo": "rac2-decomp",
+   "title": "Going Commando",
+   "commitCount": 2,
+   "activeDays": [
+    "2026-11-02",
+    "2026-11-03"
+   ],
+   "pullRequests": {
+    "merged": [],
+    "opened": []
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": null,
+   "contributors": [
+    "alice"
+   ]
+  }
+ ]
+}

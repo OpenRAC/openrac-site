@@ -24,7 +24,7 @@ export const revalidate = 300;
 
 /** The home page: every section in order, with the progress, activity and latest launcher builds loaded on the server. */
 export default async function Home() {
-  const [progress, commits, release, dev, { catalog }, [news]] = await Promise.all([getProgress(), getActivity(), getLauncherRelease(), getDevBuild(), getModCatalog(), getLatestReports(1)]);
+  const [progress, commits, release, dev, { catalog }, news] = await Promise.all([getProgress(), getActivity(), getLauncherRelease(), getDevBuild(), getModCatalog(), getLatestReports(3).then((reports) => reports ?? [])]);
   // Counted as on /mods, so the two numbers agree.
   const mods = catalog.mods.filter((m) => !isWithdrawn(catalog.revoked, m.id)).length;
 
@@ -36,7 +36,7 @@ export default async function Home() {
       <Download release={release} dev={dev} />
       <Progress progress={progress} />
       <Contribute />
-      {news && <LatestNews report={news} />}
+      {news.length > 0 && <LatestNews reports={news} />}
       <Activity commits={commits} />
       <HowItWorks />
       <Resources />
