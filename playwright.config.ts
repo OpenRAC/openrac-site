@@ -10,6 +10,7 @@ import { defineConfig, devices } from "@playwright/test";
 const PORT = 3200;
 const fixture = pathToFileURL(resolve("src/lib/mods/__fixtures__/index.json")).href;
 const second = pathToFileURL(resolve("e2e/fixtures/second-index.json")).href;
+const news = pathToFileURL(resolve("src/lib/news/__fixtures__/data")).href;
 
 export default defineConfig({
   testDir: "e2e",
@@ -28,6 +29,6 @@ export default defineConfig({
     url: `http://localhost:${PORT}/healthz`,
     timeout: 240_000,
     reuseExistingServer: !process.env.CI,
-    env: { MOD_INDEXES: `${fixture},${second}`, MODS_ALLOW_FILE: "1" },
+    env: { MOD_INDEXES: `${fixture},${second}`, MODS_ALLOW_FILE: "1", NEWS_DATA_URL: news, NEWS_ALLOW_FILE: "1" },
   },
 });
