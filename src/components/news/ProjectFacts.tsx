@@ -3,8 +3,11 @@ import { groupItems, releaseUrl } from "@/lib/news/logic";
 import type { NewsProject } from "@/lib/news/types";
 
 /** Everything GitHub recorded for a project, sorted the way a player thinks of it. All of it is shown as plain text. */
-export default function ProjectFacts({ project }: { project: NewsProject }) {
+export default function ProjectFacts({ project, period }: { project: NewsProject; period: "week" | "day" }) {
   const { repo } = project;
+  // Opened and merged within the same period counts once, as merged: it is not still waiting.
+  const merged = new Set(project.merged.map((x) => x.number));
+  const waiting = project.opened.filter((x) => !merged.has(x.number));
   return (
     <div className="grid gap-7">
       {project.releases.length > 0 && (
@@ -23,7 +26,7 @@ export default function ProjectFacts({ project }: { project: NewsProject }) {
           <ItemList repo={repo} items={group.items} />
         </Block>
       ))}
-      {project.opened.length > 0 && <Block title={`Proposed, not merged yet (${project.opened.length})`}><ItemList repo={repo} items={project.opened} /></Block>}
+      {waiting.length > 0 && <Block title={`Opened this ${period}, not merged by its end (${waiting.length})`}><ItemList repo={repo} items={waiting} /></Block>}
       {project.issuesOpened.length > 0 && <Block title={`Issues opened (${project.issuesOpened.length})`}><ItemList repo={repo} items={project.issuesOpened} /></Block>}
       {project.issuesClosed.length > 0 && <Block title={`Issues closed (${project.issuesClosed.length})`}><ItemList repo={repo} items={project.issuesClosed} /></Block>}
     </div>

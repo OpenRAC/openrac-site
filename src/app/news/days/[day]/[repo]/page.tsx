@@ -48,7 +48,7 @@ export default async function NewsDayProjectPage(props: PageProps<"/news/days/[d
         <h1 className="font-audiowide text-[clamp(26px,4vw,38px)] leading-tight text-hi">{project.title}</h1>
         <Freshness stale={data.stale} newest={loaded.index.days[0]} now={now} />
         <ProjectCard project={project} />
-        <ProjectFacts project={project} />
+        <ProjectFacts project={project} period="day" />
         {branches.length > 0 && (
           <Block title="Commits landed">
             {branches.map((b) => (
