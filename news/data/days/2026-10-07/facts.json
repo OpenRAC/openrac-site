@@ -1,0 +1,449 @@
+{
+ "format": 1,
+ "date": "2026-10-07",
+ "totals": {
+  "commits": 3,
+  "pullRequestsMerged": 15,
+  "pullRequestsOpened": 20,
+  "contributors": 5
+ },
+ "projects": [
+  {
+   "repo": "OpenRAC",
+   "title": "OpenRAC launcher",
+   "branches": [
+    {
+     "name": "develop",
+     "commits": []
+    },
+    {
+     "name": "master",
+     "commits": []
+    }
+   ],
+   "commitCount": 0,
+   "pullRequests": {
+    "merged": [],
+    "opened": []
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": null,
+   "contributors": []
+  },
+  {
+   "repo": "rac1-decomp",
+   "title": "Ratchet & Clank",
+   "branches": [
+    {
+     "name": "main",
+     "commits": [
+      {
+       "sha": "d3e29a16035dddb0ceadba9b4a58e1170cd6dd96",
+       "title": "chore(report): update progress report for libgcc matching modules",
+       "author": "Lynder063",
+       "date": "2026-10-07T22:03:51Z"
+      },
+      {
+       "sha": "8753a55c407d4b99a05985aa3e1efd18ec84f308",
+       "title": "feat(toolchain): match stuck libgcc modules, add native ee-gcc, and relicense to GPL 3.0",
+       "author": "Lynder063",
+       "date": "2026-10-07T17:22:52Z"
+      },
+      {
+       "sha": "661bb60c1fb2e8f4e335a577193b8ee4a165b8fc",
+       "title": "Merge pull request #36 from Veradictus/main",
+       "author": "Veradictus",
+       "date": "2026-10-07T00:07:21Z"
+      }
+     ]
+    }
+   ],
+   "commitCount": 3,
+   "pullRequests": {
+    "merged": [
+     {
+      "number": 36,
+      "title": "feat: level 0 and game/menu complete, 46 more functions, a prototype sweep",
+      "author": "Veradictus",
+      "untrustedBody": "## Summary\r\n\r\nTwo more units fully matched (level 0 and the executable's `game/menu`), the project's largest\r\nnear miss closed, and a model-free sweep that turned 17 near misses into matches.\r\n\r\n| | Before (#34) | After |\r\n|---|---|---|\r\n| Functions finished | 3,373 / 5,109 | 3,424 / 5,109 |\r\n| Code matched | 56.30% | 57.32% |\r\n| Fully linked | 12.27% | 12.83% |\r\n| Units complete | 78 / 278 | 81 / 278 |\r\n\r\n46 functions (37,820 bytes) and 5 pieces of joined functions that count with them. Newly\r\ncomplete units: `Level 00: Veldin`, `game/menu`, `Shared level code/space_0028FB78`.\r\n\r\n## What is in it\r\n\r\n**Seven large near misses (21,196 bytes).**\r\n\r\n| Function | Bytes | What closed it |\r\n|---|---|---|\r\n| `func_L00_002422D8` (level loader) | 9,264 | four statement forms; see \"Needs a reviewer's eye\" |\r\n| `func_L02_002D8B80` | 3,696 | one callee's parameter order |\r\n| `func_L16_002E3740` | 2,184 | a plain indexed loop; a call written out in two states |\r\n| `func_L00_00277A88` | 1,868 | one ",
+      "mergedAt": "2026-10-07T00:07:21Z"
+     }
+    ],
+    "opened": [
+     {
+      "number": 36,
+      "title": "feat: level 0 and game/menu complete, 46 more functions, a prototype sweep",
+      "author": "Veradictus",
+      "untrustedBody": "## Summary\r\n\r\nTwo more units fully matched (level 0 and the executable's `game/menu`), the project's largest\r\nnear miss closed, and a model-free sweep that turned 17 near misses into matches.\r\n\r\n| | Before (#34) | After |\r\n|---|---|---|\r\n| Functions finished | 3,373 / 5,109 | 3,424 / 5,109 |\r\n| Code matched | 56.30% | 57.32% |\r\n| Fully linked | 12.27% | 12.83% |\r\n| Units complete | 78 / 278 | 81 / 278 |\r\n\r\n46 functions (37,820 bytes) and 5 pieces of joined functions that count with them. Newly\r\ncomplete units: `Level 00: Veldin`, `game/menu`, `Shared level code/space_0028FB78`.\r\n\r\n## What is in it\r\n\r\n**Seven large near misses (21,196 bytes).**\r\n\r\n| Function | Bytes | What closed it |\r\n|---|---|---|\r\n| `func_L00_002422D8` (level loader) | 9,264 | four statement forms; see \"Needs a reviewer's eye\" |\r\n| `func_L02_002D8B80` | 3,696 | one callee's parameter order |\r\n| `func_L16_002E3740` | 2,184 | a plain indexed loop; a call written out in two states |\r\n| `func_L00_00277A88` | 1,868 | one ",
+      "mergedAt": "2026-10-07T00:07:21Z"
+     },
+     {
+      "number": 37,
+      "title": "qwen trying to decompile",
+      "author": "Lynder063",
+      "untrustedBody": "",
+      "mergedAt": "2026-10-08T06:16:28Z"
+     },
+     {
+      "number": 38,
+      "title": "add func_L03_002E99F0.c",
+      "author": "Lynder063",
+      "untrustedBody": "",
+      "mergedAt": "2026-10-08T06:03:15Z"
+     },
+     {
+      "number": 39,
+      "title": "feat(overlays): four overlay functions, exact matches",
+      "author": "dev-gian",
+      "untrustedBody": "Four overlay functions matched byte-for-byte, as a small first PR:\n\n- `func_L01_002F0850` (shared): nearest moby of type 0x26F with flag 0x1000, from an id list\n- `func_L15_001FED10` (shared)\n- `func_L14_002FFF08` (l14_oltanis)\n- `func_L00_002E0CB8` (shared)\n\nEach was checked with the strict overlay check against its real address in its level, and every other C function in the same files still builds exact. The three superseded `nonmatching/` staged files are removed; `nonmatching/README.md` and `progress/report.json` are regenerated (3424 -> 3428 matched functions, 57.32% -> 57.35% matched code).\n\nVerification: `build_sn.sh` 1055 exact, 0 size mismatches at 661bb60; `gen_progress_report.py --check` passes on a clean copy of exactly these files (no `asm/`, no `baserom/`).\n\nNotes for review:\n\n- **Base:** this is verified on 661bb60. `main` has been red since 8753a55, because its progress report is out of date for `func_0011E860`, `func_0011EF28` and `func_0011F4F8`, so this PR's CI may ",
+      "mergedAt": "2026-10-08T06:03:35Z"
+     },
+     {
+      "number": 40,
+      "title": "Stop helping the compiler, plus another 1.9% of the game",
+      "author": "Veradictus",
+      "untrustedBody": "## The part everyone will read\r\n\r\nTurns out a few of our build steps were doing GCC 2.95's homework for it. Apparently a 25-year-old compiler is supposed to suffer alone, so now it does.\r\n\r\nWhat's gone:\r\n- `fix_tail_calls.py`, `fix_trunc_slot.py` and `fix_core_spills.py`, which touched up the compiler's output after the fact.\r\n- Per-function flags. GCC 2.95 only takes flags per file, so now we do too (`config/file_cflags.txt`). Four level functions moved into files of their own to keep theirs. Level files are our own grouping anyway; retail never saw them.\r\n\r\nWe measured the damage before deleting anything. 12 functions depended on all of it: 2,404 bytes, 0.06% of the code. Seven still match with a whole-file flag. Five (620 bytes) are assembly again, including `_exit`, all 8 bytes of it, so `core/crt0` is no longer a complete unit. Our condolences to crt0.\r\n\r\nThe `ps2eeas` emulation stays, and now it comes with receipts. We never used SN's real assembler because it died with a stack o",
+      "mergedAt": "2026-10-08T06:28:39Z"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [],
+    "closed": [
+     {
+      "number": 35,
+      "title": "What about tekken decomp after completed?",
+      "author": "romildolisboa4-netizen"
+     }
+    ]
+   },
+   "releases": [],
+   "progress": {
+    "before": {
+     "code": {
+      "done": 2090144,
+      "total": 3712808
+     },
+     "functions": {
+      "done": 3373,
+      "total": 5109
+     }
+    },
+    "after": {
+     "code": {
+      "done": 2132588,
+      "total": 3712808
+     },
+     "functions": {
+      "done": 3427,
+      "total": 5109
+     }
+    }
+   },
+   "contributors": [
+    "dev-gian",
+    "Lynder063",
+    "Veradictus"
+   ]
+  },
+  {
+   "repo": "rac2-decomp",
+   "title": "Going Commando",
+   "branches": [
+    {
+     "name": "master",
+     "commits": []
+    }
+   ],
+   "commitCount": 0,
+   "pullRequests": {
+    "merged": [
+     {
+      "number": 33,
+      "title": "Update README.md",
+      "author": "platypet2217-star",
+      "untrustedBody": "Update Pal Version 1.00\r\n\r\n<!--\r\nKeep this short. A reviewer must be able to reproduce your result with the command you paste.\r\n-->\r\n\r\n## What this changes\r\n\r\n<!-- One or two sentences: which file(s), and why. -->\r\n\r\n## Type\r\n\r\n- [ ] A matched function (C that reproduces retail bytes)\r\n- [ ] A level placement / catalogue change\r\n- [ ] Tooling or tests\r\n- [ ] Documentation\r\n\r\n## Proof\r\n\r\n<!--\r\nEvery match needs a proof: the exact command, and its result.\r\nExample:\r\n  python scripts/check_candidates.py --reference <boot.elf> --toolchain <ProDG-3.01> --runtime <dir>\r\n  -> all catalogued symbols \"matched\": true, \"different_bytes\": 0\r\n-->\r\n\r\n- Command:\r\n- Result:\r\n\r\n## Checks\r\n\r\n- [ ] `python -m unittest discover -s tests -v` passes\r\n- [ ] Every changed program still gates: all loaded bytes of both PT_LOAD segments compare\r\n      equal to retail (boot, and each level overlay touched)\r\n- [ ] No retail-derived file in the diff — no `boot.elf`, overlays, disc images, extracted\r\n      `.bin`/`.",
+      "mergedAt": "2026-10-07T05:10:16Z"
+     },
+     {
+      "number": 34,
+      "title": "decomp: match two scalar leaves across 27 overlays",
+      "author": "llesieur99",
+      "untrustedBody": "Two ordinary scalar C leaves now match complete reference bytes in all 27 overlays: a 32-byte entity bit setter and a 16-byte signed-halfword predicate. The canonical fragments retain explicit placements and existing source context, including Barlow's qualified G8 configuration.\r\n\r\n- Physical C: **346,192 -> 347,488 bytes** (+1,296 across 54 definitions).\r\n- Conservative primary C: **89,964 -> 90,012 bytes** (+48); supplementary all-member and any-member C also gain 48. Denominators are unchanged.\r\n- All 1,202 native definitions qualify, including 1,148 prior controls. Failed fixed hypotheses remain documented and receive no credit.\r\n\r\nValidated with independently regenerated native reviews, fresh boot plus 27 complete overlay gates, the full 109,725-function catalogue and fresh pointer-evidence replay, 601 passing tests (two existing skips), all generated-report/layout checks, and a privacy review of all 155 paths including decompressed metadata. Source sharing does not establish orig",
+      "mergedAt": "2026-10-07T01:19:42Z"
+     },
+     {
+      "number": 35,
+      "title": "decomp: reuse three boot C bodies across 27 overlays",
+      "author": "llesieur99",
+      "untrustedBody": "Three unchanged, already qualified boot C functions now have explicit shared placements in all 27 overlays: a 120-byte callback traversal and two 108-byte MMIO wrappers. All prior placements, bindings, native units, source bytes and compiler profiles remain intact.\r\n\r\n- **81 placements /9,072 physical bytes**: 347,488 -> 356,560.\r\n- **336 primary unique C bytes**: 90,012 -> 90,348. Supplementary all-member C gains 336; any-member C gains 216. Denominators are unchanged.\r\n- No new authored C definition, opaque-helper credit, GP assumption or compiler/linker policy change.\r\n\r\nValidated by an independent full-body/boundary/caller/overlap review, actual shared compilation, fresh boot plus all 27 complete overlay gates, explicit placement closure, full 109,725-function reconstruction and pointer-theorem replay, 601 passing tests (two existing skips), all generated-output checks, and a privacy/staged-byte review of 69 files. Reference storage association does not prove original object identi",
+      "mergedAt": "2026-10-07T01:40:06Z"
+     },
+     {
+      "number": 36,
+      "title": "decomp: integrate scalar C copies and shared state predicate",
+      "author": "llesieur99",
+      "untrustedBody": "Three unchanged qualified scalar C bodies now cover 731 new placements, and an existing 72-byte resident-state predicate covers another 27 shared placements. The maintained writer preserves all old source prefixes; all 28 fixed trials and fresh boot/native reviews reproduce the same objects. Existing profiles, SDK owners and shared bindings remain intact.\r\n\r\n- **758 placements /7,872 physical C bytes**: 356,560 -> 364,432.\r\n- **104 primary unique C bytes**: 90,348 -> 90,452. Supplementary all-member C also gains 104; any-member C and both unique denominators are unchanged.\r\n- Boot: 234 functions /12,048 bytes. Overlays: 6,232 placements /352,384 bytes, including 1,889 native definitions.\r\n\r\nValidated with complete body/boundary/caller/history checks, independent recipe/prefix/object/overlap review, fresh boot plus all 27 full-image gates, maintained task closure, a fresh pointer scan and full 109,725-function reconstruction/theorem replay, 601 passing tests (two existing skips), six fi",
+      "mergedAt": "2026-10-07T02:09:04Z"
+     },
+     {
+      "number": 37,
+      "title": "decomp: match entity state callbacks and resident wrapper copies",
+      "author": "llesieur99",
+      "untrustedBody": "One new ordinary three-state C callback matches complete 204-byte bodies in Endako and Aranos Prison on both fixed first trials, retaining all 144 prior controls. A canonical fragment generates both units, and fresh reviews reproduce the actual compiler objects. The same batch reuses two unchanged boot C bodies at 53 explicit shared placements with measured resident bindings.\n\n- **55 placements /4,212 physical C bytes**: 364,432 -> 368,644.\n- **264 primary unique C bytes**: 90,452 -> 90,716. Supplementary all-member and any-member C each gain 264; denominators are unchanged.\n- Overlays: 6,287 placements /356,596 bytes, including 1,891 native definitions. Boot remains 234 functions /12,048 bytes.\n\nHistorical Siberius and GP-dependent selection exclusions remain preserved; the latter record zero compiler events and do not invalidate existing boot C qualification. No new helper implementation, GP consumer, original-object identity or runtime claim is added.\n\nValidated with complete callba",
+      "mergedAt": "2026-10-07T02:42:11Z"
+     },
+     {
+      "number": 38,
+      "title": "decomp: thirty shared native C families across the overlays",
+      "author": "llesieur99",
+      "untrustedBody": "Integrate thirty shared native C families across the boot-adjacent overlays.\n\nEach family enters the tree only when a single authored body reproduces the\nexact reference bytes at every measured placement: 2,717 native placements are\ncompared complete and unmasked against the pinned images, plus every prior\ncontrol in the same 28 units.\n\nMeasured techniques this lot adds to the method notes:\n\n* inside a straight-line body of constant stores, the first scheduler hoists the\n  last statement, the store of a multi-instruction 64-bit constant and the last\n  store of each floating constant group, then keeps source order — writing the\n  source in the retail order with those statements moved to the end reproduces\n  the retail schedule;\n* a numeric address and an external symbol generate different code (the\n  assembler folds a literal into the destination register), and which one\n  matches is a measured property of each body.\n\nRefusals stay on record with their measured census: small-data `$gp` ",
+      "mergedAt": "2026-10-07T05:09:34Z"
+     },
+     {
+      "number": 39,
+      "title": "decomp: three more shared native families across boot and the overlays",
+      "author": "llesieur99",
+      "untrustedBody": "Bind three more shared native families across boot and the overlays.\n\n* `ee2b87d1` (144 bytes): one boot placement plus every overlay.\n* `954231c412` (104 bytes) and `0b67d26422` (124 bytes): recovered by an\n  independent matching pass this round.\n\nEach family is one authored body whose compilation reproduces the measured\nreference bytes at every placement; the family anchor list now accepts a\nplacement in any program, resolved by program, so these families anchor on their\nown reviewed placements while historical ids stay stable.\n\nMeasured notes added to the method: a two-dimensional table index (`int A[][4]`)\nkeeps the row stride in the loop and rotates the first iteration where the\npointer form folds the constant into the symbol base; the scheduler rule\nreproduces a six-store block exactly from the retail order with the final\nstatement last; bodies whose retail form re-materialises values this compiler\nhoists stay parked with their measured diff.\n\nValidation: complete 28-unit qualifi",
+      "mergedAt": "2026-10-07T06:03:13Z"
+     },
+     {
+      "number": 40,
+      "title": "docs: record the complete GNU EE rebuild recipe",
+      "author": "llesieur99",
+      "untrustedBody": "A contributor rebuilding from the published chain obtained `mips.c = a2c787dd…` and `cc1 = c84ca6f8…` instead of the qualified identities, while still matching the measured corpus on everything tested. The cause is documentation: the qualified build applies measured source adjustments that the public material described only in prose, so a clean rebuild silently drops them.\n\nThis lot records the route:\n\n* the base archive identity and the exact patch order, including the reversed `0001-r5900-quad-saves` (the retail saves with `sd`, not `sq`);\n* the six source adjustments with their measured reason — TImode anchor, post-DBR short-loop hook, division-guard MD length, ascending GPR saves, FPR-save block first, and the `mtc1` nop rule in `gas`;\n* the public transformers in order, the configure/make invocation, and the build-order repair for the 1999 Makefile race;\n* the six identities a finished build must reproduce, three source files and the three instruments.\n\nThe host dependence is stat",
+      "mergedAt": "2026-10-07T06:36:17Z"
+     },
+     {
+      "number": 42,
+      "title": "decomp: separate small-data unit per overlay, first body landed",
+      "author": "llesieur99",
+      "untrustedBody": "Some retail bodies address a global through `$gp` — a single store relative to the small-data pointer. The pinned `-O2 -G0 -ffunction-sections` profile never emits that form, so ~35 measured families (tens of thousands of bytes) could not be reproduced at all, whatever the source looked like. Recompiling an existing level unit under `-G8` is not an option: one unit, one flag set, and every body already integrated in it would change bytes.\n\nAn overlay may now carry a **second C unit** with its own measured profile, gp, catalogue, review and object. Both units compile, link into the same overlay and are compared complete; every function row keeps its owner, and the level proof records the small-data section next to the native one. The pattern mirrors the boot's separately qualified SDK units rather than inventing a new one.\n\n**Pilot**: one 108-byte body at `19_grelbin` — it writes four ring-header words and then advances the resident pointer through the global itself, which is exactly th",
+      "mergedAt": "2026-10-07T08:14:36Z"
+     },
+     {
+      "number": 43,
+      "title": "decomp: integrate fifteen shared native families that address the overlay gp",
+      "author": "llesieur99",
+      "untrustedBody": "## What\n\nFifteen shared native families whose retail bodies address a global through\n`$gp` are now carried by the **default unit** of every level program that places\nthem. Nothing about the existing unit changes: no new section, no new profile,\nno new format, and not one patched byte.\n\nTwo reviewed inputs change instead:\n\n* the level catalogue states the overlay's **measured gp base** (`0x001AEFF0`).\n  The integration already accepted a native unit with a non-zero gp, so the\n  mechanism was in the tree; what was missing was a reviewed body able to use it.\n* the source declares each touched global with the attribute its **retail sites**\n  require, measured per symbol from the reference disassembly:\n\n| retail behaviour at that address | declaration |\n| --- | --- |\n| every access resolves through `$gp` | `__attribute__((sda))` |\n| every access is absolute | `__attribute__((nosda))` |\n| both forms occur at the same address | no attribute (the assembler decides per site) |\n\n## Why it works\n",
+      "mergedAt": "2026-10-07T10:22:51Z"
+     },
+     {
+      "number": 44,
+      "title": "decomp: bind the parallel-campaign native families across the overlays",
+      "author": "llesieur99",
+      "untrustedBody": "## What this lot binds\n\nOne authored C body per shared native family, with **every measured placement bound and verified\nbyte for byte** before anything is written into the tree. Fifty-two new families.\n\n* Physical integrated C coverage: **498 200 → 525 580 bytes** (1.0211 % → 1.0773 %)\n* Conservative unique matched C: **102 540 → 113 816 bytes** of 44 451 612 (0.2307 % → 0.2560 %)\n* Overlay placements 7 143 → 7 335; native bodies 2 747 → 2 939; boot unit unchanged\n\n## The lever that made these families reachable\n\nThe retail build compiled with cc1 modelling a small global access as **one** macro instruction\nthat gas expands per site. The pinned default profile materialises an explicit `lui`+`lw`\ninstead, which shifts register allocation and scheduling away from the retail bytes and makes\nthe promoted body a different size. Declaring the touched symbol `sda` restores the\none-instruction model; gas then chooses the encoding exactly as the retail build did — absolute\noutside a `.set noma",
+      "mergedAt": "2026-10-07T16:04:36Z"
+     },
+     {
+      "number": 45,
+      "title": "decomp: bind the sixteen late shared native families",
+      "author": "llesieur99",
+      "untrustedBody": "## What this lot binds\n\nThe shared native families the parallel matching campaign resolved after the previous lot was\ncut: one authored C body per family, with **every measured placement bound and verified byte for\nbyte** before anything is written. Sixteen new families.\n\n* Physical integrated C coverage: **525 580 → 531 224 bytes** (1.0792 % → 1.0892 %)\n* Overlay placements 7 335 → 7 366; native bodies 2 939 → 2 970; boot unit unchanged\n\n## Two families needed a type-name change\n\nThe per-level generated candidate concatenates the authored fragments, so a struct tag or typedef\nalready declared by another fragment is a redefinition (`struct Slot` in the previous lot, `Entry`,\n`LevelQueue`, `ListObject`, `Pair`, `Row16`, `ResidentTable`, `SavedSlot` here). The new fragments\nnow carry family-scoped type names; the emitted bytes are unchanged, and the tag itself carries no\ncode.\n\n## Validation\n\n* Level-native qualification: every catalogue rebuilt and every complete body compared\n  (27 lev",
+      "mergedAt": "2026-10-07T16:47:36Z"
+     },
+     {
+      "number": 46,
+      "title": "docs: ship the two compiler source adjustments the recipe only described",
+      "author": "llesieur99",
+      "untrustedBody": "## Why\n\nAn independent reproducibility study rebuilt the documented toolchain from the public recipe and got\na different compiler identity from the one `docs/COMPILER-NOTES.md` records:\n\n| Identity | Documented | Their rebuild |\n| --- | --- | --- |\n| `gcc/config/mips/mips.c` | `c76c0bec…` (282 066 B) | `a2c787dd…` (281 557 B) |\n| `gcc/cc1` | `8bed6eae…` | `c84ca6f8…` |\n\nTheir compiler still reproduces the qualified boot object byte for byte (178/178 functions), so the\ngap is not in the code — it is in the recipe.\n\n**Cause.** The recipe described the five source adjustments in prose. Two of them are\ntext-carrying replacements whose annotation is part of the hashed identity, and the recipe never\ngave their literal text:\n\n* the TImode anchor becomes `  if (0 && TARGET_MIPS5900) /* RAC2 : ancre TImode neutralisee */`\n* the ascending GPR save loop is a literal block whose comment begins `/* RAC2 : emission en ordre CROISSANT … */`\n\nThe annotations alone are 183 bytes; with the exact code sh",
+      "mergedAt": "2026-10-07T17:15:25Z"
+     },
+     {
+      "number": 47,
+      "title": "campaign: add interactive trial review and guarded batch finalization",
+      "author": "llesieur99",
+      "untrustedBody": "Recorded trials require manual instruction comparison, and finishing a validated batch requires coordinating proof, catalogue, report, view and display commands. Add official `campaign.py diff` and `campaign.py finalize` commands backed by the campaign register and maintained exact validators.\n\nThe private interactive review shows complete-symbol R5900 instructions and every byte at exact addresses, with target/function selection and difference navigation. It verifies immutable artifacts, distinguishes historical and relocatable diagnostics, optionally serves one read-only loopback capability URL, and adds no acceptance or credit.\n\nThe finalizer validates a fresh passed boot/27-overlay action, compiler/SDK identities and pinned inputs, then regenerates boundaries, pointer and boot evidence, unique/physical/reuse reports, source inventory and campaign views in a private snapshot. Full raw replay stays private; public supplementary reports generate and check without references using the ",
+      "mergedAt": "2026-10-07T20:41:49Z"
+     }
+    ],
+    "opened": [
+     {
+      "number": 33,
+      "title": "Update README.md",
+      "author": "platypet2217-star",
+      "untrustedBody": "Update Pal Version 1.00\r\n\r\n<!--\r\nKeep this short. A reviewer must be able to reproduce your result with the command you paste.\r\n-->\r\n\r\n## What this changes\r\n\r\n<!-- One or two sentences: which file(s), and why. -->\r\n\r\n## Type\r\n\r\n- [ ] A matched function (C that reproduces retail bytes)\r\n- [ ] A level placement / catalogue change\r\n- [ ] Tooling or tests\r\n- [ ] Documentation\r\n\r\n## Proof\r\n\r\n<!--\r\nEvery match needs a proof: the exact command, and its result.\r\nExample:\r\n  python scripts/check_candidates.py --reference <boot.elf> --toolchain <ProDG-3.01> --runtime <dir>\r\n  -> all catalogued symbols \"matched\": true, \"different_bytes\": 0\r\n-->\r\n\r\n- Command:\r\n- Result:\r\n\r\n## Checks\r\n\r\n- [ ] `python -m unittest discover -s tests -v` passes\r\n- [ ] Every changed program still gates: all loaded bytes of both PT_LOAD segments compare\r\n      equal to retail (boot, and each level overlay touched)\r\n- [ ] No retail-derived file in the diff — no `boot.elf`, overlays, disc images, extracted\r\n      `.bin`/`.",
+      "mergedAt": "2026-10-07T05:10:16Z"
+     },
+     {
+      "number": 34,
+      "title": "decomp: match two scalar leaves across 27 overlays",
+      "author": "llesieur99",
+      "untrustedBody": "Two ordinary scalar C leaves now match complete reference bytes in all 27 overlays: a 32-byte entity bit setter and a 16-byte signed-halfword predicate. The canonical fragments retain explicit placements and existing source context, including Barlow's qualified G8 configuration.\r\n\r\n- Physical C: **346,192 -> 347,488 bytes** (+1,296 across 54 definitions).\r\n- Conservative primary C: **89,964 -> 90,012 bytes** (+48); supplementary all-member and any-member C also gain 48. Denominators are unchanged.\r\n- All 1,202 native definitions qualify, including 1,148 prior controls. Failed fixed hypotheses remain documented and receive no credit.\r\n\r\nValidated with independently regenerated native reviews, fresh boot plus 27 complete overlay gates, the full 109,725-function catalogue and fresh pointer-evidence replay, 601 passing tests (two existing skips), all generated-report/layout checks, and a privacy review of all 155 paths including decompressed metadata. Source sharing does not establish orig",
+      "mergedAt": "2026-10-07T01:19:42Z"
+     },
+     {
+      "number": 35,
+      "title": "decomp: reuse three boot C bodies across 27 overlays",
+      "author": "llesieur99",
+      "untrustedBody": "Three unchanged, already qualified boot C functions now have explicit shared placements in all 27 overlays: a 120-byte callback traversal and two 108-byte MMIO wrappers. All prior placements, bindings, native units, source bytes and compiler profiles remain intact.\r\n\r\n- **81 placements /9,072 physical bytes**: 347,488 -> 356,560.\r\n- **336 primary unique C bytes**: 90,012 -> 90,348. Supplementary all-member C gains 336; any-member C gains 216. Denominators are unchanged.\r\n- No new authored C definition, opaque-helper credit, GP assumption or compiler/linker policy change.\r\n\r\nValidated by an independent full-body/boundary/caller/overlap review, actual shared compilation, fresh boot plus all 27 complete overlay gates, explicit placement closure, full 109,725-function reconstruction and pointer-theorem replay, 601 passing tests (two existing skips), all generated-output checks, and a privacy/staged-byte review of 69 files. Reference storage association does not prove original object identi",
+      "mergedAt": "2026-10-07T01:40:06Z"
+     },
+     {
+      "number": 36,
+      "title": "decomp: integrate scalar C copies and shared state predicate",
+      "author": "llesieur99",
+      "untrustedBody": "Three unchanged qualified scalar C bodies now cover 731 new placements, and an existing 72-byte resident-state predicate covers another 27 shared placements. The maintained writer preserves all old source prefixes; all 28 fixed trials and fresh boot/native reviews reproduce the same objects. Existing profiles, SDK owners and shared bindings remain intact.\r\n\r\n- **758 placements /7,872 physical C bytes**: 356,560 -> 364,432.\r\n- **104 primary unique C bytes**: 90,348 -> 90,452. Supplementary all-member C also gains 104; any-member C and both unique denominators are unchanged.\r\n- Boot: 234 functions /12,048 bytes. Overlays: 6,232 placements /352,384 bytes, including 1,889 native definitions.\r\n\r\nValidated with complete body/boundary/caller/history checks, independent recipe/prefix/object/overlap review, fresh boot plus all 27 full-image gates, maintained task closure, a fresh pointer scan and full 109,725-function reconstruction/theorem replay, 601 passing tests (two existing skips), six fi",
+      "mergedAt": "2026-10-07T02:09:04Z"
+     },
+     {
+      "number": 37,
+      "title": "decomp: match entity state callbacks and resident wrapper copies",
+      "author": "llesieur99",
+      "untrustedBody": "One new ordinary three-state C callback matches complete 204-byte bodies in Endako and Aranos Prison on both fixed first trials, retaining all 144 prior controls. A canonical fragment generates both units, and fresh reviews reproduce the actual compiler objects. The same batch reuses two unchanged boot C bodies at 53 explicit shared placements with measured resident bindings.\n\n- **55 placements /4,212 physical C bytes**: 364,432 -> 368,644.\n- **264 primary unique C bytes**: 90,452 -> 90,716. Supplementary all-member and any-member C each gain 264; denominators are unchanged.\n- Overlays: 6,287 placements /356,596 bytes, including 1,891 native definitions. Boot remains 234 functions /12,048 bytes.\n\nHistorical Siberius and GP-dependent selection exclusions remain preserved; the latter record zero compiler events and do not invalidate existing boot C qualification. No new helper implementation, GP consumer, original-object identity or runtime claim is added.\n\nValidated with complete callba",
+      "mergedAt": "2026-10-07T02:42:11Z"
+     },
+     {
+      "number": 38,
+      "title": "decomp: thirty shared native C families across the overlays",
+      "author": "llesieur99",
+      "untrustedBody": "Integrate thirty shared native C families across the boot-adjacent overlays.\n\nEach family enters the tree only when a single authored body reproduces the\nexact reference bytes at every measured placement: 2,717 native placements are\ncompared complete and unmasked against the pinned images, plus every prior\ncontrol in the same 28 units.\n\nMeasured techniques this lot adds to the method notes:\n\n* inside a straight-line body of constant stores, the first scheduler hoists the\n  last statement, the store of a multi-instruction 64-bit constant and the last\n  store of each floating constant group, then keeps source order — writing the\n  source in the retail order with those statements moved to the end reproduces\n  the retail schedule;\n* a numeric address and an external symbol generate different code (the\n  assembler folds a literal into the destination register), and which one\n  matches is a measured property of each body.\n\nRefusals stay on record with their measured census: small-data `$gp` ",
+      "mergedAt": "2026-10-07T05:09:34Z"
+     },
+     {
+      "number": 39,
+      "title": "decomp: three more shared native families across boot and the overlays",
+      "author": "llesieur99",
+      "untrustedBody": "Bind three more shared native families across boot and the overlays.\n\n* `ee2b87d1` (144 bytes): one boot placement plus every overlay.\n* `954231c412` (104 bytes) and `0b67d26422` (124 bytes): recovered by an\n  independent matching pass this round.\n\nEach family is one authored body whose compilation reproduces the measured\nreference bytes at every placement; the family anchor list now accepts a\nplacement in any program, resolved by program, so these families anchor on their\nown reviewed placements while historical ids stay stable.\n\nMeasured notes added to the method: a two-dimensional table index (`int A[][4]`)\nkeeps the row stride in the loop and rotates the first iteration where the\npointer form folds the constant into the symbol base; the scheduler rule\nreproduces a six-store block exactly from the retail order with the final\nstatement last; bodies whose retail form re-materialises values this compiler\nhoists stay parked with their measured diff.\n\nValidation: complete 28-unit qualifi",
+      "mergedAt": "2026-10-07T06:03:13Z"
+     },
+     {
+      "number": 40,
+      "title": "docs: record the complete GNU EE rebuild recipe",
+      "author": "llesieur99",
+      "untrustedBody": "A contributor rebuilding from the published chain obtained `mips.c = a2c787dd…` and `cc1 = c84ca6f8…` instead of the qualified identities, while still matching the measured corpus on everything tested. The cause is documentation: the qualified build applies measured source adjustments that the public material described only in prose, so a clean rebuild silently drops them.\n\nThis lot records the route:\n\n* the base archive identity and the exact patch order, including the reversed `0001-r5900-quad-saves` (the retail saves with `sd`, not `sq`);\n* the six source adjustments with their measured reason — TImode anchor, post-DBR short-loop hook, division-guard MD length, ascending GPR saves, FPR-save block first, and the `mtc1` nop rule in `gas`;\n* the public transformers in order, the configure/make invocation, and the build-order repair for the 1999 Makefile race;\n* the six identities a finished build must reproduce, three source files and the three instruments.\n\nThe host dependence is stat",
+      "mergedAt": "2026-10-07T06:36:17Z"
+     },
+     {
+      "number": 41,
+      "title": "refactor(levels/barlow): align iterative loop logic with standalone o…",
+      "author": "platypet2217-star",
+      "untrustedBody": "…verlay references\r\n\r\n<!--\r\nKeep this short. A reviewer must be able to reproduce your result with the command you paste.\r\n-->\r\n\r\n## What this changes\r\n\r\n<!-- One or two sentences: which file(s), and why. -->\r\n\r\n## Type\r\n\r\n- [ ] A matched function (C that reproduces retail bytes)\r\n- [ ] A level placement / catalogue change\r\n- [ ] Tooling or tests\r\n- [ ] Documentation\r\n\r\n## Proof\r\n\r\n<!--\r\nEvery match needs a proof: the exact command, and its result.\r\nExample:\r\n  python scripts/check_candidates.py --reference <boot.elf> --toolchain <ProDG-3.01> --runtime <dir>\r\n  -> all catalogued symbols \"matched\": true, \"different_bytes\": 0\r\n-->\r\n\r\n- Command:\r\n- Result:\r\n\r\n## Checks\r\n\r\n- [ ] `python -m unittest discover -s tests -v` passes\r\n- [ ] Every changed program still gates: all loaded bytes of both PT_LOAD segments compare\r\n      equal to retail (boot, and each level overlay touched)\r\n- [ ] No retail-derived file in the diff — no `boot.elf`, overlays, disc images, extracted\r\n      `.bin`/`.o`, `"
+     },
+     {
+      "number": 42,
+      "title": "decomp: separate small-data unit per overlay, first body landed",
+      "author": "llesieur99",
+      "untrustedBody": "Some retail bodies address a global through `$gp` — a single store relative to the small-data pointer. The pinned `-O2 -G0 -ffunction-sections` profile never emits that form, so ~35 measured families (tens of thousands of bytes) could not be reproduced at all, whatever the source looked like. Recompiling an existing level unit under `-G8` is not an option: one unit, one flag set, and every body already integrated in it would change bytes.\n\nAn overlay may now carry a **second C unit** with its own measured profile, gp, catalogue, review and object. Both units compile, link into the same overlay and are compared complete; every function row keeps its owner, and the level proof records the small-data section next to the native one. The pattern mirrors the boot's separately qualified SDK units rather than inventing a new one.\n\n**Pilot**: one 108-byte body at `19_grelbin` — it writes four ring-header words and then advances the resident pointer through the global itself, which is exactly th",
+      "mergedAt": "2026-10-07T08:14:36Z"
+     },
+     {
+      "number": 43,
+      "title": "decomp: integrate fifteen shared native families that address the overlay gp",
+      "author": "llesieur99",
+      "untrustedBody": "## What\n\nFifteen shared native families whose retail bodies address a global through\n`$gp` are now carried by the **default unit** of every level program that places\nthem. Nothing about the existing unit changes: no new section, no new profile,\nno new format, and not one patched byte.\n\nTwo reviewed inputs change instead:\n\n* the level catalogue states the overlay's **measured gp base** (`0x001AEFF0`).\n  The integration already accepted a native unit with a non-zero gp, so the\n  mechanism was in the tree; what was missing was a reviewed body able to use it.\n* the source declares each touched global with the attribute its **retail sites**\n  require, measured per symbol from the reference disassembly:\n\n| retail behaviour at that address | declaration |\n| --- | --- |\n| every access resolves through `$gp` | `__attribute__((sda))` |\n| every access is absolute | `__attribute__((nosda))` |\n| both forms occur at the same address | no attribute (the assembler decides per site) |\n\n## Why it works\n",
+      "mergedAt": "2026-10-07T10:22:51Z"
+     },
+     {
+      "number": 44,
+      "title": "decomp: bind the parallel-campaign native families across the overlays",
+      "author": "llesieur99",
+      "untrustedBody": "## What this lot binds\n\nOne authored C body per shared native family, with **every measured placement bound and verified\nbyte for byte** before anything is written into the tree. Fifty-two new families.\n\n* Physical integrated C coverage: **498 200 → 525 580 bytes** (1.0211 % → 1.0773 %)\n* Conservative unique matched C: **102 540 → 113 816 bytes** of 44 451 612 (0.2307 % → 0.2560 %)\n* Overlay placements 7 143 → 7 335; native bodies 2 747 → 2 939; boot unit unchanged\n\n## The lever that made these families reachable\n\nThe retail build compiled with cc1 modelling a small global access as **one** macro instruction\nthat gas expands per site. The pinned default profile materialises an explicit `lui`+`lw`\ninstead, which shifts register allocation and scheduling away from the retail bytes and makes\nthe promoted body a different size. Declaring the touched symbol `sda` restores the\none-instruction model; gas then chooses the encoding exactly as the retail build did — absolute\noutside a `.set noma",
+      "mergedAt": "2026-10-07T16:04:36Z"
+     },
+     {
+      "number": 45,
+      "title": "decomp: bind the sixteen late shared native families",
+      "author": "llesieur99",
+      "untrustedBody": "## What this lot binds\n\nThe shared native families the parallel matching campaign resolved after the previous lot was\ncut: one authored C body per family, with **every measured placement bound and verified byte for\nbyte** before anything is written. Sixteen new families.\n\n* Physical integrated C coverage: **525 580 → 531 224 bytes** (1.0792 % → 1.0892 %)\n* Overlay placements 7 335 → 7 366; native bodies 2 939 → 2 970; boot unit unchanged\n\n## Two families needed a type-name change\n\nThe per-level generated candidate concatenates the authored fragments, so a struct tag or typedef\nalready declared by another fragment is a redefinition (`struct Slot` in the previous lot, `Entry`,\n`LevelQueue`, `ListObject`, `Pair`, `Row16`, `ResidentTable`, `SavedSlot` here). The new fragments\nnow carry family-scoped type names; the emitted bytes are unchanged, and the tag itself carries no\ncode.\n\n## Validation\n\n* Level-native qualification: every catalogue rebuilt and every complete body compared\n  (27 lev",
+      "mergedAt": "2026-10-07T16:47:36Z"
+     },
+     {
+      "number": 46,
+      "title": "docs: ship the two compiler source adjustments the recipe only described",
+      "author": "llesieur99",
+      "untrustedBody": "## Why\n\nAn independent reproducibility study rebuilt the documented toolchain from the public recipe and got\na different compiler identity from the one `docs/COMPILER-NOTES.md` records:\n\n| Identity | Documented | Their rebuild |\n| --- | --- | --- |\n| `gcc/config/mips/mips.c` | `c76c0bec…` (282 066 B) | `a2c787dd…` (281 557 B) |\n| `gcc/cc1` | `8bed6eae…` | `c84ca6f8…` |\n\nTheir compiler still reproduces the qualified boot object byte for byte (178/178 functions), so the\ngap is not in the code — it is in the recipe.\n\n**Cause.** The recipe described the five source adjustments in prose. Two of them are\ntext-carrying replacements whose annotation is part of the hashed identity, and the recipe never\ngave their literal text:\n\n* the TImode anchor becomes `  if (0 && TARGET_MIPS5900) /* RAC2 : ancre TImode neutralisee */`\n* the ascending GPR save loop is a literal block whose comment begins `/* RAC2 : emission en ordre CROISSANT … */`\n\nThe annotations alone are 183 bytes; with the exact code sh",
+      "mergedAt": "2026-10-07T17:15:25Z"
+     },
+     {
+      "number": 47,
+      "title": "campaign: add interactive trial review and guarded batch finalization",
+      "author": "llesieur99",
+      "untrustedBody": "Recorded trials require manual instruction comparison, and finishing a validated batch requires coordinating proof, catalogue, report, view and display commands. Add official `campaign.py diff` and `campaign.py finalize` commands backed by the campaign register and maintained exact validators.\n\nThe private interactive review shows complete-symbol R5900 instructions and every byte at exact addresses, with target/function selection and difference navigation. It verifies immutable artifacts, distinguishes historical and relocatable diagnostics, optionally serves one read-only loopback capability URL, and adds no acceptance or credit.\n\nThe finalizer validates a fresh passed boot/27-overlay action, compiler/SDK identities and pinned inputs, then regenerates boundaries, pointer and boot evidence, unique/physical/reuse reports, source inventory and campaign views in a private snapshot. Full raw replay stays private; public supplementary reports generate and check without references using the ",
+      "mergedAt": "2026-10-07T20:41:49Z"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": null,
+   "contributors": [
+    "llesieur99",
+    "platypet2217-star"
+   ]
+  },
+  {
+   "repo": "rac3-decomp",
+   "title": "Up Your Arsenal",
+   "branches": [
+    {
+     "name": "master",
+     "commits": []
+    }
+   ],
+   "commitCount": 0,
+   "pullRequests": {
+    "merged": [],
+    "opened": []
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": null,
+   "contributors": []
+  },
+  {
+   "repo": "rac4-decomp",
+   "title": "Ratchet: Deadlocked",
+   "branches": [
+    {
+     "name": "main",
+     "commits": []
+    }
+   ],
+   "commitCount": 0,
+   "pullRequests": {
+    "merged": [],
+    "opened": []
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": null,
+   "contributors": []
+  },
+  {
+   "repo": "openrac-mods",
+   "title": "OpenRAC mods",
+   "branches": [
+    {
+     "name": "master",
+     "commits": []
+    }
+   ],
+   "commitCount": 0,
+   "pullRequests": {
+    "merged": [],
+    "opened": []
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": null,
+   "contributors": []
+  }
+ ]
+}

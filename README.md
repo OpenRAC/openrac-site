@@ -66,12 +66,10 @@ Browser tests: `npm run test:e2e` (Playwright) builds the site against the share
 
 ## News
 
-`/news` shows what happens across the projects, read on the server from
-[openrac-news](https://github.com/OpenRAC/openrac-news) (`NEWS_SOURCE_URL` in `.env.example`), so new news needs no deploy.
-A job there collects each UTC day's facts from GitHub with no AI. People add weekly reports through pull requests, using their
-own AI tools, and every report names its author and tool and lists its sources. Text from those files is only ever shown as
-plain text, and pictures are served through this site (`/news/media/...`), so visitors never load anything from GitHub.
-If the source cannot be read, pages show the last good copy and say so; see `src/lib/news/index.ts`.
+`/news` shows what happens across the projects, built from the [`news/`](news/) folder, so new news appears with the
+next deploy. A GitHub job collects each finished week's facts on Monday with no AI, and people add weekly reports through
+pull requests using their own AI tools ([how](news/CONTRIBUTING.md)). Every report names its author and tool and lists its
+sources, and text from those files is only ever shown as plain text.
 
 ## GitHub access
 

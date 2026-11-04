@@ -1,4 +1,4 @@
-/** The news as the site shows it: only the fields it displays, read from OpenRAC/openrac-news (format 1). */
+/** The news as the site shows it: only the fields it displays, read from the news/ folder (format 1). */
 
 export interface NewsWeekEntry {
   week: string;
@@ -85,13 +85,6 @@ export interface NewsReportSection {
   highlights: string[];
 }
 
-export interface NewsMedia {
-  file: string;
-  alt: string;
-  caption: string;
-  repo?: string;
-}
-
 export interface NewsReport {
   week: string;
   author: string;
@@ -99,15 +92,10 @@ export interface NewsReport {
   headline: string;
   summary: string;
   projects: Record<string, NewsReportSection>;
-  media: NewsMedia[];
 }
 
-/**
- * Why a week does or does not show a report. "unavailable" (it could not be read just now) and
- * "invalid" (it was read, and is not one this site can show) must not look like "none" (nobody has written it),
- * or visitors would be asked to write a report that already exists.
- */
-export type NewsReportState = { status: "ok"; report: NewsReport } | { status: "none" } | { status: "unavailable" } | { status: "invalid" };
+/** Why a week does or does not show a report: "invalid" must not look like "none", or visitors would be asked to write one that exists. */
+export type NewsReportState = { status: "ok"; report: NewsReport } | { status: "none" } | { status: "invalid" };
 
 /** A piece of report text: plain words, or a citation turned into a link. */
 export type NewsSegment = string | { label: string; href: string };

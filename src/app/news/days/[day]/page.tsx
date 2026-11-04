@@ -3,16 +3,14 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import PageTransition from "@/components/layout/PageTransition";
 import DayCalendar from "@/components/news/DayCalendar";
-import { Freshness, ProjectCard } from "@/components/news/parts";
+import { ProjectCard } from "@/components/news/parts";
 import { getNewsDay, getNewsIndex } from "@/lib/news";
 import { formatDay, formatWeekName, isActive, isNewsDay, neighbours, weekOfDay } from "@/lib/news/logic";
 import { newsAlternates } from "@/lib/news/metadata";
 
-export const revalidate = 3600;
-
-// Only the newest are built ahead; older days build on first visit. Static either way, so an unknown day is a real 404.
+// Built ahead from the news/ folder. An address not in it reaches the page, which answers with our own 404.
 export async function generateStaticParams() {
-  return ((await getNewsIndex())?.index.days ?? []).slice(0, 14).map((day) => ({ day }));
+  return ((await getNewsIndex())?.days ?? []).map((day) => ({ day }));
 }
 
 export async function generateMetadata(props: PageProps<"/news/days/[day]">): Promise<Metadata> {
@@ -26,21 +24,16 @@ export async function generateMetadata(props: PageProps<"/news/days/[day]">): Pr
 export default async function NewsDayPage(props: PageProps<"/news/days/[day]">) {
   const { day } = await props.params;
   if (!isNewsDay(day)) notFound();
-  const loaded = await getNewsIndex();
-  if (!loaded) throw new Error("The list of days could not be read");
-  const { days, weeks } = loaded.index;
-  if (!days.includes(day)) notFound();
-  const data = await getNewsDay(day);
-  if (!data) throw new Error(`${day} could not be read`);
+  const index = await getNewsIndex();
+  if (!index?.days.includes(day)) notFound();
+  const { days, weeks } = index;
+  const facts = await getNewsDay(day);
+  if (!facts) throw new Error(`${day} could not be read`);
 
-  const { facts } = data;
   const active = facts.projects.filter(isActive);
   const { older, newer } = neighbours(days, day);
   const week = weekOfDay(day);
   const hasWeek = weeks.some((w) => w.week === week);
-  // eslint-disable-next-line react-hooks/purity -- a server component, rebuilt hourly
-  const now = Date.now();
-
   return (
     <PageTransition>
       <main className="mx-auto max-w-[1080px] px-4 pb-12 pt-8">
@@ -49,7 +42,6 @@ export default async function NewsDayPage(props: PageProps<"/news/days/[day]">) 
         <p className="mt-1.5 text-soft">The day&apos;s facts from GitHub: {facts.totals.commits} commits landed, {facts.totals.pullRequestsMerged} pull requests merged, {facts.totals.contributors} contributors.</p>
         <div className="mt-6 grid items-start gap-8 min-[821px]:grid-cols-[minmax(0,1fr)_320px]">
           <div className="grid min-w-0 gap-5">
-            <Freshness stale={data.stale} newest={days[0]} now={now} />
             {active.length === 0 ? (
               <p className="text-soft">Nothing landed on the tracked projects this day.</p>
             ) : (

@@ -1,13 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import PageTransition from "@/components/layout/PageTransition";
-import { Freshness, NoReport, Notice, ReportPoster } from "@/components/news/parts";
+import { Notice, ReportPoster } from "@/components/news/parts";
 import SectionArt from "@/components/ui/SectionArt";
 import { getNewsIndex, getNewsWeek } from "@/lib/news";
-import { formatDay, formatWeekName, formatWeekRange, leadProject, NEWS_CONTRIBUTING, NEWS_REPOSITORY } from "@/lib/news/logic";
+import { formatDay, formatWeekName, formatWeekRange, leadProject, NEWS_CONTRIBUTING } from "@/lib/news/logic";
 import { newsAlternates } from "@/lib/news/metadata";
-
-export const revalidate = 3600;
 
 export const metadata: Metadata = {
   title: "News",
@@ -19,7 +17,7 @@ const SHOWN_REPORTS = 13;
 
 /** The written reports, newest first and largest; then the weeks still waiting for one, and today's facts. */
 export default async function NewsPage() {
-  const loaded = await getNewsIndex();
+  const index = await getNewsIndex();
   const header = (
     <div className="mb-6 flex items-center gap-3 sm:gap-5">
       <SectionArt id="news" className="h-14 w-auto sm:h-16" />
@@ -29,36 +27,32 @@ export default async function NewsPage() {
       </div>
     </div>
   );
-  if (!loaded) {
+  if (!index) {
     return (
       <PageTransition>
         <main className="mx-auto max-w-[1080px] px-4 pb-12 pt-8">
           {header}
           <div className="grid gap-4">
-            <Notice>We couldn&apos;t reach the news source just now, so there&apos;s nothing to show. Try again in a little while, or read <a href={NEWS_REPOSITORY} className="text-amber underline underline-offset-2">the data on GitHub</a>.</Notice>
+            <Notice>There&apos;s no news here yet. Check back soon.</Notice>
           </div>
         </main>
       </PageTransition>
     );
   }
-  const { index, stale } = loaded;
   const reportedWeeks = index.weeks.filter((w) => w.report).slice(0, SHOWN_REPORTS);
   const weeks = await Promise.all(reportedWeeks.map(async (entry) => ({ entry, data: await getNewsWeek(entry.week) })));
   const reports = weeks.flatMap(({ entry, data }) => (data?.report.status === "ok" ? [{ entry, report: data.report.report, lead: leadProject(data.facts.projects)?.repo }] : []));
   const [first, ...rest] = reports;
   const waiting = index.weeks.filter((w) => w.finished && !w.report);
   const newestDay = index.days[0];
-  // eslint-disable-next-line react-hooks/purity -- a server component, rebuilt hourly: "how old is the news" is what this page is for
-  const now = Date.now();
-
   return (
     <PageTransition>
       <main className="mx-auto grid max-w-[1080px] gap-8 px-4 pb-12 pt-8">
         <div>
           {header}
           <div className="grid gap-4">
-            <Freshness stale={stale} newest={newestDay} now={now} />
-            {first ? <ReportPoster entry={first.entry} report={first.report} lead={first.lead} large /> : reportedWeeks.length ? <NoReport state="unavailable" /> : <p className="text-soft">No written reports yet. <a href={NEWS_CONTRIBUTING} className="text-amber underline underline-offset-2">Write the first one</a></p>}
+            {newestDay && <p className="text-[14px] text-dim">Updated weekly. Figures up to {formatDay(newestDay)}.</p>}
+            {first ? <ReportPoster entry={first.entry} report={first.report} lead={first.lead} large /> : <p className="text-soft">No written reports yet. <a href={NEWS_CONTRIBUTING} className="text-amber underline underline-offset-2">Write the first one</a></p>}
           </div>
         </div>
 
@@ -77,7 +71,7 @@ export default async function NewsPage() {
           {newestDay && (
             <section aria-labelledby="facts" className="rounded-2xl border border-line bg-panel p-5">
               <h2 id="facts" className="mb-1 font-orbitron text-lg font-bold text-gold">Latest facts</h2>
-              <p className="mb-3 text-soft">Collected from GitHub every day, before anyone writes them up.</p>
+              <p className="mb-3 text-soft">Collected from GitHub, day by day, before anyone writes them up.</p>
               <Link href={`/news/days/${newestDay}`} className="btn">{formatDay(newestDay)}</Link>
             </section>
           )}

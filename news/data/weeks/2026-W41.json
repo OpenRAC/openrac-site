@@ -1,0 +1,1910 @@
+{
+ "format": 1,
+ "week": "2026-W41",
+ "start": "2026-10-05",
+ "end": "2026-10-11",
+ "days": [
+  "2026-10-05",
+  "2026-10-06",
+  "2026-10-07",
+  "2026-10-08",
+  "2026-10-09",
+  "2026-10-10",
+  "2026-10-11"
+ ],
+ "totals": {
+  "commits": 244,
+  "pullRequestsMerged": 119,
+  "pullRequestsOpened": 127,
+  "contributors": 8
+ },
+ "projects": [
+  {
+   "repo": "OpenRAC",
+   "title": "OpenRAC launcher",
+   "commitCount": 100,
+   "activeDays": [
+    "2026-10-05",
+    "2026-10-08",
+    "2026-10-09",
+    "2026-10-10",
+    "2026-10-11"
+   ],
+   "pullRequests": {
+    "merged": [
+     {
+      "number": 2,
+      "title": "feat(launcher): scaffold a desktop launcher for all four games",
+      "author": "Veradictus",
+      "mergedAt": "2026-10-09T04:16:49Z"
+     },
+     {
+      "number": 3,
+      "title": "Native port scaffolding: no emulation, OpenGOAL-style set-up, port/ with hostgen, runtime, renderer and openrac-rac1",
+      "author": "Veradictus",
+      "mergedAt": "2026-10-10T03:56:18Z"
+     },
+     {
+      "number": 4,
+      "title": "feat(rac1/pal): advance native New Game initialization",
+      "author": "PeterFarber",
+      "mergedAt": "2026-10-10T20:18:16Z"
+     },
+     {
+      "number": 5,
+      "title": "feat(rac1/pal): recover native hero movement and respawn routines",
+      "author": "PeterFarber",
+      "mergedAt": "2026-10-10T22:30:33Z"
+     },
+     {
+      "number": 6,
+      "title": "feat(port): the 2D layer's textured quads drawn natively, behind OpenGL",
+      "author": "Veradictus",
+      "mergedAt": "2026-10-11T16:53:30Z"
+     }
+    ],
+    "opened": [
+     {
+      "number": 1,
+      "title": "chore(rac2): sync validated Going Commando progress and contributor updates",
+      "author": "llesieur99"
+     },
+     {
+      "number": 2,
+      "title": "feat(launcher): scaffold a desktop launcher for all four games",
+      "author": "Veradictus",
+      "mergedAt": "2026-10-09T04:16:49Z"
+     },
+     {
+      "number": 3,
+      "title": "Native port scaffolding: no emulation, OpenGOAL-style set-up, port/ with hostgen, runtime, renderer and openrac-rac1",
+      "author": "Veradictus",
+      "mergedAt": "2026-10-10T03:56:18Z"
+     },
+     {
+      "number": 4,
+      "title": "feat(rac1/pal): advance native New Game initialization",
+      "author": "PeterFarber",
+      "mergedAt": "2026-10-10T20:18:16Z"
+     },
+     {
+      "number": 5,
+      "title": "feat(rac1/pal): recover native hero movement and respawn routines",
+      "author": "PeterFarber",
+      "mergedAt": "2026-10-10T22:30:33Z"
+     },
+     {
+      "number": 6,
+      "title": "feat(port): the 2D layer's textured quads drawn natively, behind OpenGL",
+      "author": "Veradictus",
+      "mergedAt": "2026-10-11T16:53:30Z"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": null,
+   "contributors": [
+    "llesieur99",
+    "Lynder063",
+    "PeterFarber",
+    "Veradictus"
+   ]
+  },
+  {
+   "repo": "rac1-decomp",
+   "title": "Ratchet & Clank",
+   "commitCount": 144,
+   "activeDays": [
+    "2026-10-05",
+    "2026-10-06",
+    "2026-10-07",
+    "2026-10-08",
+    "2026-10-09",
+    "2026-10-10",
+    "2026-10-11"
+   ],
+   "pullRequests": {
+    "merged": [
+     {
+      "number": 26,
+      "title": "feat(ports): carry 100 functions over from Lombyte by machine (22.14%)",
+      "author": "Veradictus",
+      "mergedAt": "2026-10-05T06:35:48Z"
+     },
+     {
+      "number": 27,
+      "title": "Qwen fixes and matches",
+      "author": "Lynder063",
+      "mergedAt": "2026-10-05T13:18:31Z"
+     },
+     {
+      "number": 28,
+      "title": "README update",
+      "author": "Lynder063",
+      "mergedAt": "2026-10-05T15:45:15Z"
+     },
+     {
+      "number": 29,
+      "title": "feat(overlays): 140 functions, 1.08 MB: matched code goes from 22.59% to 51.63%",
+      "author": "Veradictus",
+      "mergedAt": "2026-10-05T17:36:25Z"
+     },
+     {
+      "number": 30,
+      "title": "trying some small to medium functions",
+      "author": "Lynder063",
+      "mergedAt": "2026-10-06T19:03:18Z"
+     },
+     {
+      "number": 31,
+      "title": "feat(include): qcopy_nc() and qzero(), and the 17 functions they unlock (51.63% to 53.10%)",
+      "author": "Veradictus",
+      "mergedAt": "2026-10-05T18:23:11Z"
+     },
+     {
+      "number": 32,
+      "title": "feat(overlays): level 17 complete, 29 more functions, and two report rules for level units",
+      "author": "Veradictus",
+      "mergedAt": "2026-10-05T22:31:31Z"
+     },
+     {
+      "number": 33,
+      "title": "feat(overlays): 54 more functions, and 72 functions the catalogue had cut apart are joined",
+      "author": "Veradictus",
+      "mergedAt": "2026-10-06T12:42:19Z"
+     },
+     {
+      "number": 34,
+      "title": "feat(overlays): level 16 complete, 19 more functions",
+      "author": "Veradictus",
+      "mergedAt": "2026-10-06T19:26:27Z"
+     },
+     {
+      "number": 36,
+      "title": "feat: level 0 and game/menu complete, 46 more functions, a prototype sweep",
+      "author": "Veradictus",
+      "mergedAt": "2026-10-07T00:07:21Z"
+     },
+     {
+      "number": 37,
+      "title": "qwen trying to decompile",
+      "author": "Lynder063",
+      "mergedAt": "2026-10-08T06:16:28Z"
+     },
+     {
+      "number": 38,
+      "title": "add func_L03_002E99F0.c",
+      "author": "Lynder063",
+      "mergedAt": "2026-10-08T06:03:15Z"
+     },
+     {
+      "number": 39,
+      "title": "feat(overlays): four overlay functions, exact matches",
+      "author": "dev-gian",
+      "mergedAt": "2026-10-08T06:03:35Z"
+     },
+     {
+      "number": 40,
+      "title": "Stop helping the compiler, plus another 1.9% of the game",
+      "author": "Veradictus",
+      "mergedAt": "2026-10-08T06:28:39Z"
+     },
+     {
+      "number": 41,
+      "title": "Twenty Haikus walk into a decomp: 41 more functions, plus GPT's movie work",
+      "author": "Veradictus",
+      "mergedAt": "2026-10-08T14:02:58Z"
+     },
+     {
+      "number": 42,
+      "title": "Match 8 functions in Rilgar and Batalia overlays",
+      "author": "dev-gian",
+      "mergedAt": "2026-10-08T17:40:42Z"
+     },
+     {
+      "number": 43,
+      "title": "Four big ones from Lombyte, courtesy of GPT",
+      "author": "Veradictus",
+      "mergedAt": "2026-10-08T17:25:37Z"
+     },
+     {
+      "number": 44,
+      "title": "Match 8 functions in Batalia, Pokitaru, Hoven and Gemlik overlays",
+      "author": "dev-gian",
+      "mergedAt": "2026-10-08T20:52:21Z"
+     },
+     {
+      "number": 45,
+      "title": "Match 4 functions in Rilgar, Pokitaru, Gemlik and shared overlays",
+      "author": "dev-gian",
+      "mergedAt": "2026-10-09T20:35:29Z"
+     },
+     {
+      "number": 46,
+      "title": "Match 508 functions, add a moby struct and functional C for the native port",
+      "author": "Veradictus",
+      "mergedAt": "2026-10-10T03:40:36Z"
+     },
+     {
+      "number": 47,
+      "title": "Port support: functional C for the native build, plus a handful of matching fixes",
+      "author": "Veradictus",
+      "mergedAt": "2026-10-10T20:34:21Z"
+     },
+     {
+      "number": 48,
+      "title": "Five more matches (4,220 of 5,109) and a first-person camera fix for the port",
+      "author": "Veradictus",
+      "mergedAt": "2026-10-11T16:47:36Z"
+     }
+    ],
+    "opened": [
+     {
+      "number": 26,
+      "title": "feat(ports): carry 100 functions over from Lombyte by machine (22.14%)",
+      "author": "Veradictus",
+      "mergedAt": "2026-10-05T06:35:48Z"
+     },
+     {
+      "number": 27,
+      "title": "Qwen fixes and matches",
+      "author": "Lynder063",
+      "mergedAt": "2026-10-05T13:18:31Z"
+     },
+     {
+      "number": 28,
+      "title": "README update",
+      "author": "Lynder063",
+      "mergedAt": "2026-10-05T15:45:15Z"
+     },
+     {
+      "number": 29,
+      "title": "feat(overlays): 140 functions, 1.08 MB: matched code goes from 22.59% to 51.63%",
+      "author": "Veradictus",
+      "mergedAt": "2026-10-05T17:36:25Z"
+     },
+     {
+      "number": 30,
+      "title": "trying some small to medium functions",
+      "author": "Lynder063",
+      "mergedAt": "2026-10-06T19:03:18Z"
+     },
+     {
+      "number": 31,
+      "title": "feat(include): qcopy_nc() and qzero(), and the 17 functions they unlock (51.63% to 53.10%)",
+      "author": "Veradictus",
+      "mergedAt": "2026-10-05T18:23:11Z"
+     },
+     {
+      "number": 32,
+      "title": "feat(overlays): level 17 complete, 29 more functions, and two report rules for level units",
+      "author": "Veradictus",
+      "mergedAt": "2026-10-05T22:31:31Z"
+     },
+     {
+      "number": 33,
+      "title": "feat(overlays): 54 more functions, and 72 functions the catalogue had cut apart are joined",
+      "author": "Veradictus",
+      "mergedAt": "2026-10-06T12:42:19Z"
+     },
+     {
+      "number": 34,
+      "title": "feat(overlays): level 16 complete, 19 more functions",
+      "author": "Veradictus",
+      "mergedAt": "2026-10-06T19:26:27Z"
+     },
+     {
+      "number": 36,
+      "title": "feat: level 0 and game/menu complete, 46 more functions, a prototype sweep",
+      "author": "Veradictus",
+      "mergedAt": "2026-10-07T00:07:21Z"
+     },
+     {
+      "number": 37,
+      "title": "qwen trying to decompile",
+      "author": "Lynder063",
+      "mergedAt": "2026-10-08T06:16:28Z"
+     },
+     {
+      "number": 38,
+      "title": "add func_L03_002E99F0.c",
+      "author": "Lynder063",
+      "mergedAt": "2026-10-08T06:03:15Z"
+     },
+     {
+      "number": 39,
+      "title": "feat(overlays): four overlay functions, exact matches",
+      "author": "dev-gian",
+      "mergedAt": "2026-10-08T06:03:35Z"
+     },
+     {
+      "number": 40,
+      "title": "Stop helping the compiler, plus another 1.9% of the game",
+      "author": "Veradictus",
+      "mergedAt": "2026-10-08T06:28:39Z"
+     },
+     {
+      "number": 41,
+      "title": "Twenty Haikus walk into a decomp: 41 more functions, plus GPT's movie work",
+      "author": "Veradictus",
+      "mergedAt": "2026-10-08T14:02:58Z"
+     },
+     {
+      "number": 42,
+      "title": "Match 8 functions in Rilgar and Batalia overlays",
+      "author": "dev-gian",
+      "mergedAt": "2026-10-08T17:40:42Z"
+     },
+     {
+      "number": 43,
+      "title": "Four big ones from Lombyte, courtesy of GPT",
+      "author": "Veradictus",
+      "mergedAt": "2026-10-08T17:25:37Z"
+     },
+     {
+      "number": 44,
+      "title": "Match 8 functions in Batalia, Pokitaru, Hoven and Gemlik overlays",
+      "author": "dev-gian",
+      "mergedAt": "2026-10-08T20:52:21Z"
+     },
+     {
+      "number": 45,
+      "title": "Match 4 functions in Rilgar, Pokitaru, Gemlik and shared overlays",
+      "author": "dev-gian",
+      "mergedAt": "2026-10-09T20:35:29Z"
+     },
+     {
+      "number": 46,
+      "title": "Match 508 functions, add a moby struct and functional C for the native port",
+      "author": "Veradictus",
+      "mergedAt": "2026-10-10T03:40:36Z"
+     },
+     {
+      "number": 47,
+      "title": "Port support: functional C for the native build, plus a handful of matching fixes",
+      "author": "Veradictus",
+      "mergedAt": "2026-10-10T20:34:21Z"
+     },
+     {
+      "number": 48,
+      "title": "Five more matches (4,220 of 5,109) and a first-person camera fix for the port",
+      "author": "Veradictus",
+      "mergedAt": "2026-10-11T16:47:36Z"
+     },
+     {
+      "number": 49,
+      "title": "Match func_L00_001F5C60 (debug menu draw, 4,884 bytes)",
+      "author": "dev-gian",
+      "mergedAt": "2026-10-12T10:01:19Z"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [
+     {
+      "number": 35,
+      "title": "What about tekken decomp after completed?",
+      "author": "romildolisboa4-netizen"
+     }
+    ],
+    "closed": [
+     {
+      "number": 35,
+      "title": "What about tekken decomp after completed?",
+      "author": "romildolisboa4-netizen"
+     }
+    ]
+   },
+   "releases": [],
+   "progress": {
+    "before": {
+     "code": {
+      "done": 751292,
+      "total": 3712808
+     },
+     "functions": {
+      "done": 2834,
+      "total": 5109
+     }
+    },
+    "after": {
+     "code": {
+      "done": 2919340,
+      "total": 3712808
+     },
+     "functions": {
+      "done": 4225,
+      "total": 5109
+     }
+    }
+   },
+   "contributors": [
+    "dev-gian",
+    "Lynder063",
+    "Veradictus"
+   ]
+  },
+  {
+   "repo": "rac2-decomp",
+   "title": "Going Commando",
+   "commitCount": 0,
+   "activeDays": [],
+   "pullRequests": {
+    "merged": [
+     {
+      "number": 9,
+      "title": "Merge platypet2217-star/RAC2Decomp and add NTSC/PAL region support",
+      "author": "Lynder063",
+      "mergedAt": "2026-10-05T17:59:25Z"
+     },
+     {
+      "number": 10,
+      "title": "ci: validate the exported progress report with objdiff",
+      "author": "Lynder063",
+      "mergedAt": "2026-10-05T17:59:25Z"
+     },
+     {
+      "number": 11,
+      "title": "research: record RAC1 fp-bit evidence for the boot runtime helpers",
+      "author": "Lynder063",
+      "mergedAt": "2026-10-05T17:59:25Z"
+     },
+     {
+      "number": 12,
+      "title": "docs: summarise rac1-decomp findings that bear on RAC2",
+      "author": "Lynder063",
+      "mergedAt": "2026-10-05T17:59:25Z"
+     },
+     {
+      "number": 13,
+      "title": "decomp: match the boot's fp-bit single-precision unpacker from vendored libgcc",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-05T20:39:30Z"
+     },
+     {
+      "number": 14,
+      "title": "tooling: discover shared families and prepare exact binding trials",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-05T23:34:20Z"
+     },
+     {
+      "number": 15,
+      "title": "tools: add global graph-refined EE catalogue and paired progress",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-06T02:28:03Z"
+     },
+     {
+      "number": 16,
+      "title": "tools: verify shared boot bindings and remaining duplication",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-06T03:35:32Z"
+     },
+     {
+      "number": 17,
+      "title": "decomp: integrate 29 shared native C placements",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-06T04:51:17Z"
+     },
+     {
+      "number": 18,
+      "title": "decomp: integrate shared call-state and scalar power families",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-06T05:37:23Z"
+     },
+     {
+      "number": 19,
+      "title": "decomp: complete all 28 signed-index bitmap placements",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-06T06:18:36Z"
+     },
+     {
+      "number": 20,
+      "title": "decomp: integrate 34 counter and resident-state placements",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-06T07:24:19Z"
+     },
+     {
+      "number": 21,
+      "title": "decomp: reuse three canonical C routines at 81 overlay placements",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-06T08:40:55Z"
+     },
+     {
+      "number": 22,
+      "title": "fix: admit C member names without weakening assembly guards",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-06T10:37:13Z"
+     },
+     {
+      "number": 23,
+      "title": "decomp: match the boot dual-prime motion-vector routine",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-06T11:04:25Z"
+     },
+     {
+      "number": 24,
+      "title": "decomp: match boot temporary-track update and IPU synchronization",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-06T11:48:45Z"
+     },
+     {
+      "number": 25,
+      "title": "compiler: bind a control-backed SDK profile with immutable job metadata",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-06T13:16:07Z"
+     },
+     {
+      "number": 26,
+      "title": "decomp: integrate the source-specific SDK sysbit boot owner",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-06T15:13:38Z"
+     },
+     {
+      "number": 27,
+      "title": "decomp: integrate the exact CPR8 SDK boot object",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-06T16:29:16Z"
+     },
+     {
+      "number": 28,
+      "title": "decomp: integrate callback 775 placements and IPU DMA restart",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-06T18:04:27Z"
+     },
+     {
+      "number": 29,
+      "title": "metrics: expose verified reusable-code families and uncertainty",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-06T19:03:17Z"
+     },
+     {
+      "number": 30,
+      "title": "compiler: prove bounded local GP facts with strict CFG joins",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-06T20:31:46Z"
+     },
+     {
+      "number": 31,
+      "title": "docs: retain bounded caller GP refusal and qualification gap",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-06T20:45:34Z"
+     },
+     {
+      "number": 32,
+      "title": "fix: refuse unproved control escapes in local GP certificates",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-06T21:23:49Z"
+     },
+     {
+      "number": 33,
+      "title": "Update README.md",
+      "author": "platypet2217-star",
+      "mergedAt": "2026-10-07T05:10:16Z"
+     },
+     {
+      "number": 34,
+      "title": "decomp: match two scalar leaves across 27 overlays",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-07T01:19:42Z"
+     },
+     {
+      "number": 35,
+      "title": "decomp: reuse three boot C bodies across 27 overlays",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-07T01:40:06Z"
+     },
+     {
+      "number": 36,
+      "title": "decomp: integrate scalar C copies and shared state predicate",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-07T02:09:04Z"
+     },
+     {
+      "number": 37,
+      "title": "decomp: match entity state callbacks and resident wrapper copies",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-07T02:42:11Z"
+     },
+     {
+      "number": 38,
+      "title": "decomp: thirty shared native C families across the overlays",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-07T05:09:34Z"
+     },
+     {
+      "number": 39,
+      "title": "decomp: three more shared native families across boot and the overlays",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-07T06:03:13Z"
+     },
+     {
+      "number": 40,
+      "title": "docs: record the complete GNU EE rebuild recipe",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-07T06:36:17Z"
+     },
+     {
+      "number": 42,
+      "title": "decomp: separate small-data unit per overlay, first body landed",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-07T08:14:36Z"
+     },
+     {
+      "number": 43,
+      "title": "decomp: integrate fifteen shared native families that address the overlay gp",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-07T10:22:51Z"
+     },
+     {
+      "number": 44,
+      "title": "decomp: bind the parallel-campaign native families across the overlays",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-07T16:04:36Z"
+     },
+     {
+      "number": 45,
+      "title": "decomp: bind the sixteen late shared native families",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-07T16:47:36Z"
+     },
+     {
+      "number": 46,
+      "title": "docs: ship the two compiler source adjustments the recipe only described",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-07T17:15:25Z"
+     },
+     {
+      "number": 47,
+      "title": "campaign: add interactive trial review and guarded batch finalization",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-07T20:41:49Z"
+     },
+     {
+      "number": 49,
+      "title": "campaign: retain bounded C4130 new-function refusals",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-08T02:43:02Z"
+     },
+     {
+      "number": 50,
+      "title": "campaign: reserve Qwen overnight targets from parent reconstruction",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-08T05:09:19Z"
+     },
+     {
+      "number": 51,
+      "title": "Integrate 40,664 native C bytes with full-image proofs",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-08T07:26:19Z"
+     },
+     {
+      "number": 52,
+      "title": "decomp: add 46,312 exact C bytes in native and small-data units",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-08T10:34:56Z"
+     },
+     {
+      "number": 53,
+      "title": "Match 41,180 bytes of scalar state and command functions",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-08T13:29:03Z"
+     },
+     {
+      "number": 54,
+      "title": "decomp: match boot FUN_0011B0A0 absolute-cell clear (+12 C bytes)",
+      "author": "liolu",
+      "mergedAt": "2026-10-08T23:30:31Z"
+     },
+     {
+      "number": 55,
+      "title": "decomp: integrate 40,876 reviewed C bytes and preserve shared imports",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-08T21:54:34Z"
+     },
+     {
+      "number": 57,
+      "title": "docs: explain updating contributor branches before review",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-08T23:45:29Z"
+     },
+     {
+      "number": 58,
+      "title": "docs: fix the complete contributor baseline instructions",
+      "author": "ThorpenCodes",
+      "mergedAt": "2026-10-09T03:05:32Z"
+     },
+     {
+      "number": 59,
+      "title": "tools: share contributor reservations and reviewed nonmatching attempts",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-09T01:18:48Z"
+     },
+     {
+      "number": 60,
+      "title": "decomp: match boot FUN_001163A0 resident word setter (+16 C bytes)",
+      "author": "ThorpenCodes",
+      "mergedAt": "2026-10-09T02:05:02Z"
+     },
+     {
+      "number": 63,
+      "title": "tools: require useful PR descriptions and scoped validation evidence",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-09T02:21:31Z"
+     },
+     {
+      "number": 64,
+      "title": "fix: validate older PR descriptions with the current trusted target",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-09T02:46:59Z"
+     },
+     {
+      "number": 68,
+      "title": "docs: add VU hardware and renderer comparison references",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-09T05:42:46Z"
+     },
+     {
+      "number": 69,
+      "title": "decomp: close Qwen backlog with ten reviewed boot matches",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-09T06:04:39Z"
+     },
+     {
+      "number": 70,
+      "title": "decomp: integrate five shared call families across boot and 26 overlays",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-09T13:07:18Z"
+     },
+     {
+      "number": 72,
+      "title": "decomp: match boot FUN_00336B90 offset-0x40 word setter (+8 C bytes)",
+      "author": "liolu",
+      "mergedAt": "2026-10-11T18:33:21Z"
+     },
+     {
+      "number": 74,
+      "title": "docs: credit Promises and add a gap report against RC2-Going-Decompiled",
+      "author": "Lynder063",
+      "mergedAt": "2026-10-11T17:40:41Z"
+     },
+     {
+      "number": 75,
+      "title": "decomp: match boot FUN_002B5D28 pointer-field accessor (+12 C bytes)",
+      "author": "liolu",
+      "mergedAt": "2026-10-11T18:33:21Z"
+     },
+     {
+      "number": 76,
+      "title": "ci: prepare trusted merge queue checks for RAC2",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-09T13:44:39Z"
+     },
+     {
+      "number": 77,
+      "title": "docs: route ongoing contributions through the merge queue",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-09T15:04:31Z"
+     },
+     {
+      "number": 78,
+      "title": "fix: bind queue description checks to read-only REST ancestry",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-09T14:49:17Z"
+     },
+     {
+      "number": 79,
+      "title": "decomp: integrate five shared data families across boot and 26 overlays",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-09T15:39:34Z"
+     },
+     {
+      "number": 80,
+      "title": "tooling: adopt the folded-zero-store compiler identity and requalify the corpus",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-09T18:24:37Z"
+     },
+     {
+      "number": 82,
+      "title": "compiler: add measured SDK 3.01 division padding to GNU as",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-09T21:07:28Z"
+     },
+     {
+      "number": 84,
+      "title": "tooling: group validated progress by authored source",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-09T22:19:22Z"
+     },
+     {
+      "number": 85,
+      "title": "tooling: reuse qualified queue tests for the primary maintainer",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-09T23:05:45Z"
+     },
+     {
+      "number": 86,
+      "title": "compiler: adopt the division delay-slot barrier and the branch-group floor",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-10T02:18:37Z"
+     },
+     {
+      "number": 87,
+      "title": "decomp: integrate thirteen shared call families across boot and 26 overlays",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-10T04:26:52Z"
+     },
+     {
+      "number": 88,
+      "title": "tooling: cache exact source definition spans",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-10T04:51:19Z"
+     },
+     {
+      "number": 89,
+      "title": "tooling: validate and publish CI exports once",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-10T12:01:55Z"
+     },
+     {
+      "number": 90,
+      "title": "tooling: tolerate delayed merged-PR association",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-10T12:32:19Z"
+     },
+     {
+      "number": 91,
+      "title": "compiler: emit the save blocks in the stock order and requalify the corpus",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-10T14:03:50Z"
+     },
+     {
+      "number": 92,
+      "title": "decomp: integrate twenty-three shared call families across boot and 27 overlays",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-10T18:59:34Z"
+     },
+     {
+      "number": 93,
+      "title": "compiler: fold the return-value read of the zero store and integrate its family",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-10T17:33:34Z"
+     },
+     {
+      "number": 94,
+      "title": "decomp: integrate three shared call families across boot and 26 overlays",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-10T21:51:39Z"
+     },
+     {
+      "number": 95,
+      "title": "Multi-language Cinematic Structure Doc",
+      "author": "platypet2217-star",
+      "mergedAt": "2026-10-11T04:55:50Z"
+     },
+     {
+      "number": 96,
+      "title": "fix: bind native queue fork heads with missing commit association",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-11T01:35:03Z"
+     },
+     {
+      "number": 97,
+      "title": "decomp: promote thirty-four wave-6 shared call families",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-11T00:49:29Z"
+     },
+     {
+      "number": 103,
+      "title": "decomp: integrate exact GP32 setter family",
+      "author": "ThorpenCodes",
+      "mergedAt": "2026-10-11T05:30:18Z"
+     },
+     {
+      "number": 104,
+      "title": "tooling: publish the measured wide family relation beside the narrow partition",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-11T04:59:06Z"
+     },
+     {
+      "number": 107,
+      "title": "decomp: admit non-aligned absolute level externals and integrate two byte-flag families",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-11T04:53:02Z"
+     },
+     {
+      "number": 108,
+      "title": "ci: trust primary maintainer local validation without queue waits",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-11T04:38:00Z"
+     },
+     {
+      "number": 114,
+      "title": "decomp: integrate shared second-argument forwarder",
+      "author": "ThorpenCodes",
+      "mergedAt": "2026-10-11T18:33:21Z"
+     },
+     {
+      "number": 115,
+      "title": "decomp: integrate five shared native families (+56,384 bytes)",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-11T08:13:09Z"
+     },
+     {
+      "number": 135,
+      "title": "tooling: legal check, function ranking, contributor docs (split 1/3 of #83)",
+      "author": "Lynder063",
+      "mergedAt": "2026-10-11T18:33:21Z"
+     },
+     {
+      "number": 136,
+      "title": "report: deduplicated v1.01 estimate, names and datamine (split 2/3 of #83)",
+      "author": "Lynder063",
+      "mergedAt": "2026-10-11T18:33:20Z"
+     },
+     {
+      "number": 137,
+      "title": "v2.00: experimental route, exploratory candidates only (split 3/3 of #83)",
+      "author": "Lynder063",
+      "mergedAt": "2026-10-11T18:33:21Z"
+     },
+     {
+      "number": 139,
+      "title": "trials: 12 small v1.01 functions in -G8 units (candidates only)",
+      "author": "Lynder063",
+      "mergedAt": "2026-10-11T18:33:20Z"
+     },
+     {
+      "number": 140,
+      "title": "decomp: integrate 19 reserved Batch A families across 318 placements",
+      "author": "ThorpenCodes",
+      "mergedAt": "2026-10-11T14:47:52Z"
+     },
+     {
+      "number": 141,
+      "title": "decomp: promote twelve exact shared families",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-11T17:24:38Z"
+     },
+     {
+      "number": 142,
+      "title": "tooling: parallelize owner-local finalizer tests",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-11T17:33:06Z"
+     },
+     {
+      "number": 144,
+      "title": "integration: land reviewed open contributions and refreshed matching proofs",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-11T18:33:19Z"
+     },
+     {
+      "number": 145,
+      "title": "tooling: authorize Thorpen local validation and complete private snapshots",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-11T18:38:00Z"
+     }
+    ],
+    "opened": [
+     {
+      "number": 9,
+      "title": "Merge platypet2217-star/RAC2Decomp and add NTSC/PAL region support",
+      "author": "Lynder063",
+      "mergedAt": "2026-10-05T17:59:25Z"
+     },
+     {
+      "number": 10,
+      "title": "ci: validate the exported progress report with objdiff",
+      "author": "Lynder063",
+      "mergedAt": "2026-10-05T17:59:25Z"
+     },
+     {
+      "number": 11,
+      "title": "research: record RAC1 fp-bit evidence for the boot runtime helpers",
+      "author": "Lynder063",
+      "mergedAt": "2026-10-05T17:59:25Z"
+     },
+     {
+      "number": 12,
+      "title": "docs: summarise rac1-decomp findings that bear on RAC2",
+      "author": "Lynder063",
+      "mergedAt": "2026-10-05T17:59:25Z"
+     },
+     {
+      "number": 13,
+      "title": "decomp: match the boot's fp-bit single-precision unpacker from vendored libgcc",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-05T20:39:30Z"
+     },
+     {
+      "number": 14,
+      "title": "tooling: discover shared families and prepare exact binding trials",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-05T23:34:20Z"
+     },
+     {
+      "number": 15,
+      "title": "tools: add global graph-refined EE catalogue and paired progress",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-06T02:28:03Z"
+     },
+     {
+      "number": 16,
+      "title": "tools: verify shared boot bindings and remaining duplication",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-06T03:35:32Z"
+     },
+     {
+      "number": 17,
+      "title": "decomp: integrate 29 shared native C placements",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-06T04:51:17Z"
+     },
+     {
+      "number": 18,
+      "title": "decomp: integrate shared call-state and scalar power families",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-06T05:37:23Z"
+     },
+     {
+      "number": 19,
+      "title": "decomp: complete all 28 signed-index bitmap placements",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-06T06:18:36Z"
+     },
+     {
+      "number": 20,
+      "title": "decomp: integrate 34 counter and resident-state placements",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-06T07:24:19Z"
+     },
+     {
+      "number": 21,
+      "title": "decomp: reuse three canonical C routines at 81 overlay placements",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-06T08:40:55Z"
+     },
+     {
+      "number": 22,
+      "title": "fix: admit C member names without weakening assembly guards",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-06T10:37:13Z"
+     },
+     {
+      "number": 23,
+      "title": "decomp: match the boot dual-prime motion-vector routine",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-06T11:04:25Z"
+     },
+     {
+      "number": 24,
+      "title": "decomp: match boot temporary-track update and IPU synchronization",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-06T11:48:45Z"
+     },
+     {
+      "number": 25,
+      "title": "compiler: bind a control-backed SDK profile with immutable job metadata",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-06T13:16:07Z"
+     },
+     {
+      "number": 26,
+      "title": "decomp: integrate the source-specific SDK sysbit boot owner",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-06T15:13:38Z"
+     },
+     {
+      "number": 27,
+      "title": "decomp: integrate the exact CPR8 SDK boot object",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-06T16:29:16Z"
+     },
+     {
+      "number": 28,
+      "title": "decomp: integrate callback 775 placements and IPU DMA restart",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-06T18:04:27Z"
+     },
+     {
+      "number": 29,
+      "title": "metrics: expose verified reusable-code families and uncertainty",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-06T19:03:17Z"
+     },
+     {
+      "number": 30,
+      "title": "compiler: prove bounded local GP facts with strict CFG joins",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-06T20:31:46Z"
+     },
+     {
+      "number": 31,
+      "title": "docs: retain bounded caller GP refusal and qualification gap",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-06T20:45:34Z"
+     },
+     {
+      "number": 32,
+      "title": "fix: refuse unproved control escapes in local GP certificates",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-06T21:23:49Z"
+     },
+     {
+      "number": 33,
+      "title": "Update README.md",
+      "author": "platypet2217-star",
+      "mergedAt": "2026-10-07T05:10:16Z"
+     },
+     {
+      "number": 34,
+      "title": "decomp: match two scalar leaves across 27 overlays",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-07T01:19:42Z"
+     },
+     {
+      "number": 35,
+      "title": "decomp: reuse three boot C bodies across 27 overlays",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-07T01:40:06Z"
+     },
+     {
+      "number": 36,
+      "title": "decomp: integrate scalar C copies and shared state predicate",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-07T02:09:04Z"
+     },
+     {
+      "number": 37,
+      "title": "decomp: match entity state callbacks and resident wrapper copies",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-07T02:42:11Z"
+     },
+     {
+      "number": 38,
+      "title": "decomp: thirty shared native C families across the overlays",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-07T05:09:34Z"
+     },
+     {
+      "number": 39,
+      "title": "decomp: three more shared native families across boot and the overlays",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-07T06:03:13Z"
+     },
+     {
+      "number": 40,
+      "title": "docs: record the complete GNU EE rebuild recipe",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-07T06:36:17Z"
+     },
+     {
+      "number": 41,
+      "title": "refactor(levels/barlow): align iterative loop logic with standalone o…",
+      "author": "platypet2217-star"
+     },
+     {
+      "number": 42,
+      "title": "decomp: separate small-data unit per overlay, first body landed",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-07T08:14:36Z"
+     },
+     {
+      "number": 43,
+      "title": "decomp: integrate fifteen shared native families that address the overlay gp",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-07T10:22:51Z"
+     },
+     {
+      "number": 44,
+      "title": "decomp: bind the parallel-campaign native families across the overlays",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-07T16:04:36Z"
+     },
+     {
+      "number": 45,
+      "title": "decomp: bind the sixteen late shared native families",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-07T16:47:36Z"
+     },
+     {
+      "number": 46,
+      "title": "docs: ship the two compiler source adjustments the recipe only described",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-07T17:15:25Z"
+     },
+     {
+      "number": 47,
+      "title": "campaign: add interactive trial review and guarded batch finalization",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-07T20:41:49Z"
+     },
+     {
+      "number": 48,
+      "title": "Update target PAL",
+      "author": "platypet2217-star"
+     },
+     {
+      "number": 49,
+      "title": "campaign: retain bounded C4130 new-function refusals",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-08T02:43:02Z"
+     },
+     {
+      "number": 50,
+      "title": "campaign: reserve Qwen overnight targets from parent reconstruction",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-08T05:09:19Z"
+     },
+     {
+      "number": 51,
+      "title": "Integrate 40,664 native C bytes with full-image proofs",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-08T07:26:19Z"
+     },
+     {
+      "number": 52,
+      "title": "decomp: add 46,312 exact C bytes in native and small-data units",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-08T10:34:56Z"
+     },
+     {
+      "number": 53,
+      "title": "Match 41,180 bytes of scalar state and command functions",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-08T13:29:03Z"
+     },
+     {
+      "number": 54,
+      "title": "decomp: match boot FUN_0011B0A0 absolute-cell clear (+12 C bytes)",
+      "author": "liolu",
+      "mergedAt": "2026-10-08T23:30:31Z"
+     },
+     {
+      "number": 55,
+      "title": "decomp: integrate 40,876 reviewed C bytes and preserve shared imports",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-08T21:54:34Z"
+     },
+     {
+      "number": 56,
+      "title": "docs: refresh SOURCE-LAYOUT integration figures to the current accepted lot",
+      "author": "ThorpenCodes"
+     },
+     {
+      "number": 57,
+      "title": "docs: explain updating contributor branches before review",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-08T23:45:29Z"
+     },
+     {
+      "number": 58,
+      "title": "docs: fix the complete contributor baseline instructions",
+      "author": "ThorpenCodes",
+      "mergedAt": "2026-10-09T03:05:32Z"
+     },
+     {
+      "number": 59,
+      "title": "tools: share contributor reservations and reviewed nonmatching attempts",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-09T01:18:48Z"
+     },
+     {
+      "number": 60,
+      "title": "decomp: match boot FUN_001163A0 resident word setter (+16 C bytes)",
+      "author": "ThorpenCodes",
+      "mergedAt": "2026-10-09T02:05:02Z"
+     },
+     {
+      "number": 63,
+      "title": "tools: require useful PR descriptions and scoped validation evidence",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-09T02:21:31Z"
+     },
+     {
+      "number": 64,
+      "title": "fix: validate older PR descriptions with the current trusted target",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-09T02:46:59Z"
+     },
+     {
+      "number": 66,
+      "title": "docs: record reserved boot square-root analysis and compiler blocker",
+      "author": "ThorpenCodes"
+     },
+     {
+      "number": 68,
+      "title": "docs: add VU hardware and renderer comparison references",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-09T05:42:46Z"
+     },
+     {
+      "number": 69,
+      "title": "decomp: close Qwen backlog with ten reviewed boot matches",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-09T06:04:39Z"
+     },
+     {
+      "number": 70,
+      "title": "decomp: integrate five shared call families across boot and 26 overlays",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-09T13:07:18Z"
+     },
+     {
+      "number": 72,
+      "title": "decomp: match boot FUN_00336B90 offset-0x40 word setter (+8 C bytes)",
+      "author": "liolu",
+      "mergedAt": "2026-10-11T18:33:21Z"
+     },
+     {
+      "number": 74,
+      "title": "docs: credit Promises and add a gap report against RC2-Going-Decompiled",
+      "author": "Lynder063",
+      "mergedAt": "2026-10-11T17:40:41Z"
+     },
+     {
+      "number": 75,
+      "title": "decomp: match boot FUN_002B5D28 pointer-field accessor (+12 C bytes)",
+      "author": "liolu",
+      "mergedAt": "2026-10-11T18:33:21Z"
+     },
+     {
+      "number": 76,
+      "title": "ci: prepare trusted merge queue checks for RAC2",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-09T13:44:39Z"
+     },
+     {
+      "number": 77,
+      "title": "docs: route ongoing contributions through the merge queue",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-09T15:04:31Z"
+     },
+     {
+      "number": 78,
+      "title": "fix: bind queue description checks to read-only REST ancestry",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-09T14:49:17Z"
+     },
+     {
+      "number": 79,
+      "title": "decomp: integrate five shared data families across boot and 26 overlays",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-09T15:39:34Z"
+     },
+     {
+      "number": 80,
+      "title": "tooling: adopt the folded-zero-store compiler identity and requalify the corpus",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-09T18:24:37Z"
+     },
+     {
+      "number": 82,
+      "title": "compiler: add measured SDK 3.01 division padding to GNU as",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-09T21:07:28Z"
+     },
+     {
+      "number": 83,
+      "title": "Feature/decompilation architecture manual",
+      "author": "Lynder063"
+     },
+     {
+      "number": 84,
+      "title": "tooling: group validated progress by authored source",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-09T22:19:22Z"
+     },
+     {
+      "number": 85,
+      "title": "tooling: reuse qualified queue tests for the primary maintainer",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-09T23:05:45Z"
+     },
+     {
+      "number": 86,
+      "title": "compiler: adopt the division delay-slot barrier and the branch-group floor",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-10T02:18:37Z"
+     },
+     {
+      "number": 87,
+      "title": "decomp: integrate thirteen shared call families across boot and 26 overlays",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-10T04:26:52Z"
+     },
+     {
+      "number": 88,
+      "title": "tooling: cache exact source definition spans",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-10T04:51:19Z"
+     },
+     {
+      "number": 89,
+      "title": "tooling: validate and publish CI exports once",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-10T12:01:55Z"
+     },
+     {
+      "number": 90,
+      "title": "tooling: tolerate delayed merged-PR association",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-10T12:32:19Z"
+     },
+     {
+      "number": 91,
+      "title": "compiler: emit the save blocks in the stock order and requalify the corpus",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-10T14:03:50Z"
+     },
+     {
+      "number": 92,
+      "title": "decomp: integrate twenty-three shared call families across boot and 27 overlays",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-10T18:59:34Z"
+     },
+     {
+      "number": 93,
+      "title": "compiler: fold the return-value read of the zero store and integrate its family",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-10T17:33:34Z"
+     },
+     {
+      "number": 94,
+      "title": "decomp: integrate three shared call families across boot and 26 overlays",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-10T21:51:39Z"
+     },
+     {
+      "number": 95,
+      "title": "Multi-language Cinematic Structure Doc",
+      "author": "platypet2217-star",
+      "mergedAt": "2026-10-11T04:55:50Z"
+     },
+     {
+      "number": 96,
+      "title": "fix: bind native queue fork heads with missing commit association",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-11T01:35:03Z"
+     },
+     {
+      "number": 97,
+      "title": "decomp: promote thirty-four wave-6 shared call families",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-11T00:49:29Z"
+     },
+     {
+      "number": 99,
+      "title": "Decomp/v2 trials lot1",
+      "author": "Lynder063"
+     },
+     {
+      "number": 103,
+      "title": "decomp: integrate exact GP32 setter family",
+      "author": "ThorpenCodes",
+      "mergedAt": "2026-10-11T05:30:18Z"
+     },
+     {
+      "number": 104,
+      "title": "tooling: publish the measured wide family relation beside the narrow partition",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-11T04:59:06Z"
+     },
+     {
+      "number": 107,
+      "title": "decomp: admit non-aligned absolute level externals and integrate two byte-flag families",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-11T04:53:02Z"
+     },
+     {
+      "number": 108,
+      "title": "ci: trust primary maintainer local validation without queue waits",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-11T04:38:00Z"
+     },
+     {
+      "number": 114,
+      "title": "decomp: integrate shared second-argument forwarder",
+      "author": "ThorpenCodes",
+      "mergedAt": "2026-10-11T18:33:21Z"
+     },
+     {
+      "number": 115,
+      "title": "decomp: integrate five shared native families (+56,384 bytes)",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-11T08:13:09Z"
+     },
+     {
+      "number": 135,
+      "title": "tooling: legal check, function ranking, contributor docs (split 1/3 of #83)",
+      "author": "Lynder063",
+      "mergedAt": "2026-10-11T18:33:21Z"
+     },
+     {
+      "number": 136,
+      "title": "report: deduplicated v1.01 estimate, names and datamine (split 2/3 of #83)",
+      "author": "Lynder063",
+      "mergedAt": "2026-10-11T18:33:20Z"
+     },
+     {
+      "number": 137,
+      "title": "v2.00: experimental route, exploratory candidates only (split 3/3 of #83)",
+      "author": "Lynder063",
+      "mergedAt": "2026-10-11T18:33:21Z"
+     },
+     {
+      "number": 139,
+      "title": "trials: 12 small v1.01 functions in -G8 units (candidates only)",
+      "author": "Lynder063",
+      "mergedAt": "2026-10-11T18:33:20Z"
+     },
+     {
+      "number": 140,
+      "title": "decomp: integrate 19 reserved Batch A families across 318 placements",
+      "author": "ThorpenCodes",
+      "mergedAt": "2026-10-11T14:47:52Z"
+     },
+     {
+      "number": 141,
+      "title": "decomp: promote twelve exact shared families",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-11T17:24:38Z"
+     },
+     {
+      "number": 142,
+      "title": "tooling: parallelize owner-local finalizer tests",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-11T17:33:06Z"
+     },
+     {
+      "number": 144,
+      "title": "integration: land reviewed open contributions and refreshed matching proofs",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-11T18:33:19Z"
+     },
+     {
+      "number": 145,
+      "title": "tooling: authorize Thorpen local validation and complete private snapshots",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-11T18:38:00Z"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [
+     {
+      "number": 61,
+      "title": "[Reservation] Coordination smoke test — primary claim",
+      "author": "llesieur99"
+     },
+     {
+      "number": 62,
+      "title": "[Reservation] Coordination smoke test — overlapping claim must be refused",
+      "author": "llesieur99"
+     },
+     {
+      "number": 65,
+      "title": "[Reservation] ThorpenCodes: 5 function(s)",
+      "author": "ThorpenCodes"
+     },
+     {
+      "number": 67,
+      "title": "[Reservation] ThorpenCodes: 1 function(s)",
+      "author": "ThorpenCodes"
+     },
+     {
+      "number": 71,
+      "title": "[Reservation] liolu: 1 function(s)",
+      "author": "liolu"
+     },
+     {
+      "number": 73,
+      "title": "[Reservation] liolu: 1 function(s)",
+      "author": "liolu"
+     },
+     {
+      "number": 81,
+      "title": "[Reservation] liolu: 3 function(s)",
+      "author": "liolu"
+     },
+     {
+      "number": 98,
+      "title": "[Reservation] ThorpenCodes: 3 function(s)",
+      "author": "ThorpenCodes"
+     },
+     {
+      "number": 100,
+      "title": "Register USA v2.00 (SCUS_972.68, boot SHA-256 64dbf0d4…) as a reservation reference",
+      "author": "Lynder063"
+     },
+     {
+      "number": 101,
+      "title": "[Reservation] ThorpenCodes: 1 function(s)",
+      "author": "ThorpenCodes"
+     },
+     {
+      "number": 102,
+      "title": "[Reservation] ThorpenCodes: 1 function(s)",
+      "author": "ThorpenCodes"
+     },
+     {
+      "number": 105,
+      "title": "[Reservation] ThorpenCodes: 1 function(s)",
+      "author": "ThorpenCodes"
+     },
+     {
+      "number": 106,
+      "title": "[Reservation] ThorpenCodes: 1 function(s)",
+      "author": "ThorpenCodes"
+     },
+     {
+      "number": 109,
+      "title": "[Reservation] llesieur99: 1 function(s)",
+      "author": "llesieur99"
+     },
+     {
+      "number": 110,
+      "title": "[Reservation] llesieur99: 1 function(s)",
+      "author": "llesieur99"
+     },
+     {
+      "number": 111,
+      "title": "[Reservation] llesieur99: 1 function(s)",
+      "author": "llesieur99"
+     },
+     {
+      "number": 112,
+      "title": "[Reservation] llesieur99: 1 function(s)",
+      "author": "llesieur99"
+     },
+     {
+      "number": 113,
+      "title": "[Reservation] llesieur99: 1 function(s)",
+      "author": "llesieur99"
+     },
+     {
+      "number": 116,
+      "title": "[Reservation] ThorpenCodes: 1 function(s)",
+      "author": "ThorpenCodes"
+     },
+     {
+      "number": 117,
+      "title": "[Reservation] ThorpenCodes: 1 function(s)",
+      "author": "ThorpenCodes"
+     },
+     {
+      "number": 118,
+      "title": "[Reservation] ThorpenCodes: 1 function(s)",
+      "author": "ThorpenCodes"
+     },
+     {
+      "number": 119,
+      "title": "[Reservation] ThorpenCodes: 1 function(s)",
+      "author": "ThorpenCodes"
+     },
+     {
+      "number": 120,
+      "title": "[Reservation] ThorpenCodes: 1 function(s)",
+      "author": "ThorpenCodes"
+     },
+     {
+      "number": 121,
+      "title": "[Reservation] ThorpenCodes: 1 function(s)",
+      "author": "ThorpenCodes"
+     },
+     {
+      "number": 122,
+      "title": "[Reservation] ThorpenCodes: 1 function(s)",
+      "author": "ThorpenCodes"
+     },
+     {
+      "number": 123,
+      "title": "[Reservation] ThorpenCodes: 1 function(s)",
+      "author": "ThorpenCodes"
+     },
+     {
+      "number": 124,
+      "title": "[Reservation] ThorpenCodes: 1 function(s)",
+      "author": "ThorpenCodes"
+     },
+     {
+      "number": 125,
+      "title": "[Reservation] ThorpenCodes: 1 function(s)",
+      "author": "ThorpenCodes"
+     },
+     {
+      "number": 126,
+      "title": "[Reservation] ThorpenCodes: 1 function(s)",
+      "author": "ThorpenCodes"
+     },
+     {
+      "number": 127,
+      "title": "[Reservation] ThorpenCodes: 1 function(s)",
+      "author": "ThorpenCodes"
+     },
+     {
+      "number": 128,
+      "title": "[Reservation] ThorpenCodes: 1 function(s)",
+      "author": "ThorpenCodes"
+     },
+     {
+      "number": 129,
+      "title": "[Reservation] ThorpenCodes: 1 function(s)",
+      "author": "ThorpenCodes"
+     },
+     {
+      "number": 130,
+      "title": "[Reservation] ThorpenCodes: 1 function(s)",
+      "author": "ThorpenCodes"
+     },
+     {
+      "number": 131,
+      "title": "[Reservation] ThorpenCodes: 1 function(s)",
+      "author": "ThorpenCodes"
+     },
+     {
+      "number": 132,
+      "title": "[Reservation] ThorpenCodes: 1 function(s)",
+      "author": "ThorpenCodes"
+     },
+     {
+      "number": 133,
+      "title": "[Reservation] ThorpenCodes: 1 function(s)",
+      "author": "ThorpenCodes"
+     },
+     {
+      "number": 134,
+      "title": "[Reservation] ThorpenCodes: 1 function(s)",
+      "author": "ThorpenCodes"
+     },
+     {
+      "number": 138,
+      "title": "[Reservation] Lynder063: 5 function(s)",
+      "author": "Lynder063"
+     },
+     {
+      "number": 143,
+      "title": "[Reservation] ThorpenCodes: 1 function(s)",
+      "author": "ThorpenCodes"
+     }
+    ],
+    "closed": [
+     {
+      "number": 61,
+      "title": "[Reservation] Coordination smoke test — primary claim",
+      "author": "llesieur99"
+     },
+     {
+      "number": 62,
+      "title": "[Reservation] Coordination smoke test — overlapping claim must be refused",
+      "author": "llesieur99"
+     },
+     {
+      "number": 71,
+      "title": "[Reservation] liolu: 1 function(s)",
+      "author": "liolu"
+     },
+     {
+      "number": 73,
+      "title": "[Reservation] liolu: 1 function(s)",
+      "author": "liolu"
+     },
+     {
+      "number": 109,
+      "title": "[Reservation] llesieur99: 1 function(s)",
+      "author": "llesieur99"
+     },
+     {
+      "number": 110,
+      "title": "[Reservation] llesieur99: 1 function(s)",
+      "author": "llesieur99"
+     },
+     {
+      "number": 111,
+      "title": "[Reservation] llesieur99: 1 function(s)",
+      "author": "llesieur99"
+     },
+     {
+      "number": 112,
+      "title": "[Reservation] llesieur99: 1 function(s)",
+      "author": "llesieur99"
+     },
+     {
+      "number": 113,
+      "title": "[Reservation] llesieur99: 1 function(s)",
+      "author": "llesieur99"
+     }
+    ]
+   },
+   "releases": [],
+   "progress": null,
+   "contributors": [
+    "liolu",
+    "llesieur99",
+    "Lynder063",
+    "platypet2217-star",
+    "ThorpenCodes"
+   ]
+  },
+  {
+   "repo": "rac3-decomp",
+   "title": "Up Your Arsenal",
+   "commitCount": 0,
+   "activeDays": [],
+   "pullRequests": {
+    "merged": [],
+    "opened": []
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": null,
+   "contributors": []
+  },
+  {
+   "repo": "rac4-decomp",
+   "title": "Ratchet: Deadlocked",
+   "commitCount": 0,
+   "activeDays": [],
+   "pullRequests": {
+    "merged": [],
+    "opened": []
+   },
+   "issues": {
+    "opened": [
+     {
+      "number": 1,
+      "title": "What about the last two ratchet and clank ps2 versions for decomp??",
+      "author": "romildolisboa4-netizen"
+     }
+    ],
+    "closed": []
+   },
+   "releases": [],
+   "progress": null,
+   "contributors": []
+  },
+  {
+   "repo": "openrac-mods",
+   "title": "OpenRAC mods",
+   "commitCount": 0,
+   "activeDays": [],
+   "pullRequests": {
+    "merged": [],
+    "opened": []
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": null,
+   "contributors": []
+  }
+ ]
+}

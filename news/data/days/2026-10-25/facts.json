@@ -1,0 +1,1211 @@
+{
+ "format": 1,
+ "date": "2026-10-25",
+ "totals": {
+  "commits": 47,
+  "pullRequestsMerged": 34,
+  "pullRequestsOpened": 35,
+  "contributors": 4
+ },
+ "projects": [
+  {
+   "repo": "OpenRAC",
+   "title": "OpenRAC launcher",
+   "branches": [
+    {
+     "name": "develop",
+     "commits": [
+      {
+       "sha": "97c13a31326f24853b7fe43bf56d885282e806f7",
+       "title": "fix(port): mobys with mode bit 0x80 are not drawn, as MobyProc skips them (#69)",
+       "author": "Lynder063",
+       "date": "2026-10-25T20:52:09Z"
+      },
+      {
+       "sha": "3b76f5a8b5e233ad1f25700bb34b355a6915ec25",
+       "title": "fix(launcher): shared-memory buffers instead of no DMA-BUF renderer on Wayland with NVIDIA (#68)",
+       "author": "Lynder063",
+       "date": "2026-10-25T20:34:55Z"
+      },
+      {
+       "sha": "ab791ea68b83221589f0127e21a027a0f382cdbb",
+       "title": "feat(options): the Video page in the PAL disc's five languages (#67)",
+       "author": "Lynder063",
+       "date": "2026-10-25T20:05:57Z"
+      },
+      {
+       "sha": "bd6a244d704efdf640b00a2e8ba9dc57104c041b",
+       "title": "fix(rac1): Ratchet keeps the O2 mask in Gemlik's ship scenes (#65)",
+       "author": "Lynder063",
+       "date": "2026-10-25T19:07:02Z"
+      },
+      {
+       "sha": "e091984e9a969fef2fbfdb7d949d5b4b84c5b11e",
+       "title": "test(hostgen): the header-and-table check counts the library's functions only",
+       "author": "Veradictus",
+       "date": "2026-10-25T15:55:20Z"
+      },
+      {
+       "sha": "303039f981a841909297d3366df6ff5bdbc5f4ef",
+       "title": "fix(launcher): no page slides where WebKitGTK draws without compositing (#63)",
+       "author": "Lynder063",
+       "date": "2026-10-25T15:44:00Z"
+      },
+      {
+       "sha": "ad2846b86a7f31f64dd4bea6f063be002150b331",
+       "title": "test(scene): count the second moby glow draw on OpenGL in the viewer test",
+       "author": "Veradictus",
+       "date": "2026-10-25T15:35:49Z"
+      },
+      {
+       "sha": "08396386300877e7ae8ca227d731fc38b2ae2878",
+       "title": "fix(scene): moby glow faces write depth above the GS's alpha reference",
+       "author": "Veradictus",
+       "date": "2026-10-25T15:05:32Z"
+      },
+      {
+       "sha": "845857860880b1d3a7f2e1426fc233e9baff7468",
+       "title": "feat(launcher): a Mods switch under Play replaces Play with mods and Purist mode (#62)",
+       "author": "Lynder063",
+       "date": "2026-10-25T14:55:38Z"
+      },
+      {
+       "sha": "c4760312a71bfb66e23384d490d08c79fc8c4ccb",
+       "title": "fix(probes): the title and flight scenes bake without a collision file (#61)",
+       "author": "Lynder063",
+       "date": "2026-10-25T14:23:44Z"
+      },
+      {
+       "sha": "48d71e0919d118f88d3c2483e3201ec74cd51ea8",
+       "title": "chore(launcher): 0.9.0 (#60)",
+       "author": "Lynder063",
+       "date": "2026-10-25T14:11:27Z"
+      },
+      {
+       "sha": "1e9bd118fbc167cd77ca301baccf0fc82d61aecd",
+       "title": "fix(launcher): Android disc set-up works again, says why it fails, and offers Rebuild (#58)",
+       "author": "mateuszklysz",
+       "date": "2026-10-25T14:06:06Z"
+      },
+      {
+       "sha": "eb900ee5b61d3cfb8a696c250c1b8d4fc823d7bd",
+       "title": "fix(rac1): a movie in a level no longer blanks the vendor's icons (#59)",
+       "author": "Lynder063",
+       "date": "2026-10-25T14:01:06Z"
+      },
+      {
+       "sha": "2ab42b9fd7ab00df174ac3164b8bc1955f3345e3",
+       "title": "revert(launcher): drop the 0.9.0 release notes for now (#57)",
+       "author": "Lynder063",
+       "date": "2026-10-25T10:45:46Z"
+      },
+      {
+       "sha": "955718b28cfc956d028a71511a13de9e53d30a5a",
+       "title": "docs(launcher): 0.9.0 release notes (#56)",
+       "author": "Lynder063",
+       "date": "2026-10-25T10:45:17Z"
+      },
+      {
+       "sha": "65002c71c006e0a4276dd5c1dae1e4c8dc7b25fb",
+       "title": "feat(launcher): import a game's saves from a PCSX2 memory card (#55)",
+       "author": "Lynder063",
+       "date": "2026-10-25T10:16:00Z"
+      },
+      {
+       "sha": "103813bdeda6a2bf693351c707851c04f9a3dd89",
+       "title": "fix(rac1): the flight sets the level's own display list size (#54)",
+       "author": "Lynder063",
+       "date": "2026-10-25T10:15:57Z"
+      },
+      {
+       "sha": "975a163980a27bc591b944de39913883af522604",
+       "title": "docs(rac1): list the remembered language and sound as a difference (#53)",
+       "author": "Lynder063",
+       "date": "2026-10-25T10:15:53Z"
+      },
+      {
+       "sha": "3fc0c003ad155128f914e0784c5591aa38e44057",
+       "title": "fix(port): hoverboard girl grows on side flips",
+       "author": "Lynder063",
+       "date": "2026-10-25T09:16:07Z"
+      },
+      {
+       "sha": "221697b712e1bc32947a12050fe2654de687d6ea",
+       "title": "feat(launcher): new OpenRAC logo, smoother pages, branch updates and an Android set-up fix",
+       "author": "mateuszklysz",
+       "date": "2026-10-25T08:34:30Z"
+      },
+      {
+       "sha": "f17e4a6685551275241fec3f2aa7e1b557bf95ce",
+       "title": "fix(enhanced): scale the sun cascades' bias and normal offset with their texels",
+       "author": "Veradictus",
+       "date": "2026-10-25T06:53:52Z"
+      },
+      {
+       "sha": "c74b7e78f6b8fb7f012ac2653be6c0b6e266d031",
+       "title": "style(launcher): cargo fmt the probe-bake test code",
+       "author": "Veradictus",
+       "date": "2026-10-25T04:50:24Z"
+      },
+      {
+       "sha": "20fefad163dac0b445b9257efda4f198fd2e0567",
+       "title": "fix(port): drop a prepared tick that an undrawn tick left behind",
+       "author": "Veradictus",
+       "date": "2026-10-25T04:25:21Z"
+      },
+      {
+       "sha": "3bbda09dc9b7e8d2a1c2b97d10dffa372b0e51ad",
+       "title": "fix(probes): a level with nothing to bake is done, not failed",
+       "author": "Veradictus",
+       "date": "2026-10-25T02:36:10Z"
+      },
+      {
+       "sha": "54cb356368b36ac65501c9efe96304859cc3ad98",
+       "title": "feat: the lighting bake shows how far it is, goes on after a stop, and can be deleted",
+       "author": "Veradictus",
+       "date": "2026-10-25T02:23:32Z"
+      },
+      {
+       "sha": "84421c39a7fa55463a46156188fcadbf4044f1f4",
+       "title": "fix: the build and the lighting bake leave the computer usable",
+       "author": "Veradictus",
+       "date": "2026-10-25T01:38:52Z"
+      },
+      {
+       "sha": "c8c70f8086e28490072e14e3b59708b126d44782",
+       "title": "refactor(port): define the game option entry points in game_host.cpp",
+       "author": "Veradictus",
+       "date": "2026-10-25T01:16:46Z"
+      },
+      {
+       "sha": "64cbb760fe13409d4fb71df972d0097beed0c9c9",
+       "title": "fix(rac1/ntsc): the Orxon nanotech vendor sets its own message timer",
+       "author": "Veradictus",
+       "date": "2026-10-25T01:16:46Z"
+      },
+      {
+       "sha": "4034387c1cce14bec21bd98fe15e3cfc5a305b08",
+       "title": "perf(probes): bake the largest levels first, each with every thread",
+       "author": "Veradictus",
+       "date": "2026-10-25T01:02:02Z"
+      }
+     ]
+    },
+    {
+     "name": "master",
+     "commits": [
+      {
+       "sha": "97c13a31326f24853b7fe43bf56d885282e806f7",
+       "title": "fix(port): mobys with mode bit 0x80 are not drawn, as MobyProc skips them (#69)",
+       "author": "Lynder063",
+       "date": "2026-10-25T20:52:09Z"
+      },
+      {
+       "sha": "3b76f5a8b5e233ad1f25700bb34b355a6915ec25",
+       "title": "fix(launcher): shared-memory buffers instead of no DMA-BUF renderer on Wayland with NVIDIA (#68)",
+       "author": "Lynder063",
+       "date": "2026-10-25T20:34:55Z"
+      },
+      {
+       "sha": "ab791ea68b83221589f0127e21a027a0f382cdbb",
+       "title": "feat(options): the Video page in the PAL disc's five languages (#67)",
+       "author": "Lynder063",
+       "date": "2026-10-25T20:05:57Z"
+      },
+      {
+       "sha": "bd6a244d704efdf640b00a2e8ba9dc57104c041b",
+       "title": "fix(rac1): Ratchet keeps the O2 mask in Gemlik's ship scenes (#65)",
+       "author": "Lynder063",
+       "date": "2026-10-25T19:07:02Z"
+      },
+      {
+       "sha": "e091984e9a969fef2fbfdb7d949d5b4b84c5b11e",
+       "title": "test(hostgen): the header-and-table check counts the library's functions only",
+       "author": "Veradictus",
+       "date": "2026-10-25T15:55:20Z"
+      },
+      {
+       "sha": "303039f981a841909297d3366df6ff5bdbc5f4ef",
+       "title": "fix(launcher): no page slides where WebKitGTK draws without compositing (#63)",
+       "author": "Lynder063",
+       "date": "2026-10-25T15:44:00Z"
+      },
+      {
+       "sha": "ad2846b86a7f31f64dd4bea6f063be002150b331",
+       "title": "test(scene): count the second moby glow draw on OpenGL in the viewer test",
+       "author": "Veradictus",
+       "date": "2026-10-25T15:35:49Z"
+      },
+      {
+       "sha": "08396386300877e7ae8ca227d731fc38b2ae2878",
+       "title": "fix(scene): moby glow faces write depth above the GS's alpha reference",
+       "author": "Veradictus",
+       "date": "2026-10-25T15:05:32Z"
+      },
+      {
+       "sha": "845857860880b1d3a7f2e1426fc233e9baff7468",
+       "title": "feat(launcher): a Mods switch under Play replaces Play with mods and Purist mode (#62)",
+       "author": "Lynder063",
+       "date": "2026-10-25T14:55:38Z"
+      },
+      {
+       "sha": "c4760312a71bfb66e23384d490d08c79fc8c4ccb",
+       "title": "fix(probes): the title and flight scenes bake without a collision file (#61)",
+       "author": "Lynder063",
+       "date": "2026-10-25T14:23:44Z"
+      },
+      {
+       "sha": "48d71e0919d118f88d3c2483e3201ec74cd51ea8",
+       "title": "chore(launcher): 0.9.0 (#60)",
+       "author": "Lynder063",
+       "date": "2026-10-25T14:11:27Z"
+      },
+      {
+       "sha": "1e9bd118fbc167cd77ca301baccf0fc82d61aecd",
+       "title": "fix(launcher): Android disc set-up works again, says why it fails, and offers Rebuild (#58)",
+       "author": "mateuszklysz",
+       "date": "2026-10-25T14:06:06Z"
+      },
+      {
+       "sha": "eb900ee5b61d3cfb8a696c250c1b8d4fc823d7bd",
+       "title": "fix(rac1): a movie in a level no longer blanks the vendor's icons (#59)",
+       "author": "Lynder063",
+       "date": "2026-10-25T14:01:06Z"
+      },
+      {
+       "sha": "2ab42b9fd7ab00df174ac3164b8bc1955f3345e3",
+       "title": "revert(launcher): drop the 0.9.0 release notes for now (#57)",
+       "author": "Lynder063",
+       "date": "2026-10-25T10:45:46Z"
+      },
+      {
+       "sha": "955718b28cfc956d028a71511a13de9e53d30a5a",
+       "title": "docs(launcher): 0.9.0 release notes (#56)",
+       "author": "Lynder063",
+       "date": "2026-10-25T10:45:17Z"
+      },
+      {
+       "sha": "65002c71c006e0a4276dd5c1dae1e4c8dc7b25fb",
+       "title": "feat(launcher): import a game's saves from a PCSX2 memory card (#55)",
+       "author": "Lynder063",
+       "date": "2026-10-25T10:16:00Z"
+      },
+      {
+       "sha": "103813bdeda6a2bf693351c707851c04f9a3dd89",
+       "title": "fix(rac1): the flight sets the level's own display list size (#54)",
+       "author": "Lynder063",
+       "date": "2026-10-25T10:15:57Z"
+      },
+      {
+       "sha": "975a163980a27bc591b944de39913883af522604",
+       "title": "docs(rac1): list the remembered language and sound as a difference (#53)",
+       "author": "Lynder063",
+       "date": "2026-10-25T10:15:53Z"
+      },
+      {
+       "sha": "3fc0c003ad155128f914e0784c5591aa38e44057",
+       "title": "fix(port): hoverboard girl grows on side flips",
+       "author": "Lynder063",
+       "date": "2026-10-25T09:16:07Z"
+      },
+      {
+       "sha": "221697b712e1bc32947a12050fe2654de687d6ea",
+       "title": "feat(launcher): new OpenRAC logo, smoother pages, branch updates and an Android set-up fix",
+       "author": "mateuszklysz",
+       "date": "2026-10-25T08:34:30Z"
+      },
+      {
+       "sha": "f17e4a6685551275241fec3f2aa7e1b557bf95ce",
+       "title": "fix(enhanced): scale the sun cascades' bias and normal offset with their texels",
+       "author": "Veradictus",
+       "date": "2026-10-25T06:53:52Z"
+      },
+      {
+       "sha": "c74b7e78f6b8fb7f012ac2653be6c0b6e266d031",
+       "title": "style(launcher): cargo fmt the probe-bake test code",
+       "author": "Veradictus",
+       "date": "2026-10-25T04:50:24Z"
+      },
+      {
+       "sha": "20fefad163dac0b445b9257efda4f198fd2e0567",
+       "title": "fix(port): drop a prepared tick that an undrawn tick left behind",
+       "author": "Veradictus",
+       "date": "2026-10-25T04:25:21Z"
+      },
+      {
+       "sha": "3bbda09dc9b7e8d2a1c2b97d10dffa372b0e51ad",
+       "title": "fix(probes): a level with nothing to bake is done, not failed",
+       "author": "Veradictus",
+       "date": "2026-10-25T02:36:10Z"
+      },
+      {
+       "sha": "54cb356368b36ac65501c9efe96304859cc3ad98",
+       "title": "feat: the lighting bake shows how far it is, goes on after a stop, and can be deleted",
+       "author": "Veradictus",
+       "date": "2026-10-25T02:23:32Z"
+      },
+      {
+       "sha": "84421c39a7fa55463a46156188fcadbf4044f1f4",
+       "title": "fix: the build and the lighting bake leave the computer usable",
+       "author": "Veradictus",
+       "date": "2026-10-25T01:38:52Z"
+      },
+      {
+       "sha": "c8c70f8086e28490072e14e3b59708b126d44782",
+       "title": "refactor(port): define the game option entry points in game_host.cpp",
+       "author": "Veradictus",
+       "date": "2026-10-25T01:16:46Z"
+      },
+      {
+       "sha": "64cbb760fe13409d4fb71df972d0097beed0c9c9",
+       "title": "fix(rac1/ntsc): the Orxon nanotech vendor sets its own message timer",
+       "author": "Veradictus",
+       "date": "2026-10-25T01:16:46Z"
+      },
+      {
+       "sha": "4034387c1cce14bec21bd98fe15e3cfc5a305b08",
+       "title": "perf(probes): bake the largest levels first, each with every thread",
+       "author": "Veradictus",
+       "date": "2026-10-25T01:02:02Z"
+      }
+     ]
+    }
+   ],
+   "commitCount": 29,
+   "pullRequests": {
+    "merged": [
+     {
+      "number": 51,
+      "title": "feat(launcher): new OpenRAC logo, smoother pages, branch updates and an Android set-up fix",
+      "author": "mateuszklysz",
+      "untrustedBody": "## Description\r\n\r\nUp to date with master (merged again after the latest master commit). The new OpenRAC logo comes to the launcher, its icons and the Android game. Page changes are smooth now, a fork's launcher can follow any of its branches, development releases in CI are fixed, and the docs are shorter.\r\n\r\n## Changelog\r\n\r\n### Logo and icons\r\n- New logo (the lombax mark and the name) in the header and on the welcome screen, as a sharp vector. It sits level with the bar's text, and only fades in once at start (it no longer tilts on hover).\r\n- The logo's tracing leftovers are cleaned out, and the \"C\" ends in a straight cut, everywhere it appears.\r\n- New app icons from the logo mark for Windows, macOS, Linux and Android.\r\n- In the Android game, the side panel's header shows the full logo instead of the word \"OpenRAC\". The on-screen button that opens the panel shows the logo's mark, styled and sized like the other buttons.\r\n\r\n### Header and look\r\n- A 50 px header with a quiet striped back",
+      "mergedAt": "2026-10-25T08:34:30Z"
+     },
+     {
+      "number": 52,
+      "title": "fix(rac1): hoverboard girl grows; list new differences",
+      "author": "Lynder063",
+      "untrustedBody": "Joint modifier scale was dropped on joints without a scale key, so the hoverboard girl never grew.\nDifferences from the original now list the pause-load guard and the remembered language and sound.",
+      "mergedAt": "2026-10-25T09:16:07Z"
+     },
+     {
+      "number": 53,
+      "title": "docs(rac1): remembered language and sound in differences",
+      "author": "Lynder063",
+      "untrustedBody": "Differences from the original now list the remembered language and Sound page.\nThe port keeps them between runs; a loaded save keeps the player's options.",
+      "mergedAt": "2026-10-25T10:15:54Z"
+     },
+     {
+      "number": 54,
+      "title": "fix(rac1): load from pause flight matches the console",
+      "author": "Lynder063",
+      "untrustedBody": "initialize_level_runtime wrote 0x100000 to D_00160000+0x100C, which the port moved to the wrong word in a level.\nspace.c now names D_0016100C, so the flight matches PCSX2 (0x100000, then 0xA0000) and the boot.c wrap is gone.",
+      "mergedAt": "2026-10-25T10:15:57Z"
+     },
+     {
+      "number": 55,
+      "title": "feat(launcher): import saves from PCSX2",
+      "author": "Lynder063",
+      "untrustedBody": "The game's menu gets Import saves from PCSX2: it reads a .ps2 card file or a folder card.\nThe game's save folder is copied onto OpenRAC's card after a backup, and the saves list reloads.",
+      "mergedAt": "2026-10-25T10:16:00Z"
+     },
+     {
+      "number": 56,
+      "title": "docs(launcher): 0.9.0 release notes",
+      "author": "Lynder063",
+      "untrustedBody": "What changed for players since 0.8.4, for the 0.9.0 release.\nSame layout as the 0.8.4 notes.",
+      "mergedAt": "2026-10-25T10:45:18Z"
+     },
+     {
+      "number": 57,
+      "title": "revert(launcher): drop the 0.9.0 release notes",
+      "author": "Lynder063",
+      "untrustedBody": "Takes the 0.9.0 notes back out of master; they are kept outside the repo for now.",
+      "mergedAt": "2026-10-25T10:45:46Z"
+     },
+     {
+      "number": 58,
+      "title": "fix(launcher): Android disc set-up works again, says why it fails, and offers Rebuild",
+      "author": "mateuszklysz",
+      "untrustedBody": "## Description\r\n\r\nOn Android a game set up from its disc could not be played, a `.chd` failed with no message, and a refused disc said only \"Activity has what it printed\". This fixes all three and adds Rebuild.\r\n\r\n## Changelog\r\n\r\n### Setting up from your disc\r\n- Errors from the disc picker (Set up from your disc, and Android's games folder) show as a toast instead of nothing.\r\n- A failed set-up shows the extractor's own reason, for example \"The image is not a version of this game that OpenRAC knows (…)\", in one toast instead of two.\r\n- A CHD is also recognised by its first bytes, so one the picker hands over without `.chd` in its name is unpacked too.\r\n- A CHD the picker streams, rather than opening it as a file, is copied first and unpacked from the copy. Free space is checked for both, and the copy is removed afterwards.\r\n- A plain image picked without `.iso` in its name is kept with it.\r\n- A CHD made with `chdman createcd` is read too, not only one made with `createdvd`. Its first d",
+      "mergedAt": "2026-10-25T14:06:06Z"
+     },
+     {
+      "number": 59,
+      "title": "fix(rac1): vendor icons after an in-level movie",
+      "author": "Lynder063",
+      "untrustedBody": "The movie's RAM park into GS memory covered the HUD textures, so vendor icons went blank.\nThe port's player never uses that RAM, so the park and the read-back now skip image transfers.",
+      "mergedAt": "2026-10-25T14:01:07Z"
+     },
+     {
+      "number": 60,
+      "title": "chore(launcher): 0.9.0",
+      "author": "Lynder063",
+      "untrustedBody": "Version 0.9.0 in the launcher's four files, and its release notes.\nThe tag launcher-v0.9.0 goes on the merge commit.",
+      "mergedAt": "2026-10-25T14:11:28Z"
+     },
+     {
+      "number": 61,
+      "title": "fix(probes): scenes bake without collision.glb",
+      "author": "Lynder063",
+      "untrustedBody": "The title (99) and flight (98) scenes have no collision.glb, so their bake failed at the end.\nThey are now planned from their authored volumes, with no moby seeds or geometry coverage.",
+      "mergedAt": "2026-10-25T14:23:44Z"
+     },
+     {
+      "number": 62,
+      "title": "feat(launcher): Mods switch under Play",
+      "author": "Lynder063",
+      "untrustedBody": "Play brings the mods only with the Mods switch under it on (off by default); it replaces Play with mods and Purist mode.\nThe Mods tab is for adding and setting up mods; the 0.9.0 notes say so.",
+      "mergedAt": "2026-10-25T14:55:38Z"
+     },
+     {
+      "number": 63,
+      "title": "fix(launcher): no page slides without compositing",
+      "author": "Lynder063",
+      "untrustedBody": "On a Steam Deck the webview runs without accelerated compositing, and opening a page crashed it in a view transition.\nThe page slides are now off wherever WEBKIT_DISABLE_COMPOSITING_MODE is set.",
+      "mergedAt": "2026-10-25T15:44:00Z"
+     },
+     {
+      "number": 65,
+      "title": "fix(rac1): Ratchet keeps the O2 mask in Gemlik's ship scenes",
+      "author": "Lynder063",
+      "untrustedBody": "The ship scenes attach the mask through hook slot func_001E97D0 (NTSC 001E9450), missing from level_hooks.\nAdded both slots; on Gemlik Ratchet now wears the mask when boarding the ship.\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nhttps://claude.ai/code/session_01XDFofJrDSsBGCjnC8uw863",
+      "mergedAt": "2026-10-25T19:07:02Z"
+     },
+     {
+      "number": 67,
+      "title": "feat(options): the Video page in the PAL disc's five languages",
+      "author": "Lynder063",
+      "untrustedBody": "The Video page's texts follow the game's language: French, German, Spanish and Italian added.\nDraft translations, accented letters in the game's own text codes; tested on PAL.\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nhttps://claude.ai/code/session_01XDFofJrDSsBGCjnC8uw863",
+      "mergedAt": "2026-10-25T20:05:58Z"
+     },
+     {
+      "number": 68,
+      "title": "fix(launcher): clicks crash on Wayland with NVIDIA (hybrid GPUs)",
+      "author": "Lynder063",
+      "untrustedBody": "WEBKIT_DISABLE_DMABUF_RENDERER=1 leaves WebKitGTK 2.50 without a backing store, so the first click crashed.\nNow WEBKIT_DMABUF_RENDERER_FORCE_SHM=1 instead; unit tests pass, untested on NVIDIA hardware.\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nhttps://claude.ai/code/session_01XDFofJrDSsBGCjnC8uw863",
+      "mergedAt": "2026-10-25T20:34:56Z"
+     },
+     {
+      "number": 69,
+      "title": "fix(port): Umbris water puzzle shows flat lilac slabs over the water",
+      "author": "Lynder063",
+      "untrustedBody": "MobyProc skips mobys with mode & 0x81; the port only checked bit 0, so Umbris's water plates drew over the water.\nNow checks 0x81; the water puzzle draws clean on Vulkan and OpenGL.\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nhttps://claude.ai/code/session_01XDFofJrDSsBGCjnC8uw863",
+      "mergedAt": "2026-10-25T20:52:10Z"
+     }
+    ],
+    "opened": [
+     {
+      "number": 51,
+      "title": "feat(launcher): new OpenRAC logo, smoother pages, branch updates and an Android set-up fix",
+      "author": "mateuszklysz",
+      "untrustedBody": "## Description\r\n\r\nUp to date with master (merged again after the latest master commit). The new OpenRAC logo comes to the launcher, its icons and the Android game. Page changes are smooth now, a fork's launcher can follow any of its branches, development releases in CI are fixed, and the docs are shorter.\r\n\r\n## Changelog\r\n\r\n### Logo and icons\r\n- New logo (the lombax mark and the name) in the header and on the welcome screen, as a sharp vector. It sits level with the bar's text, and only fades in once at start (it no longer tilts on hover).\r\n- The logo's tracing leftovers are cleaned out, and the \"C\" ends in a straight cut, everywhere it appears.\r\n- New app icons from the logo mark for Windows, macOS, Linux and Android.\r\n- In the Android game, the side panel's header shows the full logo instead of the word \"OpenRAC\". The on-screen button that opens the panel shows the logo's mark, styled and sized like the other buttons.\r\n\r\n### Header and look\r\n- A 50 px header with a quiet striped back",
+      "mergedAt": "2026-10-25T08:34:30Z"
+     },
+     {
+      "number": 52,
+      "title": "fix(rac1): hoverboard girl grows; list new differences",
+      "author": "Lynder063",
+      "untrustedBody": "Joint modifier scale was dropped on joints without a scale key, so the hoverboard girl never grew.\nDifferences from the original now list the pause-load guard and the remembered language and sound.",
+      "mergedAt": "2026-10-25T09:16:07Z"
+     },
+     {
+      "number": 53,
+      "title": "docs(rac1): remembered language and sound in differences",
+      "author": "Lynder063",
+      "untrustedBody": "Differences from the original now list the remembered language and Sound page.\nThe port keeps them between runs; a loaded save keeps the player's options.",
+      "mergedAt": "2026-10-25T10:15:54Z"
+     },
+     {
+      "number": 54,
+      "title": "fix(rac1): load from pause flight matches the console",
+      "author": "Lynder063",
+      "untrustedBody": "initialize_level_runtime wrote 0x100000 to D_00160000+0x100C, which the port moved to the wrong word in a level.\nspace.c now names D_0016100C, so the flight matches PCSX2 (0x100000, then 0xA0000) and the boot.c wrap is gone.",
+      "mergedAt": "2026-10-25T10:15:57Z"
+     },
+     {
+      "number": 55,
+      "title": "feat(launcher): import saves from PCSX2",
+      "author": "Lynder063",
+      "untrustedBody": "The game's menu gets Import saves from PCSX2: it reads a .ps2 card file or a folder card.\nThe game's save folder is copied onto OpenRAC's card after a backup, and the saves list reloads.",
+      "mergedAt": "2026-10-25T10:16:00Z"
+     },
+     {
+      "number": 56,
+      "title": "docs(launcher): 0.9.0 release notes",
+      "author": "Lynder063",
+      "untrustedBody": "What changed for players since 0.8.4, for the 0.9.0 release.\nSame layout as the 0.8.4 notes.",
+      "mergedAt": "2026-10-25T10:45:18Z"
+     },
+     {
+      "number": 57,
+      "title": "revert(launcher): drop the 0.9.0 release notes",
+      "author": "Lynder063",
+      "untrustedBody": "Takes the 0.9.0 notes back out of master; they are kept outside the repo for now.",
+      "mergedAt": "2026-10-25T10:45:46Z"
+     },
+     {
+      "number": 58,
+      "title": "fix(launcher): Android disc set-up works again, says why it fails, and offers Rebuild",
+      "author": "mateuszklysz",
+      "untrustedBody": "## Description\r\n\r\nOn Android a game set up from its disc could not be played, a `.chd` failed with no message, and a refused disc said only \"Activity has what it printed\". This fixes all three and adds Rebuild.\r\n\r\n## Changelog\r\n\r\n### Setting up from your disc\r\n- Errors from the disc picker (Set up from your disc, and Android's games folder) show as a toast instead of nothing.\r\n- A failed set-up shows the extractor's own reason, for example \"The image is not a version of this game that OpenRAC knows (…)\", in one toast instead of two.\r\n- A CHD is also recognised by its first bytes, so one the picker hands over without `.chd` in its name is unpacked too.\r\n- A CHD the picker streams, rather than opening it as a file, is copied first and unpacked from the copy. Free space is checked for both, and the copy is removed afterwards.\r\n- A plain image picked without `.iso` in its name is kept with it.\r\n- A CHD made with `chdman createcd` is read too, not only one made with `createdvd`. Its first d",
+      "mergedAt": "2026-10-25T14:06:06Z"
+     },
+     {
+      "number": 59,
+      "title": "fix(rac1): vendor icons after an in-level movie",
+      "author": "Lynder063",
+      "untrustedBody": "The movie's RAM park into GS memory covered the HUD textures, so vendor icons went blank.\nThe port's player never uses that RAM, so the park and the read-back now skip image transfers.",
+      "mergedAt": "2026-10-25T14:01:07Z"
+     },
+     {
+      "number": 60,
+      "title": "chore(launcher): 0.9.0",
+      "author": "Lynder063",
+      "untrustedBody": "Version 0.9.0 in the launcher's four files, and its release notes.\nThe tag launcher-v0.9.0 goes on the merge commit.",
+      "mergedAt": "2026-10-25T14:11:28Z"
+     },
+     {
+      "number": 61,
+      "title": "fix(probes): scenes bake without collision.glb",
+      "author": "Lynder063",
+      "untrustedBody": "The title (99) and flight (98) scenes have no collision.glb, so their bake failed at the end.\nThey are now planned from their authored volumes, with no moby seeds or geometry coverage.",
+      "mergedAt": "2026-10-25T14:23:44Z"
+     },
+     {
+      "number": 62,
+      "title": "feat(launcher): Mods switch under Play",
+      "author": "Lynder063",
+      "untrustedBody": "Play brings the mods only with the Mods switch under it on (off by default); it replaces Play with mods and Purist mode.\nThe Mods tab is for adding and setting up mods; the 0.9.0 notes say so.",
+      "mergedAt": "2026-10-25T14:55:38Z"
+     },
+     {
+      "number": 63,
+      "title": "fix(launcher): no page slides without compositing",
+      "author": "Lynder063",
+      "untrustedBody": "On a Steam Deck the webview runs without accelerated compositing, and opening a page crashed it in a view transition.\nThe page slides are now off wherever WEBKIT_DISABLE_COMPOSITING_MODE is set.",
+      "mergedAt": "2026-10-25T15:44:00Z"
+     },
+     {
+      "number": 65,
+      "title": "fix(rac1): Ratchet keeps the O2 mask in Gemlik's ship scenes",
+      "author": "Lynder063",
+      "untrustedBody": "The ship scenes attach the mask through hook slot func_001E97D0 (NTSC 001E9450), missing from level_hooks.\nAdded both slots; on Gemlik Ratchet now wears the mask when boarding the ship.\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nhttps://claude.ai/code/session_01XDFofJrDSsBGCjnC8uw863",
+      "mergedAt": "2026-10-25T19:07:02Z"
+     },
+     {
+      "number": 67,
+      "title": "feat(options): the Video page in the PAL disc's five languages",
+      "author": "Lynder063",
+      "untrustedBody": "The Video page's texts follow the game's language: French, German, Spanish and Italian added.\nDraft translations, accented letters in the game's own text codes; tested on PAL.\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nhttps://claude.ai/code/session_01XDFofJrDSsBGCjnC8uw863",
+      "mergedAt": "2026-10-25T20:05:58Z"
+     },
+     {
+      "number": 68,
+      "title": "fix(launcher): clicks crash on Wayland with NVIDIA (hybrid GPUs)",
+      "author": "Lynder063",
+      "untrustedBody": "WEBKIT_DISABLE_DMABUF_RENDERER=1 leaves WebKitGTK 2.50 without a backing store, so the first click crashed.\nNow WEBKIT_DMABUF_RENDERER_FORCE_SHM=1 instead; unit tests pass, untested on NVIDIA hardware.\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nhttps://claude.ai/code/session_01XDFofJrDSsBGCjnC8uw863",
+      "mergedAt": "2026-10-25T20:34:56Z"
+     },
+     {
+      "number": 69,
+      "title": "fix(port): Umbris water puzzle shows flat lilac slabs over the water",
+      "author": "Lynder063",
+      "untrustedBody": "MobyProc skips mobys with mode & 0x81; the port only checked bit 0, so Umbris's water plates drew over the water.\nNow checks 0x81; the water puzzle draws clean on Vulkan and OpenGL.\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nhttps://claude.ai/code/session_01XDFofJrDSsBGCjnC8uw863",
+      "mergedAt": "2026-10-25T20:52:10Z"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [
+     {
+      "number": 50,
+      "title": "Android Version: Python is not Set Error",
+      "author": "matthewtrains"
+     },
+     {
+      "number": 64,
+      "title": "Launcher crashing",
+      "author": "Billabong1985"
+     },
+     {
+      "number": 66,
+      "title": "Ratchet & Clank 2 (SCES_516.07) not recognised by extractor",
+      "author": "OvrilPT"
+     }
+    ],
+    "closed": [
+     {
+      "number": 50,
+      "title": "Android Version: Python is not Set Error",
+      "author": "matthewtrains"
+     }
+    ]
+   },
+   "releases": [
+    {
+     "tag": "launcher-v0.9.0",
+     "name": "v0.9.0",
+     "publishedAt": "2026-10-25T15:29:54Z"
+    }
+   ],
+   "progress": null,
+   "contributors": [
+    "Lynder063",
+    "mateuszklysz",
+    "Veradictus"
+   ]
+  },
+  {
+   "repo": "rac1-decomp",
+   "title": "Ratchet & Clank",
+   "branches": [
+    {
+     "name": "main",
+     "commits": [
+      {
+       "sha": "e7e787ed94f0d56c1ab617e7abdb83ac6db787ec",
+       "title": "Merge pull request #125 from OpenRAC/refactor/tidy-stragglers",
+       "author": "Lynder063",
+       "date": "2026-10-25T22:43:24Z"
+      },
+      {
+       "sha": "b7d2302814e50be29b8cd2848d21f47c4c5740d4",
+       "title": "Adding stuff  to .gitignore",
+       "author": "Lynder063",
+       "date": "2026-10-25T07:50:22Z"
+      }
+     ]
+    }
+   ],
+   "commitCount": 2,
+   "pullRequests": {
+    "merged": [
+     {
+      "number": 125,
+      "title": "refactor(src): shared structs, readable names, named overlay files",
+      "author": "Lynder063",
+      "untrustedBody": "Shared Moby/Hero/Pad/Vec/Camera headers replace private views and raw offsets; about 6,200 symbols and 334 hero.h fields get names (NTSC decomp names at 0cf08ef39c included); overlay files are named by content.\nPAL build exact, overlay checks 0 problems, US/PAL v1.00/JP version checks unchanged.\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)",
+      "mergedAt": "2026-10-25T22:43:24Z"
+     }
+    ],
+    "opened": [
+     {
+      "number": 125,
+      "title": "refactor(src): shared structs, readable names, named overlay files",
+      "author": "Lynder063",
+      "untrustedBody": "Shared Moby/Hero/Pad/Vec/Camera headers replace private views and raw offsets; about 6,200 symbols and 334 hero.h fields get names (NTSC decomp names at 0cf08ef39c included); overlay files are named by content.\nPAL build exact, overlay checks 0 problems, US/PAL v1.00/JP version checks unchanged.\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)",
+      "mergedAt": "2026-10-25T22:43:24Z"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": {
+    "before": {
+     "code": {
+      "done": 3656816,
+      "total": 3713416
+     },
+     "functions": {
+      "done": 5089,
+      "total": 5120
+     },
+     "data": {
+      "done": 3852,
+      "total": 699072
+     }
+    },
+    "after": {
+     "code": {
+      "done": 3656816,
+      "total": 3713416
+     },
+     "functions": {
+      "done": 5089,
+      "total": 5120
+     },
+     "data": {
+      "done": 3852,
+      "total": 699072
+     }
+    }
+   },
+   "contributors": [
+    "Lynder063"
+   ]
+  },
+  {
+   "repo": "rac2-decomp",
+   "title": "Going Commando",
+   "branches": [
+    {
+     "name": "master",
+     "commits": [
+      {
+       "sha": "5ad5d36fbd4893a51ad84dfb12898c8ff7c6c5f2",
+       "title": "Merge pull request #327 from OpenRAC/match/snivelak-path-motion",
+       "author": "llesieur99",
+       "date": "2026-10-25T22:55:08Z"
+      },
+      {
+       "sha": "7249fc3e5189897b2c21aed50bd3e628c7aaf9e1",
+       "title": "Merge pull request #320 from OpenRAC/match/sf10-wave-20261025",
+       "author": "llesieur99",
+       "date": "2026-10-25T22:53:23Z"
+      },
+      {
+       "sha": "187d82f71a6f6ec91d6248c940604f5e8af5d512",
+       "title": "Merge pull request #326: repair wrapper contracts and retained reconstructions",
+       "author": "llesieur99",
+       "date": "2026-10-25T21:37:41Z"
+      },
+      {
+       "sha": "0f402e5710e1e41d8c512773cf5600b7d7924fe1",
+       "title": "Merge pull request #325: qualify vector handlers and corrected reconstructions",
+       "author": "llesieur99",
+       "date": "2026-10-25T19:30:30Z"
+      },
+      {
+       "sha": "173beed3570c5586fbd594d07200abb4a3b24d13",
+       "title": "Merge qualified beam rendering and level handlers",
+       "author": "llesieur99",
+       "date": "2026-10-25T18:02:32Z"
+      },
+      {
+       "sha": "ce30893ee62044385cc5d9dbca0acaa7ddb357a9",
+       "title": "Merge qualified state and vector handlers with caller-interface repairs",
+       "author": "llesieur99",
+       "date": "2026-10-25T17:39:59Z"
+      },
+      {
+       "sha": "5d729a5afe2b7557873b3fc9d89f9f8f6d9ce8af",
+       "title": "Merge pull request #322 from OpenRAC/decomp/helpers-wave4-20261025",
+       "author": "llesieur99",
+       "date": "2026-10-25T15:16:11Z"
+      },
+      {
+       "sha": "30294c3975181bbebce604fb55258da212bfa1aa",
+       "title": "Merge pull request #321 from OpenRAC/decomp/blockers-helpers-wave3-20261025",
+       "author": "llesieur99",
+       "date": "2026-10-25T13:39:11Z"
+      },
+      {
+       "sha": "dcfcd1f90746f3fbba715825d25bf19e88bf875c",
+       "title": "Merge pull request #319 from OpenRAC/decomp/rac1-helpers-wave2-20261025",
+       "author": "llesieur99",
+       "date": "2026-10-25T07:32:03Z"
+      },
+      {
+       "sha": "1095a175c62599aca25fd50ff925c8396d00e9e7",
+       "title": "Merge pull request #318 from OpenRAC/decomp/rodata-register-wave-20261025",
+       "author": "llesieur99",
+       "date": "2026-10-25T06:09:18Z"
+      },
+      {
+       "sha": "5f34db52749b8c76232138c0939b23e6bafae9df",
+       "title": "Merge pull request #317 from OpenRAC/match/small-functions-20261024",
+       "author": "llesieur99",
+       "date": "2026-10-25T04:20:00Z"
+      },
+      {
+       "sha": "84dbdc0588821f6d2d4d8a5ced159fc241c63858",
+       "title": "Merge pull request #316 from OpenRAC/fix/proven-ee-assembly",
+       "author": "llesieur99",
+       "date": "2026-10-25T03:56:58Z"
+      },
+      {
+       "sha": "c383279d9e946e9b078dba2740a03e428bf68ed4",
+       "title": "Merge pull request #315 from OpenRAC/fix/remaining-catalogue-boundaries",
+       "author": "llesieur99",
+       "date": "2026-10-25T02:37:26Z"
+      },
+      {
+       "sha": "dc8ac004ebfd359e28f51e51bf597c6a62801095",
+       "title": "Merge pull request #314 from OpenRAC/fix/two-catalogue-entries",
+       "author": "llesieur99",
+       "date": "2026-10-25T01:42:12Z"
+      }
+     ]
+    }
+   ],
+   "commitCount": 14,
+   "pullRequests": {
+    "merged": [
+     {
+      "number": 314,
+      "title": "fix(catalogue): correct two shared callable entry boundaries",
+      "author": "llesieur99",
+      "untrustedBody": "## What\n\nCorrect two measured callable entries in the catalogue generator while keeping their canonical names and original ends:\n\n- `func_002C38A0`: skip the preceding 8 bytes; catalogue body 64 -> 56 bytes.\n- `func_00335918`: skip the preceding 32 bytes; catalogue body 68 -> 36 bytes.\n\nApply the corrections to the boot and all 27 level copies in USA v1.01, USA v2.00 and PAL (168 function placements). Identify the original full extents before shortening, then retain the proven boot pairing when the shortened code is identical to another boot method. Replay validates that pairing and rejects unexpected extents.\n\nRegenerate all six catalogues with the normal primary generator and cross-release carry tool. Repeating each generation produces identical output. Only the two intended rows change in each table; source definitions, names and all other catalogue entries remain unchanged. Add synthetic regression tests and reconcile the existing blocker and nonmatching notes.\n\nThe excluded prefix",
+      "mergedAt": "2026-10-25T01:42:12Z"
+     },
+     {
+      "number": 315,
+      "title": "fix(catalogue): repair measured entries across all three releases",
+      "author": "llesieur99",
+      "untrustedBody": "## What\n\nRepair 216 additional catalogue entries across USA v1.01, USA v2.00 and PAL (1,854 placements), preserving canonical names, kinds, placement sets and original ends. The rules cover 114 primary identities plus 21 USA v2.00 and 81 PAL identities. All affected placements have a positive entry witness; the excluded prefixes remain assembly.\n\nRemove 17 individually checked one-word remnants from the catalogues and their obsolete `INCLUDE_ASM` markers. The 613 affected placements follow completed returns or a closed tail jump, with no measured static incoming references. Selection is by name and size; identical unrelated instructions are retained.\n\nKeep existing identities stable through full/short-body collisions and repeat generation. Add `tools/carry.py --version VERSION --entries` to repair established release catalogues without full realignment, source generation, new callee correspondence claims or C promotion. Normal carry behavior is unchanged.\n\nRegenerate all six catalogues",
+      "mergedAt": "2026-10-25T02:37:27Z"
+     },
+     {
+      "number": 316,
+      "title": "feat(src): classify 27 proven original-assembly bodies",
+      "author": "llesieur99",
+      "untrustedBody": "## What\n\nClassify 27 additional original-assembly bodies as `ASM_FUNC` across 990 applicable placements in USA v1.01, USA v2.00 and PAL. Source changes are only marker substitutions: all 4,863 C definitions and all catalogue entries remain unchanged. The rebuilt images retain the original assembly.\n\nEach classified placement has an external entry witness and a decoded, reachable instruction outside the qualified plain-C output. Control flow includes real delay slots and excludes literals after returns or behind unconditional branches. A generic MMI opcode, `por` register copying/zeroing, `lq`/`sq`, `ldl`/`ldr`, `mult1` or `madd` is not a classification rule.\n\nThe original-assembly classification follows AGENTS.md's instruction-based criterion with maintainer authorization. It does not claim the historical source was necessarily a separate assembler file rather than mixed C/assembly.\n\n| Function | Bytes | First discriminating instruction |\n| --- | ---: | --- |\n| `func_00115250` | 240 | ",
+      "mergedAt": "2026-10-25T03:56:59Z"
+     },
+     {
+      "number": 317,
+      "title": "feat(src): match seven small level functions",
+      "author": "llesieur99",
+      "untrustedBody": "Branch `match/small-functions-20261024`, rebased on `84dbdc05`.\n\n## What\n\nSeven small level functions, 212 to 524 bytes, from the smallest remaining tier:\n\n| Function | Bytes | Places | Unit |\n| --- | ---: | ---: | --- |\n| `func_L16_003E70E0` | 212 | 1 | `src/levels/16_snivelak/L16_002C6378-g8.c` (new) |\n| `func_L10_004174C8` | 252 | 1 | `src/levels/10_hrugis_cloud/L10_003170D0-g8.c` |\n| `func_L22_003AD090` | 272 | 2 | `src/levels/shared/L22_003A5018.c` |\n| `func_L22_003B8FE8` | 316 | 2 | `src/levels/shared/L22_003B8FE8-g8.c` (new) |\n| `func_L00_003EA8C8` | 400 | 27 | `src/levels/shared/L00_003EA0E0.c` |\n| `func_L02_003CCFE8` | 508 | 2 | `src/levels/shared/L02_003C43F0-g8.c` |\n| `func_L04_003A1FE0` | 524 | 5 | `src/levels/shared/L04_002CC748-g8.c` (new) |\n\nForty placements in total. Three new `-G8` units; `L22_003A5018.c` gains a `-g`\nprofile line in `config/cflags.txt`. `func_L22_003B8FE8`'s two resident slots\nresolve to different addresses in its level-22 and level-23 placements, so ",
+      "mergedAt": "2026-10-25T04:20:00Z"
+     },
+     {
+      "number": 318,
+      "title": "Adopt RAC1 constant-pool and allocation methods; match six functions",
+      "author": "llesieur99",
+      "untrustedBody": "## What\n\nCompiler-generated constants previously prevented otherwise recoverable library code from linking. Retain complete relocation-free `.rodata`/`.rdata` input sections at addresses derived from their own text relocations, checking every byte, alignment, allocation flags, ownership and overlap. The compiler sections and surrounding retail data remain unchanged. Mixed/relocated pools, `.sdata` and unsupported data directives still fail closed.\n\nAdd `tools/regalloc.py` to inspect actual allocator queues, references, live lengths, call crossings, conflicts and hard-register assignments. It privately compiles the real source unit/profile twice and requires byte-identical objects; inferred priority scores are explicitly labeled. It never changes source or the production cache.\n\nAlign the source/compatibility policy with RAC1, including reviewed shared EE helpers and original public GCC target primitives. Preserve public-source licensing, strict reconstruction and the prohibitions on ar",
+      "mergedAt": "2026-10-25T06:09:18Z"
+     },
+     {
+      "number": 319,
+      "title": "feat(src): match 19 level functions with RAC1 transfer helpers",
+      "author": "llesieur99",
+      "untrustedBody": "## What\r\n\r\nMatch **19 level functions / 7,580 distinct C bytes** using the reviewed RAC1 transfer helpers, real pointer lifetimes and compiler allocator diagnostics. This promotes previously retained reconstructions; each function is still defined once and linked at every catalogue placement.\r\n\r\n| Area | Functions | Distinct C bytes |\r\n| --- | ---: | ---: |\r\n| Siberius | 7 | 1,452 |\r\n| Damosel orbit beam renderer | 1 | 2,152 |\r\n| Snivelak/shared motion | 1 | 584 |\r\n| Shared level 18 paths/state | 2 | 732 |\r\n| Yeedil | 6 | 1,904 |\r\n| Shared effects/collision | 2 | 756 |\r\n| **Total** | **19** | **7,580** |\r\n\r\nPreserve measured 144-byte render packets, complete 16-byte vectors and the 64-byte affine matrix. Correct the existing movement helper's unused fourth scratch-pointer parameter and the nullable matrix-pointer declaration so their C contracts agree with their callers. Keep `qcopy_nc` only where surrounding memory operations are independent.\r\n\r\nRetain **45 corrected nonmatching recon",
+      "mergedAt": "2026-10-25T07:32:03Z"
+     },
+     {
+      "number": 320,
+      "title": "feat(src): match nine functions and retain corrected near misses",
+      "author": "llesieur99",
+      "untrustedBody": "## Summary\n\nReplace nine remaining assembly markers with measured C implementations: **2,952 distinct bytes**, with **206 placements in each USA release and 169 in PAL**. The two absent PAL catalogue identities are not counted as successful tests.\n\n| Function | Bytes | Source |\n| --- | ---: | --- |\n| `func_002CB820` | 128 | `src/game/002C7748-g8.c` |\n| `func_00288D90` | 136 | `src/game/00288D88.c` |\n| `func_L00_0037DEF8` | 264 | `src/levels/shared/L00_0037DD80.c` |\n| `func_002D9600` | 304 | `src/game/002D5E98.c` |\n| `func_00289020` | 344 | `src/game/00288D88-g8.c` |\n| `func_00295A80` | 352 | `src/game/00294BC8.c` |\n| `func_002CADB0` | 356 | `src/game/002C7748.c` |\n| `func_L00_003EB400` | 528 | `src/levels/shared/L00_003EA0E0.c` |\n| `func_002AE8C0` | 540 | `src/game/002AE8C0-qcopy.c` |\n\nThe C preserves the mode dispatcher's integer result, real state/table accesses and complete helper outputs. `func_002CADB0` models the retail countdown field's load/store/reload with a volatile **field*",
+      "mergedAt": "2026-10-25T22:53:23Z"
+     },
+     {
+      "number": 321,
+      "title": "feat(src): resolve transfer walls in nine level functions",
+      "author": "llesieur99",
+      "untrustedBody": "## What\r\n\r\nMatch **9 level functions / 3,156 distinct C bytes** with the reviewed EE transfer helpers and measured pointer lifetimes. No compiler or assembler changes are needed.\r\n\r\n| Area | Functions | Distinct C bytes |\r\n| --- | ---: | ---: |\r\n| Notak | 1 | 304 |\r\n| Maktar | 3 | 952 |\r\n| Shared Joba paths | 2 | 944 |\r\n| Tabora | 2 | 288 |\r\n| Damosel orbit | 1 | 668 |\r\n| **Total** | **9** | **3,156** |\r\n\r\nClose the Tabora addressed-copy cases `003D0508` and `003D8290`, keeping projection/update outside the constructor-only initialization condition. The actual `qcopy` dependency graph also closes `003F1A88`, previously blocked by copy-link costs. Preserve full aligned vectors, the 144-byte render packet, canonical 64-bit texture/GS values and genuine per-placement interpolation refs.\r\n\r\nMake **four existing C interfaces** explicit: forward the part-table index and node initializer's three inputs; retain the two callbacks' observed unused argument slots. Independent retail call/use trac",
+      "mergedAt": "2026-10-25T13:39:12Z"
+     },
+     {
+      "number": 322,
+      "title": "Match 17 vector and control functions with verified source contracts",
+      "author": "llesieur99",
+      "untrustedBody": "## What\n\nMatch **17 functions, 4,224 distinct C bytes and 365 carrying placements** across the applicable USA v1.01, USA v2.00 and PAL programs. These cover shared vector/control handlers, quad emission and point selection, Siberius state setup, and Joba/Dobbo Orbit behaviors.\n\nThe reviewed `qcopy` helper and real pointer lifetimes close these bodies; ordinary TImode transfers remain where required. The source uses actual partial object views, packet layouts, pointer returns and typed callbacks. Five previously integrated caller interfaces are also corrected without adding matching credit.\n\nKeep **31 complete corrected reconstructions in `nonmatching/`**, with release coverage, residuals and reopening conditions. The shared blocker document records the useful source remedies and remaining constraints. Promoted originals and older trial variants are preserved privately. Compiler/assembler sources and the progress reports are unchanged.\n\n## Checked\n\n- `python3 tools/build.py all --jobs 4",
+      "mergedAt": "2026-10-25T15:16:11Z"
+     },
+     {
+      "number": 323,
+      "title": "Match 11 state and vector handlers and preserve corrected large drafts",
+      "author": "llesieur99",
+      "untrustedBody": "## What\n\nMatch **11 functions, 2,976 distinct code bytes and 42 carrying placements** in Aranos, Yeedil, Snivelak, shared level handlers and Oozla. The C uses the reviewed transfer helpers, actual storage layouts, pointer returns and scoped lifetimes.\n\nCorrect **eight existing interfaces** while preserving their retail bytes: object and floating inputs, query results/output pointers, the emitter's unused incoming float slot, and the shared/PAL hook arguments. These repairs add no decompiled-byte credit.\n\nPreserve **48 complete unlinked reconstructions**: 46 worker near misses, the corrected query wrapper and one explicit-interface alternative to an existing byte-matched caller. Larger bodies retain measured behavior/layout repairs without claiming matches. Promoted originals and trial variants stay private; the existing near-miss index and blocker topics are reconciled.\n\n## Checked\n\n- `python3 tools/build.py all --jobs 4 --strict --version us`, `us2`, `pal`: **28/28 programs each, 84 t",
+      "mergedAt": "2026-10-25T17:40:00Z"
+     },
+     {
+      "number": 324,
+      "title": "Match seven level handlers and retain corrected reconstructions",
+      "author": "llesieur99",
+      "untrustedBody": "## What\n\nMatch **7 functions, 3,848 distinct code bytes and 47 carrying placements**: Damosel beam rendering and effect forwarding, shared collision queries, constructors and target helpers.\n\n| Function | Bytes | USA v1.01 | USA v2.00 | PAL |\n| --- | ---: | ---: | ---: | ---: |\n| `func_L01_003120A8` | 308 | 7 | 7 | 7 |\n| `func_L09_003A06B0` | 292 | 3 | 3 | absent |\n| `func_L09_003FDFF0` | 208 | 1 | 1 | 1 |\n| `func_L08_00435600` | 160 | 3 | 3 | 3 |\n| `func_L06_00361728` | 520 | 1 | 1 | 1 |\n| `func_L23_00429430` | 2192 | 1 | 1 | 1 |\n| `func_L23_0041E5B0` | 168 | 1 | 1 | absent |\n\nUse the reviewed aligned transfer/clear helpers and real storage: the naturally aligned 48-byte query and complete 144-byte packet. Keep the query mode as an integer and preserve the established argument order. Forward the effect wrapper's actual pointer inputs, including its optional fifth-GPR vector. Cast color components to unsigned 32-bit values before shifting, avoiding signed overflow for the fade range us",
+      "mergedAt": "2026-10-25T18:02:33Z"
+     },
+     {
+      "number": 325,
+      "title": "feat(src): match vector handlers and repair large-function reconstructions",
+      "author": "llesieur99",
+      "untrustedBody": "## What\n\nMatch three vector handlers using the reviewed EE helpers and actual\ncall/storage contracts: **1,792 distinct code bytes, 41 accepted carrying\nplacements across USA v1.01, USA v2.00 and PAL**.\n\n| Function | Bytes | USA v1.01 | USA v2.00 | PAL |\n| --- | ---: | ---: | ---: | ---: |\n| `func_L02_003D6690` | 864 | 1/1 | 1/1 | No canonical row |\n| `func_L00_003F3518` | 644 | 12/12 | 12/12 | 12/12 |\n| `func_L11_00442B60` | 284 | 1/1 | 1/1 | 1/1 |\n\nKeep ordinary TImode stack transfers where retail requires them; use the\nshared copy helper for addressed external transfers. Four Maktar table\nwrites use `qcopy_nc` only after source/destination independence review;\ndependent captures/transfers retain memory clobbers. The existing\nper-file hazard-label profile is unchanged. No compiler/assembler changes.\n\nRepair **five existing C interfaces/storage contracts at 24 placements**,\nwith no new matching credit: forward both live pointers and the float\namount through the four B4FF0 wrappers, and",
+      "mergedAt": "2026-10-25T19:30:31Z"
+     },
+     {
+      "number": 326,
+      "title": "fix(src): repair wrapper contracts and preserve corrected large reconstructions",
+      "author": "llesieur99",
+      "untrustedBody": "## What\n\nRepair **two existing C wrapper interfaces at 33 carrying placements**\nand retain **39 complete large-function reconstructions** after a bounded\nparallel investigation of 39 targets (80,136 retail bytes).\n\n**New matching result: 0 functions, 0 distinct bytes, 0 placements.**\nEqual-size residuals and matching frames receive no matching credit.\n\nThe indexed animation wrapper now forwards the actual count/value words\nthrough A2/A3 to `func_002B6228`. The nearest-entry wrapper forwards its\nincoming F12 base to `func_L06_00382850`. The real L18 caller already\nsupplied these inputs and remains unchanged; both wrappers preserve all\nretail instructions and add no new progress credit.\n\nThe retained C corrects measured storage and behavior errors: full\n64-byte matrix and 48-byte impact outputs; real zero-before-copy events;\nRNG/call order and floating branch polarity; missing stack arguments;\npointer/null and count returns; and genuine phase-local workspaces.\nThe Tabora dispatcher retai",
+      "mergedAt": "2026-10-25T21:37:41Z"
+     },
+     {
+      "number": 327,
+      "title": "feat(src): match 664-byte Snivelak path motion with verified EE call setup",
+      "author": "llesieur99",
+      "untrustedBody": "## Summary\n\nImplement the Snivelak path-motion body `func_L16_004110D0` in its own `-G8` unit: **one distinct function, 664 bytes, two present placements** across USA v1.01 and USA v2.00. PAL has no corresponding catalogue identity.\n\nThe prior complete draft already had the retail size and 0x90 frame. Three measured source corrections resolve its remaining setup/store differences:\n\n- Audit every `func_002AAA00` exit and declare its real float return. The caller still ignores it; no argument or synthetic result use is added. An independent source-only control isolates the four changed setup slots.\n- Preserve the actual lower/upper state stores in their measured order.\n- Use RAC1's typed EE argument-interleaving method for `func_002A8D70`. The same six GPR values remain in A0-A3/T0-T1, and the same three floats remain in F12-F14, with no stack arguments or changes within either bank.\n\nThe complete buffers, side effects and real input lifetimes remain intact. Six targeted trials required ",
+      "mergedAt": "2026-10-25T22:55:08Z"
+     }
+    ],
+    "opened": [
+     {
+      "number": 314,
+      "title": "fix(catalogue): correct two shared callable entry boundaries",
+      "author": "llesieur99",
+      "untrustedBody": "## What\n\nCorrect two measured callable entries in the catalogue generator while keeping their canonical names and original ends:\n\n- `func_002C38A0`: skip the preceding 8 bytes; catalogue body 64 -> 56 bytes.\n- `func_00335918`: skip the preceding 32 bytes; catalogue body 68 -> 36 bytes.\n\nApply the corrections to the boot and all 27 level copies in USA v1.01, USA v2.00 and PAL (168 function placements). Identify the original full extents before shortening, then retain the proven boot pairing when the shortened code is identical to another boot method. Replay validates that pairing and rejects unexpected extents.\n\nRegenerate all six catalogues with the normal primary generator and cross-release carry tool. Repeating each generation produces identical output. Only the two intended rows change in each table; source definitions, names and all other catalogue entries remain unchanged. Add synthetic regression tests and reconcile the existing blocker and nonmatching notes.\n\nThe excluded prefix",
+      "mergedAt": "2026-10-25T01:42:12Z"
+     },
+     {
+      "number": 315,
+      "title": "fix(catalogue): repair measured entries across all three releases",
+      "author": "llesieur99",
+      "untrustedBody": "## What\n\nRepair 216 additional catalogue entries across USA v1.01, USA v2.00 and PAL (1,854 placements), preserving canonical names, kinds, placement sets and original ends. The rules cover 114 primary identities plus 21 USA v2.00 and 81 PAL identities. All affected placements have a positive entry witness; the excluded prefixes remain assembly.\n\nRemove 17 individually checked one-word remnants from the catalogues and their obsolete `INCLUDE_ASM` markers. The 613 affected placements follow completed returns or a closed tail jump, with no measured static incoming references. Selection is by name and size; identical unrelated instructions are retained.\n\nKeep existing identities stable through full/short-body collisions and repeat generation. Add `tools/carry.py --version VERSION --entries` to repair established release catalogues without full realignment, source generation, new callee correspondence claims or C promotion. Normal carry behavior is unchanged.\n\nRegenerate all six catalogues",
+      "mergedAt": "2026-10-25T02:37:27Z"
+     },
+     {
+      "number": 316,
+      "title": "feat(src): classify 27 proven original-assembly bodies",
+      "author": "llesieur99",
+      "untrustedBody": "## What\n\nClassify 27 additional original-assembly bodies as `ASM_FUNC` across 990 applicable placements in USA v1.01, USA v2.00 and PAL. Source changes are only marker substitutions: all 4,863 C definitions and all catalogue entries remain unchanged. The rebuilt images retain the original assembly.\n\nEach classified placement has an external entry witness and a decoded, reachable instruction outside the qualified plain-C output. Control flow includes real delay slots and excludes literals after returns or behind unconditional branches. A generic MMI opcode, `por` register copying/zeroing, `lq`/`sq`, `ldl`/`ldr`, `mult1` or `madd` is not a classification rule.\n\nThe original-assembly classification follows AGENTS.md's instruction-based criterion with maintainer authorization. It does not claim the historical source was necessarily a separate assembler file rather than mixed C/assembly.\n\n| Function | Bytes | First discriminating instruction |\n| --- | ---: | --- |\n| `func_00115250` | 240 | ",
+      "mergedAt": "2026-10-25T03:56:59Z"
+     },
+     {
+      "number": 317,
+      "title": "feat(src): match seven small level functions",
+      "author": "llesieur99",
+      "untrustedBody": "Branch `match/small-functions-20261024`, rebased on `84dbdc05`.\n\n## What\n\nSeven small level functions, 212 to 524 bytes, from the smallest remaining tier:\n\n| Function | Bytes | Places | Unit |\n| --- | ---: | ---: | --- |\n| `func_L16_003E70E0` | 212 | 1 | `src/levels/16_snivelak/L16_002C6378-g8.c` (new) |\n| `func_L10_004174C8` | 252 | 1 | `src/levels/10_hrugis_cloud/L10_003170D0-g8.c` |\n| `func_L22_003AD090` | 272 | 2 | `src/levels/shared/L22_003A5018.c` |\n| `func_L22_003B8FE8` | 316 | 2 | `src/levels/shared/L22_003B8FE8-g8.c` (new) |\n| `func_L00_003EA8C8` | 400 | 27 | `src/levels/shared/L00_003EA0E0.c` |\n| `func_L02_003CCFE8` | 508 | 2 | `src/levels/shared/L02_003C43F0-g8.c` |\n| `func_L04_003A1FE0` | 524 | 5 | `src/levels/shared/L04_002CC748-g8.c` (new) |\n\nForty placements in total. Three new `-G8` units; `L22_003A5018.c` gains a `-g`\nprofile line in `config/cflags.txt`. `func_L22_003B8FE8`'s two resident slots\nresolve to different addresses in its level-22 and level-23 placements, so ",
+      "mergedAt": "2026-10-25T04:20:00Z"
+     },
+     {
+      "number": 318,
+      "title": "Adopt RAC1 constant-pool and allocation methods; match six functions",
+      "author": "llesieur99",
+      "untrustedBody": "## What\n\nCompiler-generated constants previously prevented otherwise recoverable library code from linking. Retain complete relocation-free `.rodata`/`.rdata` input sections at addresses derived from their own text relocations, checking every byte, alignment, allocation flags, ownership and overlap. The compiler sections and surrounding retail data remain unchanged. Mixed/relocated pools, `.sdata` and unsupported data directives still fail closed.\n\nAdd `tools/regalloc.py` to inspect actual allocator queues, references, live lengths, call crossings, conflicts and hard-register assignments. It privately compiles the real source unit/profile twice and requires byte-identical objects; inferred priority scores are explicitly labeled. It never changes source or the production cache.\n\nAlign the source/compatibility policy with RAC1, including reviewed shared EE helpers and original public GCC target primitives. Preserve public-source licensing, strict reconstruction and the prohibitions on ar",
+      "mergedAt": "2026-10-25T06:09:18Z"
+     },
+     {
+      "number": 319,
+      "title": "feat(src): match 19 level functions with RAC1 transfer helpers",
+      "author": "llesieur99",
+      "untrustedBody": "## What\r\n\r\nMatch **19 level functions / 7,580 distinct C bytes** using the reviewed RAC1 transfer helpers, real pointer lifetimes and compiler allocator diagnostics. This promotes previously retained reconstructions; each function is still defined once and linked at every catalogue placement.\r\n\r\n| Area | Functions | Distinct C bytes |\r\n| --- | ---: | ---: |\r\n| Siberius | 7 | 1,452 |\r\n| Damosel orbit beam renderer | 1 | 2,152 |\r\n| Snivelak/shared motion | 1 | 584 |\r\n| Shared level 18 paths/state | 2 | 732 |\r\n| Yeedil | 6 | 1,904 |\r\n| Shared effects/collision | 2 | 756 |\r\n| **Total** | **19** | **7,580** |\r\n\r\nPreserve measured 144-byte render packets, complete 16-byte vectors and the 64-byte affine matrix. Correct the existing movement helper's unused fourth scratch-pointer parameter and the nullable matrix-pointer declaration so their C contracts agree with their callers. Keep `qcopy_nc` only where surrounding memory operations are independent.\r\n\r\nRetain **45 corrected nonmatching recon",
+      "mergedAt": "2026-10-25T07:32:03Z"
+     },
+     {
+      "number": 320,
+      "title": "feat(src): match nine functions and retain corrected near misses",
+      "author": "llesieur99",
+      "untrustedBody": "## Summary\n\nReplace nine remaining assembly markers with measured C implementations: **2,952 distinct bytes**, with **206 placements in each USA release and 169 in PAL**. The two absent PAL catalogue identities are not counted as successful tests.\n\n| Function | Bytes | Source |\n| --- | ---: | --- |\n| `func_002CB820` | 128 | `src/game/002C7748-g8.c` |\n| `func_00288D90` | 136 | `src/game/00288D88.c` |\n| `func_L00_0037DEF8` | 264 | `src/levels/shared/L00_0037DD80.c` |\n| `func_002D9600` | 304 | `src/game/002D5E98.c` |\n| `func_00289020` | 344 | `src/game/00288D88-g8.c` |\n| `func_00295A80` | 352 | `src/game/00294BC8.c` |\n| `func_002CADB0` | 356 | `src/game/002C7748.c` |\n| `func_L00_003EB400` | 528 | `src/levels/shared/L00_003EA0E0.c` |\n| `func_002AE8C0` | 540 | `src/game/002AE8C0-qcopy.c` |\n\nThe C preserves the mode dispatcher's integer result, real state/table accesses and complete helper outputs. `func_002CADB0` models the retail countdown field's load/store/reload with a volatile **field*",
+      "mergedAt": "2026-10-25T22:53:23Z"
+     },
+     {
+      "number": 321,
+      "title": "feat(src): resolve transfer walls in nine level functions",
+      "author": "llesieur99",
+      "untrustedBody": "## What\r\n\r\nMatch **9 level functions / 3,156 distinct C bytes** with the reviewed EE transfer helpers and measured pointer lifetimes. No compiler or assembler changes are needed.\r\n\r\n| Area | Functions | Distinct C bytes |\r\n| --- | ---: | ---: |\r\n| Notak | 1 | 304 |\r\n| Maktar | 3 | 952 |\r\n| Shared Joba paths | 2 | 944 |\r\n| Tabora | 2 | 288 |\r\n| Damosel orbit | 1 | 668 |\r\n| **Total** | **9** | **3,156** |\r\n\r\nClose the Tabora addressed-copy cases `003D0508` and `003D8290`, keeping projection/update outside the constructor-only initialization condition. The actual `qcopy` dependency graph also closes `003F1A88`, previously blocked by copy-link costs. Preserve full aligned vectors, the 144-byte render packet, canonical 64-bit texture/GS values and genuine per-placement interpolation refs.\r\n\r\nMake **four existing C interfaces** explicit: forward the part-table index and node initializer's three inputs; retain the two callbacks' observed unused argument slots. Independent retail call/use trac",
+      "mergedAt": "2026-10-25T13:39:12Z"
+     },
+     {
+      "number": 322,
+      "title": "Match 17 vector and control functions with verified source contracts",
+      "author": "llesieur99",
+      "untrustedBody": "## What\n\nMatch **17 functions, 4,224 distinct C bytes and 365 carrying placements** across the applicable USA v1.01, USA v2.00 and PAL programs. These cover shared vector/control handlers, quad emission and point selection, Siberius state setup, and Joba/Dobbo Orbit behaviors.\n\nThe reviewed `qcopy` helper and real pointer lifetimes close these bodies; ordinary TImode transfers remain where required. The source uses actual partial object views, packet layouts, pointer returns and typed callbacks. Five previously integrated caller interfaces are also corrected without adding matching credit.\n\nKeep **31 complete corrected reconstructions in `nonmatching/`**, with release coverage, residuals and reopening conditions. The shared blocker document records the useful source remedies and remaining constraints. Promoted originals and older trial variants are preserved privately. Compiler/assembler sources and the progress reports are unchanged.\n\n## Checked\n\n- `python3 tools/build.py all --jobs 4",
+      "mergedAt": "2026-10-25T15:16:11Z"
+     },
+     {
+      "number": 323,
+      "title": "Match 11 state and vector handlers and preserve corrected large drafts",
+      "author": "llesieur99",
+      "untrustedBody": "## What\n\nMatch **11 functions, 2,976 distinct code bytes and 42 carrying placements** in Aranos, Yeedil, Snivelak, shared level handlers and Oozla. The C uses the reviewed transfer helpers, actual storage layouts, pointer returns and scoped lifetimes.\n\nCorrect **eight existing interfaces** while preserving their retail bytes: object and floating inputs, query results/output pointers, the emitter's unused incoming float slot, and the shared/PAL hook arguments. These repairs add no decompiled-byte credit.\n\nPreserve **48 complete unlinked reconstructions**: 46 worker near misses, the corrected query wrapper and one explicit-interface alternative to an existing byte-matched caller. Larger bodies retain measured behavior/layout repairs without claiming matches. Promoted originals and trial variants stay private; the existing near-miss index and blocker topics are reconciled.\n\n## Checked\n\n- `python3 tools/build.py all --jobs 4 --strict --version us`, `us2`, `pal`: **28/28 programs each, 84 t",
+      "mergedAt": "2026-10-25T17:40:00Z"
+     },
+     {
+      "number": 324,
+      "title": "Match seven level handlers and retain corrected reconstructions",
+      "author": "llesieur99",
+      "untrustedBody": "## What\n\nMatch **7 functions, 3,848 distinct code bytes and 47 carrying placements**: Damosel beam rendering and effect forwarding, shared collision queries, constructors and target helpers.\n\n| Function | Bytes | USA v1.01 | USA v2.00 | PAL |\n| --- | ---: | ---: | ---: | ---: |\n| `func_L01_003120A8` | 308 | 7 | 7 | 7 |\n| `func_L09_003A06B0` | 292 | 3 | 3 | absent |\n| `func_L09_003FDFF0` | 208 | 1 | 1 | 1 |\n| `func_L08_00435600` | 160 | 3 | 3 | 3 |\n| `func_L06_00361728` | 520 | 1 | 1 | 1 |\n| `func_L23_00429430` | 2192 | 1 | 1 | 1 |\n| `func_L23_0041E5B0` | 168 | 1 | 1 | absent |\n\nUse the reviewed aligned transfer/clear helpers and real storage: the naturally aligned 48-byte query and complete 144-byte packet. Keep the query mode as an integer and preserve the established argument order. Forward the effect wrapper's actual pointer inputs, including its optional fifth-GPR vector. Cast color components to unsigned 32-bit values before shifting, avoiding signed overflow for the fade range us",
+      "mergedAt": "2026-10-25T18:02:33Z"
+     },
+     {
+      "number": 325,
+      "title": "feat(src): match vector handlers and repair large-function reconstructions",
+      "author": "llesieur99",
+      "untrustedBody": "## What\n\nMatch three vector handlers using the reviewed EE helpers and actual\ncall/storage contracts: **1,792 distinct code bytes, 41 accepted carrying\nplacements across USA v1.01, USA v2.00 and PAL**.\n\n| Function | Bytes | USA v1.01 | USA v2.00 | PAL |\n| --- | ---: | ---: | ---: | ---: |\n| `func_L02_003D6690` | 864 | 1/1 | 1/1 | No canonical row |\n| `func_L00_003F3518` | 644 | 12/12 | 12/12 | 12/12 |\n| `func_L11_00442B60` | 284 | 1/1 | 1/1 | 1/1 |\n\nKeep ordinary TImode stack transfers where retail requires them; use the\nshared copy helper for addressed external transfers. Four Maktar table\nwrites use `qcopy_nc` only after source/destination independence review;\ndependent captures/transfers retain memory clobbers. The existing\nper-file hazard-label profile is unchanged. No compiler/assembler changes.\n\nRepair **five existing C interfaces/storage contracts at 24 placements**,\nwith no new matching credit: forward both live pointers and the float\namount through the four B4FF0 wrappers, and",
+      "mergedAt": "2026-10-25T19:30:31Z"
+     },
+     {
+      "number": 326,
+      "title": "fix(src): repair wrapper contracts and preserve corrected large reconstructions",
+      "author": "llesieur99",
+      "untrustedBody": "## What\n\nRepair **two existing C wrapper interfaces at 33 carrying placements**\nand retain **39 complete large-function reconstructions** after a bounded\nparallel investigation of 39 targets (80,136 retail bytes).\n\n**New matching result: 0 functions, 0 distinct bytes, 0 placements.**\nEqual-size residuals and matching frames receive no matching credit.\n\nThe indexed animation wrapper now forwards the actual count/value words\nthrough A2/A3 to `func_002B6228`. The nearest-entry wrapper forwards its\nincoming F12 base to `func_L06_00382850`. The real L18 caller already\nsupplied these inputs and remains unchanged; both wrappers preserve all\nretail instructions and add no new progress credit.\n\nThe retained C corrects measured storage and behavior errors: full\n64-byte matrix and 48-byte impact outputs; real zero-before-copy events;\nRNG/call order and floating branch polarity; missing stack arguments;\npointer/null and count returns; and genuine phase-local workspaces.\nThe Tabora dispatcher retai",
+      "mergedAt": "2026-10-25T21:37:41Z"
+     },
+     {
+      "number": 327,
+      "title": "feat(src): match 664-byte Snivelak path motion with verified EE call setup",
+      "author": "llesieur99",
+      "untrustedBody": "## Summary\n\nImplement the Snivelak path-motion body `func_L16_004110D0` in its own `-G8` unit: **one distinct function, 664 bytes, two present placements** across USA v1.01 and USA v2.00. PAL has no corresponding catalogue identity.\n\nThe prior complete draft already had the retail size and 0x90 frame. Three measured source corrections resolve its remaining setup/store differences:\n\n- Audit every `func_002AAA00` exit and declare its real float return. The caller still ignores it; no argument or synthetic result use is added. An independent source-only control isolates the four changed setup slots.\n- Preserve the actual lower/upper state stores in their measured order.\n- Use RAC1's typed EE argument-interleaving method for `func_002A8D70`. The same six GPR values remain in A0-A3/T0-T1, and the same three floats remain in F12-F14, with no stack arguments or changes within either bank.\n\nThe complete buffers, side effects and real input lifetimes remain intact. Six targeted trials required ",
+      "mergedAt": "2026-10-25T22:55:08Z"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": {
+    "before": {
+     "code": {
+      "done": 776368,
+      "total": 5529148
+     },
+     "functions": {
+      "done": 4351,
+      "total": 8601
+     },
+     "data": {
+      "done": 0,
+      "total": 383391
+     }
+    },
+    "after": {
+     "code": {
+      "done": 776368,
+      "total": 5529148
+     },
+     "functions": {
+      "done": 4351,
+      "total": 8601
+     },
+     "data": {
+      "done": 0,
+      "total": 383391
+     }
+    }
+   },
+   "contributors": [
+    "llesieur99"
+   ]
+  },
+  {
+   "repo": "rac3-decomp",
+   "title": "Up Your Arsenal",
+   "branches": [
+    {
+     "name": "master",
+     "commits": []
+    }
+   ],
+   "commitCount": 0,
+   "pullRequests": {
+    "merged": [],
+    "opened": [
+     {
+      "number": 1,
+      "title": "feat(us): add native frontend routines with NTSC validation",
+      "author": "llesieur99",
+      "untrustedBody": "## Summary\n\nAdd six native NTSC-U routines, in eight program placements:\n\n| Program | Function | Complete body | Role |\n| --- | --- | ---: | --- |\n| frontbin | `func_U_003EB578` | 12 bytes | Store a float at state +0x50 |\n| boot_elf | `func_U_003F0D38` | 12 bytes | The same setter's boot_elf copy |\n| boot_elf | `func_U_003C4CB8` | 200 bytes | Short-counter/state update and RGB extraction |\n| boot_elf | `func_U_003E46B0` | 200 bytes | State-derived ratio and two-float helper call |\n| boot_elf | `func_U_00396860` | 296 bytes | Update the thirteen-entry timer/fade/callback table |\n| boot_elf | `func_U_003C18B0` | 296 bytes | Initialize frontend labels and state from settings |\n| frontbin | `func_U_003BC0F0` | 296 bytes | The same initializer's frontbin copy |\n| boot_elf | `func_U_003B82B8` | 1,108 bytes | Select and draw frontend dialogs, with a compiler-generated jump table |\n\nThe two agent waves add three 296-byte placements and the 1,108-byte dialog routine. The three 296-byte placemen",
+      "mergedAt": "2026-10-29T15:36:36Z"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": null,
+   "contributors": [
+    "llesieur99"
+   ]
+  },
+  {
+   "repo": "rac4-decomp",
+   "title": "Ratchet: Deadlocked",
+   "branches": [
+    {
+     "name": "main",
+     "commits": []
+    }
+   ],
+   "commitCount": 0,
+   "pullRequests": {
+    "merged": [],
+    "opened": []
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": null,
+   "contributors": []
+  },
+  {
+   "repo": "openrac-mods",
+   "title": "OpenRAC mods",
+   "branches": [
+    {
+     "name": "master",
+     "commits": [
+      {
+       "sha": "2c5139c106de03a7ae2d0ef55a703a1d7c290d09",
+       "title": "fix(difficulty): call the NTSC-U line test by the port's name, version 1.2.2",
+       "author": "Lynder063",
+       "date": "2026-10-25T20:19:35Z"
+      },
+      {
+       "sha": "b7703770ebd170a968382bc67f53b6f153deec05",
+       "title": "Merge pull request #2 from OpenRAC/xbox-icons",
+       "author": "Lynder063",
+       "date": "2026-10-25T19:46:54Z"
+      }
+     ]
+    }
+   ],
+   "commitCount": 2,
+   "pullRequests": {
+    "merged": [
+     {
+      "number": 2,
+      "title": "Xbox icons",
+      "author": "Lynder063",
+      "untrustedBody": "",
+      "mergedAt": "2026-10-25T19:46:55Z"
+     },
+     {
+      "number": 3,
+      "title": "fix(difficulty): call the NTSC-U line test by the port's name, version 1.2.2",
+      "author": "Lynder063",
+      "untrustedBody": "On the US disc the mod asked for the line test as `FUN_L00_001efc70`, the decomp's spelling. The port's NTSC-U build has its own C for it under `func_L00_001EFC70`, so the lookup failed and the mod never loaded. Also brings the library's version string in line with the manifest (both 1.2.2).\r\n\r\nTests pass. Not tried on a real US disc.\r\n\r\nFixes #1\r\n\r\n🤖 Generated with [Claude Code](https://claude.com/claude-code)",
+      "mergedAt": "2026-10-25T20:19:36Z"
+     }
+    ],
+    "opened": [
+     {
+      "number": 2,
+      "title": "Xbox icons",
+      "author": "Lynder063",
+      "untrustedBody": "",
+      "mergedAt": "2026-10-25T19:46:55Z"
+     },
+     {
+      "number": 3,
+      "title": "fix(difficulty): call the NTSC-U line test by the port's name, version 1.2.2",
+      "author": "Lynder063",
+      "untrustedBody": "On the US disc the mod asked for the line test as `FUN_L00_001efc70`, the decomp's spelling. The port's NTSC-U build has its own C for it under `func_L00_001EFC70`, so the lookup failed and the mod never loaded. Also brings the library's version string in line with the manifest (both 1.2.2).\r\n\r\nTests pass. Not tried on a real US disc.\r\n\r\nFixes #1\r\n\r\n🤖 Generated with [Claude Code](https://claude.com/claude-code)",
+      "mergedAt": "2026-10-25T20:19:36Z"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [
+     {
+      "number": 1,
+      "title": "Difficulty Mod Incompatible?",
+      "author": "theygotti"
+     }
+    ],
+    "closed": [
+     {
+      "number": 1,
+      "title": "Difficulty Mod Incompatible?",
+      "author": "theygotti"
+     }
+    ]
+   },
+   "releases": [],
+   "progress": null,
+   "contributors": [
+    "Lynder063"
+   ]
+  }
+ ]
+}

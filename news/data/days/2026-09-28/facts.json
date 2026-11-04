@@ -1,0 +1,1504 @@
+{
+ "format": 1,
+ "date": "2026-09-28",
+ "totals": {
+  "commits": 218,
+  "pullRequestsMerged": 1,
+  "pullRequestsOpened": 2,
+  "contributors": 2
+ },
+ "projects": [
+  {
+   "repo": "OpenRAC",
+   "title": "OpenRAC launcher",
+   "branches": [
+    {
+     "name": "develop",
+     "commits": []
+    },
+    {
+     "name": "master",
+     "commits": []
+    }
+   ],
+   "commitCount": 0,
+   "pullRequests": {
+    "merged": [],
+    "opened": []
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": null,
+   "contributors": []
+  },
+  {
+   "repo": "rac1-decomp",
+   "title": "Ratchet & Clank",
+   "branches": [
+    {
+     "name": "main",
+     "commits": [
+      {
+       "sha": "15dae0aa3ce2302a8c6e4f95a81605e033eda01e",
+       "title": "feat(overlays): func_L00_002617B0 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T23:57:26Z"
+      },
+      {
+       "sha": "66886eac2e5598b9df485aee54dd5330d42014f7",
+       "title": "feat(overlays): func_L00_0025D038 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T23:53:59Z"
+      },
+      {
+       "sha": "f700d52bae004597c683c82aab080378fb4a543a",
+       "title": "feat(overlays): func_L00_002BC668 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T23:50:32Z"
+      },
+      {
+       "sha": "918fdd814a6f3f30e5182854fb2a80a948bc841c",
+       "title": "feat(overlays): func_L00_002751A8 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T23:47:05Z"
+      },
+      {
+       "sha": "cb5734213bfbfa01bb613fe9dd133bd2e3541a15",
+       "title": "feat(overlays): func_L00_00259428 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T23:43:38Z"
+      },
+      {
+       "sha": "d8770ea5c259f66ce79434c5a01bd5fbf83cdc86",
+       "title": "feat(overlays): func_L00_0025A4A0 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T23:40:11Z"
+      },
+      {
+       "sha": "36880dfeeaf728b9c46d646f3d52bfee5a72af96",
+       "title": "feat(overlays): func_L00_00272A88 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T23:36:43Z"
+      },
+      {
+       "sha": "cfeb9fbaaf7b5c88cd5b47e2dfc2fd46f0c37a14",
+       "title": "feat(overlays): func_L00_00272E60 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T23:33:16Z"
+      },
+      {
+       "sha": "4e64a4235f0e82679c5f43e38d49d0fe3bdb7892",
+       "title": "feat(overlays): func_L00_00272B28 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T23:29:49Z"
+      },
+      {
+       "sha": "40ee7fb942d0b906f7ea9fff202d71b093c38365",
+       "title": "feat(overlays): func_L00_0025A540 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T23:26:22Z"
+      },
+      {
+       "sha": "791d81318ae5b7520e1b1d0e13419d179ba26f8b",
+       "title": "feat(overlays): func_L00_00213970 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T23:22:55Z"
+      },
+      {
+       "sha": "c92a5add32fbabf7e5c1df32cb744ea684f20aec",
+       "title": "feat(overlays): func_L00_002EC7D0 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T23:19:29Z"
+      },
+      {
+       "sha": "ff479d286d571b9482a6ce0554a7c44f50814878",
+       "title": "feat(overlays): func_L00_0025AFA8 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T23:12:41Z"
+      },
+      {
+       "sha": "90cde2610f2fc10fe55efb0a4c9c88dadd49c68c",
+       "title": "feat(overlays): func_L00_0026ECA0 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T23:09:14Z"
+      },
+      {
+       "sha": "c6e7cc1aee58c04e24e35c750ba98342cf4dfcff",
+       "title": "feat(overlays): func_L00_00203F20 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T23:05:47Z"
+      },
+      {
+       "sha": "2a30cde80718d3dd54d480a1d6a6b467416e683e",
+       "title": "feat(overlays): func_L00_002A27C8 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T23:02:20Z"
+      },
+      {
+       "sha": "534129a33db6e5a39a47e5f57730708f06c31559",
+       "title": "feat(overlays): func_L00_0025D308 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T22:57:08Z"
+      },
+      {
+       "sha": "7e1ff52b5d8d22ca4e5f2f1a315679613cefa157",
+       "title": "feat(overlays): func_L00_0028F0B0 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T22:53:47Z"
+      },
+      {
+       "sha": "0354adeaca1d8d800de23c2877a699784674c554",
+       "title": "feat(overlays): func_L00_002EED60 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T22:50:26Z"
+      },
+      {
+       "sha": "4c073a0d5ea67b6dbce3486a0443b1db89ab2d13",
+       "title": "feat(overlays): func_L00_002E5D50 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T22:47:05Z"
+      },
+      {
+       "sha": "18a24f2ede74019a1d9fbcb6a2279d191eff333b",
+       "title": "feat(overlays): func_L00_002DB480 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T22:43:45Z"
+      },
+      {
+       "sha": "47ae4418bcced7ff04f09df65ae7ef86c2355ce4",
+       "title": "feat(overlays): func_L00_0025EAC8 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T22:37:10Z"
+      },
+      {
+       "sha": "6022011b6bfd08b75299c837f5f39445a85fcf47",
+       "title": "feat(overlays): func_L00_0020ED30 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T22:33:49Z"
+      },
+      {
+       "sha": "b9b3f1b10bdf38fb19bf8c30cd92bbb60310c82d",
+       "title": "feat(overlays): func_L00_002EB0D8 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T22:30:29Z"
+      },
+      {
+       "sha": "2b450056e6605d2a0d269e82b9e36821bad4dbf6",
+       "title": "feat(overlays): func_L00_00203FB8 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T22:27:08Z"
+      },
+      {
+       "sha": "bd54eee17f906e2b188a0aa47c2745ffa00a4427",
+       "title": "feat(overlays): func_L00_002644E0 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T22:23:47Z"
+      },
+      {
+       "sha": "15bf89169e73ed6e7b52d5271f5ecbd8b3f0648e",
+       "title": "feat(overlays): func_L00_00260B68 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T22:20:27Z"
+      },
+      {
+       "sha": "a537ef9f14f856d0fe2e2f5e702768a6048bc720",
+       "title": "feat(overlays): func_L00_00227E08 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T22:17:07Z"
+      },
+      {
+       "sha": "71c927252c074a8d010cdde176c4109d5c3df764",
+       "title": "feat(overlays): func_L00_0025D140 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T22:13:46Z"
+      },
+      {
+       "sha": "7d97e890f9f4558a99c8e7fc48f7c826deb8d9f4",
+       "title": "feat(overlays): func_L00_002098B8 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T22:10:25Z"
+      },
+      {
+       "sha": "315263acdb00461437d5b1c03659e9b97eb5bc7c",
+       "title": "feat(overlays): func_L00_0025D0E0 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T22:07:05Z"
+      },
+      {
+       "sha": "0d0c89c88000e47377d72e6114a6cda8b6106b48",
+       "title": "feat(overlays): func_L00_00280740 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T22:03:44Z"
+      },
+      {
+       "sha": "204536cd8b505a61c9380fa1f5cf0935af9f2c00",
+       "title": "feat(overlays): func_L00_002C2A20 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T22:00:23Z"
+      },
+      {
+       "sha": "c3c8a56bf618c2b790f5dd8045c678bf33de7c90",
+       "title": "feat(overlays): func_L00_00267C48 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T21:57:09Z"
+      },
+      {
+       "sha": "424eba14aab7b2e00068e40d4a6f2018fe93b6f0",
+       "title": "feat(overlays): func_L00_002B6E10 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T21:54:01Z"
+      },
+      {
+       "sha": "9dd07aa343b83240840dc3662fb9eae0ec2fd210",
+       "title": "feat(overlays): func_L00_00260958 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T21:50:59Z"
+      },
+      {
+       "sha": "219935326834d75b636e4a914c197bf7025f84c3",
+       "title": "feat(overlays): func_L00_0028FFB0 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T21:40:51Z"
+      },
+      {
+       "sha": "69614a1bbc88754d7b441c406d53d6fc4c49aa9a",
+       "title": "feat(overlays): func_L00_0025D288 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T21:37:49Z"
+      },
+      {
+       "sha": "8623056c1f58e5b37fe355a050e868407feacc46",
+       "title": "feat(overlays): func_L00_00205598 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T21:34:47Z"
+      },
+      {
+       "sha": "755f7784c900b70b8451ceeac8802a0874d60f09",
+       "title": "feat(overlays): func_L00_00264E28 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T21:31:46Z"
+      },
+      {
+       "sha": "c4a32b525d9fbab7b045d760227380488809b812",
+       "title": "feat(overlays): func_L00_00263B78 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T21:28:18Z"
+      },
+      {
+       "sha": "a5071b56989a61f6aee3f1b18b0f4654eea40915",
+       "title": "feat(overlays): func_L00_002634F8 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T21:24:59Z"
+      },
+      {
+       "sha": "9887c18d6c09f41c3fee2a205ad43acd82497d67",
+       "title": "feat(overlays): func_L00_00258F28 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T21:23:07Z"
+      },
+      {
+       "sha": "460180defb10d3bd8f9169a75b6b582f207375bd",
+       "title": "feat(overlays): func_L00_0028BBF8 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T21:21:57Z"
+      },
+      {
+       "sha": "e3a4c1453422c2169f73418cc98d58b2b6b6b711",
+       "title": "feat(overlays): func_L00_0028BBF8 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T21:20:05Z"
+      },
+      {
+       "sha": "2663fcd0cf19793e564beca92017ea93309649cf",
+       "title": "feat(overlays): func_L00_002123B0 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T21:17:03Z"
+      },
+      {
+       "sha": "b759d7940070d688041330ccf7ebc47c49068142",
+       "title": "feat(overlays): func_L00_001ED9B0 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T21:14:08Z"
+      },
+      {
+       "sha": "2da0abea9d6059f3edec88f46f277cc98bb31e78",
+       "title": "feat(overlays): func_L00_002D95E8 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T21:11:13Z"
+      },
+      {
+       "sha": "8e6d46d95531e961e030bee6874dd6c0f35dbf68",
+       "title": "feat(overlays): func_L00_002394A8 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T21:08:24Z"
+      },
+      {
+       "sha": "488e5dc61107690522c2065cb6b071a908936fb0",
+       "title": "feat(overlays): func_L00_00208000 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T21:05:35Z"
+      },
+      {
+       "sha": "ceb6208bac86d674e705d02b692a9ab826fdc314",
+       "title": "feat(overlays): func_L00_002EB060 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T21:02:47Z"
+      },
+      {
+       "sha": "bf84057bf1dcbcfa3355275116cdca285ba1e6a6",
+       "title": "feat(overlays): func_L00_0026D690 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T20:59:58Z"
+      },
+      {
+       "sha": "07b90973ea521cf57454d3f35ce6440c620c7c9e",
+       "title": "feat(overlays): func_L00_002124E8 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T20:57:09Z"
+      },
+      {
+       "sha": "797e9a186ec9c7e6587dd0223dc9005c8612608e",
+       "title": "feat(overlays): func_L00_002D4C80 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T20:54:20Z"
+      },
+      {
+       "sha": "a06e93e9f42c3fd9acb43dd52cc503a1b6ed7d40",
+       "title": "feat(overlays): func_L00_002B5428 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T20:51:31Z"
+      },
+      {
+       "sha": "ec43aa557773c39564fbf7d629cdf53e462fbaf0",
+       "title": "feat(overlays): func_L00_00204130 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T20:48:42Z"
+      },
+      {
+       "sha": "2dca13034abc53320b99d7af709151bf9ac5bcd3",
+       "title": "feat(overlays): func_L00_00275C80 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T20:46:00Z"
+      },
+      {
+       "sha": "a986e8e1b202905138a2cefcbf895fc9f1d04727",
+       "title": "feat(overlays): func_L00_00265558 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T20:43:15Z"
+      },
+      {
+       "sha": "a94d01d1a4da102c7e6c11fb48d71e63373c87f5",
+       "title": "feat(overlays): func_L00_001F9D40 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T20:40:33Z"
+      },
+      {
+       "sha": "231707a35107765e1caa9360091348f3f883133d",
+       "title": "feat(overlays): func_L00_001F91B0 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T20:37:50Z"
+      },
+      {
+       "sha": "fe87c65aa1f8dcca4eb2db3482bb676e0b3097db",
+       "title": "feat(overlays): func_L00_00222520 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T20:35:08Z"
+      },
+      {
+       "sha": "baa25c7f7939e5d391611a8290ca8f900f7bf0a1",
+       "title": "feat(overlays): func_L00_002E17F0 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T20:32:25Z"
+      },
+      {
+       "sha": "3e9cd391e1a1b3e896977d9667f52c0382ee84c2",
+       "title": "feat(overlays): func_L00_0024A570 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T20:29:43Z"
+      },
+      {
+       "sha": "04d3af6ec5d5896d9ced530b96a25df89367e98d",
+       "title": "feat(overlays): func_L00_002EC6C8 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T20:27:00Z"
+      },
+      {
+       "sha": "fd45be5400af868e76622939e22cc13b7ad6f11f",
+       "title": "feat(overlays): func_L00_002E9DC8 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T20:24:18Z"
+      },
+      {
+       "sha": "9a488c196cdee1da3befdb9878f5c8456fc24cfe",
+       "title": "feat(overlays): func_L00_00258BC8 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T20:21:35Z"
+      },
+      {
+       "sha": "56033920e028133e33fcca39af48fc0126ade9d7",
+       "title": "feat(overlays): func_L00_0025F3C0 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T20:18:53Z"
+      },
+      {
+       "sha": "11d4d87e8774411b958f2431559f2ca42006fad5",
+       "title": "feat(overlays): func_L00_002E0AE8 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T20:16:10Z"
+      },
+      {
+       "sha": "cace0557efa4d54734e571438313fbb04368a6df",
+       "title": "feat(overlays): func_L00_002A9030 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T20:13:28Z"
+      },
+      {
+       "sha": "ee4d95d38ac593a478142ab82d8fe0b0faf21985",
+       "title": "feat(overlays): func_L00_002766B0 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T20:10:45Z"
+      },
+      {
+       "sha": "48aa942179a26ad259b940e5af4cb1483f57b251",
+       "title": "feat(overlays): func_L00_002D93E8 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T20:07:58Z"
+      },
+      {
+       "sha": "30b399545858f39206b3141e33e9fcc1c57eef5a",
+       "title": "feat(overlays): func_L00_002CC210 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T20:05:16Z"
+      },
+      {
+       "sha": "549c94ae1dd8599d74c14a9825434c835ad443ce",
+       "title": "feat(overlays): func_L00_002607A8 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T20:02:40Z"
+      },
+      {
+       "sha": "3f9c6e1021922f452faa82b7f69e8a1741fdc60a",
+       "title": "feat(overlays): func_L00_00208318 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T20:00:02Z"
+      },
+      {
+       "sha": "22a576cb56df8b829f3bb6f37dacf33dad98e6ba",
+       "title": "feat(overlays): func_L00_002E9A40 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T19:57:26Z"
+      },
+      {
+       "sha": "58ec30f29516ed86eb2a78c84beef737ae20ca3c",
+       "title": "feat(overlays): func_L00_0029AF70 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T19:54:51Z"
+      },
+      {
+       "sha": "17c4689306841b4dd1ecd91b08487e11cc485ef4",
+       "title": "feat(overlays): func_L00_0028EB98 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T19:52:14Z"
+      },
+      {
+       "sha": "923333002b3fb11a57798701c9002f758a8c76b4",
+       "title": "feat(overlays): func_L00_002715B0 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T19:49:38Z"
+      },
+      {
+       "sha": "58bc4338a1997dad15c21d4dddb07fa6010bd241",
+       "title": "feat(overlays): func_L00_0025A468 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T19:47:03Z"
+      },
+      {
+       "sha": "2503081bfa8dc8f45dc647a761f48513b08b4a93",
+       "title": "feat(overlays): func_L00_0023FA70 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T19:43:41Z"
+      },
+      {
+       "sha": "8c9aa2b0719dfdd27b94782b2d27fdd4028c95e2",
+       "title": "feat(overlays): func_L00_002A9080 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T19:38:21Z"
+      },
+      {
+       "sha": "bbafb2b64b5556cc1063e4e5de0eb18d07139826",
+       "title": "feat(overlays): func_L00_00299108 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T19:35:51Z"
+      },
+      {
+       "sha": "89471d0c5e7d27166aedcdfc169d6c3783b6dff3",
+       "title": "feat(overlays): func_L00_002BFF08 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T19:33:21Z"
+      },
+      {
+       "sha": "812f61c7c15fe68c359ef4acca2911376779cfd0",
+       "title": "feat(overlays): func_L00_00263D68 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T19:30:57Z"
+      },
+      {
+       "sha": "c05a416de37f61101ab7d347670a610df511163f",
+       "title": "feat(overlays): func_L00_002666C8 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T19:27:06Z"
+      },
+      {
+       "sha": "44b36b95622b38fbcd7955870d574c0bf8a31600",
+       "title": "feat(overlays): func_L00_0025C7A8 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T19:24:42Z"
+      },
+      {
+       "sha": "c41e08a62b182def376ace9f7767878e1dd3d893",
+       "title": "feat(overlays): func_L00_00276180 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T19:22:25Z"
+      },
+      {
+       "sha": "7e278d1d45d1fc760bab0e3b4df8521c1d14f361",
+       "title": "feat(overlays): func_L00_002E9E20 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T19:20:08Z"
+      },
+      {
+       "sha": "8347e5c5cecd72a57bbc1fce46ec9d2e457ead5a",
+       "title": "feat(overlays): func_L00_002E9900 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T19:17:57Z"
+      },
+      {
+       "sha": "6d2999256e502c9ab16cf3fa14f737bb19489aa3",
+       "title": "feat(overlays): func_L00_002DB690 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T19:15:43Z"
+      },
+      {
+       "sha": "eb6885ba9d8b3e629bd8f202d305d3773fd82bce",
+       "title": "feat(overlays): func_L00_0026FEE8 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T19:13:32Z"
+      },
+      {
+       "sha": "c6c6f8bb42127d9073f5b4981dbe7d64673f5ebd",
+       "title": "feat(overlays): func_L00_00258E58 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T19:11:22Z"
+      },
+      {
+       "sha": "13648b57dfea4da506d3279eaeab64e0f3648097",
+       "title": "feat(overlays): func_L00_002EDC60 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T19:07:31Z"
+      },
+      {
+       "sha": "7c9d0dfcfd8f79adcb1c094d1eaef4ace8a69e4a",
+       "title": "feat(overlays): func_L00_002E9968 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T19:05:20Z"
+      },
+      {
+       "sha": "0e7d9bbf6cdd3134a47853638c27907e0ef6a2e2",
+       "title": "feat(overlays): func_L00_002BFF50 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T19:03:16Z"
+      },
+      {
+       "sha": "fe983f2349e066b7f2e285dabd7cf8e3a7f0a8fc",
+       "title": "feat(overlays): func_L00_002BFED0 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T19:01:12Z"
+      },
+      {
+       "sha": "6776c3c977e5a7a7ba70676497f148642958e964",
+       "title": "feat(overlays): func_L00_002BFE98 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T18:59:08Z"
+      },
+      {
+       "sha": "a0c8d993c89c6c5106e848de7b7cf3a2dabc6532",
+       "title": "feat(overlays): func_L00_002E9B30 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T18:54:03Z"
+      },
+      {
+       "sha": "8a6f90c444844f43f18a9c49ce0e75024e119312",
+       "title": "feat(overlays): func_L00_0024A460 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T18:51:40Z"
+      },
+      {
+       "sha": "c4670f9f60d869077e34263e1b2451c951c556aa",
+       "title": "feat(overlays): func_L00_002512D8 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T18:48:19Z"
+      },
+      {
+       "sha": "c9d10e7544c26b4d4c168be24bb7d8d35d909919",
+       "title": "feat(overlays): func_L00_0020BFA8 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T18:45:33Z"
+      },
+      {
+       "sha": "8cca4d5e94f14a190e7c06a0a055bc0fd274e968",
+       "title": "feat(overlays): func_L00_0028FC68 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T18:42:57Z"
+      },
+      {
+       "sha": "2b90470c71ec1bbb4a74d038ed22f38035e76b3b",
+       "title": "feat(overlays): func_L00_00263578 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T18:40:27Z"
+      },
+      {
+       "sha": "733ea603cb663da53a31a7474b8540543ef6ab44",
+       "title": "feat(overlays): func_L00_002E5740 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T18:38:01Z"
+      },
+      {
+       "sha": "a3b26ae620c1e224444aa74f3e7fdbf560da160e",
+       "title": "feat(overlays): func_L00_0025A890 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T18:36:02Z"
+      },
+      {
+       "sha": "d67e95fb7421a43cd56371c7741e9c4d8452a252",
+       "title": "feat(overlays): func_L00_002CC360 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T18:34:03Z"
+      },
+      {
+       "sha": "415ffd7fa7adfb7d3394aca84338fb69b658ac26",
+       "title": "feat(overlays): func_L00_002E9AF8 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T18:30:10Z"
+      },
+      {
+       "sha": "372c9ba6a72413e9ccd7dfd1f1d54ad7e081ffaa",
+       "title": "feat(overlays): func_L00_002E9AD0 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T18:28:18Z"
+      },
+      {
+       "sha": "1057e5efecdf129845cafc104b2bbb956a6f8822",
+       "title": "feat(overlays): func_L00_001F92C0 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T18:23:41Z"
+      },
+      {
+       "sha": "c011e9a9da2b494a396425cb979187333e8c8f82",
+       "title": "feat(overlays): func_L00_0024A404 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T18:21:49Z"
+      },
+      {
+       "sha": "5fde7d814f231ae68c74e624aaf783b89a77b3df",
+       "title": "feat(overlays): func_L00_0024A170 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T18:20:03Z"
+      },
+      {
+       "sha": "1d1a83e4c2bfe171a202496bd753dc5a8a6051e0",
+       "title": "feat(overlays): func_L00_002497E0 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T18:18:18Z"
+      },
+      {
+       "sha": "47624d45283748c4f69ad1932fd5b1ce6ea8cd72",
+       "title": "feat(overlays): func_L00_00264DB8 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T18:13:47Z"
+      },
+      {
+       "sha": "49a09bc504378849d7183fcaec7a2d8b84ad1226",
+       "title": "feat(overlays): func_L00_002E0490 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T18:09:55Z"
+      },
+      {
+       "sha": "1a66714338d1dedd1e2ffe1e9e85adc9df33bded",
+       "title": "feat(overlays): func_L00_00258C80 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T17:41:51Z"
+      },
+      {
+       "sha": "299d8218896357628b81fe9fe5bb7b40c849b255",
+       "title": "feat(overlays): func_L00_00229778 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T17:36:37Z"
+      },
+      {
+       "sha": "4e87f136daf059d811fc09a307e3d5d77b11e29c",
+       "title": "feat(overlays): func_L00_002E8E78 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T17:32:53Z"
+      },
+      {
+       "sha": "932298c1a03e034e216824ff5e791e6ddee85ff3",
+       "title": "feat(overlays): func_L00_002A6070 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T17:28:24Z"
+      },
+      {
+       "sha": "ce931da5b2c454030bcb0e86ec3d0347ee509847",
+       "title": "feat(overlays): func_L00_00209850 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T17:23:11Z"
+      },
+      {
+       "sha": "894aecbdee2e2baadd41561753644b21e7ee1273",
+       "title": "feat(core): _decodeOrSkipFrame (func_0012BF40) exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T17:07:05Z"
+      },
+      {
+       "sha": "e77c89722fba5ccb0c9792d091197568a9833785",
+       "title": "feat(core): sceSifResetIop (func_0011D0D0) exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T16:58:01Z"
+      },
+      {
+       "sha": "e6a4e6df72edd30784cff4adfbb21da29948e6aa",
+       "title": "docs(overlays): record the flag sweep over level near-misses",
+       "author": "Lynder063",
+       "date": "2026-09-28T16:35:29Z"
+      },
+      {
+       "sha": "abaf4e65085141138ea1eb33db3c6d4520a9eb95",
+       "title": "docs(overlays): drop the Deadlocked mention from Roles",
+       "author": "Lynder063",
+       "date": "2026-09-28T16:32:07Z"
+      },
+      {
+       "sha": "327c3ef7cd6cf964d9a0681462a300472f12546c",
+       "title": "Revert \"feat(tools): Deadlocked debug-symbol lookup\"",
+       "author": "Lynder063",
+       "date": "2026-09-28T16:31:55Z"
+      },
+      {
+       "sha": "770396e5a87e154e6aee0f13c5daa57862b2c3bf",
+       "title": "feat(tools): Deadlocked debug-symbol lookup",
+       "author": "Lynder063",
+       "date": "2026-09-28T16:29:56Z"
+      },
+      {
+       "sha": "4af6ddd021551e824e4be1caf37ae8645df9a2aa",
+       "title": "feat(overlays): roles from the levels' dispatch tables",
+       "author": "Lynder063",
+       "date": "2026-09-28T16:27:26Z"
+      },
+      {
+       "sha": "c2e4dde624eceee7373faa7e66b8c3f7647e6d9a",
+       "title": "feat(tools): decomp-permuter setup for one function",
+       "author": "Lynder063",
+       "date": "2026-09-28T12:31:12Z"
+      },
+      {
+       "sha": "bdb5e51ad03f7027d22024d8353cd54b55e93303",
+       "title": "feat(overlays): func_L00_00235608 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T12:30:44Z"
+      },
+      {
+       "sha": "fb7c3e94d505f85bf262d65e3a9acb4abb7e453d",
+       "title": "feat(overlays): func_L00_00213A08 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T12:28:54Z"
+      },
+      {
+       "sha": "351a6e32546bdec73eed3d24a043f99d476d96a3",
+       "title": "feat(overlays): func_L00_00212740 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T12:27:33Z"
+      },
+      {
+       "sha": "7bba8442d3edf13cf4b06b07206afc75b1666b32",
+       "title": "feat(overlays): func_L00_00211F28 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T12:26:12Z"
+      },
+      {
+       "sha": "6a7fd7d0f721cf3774e3f144faa036c3e9d1e2b7",
+       "title": "feat(overlays): func_L00_00211EE8 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T12:24:51Z"
+      },
+      {
+       "sha": "73911e8bcdbf06b9a866c4a7bad2a910ce318de3",
+       "title": "feat(overlays): func_L00_00211338 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T12:23:30Z"
+      },
+      {
+       "sha": "5474ea16589c44b4ed49597de9b350ef12b7c234",
+       "title": "feat(overlays): func_L00_00210478 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T12:19:34Z"
+      },
+      {
+       "sha": "20c3df3f97ff4450af58494c98372e389f927146",
+       "title": "feat(overlays): func_L00_00210418 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T12:18:55Z"
+      },
+      {
+       "sha": "cd0e468524b51ee0e6e442dff3f263447c6ca69b",
+       "title": "feat(overlays): func_L00_0020DCF0 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T12:17:34Z"
+      },
+      {
+       "sha": "f2d44e6c8e0150fc76edeb89e4eaf8b84f1e4556",
+       "title": "feat(overlays): func_L00_0020DB68 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T12:16:53Z"
+      },
+      {
+       "sha": "1a0b9ea62a4ff840ce915532e448036d293fc890",
+       "title": "feat(overlays): func_L00_0020D990 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T12:15:33Z"
+      },
+      {
+       "sha": "c68bde8e7d88ad748b769b89f729b4f88fe3742d",
+       "title": "feat(overlays): func_L00_0023C058 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T12:12:06Z"
+      },
+      {
+       "sha": "e8cfd1ab236edf43944145637d5b4e3cae17a066",
+       "title": "feat(overlays): func_L00_00236468 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T12:09:11Z"
+      },
+      {
+       "sha": "d5b916cac4c1cd013725cd79e76e3700b1e2376a",
+       "title": "feat(overlays): func_L00_0023D9C0 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T12:07:18Z"
+      },
+      {
+       "sha": "0cf444ecbc055135d14fd0d895f1fcee8f9ad1a2",
+       "title": "feat(overlays): func_L00_0023AFD8 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T10:17:23Z"
+      },
+      {
+       "sha": "92059cd7c5474e6cf867c3428cc9b5b5c004e066",
+       "title": "feat(overlays): func_L00_00236AB8 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T10:14:46Z"
+      },
+      {
+       "sha": "5947987fb8c83232be79481b2d933397cb120860",
+       "title": "feat(overlays): func_L00_0023A690 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T10:12:16Z"
+      },
+      {
+       "sha": "7f58a44411c273ca107089c085f5a3e79bd80e02",
+       "title": "feat(overlays): func_L00_0023ABB0 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T10:06:05Z"
+      },
+      {
+       "sha": "b59cb98ecca386b6fd12a1f22bf09803883d5c1a",
+       "title": "docs(readme): track level code progress",
+       "author": "Lynder063",
+       "date": "2026-09-28T10:03:38Z"
+      },
+      {
+       "sha": "fc9822cd8362d5e0347cb58bb4f32e95dd59f55f",
+       "title": "feat(overlays): func_L00_0023DD70 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T10:00:32Z"
+      },
+      {
+       "sha": "d1520ed13a3568efad107aca15e99b052a69db0b",
+       "title": "feat(overlays): func_L00_0023B0F8 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T09:57:46Z"
+      },
+      {
+       "sha": "713536a63473a115ba453f08309a87764ea0b918",
+       "title": "feat(overlays): func_L00_00238148 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T09:56:07Z"
+      },
+      {
+       "sha": "2172066e173390add1dd5b72fe5bc5fb69f5951a",
+       "title": "feat(overlays): func_L00_0023B890 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T09:53:30Z"
+      },
+      {
+       "sha": "fdf56c7d7b4f24c13c16a8dea35801b105459860",
+       "title": "feat(overlays): func_L00_0023A658 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T09:52:10Z"
+      },
+      {
+       "sha": "786ffaee9064a6a76fe1c15c78da276eba48a0a1",
+       "title": "feat(overlays): func_L00_00239F40 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T09:49:54Z"
+      },
+      {
+       "sha": "3b2f5618d70569c1978ab892ecf1a82768cbe010",
+       "title": "feat(overlays): func_L00_00236750 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T09:48:33Z"
+      },
+      {
+       "sha": "00950124f9980ee1b67a134aa55082d04195de8d",
+       "title": "feat(overlays): func_L00_00236710 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T09:47:12Z"
+      },
+      {
+       "sha": "6d3e46d3995bf6f82081cd55cd7f15dca0fa67af",
+       "title": "refactor(overlays): widen func_L00_00236400's record to the HUD element",
+       "author": "Lynder063",
+       "date": "2026-09-28T09:44:12Z"
+      },
+      {
+       "sha": "8bd506d030b4b7a58246dc3cd80b7fa62b9d8627",
+       "title": "feat(overlays): func_L00_00236400 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T09:43:35Z"
+      },
+      {
+       "sha": "4824780b8708f26e72c16ae6f586d48497eee0f2",
+       "title": "feat(overlays): func_L00_00236208 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T09:40:41Z"
+      },
+      {
+       "sha": "6a49a4679ecfc351ea9fe8157d3c662c8e8cadba",
+       "title": "docs(overlays): drop guesses from func_L00_002326D0's comment",
+       "author": "Lynder063",
+       "date": "2026-09-28T09:38:32Z"
+      },
+      {
+       "sha": "8c048a0e3f5ff4a29728a03e8c89d040c16bf378",
+       "title": "feat(overlays): func_L00_002326D0 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T09:38:23Z"
+      },
+      {
+       "sha": "6f5a2bb4ef515e10b9ba66c8f2e459f9e9e7b941",
+       "title": "feat(overlays): func_L00_00233B50 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T09:35:23Z"
+      },
+      {
+       "sha": "a7c6566957c53ab8881549d443b2603c43a7919b",
+       "title": "docs(overlays): correct func_L00_00233950's comment",
+       "author": "Lynder063",
+       "date": "2026-09-28T09:33:25Z"
+      },
+      {
+       "sha": "a9ac1b82c7405839583b7582e591e0f6f2473fd5",
+       "title": "feat(overlays): func_L00_00233950 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T09:33:15Z"
+      },
+      {
+       "sha": "ed3d2277f41bd5e356355a50eddeb7e5c676cc9b",
+       "title": "feat(overlays): func_L00_002344B0 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T09:28:31Z"
+      },
+      {
+       "sha": "e4d78d96f047b7c3c0be72c985365a9673e9cd4f",
+       "title": "feat(overlays): func_L00_00233F88 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T09:26:31Z"
+      },
+      {
+       "sha": "f4befef4a77fc137dfb2db578bd841fd2ee5159b",
+       "title": "feat(overlays): func_L00_00233868 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T09:24:53Z"
+      },
+      {
+       "sha": "9464d903af136e9815e1ed8576a61bd1f3c92715",
+       "title": "feat(overlays): func_L00_00233D50 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T09:21:00Z"
+      },
+      {
+       "sha": "1cf0c04cce5836c8a1afb31b5c91f421a91a5e8d",
+       "title": "feat(overlays): func_L00_002356D0 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T09:17:10Z"
+      },
+      {
+       "sha": "573bf246b4b1dd595e1297f59ef6b7784edc79e2",
+       "title": "feat(overlays): func_L00_00235790 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T09:15:48Z"
+      },
+      {
+       "sha": "2c511751712ace3e4c7effa10863a6b230e4faa2",
+       "title": "feat(overlays): func_L00_00235040 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T09:14:35Z"
+      },
+      {
+       "sha": "48d4750cb56b52ac4c966168a38964b19671a06f",
+       "title": "feat(overlays): func_L00_00234768 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T09:12:44Z"
+      },
+      {
+       "sha": "63d37cb067928b08b1aa4fadd7c7ff9327ff04bc",
+       "title": "feat(overlays): func_L00_00232E60 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T09:09:58Z"
+      },
+      {
+       "sha": "d096c51e2070d813f03e968a4062b277800553f2",
+       "title": "feat(overlays): func_L00_00233AC8 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T09:08:12Z"
+      },
+      {
+       "sha": "3a1750173c1663056375582403f33f6af3672176",
+       "title": "feat(overlays): func_L00_00233A90 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T09:06:59Z"
+      },
+      {
+       "sha": "bba0e4c7eeccc6c3855f39319bf949ce0a4d8be1",
+       "title": "feat(overlays): func_L00_00232EC0 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T09:05:46Z"
+      },
+      {
+       "sha": "5455841060a55171052f10d2ff3e8101a11adae7",
+       "title": "feat(overlays): func_L00_00232DF8 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T09:04:23Z"
+      },
+      {
+       "sha": "4dd2a75f2965ff81dd3d3a3747b902a2b2d58c07",
+       "title": "feat(overlays): func_L00_00232B78 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T09:01:49Z"
+      },
+      {
+       "sha": "082085c554d2b05b8fc8f53a95d3f7f807e023ba",
+       "title": "feat(overlays): func_L00_00232B20 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T09:00:10Z"
+      },
+      {
+       "sha": "3d0db7253dc0ae8bee582548c4af06dbc7a01e4a",
+       "title": "feat(overlays): func_L00_00232850 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T08:58:14Z"
+      },
+      {
+       "sha": "3e2a097c05f99c3c4a89aae74243e14101dd9d7a",
+       "title": "feat(overlays): func_L00_00232608 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T08:54:51Z"
+      },
+      {
+       "sha": "6d089dbadca902d6e2644babd70122b17e48b783",
+       "title": "Rework of README.md",
+       "author": "Lynder063",
+       "date": "2026-09-28T08:51:39Z"
+      },
+      {
+       "sha": "7d3501e7b65bac33fa045014cbef7097df976c3f",
+       "title": "feat(overlays): func_L00_00234150 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T08:51:38Z"
+      },
+      {
+       "sha": "02f848b061c7830d1b6862aa6d8377fe742eb5e1",
+       "title": "feat(overlays): func_L00_00232560 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T08:49:25Z"
+      },
+      {
+       "sha": "9b0b94871c8f04cca79a73b066cadcc1510f84cc",
+       "title": "feat(overlays): func_L00_00234090 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T08:47:36Z"
+      },
+      {
+       "sha": "8f48962b97b3ffb50b33af7f4982bd1a10b648c1",
+       "title": "feat(overlays): func_L00_002342F8 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T08:45:56Z"
+      },
+      {
+       "sha": "80f938a43e8e5ae6cc0ad913831e893cf9990cc2",
+       "title": "feat(overlays): func_L00_00234250 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T08:44:24Z"
+      },
+      {
+       "sha": "eb08bcb912633a3ed4e529bbe2a5b8d557734995",
+       "title": "feat(overlays): func_L00_00233CC0 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T08:42:25Z"
+      },
+      {
+       "sha": "6b22d151545bf93459b1d058371d4a0f7513966c",
+       "title": "feat(overlays): func_L00_00233E48 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T08:39:50Z"
+      },
+      {
+       "sha": "f02abed56e81cef9e327dee8c422adc02d2c1e6e",
+       "title": "feat(overlays): func_L00_002345B0 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T08:38:06Z"
+      },
+      {
+       "sha": "25abb1a0ed6212ab6afa60584263ccd1e205985b",
+       "title": "docs(overlays): drop a guess from func_L00_00233EE0's comment",
+       "author": "Lynder063",
+       "date": "2026-09-28T08:36:30Z"
+      },
+      {
+       "sha": "5df9e0e97f83806b394cbfa7b049639ed822fa9d",
+       "title": "feat(overlays): func_L00_00233EE0 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T08:36:18Z"
+      },
+      {
+       "sha": "887b1d683b2b461bb03ae64d4cad40b02699ffca",
+       "title": "feat(overlays): func_L00_00234420 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T08:34:19Z"
+      },
+      {
+       "sha": "1affeec63c5109bd8959f10bb8255ae3820fffa3",
+       "title": "feat(overlays): func_L00_002343A0 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T08:32:15Z"
+      },
+      {
+       "sha": "909f3c6cca4dac988aafd460364bddc9caebc223",
+       "title": "feat(overlays): func_L00_00232980 exact match",
+       "author": "Lynder063",
+       "date": "2026-09-28T08:28:45Z"
+      },
+      {
+       "sha": "c14551b2ad8005d44fecc5d64aee9195c3c2334c",
+       "title": "notes: func_001EC2B8 near-miss (118/768)",
+       "author": "Lynder063",
+       "date": "2026-09-28T08:16:55Z"
+      },
+      {
+       "sha": "e70acfb0772b70bb525cb4ddbefdc793947612b4",
+       "title": "notes: func_001F69F0 near-miss (744/748)",
+       "author": "Lynder063",
+       "date": "2026-09-28T08:07:10Z"
+      },
+      {
+       "sha": "68e5c68e0857411a4ae58e8375460be918d3121e",
+       "title": "draw: func_001F5BB8 (clipped clamped sprite) exact match (1055/1680 exact C)",
+       "author": "Lynder063",
+       "date": "2026-09-28T08:01:10Z"
+      },
+      {
+       "sha": "becd40df93f7c85a8a6f690048c07fb107872451",
+       "title": "mobyutil: func_00215CA8 (path sampler) exact match (1054/1680 exact C)",
+       "author": "Lynder063",
+       "date": "2026-09-28T07:59:16Z"
+      },
+      {
+       "sha": "edd284a349321a1a72f80ce9e86ae483200f5bfe",
+       "title": "notes: func_0022CC40 near-miss (57/628)",
+       "author": "Lynder063",
+       "date": "2026-09-28T07:55:25Z"
+      },
+      {
+       "sha": "c4cb985f381e0d611f4a02727b77a314a7b81c10",
+       "title": "progress: executable and level code categories",
+       "author": "Lynder063",
+       "date": "2026-09-28T07:47:01Z"
+      },
+      {
+       "sha": "c0c7d5d1b6c471e9a4d4c2c41a46bc1053c9402b",
+       "title": "progress: drop source_kind from function metadata again",
+       "author": "Lynder063",
+       "date": "2026-09-28T07:44:36Z"
+      },
+      {
+       "sha": "998530f5d2a0b74f8bdbc48bdbcac6c1b016b110",
+       "title": "movie: func_0023E298 (decBs0) exact match (1053/1680 exact C)",
+       "author": "Lynder063",
+       "date": "2026-09-28T07:41:37Z"
+      },
+      {
+       "sha": "4b510b199606566286ceaf9faedd8ae87a7fa13f",
+       "title": "libkernl: func_00119910 (sceTtyHandler) exact match (1052/1680 exact C)",
+       "author": "Lynder063",
+       "date": "2026-09-28T07:39:10Z"
+      },
+      {
+       "sha": "d974770dac107c0edb3a523a9fb878f48dfe4b3e",
+       "title": "overlays: don't require relocations for resident symbols",
+       "author": "Lynder063",
+       "date": "2026-09-28T07:26:17Z"
+      },
+      {
+       "sha": "d52dec0c7b05fc559ec637e1f9915be4414afb6d",
+       "title": "Merge PR #8: decompile the per-level game code",
+       "author": "Lynder063",
+       "date": "2026-09-28T07:14:35Z"
+      },
+      {
+       "sha": "b922b908aec4e0b4b51d8ba3c4dd1e3f97cd05c0",
+       "title": "bloaders: func_001E96B8 kept near-miss down to 3/108 bytes (1051/1680 exact C)",
+       "author": "Lynder063",
+       "date": "2026-09-28T02:29:00Z"
+      },
+      {
+       "sha": "01061b0657060118d6b322ea51452975f4f6999a",
+       "title": "notes: func_00129E30 near-miss",
+       "author": "Lynder063",
+       "date": "2026-09-28T02:26:46Z"
+      },
+      {
+       "sha": "4508ff9403f068f7531f302cc5dc6011031a2dcb",
+       "title": "notes: func_0012BF40 near-miss (3/276)",
+       "author": "Lynder063",
+       "date": "2026-09-28T02:25:51Z"
+      },
+      {
+       "sha": "e144c6535d7d1cb359661895e4a97cd30b27a7b3",
+       "title": "libmpeg: func_00128860 (_peepBit) exact match, adapted from Lombyte (1051/1680 exact C)",
+       "author": "Lynder063",
+       "date": "2026-09-28T02:23:49Z"
+      },
+      {
+       "sha": "83a44fcdee11606ba4740f517ce8421a076e769d",
+       "title": "docs: the wad.c nop is ps2eeas short-loop padding, no longer a wall",
+       "author": "Lynder063",
+       "date": "2026-09-28T02:20:45Z"
+      },
+      {
+       "sha": "6e257a83ef83adbb0b2d0094d6e8627d88ca8a48",
+       "title": "wad: func_0012F3F8 and func_0012F4A8 exact; drop func_0012F348's inline nop (1050/1680 exact C)",
+       "author": "Lynder063",
+       "date": "2026-09-28T02:20:35Z"
+      },
+      {
+       "sha": "85bca88df0dbf44ebb6d20637a6d3a2f41a655af",
+       "title": "tools: wad.o gets 989snd's ps2eeas-style passes too",
+       "author": "Lynder063",
+       "date": "2026-09-28T02:20:30Z"
+      },
+      {
+       "sha": "712b611953b0864d8a37831b4fc35ded7d738a59",
+       "title": "docs: levers and toolchain passes from this round",
+       "author": "Lynder063",
+       "date": "2026-09-28T02:17:14Z"
+      },
+      {
+       "sha": "d23b84adee9e176b62e52a054c449eaaad3c62fc",
+       "title": "notes: func_0012E820 near-miss",
+       "author": "Lynder063",
+       "date": "2026-09-28T02:16:05Z"
+      },
+      {
+       "sha": "9775805c2be558bf0ce2cd3f057a635eac6e9fea",
+       "title": "989snd: func_0012E688 (snd_SendIOPCommandAndWait) exact match, adapted from Lombyte (1048/1680 exact C)",
+       "author": "Lynder063",
+       "date": "2026-09-28T02:13:33Z"
+      },
+      {
+       "sha": "ee8e700be0f8e06fabee421d50ee83b59dd4edd6",
+       "title": "tools: run ps2eeas_nops on 989snd too; drop func_0012EC60's inline nops",
+       "author": "Lynder063",
+       "date": "2026-09-28T02:13:28Z"
+      },
+      {
+       "sha": "ccb3b2d01b052df7f08ddb251be7a35486b31eb0",
+       "title": "989snd: func_0012E060 (IOP command 3 and wait) exact match (1047/1680 exact C)",
+       "author": "Lynder063",
+       "date": "2026-09-28T02:10:59Z"
+      },
+      {
+       "sha": "a10529e350bc13ed30e7b63c11cf3cdc525c3fe2",
+       "title": "tools: fix_macro_load_delay, 989snd's load-delay nop after a lui macro load",
+       "author": "Lynder063",
+       "date": "2026-09-28T02:10:48Z"
+      },
+      {
+       "sha": "ec2ad1884c9774e960b23d6f2039b73a143b52fd",
+       "title": "notes: func_001F6668 (FontPrint) near-miss",
+       "author": "Lynder063",
+       "date": "2026-09-28T02:07:45Z"
+      }
+     ]
+    }
+   ],
+   "commitCount": 218,
+   "pullRequests": {
+    "merged": [
+     {
+      "number": 8,
+      "title": "feat(overlays): decompile the per-level game code",
+      "author": "Veradictus",
+      "untrustedBody": "## Summary\r\n\r\nEach level's data file carries its own build of the game program (an\r\n\"overlay\", ~1.1 MB of code per level), which replaces the executable's main\r\nsegment when the level loads. Until now the project only covered the\r\nexecutable, about 13% of the game's distinct code. This PR adds the level\r\ncode: catalogue, assembly, sources, an exact-match check, progress\r\nreporting, wave tooling, and the first 11 matched functions.\r\n\r\n## Scale\r\n\r\n- The 19 levels hold 21.5 MB of code, which reduces to 3.5 MB of distinct\r\n  functions (4,040). Each distinct function is counted once.\r\n- On average 91% of a level's code also appears elsewhere: a quarter is\r\n  the executable's own game code, and two thirds is shared with other\r\n  levels. Only ~9% is unique to one level.\r\n- About half of the unique code has a close relative (≥75% similar) in\r\n  another level (`config/overlays/families.tsv`).\r\n\r\n## decomp.dev\r\n\r\n`progress/report.json` now covers all of the game's distinct code, so the\r\nheadline",
+      "mergedAt": "2026-09-28T07:14:38Z"
+     }
+    ],
+    "opened": [
+     {
+      "number": 8,
+      "title": "feat(overlays): decompile the per-level game code",
+      "author": "Veradictus",
+      "untrustedBody": "## Summary\r\n\r\nEach level's data file carries its own build of the game program (an\r\n\"overlay\", ~1.1 MB of code per level), which replaces the executable's main\r\nsegment when the level loads. Until now the project only covered the\r\nexecutable, about 13% of the game's distinct code. This PR adds the level\r\ncode: catalogue, assembly, sources, an exact-match check, progress\r\nreporting, wave tooling, and the first 11 matched functions.\r\n\r\n## Scale\r\n\r\n- The 19 levels hold 21.5 MB of code, which reduces to 3.5 MB of distinct\r\n  functions (4,040). Each distinct function is counted once.\r\n- On average 91% of a level's code also appears elsewhere: a quarter is\r\n  the executable's own game code, and two thirds is shared with other\r\n  levels. Only ~9% is unique to one level.\r\n- About half of the unique code has a close relative (≥75% similar) in\r\n  another level (`config/overlays/families.tsv`).\r\n\r\n## decomp.dev\r\n\r\n`progress/report.json` now covers all of the game's distinct code, so the\r\nheadline",
+      "mergedAt": "2026-09-28T07:14:38Z"
+     },
+     {
+      "number": 9,
+      "title": "feat(overlays): 23 level-specific matches across 9 levels",
+      "author": "Veradictus",
+      "untrustedBody": "## Summary\r\n\r\n23 functions that exist in only one level, matched and landed one commit\r\neach (1,620 bytes). They are the first real progress in the\r\n\"Level-specific code\" category, which was at 0% before this.\r\n\r\n| Level | Functions | Bytes |\r\n|---|---|---|\r\n| 02 | 1 | 104 |\r\n| 07 | 2 | 148 |\r\n| 12 | 1 | 80 |\r\n| 13 | 3 | 152 |\r\n| 14 | 2 | 168 |\r\n| 15 | 1 | 140 |\r\n| 16 | 3 | 92 |\r\n| 17 | 1 | 192 |\r\n| 18 | 9 | 544 |\r\n\r\nEach function was checked with the strict overlay check (linked at its\r\naddress in its own level, every byte and relocation compared with the\r\nlevel's code) and landed in its `src/overlays/lNN/` file.\r\n\r\n## Progress\r\n\r\n| | Before (upstream) | After |\r\n|---|---|---|\r\n| Headline | 7.92% | 7.97% |\r\n| Level-specific code | 0% | 0.08% |\r\n| Common level code | 2.68% | 2.68% |\r\n\r\nThe branch also carries merge commits syncing with upstream. Nothing\r\noutside `src/overlays/lNN/` and `progress/report.json` changes, and no\r\nexecutable sources are touched.\r\n\r\n## Testing\r\n\r\n- `python3 t",
+      "mergedAt": "2026-09-29T06:47:36Z"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": {
+    "before": {
+     "code": {
+      "done": 256404,
+      "total": 465700
+     },
+     "functions": {
+      "done": 1349,
+      "total": 1680
+     }
+    },
+    "after": {
+     "code": {
+      "done": 283888,
+      "total": 3692336
+     },
+     "functions": {
+      "done": 1549,
+      "total": 4987
+     }
+    }
+   },
+   "contributors": [
+    "Lynder063",
+    "Veradictus"
+   ]
+  },
+  {
+   "repo": "rac2-decomp",
+   "title": "Going Commando",
+   "branches": [
+    {
+     "name": "master",
+     "commits": []
+    }
+   ],
+   "commitCount": 0,
+   "pullRequests": {
+    "merged": [],
+    "opened": []
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": null,
+   "contributors": []
+  },
+  {
+   "repo": "rac3-decomp",
+   "title": "Up Your Arsenal",
+   "branches": [
+    {
+     "name": "master",
+     "commits": []
+    }
+   ],
+   "commitCount": 0,
+   "pullRequests": {
+    "merged": [],
+    "opened": []
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": null,
+   "contributors": []
+  },
+  {
+   "repo": "rac4-decomp",
+   "title": "Ratchet: Deadlocked",
+   "branches": [
+    {
+     "name": "main",
+     "commits": []
+    }
+   ],
+   "commitCount": 0,
+   "pullRequests": {
+    "merged": [],
+    "opened": []
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": null,
+   "contributors": []
+  },
+  {
+   "repo": "openrac-mods",
+   "title": "OpenRAC mods",
+   "branches": [
+    {
+     "name": "master",
+     "commits": []
+    }
+   ],
+   "commitCount": 0,
+   "pullRequests": {
+    "merged": [],
+    "opened": []
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": null,
+   "contributors": []
+  }
+ ]
+}

@@ -1,0 +1,1043 @@
+{
+ "format": 1,
+ "date": "2026-10-31",
+ "totals": {
+  "commits": 41,
+  "pullRequestsMerged": 33,
+  "pullRequestsOpened": 34,
+  "contributors": 13
+ },
+ "projects": [
+  {
+   "repo": "OpenRAC",
+   "title": "OpenRAC launcher",
+   "branches": [
+    {
+     "name": "develop",
+     "commits": [
+      {
+       "sha": "8e3a1466beedbed5d8f7cc93f4fe90eaf1dd651c",
+       "title": "chore: rename rac1-mods to openrac-mods (#162)",
+       "author": "Lynder063",
+       "date": "2026-10-31T23:35:00Z"
+      },
+      {
+       "sha": "6567d121b8a051f5841c9526cc93540a2cb4f1aa",
+       "title": "fix(rac1): check collision.c against the retail kernels; no gl_SampleMask without MSAA (#157)",
+       "author": "mateuszklysz",
+       "date": "2026-10-31T20:11:40Z"
+      },
+      {
+       "sha": "14ddbd00e48202b22c8d50f7c526a43453e3b57d",
+       "title": "feat(enhanced): native baking, compressed probes and water materials (#154)",
+       "author": "pezzadev",
+       "date": "2026-10-31T19:47:51Z"
+      },
+      {
+       "sha": "29756bbae74ef8c1b69ded4c9ff759af49ec24a5",
+       "title": "fix(rac1): keep the console arena's 224 moby class slots (#158)",
+       "author": "mateuszklysz",
+       "date": "2026-10-31T18:20:34Z"
+      },
+      {
+       "sha": "868e3665505d77547c720e03d983aa85610a24eb",
+       "title": "fix(port): planet name in the flight between planets, and a shorter stop after it (#156)",
+       "author": "mateuszklysz",
+       "date": "2026-10-31T17:28:48Z"
+      },
+      {
+       "sha": "95fc8c86bbd39f794fc45bc7a8cc8081a3f31fb7",
+       "title": "fix(port): plain 2D fills reach the screen's right and bottom edge (#155)",
+       "author": "mateuszklysz",
+       "date": "2026-10-31T16:19:09Z"
+      },
+      {
+       "sha": "e478f0273e08d1542b44c8c37dbb8ab605625e75",
+       "title": "fix(launcher): fade in a tab's list on WebKitGTK as on Chromium (#153)",
+       "author": "bigbeno37",
+       "date": "2026-10-31T15:20:33Z"
+      },
+      {
+       "sha": "b27f268f41e216d9c57b4ce440fb94b2a9638f78",
+       "title": "Expand RAC1 modded level authoring and runtime limits (#148)",
+       "author": "ReaperOfVeriod",
+       "date": "2026-10-31T14:00:46Z"
+      },
+      {
+       "sha": "e684e3e4d6bef809428dd0bf33451fb35faf26dd",
+       "title": "fix(editor): read the levels below normal priority, leaving threads free (#144)",
+       "author": "BlindFire1200",
+       "date": "2026-10-31T12:07:15Z"
+      },
+      {
+       "sha": "993fc6418805a0bd991b89e98e36ef617163c2ca",
+       "title": "fix(port): Suck Cannon gauge empty with HUD at the edges (#150)",
+       "author": "Lynder063",
+       "date": "2026-10-31T12:07:10Z"
+      },
+      {
+       "sha": "8db3ef0f9667efab126c8e6ed51255426ab190a4",
+       "title": "fix: open issues #39 #48 #66 #127 #135 #141 (#152)",
+       "author": "Lynder063",
+       "date": "2026-10-31T12:04:59Z"
+      },
+      {
+       "sha": "93200741472118b257679e2a842df9879aa21316",
+       "title": "fix(hostgen): PAL freeze after picking Quartu (#151)",
+       "author": "mateuszklysz",
+       "date": "2026-10-31T10:26:43Z"
+      },
+      {
+       "sha": "4a4807bd371fe91e68135982a744e7dda3f07fe6",
+       "title": "fix(port): gamepads behind a USB-C dock and switching controllers (#149)",
+       "author": "mateuszklysz",
+       "date": "2026-10-31T07:51:12Z"
+      },
+      {
+       "sha": "51d283b5608abf19bc95c12954cf54b9ae8a3934",
+       "title": "fix(rac1): a landing with a full moby pool skips its missing actors (#147)",
+       "author": "mateuszklysz",
+       "date": "2026-10-31T06:59:53Z"
+      },
+      {
+       "sha": "ff6bdc3e18107df55811620fc8d45db1c370ed4f",
+       "title": "feat(frontend): smoother frame limiter (precise waits, front edge sync) (#146)",
+       "author": "mateuszklysz",
+       "date": "2026-10-31T06:06:17Z"
+      },
+      {
+       "sha": "f0593f17328f193255a938e77c524fd38b0eb8dd",
+       "title": "fix(port): mask failing 2D pixels on a multisampled frame instead of discarding them (#145)",
+       "author": "mateuszklysz",
+       "date": "2026-10-31T06:01:49Z"
+      }
+     ]
+    },
+    {
+     "name": "master",
+     "commits": []
+    }
+   ],
+   "commitCount": 16,
+   "pullRequests": {
+    "merged": [
+     {
+      "number": 144,
+      "title": "fix(editor): read the levels below normal priority, leaving threads free",
+      "author": "BlindFire1200",
+      "untrustedBody": "## fix(editor): read the levels below normal priority, leaving threads free\n\n### What this fixes\n\n`editor/extract.py port` runs the launcher's **Get the levels ready** step (part of \"Get levels and play\"). It started one process per CPU thread at normal priority, so reading the levels took every thread and could leave the computer unresponsive until it finished. The build (`tools/build_port.py`) and the lighting bake (`bake_all.py`) already avoid this through `openrac_common.background`; the extract now does the same.\n\n### Changes\n\n- The `port` and `godot` exports call `background.lower_priority()` before starting work, and the level processes inherit the lower priority.\n- `--jobs` now defaults to `background.cpu_budget()`: every thread except an eighth of them, keeping at least two free.\n- `OPENRAC_EXTRACT_JOBS` overrides the default with a number or `all`, the same way `OPENRAC_BUILD_JOBS` works for the build. The launcher's step inherits the variable, so it can be set without a laun",
+      "mergedAt": "2026-10-31T12:07:16Z"
+     },
+     {
+      "number": 145,
+      "title": "fix(port): mask failing 2D pixels on a multisampled frame instead of discarding them",
+      "author": "mateuszklysz",
+      "untrustedBody": "With anti-aliasing on, the menu text vanished on Intel Arc while the panels stayed. The text is the 2D path's only alpha-tested draw there, and its failing pixels used discard. On a multisampled frame those pixels now clear their sample mask instead, which writes the same nothing; a single-sample target still discards.",
+      "mergedAt": "2026-10-31T06:01:50Z"
+     },
+     {
+      "number": 146,
+      "title": "feat(frontend): smoother frame limiter (precise waits, front edge sync)",
+      "author": "mateuszklysz",
+      "untrustedBody": "**Before:** the frame cap and the game's tick waited with a plain sleep, which wakes late by its own amount (about 0.1 ms on Linux, 1 ms or more on Windows). A capped frame was held by its start, so the time it reached the screen moved with its cost. With VSync off, frame times were uneven, around 1–2 ms of spread at 120–240 fps.\n\n**After:** every wait (tick, cap, low-latency sleep, movies) ends within a few microseconds of its deadline. With VSync off, a cap above the tick rate and Low-latency frames off, frames are held to the moment they are shown, as RTSS's front edge sync does. Simulated spread at 144 fps drops from 2.0 to 0.27 ms. VSync on, Low-latency frames, caps of 60 or less and mailbox/Android presents keep the old pacing, now with the precise wait.\n\n**How:**\n- `common/precise_wait`: the system sleeps to a learned margin before the deadline (a high-resolution waitable timer on Windows, `clock_nanosleep` with `TIMER_ABSTIME` on Linux/Android), then spins with the CPU pause hi",
+      "mergedAt": "2026-10-31T06:06:17Z"
+     },
+     {
+      "number": 147,
+      "title": "fix(rac1): a landing with a full moby pool skips its missing actors",
+      "author": "mateuszklysz",
+      "untrustedBody": "The ship's landing (FlightUpdate) moves every actor of its scene each frame without checking for 0. When the moby pool was full the scene actor guard left an actor's slot empty, and the landing read through the null moby: Blarg Station crashed with the difficulty mod's extra enemies. While the update runs, the missing actors are now left out of its list and put back after it.",
+      "mergedAt": "2026-10-31T06:59:54Z"
+     },
+     {
+      "number": 148,
+      "title": "Expand RAC1 modded level authoring and runtime limits",
+      "author": "ReaperOfVeriod",
+      "untrustedBody": "## Summary\n\nThis PR contains the full local work since the modded-map editor effort began (93 commits across editor, launcher, and RAC1 runtime):\n\n- Permit larger modded RAC1 gameplay/core streams with virtual sectors and a mod-only expanded guest-memory path, while ordinary vanilla sessions retain the original 32 MiB arena.\n- Extend RAC1 moby and collision capacities and guard allocation/overflow paths used by larger maps.\n- Improve Godot map authoring for collision edits, static GLB/glTF scenery, animated scenery, typed camera pvars, added cameras, and rebuilt camera-volume grids.\n- Improve launcher guidance and pack validation for expanded maps and scenery.\n\nThe game disc image is never modified; the expanded path is selected for modded virtual streams.\n\n## Validation\n\n- Camera/gameplay-data tests: 33 pass.\n- Full editor suite: 417 tests, with four existing failures (two moby class-change expectations and two Game-transform fixtures) and three skipped.\n- `git diff --check` passes.\n-",
+      "mergedAt": "2026-10-31T14:00:47Z"
+     },
+     {
+      "number": 149,
+      "title": "fix(port): gamepads behind a USB-C dock and switching controllers",
+      "author": "mateuszklysz",
+      "untrustedBody": "**Before:** port 0 was the first gamepad SDL found. A USB-C dock or hub can add a device that SDL also lists as a gamepad (Android counts anything with a d-pad), so it took port 0. A controller plugged into the dock, or a Bluetooth one used with it, did nothing. Picking up a second controller mid-game did nothing either, since it stayed on port 1.\n\n**After:** gamepads take ports in the order they are first pressed; ones never pressed come last. A gamepad pressed while port 0's has been idle for 2 s (no press, no stick moved, nothing held) takes port 0. Two players playing at once keep their ports.\n\n**How:** `platform/input.cpp` keeps the gamepads in port order with each one's last activity time. Checks run only on a button press. An unplugged gamepad also clears its stick shape, so a new one opened at the same address starts fresh. The connect log now shows vendor:product.\n\n**Tested:** new `input_ports` test with SDL virtual gamepads (dock first, two players, hand-over, held button/sti",
+      "mergedAt": "2026-10-31T07:51:13Z"
+     },
+     {
+      "number": 150,
+      "title": "fix(port): Suck Cannon gauge empty with HUD at the edges",
+      "author": "Lynder063",
+      "untrustedBody": "With HUD: Edges the gauge backing, fill and dividers sat past the screen edge and were dropped.\nNow only the thin edge band is dropped, so the gauge draws again.\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)",
+      "mergedAt": "2026-10-31T12:07:11Z"
+     },
+     {
+      "number": 151,
+      "title": "fix(hostgen): PAL freeze after picking Quartu",
+      "author": "mateuszklysz",
+      "untrustedBody": "**Before:** on PAL, flying from Kalebo to Quartu faded to a dim still picture and stayed there. The game had already autosaved, so after a restart you were on Quartu.\n\n**After:** the flight loads Quartu.\n\n**How:** PAL calls `scale_game_frame_count` through a cast, `((s32 (*)(s32))func_001F98C0)(12)`. hostgen sent that call through `OPENRAC_CODE`. No level copy was found, so the address stayed 0x1F98C0, and level 16's own function at that address ran instead. Its result made the fade wait about 1.4M frames. A cast call to a plain executable function is now a direct call, the same as a call by name. In PAL this changes 14 call sites. 13 of them sit below the relocated range, so they call the same function as before.\n\nThe second commit logs which wait a game is stuck in when no picture comes.\n\n**Tested:** I ran the tester's presses on the PAL disc (Kalebo ship, select Quartu). The old build stays on level 16, and the new one reaches level 15. hostgen tests pass, and ctest passes 206 of 20",
+      "mergedAt": "2026-10-31T10:26:44Z"
+     },
+     {
+      "number": 152,
+      "title": "fix: open issues #39 #48 #66 #127 #135 #141",
+      "author": "Lynder063",
+      "untrustedBody": "NTSC bake, Quartu drown crash, R&C2 PAL disc, mod assets, texture packs, and controller remapping (commits by DrLegitamate kept).\nCloses #39, closes #48, closes #66, closes #127, closes #135, closes #141.\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)",
+      "mergedAt": "2026-10-31T12:05:00Z"
+     },
+     {
+      "number": 153,
+      "title": "fix(launcher): fade in a tab's list on WebKitGTK as on Chromium",
+      "author": "bigbeno37",
+      "untrustedBody": "## Problem\r\n\r\nOn Linux, going from Settings to Mods, the list on the left pops in at the end of the slide. In Chromium, the engine behind WebView2 on Windows, it fades in.\r\n\r\n## Fix\r\n\r\n- **Fade (`SideFrame.svelte`):** WebKitGTK stops drawing the sticky list if `<main>` becomes scrollable mid-slide. The list and the page now scroll in their own columns, so `<main>` never scrolls on these tabs.\r\n- **First press (`motion.ts`, `App.svelte`):** opening Mods in the first 2 seconds also left the list out of the slide, on both engines. `slide()` now waits for a lazily loaded page's code, for 1 second at most.\r\n\r\nBehaviour change: a mouse wheel over the list no longer scrolls the page.\r\n\r\n## Videos\r\n\r\nSettings, Games, Settings, Mods. Watch the list when Mods opens.\r\n\r\n**Before**\r\n\r\nhttps://github.com/user-attachments/assets/2c8a634a-945a-4cb5-ba0d-2512d6826980\r\n\r\n**After**\r\n\r\nhttps://github.com/user-attachments/assets/f7ed8fb5-446f-4858-b3eb-d17f48815633\r\n\r\n## Verified\r\n\r\n- `yarn verify`: 221 t",
+      "mergedAt": "2026-10-31T15:20:33Z"
+     },
+     {
+      "number": 154,
+      "title": "feat(enhanced): native baking, compressed probes and water materials",
+      "author": "pezzadev",
+      "untrustedBody": "This is very WIP enhanced-rendering work. It moves automatic preparation into `openrac-enhanced-baker`, adds compressed GPU-ready probe colour, and improves water, wet character materials and fur while reducing redundant renderer work.\r\n\r\n- Run water, emission, interior inference, GI and reflection baking in one native pipeline with shared worker and memory budgets, recoverable publication and profile-driven inputs.\r\n- Encode BC6H on compatible desktop GPUs or ASTC HDR 8x8 on compatible hardware, retaining uncompressed visibility/metadata and supported format fallbacks. Use 256-ray MIS transport and parallel encoding.\r\n- Add water transmission, shoreline blending, bicubic heights, lily controls, projectile/explosion interactions, wet reflections and directional Ratchet fur. Group the enhanced controls by feature.\r\n- Reuse visibility, shadow preparation, buffer/history storage and draw setup; retain reference paths. Volumetric transport remains optional and off by default.\r\n- Preserve u",
+      "mergedAt": "2026-10-31T19:47:52Z"
+     },
+     {
+      "number": 155,
+      "title": "fix(port): plain 2D fills reach the screen's right and bottom edge",
+      "author": "mateuszklysz",
+      "untrustedBody": "**Before:** on the captions on black before a story movie (e.g. Veldin to Novalis), a thin line of the old level showed along the right and bottom edge.\r\n\r\n**After:** the screen is black up to its edges.\r\n\r\n**How:** the game draws its fills and fades from -0.5 to 511.5. The PS2 fills every pixel whose sample is inside, so the whole screen. The port drew them at those positions and left the last half pixel unfilled. A plain (untextured) sprite that covers the screen's last column or line now goes on to the screen's edge; edges inside the screen do not move. No game logic changes.\r\n\r\n**Tested:** new renderer_gif_test case; ctest 212/213 pass (xcheck_tool fails without this change too); Veldin to Novalis captions in the container: right column and bottom row were bright before, black after, every other pixel the same (also the pause menu). Not run: render_equivalence (too slow on software GL), real device.",
+      "mergedAt": "2026-10-31T16:19:10Z"
+     },
+     {
+      "number": 156,
+      "title": "fix(port): planet name in the flight between planets, and a shorter stop after it",
+      "author": "mateuszklysz",
+      "untrustedBody": "## Before\n- A flight started from a planet hid the destination's name: the planet's level program is still loaded then, the flight's 2D was split as a level's frame and drawn before the world, and the stars covered the name.\n- While the game sent no picture after the flight (waiting on the load), the window drew the last flight frame again with textures the load had replaced: the name as a solid block, the planet striped.\n- After the flight the port read the next level's files (models, textures, placements) before drawing it: about 1.6 s with the game stopped on an Odin 3, and the sound ran ahead.\n\n## After\n- The name fades in as on the console, wherever the flight starts.\n- The last picture stands while the game sends none.\n- The next level's files are read on another thread during the flight; the level change only uploads them.\n\n## How\n- `capture_2d_path`: no world split when the world drawn is the flight's (`world_to_draw` < 0).\n- `keep_picture`: repeats the last frame instead of dr",
+      "mergedAt": "2026-10-31T17:28:49Z"
+     },
+     {
+      "number": 157,
+      "title": "fix(rac1): check collision.c against the retail kernels; no gl_SampleMask without MSAA",
+      "author": "mateuszklysz",
+      "untrustedBody": "Before\r\n- collision.c (host C of the collision kernels) could not be checked against the game's own code, and differed from it in small ways.\r\n- With anti-aliasing off, Adreno drew a flickering checkerboard over menu panels (the Quit Game box on Oltanis). Since #145 the 2D shader wrote gl_SampleMask on every target.\r\n\r\nAfter\r\n- hostgen can translate chosen asm functions a second time as \"shadows\" with PS2 float arithmetic. OPENRAC_COLL_CHECK=1 runs every collision query through both and logs any difference (docs/port/DEBUGGING.md).\r\n- Fixed in collision.c: hit and vf2 use the real VU0 registers, line queries take vf2.w from the face and primitive loads, hit normals and primitive points store -0 as +0, sphere-mobys and hero-groups start vf2.w at 0.\r\n- gl_SampleMask is only in a second 2D program used on a multisampled frame; everywhere else a failing pixel is discarded as before #145.\r\n\r\nTested\r\n- OPENRAC_COLL_CHECK on levels 0-18 (NTSC): about 1M queries, 0 differences.\r\n- regress befo",
+      "mergedAt": "2026-10-31T20:11:41Z"
+     },
+     {
+      "number": 158,
+      "title": "fix(rac1): keep the console arena's 224 moby class slots",
+      "author": "mateuszklysz",
+      "untrustedBody": "#148 made the run-list builder clear and chain 256 class slots in every session; retail does 224. Use 256 only with expanded RAM, and drop the size-byte check it added to collision's retail cell path.",
+      "mergedAt": "2026-10-31T18:20:34Z"
+     },
+     {
+      "number": 162,
+      "title": "chore: rename rac1-mods to openrac-mods",
+      "author": "Lynder063",
+      "untrustedBody": "Docs, SDK, templates, the port's lock-strafe message and the launcher's tests and mocks now name OpenRAC/openrac-mods.\nVerified: cargo test -p openrac-launcher-core (295 passed), cargo fmt --check and clippy -D warnings clean, yarn verify (221 passed).",
+      "mergedAt": "2026-10-31T23:35:01Z"
+     }
+    ],
+    "opened": [
+     {
+      "number": 144,
+      "title": "fix(editor): read the levels below normal priority, leaving threads free",
+      "author": "BlindFire1200",
+      "untrustedBody": "## fix(editor): read the levels below normal priority, leaving threads free\n\n### What this fixes\n\n`editor/extract.py port` runs the launcher's **Get the levels ready** step (part of \"Get levels and play\"). It started one process per CPU thread at normal priority, so reading the levels took every thread and could leave the computer unresponsive until it finished. The build (`tools/build_port.py`) and the lighting bake (`bake_all.py`) already avoid this through `openrac_common.background`; the extract now does the same.\n\n### Changes\n\n- The `port` and `godot` exports call `background.lower_priority()` before starting work, and the level processes inherit the lower priority.\n- `--jobs` now defaults to `background.cpu_budget()`: every thread except an eighth of them, keeping at least two free.\n- `OPENRAC_EXTRACT_JOBS` overrides the default with a number or `all`, the same way `OPENRAC_BUILD_JOBS` works for the build. The launcher's step inherits the variable, so it can be set without a laun",
+      "mergedAt": "2026-10-31T12:07:16Z"
+     },
+     {
+      "number": 145,
+      "title": "fix(port): mask failing 2D pixels on a multisampled frame instead of discarding them",
+      "author": "mateuszklysz",
+      "untrustedBody": "With anti-aliasing on, the menu text vanished on Intel Arc while the panels stayed. The text is the 2D path's only alpha-tested draw there, and its failing pixels used discard. On a multisampled frame those pixels now clear their sample mask instead, which writes the same nothing; a single-sample target still discards.",
+      "mergedAt": "2026-10-31T06:01:50Z"
+     },
+     {
+      "number": 146,
+      "title": "feat(frontend): smoother frame limiter (precise waits, front edge sync)",
+      "author": "mateuszklysz",
+      "untrustedBody": "**Before:** the frame cap and the game's tick waited with a plain sleep, which wakes late by its own amount (about 0.1 ms on Linux, 1 ms or more on Windows). A capped frame was held by its start, so the time it reached the screen moved with its cost. With VSync off, frame times were uneven, around 1–2 ms of spread at 120–240 fps.\n\n**After:** every wait (tick, cap, low-latency sleep, movies) ends within a few microseconds of its deadline. With VSync off, a cap above the tick rate and Low-latency frames off, frames are held to the moment they are shown, as RTSS's front edge sync does. Simulated spread at 144 fps drops from 2.0 to 0.27 ms. VSync on, Low-latency frames, caps of 60 or less and mailbox/Android presents keep the old pacing, now with the precise wait.\n\n**How:**\n- `common/precise_wait`: the system sleeps to a learned margin before the deadline (a high-resolution waitable timer on Windows, `clock_nanosleep` with `TIMER_ABSTIME` on Linux/Android), then spins with the CPU pause hi",
+      "mergedAt": "2026-10-31T06:06:17Z"
+     },
+     {
+      "number": 147,
+      "title": "fix(rac1): a landing with a full moby pool skips its missing actors",
+      "author": "mateuszklysz",
+      "untrustedBody": "The ship's landing (FlightUpdate) moves every actor of its scene each frame without checking for 0. When the moby pool was full the scene actor guard left an actor's slot empty, and the landing read through the null moby: Blarg Station crashed with the difficulty mod's extra enemies. While the update runs, the missing actors are now left out of its list and put back after it.",
+      "mergedAt": "2026-10-31T06:59:54Z"
+     },
+     {
+      "number": 148,
+      "title": "Expand RAC1 modded level authoring and runtime limits",
+      "author": "ReaperOfVeriod",
+      "untrustedBody": "## Summary\n\nThis PR contains the full local work since the modded-map editor effort began (93 commits across editor, launcher, and RAC1 runtime):\n\n- Permit larger modded RAC1 gameplay/core streams with virtual sectors and a mod-only expanded guest-memory path, while ordinary vanilla sessions retain the original 32 MiB arena.\n- Extend RAC1 moby and collision capacities and guard allocation/overflow paths used by larger maps.\n- Improve Godot map authoring for collision edits, static GLB/glTF scenery, animated scenery, typed camera pvars, added cameras, and rebuilt camera-volume grids.\n- Improve launcher guidance and pack validation for expanded maps and scenery.\n\nThe game disc image is never modified; the expanded path is selected for modded virtual streams.\n\n## Validation\n\n- Camera/gameplay-data tests: 33 pass.\n- Full editor suite: 417 tests, with four existing failures (two moby class-change expectations and two Game-transform fixtures) and three skipped.\n- `git diff --check` passes.\n-",
+      "mergedAt": "2026-10-31T14:00:47Z"
+     },
+     {
+      "number": 149,
+      "title": "fix(port): gamepads behind a USB-C dock and switching controllers",
+      "author": "mateuszklysz",
+      "untrustedBody": "**Before:** port 0 was the first gamepad SDL found. A USB-C dock or hub can add a device that SDL also lists as a gamepad (Android counts anything with a d-pad), so it took port 0. A controller plugged into the dock, or a Bluetooth one used with it, did nothing. Picking up a second controller mid-game did nothing either, since it stayed on port 1.\n\n**After:** gamepads take ports in the order they are first pressed; ones never pressed come last. A gamepad pressed while port 0's has been idle for 2 s (no press, no stick moved, nothing held) takes port 0. Two players playing at once keep their ports.\n\n**How:** `platform/input.cpp` keeps the gamepads in port order with each one's last activity time. Checks run only on a button press. An unplugged gamepad also clears its stick shape, so a new one opened at the same address starts fresh. The connect log now shows vendor:product.\n\n**Tested:** new `input_ports` test with SDL virtual gamepads (dock first, two players, hand-over, held button/sti",
+      "mergedAt": "2026-10-31T07:51:13Z"
+     },
+     {
+      "number": 150,
+      "title": "fix(port): Suck Cannon gauge empty with HUD at the edges",
+      "author": "Lynder063",
+      "untrustedBody": "With HUD: Edges the gauge backing, fill and dividers sat past the screen edge and were dropped.\nNow only the thin edge band is dropped, so the gauge draws again.\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)",
+      "mergedAt": "2026-10-31T12:07:11Z"
+     },
+     {
+      "number": 151,
+      "title": "fix(hostgen): PAL freeze after picking Quartu",
+      "author": "mateuszklysz",
+      "untrustedBody": "**Before:** on PAL, flying from Kalebo to Quartu faded to a dim still picture and stayed there. The game had already autosaved, so after a restart you were on Quartu.\n\n**After:** the flight loads Quartu.\n\n**How:** PAL calls `scale_game_frame_count` through a cast, `((s32 (*)(s32))func_001F98C0)(12)`. hostgen sent that call through `OPENRAC_CODE`. No level copy was found, so the address stayed 0x1F98C0, and level 16's own function at that address ran instead. Its result made the fade wait about 1.4M frames. A cast call to a plain executable function is now a direct call, the same as a call by name. In PAL this changes 14 call sites. 13 of them sit below the relocated range, so they call the same function as before.\n\nThe second commit logs which wait a game is stuck in when no picture comes.\n\n**Tested:** I ran the tester's presses on the PAL disc (Kalebo ship, select Quartu). The old build stays on level 16, and the new one reaches level 15. hostgen tests pass, and ctest passes 206 of 20",
+      "mergedAt": "2026-10-31T10:26:44Z"
+     },
+     {
+      "number": 152,
+      "title": "fix: open issues #39 #48 #66 #127 #135 #141",
+      "author": "Lynder063",
+      "untrustedBody": "NTSC bake, Quartu drown crash, R&C2 PAL disc, mod assets, texture packs, and controller remapping (commits by DrLegitamate kept).\nCloses #39, closes #48, closes #66, closes #127, closes #135, closes #141.\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)",
+      "mergedAt": "2026-10-31T12:05:00Z"
+     },
+     {
+      "number": 153,
+      "title": "fix(launcher): fade in a tab's list on WebKitGTK as on Chromium",
+      "author": "bigbeno37",
+      "untrustedBody": "## Problem\r\n\r\nOn Linux, going from Settings to Mods, the list on the left pops in at the end of the slide. In Chromium, the engine behind WebView2 on Windows, it fades in.\r\n\r\n## Fix\r\n\r\n- **Fade (`SideFrame.svelte`):** WebKitGTK stops drawing the sticky list if `<main>` becomes scrollable mid-slide. The list and the page now scroll in their own columns, so `<main>` never scrolls on these tabs.\r\n- **First press (`motion.ts`, `App.svelte`):** opening Mods in the first 2 seconds also left the list out of the slide, on both engines. `slide()` now waits for a lazily loaded page's code, for 1 second at most.\r\n\r\nBehaviour change: a mouse wheel over the list no longer scrolls the page.\r\n\r\n## Videos\r\n\r\nSettings, Games, Settings, Mods. Watch the list when Mods opens.\r\n\r\n**Before**\r\n\r\nhttps://github.com/user-attachments/assets/2c8a634a-945a-4cb5-ba0d-2512d6826980\r\n\r\n**After**\r\n\r\nhttps://github.com/user-attachments/assets/f7ed8fb5-446f-4858-b3eb-d17f48815633\r\n\r\n## Verified\r\n\r\n- `yarn verify`: 221 t",
+      "mergedAt": "2026-10-31T15:20:33Z"
+     },
+     {
+      "number": 154,
+      "title": "feat(enhanced): native baking, compressed probes and water materials",
+      "author": "pezzadev",
+      "untrustedBody": "This is very WIP enhanced-rendering work. It moves automatic preparation into `openrac-enhanced-baker`, adds compressed GPU-ready probe colour, and improves water, wet character materials and fur while reducing redundant renderer work.\r\n\r\n- Run water, emission, interior inference, GI and reflection baking in one native pipeline with shared worker and memory budgets, recoverable publication and profile-driven inputs.\r\n- Encode BC6H on compatible desktop GPUs or ASTC HDR 8x8 on compatible hardware, retaining uncompressed visibility/metadata and supported format fallbacks. Use 256-ray MIS transport and parallel encoding.\r\n- Add water transmission, shoreline blending, bicubic heights, lily controls, projectile/explosion interactions, wet reflections and directional Ratchet fur. Group the enhanced controls by feature.\r\n- Reuse visibility, shadow preparation, buffer/history storage and draw setup; retain reference paths. Volumetric transport remains optional and off by default.\r\n- Preserve u",
+      "mergedAt": "2026-10-31T19:47:52Z"
+     },
+     {
+      "number": 155,
+      "title": "fix(port): plain 2D fills reach the screen's right and bottom edge",
+      "author": "mateuszklysz",
+      "untrustedBody": "**Before:** on the captions on black before a story movie (e.g. Veldin to Novalis), a thin line of the old level showed along the right and bottom edge.\r\n\r\n**After:** the screen is black up to its edges.\r\n\r\n**How:** the game draws its fills and fades from -0.5 to 511.5. The PS2 fills every pixel whose sample is inside, so the whole screen. The port drew them at those positions and left the last half pixel unfilled. A plain (untextured) sprite that covers the screen's last column or line now goes on to the screen's edge; edges inside the screen do not move. No game logic changes.\r\n\r\n**Tested:** new renderer_gif_test case; ctest 212/213 pass (xcheck_tool fails without this change too); Veldin to Novalis captions in the container: right column and bottom row were bright before, black after, every other pixel the same (also the pause menu). Not run: render_equivalence (too slow on software GL), real device.",
+      "mergedAt": "2026-10-31T16:19:10Z"
+     },
+     {
+      "number": 156,
+      "title": "fix(port): planet name in the flight between planets, and a shorter stop after it",
+      "author": "mateuszklysz",
+      "untrustedBody": "## Before\n- A flight started from a planet hid the destination's name: the planet's level program is still loaded then, the flight's 2D was split as a level's frame and drawn before the world, and the stars covered the name.\n- While the game sent no picture after the flight (waiting on the load), the window drew the last flight frame again with textures the load had replaced: the name as a solid block, the planet striped.\n- After the flight the port read the next level's files (models, textures, placements) before drawing it: about 1.6 s with the game stopped on an Odin 3, and the sound ran ahead.\n\n## After\n- The name fades in as on the console, wherever the flight starts.\n- The last picture stands while the game sends none.\n- The next level's files are read on another thread during the flight; the level change only uploads them.\n\n## How\n- `capture_2d_path`: no world split when the world drawn is the flight's (`world_to_draw` < 0).\n- `keep_picture`: repeats the last frame instead of dr",
+      "mergedAt": "2026-10-31T17:28:49Z"
+     },
+     {
+      "number": 157,
+      "title": "fix(rac1): check collision.c against the retail kernels; no gl_SampleMask without MSAA",
+      "author": "mateuszklysz",
+      "untrustedBody": "Before\r\n- collision.c (host C of the collision kernels) could not be checked against the game's own code, and differed from it in small ways.\r\n- With anti-aliasing off, Adreno drew a flickering checkerboard over menu panels (the Quit Game box on Oltanis). Since #145 the 2D shader wrote gl_SampleMask on every target.\r\n\r\nAfter\r\n- hostgen can translate chosen asm functions a second time as \"shadows\" with PS2 float arithmetic. OPENRAC_COLL_CHECK=1 runs every collision query through both and logs any difference (docs/port/DEBUGGING.md).\r\n- Fixed in collision.c: hit and vf2 use the real VU0 registers, line queries take vf2.w from the face and primitive loads, hit normals and primitive points store -0 as +0, sphere-mobys and hero-groups start vf2.w at 0.\r\n- gl_SampleMask is only in a second 2D program used on a multisampled frame; everywhere else a failing pixel is discarded as before #145.\r\n\r\nTested\r\n- OPENRAC_COLL_CHECK on levels 0-18 (NTSC): about 1M queries, 0 differences.\r\n- regress befo",
+      "mergedAt": "2026-10-31T20:11:41Z"
+     },
+     {
+      "number": 158,
+      "title": "fix(rac1): keep the console arena's 224 moby class slots",
+      "author": "mateuszklysz",
+      "untrustedBody": "#148 made the run-list builder clear and chain 256 class slots in every session; retail does 224. Use 256 only with expanded RAM, and drop the size-byte check it added to collision's retail cell path.",
+      "mergedAt": "2026-10-31T18:20:34Z"
+     },
+     {
+      "number": 160,
+      "title": "chore(import): sync rac1 to rac1-decomp 693667f2 and Lombyte d2980748",
+      "author": "Veradictus",
+      "untrustedBody": "Brings rac1/pal to rac1-decomp 693667f2 and rac1/ntsc to Lombyte d2980748 (#267 game data in C, #268 name batch 35, #269 moby updates named `<name>_update`).\n\n- rac1/pal: the one doc-comment commit, applied cleanly.\n- rac1/ntsc: 17 rejected hunks resolved by a 3-way merge, upstream names taken and our patches kept. Two hand overrides remade (`matched_vendor_effects.c`, `matched_flickering_mesh.c`), since they named globals `vendor.c` renamed.\n- #267 changes no translated code: generated C compares equal over all 4,245 functions, apart from two where a global became struct base + field (offsets confirmed).\n- Stubs go 990 to 994: the new menu tables name three `textbin` gaps with no C or assembly (FUN_0021d168, FUN_0021e7c8, FUN_00221800), now no-c stubs. FUN_00219d80 keeps its real function.\n- SDK ABI and hook list unchanged.\n\nBuilt and tested on box1: both ports link; ctest 216 of 219, with `fsr3_sdk` and `fsr3_frame` failing under `-j 24` and passing alone. Tool suites, hostgen, hostn",
+      "mergedAt": "2026-11-01T11:34:53Z"
+     },
+     {
+      "number": 161,
+      "title": "feat(launcher): mod index, openrac:// links, dependencies and auto-update",
+      "author": "Lynder063",
+      "untrustedBody": "Adds openrac:// install links, the signed mod index from rac1-mods, dependency resolving and installs, auto-update with rollback, and Share my setup.\nVerified: cargo test -p openrac-launcher-core (346 passed), cargo fmt --check and clippy -D warnings clean, yarn verify (251 passed); not yet run on Windows, macOS or Android.",
+      "mergedAt": "2026-11-01T00:06:06Z"
+     },
+     {
+      "number": 162,
+      "title": "chore: rename rac1-mods to openrac-mods",
+      "author": "Lynder063",
+      "untrustedBody": "Docs, SDK, templates, the port's lock-strafe message and the launcher's tests and mocks now name OpenRAC/openrac-mods.\nVerified: cargo test -p openrac-launcher-core (295 passed), cargo fmt --check and clippy -D warnings clean, yarn verify (221 passed).",
+      "mergedAt": "2026-10-31T23:35:01Z"
+     },
+     {
+      "number": 163,
+      "title": "perf(port): speed up Vulkan regression tests",
+      "author": "pezzadev",
+      "untrustedBody": "## Summary\n\nVulkan regression checks spend too much time rebuilding identical scenes\nand compiling unused shaders on software CI. Reuse fixed renderer setups\nwhile keeping fresh determinism baselines, all 742 registry comparisons,\nexisting tolerances, level reuploads and poisoned-attachment checks.\n\n- Share normal-fixture resources and separate receiver-normal checks into\n  a focused source/header pair.\n- Load only the lighting metadata needed by effect-material checks; run\n  duplicate standalone shadow kernels once while retaining both production\n  filter paths.\n- Compile GTAO quality kernels on demand, with a quality-switch regression.\n- Use faster Mesa compilation in enhanced Ubuntu CI. Keep normal LLVM\n  optimisation for the arithmetic-heavy horizon reference and Fedora.\n\n## Validation\n\n- Windows Vulkan: all 53 checks passed after rebasing onto develop.\n- Linux Mesa: all 50 available GPU tests passed before final cleanup;\n  all eight affected checks also passed after the rebase and",
+      "mergedAt": "2026-11-01T10:15:22Z"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [
+     {
+      "number": 159,
+      "title": "Enhanced Lighting 19 of 21 levels ready, 2 levels could not be prepared.",
+      "author": "Nlwilkins93"
+     }
+    ],
+    "closed": [
+     {
+      "number": 39,
+      "title": "OpenRAC may encounter a very obscure but guaranteed crash from base RaC1",
+      "author": "TheWhiteGuardian"
+     },
+     {
+      "number": 48,
+      "title": "HD texture pack compatibility?",
+      "author": "Billabong1985"
+     },
+     {
+      "number": 66,
+      "title": "Ratchet & Clank 2 (SCES_516.07) not recognised by extractor",
+      "author": "OvrilPT"
+     },
+     {
+      "number": 127,
+      "title": "Mod SDK: inventory/save hooks and bundled assets for additional weapons",
+      "author": "noire342"
+     },
+     {
+      "number": 135,
+      "title": "Controller remapping: global, per-game and per-player controls (builds on #123)",
+      "author": "DrLegitamate"
+     },
+     {
+      "number": 141,
+      "title": "Mod: Enhanced Graphics - \"The Level Needs Too Many Lighting Regions\" (Game Version: NTSC /  Series: SCUS-97199)",
+      "author": "J05H333"
+     }
+    ]
+   },
+   "releases": [],
+   "progress": null,
+   "contributors": [
+    "bigbeno37",
+    "BlindFire1200",
+    "Lynder063",
+    "mateuszklysz",
+    "pezzadev",
+    "ReaperOfVeriod",
+    "Veradictus"
+   ]
+  },
+  {
+   "repo": "rac1-decomp",
+   "title": "Ratchet & Clank",
+   "branches": [
+    {
+     "name": "main",
+     "commits": [
+      {
+       "sha": "693667f240575350b3feedc312b10c3d3b4a7b83",
+       "title": "fix(l10): correct class 1199 (Screamer) behavior doc comments",
+       "author": "Lynder063",
+       "date": "2026-10-31T10:40:31Z"
+      }
+     ]
+    }
+   ],
+   "commitCount": 1,
+   "pullRequests": {
+    "merged": [],
+    "opened": []
+   },
+   "issues": {
+    "opened": [
+     {
+      "number": 162,
+      "title": "[LINUX] Mixed visual bugs/glitches",
+      "author": "StarPepe"
+     },
+     {
+      "number": 163,
+      "title": "Suggestion: Support for HRTF and surround sound",
+      "author": "StarPepe"
+     },
+     {
+      "number": 164,
+      "title": "[LINUX] Launcher freezing",
+      "author": "StarPepe"
+     },
+     {
+      "number": 165,
+      "title": "Get the levels ready",
+      "author": "Riflewarrior02"
+     }
+    ],
+    "closed": []
+   },
+   "releases": [],
+   "progress": {
+    "before": {
+     "code": {
+      "done": 3713096,
+      "total": 3713096
+     },
+     "functions": {
+      "done": 5116,
+      "total": 5116
+     },
+     "data": {
+      "done": 3984,
+      "total": 699072
+     }
+    },
+    "after": {
+     "code": {
+      "done": 3713096,
+      "total": 3713096
+     },
+     "functions": {
+      "done": 5116,
+      "total": 5116
+     },
+     "data": {
+      "done": 3984,
+      "total": 699072
+     }
+    }
+   },
+   "contributors": [
+    "Lynder063"
+   ]
+  },
+  {
+   "repo": "rac2-decomp",
+   "title": "Going Commando",
+   "branches": [
+    {
+     "name": "master",
+     "commits": [
+      {
+       "sha": "25092c73fff340d90c9afd48b5f5a0b6aa0be8e2",
+       "title": "fix(levels): give func_L20_00445738's pal and us2 copies their assembly files",
+       "author": "Veradictus",
+       "date": "2026-10-31T19:07:13Z"
+      },
+      {
+       "sha": "9d32357d6f3cbf49b6163cdc6c3cc15897d07846",
+       "title": "chore(progress): 7152 of 8578 functions (PAL 4995 of 8672, US2 6692 of 8634)",
+       "author": "Veradictus",
+       "date": "2026-10-31T19:02:38Z"
+      },
+      {
+       "sha": "a989437c00a1f7aa4f627bb69f26686b733c3fb8",
+       "title": "fix(levels): func_L20_00445738 stays assembly in pal and us2",
+       "author": "Veradictus",
+       "date": "2026-10-31T19:02:38Z"
+      },
+      {
+       "sha": "0e599f2260d7a3f1456226aa21d07662a1249937",
+       "title": "Merge branch 'pr-373'",
+       "author": "Veradictus",
+       "date": "2026-10-31T18:40:38Z"
+      },
+      {
+       "sha": "b0b149e389e41634320b6909c49cc6416ae1a546",
+       "title": "Merge branch 'pr-372'",
+       "author": "Veradictus",
+       "date": "2026-10-31T18:40:03Z"
+      },
+      {
+       "sha": "a62ed9004d8e5c81e102f792eae3ab40c85e09db",
+       "title": "Merge pull request #370 from xx255q/feat/game-002ad980",
+       "author": "Veradictus",
+       "date": "2026-10-31T18:39:15Z"
+      },
+      {
+       "sha": "3ad312dea80a82c21d4307cc5c850a929ac70a1f",
+       "title": "Merge pull request #371 from xx255q/feat/l00-002a6008",
+       "author": "Veradictus",
+       "date": "2026-10-31T18:39:09Z"
+      },
+      {
+       "sha": "9f99e23e509b73b871273140939c60175cdd0334",
+       "title": "Merge pull request #381 from Fromnowheree/match/yeedil-aranos",
+       "author": "Veradictus",
+       "date": "2026-10-31T18:38:52Z"
+      }
+     ]
+    }
+   ],
+   "commitCount": 8,
+   "pullRequests": {
+    "merged": [
+     {
+      "number": 370,
+      "title": "feat(src): func_002AD980 in C from its near miss",
+      "author": "xx255q",
+      "untrustedBody": "`func_002AD980` (500 bytes, 23 places), `src/game/002AA800.c`, exact on USA v1.01.\r\n\r\nMaps an object to its slot: fixed slots for thirteen object types, the hero's own slot for the hero or its rider, otherwise the index of the resident kind it matches. Two changes from the draft in `nonmatching/game/func_002AD980.c` gave retail's table-loop allocation and base-plus-field addressing:\r\n- the rider pointer at +0xB8 is read each time it is tested, instead of being held in a local;\r\n- each resident kind is read through a pointer to its record (`KindRecord *rec = &D_00239BA0[D_00139568[i]]`).\r\n\r\nRemoves the draft from `nonmatching/`.\r\n\r\n**Checks** (USA v1.01, upstream 4acbea4 with this change):\r\n- `tools/check.py func_002AD980`: 23 of 23 places match.\r\n- `tools/build.py all --strict`: exit 0, all 28 programs OK.\r\n- `python3 -m unittest discover -s tests`: 315 tests OK (with game data).\r\n- `tests/check_repository.py`: repository checks passed.\r\n- `tools/progress.py --check`: passes; the repor",
+      "mergedAt": "2026-10-31T18:39:16Z"
+     },
+     {
+      "number": 371,
+      "title": "feat(src): func_L00_002A6008 in C from its near miss",
+      "author": "xx255q",
+      "untrustedBody": "Keeps the hero's held object: creates it at the hero's position the first time, then poses it on the hand joint and picks its animation from the hero's state. One pointer local holds the new object's position field and later the held object, which gives retail's argument registers in the creation block. The unit now takes the shared types and qcopy from common.h.\n\n## What\n\n<!-- The functions matched or the change made, and why. -->\n\n## Checked\n\n<!-- The commands you ran and what they printed, e.g. `tools/build.py all`: 28 programs OK;\nhow many functions this adds (leave `progress/report.json` and the README table out: they are regenerated on master). Say what you did not run. -->",
+      "mergedAt": "2026-10-31T18:39:09Z"
+     },
+     {
+      "number": 372,
+      "title": "feat(src): match two level routines and retain reviewed reconstructions",
+      "author": "llesieur99",
+      "untrustedBody": "## What\n\nMatch two level functions and preserve the useful results of a 30-target review on master `96927f87`.\n\n| Function | Distinct bytes | Carrying placements |\n| --- | ---: | --- |\n| `func_L09_003FEAE8` | 520 | USA v1.01 Dobbo; USA v2.00 Dobbo |\n| `func_L16_0041F360` | 576 | USA v1.01, USA v2.00 and PAL Snivelak |\n\n**Two new C functions, 1,096 distinct bytes.** Dobbo needs a complete 64-byte joint matrix and its +0x30 position. Snivelak needs complete ring points and separate counters for its three loops; the reviewed copy helper closes the ring without a new compiler mechanism.\n\nThe remaining review records 27 nonmatching outcomes and defers one previously exhausted initializer without repeating its old trials. Retained sources correct false helper arguments/returns, incomplete matrix storage, a ray's source vector, a four-slot scan, an exact float constant and a record-field offset. Useful alternate lowerings remain available. Equal-size drafts are still nonmatching and earn no c",
+      "mergedAt": "2026-10-31T18:40:42Z"
+     },
+     {
+      "number": 373,
+      "title": "feat(src): match four routines and repair the callback entry",
+      "author": "llesieur99",
+      "untrustedBody": "## What\n\nAdd four qualified C routines and repair one incorrectly trimmed catalogue entry after a 100-target review on master `96927f87`.\n\n| Function | Distinct bytes | Carrying releases |\n| --- | ---: | --- |\n| `func_L09_003FD128` | 824 | USA v1.01, USA v2.00, PAL |\n| `func_L17_003C6CE8` | 812 | Both USA releases |\n| `func_L17_003C69A8` | 828 | Both USA releases |\n| `func_L07_003EEE28` | 832 | Both USA releases |\n\n**Four new C functions, 3,296 distinct bytes, nine carrying placements.** The Dobbo light ring adapts public GPL-3.0 RAC1 source with independently measured RAC2 buffers and full-width texture/GS parameters. Smolg retains complete path vectors and the actual argument-bank/return contracts. Siberius preserves the speed-cap and phase/rate lifetimes.\n\nCallback constructions in all twelve placements prove that `func_L05_0042AFE0` starts four bytes before the previously recorded entry, on its F1 load. The original 732-byte extent now skips eight bytes rather than twelve. All name",
+      "mergedAt": "2026-10-31T18:40:42Z"
+     },
+     {
+      "number": 381,
+      "title": "feat(src): match 44 functions in yeedil, aranos prison and shared levels",
+      "author": "Fromnowheree",
+      "untrustedBody": "## What\n\nMatches 44 functions on USA v1.01: 29 in `20_yeedil`, 11 in `14_aranos_prison` (both levels claimed in #152) and 4 retained near misses in `src/levels/shared/`.\n\n- **20_yeedil (29):** `func_L20_002C5A48`, `0039D340`, `0039D680`, `0039DBC8`, `0039E1E8`, `0039E9F8`, `0039EBB8`, `0039ED78`, `0039EEC8`, `0039F560`, `003BFEB8`, `004395B0`, `0043FC70`, `0043FFF0`, `00440198`, `00440398`, `00440598`, `004431E0`, `004433B0`, `00444018`, `004448A8`, `004451C0`, `00445738`, `00447640`, `00447930`, `00448858`, `00449850`, `00449FD0`, `0044AC38`.\n- **14_aranos_prison (11):** `func_L14_00304190`, `003DDD38`, `003DE4E8`, `003E2980`, `003E4208`, `003F4F98`, `004221D8`, `00423000`, `004265B8`, `004281D0`, `00426E60`.\n- **Shared near misses (4):** `func_L00_003B69D8`, `func_L00_003EFF58`, `func_L05_004247C8`, `func_L08_0032C0D8`.\n\nTheir drafts and `nonmatching/README.md` rows are removed (37 drafts).\n\n**Placement and flags.** 26 functions move out of their old files: 21 into new files of their",
+      "mergedAt": "2026-10-31T18:38:53Z"
+     }
+    ],
+    "opened": [
+     {
+      "number": 379,
+      "title": "docs(nonmatching): func_0034DB98, the overlay redraw at 1088/1088 bytes",
+      "author": "cadelass",
+      "untrustedBody": "Retains a near miss for `func_0034DB98` (1088 bytes, boot and all 27 levels). `func_0034E4F8` calls it with `object + 0x7A0`. It redraws the overlay's widgets (two of them twice with their scale negated), calls the second vtable entry of two arrays of eight widgets (GCC 2.x this-adjusted calls: delta at +8, function at +0xC), draws the counter digits in steps of three, and from the second lap draws the lap number with a three-way shadow through `func_0027FBD8`.\n\n## What differs\n\nThe draft goes in `src/game/0034CEA0-g8.c` (the `$gp` reads are `D_001ADAE8`/`EC`/`F0`); that unit's `func_0034E4F8` and `func_0034F690` stay 28/28 with it. Its extern for `func_0034DB98` must take `char *`.\n\n| Step | Bytes |\n| --- | --- |\n| offsets as float ternaries in the digit loop | 1108 |\n| int offsets | 1072 |\n| widget arrays as structs (two induction pointers, as retail), separate scale temporaries, a 16-byte lap buffer | 1080 |\n| loop bound `k < count` instead of a float copy made before the `sprintf` "
+     },
+     {
+      "number": 380,
+      "title": "docs(nonmatching): func_002F97A0, the small-font text drawer at 1052/1052 bytes",
+      "author": "cadelass",
+      "untrustedBody": "Retains a near miss for `func_002F97A0` (1052 bytes, boot and all 27 levels). It draws up to `length` characters in the small font (glyph table `D_00263EF0`: u, v, top, advance). Each glyph's left and right corners fade with the distance from the screen centre, computed in double through the soft-float helpers: 215.0 in shop mode 2 of `D_0021F240`, else 256.0 scaled by 0.75. Characters below 0x20 first get a 24x16 grey cell; 0x80..0xA7 take an accent glyph 0x40 further on.\n\n## What differs\n\nThe draft goes in place of the marker in `src/game/002F5220.c` (`-O2 -G8`); `func_002F9198` (28/28) and `func_002F9778` still pass there. Everything outside the colour block matches. In that block (`0x002F999C`..`0x002F9A74`) retail keeps the right alpha in a0 and the left colour in a1, truncates the 64-bit colour after the two clamps and sums the grey in t2; cc1 uses a2/a1, truncates the colour before the clamps and sums in v1.\n\n| Step | Result |\n| --- | --- |\n| 216.0, an int colour, one text point"
+     },
+     {
+      "number": 381,
+      "title": "feat(src): match 44 functions in yeedil, aranos prison and shared levels",
+      "author": "Fromnowheree",
+      "untrustedBody": "## What\n\nMatches 44 functions on USA v1.01: 29 in `20_yeedil`, 11 in `14_aranos_prison` (both levels claimed in #152) and 4 retained near misses in `src/levels/shared/`.\n\n- **20_yeedil (29):** `func_L20_002C5A48`, `0039D340`, `0039D680`, `0039DBC8`, `0039E1E8`, `0039E9F8`, `0039EBB8`, `0039ED78`, `0039EEC8`, `0039F560`, `003BFEB8`, `004395B0`, `0043FC70`, `0043FFF0`, `00440198`, `00440398`, `00440598`, `004431E0`, `004433B0`, `00444018`, `004448A8`, `004451C0`, `00445738`, `00447640`, `00447930`, `00448858`, `00449850`, `00449FD0`, `0044AC38`.\n- **14_aranos_prison (11):** `func_L14_00304190`, `003DDD38`, `003DE4E8`, `003E2980`, `003E4208`, `003F4F98`, `004221D8`, `00423000`, `004265B8`, `004281D0`, `00426E60`.\n- **Shared near misses (4):** `func_L00_003B69D8`, `func_L00_003EFF58`, `func_L05_004247C8`, `func_L08_0032C0D8`.\n\nTheir drafts and `nonmatching/README.md` rows are removed (37 drafts).\n\n**Placement and flags.** 26 functions move out of their old files: 21 into new files of their",
+      "mergedAt": "2026-10-31T18:38:53Z"
+     },
+     {
+      "number": 382,
+      "title": "decomp: func_00289AA8 in C, the subtitle box drawer, 28/28 places",
+      "author": "cadelass",
+      "untrustedBody": "Matches `func_00289AA8` (1308 bytes, boot and all 27 levels): the subtitle box drawer. Using the state in `D_00254E78`, the box opens (state 1), grows over eight frames (3), holds while the text fades in or out over four (4–6) and shrinks (7). When `D_001A7B95` is clear it calls `func_00289AA0` instead. The text is drawn with `func_002802E0` and `func_00280200`, with its alpha in the top bits of the colour.\n\n## Why a new file\n\nThe function lives in its own unit, `src/game/00289AA8.c`, the same way `func_00289178` already does. Its switch table `jtbl_0026C7F0` follows `func_00289178`'s `jtbl_0026C7C0` in retail. Kept in `00288D88.c`, the compiler places it next to `func_00288D90`'s `jtbl_0026C7A0`, and the build then rejects both functions with \"needs .rodata at its place, which is not C\". `00288D88.c` only loses the marker.\n\n## Matching notes\n\n- Each case is written `if (D_001A7B95 != 0) { ... } else func_00289AA0();` with its own locals, so cross-jumping merges the cases as retail doe"
+     },
+     {
+      "number": 383,
+      "title": "docs(nonmatching): func_00115E28, abort and __assert in one 64-byte row",
+      "author": "cadelass",
+      "untrustedBody": "Keeps C for the `func_00115E28` row (64 bytes, boot), which `docs/LEVELS.md` already lists as two functions:\n\n- **`func_00115E28`** (16 bytes): newlib's `abort`. It calls `_exit(1)` through the `func_00131CA8` thunk and has no epilogue.\n- **`func_00115E38`** (48 bytes): newlib's `__assert`. Four `jal`s reach it. It prints `\"assertion \\\"%s\\\" failed: file \\\"%s\\\", line %d\\n\"` (`D_0013A370`) to the runtime record's stderr with `fiprintf` (`func_00115CF0`), then calls `abort`.\n\n## Result\n\nWith this C in `src/core/00115200.c`, the boot links byte-identical:\n\n```\nboot: OK: 2521763 loaded bytes equal; 2381 C functions (615892 bytes), 1 do not match\n  func_00115E28: 16 bytes, expected 64\n```\n\nIt cannot stay in `src/` yet. `tests/check_repository.py` rejects `func_00115E38` because it is in no catalogue, and `build.py --strict` fails on the 64-byte row. So the C goes to `nonmatching/core/func_00115E28.c`, `src/` keeps the `INCLUDE_ASM`, and `docs/LEVELS.md` points to the draft.\n\n## Question for "
+     }
+    ]
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": {
+    "before": {
+     "code": {
+      "done": 3637728,
+      "total": 5525780
+     },
+     "functions": {
+      "done": 7100,
+      "total": 8578
+     },
+     "data": {
+      "done": 0,
+      "total": 383391
+     }
+    },
+    "after": {
+     "code": {
+      "done": 3674960,
+      "total": 5525784
+     },
+     "functions": {
+      "done": 7152,
+      "total": 8578
+     },
+     "data": {
+      "done": 0,
+      "total": 383391
+     }
+    }
+   },
+   "contributors": [
+    "cadelass",
+    "Fromnowheree",
+    "llesieur99",
+    "Veradictus",
+    "xx255q"
+   ]
+  },
+  {
+   "repo": "rac3-decomp",
+   "title": "Up Your Arsenal",
+   "branches": [
+    {
+     "name": "master",
+     "commits": []
+    }
+   ],
+   "commitCount": 0,
+   "pullRequests": {
+    "merged": [],
+    "opened": []
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": null,
+   "contributors": []
+  },
+  {
+   "repo": "rac4-decomp",
+   "title": "Ratchet: Deadlocked",
+   "branches": [
+    {
+     "name": "main",
+     "commits": [
+      {
+       "sha": "fe6ec0d2e9d209ad3a84dd33a188120ea12f030c",
+       "title": "chore(progress): 4,475 of 18,085 functions in SCUS_974.65, 5,138 of 18,113 in SCES_532.85",
+       "author": "Veradictus",
+       "date": "2026-10-31T19:03:38Z"
+      },
+      {
+       "sha": "47e4a58721217483e2116b2248a12d911da506b5",
+       "title": "fix(pal): drop three src/pal copies of functions src/ matches on PAL",
+       "author": "Veradictus",
+       "date": "2026-10-31T19:01:15Z"
+      },
+      {
+       "sha": "a2a18fd579769a04fbfe45fc5dd389c09d937cc3",
+       "title": "fix(pal): add the pal/decomp.h header twelve merged sources include",
+       "author": "Veradictus",
+       "date": "2026-10-31T18:59:11Z"
+      },
+      {
+       "sha": "f2f4bfb43154dcb3c8c5ef6cc74b8754a08e6227",
+       "title": "Merge branch 'pr-53' into merge-open-prs",
+       "author": "Veradictus",
+       "date": "2026-10-31T18:41:07Z"
+      },
+      {
+       "sha": "4e8c49b24cffa66ba02398684792c07a1b9b5765",
+       "title": "Merge branch 'pr-52' into merge-open-prs",
+       "author": "Veradictus",
+       "date": "2026-10-31T18:41:07Z"
+      },
+      {
+       "sha": "f5f55b78e3a3b6509be59c8b63649ecdca81098b",
+       "title": "Merge branch 'pr-51' into merge-open-prs",
+       "author": "Veradictus",
+       "date": "2026-10-31T18:41:07Z"
+      },
+      {
+       "sha": "e4c6c5693ebf34b577198de565787c479ebee739",
+       "title": "Merge branch 'pr-50' into merge-open-prs",
+       "author": "Veradictus",
+       "date": "2026-10-31T18:40:38Z"
+      },
+      {
+       "sha": "c229abf0efe7567902ea5b73d367cac4cd210a5f",
+       "title": "Merge branch 'pr-49' into merge-open-prs",
+       "author": "Veradictus",
+       "date": "2026-10-31T18:40:38Z"
+      },
+      {
+       "sha": "0ae91010c90d4fa625069648ac4e3c4a61b80eb6",
+       "title": "Merge branch 'pr-48' into merge-open-prs",
+       "author": "Veradictus",
+       "date": "2026-10-31T18:40:38Z"
+      }
+     ]
+    }
+   ],
+   "commitCount": 9,
+   "pullRequests": {
+    "merged": [
+     {
+      "number": 48,
+      "title": "Add PAL C for func_L11_00408DE8; a build note on mfc1 before a branch",
+      "author": "chistianh",
+      "untrustedBody": "**Title:** Add PAL C for func_L11_00408DE8; a build note on mfc1 before a branch\n\nThis adds one PAL-only function, chosen as in #33–#38 (fingerprint in no row of `config/us/functions.tsv`, nothing resident, no `match` or `near` row places it):\n\n| PAL | Where | Size |\n|---|---|---|\n| func_L11_00408DE8 | `src/pal/overlays/l11_tempus_station/` (new folder, named as in `tools/levels.py`) | 108 |\n\nIt stores **150** (`0x96`) in the first word of the new object's data, which may be a 50 Hz frame count (for the US check).\n\nChecks: all 464 files of `src/pal/` MATCH with `tools/check_func.py --version pal`, checked with `src/pal/` set aside. The branch is based on today's `main`. `config/` and the reports are not regenerated.\n\n### Note 1: a nop after `mfc1` that retail does not have\n\nWhen an `mfc1` is followed directly by a branch that reads the same register, GCC writes `#nop` after the `mfc1` and opens the branch's `.set noreorder` block. The driver's GNU as then puts a real `nop` there. Retai",
+      "mergedAt": "2026-10-31T18:41:23Z"
+     },
+     {
+      "number": 49,
+      "title": "tools: expand li.s as SN's assembler does; PAL C for 27 functions it unblocks",
+      "author": "chistianh",
+      "untrustedBody": "**Title:** tools: expand li.s as SN's assembler does; PAL C for 27 functions it unblocks\n\n### The tool change\n\nGCC writes every float constant as `li.s $fN, value`. Retail's assembler, SN's `ps2eeas`, always builds the value in `$at`: `lui`, plus `ori` when the low half is not zero, then `mtc1`. The driver's GNU `as` does that only when the low half is zero. For any other value, at -G8, it puts the value in `.lit4` and loads it with one `lwc1 ...($gp)`. That is one word instead of three, plus a `$gp` access retail does not have. So no function with a float constant like 0.3 or 1.6 could match.\n\n- I checked it on `ps2eeas` itself (`toolchain/sn-prodg-3.01/.../Ps2EeAs.exe`, 1.9.25) on test files: `li.s $f12, 0.08` becomes `lui $at, 0x3DA3; ori $at, $at, 0xD70B; mtc1 $at, $f12`.\n- In the PAL text the `lui`/`ori`/`mtc1 $at` form appears 13,207 times.\n- `tools/ps2eeas_lis.py` (new, in the SN route of `tools/cc.sh` after `ps2eeas_dli.py`) writes that sequence out before the first assembly. `",
+      "mergedAt": "2026-10-31T18:41:22Z"
+     },
+     {
+      "number": 50,
+      "title": "Match 157 functions",
+      "author": "BlindFire1200",
+      "untrustedBody": "Matches 157 functions: 126 in game code, 17 in network code (net.text) and 12 in the engine core (core.text). Also adds C for 33 near misses under `nonmatching/`.\n\n| | Before | After |\n| --- | ---: | ---: |\n| SCUS_974.65 functions (exact) | 4,151 of 18,085 | 4,308 of 18,085 |\n| SCUS_974.65 code (exact) | 5.57% | 5.77% |\n| SCES_532.85 functions (exact) | 4,553 of 18,113 | 4,696 of 18,113 |\n| SCES_532.85 code (exact) | 5.95% | 6.14% |\n\nNotes:\n- 13 of these functions already had PAL-only C in `src/pal/` from #45, under the same name. The `src/` C builds to the same PAL bytes at the same place, so, as in ab87a986, each now lands once in `src/` and its `src/pal/` copy is dropped: `src/pal/game/{003F6170,004074E8,00415E88}.c` and `src/pal/net/{01EA9718,01EBDE60,01EBF088,01EC2280,01ECC958,01ED4438,01ED4460,01EDB018,01EE3960,01EE3A98}.c`. They count on SCUS_974.65 for the first time; on SCES_532.85 they were already counted.\n- SCES_532.85 gains 143, not 157: those 13, plus `func_004BAC90`, who",
+      "mergedAt": "2026-10-31T18:41:22Z"
+     },
+     {
+      "number": 51,
+      "title": "Match 167 functions",
+      "author": "BlindFire1200",
+      "untrustedBody": "Matches 167 functions: 146 in game code, 18 in the engine core (core.text) and 3 in network code (net.text). Also adds C for 79 more near misses under `nonmatching/` and updates one (`func_01EC0410`).\n\n| | Before | After |\n| --- | ---: | ---: |\n| SCUS_974.65 functions (exact) | 4,151 of 18,085 | 4,318 of 18,085 |\n| SCUS_974.65 code (exact) | 5.57% | 5.87% |\n| SCES_532.85 functions (exact) | 4,553 of 18,113 | 4,711 of 18,113 |\n| SCES_532.85 code (exact) | 5.95% | 6.24% |\n\nNotes:\n- Builds on main only: none of #50's functions are in it, so the two can merge in either order.\n- Six of these functions already had PAL-only C in `src/pal/` from #45, under their PAL names. The `src/` C builds to the same PAL bytes at the same place, so, as in ab87a986, each now lands once in `src/` and its `src/pal/` copy is dropped (its own commit): `src/pal/game/{00448FA0,00459EF8,00459F70,00460D30,004D7CE8,005123F0}.c`, for `func_00448960`, `func_004596E0`, `func_00459758`, `func_004604F0`, `func_004D6DD0` ",
+      "mergedAt": "2026-10-31T18:41:22Z"
+     },
+     {
+      "number": 52,
+      "title": "Match 210 PAL functions with strictly linked ELF verification",
+      "author": "Shaar-games",
+      "untrustedBody": "func_00129B18\r\nfunc_0015DB98\r\nfunc_00445BE0\r\nfunc_004498D8\r\nfunc_0044D860\r\nfunc_00454C18\r\nfunc_0045E770\r\nfunc_0046DC80\r\nfunc_0046DD78\r\nfunc_004B7630\r\nfunc_004D2A10\r\nfunc_004EEEE0\r\nfunc_004F0738\r\nfunc_004F16B8\r\nfunc_004FFDD0\r\nfunc_00500DD0\r\nfunc_0054B120\r\nfunc_01F0A2FC\r\nfunc_FB_004A2A40\r\nfunc_FB_004E3178\r\nfunc_L00_004FE368\r\nfunc_L00_0050E350\r\nfunc_L00_00531888\r\nfunc_L00_005319C8\r\nfunc_L00_00531A30\r\nfunc_L00_00531AC8\r\nfunc_L00_00531B60\r\nfunc_L00_00531F40\r\nfunc_L00_005387C8\r\nfunc_L00_0055B058\r\nfunc_L00_006085F8\r\nfunc_L00_00611390\r\nfunc_L00_00621580\r\nfunc_L00_00621678\r\nfunc_L00_006216D8\r\nfunc_L00_00643B40\r\nfunc_L00_00645760\r\nfunc_L00_0067FE30\r\nfunc_L00_0069C908\r\nfunc_L00_006A1F88\r\nfunc_L00_006A46B0\r\nfunc_L00_006A9728\r\nfunc_L00_006AA6C0\r\nfunc_L00_006AC6A8\r\nfunc_L00_006EFB80\r\nfunc_L00_00705F70\r\nfunc_L00_00705F90\r\nfunc_L00_00710CB8\r\nfunc_L00_00713A78\r\nfunc_L00_00715E40\r\nfunc_L00_00715E50\r\nfunc_L00_00717070\r\nfunc_L00_007171B0\r\nfunc_L00_00717240\r\nfunc_L00_007174B0\r\nfunc_L00_007174C8\r\nfunc_L00_0",
+      "mergedAt": "2026-10-31T18:41:22Z"
+     },
+     {
+      "number": 53,
+      "title": "Match 50 new PAL functions",
+      "author": "Shaar-games",
+      "untrustedBody": "- `func_004B78A0`\r\n- `func_004B78C0`\r\n- `func_L00_00782F90`\r\n- `func_L00_00641BC8`\r\n- `func_L00_007170A8`\r\n- `func_L00_0077DC20`\r\n- `func_L00_0077DDA8`\r\n- `func_L00_00781AE0`\r\n- `func_L13_004BFE50`\r\n- `func_L00_007833B0`\r\n- `func_L41_00449C20`\r\n- `func_L41_0046AB10`\r\n- `func_L41_0062A580`\r\n- `func_L41_0048FB10`\r\n- `func_L01_003D7D88`\r\n- `func_L01_003EC570`\r\n- `func_L01_004154C0`\r\n- `func_L01_0041F670`\r\n- `func_L01_00427990`\r\n- `func_L01_0042F708`\r\n- `func_L01_004328F8`\r\n- `func_L01_00430050`\r\n- `func_0048F530`\r\n- `func_00159748`\r\n- `func_L00_0077F700`\r\n- `func_00158700`\r\n- `func_L00_007148A0`\r\n- `func_L00_006F2370`\r\n- `func_004788A8`\r\n- `func_L01_0048F798`\r\n- `func_L01_004ED190`\r\n- `func_L01_0044AD30`\r\n- `func_L01_004BFAE8`\r\n- `func_L05_003E5760`\r\n- `func_L41_00411F80`\r\n- `func_L41_00412090`\r\n- `func_L05_003E7A00`\r\n- `func_L05_003E7A30`\r\n- `func_L41_00621CE8`\r\n- `func_L41_0062A0F0`\r\n- `func_L41_0062A6B8`\r\n- `func_L01_00434658`\r\n- `func_L01_00438878`\r\n- `func_L01_004424F8`\r\n- `func_L01_",
+      "mergedAt": "2026-10-31T18:41:22Z"
+     }
+    ],
+    "opened": [
+     {
+      "number": 51,
+      "title": "Match 167 functions",
+      "author": "BlindFire1200",
+      "untrustedBody": "Matches 167 functions: 146 in game code, 18 in the engine core (core.text) and 3 in network code (net.text). Also adds C for 79 more near misses under `nonmatching/` and updates one (`func_01EC0410`).\n\n| | Before | After |\n| --- | ---: | ---: |\n| SCUS_974.65 functions (exact) | 4,151 of 18,085 | 4,318 of 18,085 |\n| SCUS_974.65 code (exact) | 5.57% | 5.87% |\n| SCES_532.85 functions (exact) | 4,553 of 18,113 | 4,711 of 18,113 |\n| SCES_532.85 code (exact) | 5.95% | 6.24% |\n\nNotes:\n- Builds on main only: none of #50's functions are in it, so the two can merge in either order.\n- Six of these functions already had PAL-only C in `src/pal/` from #45, under their PAL names. The `src/` C builds to the same PAL bytes at the same place, so, as in ab87a986, each now lands once in `src/` and its `src/pal/` copy is dropped (its own commit): `src/pal/game/{00448FA0,00459EF8,00459F70,00460D30,004D7CE8,005123F0}.c`, for `func_00448960`, `func_004596E0`, `func_00459758`, `func_004604F0`, `func_004D6DD0` ",
+      "mergedAt": "2026-10-31T18:41:22Z"
+     },
+     {
+      "number": 52,
+      "title": "Match 210 PAL functions with strictly linked ELF verification",
+      "author": "Shaar-games",
+      "untrustedBody": "func_00129B18\r\nfunc_0015DB98\r\nfunc_00445BE0\r\nfunc_004498D8\r\nfunc_0044D860\r\nfunc_00454C18\r\nfunc_0045E770\r\nfunc_0046DC80\r\nfunc_0046DD78\r\nfunc_004B7630\r\nfunc_004D2A10\r\nfunc_004EEEE0\r\nfunc_004F0738\r\nfunc_004F16B8\r\nfunc_004FFDD0\r\nfunc_00500DD0\r\nfunc_0054B120\r\nfunc_01F0A2FC\r\nfunc_FB_004A2A40\r\nfunc_FB_004E3178\r\nfunc_L00_004FE368\r\nfunc_L00_0050E350\r\nfunc_L00_00531888\r\nfunc_L00_005319C8\r\nfunc_L00_00531A30\r\nfunc_L00_00531AC8\r\nfunc_L00_00531B60\r\nfunc_L00_00531F40\r\nfunc_L00_005387C8\r\nfunc_L00_0055B058\r\nfunc_L00_006085F8\r\nfunc_L00_00611390\r\nfunc_L00_00621580\r\nfunc_L00_00621678\r\nfunc_L00_006216D8\r\nfunc_L00_00643B40\r\nfunc_L00_00645760\r\nfunc_L00_0067FE30\r\nfunc_L00_0069C908\r\nfunc_L00_006A1F88\r\nfunc_L00_006A46B0\r\nfunc_L00_006A9728\r\nfunc_L00_006AA6C0\r\nfunc_L00_006AC6A8\r\nfunc_L00_006EFB80\r\nfunc_L00_00705F70\r\nfunc_L00_00705F90\r\nfunc_L00_00710CB8\r\nfunc_L00_00713A78\r\nfunc_L00_00715E40\r\nfunc_L00_00715E50\r\nfunc_L00_00717070\r\nfunc_L00_007171B0\r\nfunc_L00_00717240\r\nfunc_L00_007174B0\r\nfunc_L00_007174C8\r\nfunc_L00_0",
+      "mergedAt": "2026-10-31T18:41:22Z"
+     },
+     {
+      "number": 53,
+      "title": "Match 50 new PAL functions",
+      "author": "Shaar-games",
+      "untrustedBody": "- `func_004B78A0`\r\n- `func_004B78C0`\r\n- `func_L00_00782F90`\r\n- `func_L00_00641BC8`\r\n- `func_L00_007170A8`\r\n- `func_L00_0077DC20`\r\n- `func_L00_0077DDA8`\r\n- `func_L00_00781AE0`\r\n- `func_L13_004BFE50`\r\n- `func_L00_007833B0`\r\n- `func_L41_00449C20`\r\n- `func_L41_0046AB10`\r\n- `func_L41_0062A580`\r\n- `func_L41_0048FB10`\r\n- `func_L01_003D7D88`\r\n- `func_L01_003EC570`\r\n- `func_L01_004154C0`\r\n- `func_L01_0041F670`\r\n- `func_L01_00427990`\r\n- `func_L01_0042F708`\r\n- `func_L01_004328F8`\r\n- `func_L01_00430050`\r\n- `func_0048F530`\r\n- `func_00159748`\r\n- `func_L00_0077F700`\r\n- `func_00158700`\r\n- `func_L00_007148A0`\r\n- `func_L00_006F2370`\r\n- `func_004788A8`\r\n- `func_L01_0048F798`\r\n- `func_L01_004ED190`\r\n- `func_L01_0044AD30`\r\n- `func_L01_004BFAE8`\r\n- `func_L05_003E5760`\r\n- `func_L41_00411F80`\r\n- `func_L41_00412090`\r\n- `func_L05_003E7A00`\r\n- `func_L05_003E7A30`\r\n- `func_L41_00621CE8`\r\n- `func_L41_0062A0F0`\r\n- `func_L41_0062A6B8`\r\n- `func_L01_00434658`\r\n- `func_L01_00438878`\r\n- `func_L01_004424F8`\r\n- `func_L01_",
+      "mergedAt": "2026-10-31T18:41:22Z"
+     },
+     {
+      "number": 54,
+      "title": "Match 30 PAL functions",
+      "author": "Shaar-games",
+      "untrustedBody": "func_L00_0050D068\nfunc_L00_00511E30\nfunc_L01_004EF1F8\nfunc_L04_004A0DE0\nfunc_L05_00466408\nfunc_L00_004F9140\nfunc_L01_00523BB8\nfunc_0050FF90\nfunc_L01_004F5200\nfunc_01EE347C\nfunc_00487810\nfunc_01EA4570\nfunc_L01_0058ABA0\nfunc_L00_007523F8\nfunc_L00_00584FF8\nfunc_01EF0550\nfunc_004651C0\nfunc_L06_004C8750\nfunc_L01_004B58F0\nfunc_0012C3A8\nfunc_L00_0062DA80\nfunc_L00_00716368\nfunc_L00_0077FCA0\nfunc_L00_00782310\nfunc_L01_004344E8\nfunc_L01_0047F758\nfunc_L01_00516DF8\nfunc_L05_004DD1E0\nfunc_L01_00492058\nfunc_L00_00536538",
+      "mergedAt": "2026-11-01T19:20:00Z"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": {
+    "before": {
+     "code": {
+      "done": 322264,
+      "total": 5782424
+     },
+     "functions": {
+      "done": 4151,
+      "total": 18085
+     }
+    },
+    "after": {
+     "code": {
+      "done": 350776,
+      "total": 5782424
+     },
+     "functions": {
+      "done": 4475,
+      "total": 18085
+     }
+    }
+   },
+   "contributors": [
+    "BlindFire1200",
+    "chistianh",
+    "Shaar-games",
+    "Veradictus"
+   ]
+  },
+  {
+   "repo": "openrac-mods",
+   "title": "OpenRAC mods",
+   "branches": [
+    {
+     "name": "master",
+     "commits": [
+      {
+       "sha": "516eea46270cba027e3896cac61df33b26ad6729",
+       "title": "feat(bot): act as openrac-bot, the organization's GitHub App (#20)",
+       "author": "Lynder063",
+       "date": "2026-10-31T23:26:33Z"
+      },
+      {
+       "sha": "f435bc3447c2c83bea132c29bd22b817f8dd353c",
+       "title": "chore: rename rac1-mods to openrac-mods (#19)",
+       "author": "Lynder063",
+       "date": "2026-10-31T23:14:49Z"
+      },
+      {
+       "sha": "50d4ad41252a475a5d66b2daa3c9ad6d353cb6dd",
+       "title": "chore(index): discussion numbers",
+       "author": "github-actions[bot]",
+       "date": "2026-10-31T22:50:16Z"
+      },
+      {
+       "sha": "a992ce75355f1fc0d2bf5e036fd01a11e751207f",
+       "title": "Merge pull request #7 from OpenRAC/feat/mod-index",
+       "author": "Lynder063",
+       "date": "2026-10-31T22:03:09Z"
+      },
+      {
+       "sha": "7bec488c820ef01a450a9f2064a2a983823f3e87",
+       "title": "Merge pull request #6 from OpenRAC/fix/release-apworld",
+       "author": "Lynder063",
+       "date": "2026-10-31T11:38:01Z"
+      },
+      {
+       "sha": "51ed6472d3dacae5a4ddc2f041506aa1bf32fa91",
+       "title": "Merge pull request #5 from OpenRAC/feat/archipelago",
+       "author": "Lynder063",
+       "date": "2026-10-31T11:15:41Z"
+      },
+      {
+       "sha": "04f8619a4058a6d856ccf66bcf70d3e3f87c031c",
+       "title": "Merge pull request #4 from OpenRAC/fix/lock-strafe-hoverboard",
+       "author": "Lynder063",
+       "date": "2026-10-31T09:31:29Z"
+      }
+     ]
+    }
+   ],
+   "commitCount": 7,
+   "pullRequests": {
+    "merged": [
+     {
+      "number": 4,
+      "title": "fix(lock-strafe): keep L2 and R2 for hoverboard tricks",
+      "author": "Lynder063",
+      "untrustedBody": "The strafe mod turns off on the hoverboard (control mode 0x16), so L2 and R2 do tricks.\nIt turns back on when Ratchet gets off the board.\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)",
+      "mergedAt": "2026-10-31T09:31:30Z"
+     },
+     {
+      "number": 5,
+      "title": "feat(archipelago): Archipelago multiworld support",
+      "author": "Lynder063",
+      "untrustedBody": "Adds the archipelago mod: plays RAC1 in an Archipelago multiworld, beat Drek to finish.\nAdds rac1.apworld, built and tested in CI against Archipelago 0.6.8.\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)",
+      "mergedAt": "2026-10-31T11:15:41Z"
+     },
+     {
+      "number": 6,
+      "title": "fix(ci): put rac1.apworld in the release",
+      "author": "Lynder063",
+      "untrustedBody": "The merge job did not upload rac1.apworld, so releases missed it.\nIt now uploads dist/*.apworld with the zips.\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)",
+      "mergedAt": "2026-10-31T11:38:02Z"
+     },
+     {
+      "number": 7,
+      "title": "feat(index): signed mod index, submission bot and media pipeline",
+      "author": "Lynder063",
+      "untrustedBody": "Builds and signs index.json (the mod list openrac.dev and the launcher read) and publishes it on the index pre-release.\nAdds the submission issue forms and bot, picture pipeline, native cool-down and Discussions; tests: python3 -m unittest discover -s tools/tests.",
+      "mergedAt": "2026-10-31T22:03:10Z"
+     },
+     {
+      "number": 19,
+      "title": "chore: rename rac1-mods to openrac-mods",
+      "author": "Lynder063",
+      "untrustedBody": "Every rac1-mods reference (index source and media address, mod homepages, READMEs, forms, tests and fixtures) now names openrac-mods.\nVerified: python3 -m unittest discover -s tools/tests passes; the shared fixture changed, so the site and launcher copies follow.",
+      "mergedAt": "2026-10-31T23:14:49Z"
+     },
+     {
+      "number": 20,
+      "title": "feat(bot): act as openrac-bot, the organization's GitHub App",
+      "author": "Lynder063",
+      "untrustedBody": "The submission, review, Discussions and broken-index jobs now act as openrac-bot (its name and logo, and its PRs start CI), each with a one-hour token scoped to that job; the default workflow token drops to read-only there.\nVerified: python3 -m unittest discover -s tools/tests passes, both workflows parse; actionlint and zizmor run in this PR's CI.",
+      "mergedAt": "2026-10-31T23:26:34Z"
+     }
+    ],
+    "opened": [
+     {
+      "number": 4,
+      "title": "fix(lock-strafe): keep L2 and R2 for hoverboard tricks",
+      "author": "Lynder063",
+      "untrustedBody": "The strafe mod turns off on the hoverboard (control mode 0x16), so L2 and R2 do tricks.\nIt turns back on when Ratchet gets off the board.\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)",
+      "mergedAt": "2026-10-31T09:31:30Z"
+     },
+     {
+      "number": 5,
+      "title": "feat(archipelago): Archipelago multiworld support",
+      "author": "Lynder063",
+      "untrustedBody": "Adds the archipelago mod: plays RAC1 in an Archipelago multiworld, beat Drek to finish.\nAdds rac1.apworld, built and tested in CI against Archipelago 0.6.8.\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)",
+      "mergedAt": "2026-10-31T11:15:41Z"
+     },
+     {
+      "number": 6,
+      "title": "fix(ci): put rac1.apworld in the release",
+      "author": "Lynder063",
+      "untrustedBody": "The merge job did not upload rac1.apworld, so releases missed it.\nIt now uploads dist/*.apworld with the zips.\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)",
+      "mergedAt": "2026-10-31T11:38:02Z"
+     },
+     {
+      "number": 7,
+      "title": "feat(index): signed mod index, submission bot and media pipeline",
+      "author": "Lynder063",
+      "untrustedBody": "Builds and signs index.json (the mod list openrac.dev and the launcher read) and publishes it on the index pre-release.\nAdds the submission issue forms and bot, picture pipeline, native cool-down and Discussions; tests: python3 -m unittest discover -s tools/tests.",
+      "mergedAt": "2026-10-31T22:03:10Z"
+     },
+     {
+      "number": 19,
+      "title": "chore: rename rac1-mods to openrac-mods",
+      "author": "Lynder063",
+      "untrustedBody": "Every rac1-mods reference (index source and media address, mod homepages, READMEs, forms, tests and fixtures) now names openrac-mods.\nVerified: python3 -m unittest discover -s tools/tests passes; the shared fixture changed, so the site and launcher copies follow.",
+      "mergedAt": "2026-10-31T23:14:49Z"
+     },
+     {
+      "number": 20,
+      "title": "feat(bot): act as openrac-bot, the organization's GitHub App",
+      "author": "Lynder063",
+      "untrustedBody": "The submission, review, Discussions and broken-index jobs now act as openrac-bot (its name and logo, and its PRs start CI), each with a one-hour token scoped to that job; the default workflow token drops to read-only there.\nVerified: python3 -m unittest discover -s tools/tests passes, both workflows parse; actionlint and zizmor run in this PR's CI.",
+      "mergedAt": "2026-10-31T23:26:34Z"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [
+    {
+     "tag": "archipelago-v1.0.0",
+     "name": "archipelago-v1.0.0",
+     "publishedAt": "2026-10-31T11:27:04Z"
+    },
+    {
+     "tag": "lock-strafe-v1.0.3",
+     "name": "lock-strafe-v1.0.3",
+     "publishedAt": "2026-10-31T09:42:36Z"
+    }
+   ],
+   "progress": null,
+   "contributors": [
+    "Lynder063"
+   ]
+  }
+ ]
+}

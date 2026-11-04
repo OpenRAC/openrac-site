@@ -1,0 +1,1491 @@
+{
+ "format": 1,
+ "date": "2026-10-11",
+ "totals": {
+  "commits": 118,
+  "pullRequestsMerged": 23,
+  "pullRequestsOpened": 19,
+  "contributors": 7
+ },
+ "projects": [
+  {
+   "repo": "OpenRAC",
+   "title": "OpenRAC launcher",
+   "branches": [
+    {
+     "name": "develop",
+     "commits": [
+      {
+       "sha": "c152b5a4f1c1b8218bf7fed6b10529ce7588bf0d",
+       "title": "feat(port): log the player's bolts while a level plays",
+       "author": "Lynder063",
+       "date": "2026-10-11T17:25:13Z"
+      },
+      {
+       "sha": "45a036fded64a9355ccc758e7328d3bebc6e3c21",
+       "title": "feat(launcher): Discord says Playing Ratchet & Clank, Exploring {planet}",
+       "author": "Lynder063",
+       "date": "2026-10-11T17:16:26Z"
+      },
+      {
+       "sha": "eb6c4ef7609f3658b2854b581d15620fc025fed0",
+       "title": "feat(port): the 2D layer's textured quads drawn natively, behind OpenGL",
+       "author": "Veradictus",
+       "date": "2026-10-11T16:53:29Z"
+      },
+      {
+       "sha": "240cd80ba13c3271b120649f2f1a1771493056dd",
+       "title": "style(launcher): rustfmt the Discord, saves and play-job code",
+       "author": "Lynder063",
+       "date": "2026-10-11T16:48:03Z"
+      },
+      {
+       "sha": "37d55ae5398b914979577fa98b351dc67754b0eb",
+       "title": "fix(viewer): draw mobys with their rotation rows, as MobyProc does",
+       "author": "Veradictus",
+       "date": "2026-10-11T16:44:29Z"
+      },
+      {
+       "sha": "82a3c14c7991d5a0315650bc3eb3eae671a80a05",
+       "title": "fix(rac1): sync the first-person camera init from rac1-decomp",
+       "author": "Veradictus",
+       "date": "2026-10-11T16:37:51Z"
+      },
+      {
+       "sha": "8425cf4751152e5616ca15e7eeb595c9379d2c5e",
+       "title": "fix(rac1-pal): sqrt and rsqrt take the magnitude, as on the EE and VU0",
+       "author": "Veradictus",
+       "date": "2026-10-11T16:10:50Z"
+      },
+      {
+       "sha": "4231248e3a4ba9254d80311e515cd8b4491fee93",
+       "title": "fix(port): the camera's quaternion blend and its matrix as hand C",
+       "author": "Veradictus",
+       "date": "2026-10-11T15:46:07Z"
+      },
+      {
+       "sha": "7dddb1275381d102edf5375e38c53e1748d0b72b",
+       "title": "feat(launcher): Discord on Windows, links, time per planet, set-up and build status",
+       "author": "Lynder063",
+       "date": "2026-10-11T12:32:26Z"
+      },
+      {
+       "sha": "8c8f77b2478ec8cea5c91bd5913f0153de3d0b45",
+       "title": "feat(port): music and speech, the game's VAG streams played from the disc",
+       "author": "Lynder063",
+       "date": "2026-10-11T12:14:15Z"
+      },
+      {
+       "sha": "c641a49f8e01d3c3d3a138e3b8152118ea95dc26",
+       "title": "feat(launcher): Discord shows the planet being played",
+       "author": "Lynder063",
+       "date": "2026-10-11T12:07:18Z"
+      },
+      {
+       "sha": "43ae0a8f9bd75982c5e4b9b1f084ba089bd7d04f",
+       "title": "feat(port): game sound effects through the port's sound engine",
+       "author": "Lynder063",
+       "date": "2026-10-11T12:02:10Z"
+      },
+      {
+       "sha": "8e53640db4430c78d270834f14b66ef45d55d9fc",
+       "title": "feat(renderer): build the tfrag and tie world renderers by default, with tests",
+       "author": "Lynder063",
+       "date": "2026-10-11T11:48:57Z"
+      },
+      {
+       "sha": "639d7d760e3683a9301818c1ef642a03a61c6642",
+       "title": "build(port): use mold or lld, and ccache, on Linux when installed",
+       "author": "Lynder063",
+       "date": "2026-10-11T11:43:43Z"
+      },
+      {
+       "sha": "d3e047ba2fc0285d2e0b45aaccbf07d441036537",
+       "title": "feat(launcher): enable native Play action on Linux for rac1/pal",
+       "author": "Lynder063",
+       "date": "2026-10-11T11:41:48Z"
+      },
+      {
+       "sha": "ae3e2dda550fe0eeedcb7c86d19bf54c5f22068a",
+       "title": "fix(launcher): eliminate discord rpc error spam and deduplicate socket symlinks",
+       "author": "Lynder063",
+       "date": "2026-10-11T11:41:48Z"
+      },
+      {
+       "sha": "181e6291b95558f74ec28295c549233e27471a81",
+       "title": "fix(hostgen): asm labels on wrapped declarations and on the earlier of two",
+       "author": "Veradictus",
+       "date": "2026-10-11T03:35:07Z"
+      }
+     ]
+    },
+    {
+     "name": "master",
+     "commits": [
+      {
+       "sha": "c152b5a4f1c1b8218bf7fed6b10529ce7588bf0d",
+       "title": "feat(port): log the player's bolts while a level plays",
+       "author": "Lynder063",
+       "date": "2026-10-11T17:25:13Z"
+      },
+      {
+       "sha": "45a036fded64a9355ccc758e7328d3bebc6e3c21",
+       "title": "feat(launcher): Discord says Playing Ratchet & Clank, Exploring {planet}",
+       "author": "Lynder063",
+       "date": "2026-10-11T17:16:26Z"
+      },
+      {
+       "sha": "eb6c4ef7609f3658b2854b581d15620fc025fed0",
+       "title": "feat(port): the 2D layer's textured quads drawn natively, behind OpenGL",
+       "author": "Veradictus",
+       "date": "2026-10-11T16:53:29Z"
+      },
+      {
+       "sha": "240cd80ba13c3271b120649f2f1a1771493056dd",
+       "title": "style(launcher): rustfmt the Discord, saves and play-job code",
+       "author": "Lynder063",
+       "date": "2026-10-11T16:48:03Z"
+      },
+      {
+       "sha": "37d55ae5398b914979577fa98b351dc67754b0eb",
+       "title": "fix(viewer): draw mobys with their rotation rows, as MobyProc does",
+       "author": "Veradictus",
+       "date": "2026-10-11T16:44:29Z"
+      },
+      {
+       "sha": "82a3c14c7991d5a0315650bc3eb3eae671a80a05",
+       "title": "fix(rac1): sync the first-person camera init from rac1-decomp",
+       "author": "Veradictus",
+       "date": "2026-10-11T16:37:51Z"
+      },
+      {
+       "sha": "8425cf4751152e5616ca15e7eeb595c9379d2c5e",
+       "title": "fix(rac1-pal): sqrt and rsqrt take the magnitude, as on the EE and VU0",
+       "author": "Veradictus",
+       "date": "2026-10-11T16:10:50Z"
+      },
+      {
+       "sha": "4231248e3a4ba9254d80311e515cd8b4491fee93",
+       "title": "fix(port): the camera's quaternion blend and its matrix as hand C",
+       "author": "Veradictus",
+       "date": "2026-10-11T15:46:07Z"
+      },
+      {
+       "sha": "7dddb1275381d102edf5375e38c53e1748d0b72b",
+       "title": "feat(launcher): Discord on Windows, links, time per planet, set-up and build status",
+       "author": "Lynder063",
+       "date": "2026-10-11T12:32:26Z"
+      },
+      {
+       "sha": "8c8f77b2478ec8cea5c91bd5913f0153de3d0b45",
+       "title": "feat(port): music and speech, the game's VAG streams played from the disc",
+       "author": "Lynder063",
+       "date": "2026-10-11T12:14:15Z"
+      },
+      {
+       "sha": "c641a49f8e01d3c3d3a138e3b8152118ea95dc26",
+       "title": "feat(launcher): Discord shows the planet being played",
+       "author": "Lynder063",
+       "date": "2026-10-11T12:07:18Z"
+      },
+      {
+       "sha": "43ae0a8f9bd75982c5e4b9b1f084ba089bd7d04f",
+       "title": "feat(port): game sound effects through the port's sound engine",
+       "author": "Lynder063",
+       "date": "2026-10-11T12:02:10Z"
+      },
+      {
+       "sha": "8e53640db4430c78d270834f14b66ef45d55d9fc",
+       "title": "feat(renderer): build the tfrag and tie world renderers by default, with tests",
+       "author": "Lynder063",
+       "date": "2026-10-11T11:48:57Z"
+      },
+      {
+       "sha": "639d7d760e3683a9301818c1ef642a03a61c6642",
+       "title": "build(port): use mold or lld, and ccache, on Linux when installed",
+       "author": "Lynder063",
+       "date": "2026-10-11T11:43:43Z"
+      },
+      {
+       "sha": "d3e047ba2fc0285d2e0b45aaccbf07d441036537",
+       "title": "feat(launcher): enable native Play action on Linux for rac1/pal",
+       "author": "Lynder063",
+       "date": "2026-10-11T11:41:48Z"
+      },
+      {
+       "sha": "ae3e2dda550fe0eeedcb7c86d19bf54c5f22068a",
+       "title": "fix(launcher): eliminate discord rpc error spam and deduplicate socket symlinks",
+       "author": "Lynder063",
+       "date": "2026-10-11T11:41:48Z"
+      },
+      {
+       "sha": "181e6291b95558f74ec28295c549233e27471a81",
+       "title": "fix(hostgen): asm labels on wrapped declarations and on the earlier of two",
+       "author": "Veradictus",
+       "date": "2026-10-11T03:35:07Z"
+      }
+     ]
+    }
+   ],
+   "commitCount": 17,
+   "pullRequests": {
+    "merged": [
+     {
+      "number": 6,
+      "title": "feat(port): the 2D layer's textured quads drawn natively, behind OpenGL",
+      "author": "Veradictus",
+      "untrustedBody": "Moving the UI elements off from the graphic synthesizes Frankenstein to the OpenGL native renderer.",
+      "mergedAt": "2026-10-11T16:53:30Z"
+     }
+    ],
+    "opened": [
+     {
+      "number": 6,
+      "title": "feat(port): the 2D layer's textured quads drawn natively, behind OpenGL",
+      "author": "Veradictus",
+      "untrustedBody": "Moving the UI elements off from the graphic synthesizes Frankenstein to the OpenGL native renderer.",
+      "mergedAt": "2026-10-11T16:53:30Z"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": null,
+   "contributors": [
+    "Lynder063",
+    "Veradictus"
+   ]
+  },
+  {
+   "repo": "rac1-decomp",
+   "title": "Ratchet & Clank",
+   "branches": [
+    {
+     "name": "main",
+     "commits": [
+      {
+       "sha": "ae2da5f22dbbbc3143ca6aabdd50a8d118c4814e",
+       "title": "chore(report): 4,225 of 5,109 functions",
+       "author": "Lynder063",
+       "date": "2026-10-11T19:54:22Z"
+      },
+      {
+       "sha": "e83c69ec637983d2e985f169c0dd0a8716f33f90",
+       "title": "vendor_00312BD8.c: func_L11_00319510 exact match",
+       "author": "Lynder063",
+       "date": "2026-10-11T19:52:40Z"
+      },
+      {
+       "sha": "678c1a6c2b716d602abdaa6ef7f3787779419a7c",
+       "title": "vendor_002B9438.c: func_L08_002DF758 exact match",
+       "author": "Lynder063",
+       "date": "2026-10-11T19:50:55Z"
+      },
+      {
+       "sha": "ee2fa1521040691f2b734b0dca2d22d189388714",
+       "title": "vendor_002E0538.c: func_L14_002F24C8 exact match",
+       "author": "Lynder063",
+       "date": "2026-10-11T19:48:58Z"
+      },
+      {
+       "sha": "d788f43c78171a441af5e5c7476d759ff1cc3943",
+       "title": "vendor_002ACCC0.c: func_L14_002DF5F8 exact match",
+       "author": "Lynder063",
+       "date": "2026-10-11T19:47:07Z"
+      },
+      {
+       "sha": "dc7b22e42d1f613def569d2c357bd43c911b89ba",
+       "title": "chore(report): 4,221 of 5,109 functions",
+       "author": "Lynder063",
+       "date": "2026-10-11T19:39:31Z"
+      },
+      {
+       "sha": "8bb1da5e08a6e1d5cc4ca2d194ca16c03745c8fb",
+       "title": "sound.c: func_0022DBE8 exact match",
+       "author": "Lynder063",
+       "date": "2026-10-11T19:24:09Z"
+      },
+      {
+       "sha": "f33964c1a30c3e0b46544a551cd56a776833d2d3",
+       "title": "refactor(overlays): include/moby.h in place of anonymous moby copies",
+       "author": "Lynder063",
+       "date": "2026-10-11T19:08:17Z"
+      },
+      {
+       "sha": "30734ab66e9b7d2a3db52aed401cab0347bdec36",
+       "title": "refactor(overlays): hero views named *Player become struct Hero",
+       "author": "Lynder063",
+       "date": "2026-10-11T19:08:17Z"
+      },
+      {
+       "sha": "eb79fba207cf85f3a6c50bab6132730089537d3a",
+       "title": "refactor(overlays): include/pad.h in place of private pad copies",
+       "author": "Lynder063",
+       "date": "2026-10-11T19:06:00Z"
+      },
+      {
+       "sha": "9152ff49c55b0bde1d96b1cdddd171ffa0de44b6",
+       "title": "refactor(include): shared controller state, from Lombyte",
+       "author": "Lynder063",
+       "date": "2026-10-11T19:06:00Z"
+      },
+      {
+       "sha": "65676a1f8f4e4275ce5fcdcdf52462a2b3bdbb02",
+       "title": "refactor(game): shared Hero and Vec4 in sound.c and space.c",
+       "author": "Lynder063",
+       "date": "2026-10-11T19:03:22Z"
+      },
+      {
+       "sha": "26db96845bccef7584cc071850f73b8c23da67a7",
+       "title": "refactor(overlays): include/vector.h in place of private Vec4f copies",
+       "author": "Lynder063",
+       "date": "2026-10-11T19:00:05Z"
+      },
+      {
+       "sha": "e98e43269a5c53a9c372f34fa7946c1cbd67e6f9",
+       "title": "refactor(include): Vec4f moves to vector.h, which moby.h includes",
+       "author": "Lynder063",
+       "date": "2026-10-11T18:58:38Z"
+      },
+      {
+       "sha": "5205827fa27584436789f098d58cb62376f751ee",
+       "title": "refactor(overlays): drop quadword typedefs nothing uses",
+       "author": "Lynder063",
+       "date": "2026-10-11T18:55:40Z"
+      },
+      {
+       "sha": "65e21103747df6ea21f6852ae1bc76ceba3047c5",
+       "title": "refactor(overlays): include/vector.h in place of private Vec4 copies, shared",
+       "author": "Lynder063",
+       "date": "2026-10-11T18:54:22Z"
+      },
+      {
+       "sha": "a9abf968d9bd730700433bc31c77445da714c19b",
+       "title": "refactor(overlays): include/vector.h in place of private Vec4 copies, l18_veldin2",
+       "author": "Lynder063",
+       "date": "2026-10-11T18:54:22Z"
+      },
+      {
+       "sha": "1b1c459e96b9b3c589419e5aa69b162156f3ce8e",
+       "title": "refactor(overlays): include/vector.h in place of private Vec4 copies, l17_fleet",
+       "author": "Lynder063",
+       "date": "2026-10-11T18:54:22Z"
+      },
+      {
+       "sha": "640e99c06dec68c81d977e2953c8cd3fc48e854e",
+       "title": "refactor(overlays): include/vector.h in place of private Vec4 copies, l16_kalebo3",
+       "author": "Lynder063",
+       "date": "2026-10-11T18:54:22Z"
+      },
+      {
+       "sha": "f78db073815d0a73099dcc50590d0c1b94feab12",
+       "title": "refactor(overlays): include/vector.h in place of private Vec4 copies, l15_quartu",
+       "author": "Lynder063",
+       "date": "2026-10-11T18:54:21Z"
+      },
+      {
+       "sha": "9cd8ae6359260a38b600991bddb449e339f8061d",
+       "title": "refactor(overlays): include/vector.h in place of private Vec4 copies, l14_oltanis",
+       "author": "Lynder063",
+       "date": "2026-10-11T18:54:21Z"
+      },
+      {
+       "sha": "b0abb6ae1f07ab9eb46f2873afdc9b5feaa2bcc6",
+       "title": "refactor(overlays): include/vector.h in place of private Vec4 copies, l12_hoven",
+       "author": "Lynder063",
+       "date": "2026-10-11T18:54:21Z"
+      },
+      {
+       "sha": "57dbca3bcd925b0b8217c29d16c76930cbe4ec0b",
+       "title": "refactor(overlays): include/vector.h in place of private Vec4 copies, l11_pokitaru",
+       "author": "Lynder063",
+       "date": "2026-10-11T18:54:21Z"
+      },
+      {
+       "sha": "36bef348bb81ec7614c80f8f6c190d87ab5a4742",
+       "title": "refactor(overlays): include/vector.h in place of private Vec4 copies, l10_orxon",
+       "author": "Lynder063",
+       "date": "2026-10-11T18:54:21Z"
+      },
+      {
+       "sha": "68a67d9b0d828990b89fbb834e9d84c8f5418981",
+       "title": "refactor(overlays): include/vector.h in place of private Vec4 copies, l09_gaspar",
+       "author": "Lynder063",
+       "date": "2026-10-11T18:54:21Z"
+      },
+      {
+       "sha": "38f257913efc6523ef52d487e4324f4c6fa95d0f",
+       "title": "refactor(overlays): include/vector.h in place of private Vec4 copies, l08_batalia",
+       "author": "Lynder063",
+       "date": "2026-10-11T18:54:21Z"
+      },
+      {
+       "sha": "8b5b5517bbe812d3f661ed52d2f6025016477bda",
+       "title": "refactor(overlays): include/vector.h in place of private Vec4 copies, l07_umbris",
+       "author": "Lynder063",
+       "date": "2026-10-11T18:54:21Z"
+      },
+      {
+       "sha": "d304bed73d988599b80305d4403bcf40b17edef4",
+       "title": "refactor(overlays): include/vector.h in place of private Vec4 copies, l06_blarg",
+       "author": "Lynder063",
+       "date": "2026-10-11T18:54:21Z"
+      },
+      {
+       "sha": "f10a004d7d28bd341cdee762bd75bf150ef6bf20",
+       "title": "refactor(overlays): include/vector.h in place of private Vec4 copies, l05_rilgar",
+       "author": "Lynder063",
+       "date": "2026-10-11T18:54:21Z"
+      },
+      {
+       "sha": "23eb40d36bdadcf0ddeee34596a65417be8c7e95",
+       "title": "refactor(overlays): include/vector.h in place of private Vec4 copies, l04_eudora",
+       "author": "Lynder063",
+       "date": "2026-10-11T18:54:21Z"
+      },
+      {
+       "sha": "eb2a10aa6ee0551eb198c96682d5c39bd221553f",
+       "title": "refactor(overlays): include/vector.h in place of private Vec4 copies, l02_aridia",
+       "author": "Lynder063",
+       "date": "2026-10-11T18:54:21Z"
+      },
+      {
+       "sha": "8998500b59fe19e12c64a069830bf0e4aaf638cc",
+       "title": "refactor(overlays): include/vector.h in place of private Vec4 copies, l01_novalis",
+       "author": "Lynder063",
+       "date": "2026-10-11T18:54:21Z"
+      },
+      {
+       "sha": "d036d243b70d60636ea7b44c0c22f99a541324e1",
+       "title": "refactor(overlays): include/vector.h in place of private Vec4 copies, l00_veldin1",
+       "author": "Lynder063",
+       "date": "2026-10-11T18:54:21Z"
+      },
+      {
+       "sha": "a7940857fdd5074518e856aa5de284e60b8bbd13",
+       "title": "refactor(overlays): the hero in loaders_00240398.c is struct Hero",
+       "author": "Lynder063",
+       "date": "2026-10-11T18:50:03Z"
+      },
+      {
+       "sha": "c6f40359d8cb8efb834d9a2a0a425a75c98f8bba",
+       "title": "refactor(overlays): the hero in vendor_00293720.c is struct Hero",
+       "author": "Lynder063",
+       "date": "2026-10-11T18:48:32Z"
+      },
+      {
+       "sha": "7e98880e91c9736c65fc98a411d667688a5b1dbf",
+       "title": "refactor(overlays): include/hero.h in vendor_002C12B0.c",
+       "author": "Lynder063",
+       "date": "2026-10-11T18:46:53Z"
+      },
+      {
+       "sha": "71780e646ab55d3b6457c8b3f9f867ab2a07be1e",
+       "title": "refactor(hero): name more item-slot fields, read retyped fields by value",
+       "author": "Lynder063",
+       "date": "2026-10-11T18:45:16Z"
+      },
+      {
+       "sha": "5b305a2130e9450bc5beea3e6761707dc8e04408",
+       "title": "refactor(overlays): include/hero.h in more files, shared",
+       "author": "Lynder063",
+       "date": "2026-10-11T18:40:50Z"
+      },
+      {
+       "sha": "fbcac7eb0e5e9b03fecb41fd45a99c795a455e2b",
+       "title": "refactor(overlays): include/hero.h in more files, l18_veldin2",
+       "author": "Lynder063",
+       "date": "2026-10-11T18:40:50Z"
+      },
+      {
+       "sha": "a90ef82a7d82277be8d7c68caa9a0a416e91fd4c",
+       "title": "refactor(overlays): include/hero.h in more files, l17_fleet",
+       "author": "Lynder063",
+       "date": "2026-10-11T18:40:50Z"
+      },
+      {
+       "sha": "bab41aaef2f27ed5feba5eb3f5793599dc82bc67",
+       "title": "refactor(overlays): include/hero.h in more files, l16_kalebo3",
+       "author": "Lynder063",
+       "date": "2026-10-11T18:40:50Z"
+      },
+      {
+       "sha": "5ad46787aa7feb8d7a57abbcd92b49cd44bacc0e",
+       "title": "refactor(overlays): include/hero.h in more files, l15_quartu",
+       "author": "Lynder063",
+       "date": "2026-10-11T18:40:50Z"
+      },
+      {
+       "sha": "aa7262c397f8c479b0ae09f38bb3815d9c8ee5f2",
+       "title": "refactor(overlays): include/hero.h in more files, l14_oltanis",
+       "author": "Lynder063",
+       "date": "2026-10-11T18:40:50Z"
+      },
+      {
+       "sha": "4b69a37419620bea73e4367696cefecb2f9d2ec7",
+       "title": "refactor(overlays): include/hero.h in more files, l11_pokitaru",
+       "author": "Lynder063",
+       "date": "2026-10-11T18:40:50Z"
+      },
+      {
+       "sha": "fbd7b9da8686c9cefe6402ac4dd098e7a7c2b6a6",
+       "title": "refactor(overlays): include/hero.h in more files, l10_orxon",
+       "author": "Lynder063",
+       "date": "2026-10-11T18:40:50Z"
+      },
+      {
+       "sha": "4cd8998cfaba3d13871fe2c7e714a2f54c0c4597",
+       "title": "refactor(overlays): include/hero.h in more files, l08_batalia",
+       "author": "Lynder063",
+       "date": "2026-10-11T18:40:50Z"
+      },
+      {
+       "sha": "030c5ba7d4aac8287e223ca957c9769fd20a766b",
+       "title": "refactor(overlays): include/hero.h in more files, l06_blarg",
+       "author": "Lynder063",
+       "date": "2026-10-11T18:40:50Z"
+      },
+      {
+       "sha": "475a423f1319e4f5fe6a98524942afe0f060c604",
+       "title": "refactor(overlays): include/hero.h in more files, l05_rilgar",
+       "author": "Lynder063",
+       "date": "2026-10-11T18:40:50Z"
+      },
+      {
+       "sha": "af71a7803e98533a30592e3ce1c29f9ad8c7b85a",
+       "title": "refactor(overlays): include/hero.h in more files, l03_kerwan",
+       "author": "Lynder063",
+       "date": "2026-10-11T18:40:50Z"
+      },
+      {
+       "sha": "2f331e0adb0df32de486cba8a03f26a7ccf1d1ef",
+       "title": "refactor(overlays): include/hero.h in more files, shared",
+       "author": "Lynder063",
+       "date": "2026-10-11T18:37:35Z"
+      },
+      {
+       "sha": "710db2ea2e7d4da499359bbe1acc8dc4bc6e01d5",
+       "title": "refactor(hero): name the hero fields matched code uses",
+       "author": "Lynder063",
+       "date": "2026-10-11T18:37:35Z"
+      },
+      {
+       "sha": "a8d22a247c25e47c9681b8ec5d1d63728355bfe0",
+       "title": "refactor(overlays): include/hero.h in the hero update files, shared",
+       "author": "Lynder063",
+       "date": "2026-10-11T18:30:22Z"
+      },
+      {
+       "sha": "75c84ac9fb12245f946f5f0a42b8d6a823b66e05",
+       "title": "refactor(overlays): include/hero.h in the hero update files, l18_veldin2",
+       "author": "Lynder063",
+       "date": "2026-10-11T18:30:22Z"
+      },
+      {
+       "sha": "e6799d1e10d5dc45ea5f6d2d2179ceb7d5520ae7",
+       "title": "refactor(overlays): include/hero.h in the hero update files, l17_fleet",
+       "author": "Lynder063",
+       "date": "2026-10-11T18:30:22Z"
+      },
+      {
+       "sha": "d9ff93b3350735dfa750b739c2e733e7335aae8b",
+       "title": "refactor(overlays): include/hero.h in the hero update files, l16_kalebo3",
+       "author": "Lynder063",
+       "date": "2026-10-11T18:30:22Z"
+      },
+      {
+       "sha": "87ef9641b0accceb0e2b7fa85787bbff8109e9c5",
+       "title": "refactor(overlays): include/hero.h in the hero update files, l15_quartu",
+       "author": "Lynder063",
+       "date": "2026-10-11T18:30:22Z"
+      },
+      {
+       "sha": "382fbf6a80457999bfeeb4ec7c66cc0e79bcc264",
+       "title": "refactor(overlays): include/hero.h in the hero update files, l14_oltanis",
+       "author": "Lynder063",
+       "date": "2026-10-11T18:30:22Z"
+      },
+      {
+       "sha": "87a519c353184a3563e446d293de7543e907ffa6",
+       "title": "refactor(overlays): include/hero.h in the hero update files, l12_hoven",
+       "author": "Lynder063",
+       "date": "2026-10-11T18:30:22Z"
+      },
+      {
+       "sha": "9c5f182688e5e732c257ed0b2e4c0f110e88bb8f",
+       "title": "refactor(overlays): include/hero.h in the hero update files, l11_pokitaru",
+       "author": "Lynder063",
+       "date": "2026-10-11T18:30:22Z"
+      },
+      {
+       "sha": "00959f6c6590c706e6c0dd70c290425e54523f5f",
+       "title": "refactor(overlays): include/hero.h in the hero update files, l08_batalia",
+       "author": "Lynder063",
+       "date": "2026-10-11T18:30:22Z"
+      },
+      {
+       "sha": "84351fd8b331a9937b1f4dd58003b97290acbf95",
+       "title": "refactor(overlays): include/hero.h in the hero update files, l06_blarg",
+       "author": "Lynder063",
+       "date": "2026-10-11T18:30:22Z"
+      },
+      {
+       "sha": "a2434236d2913a0b09a5a580ec90aeee890d4628",
+       "title": "refactor(overlays): include/hero.h in the hero update files, l05_rilgar",
+       "author": "Lynder063",
+       "date": "2026-10-11T18:30:22Z"
+      },
+      {
+       "sha": "3492300377b8c244d9c3ebbfe3710a969a65457d",
+       "title": "refactor(overlays): include/hero.h in the hero update files, l03_kerwan",
+       "author": "Lynder063",
+       "date": "2026-10-11T18:30:22Z"
+      },
+      {
+       "sha": "ed55795be3e9e1bfe7ed8431c9f4291b56dee2ac",
+       "title": "refactor(overlays): include/hero.h in the hero update files, l02_aridia",
+       "author": "Lynder063",
+       "date": "2026-10-11T18:30:22Z"
+      },
+      {
+       "sha": "3433cc939faa689e887c43646167ad7f02f586a0",
+       "title": "refactor(overlays): include/hero.h in the hero update files, l01_novalis",
+       "author": "Lynder063",
+       "date": "2026-10-11T18:30:22Z"
+      },
+      {
+       "sha": "d9b8a96b937c6ebf586422c7cca8492195814b1b",
+       "title": "refactor(overlays): include/hero.h in place of private hero copies, shared",
+       "author": "Lynder063",
+       "date": "2026-10-11T18:24:47Z"
+      },
+      {
+       "sha": "2c2dbedba9054a269989b71d6019756cf18af550",
+       "title": "refactor(overlays): include/hero.h in place of private hero copies, l18_veldin2",
+       "author": "Lynder063",
+       "date": "2026-10-11T18:24:47Z"
+      },
+      {
+       "sha": "2e5928574e56133ee7e19f9895264ed8578c012d",
+       "title": "refactor(overlays): include/hero.h in place of private hero copies, l15_quartu",
+       "author": "Lynder063",
+       "date": "2026-10-11T18:24:47Z"
+      },
+      {
+       "sha": "852b981880da818d5a0171d7ed9500cadeba1bfa",
+       "title": "refactor(overlays): include/hero.h in place of private hero copies, l14_oltanis",
+       "author": "Lynder063",
+       "date": "2026-10-11T18:24:47Z"
+      },
+      {
+       "sha": "a226eae68344ddf857b629ab7924523688d973d7",
+       "title": "refactor(overlays): include/hero.h in place of private hero copies, l13_gemlik",
+       "author": "Lynder063",
+       "date": "2026-10-11T18:24:47Z"
+      },
+      {
+       "sha": "82993ed1cfab2ece8a88cb3a691d5b3b2a8244b2",
+       "title": "refactor(overlays): include/hero.h in place of private hero copies, l12_hoven",
+       "author": "Lynder063",
+       "date": "2026-10-11T18:24:47Z"
+      },
+      {
+       "sha": "fd2eace8e50a369973d658f3c91d17fdfddc0257",
+       "title": "refactor(overlays): include/hero.h in place of private hero copies, l11_pokitaru",
+       "author": "Lynder063",
+       "date": "2026-10-11T18:24:47Z"
+      },
+      {
+       "sha": "89b45767700563fc255a6b94955ae9dd5d704ade",
+       "title": "refactor(overlays): include/hero.h in place of private hero copies, l10_orxon",
+       "author": "Lynder063",
+       "date": "2026-10-11T18:24:47Z"
+      },
+      {
+       "sha": "4c92977e9916694344d16a7bf92a4b56af00ba06",
+       "title": "refactor(overlays): include/hero.h in place of private hero copies, l09_gaspar",
+       "author": "Lynder063",
+       "date": "2026-10-11T18:24:47Z"
+      },
+      {
+       "sha": "0ee0441d5305ccfc0cb283c36a3ad961494c00d6",
+       "title": "refactor(overlays): include/hero.h in place of private hero copies, l08_batalia",
+       "author": "Lynder063",
+       "date": "2026-10-11T18:24:47Z"
+      },
+      {
+       "sha": "265cc3220002d5a510f87902169050a32dbb7375",
+       "title": "refactor(overlays): include/hero.h in place of private hero copies, l07_umbris",
+       "author": "Lynder063",
+       "date": "2026-10-11T18:24:47Z"
+      },
+      {
+       "sha": "a4189c1a92f9203d3592f9ef116972a49cc42cc5",
+       "title": "refactor(overlays): include/hero.h in place of private hero copies, l05_rilgar",
+       "author": "Lynder063",
+       "date": "2026-10-11T18:24:47Z"
+      },
+      {
+       "sha": "9ccadf1abbaa7400742ff15d04ff4261d0314d9d",
+       "title": "refactor(overlays): include/hero.h in place of private hero copies, l04_eudora",
+       "author": "Lynder063",
+       "date": "2026-10-11T18:24:47Z"
+      },
+      {
+       "sha": "2851a1eeaca3864b9a87621fc7e6dca1915de870",
+       "title": "refactor(overlays): include/hero.h in place of private hero copies, l03_kerwan",
+       "author": "Lynder063",
+       "date": "2026-10-11T18:24:47Z"
+      },
+      {
+       "sha": "567b9cfd1ca6099f6af1148f068a1d29c3329e59",
+       "title": "refactor(overlays): include/hero.h in place of private hero copies, l02_aridia",
+       "author": "Lynder063",
+       "date": "2026-10-11T18:24:47Z"
+      },
+      {
+       "sha": "484b8e09ae0b8fcde6bc8659e50c33a21afed2df",
+       "title": "refactor(overlays): include/hero.h in place of private hero copies, l01_novalis",
+       "author": "Lynder063",
+       "date": "2026-10-11T18:24:47Z"
+      },
+      {
+       "sha": "1257130f86fd06df32e34aef6cf17d95e3e270fe",
+       "title": "refactor(include): shared hero structs and the 16-byte vector, from Lombyte",
+       "author": "Lynder063",
+       "date": "2026-10-11T18:24:47Z"
+      },
+      {
+       "sha": "7644c67f24b2d452d48607a3573730adf598ae0e",
+       "title": "refactor(overlays): include/moby.h in place of 58 private moby copies, shared (20 files)",
+       "author": "Lynder063",
+       "date": "2026-10-11T18:07:22Z"
+      },
+      {
+       "sha": "44fb6f97df2bddc2fd1171cbfb2a2a017e82a8a3",
+       "title": "refactor(overlays): include/moby.h in place of 5 private moby copies, l18_veldin2 (1 file)",
+       "author": "Lynder063",
+       "date": "2026-10-11T18:07:22Z"
+      },
+      {
+       "sha": "63a8101f8d9b76115319e42a0ff4dfe393827fdb",
+       "title": "refactor(overlays): include/moby.h in place of 1 private moby copies, l16_kalebo3 (1 file)",
+       "author": "Lynder063",
+       "date": "2026-10-11T18:07:22Z"
+      },
+      {
+       "sha": "f349b27875b4e643d69b3be6ce5918b488df6cca",
+       "title": "refactor(overlays): include/moby.h in place of 11 private moby copies, l15_quartu (4 files)",
+       "author": "Lynder063",
+       "date": "2026-10-11T18:07:22Z"
+      },
+      {
+       "sha": "0ec1fb5525222d4afe3ebff4713152b6aace5441",
+       "title": "refactor(overlays): include/moby.h in place of 12 private moby copies, l14_oltanis (4 files)",
+       "author": "Lynder063",
+       "date": "2026-10-11T18:07:22Z"
+      },
+      {
+       "sha": "07970a1f187cb4c31a96fb60ccafbe6720ce1936",
+       "title": "refactor(overlays): include/moby.h in place of 16 private moby copies, l13_gemlik (3 files)",
+       "author": "Lynder063",
+       "date": "2026-10-11T18:07:22Z"
+      },
+      {
+       "sha": "035e6711f66a9e6d86b7883764e6432e76fbca1b",
+       "title": "refactor(overlays): include/moby.h in place of 6 private moby copies, l12_hoven (4 files)",
+       "author": "Lynder063",
+       "date": "2026-10-11T18:07:22Z"
+      },
+      {
+       "sha": "8dd5d8cd26a946566e1acdf44a9297a70d2364c9",
+       "title": "refactor(overlays): include/moby.h in place of 8 private moby copies, l11_pokitaru (1 file)",
+       "author": "Lynder063",
+       "date": "2026-10-11T18:07:22Z"
+      },
+      {
+       "sha": "8890835284a4442ac7d70f4e7e0559db2978e69b",
+       "title": "refactor(overlays): include/moby.h in place of 7 private moby copies, l10_orxon (2 files)",
+       "author": "Lynder063",
+       "date": "2026-10-11T18:07:22Z"
+      },
+      {
+       "sha": "85f568e4310e6b2c630f788ac7c4cf7e99bd20a3",
+       "title": "refactor(overlays): include/moby.h in place of 4 private moby copies, l08_batalia (2 files)",
+       "author": "Lynder063",
+       "date": "2026-10-11T18:07:22Z"
+      },
+      {
+       "sha": "6cefcef1a074d3de5d8e1715a8ccbe1317331379",
+       "title": "refactor(overlays): include/moby.h in place of 11 private moby copies, l07_umbris (1 file)",
+       "author": "Lynder063",
+       "date": "2026-10-11T18:07:22Z"
+      },
+      {
+       "sha": "bd3591954cede20c13514f059dad7012476f1813",
+       "title": "refactor(overlays): include/moby.h in place of 8 private moby copies, l06_blarg (2 files)",
+       "author": "Lynder063",
+       "date": "2026-10-11T18:07:22Z"
+      },
+      {
+       "sha": "539b112a0de4627b1054ed5c1cc64a2789b97d59",
+       "title": "refactor(overlays): include/moby.h in place of 8 private moby copies, l05_rilgar (2 files)",
+       "author": "Lynder063",
+       "date": "2026-10-11T18:07:22Z"
+      },
+      {
+       "sha": "2ee329466fd1c86150b99960cd2eb720f17037b1",
+       "title": "refactor(overlays): include/moby.h in place of 1 private moby copies, l04_eudora (1 file)",
+       "author": "Lynder063",
+       "date": "2026-10-11T18:07:22Z"
+      },
+      {
+       "sha": "dc8096740f41caa00d0bf85bb9086024f6d9ced3",
+       "title": "refactor(overlays): include/moby.h in place of 1 private moby copies, l03_kerwan (1 file)",
+       "author": "Lynder063",
+       "date": "2026-10-11T18:07:22Z"
+      },
+      {
+       "sha": "3901076c40328f6b081fd3bd9c8ce37409792d73",
+       "title": "refactor(overlays): include/moby.h in place of 5 private moby copies, l02_aridia (1 file)",
+       "author": "Lynder063",
+       "date": "2026-10-11T18:07:22Z"
+      },
+      {
+       "sha": "1e7ac253b73d77ea3235953eb8050dada69616c6",
+       "title": "refactor(overlays): include/moby.h in place of 8 private moby copies, l01_novalis (3 files)",
+       "author": "Lynder063",
+       "date": "2026-10-11T18:07:22Z"
+      },
+      {
+       "sha": "668bf60a9af86af6fdc2fb4f1644665c4a94b3a8",
+       "title": "refactor(moby): name the moby words at 0x80, 0x86, 0xB1 and 0xB6",
+       "author": "Lynder063",
+       "date": "2026-10-11T18:07:06Z"
+      },
+      {
+       "sha": "cf5e8ad6dc972bd3768ce290d2584c5d03a0ae7e",
+       "title": "Merge pull request #48 from Veradictus/main",
+       "author": "Veradictus",
+       "date": "2026-10-11T16:47:36Z"
+      }
+     ]
+    }
+   ],
+   "commitCount": 101,
+   "pullRequests": {
+    "merged": [
+     {
+      "number": 48,
+      "title": "Five more matches (4,220 of 5,109) and a first-person camera fix for the port",
+      "author": "Veradictus",
+      "untrustedBody": "Five more functions match, and one matched function gets its argument back.\n\n## Matches\n\n| Function | File | How |\n|---|---|---|\n| `func_L00_001EB508` | `src/overlays/shared/camera_001EB508.c` | staged candidate, already exact |\n| `func_L11_002D21F0` | `src/overlays/l11_pokitaru/vendor_002CC828.c` | the near miss, with the vertical speed computed in two steps |\n| `func_0011B4C8` | `src/core/00119D88.c` | an old attempt in `build-sn/try` that was already exact |\n| `func_L15_002ED420` | `src/overlays/l15_quartu/vendor_0029C1D0.c` | same |\n\nProgress: 4,215 → 4,220 of 5,109 functions, 78.51% → 78.59% of code. `progress/report.json` is regenerated in its own commits.\n\n## Fix: `ActivateCamera_4` passes its camera on\n\n`func_L00_002EBC50`, the first-person camera's init, called `func_L00_002EB3A0()` with no arguments. On the console that works because the camera record is still in `$a0`. Anything that runs the C anywhere else gets garbage there instead. The function now takes `char *cam` and p",
+      "mergedAt": "2026-10-11T16:47:36Z"
+     }
+    ],
+    "opened": [
+     {
+      "number": 48,
+      "title": "Five more matches (4,220 of 5,109) and a first-person camera fix for the port",
+      "author": "Veradictus",
+      "untrustedBody": "Five more functions match, and one matched function gets its argument back.\n\n## Matches\n\n| Function | File | How |\n|---|---|---|\n| `func_L00_001EB508` | `src/overlays/shared/camera_001EB508.c` | staged candidate, already exact |\n| `func_L11_002D21F0` | `src/overlays/l11_pokitaru/vendor_002CC828.c` | the near miss, with the vertical speed computed in two steps |\n| `func_0011B4C8` | `src/core/00119D88.c` | an old attempt in `build-sn/try` that was already exact |\n| `func_L15_002ED420` | `src/overlays/l15_quartu/vendor_0029C1D0.c` | same |\n\nProgress: 4,215 → 4,220 of 5,109 functions, 78.51% → 78.59% of code. `progress/report.json` is regenerated in its own commits.\n\n## Fix: `ActivateCamera_4` passes its camera on\n\n`func_L00_002EBC50`, the first-person camera's init, called `func_L00_002EB3A0()` with no arguments. On the console that works because the camera record is still in `$a0`. Anything that runs the C anywhere else gets garbage there instead. The function now takes `char *cam` and p",
+      "mergedAt": "2026-10-11T16:47:36Z"
+     },
+     {
+      "number": 49,
+      "title": "Match func_L00_001F5C60 (debug menu draw, 4,884 bytes)",
+      "author": "dev-gian",
+      "untrustedBody": "`func_L00_001F5C60` matched byte-for-byte, in one commit. It is the largest function matched so far: 4,884 bytes, the debug menu draw in `src/overlays/shared/draw_001F3A78.c`.\n\nMatched code goes from 78.629% to 78.760% (4,225 to 4,226 functions).\n\nHow it was found: the staged near miss in `nonmatching/shared/` was one byte off. decomp-permuter (via `tools/permuter_setup.py`) found a change that closes it, and I applied only that change to the readable source, with proper names:\n\n- the format-string pointer `D_L00_0015F1D8` is cached in a local (`fmt`) on its first use in the ammo block, and later calls reuse it;\n- the constant `16` in `D_0015EE84 * 16` is held in a local (`stride`).\n\nThe `volatile` global is the spin on a hardware status flag (`while (D_L00_00161260 & 1) {}`); without it the loop is removed and the size is wrong (4,900 against 4,884).\n\nVerification, on top of current upstream `main` (`ae2da5f2`, no newer commits when this was opened):\n- `build_sn.sh` with the Linux `ee",
+      "mergedAt": "2026-10-12T10:01:19Z"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": {
+    "before": {
+     "code": {
+      "done": 2914880,
+      "total": 3712808
+     },
+     "functions": {
+      "done": 4215,
+      "total": 5109
+     }
+    },
+    "after": {
+     "code": {
+      "done": 2919340,
+      "total": 3712808
+     },
+     "functions": {
+      "done": 4225,
+      "total": 5109
+     }
+    }
+   },
+   "contributors": [
+    "dev-gian",
+    "Lynder063",
+    "Veradictus"
+   ]
+  },
+  {
+   "repo": "rac2-decomp",
+   "title": "Going Commando",
+   "branches": [
+    {
+     "name": "master",
+     "commits": []
+    }
+   ],
+   "commitCount": 0,
+   "pullRequests": {
+    "merged": [
+     {
+      "number": 72,
+      "title": "decomp: match boot FUN_00336B90 offset-0x40 word setter (+8 C bytes)",
+      "author": "liolu",
+      "untrustedBody": "## Summary\n\nMatch boot `FUN_00336B90`, an 8-byte leaf setter (`jr ra; sw a1,0x40(a0)`) that stores its second argument at offset 0x40 of the object passed as its first argument. The body is authored next to the existing offset setters in `src/boot/04-leaf-field-accessors.cfrag`:\n\n```c\nvoid FUN_00336B90(u8 *a0, s32 a1) { *(s32 *)(a0 + 0x40) = a1; }\n```\n\n## Scope\n\n- Type: matching\n- Validated base: 5c7206289fec8071603a6d02053e926896124df3\n- Reservation: #71, claim 44818f86e8e97e6199cb55564fcc658fe1c2e9be93b6fc7652a2f93b485d94e4 (acknowledged `reserved`, owner liolu)\n- Targets: boot `FUN_00336B90` (0x00336B90, 8 bytes); source `src/boot/04-leaf-field-accessors.cfrag`; catalogue `config/candidate-catalog.json` (xrefs 17)\n\n## Validation\n\n- Command: `python scripts/source_layout.py --write --expected-output-hashes <current-hashes.json>`, then `python scripts/source_layout.py --check --inventory-check progress/source-inventory.json`\n- Result: `candidates/boot.c`, `config/source-layout.json` a",
+      "mergedAt": "2026-10-11T18:33:21Z"
+     },
+     {
+      "number": 74,
+      "title": "docs: credit Promises and add a gap report against RC2-Going-Decompiled",
+      "author": "Lynder063",
+      "untrustedBody": "## Summary\n\nAdds `CREDITS.md`, the single attribution ledger for outside work, with an entry crediting [Promises/RC2-Going-Decompiled](https://github.com/Promises/RC2-Going-Decompiled), plus `docs/PROMISES-GAP-REPORT.md` listing what that project has that this one lacks (v2.00 symbol map, libm/libgcc built from source, EU cross-check, tooling, native test harness). Both are linked from the README community section. Nothing was copied from their repo; every item is a lead to re-measure against v1.01.\n\n@Promises: your approval on this PR is the permission record for anything later adopted from your repo. Please state the scope and licence you allow.\n\n## Scope\n\n- Type: documentation\n- Validated base: 5c7206289fec8071603a6d02053e926896124df3\n- Reservation: N/A: no function work\n- Targets: N/A: no game targets; files are `CREDITS.md`, `docs/PROMISES-GAP-REPORT.md` and `README.md`\n\n## Validation\n\n- Command: `git diff --stat origin/RAC2...HEAD`\n- Result: 3 files changed, documentation only. R",
+      "mergedAt": "2026-10-11T17:40:41Z"
+     },
+     {
+      "number": 75,
+      "title": "decomp: match boot FUN_002B5D28 pointer-field accessor (+12 C bytes)",
+      "author": "liolu",
+      "untrustedBody": "## Summary\n\nMatch boot `FUN_002B5D28`, a 12-byte leaf accessor (`lw v1,0x68(a0); jr ra; lw v0,0x18(v1)`). It loads the pointer stored at offset 0x68 of its argument and returns the word at offset 0x18 of that pointee. The body is authored in `src/boot/04-leaf-field-accessors.cfrag` in address order:\n\n```c\nvoid *FUN_002B5D28(u8 *a0) { return *(void **)(*(u8 **)(a0 + 0x68) + 0x18); }\n```\n\n## Scope\n\n- Type: matching\n- Validated base: 5c7206289fec8071603a6d02053e926896124df3\n- Reservation: #73, claim 1f88a8de7b95aa804b3e400745da670715ae1dbab99ca1e1a2d88041a2ebd673 (acknowledged `reserved`, owner liolu)\n- Targets: boot `FUN_002B5D28` (0x002B5D28, 12 bytes); source `src/boot/04-leaf-field-accessors.cfrag`; catalogue `config/candidate-catalog.json` (xrefs 6)\n\n## Validation\n\n- Command: `python scripts/source_layout.py --write --expected-output-hashes <current-hashes.json>`, then `python scripts/source_layout.py --check --inventory-check progress/source-inventory.json`\n- Result: `candidates/boo",
+      "mergedAt": "2026-10-11T18:33:21Z"
+     },
+     {
+      "number": 95,
+      "title": "Multi-language Cinematic Structure Doc",
+      "author": "platypet2217-star",
+      "untrustedBody": "<!-- Required format: docs/PR-DESCRIPTIONS.md. Replace TODOs; keep headings and\r\nfield names. Use English and report only checks actually run. Commands use\r\nportable placeholders, never private paths. This check does not prove claims. -->\r\n\r\n## Summary\r\n\r\nDocumenting the directory structure and runtime multi-language asset management for pre-rendered cinematic files (`video_pal.pss` and corresponding `.asset` metadata files) present in the `mpeg/` directory of the Ratchet & Clank 2 (PAL) release. This serves as foundational research for future native PC port localization, custom subtitle injection, and dynamic voice-over streaming.\r\n\r\n## Scope\r\n\r\n- Type: documentation\r\n- Validated base: 77070933dcfecb510da88ba6eb699a36d54338ad\r\n- Reservation: N/A: non-decompilation documentation work\r\n- Targets: ports/pal-functional/docs/mpeg_structure.md\r\n\r\n## Validation\r\n\r\n- Command: N/A: contributor-reported manual Wrench analysis; no executable command was supplied\r\n- Result: The contributor report",
+      "mergedAt": "2026-10-11T04:55:50Z"
+     },
+     {
+      "number": 96,
+      "title": "fix: bind native queue fork heads with missing commit association",
+      "author": "llesieur99",
+      "untrustedBody": "## Summary\r\n\r\nGitHub returned an empty target-repository commit/pulls association for PR95's fork head despite a unique open PR and the exact native queue parents. The queue description check consequently rejected valid fork contributions. A successful empty association now falls back to a bounded open-PR lookup and verifies the source repository's live branch ref. API errors and nonempty invalid associations retain their existing refusal.\r\n\r\n## Scope\r\n\r\n- Type: tooling\r\n- Validated base: 77070933dcfecb510da88ba6eb699a36d54338ad\r\n- Reservation: N/A: no function work\r\n- Targets: scripts/pr_description.py and tests/test_pr_description.py\r\n\r\n## Validation\r\n\r\n- Command: python -B -m unittest discover -s tests -p test_pr_description.py\r\n- Result: 68 tests PASS, including 15 regressions for fallback identity, source ref, ambiguity, malformed evidence, API failures and snapshot changes.\r\n- Command: git diff --check\r\n- Result: PASS before commit.\r\n- Command: N/A: read-only GitHub REST inspecti",
+      "mergedAt": "2026-10-11T01:35:03Z"
+     },
+     {
+      "number": 97,
+      "title": "decomp: promote thirty-four wave-6 shared call families",
+      "author": "llesieur99",
+      "untrustedBody": "<!-- Required format: docs/PR-DESCRIPTIONS.md. -->\n\n## Summary\n\nPromote the matched shared call families of the sixth parallel-campaign wave into\nthe boot unit and the native overlay units, and publish their freshly qualified\nproofs. Thirty-four families are promoted, each authored once as a fragment under\n`src/shared/` (or, for the single small-data family, appended to its level's\nmodule under `src/levels/smalldata/`), with every placement seeded through\n`scripts/source_layout.py`, so the maintained generator still emits the\nstandalone units and object provenance stays valid.\n\nEleven of the thirty-four needed an **invariant data binding** the family record\ncannot carry: a reference that is the same address in every placement carries no\nrelocation, so the record has no `DATA<n>` role for it while the body still has to\nname it. `promote_call_family.py --binding NAME=0xADDR[:abs|sda]` declares those\nout of band, and both owner gates re-verify every placement byte before anything\nis writt",
+      "mergedAt": "2026-10-11T00:49:29Z"
+     },
+     {
+      "number": 103,
+      "title": "decomp: integrate exact GP32 setter family",
+      "author": "ThorpenCodes",
+      "untrustedBody": "## Summary\n\nIntegrate the exact raw 32-bit GP-relative setter at three overlay placements. Each body stores its argument in D_001AA430; the original data owner and semantic meaning remain unknown. This update normally merges current RAC2 and preserves its other accepted matches and owner-local publication policy.\n\n## Scope\n\n- Type: matching, placement\n- Validated base: a144a3475547381ad7ffea0df0a84da979627118\n- Reservation: GitHub issue 98, acknowledged claim 109d5966afd285d5fe576c5c22adf02ea6a4dd89b0c1af61c611c751ec73c77c\n- Targets: LVL_0_ARANOS_TUTORIAL_FUN_0032B280 at 0x0032B280, LVL_2_MAKTAR_NEBULA_FUN_00330D68 at 0x00330D68 and LVL_8_TABORA_FUN_00339468 at 0x00339468; src/levels/smalldata/*-qwen-recovery-ae36934fec6c.cfrag and their G8 unit/catalogue/proof metadata\n\n## Validation\n\n- Command: independently requalify the three affected G8 units with current pinned tools and references\n- Result: 50/50, 51/51 and 49/49 complete functions exact, 150/150 total and 9,128 unit bytes with ",
+      "mergedAt": "2026-10-11T05:30:18Z"
+     },
+     {
+      "number": 104,
+      "title": "tooling: publish the measured wide family relation beside the narrow partition",
+      "author": "llesieur99",
+      "untrustedBody": "## Summary\n\nPublish the measured wide family relation beside the existing narrow reuse partition. The relation is a compilation hypothesis and adds no matching credit. This branch includes current RAC2 and preserves the maintainer owner-local publication path.\n\n## Scope\n\n- Type: tooling, documentation\n- Validated base: d57e3f04353cae3c0533731fa9c3928e14308e1a\n- Reservation: N/A: no function implementation work\n- Targets: scripts/code_reuse_report.py, scripts/ci_export.py, progress/code-reuse-families.json.gz, progress/code-reuse-families-wide-groups.json.gz, progress/code-reuse-report.json, docs/GLOBAL-CODE-REUSE.md, README.md, tests/test_code_reuse_report.py, tests/test_ci_export.py, tests/test_campaign_finalize.py\n\n## Validation\n\n- Command: targeted unittest discovery for test_ci_export.py, test_code_reuse_report.py and test_campaign_finalize.py\n- Result: 17 + 20 + 54 = 91 tests passed on the combined branch. The extra local publication test verifies the wide receipt input pin withou",
+      "mergedAt": "2026-10-11T04:59:06Z"
+     },
+     {
+      "number": 107,
+      "title": "decomp: admit non-aligned absolute level externals and integrate two byte-flag families",
+      "author": "llesieur99",
+      "untrustedBody": "<!-- Required format: docs/PR-DESCRIPTIONS.md. Replace TODOs; keep headings and\nfield names. Use English and report only checks actually run. Commands use\nportable placeholders, never private paths. This check does not prove claims. -->\n\n## Summary\n\nRemove the word-alignment clause the level-native external validator carried,\nand promote the two paired families whose data references are byte flags at odd\naddresses. `scripts/level_native.py` refused every level external address that\ndid not satisfy `address % 4`. Nothing measured supported it: an external is\nbound as an absolute symbol in the linker script (`NAME = 0xADDR;`), which\ncarries no alignment requirement, and no other check on the native path held\nthose addresses word aligned: `scripts/campaign.py` does not look at a level\nexternal's alignment at all, and a native catalogue's externals reach\n`scripts/integration.py` through `compile_level_c`, which merges them without an\nalignment test. The `% 4` that remains in `integration.p",
+      "mergedAt": "2026-10-11T04:53:02Z"
+     },
+     {
+      "number": 108,
+      "title": "ci: trust primary maintainer local validation without queue waits",
+      "author": "llesieur99",
+      "untrustedBody": "## Summary\n\nThe primary maintainer already validates locally but still waited for a complete remote suite in the native queue and, on direct merges, another full suite after publication. Add an explicit exact-head owner-local merge command and an authenticated local CI route. Owner PRs skip remote suites; exact owner pushes publish committed local reports with honest local-trust provenance. Other contributor and manual/merge-group validation remains full.\n\n## Scope\n\n- Type: tooling, documentation\n- Validated base: a0a5c701904352f4a11fe36b447da279d6c20ba6\n- Reservation: N/A: no function work\n- Targets: CI workflow, maintainer test policy/export publisher, exact-head merge helper, targeted tests and maintainer instructions\n\n## Validation\n\n- Command: python -B -m unittest discover -s tests -p test_merge_owner_local.py\n- Result: 5 tests PASS; changed heads, wrong accounts, wrong target, draft and refused merge cannot succeed.\n- Command: python -B -m unittest discover -s tests -p test_merge",
+      "mergedAt": "2026-10-11T04:38:00Z"
+     },
+     {
+      "number": 114,
+      "title": "decomp: integrate shared second-argument forwarder",
+      "author": "ThorpenCodes",
+      "untrustedBody": "## Summary\nAdd a maintained C definition for the shared 8-byte second-argument forwarder. It ignores the first pointer and returns the second unchanged across the boot and overlay family.\n\n## Scope\n- Type: matching\n- Validated base: c01e8b8ac59a79f8e9ec3a851dd111cd30036401\n- Reservation: issue 105 / claim d4eacbc2592058c58b046fd235b44d7118fe321ec63123384473e7fe5a3b3b26\n- Targets: boot FUN_00336DA8 and the complete 27-overlay set; src/boot/19-second-argument-forwarder.cfrag\n\n## Validation\n- Command: python scripts/check_candidates.py --reference <reference> --toolchain <toolchain> --runtime <runtime>\n- Result: 376/376 candidate functions matched with zero differing bytes on the combined source. Public candidate proof SHA-256 42feb50efb4d86c2cc2d0b04880b8e735b62fffa70e9cf4a98f14b12bd0f49a7; candidates/boot.c SHA-256 52dc0e9e0cc85bb975e07bf55744601869457cd7925357162056a8d47d8cfb63; checker SHA-256 7c40d149419ff91694c03789372ef51da25fc9c9f3c37265d2a1bbfaa915fb07; catalog SHA-256 7cc2e1e757",
+      "mergedAt": "2026-10-11T18:33:21Z"
+     },
+     {
+      "number": 115,
+      "title": "decomp: integrate five shared native families (+56,384 bytes)",
+      "author": "llesieur99",
+      "untrustedBody": "## Summary\n\nIntegrate five reviewed shared native C families at 187 exact placements across boot and the default-profile overlays. The source bodies cover a flag-controlled helper sequence, entry-angle initialization, a defined unsigned-index transform, a four-record command batch, and a mask-driven curve dispatch. Seven Barlow small-data placements remain excluded with measured profile refusals; they receive no credit.\n\n## Scope\n\n- Type: matching, placement\n- Validated base: c01e8b8ac59a79f8e9ec3a851dd111cd30036401\n- Reservation: issues #109, #110, #111, #112 and #113; acknowledged family claims `1475dd9f...`, `a6bd4e1a...`, `c2f4b704...`, `d46d6204...` and `7ffdcc75...`\n- Targets: five structural template families (`b1bbe20c...`, `213135aa...`, `f2d8e5ad...`, `5a19df7a...`, `b1c9893c...`), rendered through `src/shared/*.cfrag` into boot and 26 default-profile overlays; 187 complete placements and 56,384 bytes\n\n## Validation\n\n- Command: current-chain boot and native unit qualification",
+      "mergedAt": "2026-10-11T08:13:09Z"
+     },
+     {
+      "number": 135,
+      "title": "tooling: legal check, function ranking, contributor docs (split 1/3 of #83)",
+      "author": "Lynder063",
+      "untrustedBody": "## Summary\n\nSplit 1/3 of #83. Contributor tooling and docs: LEGAL.md and `legal_check.py`, `function_size_rank.py` (default v1.01), Promises symbol imports, the pinned USA v2.00 identity (`ntsc-u-v2`), an optional git-ignored `extracted/` runtime, and trimmed contributor docs. v1.01 stays the default route.\n\n## Scope\n\n- Type: tooling, documentation\n- Validated base: 36a8950febf56bdb560dbfd6c35d7bd6b67959bb\n- Reservation: N/A: no function decompiled or credited\n- Targets: N/A: no symbol is integrated or credited\n\n## Validation\n\n- Command: `python -m unittest discover -s tests`\n- Result: targeted suites (ranking, region, doctor, private_dir, legal_check) OK; the full local run had not finished when this was opened, so CI runs the complete suite\n- Command: `python scripts/legal_check.py`\n- Result: 0 flagged files\n\n## Matching evidence\n\n- Proofs: N/A: no proof added or changed\n- Physical delta: N/A: 0 bytes of credited coverage\n- Unique delta: N/A: 0 bytes of credited coverage\n- Gates: N/A",
+      "mergedAt": "2026-10-11T18:33:21Z"
+     },
+     {
+      "number": 136,
+      "title": "report: deduplicated v1.01 estimate, names and datamine (split 2/3 of #83)",
+      "author": "Lynder063",
+      "untrustedBody": "## Summary\n\nSplit 2/3 of #83, stacked on #135 (its commits show here until it merges). Heuristic deduplicated decomp.dev report for the accepted v1.01 target (sections like rac1-decomp), 1,075 carried function names and 521 global-variable names (credit Promises, PR #74), SDK object units, Ghidra anchors and name hints. Estimate only: no matching credit.\n\n## Scope\n\n- Type: tooling, documentation\n- Validated base: 36a8950febf56bdb560dbfd6c35d7bd6b67959bb\n- Reservation: N/A: no function decompiled or credited\n- Targets: N/A: no symbol is integrated or credited\n\n## Validation\n\n- Command: `python -m unittest tests.test_unique_estimate tests.test_map_segments tests.test_name_units tests.test_transfer_names`\n- Result: OK\n- Command: `python scripts/unique_estimate.py report --output build/decomp/unique-estimate-report.json` plus `objdiff-cli report changes`\n- Result: 11,106,180 distinct of 48,449,132 physical code bytes, 146 units; 54,492 bytes credited from accepted proofs only\n- Command: `p",
+      "mergedAt": "2026-10-11T18:33:20Z"
+     },
+     {
+      "number": 137,
+      "title": "v2.00: experimental route, exploratory candidates only (split 3/3 of #83)",
+      "author": "Lynder063",
+      "untrustedBody": "## Summary\n\nSplit 3/3 of #83, stacked on #135. Experimental USA v2.00 route: trials, `try_function.py` (pinned boot, exact extent), `v2_report.py` (matched code 0 by design), compiler build recipe and setup docs. Candidates are exploratory and add no credit.\n\n## Scope\n\n- Type: tooling, documentation\n- Validated base: 36a8950febf56bdb560dbfd6c35d7bd6b67959bb\n- Reservation: N/A: no function decompiled or credited\n- Targets: N/A: no symbol is integrated or credited\n\n## Validation\n\n- Command: `python -m unittest tests.test_v2_report tests.test_region`\n- Result: OK\n- Command: `python scripts/v2_report.py report --output build/decomp/report-v2.json` plus `objdiff-cli report changes`\n- Result: loads; 9 exploratory candidates (332 bytes), matched code 0\n- Command: `python scripts/legal_check.py`\n- Result: 0 flagged files\n\n## Matching evidence\n\n- Proofs: N/A: no proof added or changed\n- Physical delta: N/A: 0 bytes of credited coverage\n- Unique delta: N/A: 0 bytes of credited coverage\n- Gates: ",
+      "mergedAt": "2026-10-11T18:33:21Z"
+     },
+     {
+      "number": 139,
+      "title": "trials: 12 small v1.01 functions in -G8 units (candidates only)",
+      "author": "Lynder063",
+      "untrustedBody": "## Summary\n\nStacked on #137 (its commits show here until it merges). Twelve small v1.01 boot functions in the `-G8` units as exploratory candidates in `trials/usa-v1/`, with `try_function.py --region ntsc-u`. Five are reserved (issue #138); none is integrated and none adds credit.\n\n## Scope\n\n- Type: tooling, documentation\n- Validated base: 36a8950febf56bdb560dbfd6c35d7bd6b67959bb\n- Reservation: claim `d550874f898e975c51c202e4e4c7e41488905705e19b176f67a8d3a99077da25` (issue #138) for 0x287E60, 0x287E98, 0x288D30, 0x290670, 0x290748\n- Targets: N/A: nothing is integrated; the five reserved targets are listed above\n\n## Validation\n\n- Command: `python scripts/try_function.py trials/usa-v1/<Name>.c --region ntsc-u --elf <reference>/boot.elf --address <addr> --size <n> --mask-relocs --flags \"-O2 -G8 -ffunction-sections\"` (plus `-fno-gcse` for 0x290010 and later units)\n- Result: 12 of 12 report equal words with relocation fields masked, on a locally rebuilt chain (not the qualified profile)\n- C",
+      "mergedAt": "2026-10-11T18:33:20Z"
+     },
+     {
+      "number": 140,
+      "title": "decomp: integrate 19 reserved Batch A families across 318 placements",
+      "author": "ThorpenCodes",
+      "untrustedBody": "## Summary\n\nIntegrate the frozen Batch A C reconstructions for 19 families and 318 placements (four boot functions and 314 native overlay functions). Reuse the retained candidate inputs, freshly verify every placement after acknowledged family reservation, and bind each namespaced external through its per-program catalogue. Register 19 source-family anchors and regenerate the maintained source/layout, proof, catalogue, inventory and progress outputs.\n\nThe earlier session matched and partially integrated these candidates without reservations. That work has no retroactive authorization: its checkout is preserved, and this contribution starts from the validated upstream base with new acknowledged claims and fresh reserved trials. All 19 families qualified; none were excluded. Batch B and unrelated claims are outside this change.\n\n## Scope\n\n- Type: matching, placement, tooling\n- Validated base: 36a8950febf56bdb560dbfd6c35d7bd6b67959bb\n- Reservation: acknowledged family claims #116–#134, li",
+      "mergedAt": "2026-10-11T14:47:52Z"
+     },
+     {
+      "number": 141,
+      "title": "decomp: promote twelve exact shared families",
+      "author": "llesieur99",
+      "untrustedBody": "## Summary\n\nPromote twelve independently reviewed exact-C reuse families through the maintained native and G8 source layouts. The combined lot adds 306 exact placements while keeping every nonzero-G Barlow native copy out of the G0 families and excluding one Ship Shack `c94396f4` placement whose existing one-argument declaration conflicts with the complete three-argument definition.\n\n## Scope\n\n- Type: matching, placement\n- Validated base: b24deb2b87341ade45a934e58880a0d8bf6c813f\n- Reservation: Owner-directed private campaign wave; the maintainer explicitly requested no reservation mutation. Reservation ledger revision 70 and open PR heads were used read-only to exclude occupied targets before work.\n- Targets: Families `dd54ca5d2f43638a`, `b5729173886a9a59`, `27f9be8e29015f90`, `c94396f4a81827bb`, `3c007b59ec76c66b`, `043c77a50a58e885`, `7cacd225d60e2a6a`, `f454dd774e23f948`, `5621621c737bda73`, `966dbf73f76e6f9f`, `9c1eb693787f1331`, and `e8672ea5805a2952`; 265 native/boot placements a",
+      "mergedAt": "2026-10-11T17:24:38Z"
+     },
+     {
+      "number": 142,
+      "title": "tooling: parallelize owner-local finalizer tests",
+      "author": "llesieur99",
+      "untrustedBody": "## Summary\n\nMake the primary maintainer's local campaign finalization route explicit and fast. `campaign.py finalize --owner-local` now authenticates the maintainer, selects the bounded report/finalizer/policy tests, shards individual test cases across isolated workers, and records that exhaustive local discovery was waived while every matching and freshness gate remains mandatory.\n\n## Scope\n\n- Type: tooling, documentation\n- Validated base: ed6fec87d9fefbd743d8756b938174402a719695\n- Reservation: N/A: no function work or reservation state change\n- Targets: `scripts/campaign.py`, `scripts/campaign_finalize.py`, `scripts/maintainer_tests.py`, their focused regression tests, and the maintainer campaign documentation\n\n## Validation\n\n- Command: `python -m py_compile scripts/campaign.py scripts/campaign_finalize.py scripts/maintainer_tests.py`\n- Result: all changed Python entry points compile successfully.\n- Command: `python -c \"...run_modules_parallel(..., 4)\" test_campaign_commands test_cam",
+      "mergedAt": "2026-10-11T17:33:06Z"
+     },
+     {
+      "number": 144,
+      "title": "integration: land reviewed open contributions and refreshed matching proofs",
+      "author": "llesieur99",
+      "untrustedBody": "## Summary\n\nIntegrate the reviewed open contributions on the current RAC2 base, preserving contributor history and the maintained README/progress pipeline. Requalify liolu's boot setter/accessor (#72, #75) and Thorpen's shared second-argument forwarder (#114) in one combined 28-image batch. Retain the useful tooling and exploratory v1/v2 contributions (#135, #136, #137, #139) after fixing admission, stale/heuristic credit, symbol preservation, region isolation and import provenance.\n\n## Scope\n\n- Type: matching, placement, tooling, documentation\n- Validated base: 882986500f3531deb5432cc0932568b6ce1ecd8a\n- Reservation: Existing contributor claims #71, #73 and #105; no new function selection or claim mutation. Exploratory #139 candidates remain uncredited, including its five claimed targets in #138.\n- Targets: boot FUN_00336B90 (8 bytes), FUN_002B5D28 (12 bytes), FUN_00336DA8 (8 bytes) plus the forwarder's 27 overlay placements; contributor tooling, region diagnostics, isolated trial cand",
+      "mergedAt": "2026-10-11T18:33:19Z"
+     },
+     {
+      "number": 145,
+      "title": "tooling: authorize Thorpen local validation and complete private snapshots",
+      "author": "llesieur99",
+      "untrustedBody": "## Summary\n\nAuthorize the explicit owner-local validation route for ThorpenCodes, pinned by GitHub user ID 29800182, alongside the existing primary maintainer. Delegated use requires a fresh repository write/maintain/admin permission response before finalization or exact-head merge. Keep automatic CI trust primary-only. Include structural symbol/TSV/trial inputs in private snapshots and make the ignored-runtime unit fixture independent of checkout Git metadata.\n\n## Scope\n\n- Type: tooling, documentation\n- Validated base: d62b1c1539b7a3e9cf9c436acf1afe5d2c888649\n- Reservation: N/A: no new function work\n- Targets: shared local_validation_policy, maintainer authentication, campaign finalizer, merge_queue, focused tests and route documentation\n\n## Validation\n\n- Command: focused test-case sharding through maintainer_tests.run_modules_parallel on test_local_validation_policy, test_campaign_commands, test_campaign_finalize, test_maintainer_tests, test_merge_owner_local, test_merge_queue, test_",
+      "mergedAt": "2026-10-11T18:38:00Z"
+     }
+    ],
+    "opened": [
+     {
+      "number": 99,
+      "title": "Decomp/v2 trials lot1",
+      "author": "Lynder063",
+      "untrustedBody": "<!-- Required format: docs/PR-DESCRIPTIONS.md. Replace TODOs; keep headings and\nfield names. Use English and report only checks actually run. Commands use\nportable placeholders, never private paths. This check does not prove claims. -->\n\n## Summary\n\nTODO: Explain the concrete problem and resulting behavior.\n\n## Scope\n\n- Type: TODO (matching, placement, nonmatching, tooling, documentation; comma-separated)\n- Validated base: TODO (full upstream RAC2 commit SHA used for validation)\n- Reservation: TODO (acknowledged issue/claim; or N/A: reason for non-decomp work)\n- Targets: TODO (symbols, programs and source modules; or N/A: reason)\n\n## Validation\n\n<!-- Repeat Command/Result pairs as needed. Include failures and skipped checks.\nUse repository paths or <reference>, <toolchain>, <runtime> placeholders. -->\n- Command: TODO\n- Result: TODO (actual outcome, counts and relevant report location)\n\n## Matching evidence\n\n<!-- Matching/placement changes fill every field. Otherwise use N/A: reason.\nNo"
+     },
+     {
+      "number": 103,
+      "title": "decomp: integrate exact GP32 setter family",
+      "author": "ThorpenCodes",
+      "untrustedBody": "## Summary\n\nIntegrate the exact raw 32-bit GP-relative setter at three overlay placements. Each body stores its argument in D_001AA430; the original data owner and semantic meaning remain unknown. This update normally merges current RAC2 and preserves its other accepted matches and owner-local publication policy.\n\n## Scope\n\n- Type: matching, placement\n- Validated base: a144a3475547381ad7ffea0df0a84da979627118\n- Reservation: GitHub issue 98, acknowledged claim 109d5966afd285d5fe576c5c22adf02ea6a4dd89b0c1af61c611c751ec73c77c\n- Targets: LVL_0_ARANOS_TUTORIAL_FUN_0032B280 at 0x0032B280, LVL_2_MAKTAR_NEBULA_FUN_00330D68 at 0x00330D68 and LVL_8_TABORA_FUN_00339468 at 0x00339468; src/levels/smalldata/*-qwen-recovery-ae36934fec6c.cfrag and their G8 unit/catalogue/proof metadata\n\n## Validation\n\n- Command: independently requalify the three affected G8 units with current pinned tools and references\n- Result: 50/50, 51/51 and 49/49 complete functions exact, 150/150 total and 9,128 unit bytes with ",
+      "mergedAt": "2026-10-11T05:30:18Z"
+     },
+     {
+      "number": 104,
+      "title": "tooling: publish the measured wide family relation beside the narrow partition",
+      "author": "llesieur99",
+      "untrustedBody": "## Summary\n\nPublish the measured wide family relation beside the existing narrow reuse partition. The relation is a compilation hypothesis and adds no matching credit. This branch includes current RAC2 and preserves the maintainer owner-local publication path.\n\n## Scope\n\n- Type: tooling, documentation\n- Validated base: d57e3f04353cae3c0533731fa9c3928e14308e1a\n- Reservation: N/A: no function implementation work\n- Targets: scripts/code_reuse_report.py, scripts/ci_export.py, progress/code-reuse-families.json.gz, progress/code-reuse-families-wide-groups.json.gz, progress/code-reuse-report.json, docs/GLOBAL-CODE-REUSE.md, README.md, tests/test_code_reuse_report.py, tests/test_ci_export.py, tests/test_campaign_finalize.py\n\n## Validation\n\n- Command: targeted unittest discovery for test_ci_export.py, test_code_reuse_report.py and test_campaign_finalize.py\n- Result: 17 + 20 + 54 = 91 tests passed on the combined branch. The extra local publication test verifies the wide receipt input pin withou",
+      "mergedAt": "2026-10-11T04:59:06Z"
+     },
+     {
+      "number": 107,
+      "title": "decomp: admit non-aligned absolute level externals and integrate two byte-flag families",
+      "author": "llesieur99",
+      "untrustedBody": "<!-- Required format: docs/PR-DESCRIPTIONS.md. Replace TODOs; keep headings and\nfield names. Use English and report only checks actually run. Commands use\nportable placeholders, never private paths. This check does not prove claims. -->\n\n## Summary\n\nRemove the word-alignment clause the level-native external validator carried,\nand promote the two paired families whose data references are byte flags at odd\naddresses. `scripts/level_native.py` refused every level external address that\ndid not satisfy `address % 4`. Nothing measured supported it: an external is\nbound as an absolute symbol in the linker script (`NAME = 0xADDR;`), which\ncarries no alignment requirement, and no other check on the native path held\nthose addresses word aligned: `scripts/campaign.py` does not look at a level\nexternal's alignment at all, and a native catalogue's externals reach\n`scripts/integration.py` through `compile_level_c`, which merges them without an\nalignment test. The `% 4` that remains in `integration.p",
+      "mergedAt": "2026-10-11T04:53:02Z"
+     },
+     {
+      "number": 108,
+      "title": "ci: trust primary maintainer local validation without queue waits",
+      "author": "llesieur99",
+      "untrustedBody": "## Summary\n\nThe primary maintainer already validates locally but still waited for a complete remote suite in the native queue and, on direct merges, another full suite after publication. Add an explicit exact-head owner-local merge command and an authenticated local CI route. Owner PRs skip remote suites; exact owner pushes publish committed local reports with honest local-trust provenance. Other contributor and manual/merge-group validation remains full.\n\n## Scope\n\n- Type: tooling, documentation\n- Validated base: a0a5c701904352f4a11fe36b447da279d6c20ba6\n- Reservation: N/A: no function work\n- Targets: CI workflow, maintainer test policy/export publisher, exact-head merge helper, targeted tests and maintainer instructions\n\n## Validation\n\n- Command: python -B -m unittest discover -s tests -p test_merge_owner_local.py\n- Result: 5 tests PASS; changed heads, wrong accounts, wrong target, draft and refused merge cannot succeed.\n- Command: python -B -m unittest discover -s tests -p test_merge",
+      "mergedAt": "2026-10-11T04:38:00Z"
+     },
+     {
+      "number": 114,
+      "title": "decomp: integrate shared second-argument forwarder",
+      "author": "ThorpenCodes",
+      "untrustedBody": "## Summary\nAdd a maintained C definition for the shared 8-byte second-argument forwarder. It ignores the first pointer and returns the second unchanged across the boot and overlay family.\n\n## Scope\n- Type: matching\n- Validated base: c01e8b8ac59a79f8e9ec3a851dd111cd30036401\n- Reservation: issue 105 / claim d4eacbc2592058c58b046fd235b44d7118fe321ec63123384473e7fe5a3b3b26\n- Targets: boot FUN_00336DA8 and the complete 27-overlay set; src/boot/19-second-argument-forwarder.cfrag\n\n## Validation\n- Command: python scripts/check_candidates.py --reference <reference> --toolchain <toolchain> --runtime <runtime>\n- Result: 376/376 candidate functions matched with zero differing bytes on the combined source. Public candidate proof SHA-256 42feb50efb4d86c2cc2d0b04880b8e735b62fffa70e9cf4a98f14b12bd0f49a7; candidates/boot.c SHA-256 52dc0e9e0cc85bb975e07bf55744601869457cd7925357162056a8d47d8cfb63; checker SHA-256 7c40d149419ff91694c03789372ef51da25fc9c9f3c37265d2a1bbfaa915fb07; catalog SHA-256 7cc2e1e757",
+      "mergedAt": "2026-10-11T18:33:21Z"
+     },
+     {
+      "number": 115,
+      "title": "decomp: integrate five shared native families (+56,384 bytes)",
+      "author": "llesieur99",
+      "untrustedBody": "## Summary\n\nIntegrate five reviewed shared native C families at 187 exact placements across boot and the default-profile overlays. The source bodies cover a flag-controlled helper sequence, entry-angle initialization, a defined unsigned-index transform, a four-record command batch, and a mask-driven curve dispatch. Seven Barlow small-data placements remain excluded with measured profile refusals; they receive no credit.\n\n## Scope\n\n- Type: matching, placement\n- Validated base: c01e8b8ac59a79f8e9ec3a851dd111cd30036401\n- Reservation: issues #109, #110, #111, #112 and #113; acknowledged family claims `1475dd9f...`, `a6bd4e1a...`, `c2f4b704...`, `d46d6204...` and `7ffdcc75...`\n- Targets: five structural template families (`b1bbe20c...`, `213135aa...`, `f2d8e5ad...`, `5a19df7a...`, `b1c9893c...`), rendered through `src/shared/*.cfrag` into boot and 26 default-profile overlays; 187 complete placements and 56,384 bytes\n\n## Validation\n\n- Command: current-chain boot and native unit qualification",
+      "mergedAt": "2026-10-11T08:13:09Z"
+     },
+     {
+      "number": 135,
+      "title": "tooling: legal check, function ranking, contributor docs (split 1/3 of #83)",
+      "author": "Lynder063",
+      "untrustedBody": "## Summary\n\nSplit 1/3 of #83. Contributor tooling and docs: LEGAL.md and `legal_check.py`, `function_size_rank.py` (default v1.01), Promises symbol imports, the pinned USA v2.00 identity (`ntsc-u-v2`), an optional git-ignored `extracted/` runtime, and trimmed contributor docs. v1.01 stays the default route.\n\n## Scope\n\n- Type: tooling, documentation\n- Validated base: 36a8950febf56bdb560dbfd6c35d7bd6b67959bb\n- Reservation: N/A: no function decompiled or credited\n- Targets: N/A: no symbol is integrated or credited\n\n## Validation\n\n- Command: `python -m unittest discover -s tests`\n- Result: targeted suites (ranking, region, doctor, private_dir, legal_check) OK; the full local run had not finished when this was opened, so CI runs the complete suite\n- Command: `python scripts/legal_check.py`\n- Result: 0 flagged files\n\n## Matching evidence\n\n- Proofs: N/A: no proof added or changed\n- Physical delta: N/A: 0 bytes of credited coverage\n- Unique delta: N/A: 0 bytes of credited coverage\n- Gates: N/A",
+      "mergedAt": "2026-10-11T18:33:21Z"
+     },
+     {
+      "number": 136,
+      "title": "report: deduplicated v1.01 estimate, names and datamine (split 2/3 of #83)",
+      "author": "Lynder063",
+      "untrustedBody": "## Summary\n\nSplit 2/3 of #83, stacked on #135 (its commits show here until it merges). Heuristic deduplicated decomp.dev report for the accepted v1.01 target (sections like rac1-decomp), 1,075 carried function names and 521 global-variable names (credit Promises, PR #74), SDK object units, Ghidra anchors and name hints. Estimate only: no matching credit.\n\n## Scope\n\n- Type: tooling, documentation\n- Validated base: 36a8950febf56bdb560dbfd6c35d7bd6b67959bb\n- Reservation: N/A: no function decompiled or credited\n- Targets: N/A: no symbol is integrated or credited\n\n## Validation\n\n- Command: `python -m unittest tests.test_unique_estimate tests.test_map_segments tests.test_name_units tests.test_transfer_names`\n- Result: OK\n- Command: `python scripts/unique_estimate.py report --output build/decomp/unique-estimate-report.json` plus `objdiff-cli report changes`\n- Result: 11,106,180 distinct of 48,449,132 physical code bytes, 146 units; 54,492 bytes credited from accepted proofs only\n- Command: `p",
+      "mergedAt": "2026-10-11T18:33:20Z"
+     },
+     {
+      "number": 137,
+      "title": "v2.00: experimental route, exploratory candidates only (split 3/3 of #83)",
+      "author": "Lynder063",
+      "untrustedBody": "## Summary\n\nSplit 3/3 of #83, stacked on #135. Experimental USA v2.00 route: trials, `try_function.py` (pinned boot, exact extent), `v2_report.py` (matched code 0 by design), compiler build recipe and setup docs. Candidates are exploratory and add no credit.\n\n## Scope\n\n- Type: tooling, documentation\n- Validated base: 36a8950febf56bdb560dbfd6c35d7bd6b67959bb\n- Reservation: N/A: no function decompiled or credited\n- Targets: N/A: no symbol is integrated or credited\n\n## Validation\n\n- Command: `python -m unittest tests.test_v2_report tests.test_region`\n- Result: OK\n- Command: `python scripts/v2_report.py report --output build/decomp/report-v2.json` plus `objdiff-cli report changes`\n- Result: loads; 9 exploratory candidates (332 bytes), matched code 0\n- Command: `python scripts/legal_check.py`\n- Result: 0 flagged files\n\n## Matching evidence\n\n- Proofs: N/A: no proof added or changed\n- Physical delta: N/A: 0 bytes of credited coverage\n- Unique delta: N/A: 0 bytes of credited coverage\n- Gates: ",
+      "mergedAt": "2026-10-11T18:33:21Z"
+     },
+     {
+      "number": 139,
+      "title": "trials: 12 small v1.01 functions in -G8 units (candidates only)",
+      "author": "Lynder063",
+      "untrustedBody": "## Summary\n\nStacked on #137 (its commits show here until it merges). Twelve small v1.01 boot functions in the `-G8` units as exploratory candidates in `trials/usa-v1/`, with `try_function.py --region ntsc-u`. Five are reserved (issue #138); none is integrated and none adds credit.\n\n## Scope\n\n- Type: tooling, documentation\n- Validated base: 36a8950febf56bdb560dbfd6c35d7bd6b67959bb\n- Reservation: claim `d550874f898e975c51c202e4e4c7e41488905705e19b176f67a8d3a99077da25` (issue #138) for 0x287E60, 0x287E98, 0x288D30, 0x290670, 0x290748\n- Targets: N/A: nothing is integrated; the five reserved targets are listed above\n\n## Validation\n\n- Command: `python scripts/try_function.py trials/usa-v1/<Name>.c --region ntsc-u --elf <reference>/boot.elf --address <addr> --size <n> --mask-relocs --flags \"-O2 -G8 -ffunction-sections\"` (plus `-fno-gcse` for 0x290010 and later units)\n- Result: 12 of 12 report equal words with relocation fields masked, on a locally rebuilt chain (not the qualified profile)\n- C",
+      "mergedAt": "2026-10-11T18:33:20Z"
+     },
+     {
+      "number": 140,
+      "title": "decomp: integrate 19 reserved Batch A families across 318 placements",
+      "author": "ThorpenCodes",
+      "untrustedBody": "## Summary\n\nIntegrate the frozen Batch A C reconstructions for 19 families and 318 placements (four boot functions and 314 native overlay functions). Reuse the retained candidate inputs, freshly verify every placement after acknowledged family reservation, and bind each namespaced external through its per-program catalogue. Register 19 source-family anchors and regenerate the maintained source/layout, proof, catalogue, inventory and progress outputs.\n\nThe earlier session matched and partially integrated these candidates without reservations. That work has no retroactive authorization: its checkout is preserved, and this contribution starts from the validated upstream base with new acknowledged claims and fresh reserved trials. All 19 families qualified; none were excluded. Batch B and unrelated claims are outside this change.\n\n## Scope\n\n- Type: matching, placement, tooling\n- Validated base: 36a8950febf56bdb560dbfd6c35d7bd6b67959bb\n- Reservation: acknowledged family claims #116–#134, li",
+      "mergedAt": "2026-10-11T14:47:52Z"
+     },
+     {
+      "number": 141,
+      "title": "decomp: promote twelve exact shared families",
+      "author": "llesieur99",
+      "untrustedBody": "## Summary\n\nPromote twelve independently reviewed exact-C reuse families through the maintained native and G8 source layouts. The combined lot adds 306 exact placements while keeping every nonzero-G Barlow native copy out of the G0 families and excluding one Ship Shack `c94396f4` placement whose existing one-argument declaration conflicts with the complete three-argument definition.\n\n## Scope\n\n- Type: matching, placement\n- Validated base: b24deb2b87341ade45a934e58880a0d8bf6c813f\n- Reservation: Owner-directed private campaign wave; the maintainer explicitly requested no reservation mutation. Reservation ledger revision 70 and open PR heads were used read-only to exclude occupied targets before work.\n- Targets: Families `dd54ca5d2f43638a`, `b5729173886a9a59`, `27f9be8e29015f90`, `c94396f4a81827bb`, `3c007b59ec76c66b`, `043c77a50a58e885`, `7cacd225d60e2a6a`, `f454dd774e23f948`, `5621621c737bda73`, `966dbf73f76e6f9f`, `9c1eb693787f1331`, and `e8672ea5805a2952`; 265 native/boot placements a",
+      "mergedAt": "2026-10-11T17:24:38Z"
+     },
+     {
+      "number": 142,
+      "title": "tooling: parallelize owner-local finalizer tests",
+      "author": "llesieur99",
+      "untrustedBody": "## Summary\n\nMake the primary maintainer's local campaign finalization route explicit and fast. `campaign.py finalize --owner-local` now authenticates the maintainer, selects the bounded report/finalizer/policy tests, shards individual test cases across isolated workers, and records that exhaustive local discovery was waived while every matching and freshness gate remains mandatory.\n\n## Scope\n\n- Type: tooling, documentation\n- Validated base: ed6fec87d9fefbd743d8756b938174402a719695\n- Reservation: N/A: no function work or reservation state change\n- Targets: `scripts/campaign.py`, `scripts/campaign_finalize.py`, `scripts/maintainer_tests.py`, their focused regression tests, and the maintainer campaign documentation\n\n## Validation\n\n- Command: `python -m py_compile scripts/campaign.py scripts/campaign_finalize.py scripts/maintainer_tests.py`\n- Result: all changed Python entry points compile successfully.\n- Command: `python -c \"...run_modules_parallel(..., 4)\" test_campaign_commands test_cam",
+      "mergedAt": "2026-10-11T17:33:06Z"
+     },
+     {
+      "number": 144,
+      "title": "integration: land reviewed open contributions and refreshed matching proofs",
+      "author": "llesieur99",
+      "untrustedBody": "## Summary\n\nIntegrate the reviewed open contributions on the current RAC2 base, preserving contributor history and the maintained README/progress pipeline. Requalify liolu's boot setter/accessor (#72, #75) and Thorpen's shared second-argument forwarder (#114) in one combined 28-image batch. Retain the useful tooling and exploratory v1/v2 contributions (#135, #136, #137, #139) after fixing admission, stale/heuristic credit, symbol preservation, region isolation and import provenance.\n\n## Scope\n\n- Type: matching, placement, tooling, documentation\n- Validated base: 882986500f3531deb5432cc0932568b6ce1ecd8a\n- Reservation: Existing contributor claims #71, #73 and #105; no new function selection or claim mutation. Exploratory #139 candidates remain uncredited, including its five claimed targets in #138.\n- Targets: boot FUN_00336B90 (8 bytes), FUN_002B5D28 (12 bytes), FUN_00336DA8 (8 bytes) plus the forwarder's 27 overlay placements; contributor tooling, region diagnostics, isolated trial cand",
+      "mergedAt": "2026-10-11T18:33:19Z"
+     },
+     {
+      "number": 145,
+      "title": "tooling: authorize Thorpen local validation and complete private snapshots",
+      "author": "llesieur99",
+      "untrustedBody": "## Summary\n\nAuthorize the explicit owner-local validation route for ThorpenCodes, pinned by GitHub user ID 29800182, alongside the existing primary maintainer. Delegated use requires a fresh repository write/maintain/admin permission response before finalization or exact-head merge. Keep automatic CI trust primary-only. Include structural symbol/TSV/trial inputs in private snapshots and make the ignored-runtime unit fixture independent of checkout Git metadata.\n\n## Scope\n\n- Type: tooling, documentation\n- Validated base: d62b1c1539b7a3e9cf9c436acf1afe5d2c888649\n- Reservation: N/A: no new function work\n- Targets: shared local_validation_policy, maintainer authentication, campaign finalizer, merge_queue, focused tests and route documentation\n\n## Validation\n\n- Command: focused test-case sharding through maintainer_tests.run_modules_parallel on test_local_validation_policy, test_campaign_commands, test_campaign_finalize, test_maintainer_tests, test_merge_owner_local, test_merge_queue, test_",
+      "mergedAt": "2026-10-11T18:38:00Z"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [
+     {
+      "number": 98,
+      "title": "[Reservation] ThorpenCodes: 3 function(s)",
+      "author": "ThorpenCodes"
+     },
+     {
+      "number": 100,
+      "title": "Register USA v2.00 (SCUS_972.68, boot SHA-256 64dbf0d4…) as a reservation reference",
+      "author": "Lynder063"
+     },
+     {
+      "number": 101,
+      "title": "[Reservation] ThorpenCodes: 1 function(s)",
+      "author": "ThorpenCodes"
+     },
+     {
+      "number": 102,
+      "title": "[Reservation] ThorpenCodes: 1 function(s)",
+      "author": "ThorpenCodes"
+     },
+     {
+      "number": 105,
+      "title": "[Reservation] ThorpenCodes: 1 function(s)",
+      "author": "ThorpenCodes"
+     },
+     {
+      "number": 106,
+      "title": "[Reservation] ThorpenCodes: 1 function(s)",
+      "author": "ThorpenCodes"
+     },
+     {
+      "number": 109,
+      "title": "[Reservation] llesieur99: 1 function(s)",
+      "author": "llesieur99"
+     },
+     {
+      "number": 110,
+      "title": "[Reservation] llesieur99: 1 function(s)",
+      "author": "llesieur99"
+     },
+     {
+      "number": 111,
+      "title": "[Reservation] llesieur99: 1 function(s)",
+      "author": "llesieur99"
+     },
+     {
+      "number": 112,
+      "title": "[Reservation] llesieur99: 1 function(s)",
+      "author": "llesieur99"
+     },
+     {
+      "number": 113,
+      "title": "[Reservation] llesieur99: 1 function(s)",
+      "author": "llesieur99"
+     },
+     {
+      "number": 116,
+      "title": "[Reservation] ThorpenCodes: 1 function(s)",
+      "author": "ThorpenCodes"
+     },
+     {
+      "number": 117,
+      "title": "[Reservation] ThorpenCodes: 1 function(s)",
+      "author": "ThorpenCodes"
+     },
+     {
+      "number": 118,
+      "title": "[Reservation] ThorpenCodes: 1 function(s)",
+      "author": "ThorpenCodes"
+     },
+     {
+      "number": 119,
+      "title": "[Reservation] ThorpenCodes: 1 function(s)",
+      "author": "ThorpenCodes"
+     },
+     {
+      "number": 120,
+      "title": "[Reservation] ThorpenCodes: 1 function(s)",
+      "author": "ThorpenCodes"
+     },
+     {
+      "number": 121,
+      "title": "[Reservation] ThorpenCodes: 1 function(s)",
+      "author": "ThorpenCodes"
+     },
+     {
+      "number": 122,
+      "title": "[Reservation] ThorpenCodes: 1 function(s)",
+      "author": "ThorpenCodes"
+     },
+     {
+      "number": 123,
+      "title": "[Reservation] ThorpenCodes: 1 function(s)",
+      "author": "ThorpenCodes"
+     },
+     {
+      "number": 124,
+      "title": "[Reservation] ThorpenCodes: 1 function(s)",
+      "author": "ThorpenCodes"
+     },
+     {
+      "number": 125,
+      "title": "[Reservation] ThorpenCodes: 1 function(s)",
+      "author": "ThorpenCodes"
+     },
+     {
+      "number": 126,
+      "title": "[Reservation] ThorpenCodes: 1 function(s)",
+      "author": "ThorpenCodes"
+     },
+     {
+      "number": 127,
+      "title": "[Reservation] ThorpenCodes: 1 function(s)",
+      "author": "ThorpenCodes"
+     },
+     {
+      "number": 128,
+      "title": "[Reservation] ThorpenCodes: 1 function(s)",
+      "author": "ThorpenCodes"
+     },
+     {
+      "number": 129,
+      "title": "[Reservation] ThorpenCodes: 1 function(s)",
+      "author": "ThorpenCodes"
+     },
+     {
+      "number": 130,
+      "title": "[Reservation] ThorpenCodes: 1 function(s)",
+      "author": "ThorpenCodes"
+     },
+     {
+      "number": 131,
+      "title": "[Reservation] ThorpenCodes: 1 function(s)",
+      "author": "ThorpenCodes"
+     },
+     {
+      "number": 132,
+      "title": "[Reservation] ThorpenCodes: 1 function(s)",
+      "author": "ThorpenCodes"
+     },
+     {
+      "number": 133,
+      "title": "[Reservation] ThorpenCodes: 1 function(s)",
+      "author": "ThorpenCodes"
+     },
+     {
+      "number": 134,
+      "title": "[Reservation] ThorpenCodes: 1 function(s)",
+      "author": "ThorpenCodes"
+     },
+     {
+      "number": 138,
+      "title": "[Reservation] Lynder063: 5 function(s)",
+      "author": "Lynder063"
+     },
+     {
+      "number": 143,
+      "title": "[Reservation] ThorpenCodes: 1 function(s)",
+      "author": "ThorpenCodes"
+     }
+    ],
+    "closed": [
+     {
+      "number": 71,
+      "title": "[Reservation] liolu: 1 function(s)",
+      "author": "liolu"
+     },
+     {
+      "number": 73,
+      "title": "[Reservation] liolu: 1 function(s)",
+      "author": "liolu"
+     },
+     {
+      "number": 109,
+      "title": "[Reservation] llesieur99: 1 function(s)",
+      "author": "llesieur99"
+     },
+     {
+      "number": 110,
+      "title": "[Reservation] llesieur99: 1 function(s)",
+      "author": "llesieur99"
+     },
+     {
+      "number": 111,
+      "title": "[Reservation] llesieur99: 1 function(s)",
+      "author": "llesieur99"
+     },
+     {
+      "number": 112,
+      "title": "[Reservation] llesieur99: 1 function(s)",
+      "author": "llesieur99"
+     },
+     {
+      "number": 113,
+      "title": "[Reservation] llesieur99: 1 function(s)",
+      "author": "llesieur99"
+     }
+    ]
+   },
+   "releases": [],
+   "progress": null,
+   "contributors": [
+    "liolu",
+    "llesieur99",
+    "Lynder063",
+    "platypet2217-star",
+    "ThorpenCodes"
+   ]
+  },
+  {
+   "repo": "rac3-decomp",
+   "title": "Up Your Arsenal",
+   "branches": [
+    {
+     "name": "master",
+     "commits": []
+    }
+   ],
+   "commitCount": 0,
+   "pullRequests": {
+    "merged": [],
+    "opened": []
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": null,
+   "contributors": []
+  },
+  {
+   "repo": "rac4-decomp",
+   "title": "Ratchet: Deadlocked",
+   "branches": [
+    {
+     "name": "main",
+     "commits": []
+    }
+   ],
+   "commitCount": 0,
+   "pullRequests": {
+    "merged": [],
+    "opened": []
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": null,
+   "contributors": []
+  },
+  {
+   "repo": "openrac-mods",
+   "title": "OpenRAC mods",
+   "branches": [
+    {
+     "name": "master",
+     "commits": []
+    }
+   ],
+   "commitCount": 0,
+   "pullRequests": {
+    "merged": [],
+    "opened": []
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": null,
+   "contributors": []
+  }
+ ]
+}

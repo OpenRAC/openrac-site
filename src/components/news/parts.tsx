@@ -1,8 +1,8 @@
 import Link from "next/link";
 import type { CSSProperties, ReactNode } from "react";
 import Backdrop from "@/components/ui/Backdrop";
-import { authorUrl, daysBehind, formatPercent, formatWeekName, formatWeekRange, NEWS_CONTRIBUTING, NEWS_ISSUES, newsPercent, plainTitle, progressChange, progressGain, reportSources, segments, splitLabel } from "@/lib/news/logic";
-import type { NewsItem, NewsMedia, NewsProgress, NewsProject, NewsRatio, NewsReport, NewsReportSection, NewsWeekEntry } from "@/lib/news/types";
+import { authorUrl, formatPercent, formatWeekName, formatWeekRange, NEWS_CONTRIBUTING, NEWS_ISSUES, newsPercent, plainTitle, progressChange, progressGain, reportSources, segments, splitLabel } from "@/lib/news/logic";
+import type { NewsItem, NewsProgress, NewsProject, NewsRatio, NewsReport, NewsReportSection, NewsWeekEntry } from "@/lib/news/types";
 import { type Project, PROJECTS, type ProjectId } from "@/lib/projects";
 
 /** Which game a tracked repository is. The launcher and mods have no game card, so they keep the site's gold. */
@@ -173,27 +173,6 @@ export function ReportSection({ section, known, repo }: { section: NewsReportSec
   );
 }
 
-/** Screenshots. Each opens full size. If one cannot load, its alt text and caption still say what it showed. */
-export function Gallery({ week, media }: { week: string; media: readonly NewsMedia[] }) {
-  if (!media.length) return null;
-  return (
-    <div className={`grid gap-3 ${media.length > 1 ? "sm:grid-cols-2" : ""}`}>
-      {media.map((m) => {
-        const src = `/news/media/${week}/${m.file}`;
-        return (
-          <figure key={m.file} className="m-0 grid gap-1.5">
-            <a href={src} className="block overflow-hidden rounded-xl border border-line bg-panel text-soft">
-              {/* eslint-disable-next-line @next/next/no-img-element -- served by our own route, already sized by its author */}
-              <img src={src} alt={m.alt} loading="lazy" className="block min-h-16 w-full p-0 text-[14px]" />
-            </a>
-            {m.caption && <figcaption className="text-[13px] text-dim [overflow-wrap:anywhere]">{m.caption}</figcaption>}
-          </figure>
-        );
-      })}
-    </div>
-  );
-}
-
 /** A plain line about what the page can and cannot show. Says what happened and what still works; never alarms. */
 export function Notice({ children }: { children: ReactNode }) {
   return (
@@ -203,15 +182,7 @@ export function Notice({ children }: { children: ReactNode }) {
   );
 }
 
-/** Says when figures may be old: this server's last copy, or a source that has stopped updating. */
-export function Freshness({ stale, newest, now }: { stale: boolean; newest?: string; now: number }) {
-  if (stale) return <Notice>These figures may be out of date. We couldn&apos;t reach the news source just now, so this is the last copy we have.</Notice>;
-  if (daysBehind(newest, now) > 3) return <Notice>New daily figures are running late. The newest we have are from {newest}.</Notice>;
-  return null;
-}
-
-export function NoReport({ state }: { state: "none" | "unavailable" | "invalid" }) {
-  if (state === "unavailable") return <Notice>The written report couldn&apos;t be loaded just now. These are the week&apos;s facts from GitHub. Try again in a little while.</Notice>;
+export function NoReport({ state }: { state: "none" | "invalid" }) {
   if (state === "invalid")
     return (
       <Notice>
@@ -228,15 +199,9 @@ export function NoReport({ state }: { state: "none" | "unavailable" | "invalid" 
 /** A report as a poster: its lead game's art, with the headline over it. On the news page and the home page. */
 export function ReportPoster({ entry, report, lead, large = false, heading: Heading = "h2" }: { entry: Pick<NewsWeekEntry, "week" | "start" | "end">; report: NewsReport; lead?: string; large?: boolean; heading?: "h2" | "h3" }) {
   const game = gameOf(lead);
-  const picture = report.media[0];
   return (
     <article data-reveal style={accentStyle(lead)} className={`group/poster relative isolate flex overflow-hidden rounded-2xl border border-line bg-ink transition-colors hover:border-(--tx) ${large ? "min-h-[340px]" : "min-h-[240px]"}`}>
-      {picture ? (
-        // eslint-disable-next-line @next/next/no-img-element -- decoration here: the report page shows it with its description
-        <img src={`/news/media/${entry.week}/${picture.file}`} alt="" loading="lazy" className="absolute inset-0 -z-10 size-full object-cover" />
-      ) : (
-        game && <Backdrop src={game.image} fallback={game.fallbackImage} zoom="group-hover/poster:[--zoom:1.04]" className="rounded-[inherit] [clip-path:inset(0_round_1rem)]" />
-      )}
+      {game && <Backdrop src={game.image} fallback={game.fallbackImage} zoom="group-hover/poster:[--zoom:1.04]" className="rounded-[inherit] [clip-path:inset(0_round_1rem)]" />}
       <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-ink via-ink/85 to-ink/40" />
       <div className="relative mt-auto grid w-full min-w-0 gap-2 p-5 [overflow-wrap:anywhere] sm:p-6">
         <p className="font-orbitron text-[12px] font-bold uppercase tracking-[.16em] text-(--tx)">

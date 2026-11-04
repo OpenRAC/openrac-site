@@ -15,7 +15,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const mods = catalog.mods.filter((m) => !isWithdrawn(catalog.revoked, m.id));
   const newest = mods.reduce((t, m) => Math.max(t, Date.parse(m.updated)), 0);
   // Weeks with only facts are thin pages: only written reports are offered.
-  const news = ((await getNewsIndex())?.index.weeks ?? []).filter((w) => w.report);
+  const news = ((await getNewsIndex())?.weeks ?? []).filter((w) => w.report);
   return [
     { url: `${site}/`, lastModified: new Date(), changeFrequency: "daily", priority: 1 },
     { url: `${site}/mods`, lastModified: newest ? new Date(newest) : new Date(), changeFrequency: "daily", priority: 0.9 },

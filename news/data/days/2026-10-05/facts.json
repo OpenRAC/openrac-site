@@ -1,0 +1,553 @@
+{
+ "format": 1,
+ "date": "2026-10-05",
+ "totals": {
+  "commits": 20,
+  "pullRequestsMerged": 12,
+  "pullRequestsOpened": 14,
+  "contributors": 3
+ },
+ "projects": [
+  {
+   "repo": "OpenRAC",
+   "title": "OpenRAC launcher",
+   "branches": [
+    {
+     "name": "develop",
+     "commits": [
+      {
+       "sha": "a5000b2b5dd01b04939a410857b12021f1e4598a",
+       "title": "fix(import): apply the rac1/pal notices hunk the last sync rejected",
+       "author": "Veradictus",
+       "date": "2026-10-05T08:01:01Z"
+      },
+      {
+       "sha": "57bbbd563e509e7840342fd95af30943a415216e",
+       "title": "chore(import): sync rac1/pal with rac1-decomp at cb18e74",
+       "author": "Veradictus",
+       "date": "2026-10-05T06:09:46Z"
+      },
+      {
+       "sha": "0d5b5d862e191ad1754e2fd195f8b5aced11966f",
+       "title": "fix(tools): dead padding no longer hides an address from the port tool",
+       "author": "Veradictus",
+       "date": "2026-10-05T05:43:26Z"
+      },
+      {
+       "sha": "c15309cfdd9cec0de5e635b5cf99707382e9666d",
+       "title": "chore(import): sync rac1/pal with rac1-decomp at a5b86ce",
+       "author": "Veradictus",
+       "date": "2026-10-05T05:14:06Z"
+      },
+      {
+       "sha": "15b57cf5d295afc44becbd14c650b165746448dc",
+       "title": "feat(tools): port in both directions between rac1's two projects",
+       "author": "Veradictus",
+       "date": "2026-10-05T04:59:11Z"
+      },
+      {
+       "sha": "cd947a7fc7e84aec2b8b31a7fe146a7ec7b87027",
+       "title": "feat(tools): port a matched function into a version with the same code",
+       "author": "Veradictus",
+       "date": "2026-10-05T04:10:30Z"
+      },
+      {
+       "sha": "060bec83e525a378175810a2bd0c1efa73d3de37",
+       "title": "feat(rac1/ntsc): build on an Apple Silicon Mac under rac1/pal's Wine 8",
+       "author": "Veradictus",
+       "date": "2026-10-05T03:42:03Z"
+      },
+      {
+       "sha": "bf3850be23c428ce59aa5cb942e07bd7d9969afd",
+       "title": "feat(tools): a table of every function two or more games share",
+       "author": "Veradictus",
+       "date": "2026-10-05T03:17:52Z"
+      },
+      {
+       "sha": "fe9317b548e655aed619dbc041936a683cec13b3",
+       "title": "feat(tools): map functions across the games",
+       "author": "Veradictus",
+       "date": "2026-10-05T03:10:55Z"
+      },
+      {
+       "sha": "9bb539cd0c889a3e685caa562d2a4fdb95a158bc",
+       "title": "build(rac4): mount all of OpenRAC in the build container",
+       "author": "Veradictus",
+       "date": "2026-10-05T02:34:00Z"
+      },
+      {
+       "sha": "fd8533c509437d6043d9323383447b2557dac752",
+       "title": "feat(tools): generate the sources table in docs/SOURCES.md",
+       "author": "Veradictus",
+       "date": "2026-10-05T02:21:51Z"
+      }
+     ]
+    },
+    {
+     "name": "master",
+     "commits": [
+      {
+       "sha": "a5000b2b5dd01b04939a410857b12021f1e4598a",
+       "title": "fix(import): apply the rac1/pal notices hunk the last sync rejected",
+       "author": "Veradictus",
+       "date": "2026-10-05T08:01:01Z"
+      },
+      {
+       "sha": "57bbbd563e509e7840342fd95af30943a415216e",
+       "title": "chore(import): sync rac1/pal with rac1-decomp at cb18e74",
+       "author": "Veradictus",
+       "date": "2026-10-05T06:09:46Z"
+      },
+      {
+       "sha": "0d5b5d862e191ad1754e2fd195f8b5aced11966f",
+       "title": "fix(tools): dead padding no longer hides an address from the port tool",
+       "author": "Veradictus",
+       "date": "2026-10-05T05:43:26Z"
+      },
+      {
+       "sha": "c15309cfdd9cec0de5e635b5cf99707382e9666d",
+       "title": "chore(import): sync rac1/pal with rac1-decomp at a5b86ce",
+       "author": "Veradictus",
+       "date": "2026-10-05T05:14:06Z"
+      },
+      {
+       "sha": "15b57cf5d295afc44becbd14c650b165746448dc",
+       "title": "feat(tools): port in both directions between rac1's two projects",
+       "author": "Veradictus",
+       "date": "2026-10-05T04:59:11Z"
+      },
+      {
+       "sha": "cd947a7fc7e84aec2b8b31a7fe146a7ec7b87027",
+       "title": "feat(tools): port a matched function into a version with the same code",
+       "author": "Veradictus",
+       "date": "2026-10-05T04:10:30Z"
+      },
+      {
+       "sha": "060bec83e525a378175810a2bd0c1efa73d3de37",
+       "title": "feat(rac1/ntsc): build on an Apple Silicon Mac under rac1/pal's Wine 8",
+       "author": "Veradictus",
+       "date": "2026-10-05T03:42:03Z"
+      },
+      {
+       "sha": "bf3850be23c428ce59aa5cb942e07bd7d9969afd",
+       "title": "feat(tools): a table of every function two or more games share",
+       "author": "Veradictus",
+       "date": "2026-10-05T03:17:52Z"
+      },
+      {
+       "sha": "fe9317b548e655aed619dbc041936a683cec13b3",
+       "title": "feat(tools): map functions across the games",
+       "author": "Veradictus",
+       "date": "2026-10-05T03:10:55Z"
+      },
+      {
+       "sha": "9bb539cd0c889a3e685caa562d2a4fdb95a158bc",
+       "title": "build(rac4): mount all of OpenRAC in the build container",
+       "author": "Veradictus",
+       "date": "2026-10-05T02:34:00Z"
+      },
+      {
+       "sha": "fd8533c509437d6043d9323383447b2557dac752",
+       "title": "feat(tools): generate the sources table in docs/SOURCES.md",
+       "author": "Veradictus",
+       "date": "2026-10-05T02:21:51Z"
+      }
+     ]
+    }
+   ],
+   "commitCount": 11,
+   "pullRequests": {
+    "merged": [],
+    "opened": [
+     {
+      "number": 1,
+      "title": "chore(rac2): sync validated Going Commando progress and contributor updates",
+      "author": "llesieur99",
+      "untrustedBody": "## Going Commando update\r\n\r\nSync `games/rac2/ntsc` from rac2-decomp `b300787daa` to [`940aaf1b0e`](https://github.com/OpenRAC/rac2-gc-decomp/commit/940aaf1b0e523e8a789b0a17746c7e90fd68a2f8), after merging contributor PRs [#9](https://github.com/OpenRAC/rac2-gc-decomp/pull/9), [#10](https://github.com/OpenRAC/rac2-gc-decomp/pull/10), [#11](https://github.com/OpenRAC/rac2-gc-decomp/pull/11) and [#12](https://github.com/OpenRAC/rac2-gc-decomp/pull/12).\r\n\r\n- Exact integrated C increases from **277,780 to 311,500 / 48,788,176 bytes**: **+33,720 bytes**, now **0.6385%**.\r\n- Includes region-aware tooling, objdiff report validation, reviewed RAC1 research notes, and the isolated experimental PAL functional port. The port and research add **zero matching credit**.\r\n- Preserves OpenRAC's excluded header, sanitized references, host wrappers and conventions. Original history remains in rac2-decomp; MIT notices and contributor credits are retained.\r\n\r\n## Validation\r\n\r\n- Fresh boot and all 27 overla"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": null,
+   "contributors": [
+    "llesieur99",
+    "Veradictus"
+   ]
+  },
+  {
+   "repo": "rac1-decomp",
+   "title": "Ratchet & Clank",
+   "branches": [
+    {
+     "name": "main",
+     "commits": [
+      {
+       "sha": "05da3217a4046ac01dec3ac74f051a348f063155",
+       "title": "Merge pull request #32 from Veradictus/main",
+       "author": "Veradictus",
+       "date": "2026-10-05T22:31:30Z"
+      },
+      {
+       "sha": "c1ad36eb9f33643a59f6a46585bf11db664d0729",
+       "title": "Merge pull request #31 from Veradictus/main",
+       "author": "Veradictus",
+       "date": "2026-10-05T18:23:11Z"
+      },
+      {
+       "sha": "aa08a845ec548a21d1b94998f9cf77c5933c4a9d",
+       "title": "Merge pull request #29 from Veradictus/main",
+       "author": "Lynder063",
+       "date": "2026-10-05T17:36:24Z"
+      },
+      {
+       "sha": "cb22f0b0d3a171d1fd4b6851b86fe214a22c9822",
+       "title": "Merge pull request #28 from OpenRAC/qwen-fixes-and-matches",
+       "author": "Lynder063",
+       "date": "2026-10-05T15:45:15Z"
+      },
+      {
+       "sha": "3848fd664493bf701dde7c9b3eeba846b9efd0f8",
+       "title": "Merge pull request #27 from OpenRAC/qwen-fixes-and-matches",
+       "author": "Lynder063",
+       "date": "2026-10-05T13:18:31Z"
+      },
+      {
+       "sha": "893bc3bca00ee785a1c05327b34b9bd1a79330c0",
+       "title": "feat(overlays/l08_batalia): func_L08_002DBD88 exact match",
+       "author": "Lynder063",
+       "date": "2026-10-05T07:07:56Z"
+      },
+      {
+       "sha": "d553dd3d6b930705f9aea720b3a0dc736873bcbb",
+       "title": "fix(tools): ps2eeas_nops: spell out the FP hazard nop after a label between c.cond and bc1",
+       "author": "Lynder063",
+       "date": "2026-10-05T07:04:42Z"
+      },
+      {
+       "sha": "2aaf1ff98333e4a46ab132dd6481ba1aae544e8a",
+       "title": "feat(overlays/l04_eudora): func_L04_002D48B8 exact match",
+       "author": "Lynder063",
+       "date": "2026-10-05T06:47:30Z"
+      },
+      {
+       "sha": "3d030bf24fb1e7efefd9b8f9bb59c6c3dda60347",
+       "title": "Merge pull request #26 from Veradictus/main",
+       "author": "Lynder063",
+       "date": "2026-10-05T06:35:47Z"
+      }
+     ]
+    }
+   ],
+   "commitCount": 9,
+   "pullRequests": {
+    "merged": [
+     {
+      "number": 26,
+      "title": "feat(ports): carry 100 functions over from Lombyte by machine (22.14%)",
+      "author": "Veradictus",
+      "untrustedBody": "## Summary\r\n\r\n100 functions that Lombyte has matched in the US build, and whose PAL code is the same\r\ninstructions at other addresses, carried over without a model: 87 level functions and\r\n13 functions of the executable, 68,796 bytes.\r\n\r\n| | Before (upstream) | After |\r\n|---|---:|---:|\r\n| Code matched | 20.24% (751,292 bytes) | 22.14% (821,928 bytes) |\r\n| Functions | 2,834 / 5,109 | 2,936 / 5,109 |\r\n| Fuzzy | 22.88% | 24.73% |\r\n| Executable | 58.21% | 59.80% |\r\n| Common level code | 22.16% | 26.07% |\r\n| Level-specific code | 10.46% | 11.26% |\r\n\r\nThe other two functions in the count are `func_L16_002E45F8` (1,364 bytes, from the\r\nLevel 16 work) and your own `func_L07_00320CD0`, which the committed report had not\r\ncounted yet.\r\n\r\n## How the ports were made\r\n\r\nA tool (`tools/port.py` in OpenRAC) compares the US and PAL builds function by function.\r\nWhere the two are the same instructions, it takes Lombyte's C and:\r\n\r\n- **renames every symbol** to its PAL name. It does not use a symbol tab",
+      "mergedAt": "2026-10-05T06:35:48Z"
+     },
+     {
+      "number": 27,
+      "title": "Qwen fixes and matches",
+      "author": "Lynder063",
+      "untrustedBody": "",
+      "mergedAt": "2026-10-05T13:18:31Z"
+     },
+     {
+      "number": 28,
+      "title": "README update",
+      "author": "Lynder063",
+      "untrustedBody": "Forgot to change branch and push it without thing my bad",
+      "mergedAt": "2026-10-05T15:45:15Z"
+     },
+     {
+      "number": 29,
+      "title": "feat(overlays): 140 functions, 1.08 MB: matched code goes from 22.59% to 51.63%",
+      "author": "Veradictus",
+      "untrustedBody": "## Summary\r\n\r\n140 more functions matched, 1,078,252 bytes of level code. The report goes from 2,974 to 3,114 of 5,109 functions and from 22.59% to 51.63% of the code. Upstream `main` (3848fd6) is merged in.\r\n\r\nMost of the bytes are three functions that every level carries its own version of. Once one version was matched, the others were built from its C case by case.\r\n\r\n## What is in it\r\n\r\n**Long functions (57, by Opus long-function workers, `docs/LONG_FUNCTIONS.md`)**\r\n\r\n- The hero's per-state movement function, `func_L00_002180F8` (39,324 bytes) and its 13 level versions. It is now matched everywhere it exists.\r\n- The hero's state-setting function, `func_L02_0022BE40` (13,240 bytes), its 12 other level versions and the shared one. Also complete.\r\n- The hero's update function, `func_L03_0021CDA8` (20,272 bytes) and 11 relatives, including `func_L00_0022A340` (33,312 bytes). Levels 05 and 16 are staged near misses, see below.\r\n- 17 others between 0.9 and 12.8 KB, six of them finished b",
+      "mergedAt": "2026-10-05T17:36:25Z"
+     },
+     {
+      "number": 31,
+      "title": "feat(include): qcopy_nc() and qzero(), and the 17 functions they unlock (51.63% to 53.10%)",
+      "author": "Veradictus",
+      "untrustedBody": "## Summary\r\n\r\nTwo small helpers beside `qcopy()` in `include/common.h`, and the 17 functions that match with them: 54,460 bytes. The report goes from 3,114 to 3,131 of 5,109 functions and from 51.63% to 53.10% of the code.\r\n\r\n## The helpers\r\n\r\n- `qcopy_nc(dst, src)` is `qcopy()` without the `\"memory\"` clobber. Retail has both behaviours: the hero's state-setting function reloads a value after a copy, and the hero's update function keeps it in its register across one.\r\n- `qzero(p)` is `sq $0,0(p)`, a 128-bit zero store. C always materialises the zero with `por` first. Lombyte identified it (its `include/qzero.h`), and the helper is credited there.\r\n\r\n`qcopy()` itself is unchanged. Dropping its clobber was tried first: the executable stays identical, but eleven matched state-setting functions come out 8 bytes short.\r\n\r\n## What matches with them\r\n\r\n- `func_L16_00227818` (26,480 bytes) and `func_L05_00256148` (22,460 bytes), each with `qcopy_nc()` at one copy. They were 83 bytes off. The h",
+      "mergedAt": "2026-10-05T18:23:11Z"
+     },
+     {
+      "number": 32,
+      "title": "feat(overlays): level 17 complete, 29 more functions, and two report rules for level units",
+      "author": "Veradictus",
+      "untrustedBody": "## Summary\r\n\r\nLevel 17 (Drek's Fleet) is the first level whose own code is fully matched. Getting a level\r\nunit to \"complete\" needed two changes to how the report treats level code, so those are in\r\nhere too, each as its own commit.\r\n\r\n| | Before (#31) | After |\r\n|---|---|---|\r\n| Functions finished | 3,131 / 5,109 | 3,186 / 5,109 |\r\n| Code matched | 53.10% | 54.43% |\r\n| Fully linked | 4.66% | 8.45% |\r\n| Units complete | 69 / 278 | 71 / 278 |\r\n\r\nThe 55 newly finished entries are 29 matched functions (49,404 bytes), 22 linker remnants\r\n(88 bytes) and 4 pieces of joined functions (88 bytes).\r\n\r\n## Needs a decision: two report rules\r\n\r\n`docs/ASM_CLASSIFICATION.md` says a change to the published progress policy needs upstream\r\nreview. Both commits stand alone and can be dropped without touching the matches.\r\n\r\n**`b130ecc` Level code's linker remnants count as finished, as the executable's do.**\r\nLevel code has the same leftovers the executable has: the one word the linker left of a\r\nfunctio",
+      "mergedAt": "2026-10-05T22:31:31Z"
+     }
+    ],
+    "opened": [
+     {
+      "number": 26,
+      "title": "feat(ports): carry 100 functions over from Lombyte by machine (22.14%)",
+      "author": "Veradictus",
+      "untrustedBody": "## Summary\r\n\r\n100 functions that Lombyte has matched in the US build, and whose PAL code is the same\r\ninstructions at other addresses, carried over without a model: 87 level functions and\r\n13 functions of the executable, 68,796 bytes.\r\n\r\n| | Before (upstream) | After |\r\n|---|---:|---:|\r\n| Code matched | 20.24% (751,292 bytes) | 22.14% (821,928 bytes) |\r\n| Functions | 2,834 / 5,109 | 2,936 / 5,109 |\r\n| Fuzzy | 22.88% | 24.73% |\r\n| Executable | 58.21% | 59.80% |\r\n| Common level code | 22.16% | 26.07% |\r\n| Level-specific code | 10.46% | 11.26% |\r\n\r\nThe other two functions in the count are `func_L16_002E45F8` (1,364 bytes, from the\r\nLevel 16 work) and your own `func_L07_00320CD0`, which the committed report had not\r\ncounted yet.\r\n\r\n## How the ports were made\r\n\r\nA tool (`tools/port.py` in OpenRAC) compares the US and PAL builds function by function.\r\nWhere the two are the same instructions, it takes Lombyte's C and:\r\n\r\n- **renames every symbol** to its PAL name. It does not use a symbol tab",
+      "mergedAt": "2026-10-05T06:35:48Z"
+     },
+     {
+      "number": 27,
+      "title": "Qwen fixes and matches",
+      "author": "Lynder063",
+      "untrustedBody": "",
+      "mergedAt": "2026-10-05T13:18:31Z"
+     },
+     {
+      "number": 28,
+      "title": "README update",
+      "author": "Lynder063",
+      "untrustedBody": "Forgot to change branch and push it without thing my bad",
+      "mergedAt": "2026-10-05T15:45:15Z"
+     },
+     {
+      "number": 29,
+      "title": "feat(overlays): 140 functions, 1.08 MB: matched code goes from 22.59% to 51.63%",
+      "author": "Veradictus",
+      "untrustedBody": "## Summary\r\n\r\n140 more functions matched, 1,078,252 bytes of level code. The report goes from 2,974 to 3,114 of 5,109 functions and from 22.59% to 51.63% of the code. Upstream `main` (3848fd6) is merged in.\r\n\r\nMost of the bytes are three functions that every level carries its own version of. Once one version was matched, the others were built from its C case by case.\r\n\r\n## What is in it\r\n\r\n**Long functions (57, by Opus long-function workers, `docs/LONG_FUNCTIONS.md`)**\r\n\r\n- The hero's per-state movement function, `func_L00_002180F8` (39,324 bytes) and its 13 level versions. It is now matched everywhere it exists.\r\n- The hero's state-setting function, `func_L02_0022BE40` (13,240 bytes), its 12 other level versions and the shared one. Also complete.\r\n- The hero's update function, `func_L03_0021CDA8` (20,272 bytes) and 11 relatives, including `func_L00_0022A340` (33,312 bytes). Levels 05 and 16 are staged near misses, see below.\r\n- 17 others between 0.9 and 12.8 KB, six of them finished b",
+      "mergedAt": "2026-10-05T17:36:25Z"
+     },
+     {
+      "number": 30,
+      "title": "trying some small to medium functions",
+      "author": "Lynder063",
+      "untrustedBody": "",
+      "mergedAt": "2026-10-06T19:03:18Z"
+     },
+     {
+      "number": 31,
+      "title": "feat(include): qcopy_nc() and qzero(), and the 17 functions they unlock (51.63% to 53.10%)",
+      "author": "Veradictus",
+      "untrustedBody": "## Summary\r\n\r\nTwo small helpers beside `qcopy()` in `include/common.h`, and the 17 functions that match with them: 54,460 bytes. The report goes from 3,114 to 3,131 of 5,109 functions and from 51.63% to 53.10% of the code.\r\n\r\n## The helpers\r\n\r\n- `qcopy_nc(dst, src)` is `qcopy()` without the `\"memory\"` clobber. Retail has both behaviours: the hero's state-setting function reloads a value after a copy, and the hero's update function keeps it in its register across one.\r\n- `qzero(p)` is `sq $0,0(p)`, a 128-bit zero store. C always materialises the zero with `por` first. Lombyte identified it (its `include/qzero.h`), and the helper is credited there.\r\n\r\n`qcopy()` itself is unchanged. Dropping its clobber was tried first: the executable stays identical, but eleven matched state-setting functions come out 8 bytes short.\r\n\r\n## What matches with them\r\n\r\n- `func_L16_00227818` (26,480 bytes) and `func_L05_00256148` (22,460 bytes), each with `qcopy_nc()` at one copy. They were 83 bytes off. The h",
+      "mergedAt": "2026-10-05T18:23:11Z"
+     },
+     {
+      "number": 32,
+      "title": "feat(overlays): level 17 complete, 29 more functions, and two report rules for level units",
+      "author": "Veradictus",
+      "untrustedBody": "## Summary\r\n\r\nLevel 17 (Drek's Fleet) is the first level whose own code is fully matched. Getting a level\r\nunit to \"complete\" needed two changes to how the report treats level code, so those are in\r\nhere too, each as its own commit.\r\n\r\n| | Before (#31) | After |\r\n|---|---|---|\r\n| Functions finished | 3,131 / 5,109 | 3,186 / 5,109 |\r\n| Code matched | 53.10% | 54.43% |\r\n| Fully linked | 4.66% | 8.45% |\r\n| Units complete | 69 / 278 | 71 / 278 |\r\n\r\nThe 55 newly finished entries are 29 matched functions (49,404 bytes), 22 linker remnants\r\n(88 bytes) and 4 pieces of joined functions (88 bytes).\r\n\r\n## Needs a decision: two report rules\r\n\r\n`docs/ASM_CLASSIFICATION.md` says a change to the published progress policy needs upstream\r\nreview. Both commits stand alone and can be dropped without touching the matches.\r\n\r\n**`b130ecc` Level code's linker remnants count as finished, as the executable's do.**\r\nLevel code has the same leftovers the executable has: the one word the linker left of a\r\nfunctio",
+      "mergedAt": "2026-10-05T22:31:31Z"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": {
+    "before": {
+     "code": {
+      "done": 751292,
+      "total": 3712808
+     },
+     "functions": {
+      "done": 2834,
+      "total": 5109
+     }
+    },
+    "after": {
+     "code": {
+      "done": 2020920,
+      "total": 3712808
+     },
+     "functions": {
+      "done": 3186,
+      "total": 5109
+     }
+    }
+   },
+   "contributors": [
+    "Lynder063",
+    "Veradictus"
+   ]
+  },
+  {
+   "repo": "rac2-decomp",
+   "title": "Going Commando",
+   "branches": [
+    {
+     "name": "master",
+     "commits": []
+    }
+   ],
+   "commitCount": 0,
+   "pullRequests": {
+    "merged": [
+     {
+      "number": 9,
+      "title": "Merge platypet2217-star/RAC2Decomp and add NTSC/PAL region support",
+      "author": "Lynder063",
+      "untrustedBody": "## Summary\n\nMerges the PAL functional decompilation from [platypet2217-star/RAC2Decomp](https://github.com/platypet2217-star/RAC2Decomp) into this repository and makes the tools region-aware (USA NTSC-U and Europe PAL).\n\n1. **`merge:`** imports the full history of platypet2217-star/RAC2Decomp (`main` at `3e804dc`, 28 commits, original authorship kept) into `ports/pal-functional/` with a subtree merge. It is a non-matching reconstruction of `SCES_516.07`, so it stays outside `src/`, `candidates/`, catalogues and proofs, and adds no progress. Its MIT LICENSE (© platypet2217-star) is kept.\n2. **`tools:`** adds `config/regions.json` and `scripts/region.py`. `setup.py`, `doctor.py`, `build.py`, `campaign_build.py`, `campaign.py` and `ApplyMobyNames.java` now resolve identities per region (`--region`, `RAC2_REGION`, or the manifest/catalogue serial). USA v1.01 stays the default and the only *matching* region; its identity files are byte-identical. PAL is registered but **unmeasured**. `setup",
+      "mergedAt": "2026-10-05T17:59:25Z"
+     },
+     {
+      "number": 10,
+      "title": "ci: validate the exported progress report with objdiff",
+      "author": "Lynder063",
+      "untrustedBody": "## Summary\n\nBoth workflows upload `SCUS_972.68_report`, which decomp.dev parses with objdiff, but nothing checks that objdiff can load it. This adds one step after the export. It downloads `objdiff-cli` v3.8.1, pinned by SHA-256 (the same release and check as rac1-decomp's progress workflow), and runs `objdiff-cli report changes report.json report.json`. If the report does not load, the job fails before the upload.\n\nIt reads only the generated report: no game data, toolchain or hashed proof input changes.\n\n## Validation\n\n- Locally, objdiff-cli v3.8.1 (checksum verified) loads the report exported from current `RAC2` (`eeaf43b`) and exits 0.\n- It exits 1 for three corrupted copies: a non-numeric `matchedCode`, a unit whose `measures` is a list, and a truncated file.\n- Both workflow files parse as YAML.\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)",
+      "mergedAt": "2026-10-05T17:59:25Z"
+     },
+     {
+      "number": 11,
+      "title": "research: record RAC1 fp-bit evidence for the boot runtime helpers",
+      "author": "Lynder063",
+      "untrustedBody": "## Summary\n\n`FUN_00123400` (144 B) and `FUN_001234F0` (64 B) are stopped with the reopening condition \"independent original source/compiler evidence\". Next to the integrated `FUN_00123268` (44 B), they have the sizes and order of fp-bit's `__make_dp`, `__unpack_f` and `fptodp` in RAC1.\n\n[rac1-decomp](https://github.com/OpenRAC/rac1-decomp) matches all three on `SCES_509.16`, byte for byte. It compiles GCC 2.95.3's `fp-bit.c` **whole** with Sony's gcc 2.9-ee-991111 through its driver. The file is unmodified apart from two marked changes. The build uses fp-bit's own configuration macros (`-DFLOAT -DFLOAT_BIT_ORDER_MISMATCH -DNO_DENORMALS -DUS_SOFTWARE_GOFAST`), as Sony's `libgcc.a` build does.\n\nThis PR:\n- adds `docs/RAC1-FP-BIT-EVIDENCE.md`: the correspondence table, RAC1 results, the pinned rac1-decomp commit and the `fp-bit.c` SHA-256, and what a RAC2 trial must still show. The GPL sources are referenced, not copied;\n- plans one queued research task, `boot-fp-bit-verbatim-source-rac1-e",
+      "mergedAt": "2026-10-05T17:59:25Z"
+     },
+     {
+      "number": 12,
+      "title": "docs: summarise rac1-decomp findings that bear on RAC2",
+      "author": "Lynder063",
+      "untrustedBody": "## Summary\n\nAdds `docs/RAC1-DECOMP-FINDINGS.md` and a README link to it. The page summarises results measured by [rac1-decomp](https://github.com/OpenRAC/rac1-decomp) (`SCES_509.16`, 22.6% of code matched) that concern compiler, library and SDK code shared by the engine's games:\n\n1. **libgcc from GCC's own sources** with Sony's 2.9-ee-991111, the lineage of this repo's GNU EE profile. Covers the source revisions, the fp-bit configuration macros, building through the driver rather than `cc1`, one object per `L_*` module, and the modules still open.\n2. **EE SDK archives as a source of names.** Includes the caveat that RAC2's toolchain policy requires verified provenance.\n3. **Compiler behaviour measured on RAC1**, for understanding only, because RAC1's assembly rewriting is not acceptable here. Covers the SN v1.14 vs v1.36 callee-saved slot layout, missing sibling calls, `-G2` and the short-loop erratum.\n4. **m2c and decomp-permuter** as candidate generators that feed the normal campaign",
+      "mergedAt": "2026-10-05T17:59:25Z"
+     },
+     {
+      "number": 13,
+      "title": "decomp: match the boot's fp-bit single-precision unpacker from vendored libgcc",
+      "author": "llesieur99",
+      "untrustedBody": "## Result\r\n\r\nIntegrates the 144-byte boot single-precision unpacker `FUN_00123400` from\r\npinned libgcc source. Proposed exact C coverage is 311,644 / 48,788,176 bytes\r\n(0.6388%), up by 144 bytes. No native overlay body is newly credited.\r\n\r\n## Source and licensing\r\n\r\nThe vendored source is derived from GCC 2.95.3 fp-bit.c at the upstream commit\r\nand SHA-256 recorded in `src/libgcc/README.md`. Its preprocessed program text\r\nhas one mechanical unpacker-symbol rename; the refused `fptodp` keeps its\r\noriginal name. The program text between the markers is unchanged by the\r\ncorrective commit.\r\n\r\nThe original FSF copyright, GPL version 2-or-later notice, disclaimer, author\r\ncredits, additional linking permissions and special exception are retained.\r\n`src/libgcc/COPYING` supplies the complete GPLv2 text. One trailing space in an\r\nupstream comment is normalized separately from the unchanged program body.\r\nThe README identifies the same GPL portion in generated `candidates/boot.c`;\r\nthe surround",
+      "mergedAt": "2026-10-05T20:39:30Z"
+     },
+     {
+      "number": 14,
+      "title": "tooling: discover shared families and prepare exact binding trials",
+      "author": "llesieur99",
+      "untrustedBody": "Common C functions recur at different addresses in Going Commando's level overlays. This adds a maintained workflow to discover candidate copies and prepare one reviewed C body with explicit per-program bindings, while keeping complete unmasked byte equality as the acceptance rule.\n\nThe discovery tool validates pinned EE references and complete non-overlapping intervals, then masks only J/JAL destination bits. Constants, GP/address halves, COP2 operands and trailing NOPs remain visible. Reports are private metadata and add no matching credit or unique-code denominator.\n\nThe preparer verifies canonical fragments/context, current recipes, native catalogues and complete-unit reviews before creating a fresh private bank. Its portable tasks split the existing G0/G8 profiles and use the unchanged campaign compiler/linker/checker. The reviewed GS spec, workflow documentation and preserved positive/negative pilot make this reproducible.\n\nValidation:\n- Public CLI: one GS candidate group with 27",
+      "mergedAt": "2026-10-05T23:34:20Z"
+     }
+    ],
+    "opened": [
+     {
+      "number": 9,
+      "title": "Merge platypet2217-star/RAC2Decomp and add NTSC/PAL region support",
+      "author": "Lynder063",
+      "untrustedBody": "## Summary\n\nMerges the PAL functional decompilation from [platypet2217-star/RAC2Decomp](https://github.com/platypet2217-star/RAC2Decomp) into this repository and makes the tools region-aware (USA NTSC-U and Europe PAL).\n\n1. **`merge:`** imports the full history of platypet2217-star/RAC2Decomp (`main` at `3e804dc`, 28 commits, original authorship kept) into `ports/pal-functional/` with a subtree merge. It is a non-matching reconstruction of `SCES_516.07`, so it stays outside `src/`, `candidates/`, catalogues and proofs, and adds no progress. Its MIT LICENSE (© platypet2217-star) is kept.\n2. **`tools:`** adds `config/regions.json` and `scripts/region.py`. `setup.py`, `doctor.py`, `build.py`, `campaign_build.py`, `campaign.py` and `ApplyMobyNames.java` now resolve identities per region (`--region`, `RAC2_REGION`, or the manifest/catalogue serial). USA v1.01 stays the default and the only *matching* region; its identity files are byte-identical. PAL is registered but **unmeasured**. `setup",
+      "mergedAt": "2026-10-05T17:59:25Z"
+     },
+     {
+      "number": 10,
+      "title": "ci: validate the exported progress report with objdiff",
+      "author": "Lynder063",
+      "untrustedBody": "## Summary\n\nBoth workflows upload `SCUS_972.68_report`, which decomp.dev parses with objdiff, but nothing checks that objdiff can load it. This adds one step after the export. It downloads `objdiff-cli` v3.8.1, pinned by SHA-256 (the same release and check as rac1-decomp's progress workflow), and runs `objdiff-cli report changes report.json report.json`. If the report does not load, the job fails before the upload.\n\nIt reads only the generated report: no game data, toolchain or hashed proof input changes.\n\n## Validation\n\n- Locally, objdiff-cli v3.8.1 (checksum verified) loads the report exported from current `RAC2` (`eeaf43b`) and exits 0.\n- It exits 1 for three corrupted copies: a non-numeric `matchedCode`, a unit whose `measures` is a list, and a truncated file.\n- Both workflow files parse as YAML.\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)",
+      "mergedAt": "2026-10-05T17:59:25Z"
+     },
+     {
+      "number": 11,
+      "title": "research: record RAC1 fp-bit evidence for the boot runtime helpers",
+      "author": "Lynder063",
+      "untrustedBody": "## Summary\n\n`FUN_00123400` (144 B) and `FUN_001234F0` (64 B) are stopped with the reopening condition \"independent original source/compiler evidence\". Next to the integrated `FUN_00123268` (44 B), they have the sizes and order of fp-bit's `__make_dp`, `__unpack_f` and `fptodp` in RAC1.\n\n[rac1-decomp](https://github.com/OpenRAC/rac1-decomp) matches all three on `SCES_509.16`, byte for byte. It compiles GCC 2.95.3's `fp-bit.c` **whole** with Sony's gcc 2.9-ee-991111 through its driver. The file is unmodified apart from two marked changes. The build uses fp-bit's own configuration macros (`-DFLOAT -DFLOAT_BIT_ORDER_MISMATCH -DNO_DENORMALS -DUS_SOFTWARE_GOFAST`), as Sony's `libgcc.a` build does.\n\nThis PR:\n- adds `docs/RAC1-FP-BIT-EVIDENCE.md`: the correspondence table, RAC1 results, the pinned rac1-decomp commit and the `fp-bit.c` SHA-256, and what a RAC2 trial must still show. The GPL sources are referenced, not copied;\n- plans one queued research task, `boot-fp-bit-verbatim-source-rac1-e",
+      "mergedAt": "2026-10-05T17:59:25Z"
+     },
+     {
+      "number": 12,
+      "title": "docs: summarise rac1-decomp findings that bear on RAC2",
+      "author": "Lynder063",
+      "untrustedBody": "## Summary\n\nAdds `docs/RAC1-DECOMP-FINDINGS.md` and a README link to it. The page summarises results measured by [rac1-decomp](https://github.com/OpenRAC/rac1-decomp) (`SCES_509.16`, 22.6% of code matched) that concern compiler, library and SDK code shared by the engine's games:\n\n1. **libgcc from GCC's own sources** with Sony's 2.9-ee-991111, the lineage of this repo's GNU EE profile. Covers the source revisions, the fp-bit configuration macros, building through the driver rather than `cc1`, one object per `L_*` module, and the modules still open.\n2. **EE SDK archives as a source of names.** Includes the caveat that RAC2's toolchain policy requires verified provenance.\n3. **Compiler behaviour measured on RAC1**, for understanding only, because RAC1's assembly rewriting is not acceptable here. Covers the SN v1.14 vs v1.36 callee-saved slot layout, missing sibling calls, `-G2` and the short-loop erratum.\n4. **m2c and decomp-permuter** as candidate generators that feed the normal campaign",
+      "mergedAt": "2026-10-05T17:59:25Z"
+     },
+     {
+      "number": 13,
+      "title": "decomp: match the boot's fp-bit single-precision unpacker from vendored libgcc",
+      "author": "llesieur99",
+      "untrustedBody": "## Result\r\n\r\nIntegrates the 144-byte boot single-precision unpacker `FUN_00123400` from\r\npinned libgcc source. Proposed exact C coverage is 311,644 / 48,788,176 bytes\r\n(0.6388%), up by 144 bytes. No native overlay body is newly credited.\r\n\r\n## Source and licensing\r\n\r\nThe vendored source is derived from GCC 2.95.3 fp-bit.c at the upstream commit\r\nand SHA-256 recorded in `src/libgcc/README.md`. Its preprocessed program text\r\nhas one mechanical unpacker-symbol rename; the refused `fptodp` keeps its\r\noriginal name. The program text between the markers is unchanged by the\r\ncorrective commit.\r\n\r\nThe original FSF copyright, GPL version 2-or-later notice, disclaimer, author\r\ncredits, additional linking permissions and special exception are retained.\r\n`src/libgcc/COPYING` supplies the complete GPLv2 text. One trailing space in an\r\nupstream comment is normalized separately from the unchanged program body.\r\nThe README identifies the same GPL portion in generated `candidates/boot.c`;\r\nthe surround",
+      "mergedAt": "2026-10-05T20:39:30Z"
+     },
+     {
+      "number": 14,
+      "title": "tooling: discover shared families and prepare exact binding trials",
+      "author": "llesieur99",
+      "untrustedBody": "Common C functions recur at different addresses in Going Commando's level overlays. This adds a maintained workflow to discover candidate copies and prepare one reviewed C body with explicit per-program bindings, while keeping complete unmasked byte equality as the acceptance rule.\n\nThe discovery tool validates pinned EE references and complete non-overlapping intervals, then masks only J/JAL destination bits. Constants, GP/address halves, COP2 operands and trailing NOPs remain visible. Reports are private metadata and add no matching credit or unique-code denominator.\n\nThe preparer verifies canonical fragments/context, current recipes, native catalogues and complete-unit reviews before creating a fresh private bank. Its portable tasks split the existing G0/G8 profiles and use the unchanged campaign compiler/linker/checker. The reviewed GS spec, workflow documentation and preserved positive/negative pilot make this reproducible.\n\nValidation:\n- Public CLI: one GS candidate group with 27",
+      "mergedAt": "2026-10-05T23:34:20Z"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": null,
+   "contributors": [
+    "llesieur99",
+    "Lynder063"
+   ]
+  },
+  {
+   "repo": "rac3-decomp",
+   "title": "Up Your Arsenal",
+   "branches": [
+    {
+     "name": "master",
+     "commits": []
+    }
+   ],
+   "commitCount": 0,
+   "pullRequests": {
+    "merged": [],
+    "opened": []
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": null,
+   "contributors": []
+  },
+  {
+   "repo": "rac4-decomp",
+   "title": "Ratchet: Deadlocked",
+   "branches": [
+    {
+     "name": "main",
+     "commits": []
+    }
+   ],
+   "commitCount": 0,
+   "pullRequests": {
+    "merged": [],
+    "opened": []
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": null,
+   "contributors": []
+  },
+  {
+   "repo": "openrac-mods",
+   "title": "OpenRAC mods",
+   "branches": [
+    {
+     "name": "master",
+     "commits": []
+    }
+   ],
+   "commitCount": 0,
+   "pullRequests": {
+    "merged": [],
+    "opened": []
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": null,
+   "contributors": []
+  }
+ ]
+}

@@ -1,0 +1,3323 @@
+{
+ "format": 1,
+ "week": "2026-W43",
+ "start": "2026-10-19",
+ "end": "2026-10-25",
+ "days": [
+  "2026-10-19",
+  "2026-10-20",
+  "2026-10-21",
+  "2026-10-22",
+  "2026-10-23",
+  "2026-10-24",
+  "2026-10-25"
+ ],
+ "totals": {
+  "commits": 665,
+  "pullRequestsMerged": 227,
+  "pullRequestsOpened": 229,
+  "contributors": 17
+ },
+ "projects": [
+  {
+   "repo": "OpenRAC",
+   "title": "OpenRAC launcher",
+   "commitCount": 323,
+   "activeDays": [
+    "2026-10-19",
+    "2026-10-20",
+    "2026-10-21",
+    "2026-10-22",
+    "2026-10-23",
+    "2026-10-24",
+    "2026-10-25"
+   ],
+   "pullRequests": {
+    "merged": [
+     {
+      "number": 15,
+      "title": "Add Android support + other changes",
+      "author": "mateuszklysz",
+      "mergedAt": "2026-10-19T17:28:10Z"
+     },
+     {
+      "number": 16,
+      "title": "fix(port): support Windows diagnostic reports and regression runs",
+      "author": "pezzadev",
+      "mergedAt": "2026-10-20T01:08:30Z"
+     },
+     {
+      "number": 17,
+      "title": "feat(rac1): render Ratchet shadow volumes",
+      "author": "pezzadev",
+      "mergedAt": "2026-10-20T01:08:33Z"
+     },
+     {
+      "number": 18,
+      "title": "fix(port): keep Vulkan instance buffers in the frame ring",
+      "author": "pezzadev",
+      "mergedAt": "2026-10-20T01:08:27Z"
+     },
+     {
+      "number": 21,
+      "title": "fix(hostgen): forward unprototyped signatures only where a game asks",
+      "author": "Veradictus",
+      "mergedAt": "2026-10-20T11:48:43Z"
+     },
+     {
+      "number": 22,
+      "title": "fix(port): the threads reading a track are stopped before the program exits",
+      "author": "ReaperOfVeriod",
+      "mergedAt": "2026-10-21T02:36:51Z"
+     },
+     {
+      "number": 23,
+      "title": "fix(launcher): a bug sweep of the launcher",
+      "author": "ReaperOfVeriod",
+      "mergedAt": "2026-10-21T02:18:20Z"
+     },
+     {
+      "number": 25,
+      "title": "fix(port/rac1-pal): level copies run their own code",
+      "author": "Drustburn",
+      "mergedAt": "2026-10-21T11:56:46Z"
+     },
+     {
+      "number": 26,
+      "title": "fix(hostgen): the matched C keeps the EE's integer widths",
+      "author": "Drustburn",
+      "mergedAt": "2026-10-21T12:12:00Z"
+     },
+     {
+      "number": 27,
+      "title": "fix(port/rac1-pal): folded functions' places, part 2",
+      "author": "Drustburn",
+      "mergedAt": "2026-10-21T15:10:21Z"
+     },
+     {
+      "number": 28,
+      "title": "fix(hostgen): returns_64 results passed on whole; spilled 32-bit locals",
+      "author": "Drustburn",
+      "mergedAt": "2026-10-21T16:20:31Z"
+     },
+     {
+      "number": 29,
+      "title": "fix(launcher): the AppImage's own environment stays in the AppImage",
+      "author": "ReaperOfVeriod",
+      "mergedAt": "2026-10-21T20:02:25Z"
+     },
+     {
+      "number": 30,
+      "title": "fix(hostgen): hook points keep their tail call's result",
+      "author": "Drustburn",
+      "mergedAt": "2026-10-22T15:05:28Z"
+     },
+     {
+      "number": 31,
+      "title": "feat(progress): show live ByteMatch badges in the README",
+      "author": "Lynder063",
+      "mergedAt": "2026-10-22T10:59:18Z"
+     },
+     {
+      "number": 32,
+      "title": "docs(launcher): simplify the README",
+      "author": "Lynder063",
+      "mergedAt": "2026-10-22T11:17:57Z"
+     },
+     {
+      "number": 33,
+      "title": "fix(port): the library layer answers as the console's libraries and kernel do",
+      "author": "Drustburn",
+      "mergedAt": "2026-10-23T01:36:37Z"
+     },
+     {
+      "number": 34,
+      "title": "docs(launcher): the README's files-and-network table in Prettier's layout",
+      "author": "Drustburn",
+      "mergedAt": "2026-10-23T01:04:50Z"
+     },
+     {
+      "number": 35,
+      "title": "feat(port): the EE's float arithmetic for chosen functions, and port overrides of matched C",
+      "author": "Drustburn",
+      "mergedAt": "2026-10-23T01:49:08Z"
+     },
+     {
+      "number": 36,
+      "title": "Add enhanced lighting and GPU-driven rendering",
+      "author": "pezzadev",
+      "mergedAt": "2026-10-23T02:10:35Z"
+     },
+     {
+      "number": 37,
+      "title": "fix(port/rac1): host collision computes as the console's vector unit",
+      "author": "Drustburn",
+      "mergedAt": "2026-10-23T18:08:52Z"
+     },
+     {
+      "number": 38,
+      "title": "fix(port/rac1-pal): folded functions' places, part 3",
+      "author": "Drustburn",
+      "mergedAt": "2026-10-23T17:09:02Z"
+     },
+     {
+      "number": 40,
+      "title": "feat(port/rac1-pal): every real function has C: libkernel's uncalled system calls, crt0, tlbtrap, the WAD DMA helpers",
+      "author": "Drustburn",
+      "mergedAt": "2026-10-23T17:15:36Z"
+     },
+     {
+      "number": 41,
+      "title": "hostgen: the remaining translation fixes",
+      "author": "Drustburn",
+      "mergedAt": "2026-10-23T17:22:25Z"
+     },
+     {
+      "number": 42,
+      "title": "fix(rac1/pal): game routines that behave as retail's",
+      "author": "Drustburn",
+      "mergedAt": "2026-10-23T18:08:29Z"
+     },
+     {
+      "number": 43,
+      "title": "feat(port): optimise probe baking and add edge-aware texture upscaling",
+      "author": "pezzadev",
+      "mergedAt": "2026-10-24T04:41:08Z"
+     },
+     {
+      "number": 44,
+      "title": "feat: Android launcher and controls round: touch camera, Mods tab, Enhanced graphics, themes",
+      "author": "mateuszklysz",
+      "mergedAt": "2026-10-24T16:27:57Z"
+     },
+     {
+      "number": 45,
+      "title": "Feat/rac6 secret agent clank",
+      "author": "Lynder063",
+      "mergedAt": "2026-10-24T13:37:32Z"
+     },
+     {
+      "number": 47,
+      "title": "feat(port): add FSR upscaling and pipelined rendering",
+      "author": "pezzadev",
+      "mergedAt": "2026-10-24T18:18:47Z"
+     },
+     {
+      "number": 49,
+      "title": "Fix/rac1 user reports",
+      "author": "Lynder063",
+      "mergedAt": "2026-10-24T23:53:40Z"
+     },
+     {
+      "number": 51,
+      "title": "feat(launcher): new OpenRAC logo, smoother pages, branch updates and an Android set-up fix",
+      "author": "mateuszklysz",
+      "mergedAt": "2026-10-25T08:34:30Z"
+     },
+     {
+      "number": 52,
+      "title": "fix(rac1): hoverboard girl grows; list new differences",
+      "author": "Lynder063",
+      "mergedAt": "2026-10-25T09:16:07Z"
+     },
+     {
+      "number": 53,
+      "title": "docs(rac1): remembered language and sound in differences",
+      "author": "Lynder063",
+      "mergedAt": "2026-10-25T10:15:54Z"
+     },
+     {
+      "number": 54,
+      "title": "fix(rac1): load from pause flight matches the console",
+      "author": "Lynder063",
+      "mergedAt": "2026-10-25T10:15:57Z"
+     },
+     {
+      "number": 55,
+      "title": "feat(launcher): import saves from PCSX2",
+      "author": "Lynder063",
+      "mergedAt": "2026-10-25T10:16:00Z"
+     },
+     {
+      "number": 56,
+      "title": "docs(launcher): 0.9.0 release notes",
+      "author": "Lynder063",
+      "mergedAt": "2026-10-25T10:45:18Z"
+     },
+     {
+      "number": 57,
+      "title": "revert(launcher): drop the 0.9.0 release notes",
+      "author": "Lynder063",
+      "mergedAt": "2026-10-25T10:45:46Z"
+     },
+     {
+      "number": 58,
+      "title": "fix(launcher): Android disc set-up works again, says why it fails, and offers Rebuild",
+      "author": "mateuszklysz",
+      "mergedAt": "2026-10-25T14:06:06Z"
+     },
+     {
+      "number": 59,
+      "title": "fix(rac1): vendor icons after an in-level movie",
+      "author": "Lynder063",
+      "mergedAt": "2026-10-25T14:01:07Z"
+     },
+     {
+      "number": 60,
+      "title": "chore(launcher): 0.9.0",
+      "author": "Lynder063",
+      "mergedAt": "2026-10-25T14:11:28Z"
+     },
+     {
+      "number": 61,
+      "title": "fix(probes): scenes bake without collision.glb",
+      "author": "Lynder063",
+      "mergedAt": "2026-10-25T14:23:44Z"
+     },
+     {
+      "number": 62,
+      "title": "feat(launcher): Mods switch under Play",
+      "author": "Lynder063",
+      "mergedAt": "2026-10-25T14:55:38Z"
+     },
+     {
+      "number": 63,
+      "title": "fix(launcher): no page slides without compositing",
+      "author": "Lynder063",
+      "mergedAt": "2026-10-25T15:44:00Z"
+     },
+     {
+      "number": 65,
+      "title": "fix(rac1): Ratchet keeps the O2 mask in Gemlik's ship scenes",
+      "author": "Lynder063",
+      "mergedAt": "2026-10-25T19:07:02Z"
+     },
+     {
+      "number": 67,
+      "title": "feat(options): the Video page in the PAL disc's five languages",
+      "author": "Lynder063",
+      "mergedAt": "2026-10-25T20:05:58Z"
+     },
+     {
+      "number": 68,
+      "title": "fix(launcher): clicks crash on Wayland with NVIDIA (hybrid GPUs)",
+      "author": "Lynder063",
+      "mergedAt": "2026-10-25T20:34:56Z"
+     },
+     {
+      "number": 69,
+      "title": "fix(port): Umbris water puzzle shows flat lilac slabs over the water",
+      "author": "Lynder063",
+      "mergedAt": "2026-10-25T20:52:10Z"
+     }
+    ],
+    "opened": [
+     {
+      "number": 15,
+      "title": "Add Android support + other changes",
+      "author": "mateuszklysz",
+      "mergedAt": "2026-10-19T17:28:10Z"
+     },
+     {
+      "number": 16,
+      "title": "fix(port): support Windows diagnostic reports and regression runs",
+      "author": "pezzadev",
+      "mergedAt": "2026-10-20T01:08:30Z"
+     },
+     {
+      "number": 17,
+      "title": "feat(rac1): render Ratchet shadow volumes",
+      "author": "pezzadev",
+      "mergedAt": "2026-10-20T01:08:33Z"
+     },
+     {
+      "number": 18,
+      "title": "fix(port): keep Vulkan instance buffers in the frame ring",
+      "author": "pezzadev",
+      "mergedAt": "2026-10-20T01:08:27Z"
+     },
+     {
+      "number": 21,
+      "title": "fix(hostgen): forward unprototyped signatures only where a game asks",
+      "author": "Veradictus",
+      "mergedAt": "2026-10-20T11:48:43Z"
+     },
+     {
+      "number": 22,
+      "title": "fix(port): the threads reading a track are stopped before the program exits",
+      "author": "ReaperOfVeriod",
+      "mergedAt": "2026-10-21T02:36:51Z"
+     },
+     {
+      "number": 23,
+      "title": "fix(launcher): a bug sweep of the launcher",
+      "author": "ReaperOfVeriod",
+      "mergedAt": "2026-10-21T02:18:20Z"
+     },
+     {
+      "number": 24,
+      "title": "test(port): does the arm64 job build the game from scratch?",
+      "author": "ReaperOfVeriod"
+     },
+     {
+      "number": 25,
+      "title": "fix(port/rac1-pal): level copies run their own code",
+      "author": "Drustburn",
+      "mergedAt": "2026-10-21T11:56:46Z"
+     },
+     {
+      "number": 26,
+      "title": "fix(hostgen): the matched C keeps the EE's integer widths",
+      "author": "Drustburn",
+      "mergedAt": "2026-10-21T12:12:00Z"
+     },
+     {
+      "number": 27,
+      "title": "fix(port/rac1-pal): folded functions' places, part 2",
+      "author": "Drustburn",
+      "mergedAt": "2026-10-21T15:10:21Z"
+     },
+     {
+      "number": 28,
+      "title": "fix(hostgen): returns_64 results passed on whole; spilled 32-bit locals",
+      "author": "Drustburn",
+      "mergedAt": "2026-10-21T16:20:31Z"
+     },
+     {
+      "number": 29,
+      "title": "fix(launcher): the AppImage's own environment stays in the AppImage",
+      "author": "ReaperOfVeriod",
+      "mergedAt": "2026-10-21T20:02:25Z"
+     },
+     {
+      "number": 30,
+      "title": "fix(hostgen): hook points keep their tail call's result",
+      "author": "Drustburn",
+      "mergedAt": "2026-10-22T15:05:28Z"
+     },
+     {
+      "number": 31,
+      "title": "feat(progress): show live ByteMatch badges in the README",
+      "author": "Lynder063",
+      "mergedAt": "2026-10-22T10:59:18Z"
+     },
+     {
+      "number": 32,
+      "title": "docs(launcher): simplify the README",
+      "author": "Lynder063",
+      "mergedAt": "2026-10-22T11:17:57Z"
+     },
+     {
+      "number": 33,
+      "title": "fix(port): the library layer answers as the console's libraries and kernel do",
+      "author": "Drustburn",
+      "mergedAt": "2026-10-23T01:36:37Z"
+     },
+     {
+      "number": 34,
+      "title": "docs(launcher): the README's files-and-network table in Prettier's layout",
+      "author": "Drustburn",
+      "mergedAt": "2026-10-23T01:04:50Z"
+     },
+     {
+      "number": 35,
+      "title": "feat(port): the EE's float arithmetic for chosen functions, and port overrides of matched C",
+      "author": "Drustburn",
+      "mergedAt": "2026-10-23T01:49:08Z"
+     },
+     {
+      "number": 36,
+      "title": "Add enhanced lighting and GPU-driven rendering",
+      "author": "pezzadev",
+      "mergedAt": "2026-10-23T02:10:35Z"
+     },
+     {
+      "number": 37,
+      "title": "fix(port/rac1): host collision computes as the console's vector unit",
+      "author": "Drustburn",
+      "mergedAt": "2026-10-23T18:08:52Z"
+     },
+     {
+      "number": 38,
+      "title": "fix(port/rac1-pal): folded functions' places, part 3",
+      "author": "Drustburn",
+      "mergedAt": "2026-10-23T17:09:02Z"
+     },
+     {
+      "number": 40,
+      "title": "feat(port/rac1-pal): every real function has C: libkernel's uncalled system calls, crt0, tlbtrap, the WAD DMA helpers",
+      "author": "Drustburn",
+      "mergedAt": "2026-10-23T17:15:36Z"
+     },
+     {
+      "number": 41,
+      "title": "hostgen: the remaining translation fixes",
+      "author": "Drustburn",
+      "mergedAt": "2026-10-23T17:22:25Z"
+     },
+     {
+      "number": 42,
+      "title": "fix(rac1/pal): game routines that behave as retail's",
+      "author": "Drustburn",
+      "mergedAt": "2026-10-23T18:08:29Z"
+     },
+     {
+      "number": 43,
+      "title": "feat(port): optimise probe baking and add edge-aware texture upscaling",
+      "author": "pezzadev",
+      "mergedAt": "2026-10-24T04:41:08Z"
+     },
+     {
+      "number": 44,
+      "title": "feat: Android launcher and controls round: touch camera, Mods tab, Enhanced graphics, themes",
+      "author": "mateuszklysz",
+      "mergedAt": "2026-10-24T16:27:57Z"
+     },
+     {
+      "number": 45,
+      "title": "Feat/rac6 secret agent clank",
+      "author": "Lynder063",
+      "mergedAt": "2026-10-24T13:37:32Z"
+     },
+     {
+      "number": 47,
+      "title": "feat(port): add FSR upscaling and pipelined rendering",
+      "author": "pezzadev",
+      "mergedAt": "2026-10-24T18:18:47Z"
+     },
+     {
+      "number": 49,
+      "title": "Fix/rac1 user reports",
+      "author": "Lynder063",
+      "mergedAt": "2026-10-24T23:53:40Z"
+     },
+     {
+      "number": 51,
+      "title": "feat(launcher): new OpenRAC logo, smoother pages, branch updates and an Android set-up fix",
+      "author": "mateuszklysz",
+      "mergedAt": "2026-10-25T08:34:30Z"
+     },
+     {
+      "number": 52,
+      "title": "fix(rac1): hoverboard girl grows; list new differences",
+      "author": "Lynder063",
+      "mergedAt": "2026-10-25T09:16:07Z"
+     },
+     {
+      "number": 53,
+      "title": "docs(rac1): remembered language and sound in differences",
+      "author": "Lynder063",
+      "mergedAt": "2026-10-25T10:15:54Z"
+     },
+     {
+      "number": 54,
+      "title": "fix(rac1): load from pause flight matches the console",
+      "author": "Lynder063",
+      "mergedAt": "2026-10-25T10:15:57Z"
+     },
+     {
+      "number": 55,
+      "title": "feat(launcher): import saves from PCSX2",
+      "author": "Lynder063",
+      "mergedAt": "2026-10-25T10:16:00Z"
+     },
+     {
+      "number": 56,
+      "title": "docs(launcher): 0.9.0 release notes",
+      "author": "Lynder063",
+      "mergedAt": "2026-10-25T10:45:18Z"
+     },
+     {
+      "number": 57,
+      "title": "revert(launcher): drop the 0.9.0 release notes",
+      "author": "Lynder063",
+      "mergedAt": "2026-10-25T10:45:46Z"
+     },
+     {
+      "number": 58,
+      "title": "fix(launcher): Android disc set-up works again, says why it fails, and offers Rebuild",
+      "author": "mateuszklysz",
+      "mergedAt": "2026-10-25T14:06:06Z"
+     },
+     {
+      "number": 59,
+      "title": "fix(rac1): vendor icons after an in-level movie",
+      "author": "Lynder063",
+      "mergedAt": "2026-10-25T14:01:07Z"
+     },
+     {
+      "number": 60,
+      "title": "chore(launcher): 0.9.0",
+      "author": "Lynder063",
+      "mergedAt": "2026-10-25T14:11:28Z"
+     },
+     {
+      "number": 61,
+      "title": "fix(probes): scenes bake without collision.glb",
+      "author": "Lynder063",
+      "mergedAt": "2026-10-25T14:23:44Z"
+     },
+     {
+      "number": 62,
+      "title": "feat(launcher): Mods switch under Play",
+      "author": "Lynder063",
+      "mergedAt": "2026-10-25T14:55:38Z"
+     },
+     {
+      "number": 63,
+      "title": "fix(launcher): no page slides without compositing",
+      "author": "Lynder063",
+      "mergedAt": "2026-10-25T15:44:00Z"
+     },
+     {
+      "number": 65,
+      "title": "fix(rac1): Ratchet keeps the O2 mask in Gemlik's ship scenes",
+      "author": "Lynder063",
+      "mergedAt": "2026-10-25T19:07:02Z"
+     },
+     {
+      "number": 67,
+      "title": "feat(options): the Video page in the PAL disc's five languages",
+      "author": "Lynder063",
+      "mergedAt": "2026-10-25T20:05:58Z"
+     },
+     {
+      "number": 68,
+      "title": "fix(launcher): clicks crash on Wayland with NVIDIA (hybrid GPUs)",
+      "author": "Lynder063",
+      "mergedAt": "2026-10-25T20:34:56Z"
+     },
+     {
+      "number": 69,
+      "title": "fix(port): Umbris water puzzle shows flat lilac slabs over the water",
+      "author": "Lynder063",
+      "mergedAt": "2026-10-25T20:52:10Z"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [
+     {
+      "number": 39,
+      "title": "OpenRAC may encounter a very obscure but guaranteed crash from base RaC1",
+      "author": "TheWhiteGuardian"
+     },
+     {
+      "number": 46,
+      "title": "Missing Play button on launcher",
+      "author": "Billabong1985"
+     },
+     {
+      "number": 48,
+      "title": "HD texture pack compatibility?",
+      "author": "Billabong1985"
+     },
+     {
+      "number": 50,
+      "title": "Android Version: Python is not Set Error",
+      "author": "matthewtrains"
+     },
+     {
+      "number": 64,
+      "title": "Launcher crashing",
+      "author": "Billabong1985"
+     },
+     {
+      "number": 66,
+      "title": "Ratchet & Clank 2 (SCES_516.07) not recognised by extractor",
+      "author": "OvrilPT"
+     }
+    ],
+    "closed": [
+     {
+      "number": 46,
+      "title": "Missing Play button on launcher",
+      "author": "Billabong1985"
+     },
+     {
+      "number": 50,
+      "title": "Android Version: Python is not Set Error",
+      "author": "matthewtrains"
+     }
+    ]
+   },
+   "releases": [
+    {
+     "tag": "launcher-v0.8.0",
+     "name": "v0.8.0",
+     "publishedAt": "2026-10-19T09:53:37Z"
+    },
+    {
+     "tag": "launcher-v0.8.1",
+     "name": "v0.8.1",
+     "publishedAt": "2026-10-19T21:20:44Z"
+    },
+    {
+     "tag": "launcher-v0.8.2",
+     "name": "v0.8.2",
+     "publishedAt": "2026-10-20T04:22:42Z"
+    },
+    {
+     "tag": "launcher-v0.8.3",
+     "name": "v0.8.3",
+     "publishedAt": "2026-10-20T13:43:10Z"
+    },
+    {
+     "tag": "launcher-v0.8.4",
+     "name": "v0.8.4",
+     "publishedAt": "2026-10-20T19:34:08Z"
+    },
+    {
+     "tag": "sdk-v1.0.1",
+     "name": "Mod SDK 1.0.1",
+     "publishedAt": "2026-10-21T19:54:27Z"
+    },
+    {
+     "tag": "sdk-v1.0.2",
+     "name": "Mod SDK 1.0.2",
+     "publishedAt": "2026-10-21T20:30:26Z"
+    },
+    {
+     "tag": "sdk-v1.0.3",
+     "name": "Mod SDK 1.0.3",
+     "publishedAt": "2026-10-21T20:33:44Z"
+    },
+    {
+     "tag": "sdk-v1.1.0",
+     "name": "Mod SDK 1.1.0",
+     "publishedAt": "2026-10-21T21:55:26Z"
+    },
+    {
+     "tag": "sdk-v1.1.1",
+     "name": "Mod SDK 1.1.1",
+     "publishedAt": "2026-10-21T22:01:47Z"
+    },
+    {
+     "tag": "sdk-v1.1.2",
+     "name": "Mod SDK 1.1.2",
+     "publishedAt": "2026-10-21T22:32:00Z"
+    },
+    {
+     "tag": "sdk-v1.2.0",
+     "name": "Mod SDK 1.2.0",
+     "publishedAt": "2026-10-22T00:06:03Z"
+    },
+    {
+     "tag": "sdk-v1.2.1",
+     "name": "Mod SDK 1.2.1",
+     "publishedAt": "2026-10-22T00:44:25Z"
+    },
+    {
+     "tag": "sdk-v1.3.0",
+     "name": "Mod SDK 1.3.0",
+     "publishedAt": "2026-10-22T01:18:21Z"
+    },
+    {
+     "tag": "launcher-v0.9.0",
+     "name": "v0.9.0",
+     "publishedAt": "2026-10-25T15:29:54Z"
+    }
+   ],
+   "progress": null,
+   "contributors": [
+    "Daniel Risto",
+    "Drustburn",
+    "lawrenedrop-decompiler",
+    "Lynder063",
+    "mateuszklysz",
+    "pezzadev",
+    "ReaperOfVeriod",
+    "Veradictus"
+   ]
+  },
+  {
+   "repo": "rac1-decomp",
+   "title": "Ratchet & Clank",
+   "commitCount": 58,
+   "activeDays": [
+    "2026-10-19",
+    "2026-10-20",
+    "2026-10-21",
+    "2026-10-22",
+    "2026-10-23",
+    "2026-10-24",
+    "2026-10-25"
+   ],
+   "pullRequests": {
+    "merged": [
+     {
+      "number": 93,
+      "title": "Match sceCdRead, the libmpeg bitstream peek and kprintf's float helper with their original assemblers; keep retail's fill between core jump tables",
+      "author": "xx255q",
+      "mergedAt": "2026-10-19T05:20:01Z"
+     },
+     {
+      "number": 94,
+      "title": "Split func_001F10A0: a 36-byte remnant in front of func_001F10C8 (the debug-menu handler)",
+      "author": "xx255q",
+      "mergedAt": "2026-10-19T05:20:01Z"
+     },
+     {
+      "number": 95,
+      "title": "refactor(camera): the camera code reads its state by named fields",
+      "author": "Veradictus",
+      "mergedAt": "2026-10-19T05:20:01Z"
+     },
+     {
+      "number": 96,
+      "title": "Arguments retail passes in registers, NTSC ports, and the port's functional C",
+      "author": "Veradictus",
+      "mergedAt": "2026-10-19T05:20:01Z"
+     },
+     {
+      "number": 97,
+      "title": "feat: batch — func_L14_00303430, func_L14_002E0538 (own files), func_…",
+      "author": "Lynder063",
+      "mergedAt": "2026-10-19T10:56:58Z"
+     },
+     {
+      "number": 98,
+      "title": "refactor: shared Hero, Camera and Pad types in place of the last private copies; function comments",
+      "author": "Lynder063",
+      "mergedAt": "2026-10-19T15:07:12Z"
+     },
+     {
+      "number": 99,
+      "title": "Match/setimagetag and oltanis camera",
+      "author": "xx255q",
+      "mergedAt": "2026-10-19T12:02:32Z"
+     },
+     {
+      "number": 100,
+      "title": "nonmatching: remove two near misses that have since matched",
+      "author": "xx255q",
+      "mergedAt": "2026-10-19T13:15:09Z"
+     },
+     {
+      "number": 101,
+      "title": "overlays: list hand-written level functions as original assembly",
+      "author": "xx255q",
+      "mergedAt": "2026-10-19T15:07:27Z"
+     },
+     {
+      "number": 102,
+      "title": "Match the engine-trail ribbon builder (func_0022F738)",
+      "author": "xx255q",
+      "mergedAt": "2026-10-19T15:17:32Z"
+     },
+     {
+      "number": 103,
+      "title": "Feat/to 100",
+      "author": "Lynder063",
+      "mergedAt": "2026-10-19T15:23:32Z"
+     },
+     {
+      "number": 104,
+      "title": "feat(functional): port C for hand-written assembly, checked against retail in an EE emulator",
+      "author": "Lynder063",
+      "mergedAt": "2026-10-19T16:04:33Z"
+     },
+     {
+      "number": 106,
+      "title": "match func_L01_002F0728 (elevator partner spawn)",
+      "author": "xx255q",
+      "mergedAt": "2026-10-20T08:34:26Z"
+     },
+     {
+      "number": 107,
+      "title": "Feat/oc army",
+      "author": "Lynder063",
+      "mergedAt": "2026-10-20T15:47:57Z"
+     },
+     {
+      "number": 108,
+      "title": "Match nine functions ported from Lombyte (2 executable, 7 level code)",
+      "author": "Drustburn",
+      "mergedAt": "2026-10-21T15:31:53Z"
+     },
+     {
+      "number": 109,
+      "title": "asm: list memcpy, memmove, memset, func_0011AE1C and func_L00_002001D8 as original assembly",
+      "author": "Drustburn",
+      "mergedAt": "2026-10-21T15:33:52Z"
+     },
+     {
+      "number": 110,
+      "title": "feat: PAL v1.00, NTSC-J and NTSC-U as versions alongside PAL v2.00",
+      "author": "Veradictus",
+      "mergedAt": "2026-10-21T22:26:51Z"
+     },
+     {
+      "number": 111,
+      "title": "feat(versions): clone changed references; 35 more PAL v1.00 and NTSC-J functions",
+      "author": "Veradictus",
+      "mergedAt": "2026-10-21T23:30:56Z"
+     },
+     {
+      "number": 112,
+      "title": "asm: list func_L02_002100E8 and func_L00_0024EBF8 as hand-written",
+      "author": "Drustburn",
+      "mergedAt": "2026-10-22T19:36:55Z"
+     },
+     {
+      "number": 113,
+      "title": "Align with the NTSC decomp: its names, newer header changes, submodule at 4e1f255e",
+      "author": "Veradictus",
+      "mergedAt": "2026-10-23T04:33:10Z"
+     },
+     {
+      "number": 114,
+      "title": "refactor: write 43 functions with the NTSC decomp's structs",
+      "author": "Veradictus",
+      "mergedAt": "2026-10-23T07:12:55Z"
+     },
+     {
+      "number": 115,
+      "title": "refactor: write 81 more functions with the NTSC decomp's structs; first header import",
+      "author": "Veradictus",
+      "mergedAt": "2026-10-23T10:18:55Z"
+     },
+     {
+      "number": 116,
+      "title": "Match PAL v2 startup and animation; repair overlay identities",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-23T17:54:07Z"
+     },
+     {
+      "number": 117,
+      "title": "refactor(names): eleven Blarg Station functions, identified in game",
+      "author": "cnobis",
+      "mergedAt": "2026-10-23T17:11:02Z"
+     },
+     {
+      "number": 118,
+      "title": "Follow the NTSC decomp to c41bf1c3: its new names, 212 functions with its structs",
+      "author": "Veradictus",
+      "mergedAt": "2026-10-23T19:34:59Z"
+     },
+     {
+      "number": 119,
+      "title": "docs(permuter): point to OpenRAC's shared permuter tool",
+      "author": "Veradictus",
+      "mergedAt": "2026-10-23T23:02:43Z"
+     },
+     {
+      "number": 120,
+      "title": "Follow the NTSC decomp to 6abcf077: compiler patch fix, 2 functions with its structs",
+      "author": "Veradictus",
+      "mergedAt": "2026-10-23T23:57:11Z"
+     },
+     {
+      "number": 121,
+      "title": "Drop the NTSC decomp submodule: NTSC-U built here, the NTSC decomp read at a pin",
+      "author": "Veradictus",
+      "mergedAt": "2026-10-24T04:12:32Z"
+     },
+     {
+      "number": 122,
+      "title": "feat(us): carry 64 definitions that build NTSC-U exactly",
+      "author": "Veradictus",
+      "mergedAt": "2026-10-24T05:47:44Z"
+     },
+     {
+      "number": 123,
+      "title": "chore(ntsc): follow the NTSC decomp to 2d6fb52bb8",
+      "author": "Veradictus",
+      "mergedAt": "2026-10-24T08:33:14Z"
+     },
+     {
+      "number": 124,
+      "title": "docs: credit the NTSC decomp's code as GPL-3.0",
+      "author": "Veradictus",
+      "mergedAt": "2026-10-24T10:23:07Z"
+     },
+     {
+      "number": 125,
+      "title": "refactor(src): shared structs, readable names, named overlay files",
+      "author": "Lynder063",
+      "mergedAt": "2026-10-25T22:43:24Z"
+     }
+    ],
+    "opened": [
+     {
+      "number": 95,
+      "title": "refactor(camera): the camera code reads its state by named fields",
+      "author": "Veradictus",
+      "mergedAt": "2026-10-19T05:20:01Z"
+     },
+     {
+      "number": 96,
+      "title": "Arguments retail passes in registers, NTSC ports, and the port's functional C",
+      "author": "Veradictus",
+      "mergedAt": "2026-10-19T05:20:01Z"
+     },
+     {
+      "number": 97,
+      "title": "feat: batch — func_L14_00303430, func_L14_002E0538 (own files), func_…",
+      "author": "Lynder063",
+      "mergedAt": "2026-10-19T10:56:58Z"
+     },
+     {
+      "number": 98,
+      "title": "refactor: shared Hero, Camera and Pad types in place of the last private copies; function comments",
+      "author": "Lynder063",
+      "mergedAt": "2026-10-19T15:07:12Z"
+     },
+     {
+      "number": 99,
+      "title": "Match/setimagetag and oltanis camera",
+      "author": "xx255q",
+      "mergedAt": "2026-10-19T12:02:32Z"
+     },
+     {
+      "number": 100,
+      "title": "nonmatching: remove two near misses that have since matched",
+      "author": "xx255q",
+      "mergedAt": "2026-10-19T13:15:09Z"
+     },
+     {
+      "number": 101,
+      "title": "overlays: list hand-written level functions as original assembly",
+      "author": "xx255q",
+      "mergedAt": "2026-10-19T15:07:27Z"
+     },
+     {
+      "number": 102,
+      "title": "Match the engine-trail ribbon builder (func_0022F738)",
+      "author": "xx255q",
+      "mergedAt": "2026-10-19T15:17:32Z"
+     },
+     {
+      "number": 103,
+      "title": "Feat/to 100",
+      "author": "Lynder063",
+      "mergedAt": "2026-10-19T15:23:32Z"
+     },
+     {
+      "number": 104,
+      "title": "feat(functional): port C for hand-written assembly, checked against retail in an EE emulator",
+      "author": "Lynder063",
+      "mergedAt": "2026-10-19T16:04:33Z"
+     },
+     {
+      "number": 106,
+      "title": "match func_L01_002F0728 (elevator partner spawn)",
+      "author": "xx255q",
+      "mergedAt": "2026-10-20T08:34:26Z"
+     },
+     {
+      "number": 107,
+      "title": "Feat/oc army",
+      "author": "Lynder063",
+      "mergedAt": "2026-10-20T15:47:57Z"
+     },
+     {
+      "number": 108,
+      "title": "Match nine functions ported from Lombyte (2 executable, 7 level code)",
+      "author": "Drustburn",
+      "mergedAt": "2026-10-21T15:31:53Z"
+     },
+     {
+      "number": 109,
+      "title": "asm: list memcpy, memmove, memset, func_0011AE1C and func_L00_002001D8 as original assembly",
+      "author": "Drustburn",
+      "mergedAt": "2026-10-21T15:33:52Z"
+     },
+     {
+      "number": 110,
+      "title": "feat: PAL v1.00, NTSC-J and NTSC-U as versions alongside PAL v2.00",
+      "author": "Veradictus",
+      "mergedAt": "2026-10-21T22:26:51Z"
+     },
+     {
+      "number": 111,
+      "title": "feat(versions): clone changed references; 35 more PAL v1.00 and NTSC-J functions",
+      "author": "Veradictus",
+      "mergedAt": "2026-10-21T23:30:56Z"
+     },
+     {
+      "number": 112,
+      "title": "asm: list func_L02_002100E8 and func_L00_0024EBF8 as hand-written",
+      "author": "Drustburn",
+      "mergedAt": "2026-10-22T19:36:55Z"
+     },
+     {
+      "number": 113,
+      "title": "Align with the NTSC decomp: its names, newer header changes, submodule at 4e1f255e",
+      "author": "Veradictus",
+      "mergedAt": "2026-10-23T04:33:10Z"
+     },
+     {
+      "number": 114,
+      "title": "refactor: write 43 functions with the NTSC decomp's structs",
+      "author": "Veradictus",
+      "mergedAt": "2026-10-23T07:12:55Z"
+     },
+     {
+      "number": 115,
+      "title": "refactor: write 81 more functions with the NTSC decomp's structs; first header import",
+      "author": "Veradictus",
+      "mergedAt": "2026-10-23T10:18:55Z"
+     },
+     {
+      "number": 116,
+      "title": "Match PAL v2 startup and animation; repair overlay identities",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-23T17:54:07Z"
+     },
+     {
+      "number": 117,
+      "title": "refactor(names): eleven Blarg Station functions, identified in game",
+      "author": "cnobis",
+      "mergedAt": "2026-10-23T17:11:02Z"
+     },
+     {
+      "number": 118,
+      "title": "Follow the NTSC decomp to c41bf1c3: its new names, 212 functions with its structs",
+      "author": "Veradictus",
+      "mergedAt": "2026-10-23T19:34:59Z"
+     },
+     {
+      "number": 119,
+      "title": "docs(permuter): point to OpenRAC's shared permuter tool",
+      "author": "Veradictus",
+      "mergedAt": "2026-10-23T23:02:43Z"
+     },
+     {
+      "number": 120,
+      "title": "Follow the NTSC decomp to 6abcf077: compiler patch fix, 2 functions with its structs",
+      "author": "Veradictus",
+      "mergedAt": "2026-10-23T23:57:11Z"
+     },
+     {
+      "number": 121,
+      "title": "Drop the NTSC decomp submodule: NTSC-U built here, the NTSC decomp read at a pin",
+      "author": "Veradictus",
+      "mergedAt": "2026-10-24T04:12:32Z"
+     },
+     {
+      "number": 122,
+      "title": "feat(us): carry 64 definitions that build NTSC-U exactly",
+      "author": "Veradictus",
+      "mergedAt": "2026-10-24T05:47:44Z"
+     },
+     {
+      "number": 123,
+      "title": "chore(ntsc): follow the NTSC decomp to 2d6fb52bb8",
+      "author": "Veradictus",
+      "mergedAt": "2026-10-24T08:33:14Z"
+     },
+     {
+      "number": 124,
+      "title": "docs: credit the NTSC decomp's code as GPL-3.0",
+      "author": "Veradictus",
+      "mergedAt": "2026-10-24T10:23:07Z"
+     },
+     {
+      "number": 125,
+      "title": "refactor(src): shared structs, readable names, named overlay files",
+      "author": "Lynder063",
+      "mergedAt": "2026-10-25T22:43:24Z"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [
+     {
+      "number": 105,
+      "title": "func_00226D50 matches only with an empty do { } while (0): land it as an original debug macro?",
+      "author": "cnobis"
+     }
+    ],
+    "closed": [
+     {
+      "number": 105,
+      "title": "func_00226D50 matches only with an empty do { } while (0): land it as an original debug macro?",
+      "author": "cnobis"
+     }
+    ]
+   },
+   "releases": [],
+   "progress": {
+    "before": {
+     "code": {
+      "done": 3488000,
+      "total": 3712772
+     },
+     "functions": {
+      "done": 4806,
+      "total": 5118
+     },
+     "data": {
+      "done": 3400,
+      "total": 699072
+     }
+    },
+    "after": {
+     "code": {
+      "done": 3656816,
+      "total": 3713416
+     },
+     "functions": {
+      "done": 5089,
+      "total": 5120
+     },
+     "data": {
+      "done": 3852,
+      "total": 699072
+     }
+    }
+   },
+   "contributors": [
+    "cnobis",
+    "Drustburn",
+    "llesieur99",
+    "Lynder063",
+    "Veradictus",
+    "xx255q"
+   ]
+  },
+  {
+   "repo": "rac2-decomp",
+   "title": "Going Commando",
+   "commitCount": 141,
+   "activeDays": [
+    "2026-10-19",
+    "2026-10-20",
+    "2026-10-21",
+    "2026-10-22",
+    "2026-10-23",
+    "2026-10-24",
+    "2026-10-25"
+   ],
+   "pullRequests": {
+    "merged": [
+     {
+      "number": 211,
+      "title": "Add sourced Wrench class labels to Moby dispatch entries",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-19T07:45:58Z"
+     },
+     {
+      "number": 212,
+      "title": "Complete Moby label coverage with explicit source qualification",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-19T08:12:07Z"
+     },
+     {
+      "number": 213,
+      "title": "feat(src): match five game functions",
+      "author": "ThorpenCodes",
+      "mergedAt": "2026-10-20T03:26:07Z"
+     },
+     {
+      "number": 214,
+      "title": "feat(src): 166 functions from the MiniMax swarm",
+      "author": "Veradictus",
+      "mergedAt": "2026-10-20T09:05:07Z"
+     },
+     {
+      "number": 215,
+      "title": "feat(src): 31 src/game functions",
+      "author": "bigmak94",
+      "mergedAt": "2026-10-20T09:25:19Z"
+     },
+     {
+      "number": 216,
+      "title": "feat(src): match 24 shared level functions (517 placements)",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-20T09:05:07Z"
+     },
+     {
+      "number": 217,
+      "title": "feat(src): level 20 - ten functions matched",
+      "author": "ReaperOfVeriod",
+      "mergedAt": "2026-10-20T09:05:07Z"
+     },
+     {
+      "number": 218,
+      "title": "feat(src): match func_00131CA8",
+      "author": "GianniGr",
+      "mergedAt": "2026-10-20T10:18:29Z"
+     },
+     {
+      "number": 219,
+      "title": "feat(src): match 13 level functions (65 placements)",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-20T17:19:53Z"
+     },
+     {
+      "number": 220,
+      "title": "feat(src): carry over 73 verified RC2 C functions",
+      "author": "atlasbez-dot",
+      "mergedAt": "2026-10-20T17:07:16Z"
+     },
+     {
+      "number": 221,
+      "title": "feat(src): match 27 level 23 functions and retain near misses",
+      "author": "bigmak94",
+      "mergedAt": "2026-10-20T17:13:21Z"
+     },
+     {
+      "number": 222,
+      "title": "build(compiler): treat mfc1 as interlocked on the R5900",
+      "author": "bigmak94",
+      "mergedAt": "2026-10-20T16:58:27Z"
+     },
+     {
+      "number": 223,
+      "title": "feat(src): match eight game functions",
+      "author": "ThorpenCodes",
+      "mergedAt": "2026-10-20T12:12:03Z"
+     },
+     {
+      "number": 224,
+      "title": "feat(src): match func_00115E90",
+      "author": "GianniGr",
+      "mergedAt": "2026-10-20T20:36:10Z"
+     },
+     {
+      "number": 225,
+      "title": "feat(src): five src/game near misses matched",
+      "author": "bigmak94",
+      "mergedAt": "2026-10-20T17:02:23Z"
+     },
+     {
+      "number": 226,
+      "title": "feat(src): match eight additional functions and retain wave10 research",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-20T17:36:35Z"
+     },
+     {
+      "number": 227,
+      "title": "feat(src): match 17 functions with per-file compiler flags",
+      "author": "bigmak94",
+      "mergedAt": "2026-10-20T17:21:55Z"
+     },
+     {
+      "number": 228,
+      "title": "feat(src): 11 level 2 functions and nine near misses",
+      "author": "bigmak94",
+      "mergedAt": "2026-10-20T17:49:08Z"
+     },
+     {
+      "number": 229,
+      "title": "docs(coordination): keep each reservation comment about its owner",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-20T17:40:13Z"
+     },
+     {
+      "number": 230,
+      "title": "feat(src): func_L23_004160B0, func_L23_0041D1F0 and func_L22_003A2DF8",
+      "author": "bigmak94",
+      "mergedAt": "2026-10-20T17:53:59Z"
+     },
+     {
+      "number": 231,
+      "title": "chore(progress): 3733 of 9100 functions, 8.76% code",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-20T17:56:11Z"
+     },
+     {
+      "number": 232,
+      "title": "feat(src): five id-list walks of level 2",
+      "author": "bigmak94",
+      "mergedAt": "2026-10-20T20:35:38Z"
+     },
+     {
+      "number": 233,
+      "title": "feat(src): eight shared id-list walks, 72 placements",
+      "author": "bigmak94",
+      "mergedAt": "2026-10-20T20:35:42Z"
+     },
+     {
+      "number": 234,
+      "title": "feat(src): level 20 - five more functions matched",
+      "author": "ReaperOfVeriod",
+      "mergedAt": "2026-10-20T20:35:46Z"
+     },
+     {
+      "number": 235,
+      "title": "feat(src): nine shared functions, 56 placements",
+      "author": "bigmak94",
+      "mergedAt": "2026-10-20T20:35:51Z"
+     },
+     {
+      "number": 236,
+      "title": "feat(src): match six functions of src/game/ and src/levels/shared/",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-20T22:49:25Z"
+     },
+     {
+      "number": 237,
+      "title": "feat(src): seven more shared id-list walks, 22 placements",
+      "author": "bigmak94",
+      "mergedAt": "2026-10-20T22:49:29Z"
+     },
+     {
+      "number": 238,
+      "title": "build(compiler): let flow delete a conditional jump to the next block, as GCC 2.95 does",
+      "author": "bigmak94",
+      "mergedAt": "2026-10-20T22:49:17Z"
+     },
+     {
+      "number": 239,
+      "title": "fix(levels): drop the linker's filler rows from the catalogue",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-20T22:49:21Z"
+     },
+     {
+      "number": 240,
+      "title": "feat(src): match six boot and level functions",
+      "author": "GianniGr",
+      "mergedAt": "2026-10-20T22:49:32Z"
+     },
+     {
+      "number": 241,
+      "title": "fix(levels): tighten the filler rule and drop the epilogue residues",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-20T23:04:14Z"
+     },
+     {
+      "number": 242,
+      "title": "feat(src): nine shared functions, 21 placements",
+      "author": "bigmak94",
+      "mergedAt": "2026-10-21T05:21:40Z"
+     },
+     {
+      "number": 243,
+      "title": "feat(src): match three functions and retain verified wave13 research",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-21T01:29:44Z"
+     },
+     {
+      "number": 244,
+      "title": "feat(src): match 38 shared and level functions across 307 placements",
+      "author": "Veradictus",
+      "mergedAt": "2026-10-21T05:58:01Z"
+     },
+     {
+      "number": 245,
+      "title": "chore(progress): 3789 of 8606 functions, 9.14% code",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-21T01:32:54Z"
+     },
+     {
+      "number": 246,
+      "title": "feat(src): level 20 - three more functions matched",
+      "author": "ReaperOfVeriod",
+      "mergedAt": "2026-10-21T05:45:37Z"
+     },
+     {
+      "number": 249,
+      "title": "feat(src): match ten level 2 functions and retain clean near misses",
+      "author": "bigmak94",
+      "mergedAt": "2026-10-21T05:47:08Z"
+     },
+     {
+      "number": 250,
+      "title": "chore(nonmatching): retain three large graphics and collision reconstructions",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-21T05:18:52Z"
+     },
+     {
+      "number": 251,
+      "title": "build(compiler): qualify an opt-in 128-bit clear scheduling profile",
+      "author": "bigmak94",
+      "mergedAt": "2026-10-21T04:30:56Z"
+     },
+     {
+      "number": 252,
+      "title": "fix(build): invalidate objects on toolchain changes and add strict checks",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-21T05:18:38Z"
+     },
+     {
+      "number": 253,
+      "title": "fix(catalogue): exclude five measured residual instruction extents",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-21T05:18:42Z"
+     },
+     {
+      "number": 254,
+      "title": "docs(engine): qualify retail impact payload and moby collision fields",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-21T05:18:46Z"
+     },
+     {
+      "number": 255,
+      "title": "chore(progress): record 3790 of 8606 functions after the clear profile",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-21T04:42:36Z"
+     },
+     {
+      "number": 256,
+      "title": "feat(src): match 26 game functions",
+      "author": "ThorpenCodes",
+      "mergedAt": "2026-10-21T04:55:07Z"
+     },
+     {
+      "number": 257,
+      "title": "fix(tools): validate EE diagnostics and reject empty source barriers",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-21T05:56:13Z"
+     },
+     {
+      "number": 258,
+      "title": "fix(compiler): preserve displaced zero stores and match three vector helpers",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-21T06:12:20Z"
+     },
+     {
+      "number": 259,
+      "title": "feat(src): match func_L02_0038C998 and func_L23_0041C578 after #258",
+      "author": "bigmak94",
+      "mergedAt": "2026-10-21T15:10:59Z"
+     },
+     {
+      "number": 260,
+      "title": "feat(src): thirty-eight id-list functions of other levels",
+      "author": "bigmak94",
+      "mergedAt": "2026-10-21T15:11:05Z"
+     },
+     {
+      "number": 261,
+      "title": "build(compiler): opt-in switches for two Cygnus-local passes",
+      "author": "bigmak94",
+      "mergedAt": "2026-10-21T15:32:22Z"
+     },
+     {
+      "number": 262,
+      "title": "build(compiler): unblock vector-copy addresses and two runtime mask cases",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-21T07:32:24Z"
+     },
+     {
+      "number": 263,
+      "title": "feat(src): nine functions with the opt-in clear and copy profiles",
+      "author": "bigmak94",
+      "mergedAt": "2026-10-21T15:12:00Z"
+     },
+     {
+      "number": 264,
+      "title": "build(compiler): opt-in switch keeping labels on hazard nops",
+      "author": "bigmak94",
+      "mergedAt": "2026-10-21T15:51:27Z"
+     },
+     {
+      "number": 265,
+      "title": "feat(core): match _fpadd_parts with qualified shifted-mask expansion",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-21T09:05:51Z"
+     },
+     {
+      "number": 267,
+      "title": "feat(core): match dpmul with the original fraction union",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-21T09:44:06Z"
+     },
+     {
+      "number": 268,
+      "title": "docs(agents): centralize blocker findings in issue 157",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-21T09:51:46Z"
+     },
+     {
+      "number": 269,
+      "title": "feat(src): wave 14 - three matches, 59 placements, and twenty-nine measured near misses",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-21T15:10:53Z"
+     },
+     {
+      "number": 270,
+      "title": "feat(src): mark 56 hand-written bodies ASM_FUNC, with the measurement",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-21T15:10:47Z"
+     },
+     {
+      "number": 271,
+      "title": "feat(src): twenty small unclaimed bodies matched",
+      "author": "ReaperOfVeriod",
+      "mergedAt": "2026-10-21T15:58:21Z"
+     },
+     {
+      "number": 272,
+      "title": "feat(src): match three worker waves",
+      "author": "GianniGr",
+      "mergedAt": "2026-10-21T20:31:58Z"
+     },
+     {
+      "number": 273,
+      "title": "Match ten id-list and switch functions of levels 2 to 14",
+      "author": "bigmak94",
+      "mergedAt": "2026-10-21T20:32:03Z"
+     },
+     {
+      "number": 274,
+      "title": "Match two game switch functions through retail's jump tables",
+      "author": "bigmak94",
+      "mergedAt": "2026-10-21T20:32:23Z"
+     },
+     {
+      "number": 275,
+      "title": "Add an opt-in scheduling barrier for the grouped quadword copy (-frac2-qcopy-barrier)",
+      "author": "bigmak94",
+      "mergedAt": "2026-10-21T20:35:57Z"
+     },
+     {
+      "number": 276,
+      "title": "docs(readme): rework it in the shape of rac1-decomp, rac3-decomp and rac5-sm-decomp",
+      "author": "Lynder063",
+      "mergedAt": "2026-10-21T19:48:46Z"
+     },
+     {
+      "number": 277,
+      "title": "Match eleven level 2 functions and func_L23_00425568",
+      "author": "bigmak94",
+      "mergedAt": "2026-10-21T20:32:28Z"
+     },
+     {
+      "number": 278,
+      "title": "Match three id-list walks of levels 0, 11 and 22",
+      "author": "bigmak94",
+      "mergedAt": "2026-10-21T20:40:51Z"
+     },
+     {
+      "number": 279,
+      "title": "Add an opt-in switch keeping wide stores out of annulled delay slots (-frac2-no-annulled-wide-stores)",
+      "author": "bigmak94",
+      "mergedAt": "2026-10-21T21:01:21Z"
+     },
+     {
+      "number": 280,
+      "title": "feat: PAL and USA v2.00 releases beside v1.01, one C for all three",
+      "author": "Veradictus",
+      "mergedAt": "2026-10-21T21:34:59Z"
+     },
+     {
+      "number": 281,
+      "title": "Add an opt-in switch keeping the por of stack zero stores (-frac2-zero-ti-por)",
+      "author": "bigmak94",
+      "mergedAt": "2026-10-21T23:09:04Z"
+     },
+     {
+      "number": 282,
+      "title": "feat(src): PAL and USA v2.00 C for 781 functions that changed from v1.01",
+      "author": "Veradictus",
+      "mergedAt": "2026-10-21T21:52:18Z"
+     },
+     {
+      "number": 283,
+      "title": "Match forty-eight functions: level 2 first attempts and the copy-barrier wave",
+      "author": "bigmak94",
+      "mergedAt": "2026-10-21T23:10:39Z"
+     },
+     {
+      "number": 284,
+      "title": "feat(src): match func_L11_003F1DB0",
+      "author": "GianniGr",
+      "mergedAt": "2026-10-21T23:11:02Z"
+     },
+     {
+      "number": 285,
+      "title": "feat(src): match eight game functions and retain bounded near misses",
+      "author": "ThorpenCodes",
+      "mergedAt": "2026-10-21T22:34:03Z"
+     },
+     {
+      "number": 286,
+      "title": "feat(src): PAL and USA v2.00 C for 14 more functions, carried mechanically",
+      "author": "Veradictus",
+      "mergedAt": "2026-10-21T23:36:13Z"
+     },
+     {
+      "number": 287,
+      "title": "feat(src): match func_0030E700 in both USA releases",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-22T00:08:44Z"
+     },
+     {
+      "number": 288,
+      "title": "docs(nonmatching): the two large level-20 bodies - the records and what they measured",
+      "author": "ReaperOfVeriod",
+      "mergedAt": "2026-10-23T01:50:05Z"
+     },
+     {
+      "number": 289,
+      "title": "feat(src): match 3 functions by pattern sweep",
+      "author": "Veradictus",
+      "mergedAt": "2026-10-22T00:33:08Z"
+     },
+     {
+      "number": 290,
+      "title": "docs(workflow): share blocker knowledge in the main repository",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-22T02:24:46Z"
+     },
+     {
+      "number": 291,
+      "title": "feat(src): two yeedil bodies freed by the grouped-copy profiles",
+      "author": "ReaperOfVeriod",
+      "mergedAt": "2026-10-23T01:49:58Z"
+     },
+     {
+      "number": 292,
+      "title": "docs(workflow): retire the redundant blocker issue",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-22T03:14:12Z"
+     },
+     {
+      "number": 293,
+      "title": "feat(src): match func_L00_00412FF8 and func_L01_00417090 in -g8 siblings",
+      "author": "Veradictus",
+      "mergedAt": "2026-10-22T06:21:20Z"
+     },
+     {
+      "number": 294,
+      "title": "docs(nonmatching): two exact-size near misses of about 950 bytes",
+      "author": "Veradictus",
+      "mergedAt": "2026-10-22T07:06:31Z"
+     },
+     {
+      "number": 295,
+      "title": "feat(src): match nineteen shared level functions",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-23T01:49:50Z"
+     },
+     {
+      "number": 296,
+      "title": "docs(compiler): consolidate measured compatibility rules",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-22T16:17:34Z"
+     },
+     {
+      "number": 297,
+      "title": "feat(src): match 27 level functions",
+      "author": "GianniGr",
+      "mergedAt": "2026-10-23T01:49:43Z"
+     },
+     {
+      "number": 298,
+      "title": "docs: qualify PS2Recomp boundary findings and correct the level-23 note",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-23T04:14:24Z"
+     },
+     {
+      "number": 299,
+      "title": "feat(levels): correct the Damosel Orbit entry and match its 44-byte wrapper",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-23T04:39:27Z"
+     },
+     {
+      "number": 300,
+      "title": "Recover ten shared level functions and make failed checks exit unsuccessfully",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-23T05:50:31Z"
+     },
+     {
+      "number": 301,
+      "title": "Recover 29 more shared functions, qualify the PAL timer and retain the second-pass near misses",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-23T06:18:27Z"
+     },
+     {
+      "number": 302,
+      "title": "Match three shared hero functions and retain fifteen measured reconstructions",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-23T13:39:11Z"
+     },
+     {
+      "number": 303,
+      "title": "feat(nonmatching): reconstruct the Dobbo Orbit hero state dispatcher",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-23T18:38:11Z"
+     },
+     {
+      "number": 304,
+      "title": "Match 18 game functions with truthful data and ABI declarations",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-23T22:28:14Z"
+     },
+     {
+      "number": 305,
+      "title": "Retain and index 110 measured C reconstructions without matching credit",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-23T22:42:17Z"
+     },
+     {
+      "number": 306,
+      "title": "docs: decomp-permuter through OpenRAC's shared tool",
+      "author": "Veradictus",
+      "mergedAt": "2026-10-23T23:02:46Z"
+     },
+     {
+      "number": 307,
+      "title": "Match 36 shared helpers and preserve measured C interfaces",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-23T23:58:38Z"
+     },
+     {
+      "number": 308,
+      "title": "Retain 89 C reconstructions and consolidate measured blockers",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-24T00:00:19Z"
+     },
+     {
+      "number": 309,
+      "title": "feat(src): match 62 routines and retain measured reconstructions",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-24T06:33:14Z"
+     },
+     {
+      "number": 310,
+      "title": "chore(progress): refresh validated coverage for all three releases",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-24T06:43:25Z"
+     },
+     {
+      "number": 311,
+      "title": "feat(src): match 15 game functions and retain bounded near misses",
+      "author": "ThorpenCodes",
+      "mergedAt": "2026-10-24T07:08:42Z"
+     },
+     {
+      "number": 312,
+      "title": "Link verified compiler jump tables and integrate five C functions",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-24T07:52:38Z"
+     },
+     {
+      "number": 313,
+      "title": "Match three switch functions and correct Joba case mappings",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-24T08:40:23Z"
+     },
+     {
+      "number": 314,
+      "title": "fix(catalogue): correct two shared callable entry boundaries",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-25T01:42:12Z"
+     },
+     {
+      "number": 315,
+      "title": "fix(catalogue): repair measured entries across all three releases",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-25T02:37:27Z"
+     },
+     {
+      "number": 316,
+      "title": "feat(src): classify 27 proven original-assembly bodies",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-25T03:56:59Z"
+     },
+     {
+      "number": 317,
+      "title": "feat(src): match seven small level functions",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-25T04:20:00Z"
+     },
+     {
+      "number": 318,
+      "title": "Adopt RAC1 constant-pool and allocation methods; match six functions",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-25T06:09:18Z"
+     },
+     {
+      "number": 319,
+      "title": "feat(src): match 19 level functions with RAC1 transfer helpers",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-25T07:32:03Z"
+     },
+     {
+      "number": 320,
+      "title": "feat(src): match nine functions and retain corrected near misses",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-25T22:53:23Z"
+     },
+     {
+      "number": 321,
+      "title": "feat(src): resolve transfer walls in nine level functions",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-25T13:39:12Z"
+     },
+     {
+      "number": 322,
+      "title": "Match 17 vector and control functions with verified source contracts",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-25T15:16:11Z"
+     },
+     {
+      "number": 323,
+      "title": "Match 11 state and vector handlers and preserve corrected large drafts",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-25T17:40:00Z"
+     },
+     {
+      "number": 324,
+      "title": "Match seven level handlers and retain corrected reconstructions",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-25T18:02:33Z"
+     },
+     {
+      "number": 325,
+      "title": "feat(src): match vector handlers and repair large-function reconstructions",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-25T19:30:31Z"
+     },
+     {
+      "number": 326,
+      "title": "fix(src): repair wrapper contracts and preserve corrected large reconstructions",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-25T21:37:41Z"
+     },
+     {
+      "number": 327,
+      "title": "feat(src): match 664-byte Snivelak path motion with verified EE call setup",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-25T22:55:08Z"
+     }
+    ],
+    "opened": [
+     {
+      "number": 210,
+      "title": "feat(tools): match external texture packs to original resource keys",
+      "author": "llesieur99"
+     },
+     {
+      "number": 211,
+      "title": "Add sourced Wrench class labels to Moby dispatch entries",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-19T07:45:58Z"
+     },
+     {
+      "number": 212,
+      "title": "Complete Moby label coverage with explicit source qualification",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-19T08:12:07Z"
+     },
+     {
+      "number": 213,
+      "title": "feat(src): match five game functions",
+      "author": "ThorpenCodes",
+      "mergedAt": "2026-10-20T03:26:07Z"
+     },
+     {
+      "number": 214,
+      "title": "feat(src): 166 functions from the MiniMax swarm",
+      "author": "Veradictus",
+      "mergedAt": "2026-10-20T09:05:07Z"
+     },
+     {
+      "number": 215,
+      "title": "feat(src): 31 src/game functions",
+      "author": "bigmak94",
+      "mergedAt": "2026-10-20T09:25:19Z"
+     },
+     {
+      "number": 216,
+      "title": "feat(src): match 24 shared level functions (517 placements)",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-20T09:05:07Z"
+     },
+     {
+      "number": 217,
+      "title": "feat(src): level 20 - ten functions matched",
+      "author": "ReaperOfVeriod",
+      "mergedAt": "2026-10-20T09:05:07Z"
+     },
+     {
+      "number": 218,
+      "title": "feat(src): match func_00131CA8",
+      "author": "GianniGr",
+      "mergedAt": "2026-10-20T10:18:29Z"
+     },
+     {
+      "number": 219,
+      "title": "feat(src): match 13 level functions (65 placements)",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-20T17:19:53Z"
+     },
+     {
+      "number": 220,
+      "title": "feat(src): carry over 73 verified RC2 C functions",
+      "author": "atlasbez-dot",
+      "mergedAt": "2026-10-20T17:07:16Z"
+     },
+     {
+      "number": 221,
+      "title": "feat(src): match 27 level 23 functions and retain near misses",
+      "author": "bigmak94",
+      "mergedAt": "2026-10-20T17:13:21Z"
+     },
+     {
+      "number": 222,
+      "title": "build(compiler): treat mfc1 as interlocked on the R5900",
+      "author": "bigmak94",
+      "mergedAt": "2026-10-20T16:58:27Z"
+     },
+     {
+      "number": 223,
+      "title": "feat(src): match eight game functions",
+      "author": "ThorpenCodes",
+      "mergedAt": "2026-10-20T12:12:03Z"
+     },
+     {
+      "number": 224,
+      "title": "feat(src): match func_00115E90",
+      "author": "GianniGr",
+      "mergedAt": "2026-10-20T20:36:10Z"
+     },
+     {
+      "number": 225,
+      "title": "feat(src): five src/game near misses matched",
+      "author": "bigmak94",
+      "mergedAt": "2026-10-20T17:02:23Z"
+     },
+     {
+      "number": 226,
+      "title": "feat(src): match eight additional functions and retain wave10 research",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-20T17:36:35Z"
+     },
+     {
+      "number": 227,
+      "title": "feat(src): match 17 functions with per-file compiler flags",
+      "author": "bigmak94",
+      "mergedAt": "2026-10-20T17:21:55Z"
+     },
+     {
+      "number": 228,
+      "title": "feat(src): 11 level 2 functions and nine near misses",
+      "author": "bigmak94",
+      "mergedAt": "2026-10-20T17:49:08Z"
+     },
+     {
+      "number": 229,
+      "title": "docs(coordination): keep each reservation comment about its owner",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-20T17:40:13Z"
+     },
+     {
+      "number": 230,
+      "title": "feat(src): func_L23_004160B0, func_L23_0041D1F0 and func_L22_003A2DF8",
+      "author": "bigmak94",
+      "mergedAt": "2026-10-20T17:53:59Z"
+     },
+     {
+      "number": 231,
+      "title": "chore(progress): 3733 of 9100 functions, 8.76% code",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-20T17:56:11Z"
+     },
+     {
+      "number": 232,
+      "title": "feat(src): five id-list walks of level 2",
+      "author": "bigmak94",
+      "mergedAt": "2026-10-20T20:35:38Z"
+     },
+     {
+      "number": 233,
+      "title": "feat(src): eight shared id-list walks, 72 placements",
+      "author": "bigmak94",
+      "mergedAt": "2026-10-20T20:35:42Z"
+     },
+     {
+      "number": 234,
+      "title": "feat(src): level 20 - five more functions matched",
+      "author": "ReaperOfVeriod",
+      "mergedAt": "2026-10-20T20:35:46Z"
+     },
+     {
+      "number": 235,
+      "title": "feat(src): nine shared functions, 56 placements",
+      "author": "bigmak94",
+      "mergedAt": "2026-10-20T20:35:51Z"
+     },
+     {
+      "number": 236,
+      "title": "feat(src): match six functions of src/game/ and src/levels/shared/",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-20T22:49:25Z"
+     },
+     {
+      "number": 237,
+      "title": "feat(src): seven more shared id-list walks, 22 placements",
+      "author": "bigmak94",
+      "mergedAt": "2026-10-20T22:49:29Z"
+     },
+     {
+      "number": 238,
+      "title": "build(compiler): let flow delete a conditional jump to the next block, as GCC 2.95 does",
+      "author": "bigmak94",
+      "mergedAt": "2026-10-20T22:49:17Z"
+     },
+     {
+      "number": 239,
+      "title": "fix(levels): drop the linker's filler rows from the catalogue",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-20T22:49:21Z"
+     },
+     {
+      "number": 240,
+      "title": "feat(src): match six boot and level functions",
+      "author": "GianniGr",
+      "mergedAt": "2026-10-20T22:49:32Z"
+     },
+     {
+      "number": 241,
+      "title": "fix(levels): tighten the filler rule and drop the epilogue residues",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-20T23:04:14Z"
+     },
+     {
+      "number": 242,
+      "title": "feat(src): nine shared functions, 21 placements",
+      "author": "bigmak94",
+      "mergedAt": "2026-10-21T05:21:40Z"
+     },
+     {
+      "number": 243,
+      "title": "feat(src): match three functions and retain verified wave13 research",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-21T01:29:44Z"
+     },
+     {
+      "number": 244,
+      "title": "feat(src): match 38 shared and level functions across 307 placements",
+      "author": "Veradictus",
+      "mergedAt": "2026-10-21T05:58:01Z"
+     },
+     {
+      "number": 245,
+      "title": "chore(progress): 3789 of 8606 functions, 9.14% code",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-21T01:32:54Z"
+     },
+     {
+      "number": 246,
+      "title": "feat(src): level 20 - three more functions matched",
+      "author": "ReaperOfVeriod",
+      "mergedAt": "2026-10-21T05:45:37Z"
+     },
+     {
+      "number": 249,
+      "title": "feat(src): match ten level 2 functions and retain clean near misses",
+      "author": "bigmak94",
+      "mergedAt": "2026-10-21T05:47:08Z"
+     },
+     {
+      "number": 250,
+      "title": "chore(nonmatching): retain three large graphics and collision reconstructions",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-21T05:18:52Z"
+     },
+     {
+      "number": 251,
+      "title": "build(compiler): qualify an opt-in 128-bit clear scheduling profile",
+      "author": "bigmak94",
+      "mergedAt": "2026-10-21T04:30:56Z"
+     },
+     {
+      "number": 252,
+      "title": "fix(build): invalidate objects on toolchain changes and add strict checks",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-21T05:18:38Z"
+     },
+     {
+      "number": 253,
+      "title": "fix(catalogue): exclude five measured residual instruction extents",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-21T05:18:42Z"
+     },
+     {
+      "number": 254,
+      "title": "docs(engine): qualify retail impact payload and moby collision fields",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-21T05:18:46Z"
+     },
+     {
+      "number": 255,
+      "title": "chore(progress): record 3790 of 8606 functions after the clear profile",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-21T04:42:36Z"
+     },
+     {
+      "number": 256,
+      "title": "feat(src): match 26 game functions",
+      "author": "ThorpenCodes",
+      "mergedAt": "2026-10-21T04:55:07Z"
+     },
+     {
+      "number": 257,
+      "title": "fix(tools): validate EE diagnostics and reject empty source barriers",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-21T05:56:13Z"
+     },
+     {
+      "number": 258,
+      "title": "fix(compiler): preserve displaced zero stores and match three vector helpers",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-21T06:12:20Z"
+     },
+     {
+      "number": 259,
+      "title": "feat(src): match func_L02_0038C998 and func_L23_0041C578 after #258",
+      "author": "bigmak94",
+      "mergedAt": "2026-10-21T15:10:59Z"
+     },
+     {
+      "number": 260,
+      "title": "feat(src): thirty-eight id-list functions of other levels",
+      "author": "bigmak94",
+      "mergedAt": "2026-10-21T15:11:05Z"
+     },
+     {
+      "number": 261,
+      "title": "build(compiler): opt-in switches for two Cygnus-local passes",
+      "author": "bigmak94",
+      "mergedAt": "2026-10-21T15:32:22Z"
+     },
+     {
+      "number": 262,
+      "title": "build(compiler): unblock vector-copy addresses and two runtime mask cases",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-21T07:32:24Z"
+     },
+     {
+      "number": 263,
+      "title": "feat(src): nine functions with the opt-in clear and copy profiles",
+      "author": "bigmak94",
+      "mergedAt": "2026-10-21T15:12:00Z"
+     },
+     {
+      "number": 264,
+      "title": "build(compiler): opt-in switch keeping labels on hazard nops",
+      "author": "bigmak94",
+      "mergedAt": "2026-10-21T15:51:27Z"
+     },
+     {
+      "number": 265,
+      "title": "feat(core): match _fpadd_parts with qualified shifted-mask expansion",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-21T09:05:51Z"
+     },
+     {
+      "number": 266,
+      "title": "feat(src): two level functions matched, wave 24 near misses recorded",
+      "author": "ReaperOfVeriod"
+     },
+     {
+      "number": 267,
+      "title": "feat(core): match dpmul with the original fraction union",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-21T09:44:06Z"
+     },
+     {
+      "number": 268,
+      "title": "docs(agents): centralize blocker findings in issue 157",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-21T09:51:46Z"
+     },
+     {
+      "number": 269,
+      "title": "feat(src): wave 14 - three matches, 59 placements, and twenty-nine measured near misses",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-21T15:10:53Z"
+     },
+     {
+      "number": 270,
+      "title": "feat(src): mark 56 hand-written bodies ASM_FUNC, with the measurement",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-21T15:10:47Z"
+     },
+     {
+      "number": 271,
+      "title": "feat(src): twenty small unclaimed bodies matched",
+      "author": "ReaperOfVeriod",
+      "mergedAt": "2026-10-21T15:58:21Z"
+     },
+     {
+      "number": 272,
+      "title": "feat(src): match three worker waves",
+      "author": "GianniGr",
+      "mergedAt": "2026-10-21T20:31:58Z"
+     },
+     {
+      "number": 273,
+      "title": "Match ten id-list and switch functions of levels 2 to 14",
+      "author": "bigmak94",
+      "mergedAt": "2026-10-21T20:32:03Z"
+     },
+     {
+      "number": 274,
+      "title": "Match two game switch functions through retail's jump tables",
+      "author": "bigmak94",
+      "mergedAt": "2026-10-21T20:32:23Z"
+     },
+     {
+      "number": 275,
+      "title": "Add an opt-in scheduling barrier for the grouped quadword copy (-frac2-qcopy-barrier)",
+      "author": "bigmak94",
+      "mergedAt": "2026-10-21T20:35:57Z"
+     },
+     {
+      "number": 276,
+      "title": "docs(readme): rework it in the shape of rac1-decomp, rac3-decomp and rac5-sm-decomp",
+      "author": "Lynder063",
+      "mergedAt": "2026-10-21T19:48:46Z"
+     },
+     {
+      "number": 277,
+      "title": "Match eleven level 2 functions and func_L23_00425568",
+      "author": "bigmak94",
+      "mergedAt": "2026-10-21T20:32:28Z"
+     },
+     {
+      "number": 278,
+      "title": "Match three id-list walks of levels 0, 11 and 22",
+      "author": "bigmak94",
+      "mergedAt": "2026-10-21T20:40:51Z"
+     },
+     {
+      "number": 279,
+      "title": "Add an opt-in switch keeping wide stores out of annulled delay slots (-frac2-no-annulled-wide-stores)",
+      "author": "bigmak94",
+      "mergedAt": "2026-10-21T21:01:21Z"
+     },
+     {
+      "number": 280,
+      "title": "feat: PAL and USA v2.00 releases beside v1.01, one C for all three",
+      "author": "Veradictus",
+      "mergedAt": "2026-10-21T21:34:59Z"
+     },
+     {
+      "number": 281,
+      "title": "Add an opt-in switch keeping the por of stack zero stores (-frac2-zero-ti-por)",
+      "author": "bigmak94",
+      "mergedAt": "2026-10-21T23:09:04Z"
+     },
+     {
+      "number": 282,
+      "title": "feat(src): PAL and USA v2.00 C for 781 functions that changed from v1.01",
+      "author": "Veradictus",
+      "mergedAt": "2026-10-21T21:52:18Z"
+     },
+     {
+      "number": 283,
+      "title": "Match forty-eight functions: level 2 first attempts and the copy-barrier wave",
+      "author": "bigmak94",
+      "mergedAt": "2026-10-21T23:10:39Z"
+     },
+     {
+      "number": 284,
+      "title": "feat(src): match func_L11_003F1DB0",
+      "author": "GianniGr",
+      "mergedAt": "2026-10-21T23:11:02Z"
+     },
+     {
+      "number": 285,
+      "title": "feat(src): match eight game functions and retain bounded near misses",
+      "author": "ThorpenCodes",
+      "mergedAt": "2026-10-21T22:34:03Z"
+     },
+     {
+      "number": 286,
+      "title": "feat(src): PAL and USA v2.00 C for 14 more functions, carried mechanically",
+      "author": "Veradictus",
+      "mergedAt": "2026-10-21T23:36:13Z"
+     },
+     {
+      "number": 287,
+      "title": "feat(src): match func_0030E700 in both USA releases",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-22T00:08:44Z"
+     },
+     {
+      "number": 288,
+      "title": "docs(nonmatching): the two large level-20 bodies - the records and what they measured",
+      "author": "ReaperOfVeriod",
+      "mergedAt": "2026-10-23T01:50:05Z"
+     },
+     {
+      "number": 289,
+      "title": "feat(src): match 3 functions by pattern sweep",
+      "author": "Veradictus",
+      "mergedAt": "2026-10-22T00:33:08Z"
+     },
+     {
+      "number": 290,
+      "title": "docs(workflow): share blocker knowledge in the main repository",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-22T02:24:46Z"
+     },
+     {
+      "number": 291,
+      "title": "feat(src): two yeedil bodies freed by the grouped-copy profiles",
+      "author": "ReaperOfVeriod",
+      "mergedAt": "2026-10-23T01:49:58Z"
+     },
+     {
+      "number": 292,
+      "title": "docs(workflow): retire the redundant blocker issue",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-22T03:14:12Z"
+     },
+     {
+      "number": 293,
+      "title": "feat(src): match func_L00_00412FF8 and func_L01_00417090 in -g8 siblings",
+      "author": "Veradictus",
+      "mergedAt": "2026-10-22T06:21:20Z"
+     },
+     {
+      "number": 294,
+      "title": "docs(nonmatching): two exact-size near misses of about 950 bytes",
+      "author": "Veradictus",
+      "mergedAt": "2026-10-22T07:06:31Z"
+     },
+     {
+      "number": 295,
+      "title": "feat(src): match nineteen shared level functions",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-23T01:49:50Z"
+     },
+     {
+      "number": 296,
+      "title": "docs(compiler): consolidate measured compatibility rules",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-22T16:17:34Z"
+     },
+     {
+      "number": 297,
+      "title": "feat(src): match 27 level functions",
+      "author": "GianniGr",
+      "mergedAt": "2026-10-23T01:49:43Z"
+     },
+     {
+      "number": 298,
+      "title": "docs: qualify PS2Recomp boundary findings and correct the level-23 note",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-23T04:14:24Z"
+     },
+     {
+      "number": 299,
+      "title": "feat(levels): correct the Damosel Orbit entry and match its 44-byte wrapper",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-23T04:39:27Z"
+     },
+     {
+      "number": 300,
+      "title": "Recover ten shared level functions and make failed checks exit unsuccessfully",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-23T05:50:31Z"
+     },
+     {
+      "number": 301,
+      "title": "Recover 29 more shared functions, qualify the PAL timer and retain the second-pass near misses",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-23T06:18:27Z"
+     },
+     {
+      "number": 302,
+      "title": "Match three shared hero functions and retain fifteen measured reconstructions",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-23T13:39:11Z"
+     },
+     {
+      "number": 303,
+      "title": "feat(nonmatching): reconstruct the Dobbo Orbit hero state dispatcher",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-23T18:38:11Z"
+     },
+     {
+      "number": 304,
+      "title": "Match 18 game functions with truthful data and ABI declarations",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-23T22:28:14Z"
+     },
+     {
+      "number": 305,
+      "title": "Retain and index 110 measured C reconstructions without matching credit",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-23T22:42:17Z"
+     },
+     {
+      "number": 306,
+      "title": "docs: decomp-permuter through OpenRAC's shared tool",
+      "author": "Veradictus",
+      "mergedAt": "2026-10-23T23:02:46Z"
+     },
+     {
+      "number": 307,
+      "title": "Match 36 shared helpers and preserve measured C interfaces",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-23T23:58:38Z"
+     },
+     {
+      "number": 308,
+      "title": "Retain 89 C reconstructions and consolidate measured blockers",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-24T00:00:19Z"
+     },
+     {
+      "number": 309,
+      "title": "feat(src): match 62 routines and retain measured reconstructions",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-24T06:33:14Z"
+     },
+     {
+      "number": 310,
+      "title": "chore(progress): refresh validated coverage for all three releases",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-24T06:43:25Z"
+     },
+     {
+      "number": 311,
+      "title": "feat(src): match 15 game functions and retain bounded near misses",
+      "author": "ThorpenCodes",
+      "mergedAt": "2026-10-24T07:08:42Z"
+     },
+     {
+      "number": 312,
+      "title": "Link verified compiler jump tables and integrate five C functions",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-24T07:52:38Z"
+     },
+     {
+      "number": 313,
+      "title": "Match three switch functions and correct Joba case mappings",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-24T08:40:23Z"
+     },
+     {
+      "number": 314,
+      "title": "fix(catalogue): correct two shared callable entry boundaries",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-25T01:42:12Z"
+     },
+     {
+      "number": 315,
+      "title": "fix(catalogue): repair measured entries across all three releases",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-25T02:37:27Z"
+     },
+     {
+      "number": 316,
+      "title": "feat(src): classify 27 proven original-assembly bodies",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-25T03:56:59Z"
+     },
+     {
+      "number": 317,
+      "title": "feat(src): match seven small level functions",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-25T04:20:00Z"
+     },
+     {
+      "number": 318,
+      "title": "Adopt RAC1 constant-pool and allocation methods; match six functions",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-25T06:09:18Z"
+     },
+     {
+      "number": 319,
+      "title": "feat(src): match 19 level functions with RAC1 transfer helpers",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-25T07:32:03Z"
+     },
+     {
+      "number": 320,
+      "title": "feat(src): match nine functions and retain corrected near misses",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-25T22:53:23Z"
+     },
+     {
+      "number": 321,
+      "title": "feat(src): resolve transfer walls in nine level functions",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-25T13:39:12Z"
+     },
+     {
+      "number": 322,
+      "title": "Match 17 vector and control functions with verified source contracts",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-25T15:16:11Z"
+     },
+     {
+      "number": 323,
+      "title": "Match 11 state and vector handlers and preserve corrected large drafts",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-25T17:40:00Z"
+     },
+     {
+      "number": 324,
+      "title": "Match seven level handlers and retain corrected reconstructions",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-25T18:02:33Z"
+     },
+     {
+      "number": 325,
+      "title": "feat(src): match vector handlers and repair large-function reconstructions",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-25T19:30:31Z"
+     },
+     {
+      "number": 326,
+      "title": "fix(src): repair wrapper contracts and preserve corrected large reconstructions",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-25T21:37:41Z"
+     },
+     {
+      "number": 327,
+      "title": "feat(src): match 664-byte Snivelak path motion with verified EE call setup",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-25T22:55:08Z"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [
+     {
+      "number": 247,
+      "title": "Three C bodies in src/ that do not match: one extra nop after mfc1",
+      "author": "ReaperOfVeriod"
+     },
+     {
+      "number": 248,
+      "title": "128-bit matching: qualified zero-store and vector-copy compiler profiles",
+      "author": "ReaperOfVeriod"
+     }
+    ],
+    "closed": [
+     {
+      "number": 157,
+      "title": "Archived: matching blocker notes moved to the shared document",
+      "author": "llesieur99"
+     },
+     {
+      "number": 247,
+      "title": "Three C bodies in src/ that do not match: one extra nop after mfc1",
+      "author": "ReaperOfVeriod"
+     },
+     {
+      "number": 248,
+      "title": "128-bit matching: qualified zero-store and vector-copy compiler profiles",
+      "author": "ReaperOfVeriod"
+     }
+    ]
+   },
+   "releases": [],
+   "progress": {
+    "before": {
+     "code": {
+      "done": 360448,
+      "total": 5533600
+     },
+     "functions": {
+      "done": 3303,
+      "total": 9100
+     },
+     "data": {
+      "done": 0,
+      "total": 383391
+     }
+    },
+    "after": {
+     "code": {
+      "done": 776368,
+      "total": 5529148
+     },
+     "functions": {
+      "done": 4351,
+      "total": 8601
+     },
+     "data": {
+      "done": 0,
+      "total": 383391
+     }
+    }
+   },
+   "contributors": [
+    "atlasbez-dot",
+    "bigmak94",
+    "GianniGr",
+    "llesieur99",
+    "Lynder063",
+    "ReaperOfVeriod",
+    "ThorpenCodes",
+    "Veradictus"
+   ]
+  },
+  {
+   "repo": "rac3-decomp",
+   "title": "Up Your Arsenal",
+   "commitCount": 31,
+   "activeDays": [
+    "2026-10-21",
+    "2026-10-22",
+    "2026-10-23"
+   ],
+   "pullRequests": {
+    "merged": [],
+    "opened": [
+     {
+      "number": 1,
+      "title": "feat(us): add native frontend routines with NTSC validation",
+      "author": "llesieur99",
+      "mergedAt": "2026-10-29T15:36:36Z"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": {
+    "before": null,
+    "after": {
+     "code": {
+      "done": 657780,
+      "total": 7546948
+     },
+     "functions": {
+      "done": 5807,
+      "total": 16164
+     }
+    }
+   },
+   "contributors": [
+    "llesieur99",
+    "Lynder063",
+    "Veradictus"
+   ]
+  },
+  {
+   "repo": "rac4-decomp",
+   "title": "Ratchet: Deadlocked",
+   "commitCount": 38,
+   "activeDays": [
+    "2026-10-19",
+    "2026-10-20",
+    "2026-10-21",
+    "2026-10-22",
+    "2026-10-23",
+    "2026-10-24"
+   ],
+   "pullRequests": {
+    "merged": [
+     {
+      "number": 4,
+      "title": "Further decomp (>2% matched code)",
+      "author": "skast96",
+      "mergedAt": "2026-10-19T17:01:09Z"
+     },
+     {
+      "number": 5,
+      "title": "Make the build and try tools run natively on Windows",
+      "author": "chistianh",
+      "mergedAt": "2026-10-20T06:39:44Z"
+     },
+     {
+      "number": 6,
+      "title": "Another decomp wave",
+      "author": "skast96",
+      "mergedAt": "2026-10-20T06:39:54Z"
+     },
+     {
+      "number": 7,
+      "title": "[PAL-verified] Match 17 shared overlay functions (moby helpers)",
+      "author": "chistianh",
+      "mergedAt": "2026-10-20T22:43:09Z"
+     },
+     {
+      "number": 8,
+      "title": "Match 21 shared overlay functions (moby helpers, part 2), verified on PAL",
+      "author": "chistianh",
+      "mergedAt": "2026-10-20T22:43:13Z"
+     },
+     {
+      "number": 9,
+      "title": "Match 28 shared overlay functions (moby helpers, part 3), verified on…",
+      "author": "chistianh",
+      "mergedAt": "2026-10-20T22:43:16Z"
+     },
+     {
+      "number": 10,
+      "title": "Match 8 overlay functions (moby helpers, multiplayer menu), verified …",
+      "author": "chistianh",
+      "mergedAt": "2026-10-20T22:43:20Z"
+     },
+     {
+      "number": 11,
+      "title": "Match 21 multiplayer-menu functions (0x004F7328-0x0051EE00), verified…",
+      "author": "chistianh",
+      "mergedAt": "2026-10-20T22:43:23Z"
+     },
+     {
+      "number": 12,
+      "title": "Match 21 multiplayer-menu functions (0x0051EE28-0x00711EE8), verified…",
+      "author": "chistianh",
+      "mergedAt": "2026-10-20T22:43:28Z"
+     },
+     {
+      "number": 13,
+      "title": "Match 8 multiplayer-menu functions (0x004FF078-0x00775600), verified …",
+      "author": "chistianh",
+      "mergedAt": "2026-10-20T22:43:32Z"
+     },
+     {
+      "number": 14,
+      "title": "Match 16 multiplayer-menu functions (0x005178C0-0x007755C0), verified…",
+      "author": "chistianh",
+      "mergedAt": "2026-10-20T22:43:35Z"
+     },
+     {
+      "number": 15,
+      "title": "Match 22 multiplayer-menu functions (0x004FBA28-0x00779218), verified…",
+      "author": "chistianh",
+      "mergedAt": "2026-10-20T22:43:39Z"
+     },
+     {
+      "number": 16,
+      "title": "Match 21 multiplayer-menu functions (0x00711F00-0x00776680), verified…",
+      "author": "chistianh",
+      "mergedAt": "2026-10-20T22:43:43Z"
+     },
+     {
+      "number": 17,
+      "title": "feat: extract and build every level from both discs, recount functions from the binaries",
+      "author": "Veradictus",
+      "mergedAt": "2026-10-21T07:07:59Z"
+     },
+     {
+      "number": 18,
+      "title": "Spare",
+      "author": "Lynder063",
+      "mergedAt": "2026-10-21T10:22:46Z"
+     },
+     {
+      "number": 19,
+      "title": "fix(match_map): count new C under US catalogue names",
+      "author": "Veradictus",
+      "mergedAt": "2026-10-21T07:36:23Z"
+     },
+     {
+      "number": 20,
+      "title": "feat: match 463 small functions",
+      "author": "Veradictus",
+      "mergedAt": "2026-10-21T07:49:15Z"
+     },
+     {
+      "number": 21,
+      "title": "feat: match 425 small functions from machine drafts",
+      "author": "Veradictus",
+      "mergedAt": "2026-10-21T07:57:52Z"
+     },
+     {
+      "number": 22,
+      "title": "feat: match 68 small functions from machine drafts",
+      "author": "Veradictus",
+      "mergedAt": "2026-10-21T08:38:13Z"
+     },
+     {
+      "number": 23,
+      "title": "feat: match 14 more functions, stage closer near misses",
+      "author": "Veradictus",
+      "mergedAt": "2026-10-21T09:46:27Z"
+     },
+     {
+      "number": 24,
+      "title": "Add PAL versions of 16 functions whose US C differs on PAL (src/pal/)",
+      "author": "chistianh",
+      "mergedAt": "2026-10-21T14:53:20Z"
+     },
+     {
+      "number": 25,
+      "title": "Add PAL C for the remaining 16 `differs` functions; use PAL callee names in src/pal/",
+      "author": "chistianh",
+      "mergedAt": "2026-10-21T16:23:26Z"
+     },
+     {
+      "number": 26,
+      "title": "feat(game): match five small functions",
+      "author": "Veradictus",
+      "mergedAt": "2026-10-22T03:01:16Z"
+     },
+     {
+      "number": 27,
+      "title": "feat: match 77 small functions",
+      "author": "Veradictus",
+      "mergedAt": "2026-10-22T04:00:17Z"
+     },
+     {
+      "number": 28,
+      "title": "feat: match 86 small functions",
+      "author": "Veradictus",
+      "mergedAt": "2026-10-22T04:50:19Z"
+     },
+     {
+      "number": 29,
+      "title": "feat: match 99 small functions",
+      "author": "Veradictus",
+      "mergedAt": "2026-10-22T05:45:33Z"
+     },
+     {
+      "number": 30,
+      "title": "feat: match 64 small functions",
+      "author": "Veradictus",
+      "mergedAt": "2026-10-22T06:59:19Z"
+     },
+     {
+      "number": 32,
+      "title": "Add PAL C for 7 new `differs` functions (50 Hz timings)",
+      "author": "chistianh",
+      "mergedAt": "2026-10-23T01:18:23Z"
+     },
+     {
+      "number": 33,
+      "title": "Add PAL C for 14 PAL-only functions",
+      "author": "chistianh",
+      "mergedAt": "2026-10-23T01:23:09Z"
+     },
+     {
+      "number": 34,
+      "title": "Add PAL C for 9 more PAL functions",
+      "author": "chistianh",
+      "mergedAt": "2026-10-23T01:24:12Z"
+     },
+     {
+      "number": 35,
+      "title": "Add PAL C for 8 more PAL-only functions",
+      "author": "chistianh",
+      "mergedAt": "2026-10-23T01:25:18Z"
+     },
+     {
+      "number": 36,
+      "title": "Add PAL C for 3 more PAL-only functions; two build/PAL notes",
+      "author": "chistianh",
+      "mergedAt": "2026-10-24T10:06:55Z"
+     },
+     {
+      "number": 37,
+      "title": "docs: decomp-permuter through OpenRAC's shared tool",
+      "author": "Veradictus",
+      "mergedAt": "2026-10-23T23:02:51Z"
+     }
+    ],
+    "opened": [
+     {
+      "number": 5,
+      "title": "Make the build and try tools run natively on Windows",
+      "author": "chistianh",
+      "mergedAt": "2026-10-20T06:39:44Z"
+     },
+     {
+      "number": 6,
+      "title": "Another decomp wave",
+      "author": "skast96",
+      "mergedAt": "2026-10-20T06:39:54Z"
+     },
+     {
+      "number": 7,
+      "title": "[PAL-verified] Match 17 shared overlay functions (moby helpers)",
+      "author": "chistianh",
+      "mergedAt": "2026-10-20T22:43:09Z"
+     },
+     {
+      "number": 8,
+      "title": "Match 21 shared overlay functions (moby helpers, part 2), verified on PAL",
+      "author": "chistianh",
+      "mergedAt": "2026-10-20T22:43:13Z"
+     },
+     {
+      "number": 9,
+      "title": "Match 28 shared overlay functions (moby helpers, part 3), verified on…",
+      "author": "chistianh",
+      "mergedAt": "2026-10-20T22:43:16Z"
+     },
+     {
+      "number": 10,
+      "title": "Match 8 overlay functions (moby helpers, multiplayer menu), verified …",
+      "author": "chistianh",
+      "mergedAt": "2026-10-20T22:43:20Z"
+     },
+     {
+      "number": 11,
+      "title": "Match 21 multiplayer-menu functions (0x004F7328-0x0051EE00), verified…",
+      "author": "chistianh",
+      "mergedAt": "2026-10-20T22:43:23Z"
+     },
+     {
+      "number": 12,
+      "title": "Match 21 multiplayer-menu functions (0x0051EE28-0x00711EE8), verified…",
+      "author": "chistianh",
+      "mergedAt": "2026-10-20T22:43:28Z"
+     },
+     {
+      "number": 13,
+      "title": "Match 8 multiplayer-menu functions (0x004FF078-0x00775600), verified …",
+      "author": "chistianh",
+      "mergedAt": "2026-10-20T22:43:32Z"
+     },
+     {
+      "number": 14,
+      "title": "Match 16 multiplayer-menu functions (0x005178C0-0x007755C0), verified…",
+      "author": "chistianh",
+      "mergedAt": "2026-10-20T22:43:35Z"
+     },
+     {
+      "number": 15,
+      "title": "Match 22 multiplayer-menu functions (0x004FBA28-0x00779218), verified…",
+      "author": "chistianh",
+      "mergedAt": "2026-10-20T22:43:39Z"
+     },
+     {
+      "number": 16,
+      "title": "Match 21 multiplayer-menu functions (0x00711F00-0x00776680), verified…",
+      "author": "chistianh",
+      "mergedAt": "2026-10-20T22:43:43Z"
+     },
+     {
+      "number": 17,
+      "title": "feat: extract and build every level from both discs, recount functions from the binaries",
+      "author": "Veradictus",
+      "mergedAt": "2026-10-21T07:07:59Z"
+     },
+     {
+      "number": 18,
+      "title": "Spare",
+      "author": "Lynder063",
+      "mergedAt": "2026-10-21T10:22:46Z"
+     },
+     {
+      "number": 19,
+      "title": "fix(match_map): count new C under US catalogue names",
+      "author": "Veradictus",
+      "mergedAt": "2026-10-21T07:36:23Z"
+     },
+     {
+      "number": 20,
+      "title": "feat: match 463 small functions",
+      "author": "Veradictus",
+      "mergedAt": "2026-10-21T07:49:15Z"
+     },
+     {
+      "number": 21,
+      "title": "feat: match 425 small functions from machine drafts",
+      "author": "Veradictus",
+      "mergedAt": "2026-10-21T07:57:52Z"
+     },
+     {
+      "number": 22,
+      "title": "feat: match 68 small functions from machine drafts",
+      "author": "Veradictus",
+      "mergedAt": "2026-10-21T08:38:13Z"
+     },
+     {
+      "number": 23,
+      "title": "feat: match 14 more functions, stage closer near misses",
+      "author": "Veradictus",
+      "mergedAt": "2026-10-21T09:46:27Z"
+     },
+     {
+      "number": 24,
+      "title": "Add PAL versions of 16 functions whose US C differs on PAL (src/pal/)",
+      "author": "chistianh",
+      "mergedAt": "2026-10-21T14:53:20Z"
+     },
+     {
+      "number": 25,
+      "title": "Add PAL C for the remaining 16 `differs` functions; use PAL callee names in src/pal/",
+      "author": "chistianh",
+      "mergedAt": "2026-10-21T16:23:26Z"
+     },
+     {
+      "number": 26,
+      "title": "feat(game): match five small functions",
+      "author": "Veradictus",
+      "mergedAt": "2026-10-22T03:01:16Z"
+     },
+     {
+      "number": 27,
+      "title": "feat: match 77 small functions",
+      "author": "Veradictus",
+      "mergedAt": "2026-10-22T04:00:17Z"
+     },
+     {
+      "number": 28,
+      "title": "feat: match 86 small functions",
+      "author": "Veradictus",
+      "mergedAt": "2026-10-22T04:50:19Z"
+     },
+     {
+      "number": 29,
+      "title": "feat: match 99 small functions",
+      "author": "Veradictus",
+      "mergedAt": "2026-10-22T05:45:33Z"
+     },
+     {
+      "number": 30,
+      "title": "feat: match 64 small functions",
+      "author": "Veradictus",
+      "mergedAt": "2026-10-22T06:59:19Z"
+     },
+     {
+      "number": 32,
+      "title": "Add PAL C for 7 new `differs` functions (50 Hz timings)",
+      "author": "chistianh",
+      "mergedAt": "2026-10-23T01:18:23Z"
+     },
+     {
+      "number": 33,
+      "title": "Add PAL C for 14 PAL-only functions",
+      "author": "chistianh",
+      "mergedAt": "2026-10-23T01:23:09Z"
+     },
+     {
+      "number": 34,
+      "title": "Add PAL C for 9 more PAL functions",
+      "author": "chistianh",
+      "mergedAt": "2026-10-23T01:24:12Z"
+     },
+     {
+      "number": 35,
+      "title": "Add PAL C for 8 more PAL-only functions",
+      "author": "chistianh",
+      "mergedAt": "2026-10-23T01:25:18Z"
+     },
+     {
+      "number": 36,
+      "title": "Add PAL C for 3 more PAL-only functions; two build/PAL notes",
+      "author": "chistianh",
+      "mergedAt": "2026-10-24T10:06:55Z"
+     },
+     {
+      "number": 37,
+      "title": "docs: decomp-permuter through OpenRAC's shared tool",
+      "author": "Veradictus",
+      "mergedAt": "2026-10-23T23:02:51Z"
+     },
+     {
+      "number": 38,
+      "title": "Add PAL C for 5 more PAL-only functions; three PAL catalogue cuts",
+      "author": "chistianh",
+      "mergedAt": "2026-10-28T14:03:03Z"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": {
+    "before": {
+     "code": {
+      "done": 68920,
+      "total": 5175440
+     },
+     "functions": {
+      "done": 808,
+      "total": 15056
+     }
+    },
+    "after": {
+     "code": {
+      "done": 262428,
+      "total": 5782424
+     },
+     "functions": {
+      "done": 3598,
+      "total": 18085
+     }
+    }
+   },
+   "contributors": [
+    "chistianh",
+    "Lynder063",
+    "skast96",
+    "Veradictus"
+   ]
+  },
+  {
+   "repo": "openrac-mods",
+   "title": "OpenRAC mods",
+   "commitCount": 74,
+   "activeDays": [
+    "2026-10-21",
+    "2026-10-22",
+    "2026-10-23",
+    "2026-10-24",
+    "2026-10-25"
+   ],
+   "pullRequests": {
+    "merged": [
+     {
+      "number": 2,
+      "title": "Xbox icons",
+      "author": "Lynder063",
+      "mergedAt": "2026-10-25T19:46:55Z"
+     },
+     {
+      "number": 3,
+      "title": "fix(difficulty): call the NTSC-U line test by the port's name, version 1.2.2",
+      "author": "Lynder063",
+      "mergedAt": "2026-10-25T20:19:36Z"
+     }
+    ],
+    "opened": [
+     {
+      "number": 2,
+      "title": "Xbox icons",
+      "author": "Lynder063",
+      "mergedAt": "2026-10-25T19:46:55Z"
+     },
+     {
+      "number": 3,
+      "title": "fix(difficulty): call the NTSC-U line test by the port's name, version 1.2.2",
+      "author": "Lynder063",
+      "mergedAt": "2026-10-25T20:19:36Z"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [
+     {
+      "number": 1,
+      "title": "Difficulty Mod Incompatible?",
+      "author": "theygotti"
+     }
+    ],
+    "closed": [
+     {
+      "number": 1,
+      "title": "Difficulty Mod Incompatible?",
+      "author": "theygotti"
+     }
+    ]
+   },
+   "releases": [
+    {
+     "tag": "item-randomizer-v1.0.0",
+     "name": "item-randomizer-v1.0.0",
+     "publishedAt": "2026-10-21T22:32:26Z"
+    },
+    {
+     "tag": "lock-strafe-v1.0.0",
+     "name": "lock-strafe-v1.0.0",
+     "publishedAt": "2026-10-21T22:05:48Z"
+    },
+    {
+     "tag": "difficulty-v1.0.0",
+     "name": "difficulty-v1.0.0",
+     "publishedAt": "2026-10-22T00:15:10Z"
+    },
+    {
+     "tag": "difficulty-v1.1.0",
+     "name": "difficulty-v1.1.0",
+     "publishedAt": "2026-10-22T00:46:22Z"
+    },
+    {
+     "tag": "keyboard-mouse-v1.0.0",
+     "name": "keyboard-mouse-v1.0.0",
+     "publishedAt": "2026-10-22T00:09:56Z"
+    },
+    {
+     "tag": "keyboard-mouse-v1.1.0",
+     "name": "keyboard-mouse-v1.1.0",
+     "publishedAt": "2026-10-22T01:21:17Z"
+    },
+    {
+     "tag": "keyboard-mouse-v1.1.1",
+     "name": "keyboard-mouse-v1.1.1",
+     "publishedAt": "2026-10-22T01:27:09Z"
+    },
+    {
+     "tag": "ammo-max-v1.0.0",
+     "name": "ammo-max-v1.0.0",
+     "publishedAt": "2026-10-23T03:46:34Z"
+    },
+    {
+     "tag": "difficulty-v1.1.1",
+     "name": "difficulty-v1.1.1",
+     "publishedAt": "2026-10-23T03:45:52Z"
+    },
+    {
+     "tag": "difficulty-v1.2.0",
+     "name": "difficulty-v1.2.0",
+     "publishedAt": "2026-10-23T05:45:49Z"
+    },
+    {
+     "tag": "dualsense-v1.0.0",
+     "name": "dualsense-v1.0.0",
+     "publishedAt": "2026-10-23T02:47:17Z"
+    },
+    {
+     "tag": "item-randomizer-v1.0.1",
+     "name": "item-randomizer-v1.0.1",
+     "publishedAt": "2026-10-23T03:46:16Z"
+    },
+    {
+     "tag": "keyboard-mouse-v1.2.0",
+     "name": "keyboard-mouse-v1.2.0",
+     "publishedAt": "2026-10-23T03:45:40Z"
+    },
+    {
+     "tag": "live-splits-v1.0.0",
+     "name": "live-splits-v1.0.0",
+     "publishedAt": "2026-10-23T02:45:53Z"
+    },
+    {
+     "tag": "ammo-max-v1.0.1",
+     "name": "ammo-max-v1.0.1",
+     "publishedAt": "2026-10-24T13:04:05Z"
+    },
+    {
+     "tag": "difficulty-v1.2.1",
+     "name": "difficulty-v1.2.1",
+     "publishedAt": "2026-10-24T13:03:48Z"
+    },
+    {
+     "tag": "dualsense-v1.0.1",
+     "name": "dualsense-v1.0.1",
+     "publishedAt": "2026-10-24T13:05:04Z"
+    },
+    {
+     "tag": "item-randomizer-v1.0.2",
+     "name": "item-randomizer-v1.0.2",
+     "publishedAt": "2026-10-24T13:05:16Z"
+    },
+    {
+     "tag": "keyboard-mouse-v1.2.1",
+     "name": "keyboard-mouse-v1.2.1",
+     "publishedAt": "2026-10-24T09:24:23Z"
+    },
+    {
+     "tag": "keyboard-mouse-v1.2.2",
+     "name": "keyboard-mouse-v1.2.2",
+     "publishedAt": "2026-10-24T09:32:16Z"
+    },
+    {
+     "tag": "keyboard-mouse-v1.2.3",
+     "name": "keyboard-mouse-v1.2.3",
+     "publishedAt": "2026-10-24T09:54:30Z"
+    },
+    {
+     "tag": "live-splits-v1.0.1",
+     "name": "live-splits-v1.0.1",
+     "publishedAt": "2026-10-24T13:06:27Z"
+    },
+    {
+     "tag": "lock-strafe-v1.0.1",
+     "name": "lock-strafe-v1.0.1",
+     "publishedAt": "2026-10-24T13:06:39Z"
+    }
+   ],
+   "progress": null,
+   "contributors": [
+    "Lynder063",
+    "Veradictus"
+   ]
+  }
+ ]
+}

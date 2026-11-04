@@ -45,6 +45,8 @@ RUN rm -rf /usr/local/lib/node_modules/npm /usr/local/lib/node_modules/corepack 
 COPY --from=build --chown=node:node /app/.next/standalone ./
 COPY --from=build --chown=node:node /app/.next/static ./.next/static
 COPY --from=build --chown=node:node /app/public ./public
+# The news: the home page and sitemap read it again whenever they are rebuilt in the background.
+COPY --from=build --chown=node:node /app/news ./news
 USER node
 EXPOSE 3000
 # Next.js handles SIGTERM itself, so `podman stop` shuts the server down cleanly.

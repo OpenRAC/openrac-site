@@ -1,0 +1,58 @@
+# Checks pull requests touching the news. The checker comes from the base branch, so a pull request
+# cannot change the rules it is judged by. Read-only token, no secrets.
+name: news-check
+
+on:
+  pull_request:
+    paths: ["news/**"]
+  push:
+    branches: [main]
+    paths: ["news/**"]
+
+permissions: {}
+
+jobs:
+  tools:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - run: python3 -m unittest discover -s news/tools/tests
+
+  reports:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    permissions:
+      contents: read
+    steps:
+      - name: The checker, from the base branch
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ github.event.pull_request.base.sha || github.sha }}
+          path: base
+          persist-credentials: false
+      - name: What to check
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          path: head
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Check
+        env:
+          EVENT: ${{ github.event_name }}
+          AUTHOR: ${{ github.event.pull_request.user.login }}
+        run: |
+          if [ ! -f base/news/tools/check.py ]; then
+            # The pull request that first adds the news: there are no rules on the base branch yet.
+            python3 head/news/tools/check.py --root head/news
+          elif [ "$EVENT" = pull_request ]; then
+            # The test merge against its first parent: only what this pull request changes, however far the base has moved.
+            git -C head diff --name-only HEAD^1 HEAD > changed.txt
+            python3 base/news/tools/check.py --root head/news --changed changed.txt --author "$AUTHOR"
+          else
+            python3 base/news/tools/check.py --root head/news
+          fi
