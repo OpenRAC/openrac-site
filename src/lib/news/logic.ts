@@ -1,4 +1,4 @@
-import type { NewsCommit, NewsDay, NewsFacts, NewsItem, NewsMeasures, NewsProject, NewsRatio, NewsRelease, NewsReport, NewsReportSection, NewsSegment } from "./types.ts";
+import type { NewsCommit, NewsDayFacts, NewsIndex, NewsItem, NewsMeasures, NewsMedia, NewsProgress, NewsProject, NewsRatio, NewsRelease, NewsReport, NewsReportSection, NewsSegment, NewsSource, NewsTotals, NewsWeekEntry, NewsWeekFacts } from "./types.ts";
 
 /**
  * Reading and shaping the news data. Everything here is pure. The data comes from another repository
@@ -31,17 +31,40 @@ export function isNewsDay(day: unknown): day is string {
   return !Number.isNaN(parsed.getTime()) && parsed.toISOString().slice(0, 10) === day;
 }
 
-/** The list of days, newest first; empty when the file is not one this site can read. */
-export function parseIndex(raw: unknown): NewsDay[] {
-  if (!isObject(raw) || raw.format !== FORMAT) return [];
+/** An ISO week written 2026-W44, in the range that year really has. */
+export function isNewsWeek(week: unknown): week is string {
+  if (typeof week !== "string") return false;
+  const m = /^(\d{4})-W(\d{2})$/.exec(week);
+  if (!m) return false;
+  // 28 December is always in a year's last week.
+  const number = Number(m[2]);
+  return number >= 1 && number <= Number(weekOfDay(`${m[1]}-12-28`).slice(6));
+}
+
+/** The ISO week a day falls in. Around New Year its year can differ from the day's. */
+export function weekOfDay(day: string): string {
+  const d = new Date(`${day}T00:00:00Z`);
+  const weekday = (d.getUTCDay() + 6) % 7;
+  d.setUTCDate(d.getUTCDate() - weekday + 3); // that week's Thursday decides its year
+  const year = d.getUTCFullYear();
+  const firstThursday = new Date(Date.UTC(year, 0, 4));
+  firstThursday.setUTCDate(firstThursday.getUTCDate() - ((firstThursday.getUTCDay() + 6) % 7) + 3);
+  const number = 1 + Math.round((d.getTime() - firstThursday.getTime()) / (7 * 86_400_000));
+  return `${year}-W${String(number).padStart(2, "0")}`;
+}
+
+/** The list of weeks and days, newest first; null when the file is not one this site can read. */
+export function parseIndex(raw: unknown): NewsIndex | null {
+  if (!isObject(raw) || raw.format !== FORMAT || !Array.isArray(raw.weeks) || !Array.isArray(raw.days)) return null;
   const seen = new Set<string>();
-  const days: NewsDay[] = [];
-  for (const d of list(raw.days)) {
-    if (!isObject(d) || !isNewsDay(d.date) || seen.has(d.date)) continue;
-    seen.add(d.date);
-    days.push({ date: d.date, report: d.report === true });
+  const weeks: NewsWeekEntry[] = [];
+  for (const w of raw.weeks) {
+    if (!isObject(w) || !isNewsWeek(w.week) || seen.has(w.week) || !isNewsDay(w.start) || !isNewsDay(w.end)) continue;
+    seen.add(w.week);
+    weeks.push({ week: w.week, start: w.start, end: w.end, finished: w.finished === true, report: w.report === true });
   }
-  return days.sort((a, b) => b.date.localeCompare(a.date));
+  const days = [...new Set(raw.days.filter(isNewsDay))];
+  return { weeks: weeks.sort((a, b) => b.start.localeCompare(a.start)), days: days.sort((a, b) => b.localeCompare(a)) };
 }
 
 function parseRatio(x: unknown): NewsRatio | null {
@@ -99,25 +122,58 @@ function parseProject(x: unknown): NewsProject | null {
   };
 }
 
-/** A day's facts, or null when the file is not those of this day. */
-export function parseFacts(raw: unknown, day: string): NewsFacts | null {
-  if (!isObject(raw) || raw.format !== FORMAT || raw.date !== day) return null;
-  const totals = isObject(raw.totals) ? raw.totals : {};
+function parseTotals(raw: unknown): NewsTotals {
+  const totals = isObject(raw) ? raw : {};
   return {
-    date: day,
-    totals: {
-      commits: count(totals.commits),
-      pullRequestsMerged: count(totals.pullRequestsMerged),
-      pullRequestsOpened: count(totals.pullRequestsOpened),
-      contributors: count(totals.contributors),
-    },
-    projects: compact(list(raw.projects).map(parseProject)),
+    commits: count(totals.commits),
+    pullRequestsMerged: count(totals.pullRequestsMerged),
+    pullRequestsOpened: count(totals.pullRequestsOpened),
+    contributors: count(totals.contributors),
   };
 }
 
-/** A day's written report, or null when there is none this site can show. A report must say who wrote it. */
-export function parseReport(raw: unknown, day: string): NewsReport | null {
+/** A day's facts, or null when the file is not those of this day. */
+export function parseDayFacts(raw: unknown, day: string): NewsDayFacts | null {
   if (!isObject(raw) || raw.format !== FORMAT || raw.date !== day) return null;
+  return { date: day, totals: parseTotals(raw.totals), projects: compact(list(raw.projects).map(parseProject)) };
+}
+
+/** A week's facts, or null when the file is not those of this week. */
+export function parseWeekFacts(raw: unknown, week: string): NewsWeekFacts | null {
+  if (!isObject(raw) || raw.format !== FORMAT || raw.week !== week || !isNewsDay(raw.start) || !isNewsDay(raw.end)) return null;
+  return { week, start: raw.start, end: raw.end, days: list(raw.days).filter(isNewsDay), totals: parseTotals(raw.totals), projects: compact(list(raw.projects).map(parseProject)) };
+}
+
+const MEDIA_NAME = /^[a-z0-9][a-z0-9._-]{0,60}\.(webp|png|jpe?g)$/;
+
+/** A picture's name as the checks allow it. Nothing else may reach a URL. */
+export const isMediaName = (name: unknown): name is string => typeof name === "string" && MEDIA_NAME.test(name);
+
+/** The type a picture's name promises. */
+export function mediaType(name: string): string {
+  const ext = name.slice(name.lastIndexOf(".") + 1);
+  return ext === "png" ? "image/png" : ext === "webp" ? "image/webp" : "image/jpeg";
+}
+
+/** True when the bytes really are the type the name promises: a name proves nothing. */
+export function mediaMatches(name: string, bytes: Uint8Array): boolean {
+  const starts = (...b: number[]) => b.every((x, i) => bytes[i] === x);
+  const ascii = (at: number, text: string) => [...text].every((c, i) => bytes[at + i] === c.charCodeAt(0));
+  const type = mediaType(name);
+  if (type === "image/png") return starts(0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a);
+  if (type === "image/webp") return ascii(0, "RIFF") && ascii(8, "WEBP");
+  return starts(0xff, 0xd8, 0xff);
+}
+
+function parseMedia(x: unknown): NewsMedia | null {
+  if (!isObject(x) || !isMediaName(x.file) || !text(x.alt, 200)) return null;
+  const repo = text(x.repo, 80);
+  return { file: x.file, alt: text(x.alt, 200), caption: text(x.caption, 200), ...(SAFE_REPO.test(repo) && { repo }) };
+}
+
+/** A week's written report, or null when it is not one this site can show. A report must say who wrote it. */
+export function parseReport(raw: unknown, week: string): NewsReport | null {
+  if (!isObject(raw) || raw.format !== FORMAT || raw.week !== week) return null;
   const [author, tool, headline, summary] = [text(raw.author, 40), text(raw.tool, 40), text(raw.headline, 200), text(raw.summary, 2000)];
   if (!LOGIN.test(author) || !tool || !headline || !summary) return null;
   const projects: Record<string, NewsReportSection> = {};
@@ -125,7 +181,7 @@ export function parseReport(raw: unknown, day: string): NewsReport | null {
     if (!SAFE_REPO.test(repo) || !isObject(s) || !text(s.headline, 200) || !text(s.summary, 1200)) continue;
     projects[repo] = { headline: text(s.headline, 200), summary: text(s.summary, 1200), highlights: list(s.highlights).map((h) => text(h, 500)).filter(Boolean) };
   }
-  return { date: day, author, tool, headline, summary, projects };
+  return { week, author, tool, headline, summary, projects, media: compact(list(raw.media).map(parseMedia)).slice(0, 4) };
 }
 
 export const githubUrl = (repo: string) => `https://github.com/${NEWS_ORG}/${repo}`;
@@ -158,54 +214,138 @@ export function segments(value: string, known: readonly string[], owner?: string
 export const newsPercent = ({ done, total }: NewsRatio) => (done / total) * 100;
 export const formatPercent = (r: NewsRatio) => `${newsPercent(r).toFixed(2)}%`;
 
-/** How far code matching moved over the day, in points, to two decimals; null when it stood still or is unknown. */
-export function progressChange(p: NewsProject["progress"]): string | null {
+/** How far code matching moved, between the two-decimal figures people see; null when those read the same or are unknown. */
+export function progressChange(p: NewsProgress): string | null {
+  const change = progressGain(p);
+  return change === null ? null : `${change > 0 ? "+" : "−"}${Math.abs(change).toFixed(2)}`;
+}
+
+/** The same change as a number, for comparing projects. */
+export function progressGain(p: NewsProgress): number | null {
   if (!p?.before?.code || !p.after.code) return null;
-  const change = Number((newsPercent(p.after.code) - newsPercent(p.before.code)).toFixed(2));
-  return change === 0 ? null : `${change > 0 ? "+" : "−"}${Math.abs(change).toFixed(2)}`;
+  const shown = (r: NewsRatio) => Number(newsPercent(r).toFixed(2));
+  const change = Number((shown(p.after.code) - shown(p.before.code)).toFixed(2));
+  return change === 0 ? null : change;
 }
 
 export const isActive = (p: NewsProject) => p.commitCount > 0 || p.merged.length + p.opened.length + p.issuesOpened.length + p.issuesClosed.length + p.releases.length > 0;
 
+/** The project that moved furthest, whose art leads a week's page; the first active one when none moved. */
+export function leadProject(projects: readonly NewsProject[]): NewsProject | undefined {
+  const moved = projects.filter((p) => (progressGain(p.progress) ?? 0) > 0);
+  if (moved.length) return moved.reduce((best, p) => (progressGain(p.progress)! > progressGain(best.progress)! ? p : best));
+  return projects.find(isActive);
+}
+
+const COMMIT_PREFIX = /^([a-z]+)(?:\([^)]*\))?!?:\s*/i;
+
+/** A pull request's title without "feat(port): ", starting with a capital: how people would write it. */
+export function plainTitle(title: string): string {
+  const rest = title.replace(COMMIT_PREFIX, "");
+  return rest ? rest.charAt(0).toUpperCase() + rest.slice(1) : title;
+}
+
+export type ItemGroupName = "New" | "Fixed" | "Other work" | "Behind the scenes";
+
+/** Merged work sorted the way a player thinks of it, from the title's own prefix. Empty groups are left out. */
+export function groupItems(items: readonly NewsItem[]): { name: ItemGroupName; items: NewsItem[] }[] {
+  const groups: Record<ItemGroupName, NewsItem[]> = { New: [], Fixed: [], "Other work": [], "Behind the scenes": [] };
+  for (const item of items) {
+    const kind = COMMIT_PREFIX.exec(item.title)?.[1].toLowerCase();
+    if (kind === "feat") groups.New.push(item);
+    else if (kind === "fix") groups.Fixed.push(item);
+    else if (kind) groups["Behind the scenes"].push(item);
+    else groups["Other work"].push(item);
+  }
+  return (Object.keys(groups) as ItemGroupName[]).filter((name) => groups[name].length).map((name) => ({ name, items: groups[name] }));
+}
+
+/** "Label: sentence" as its two parts, so the label can stand out; no label when the text does not open with a short one. */
+export function splitLabel(line: string): { label?: string; rest: string } {
+  const m = /^([^:#]{1,32}):\s+([\s\S]+)$/.exec(line);
+  return m ? { label: m[1], rest: m[2] } : { rest: line };
+}
+
+/** Everything a report cites, with its real title from the facts: a reader can check each claim. In order of first mention. */
+export function reportSources(report: NewsReport, projects: readonly NewsProject[]): NewsSource[] {
+  const byRepo = new Map(projects.map((p) => [p.repo, p]));
+  const found = new Map<string, NewsSource>();
+  const scan = (value: string, owner?: string) => {
+    for (const m of value.matchAll(CITATION)) {
+      const repo = m[1] ?? owner;
+      const project = repo ? byRepo.get(repo) : undefined;
+      if (!repo || !project) continue;
+      const number = Number(m[2]);
+      const item = [...project.merged, ...project.opened, ...project.issuesOpened, ...project.issuesClosed].find((x) => x.number === number);
+      const key = `${repo}#${number}`;
+      if (item && !found.has(key)) found.set(key, { repo, number, title: plainTitle(item.title), href: itemUrl(repo, number) });
+    }
+  };
+  scan(report.headline);
+  scan(report.summary);
+  for (const [repo, s] of Object.entries(report.projects)) {
+    scan(s.headline, repo);
+    scan(s.summary, repo);
+    s.highlights.forEach((line) => scan(line, repo));
+  }
+  return [...found.values()];
+}
+
 const LONG = new Intl.DateTimeFormat("en-GB", { weekday: "long", day: "numeric", month: "long", year: "numeric", timeZone: "UTC" });
 const MONTH = new Intl.DateTimeFormat("en-GB", { month: "long", year: "numeric", timeZone: "UTC" });
-export const formatDay = (day: string) => LONG.format(new Date(`${day}T00:00:00Z`));
-export const formatMonth = (day: string) => MONTH.format(new Date(`${day}T00:00:00Z`));
+const DAY_MONTH = new Intl.DateTimeFormat("en-GB", { day: "numeric", month: "short", timeZone: "UTC" });
+const SHORT_DAY = new Intl.DateTimeFormat("en-GB", { weekday: "short", day: "numeric", timeZone: "UTC" });
+const at = (day: string) => new Date(`${day}T00:00:00Z`);
+export const formatDay = (day: string) => LONG.format(at(day));
+export const formatMonth = (day: string) => MONTH.format(at(day));
+export const formatShortDay = (day: string) => SHORT_DAY.format(at(day));
 
-/** The days next to one, in a list that is newest first. */
-export function neighbours(days: readonly NewsDay[], day: string): { older?: string; newer?: string } {
-  const i = days.findIndex((d) => d.date === day);
-  return i < 0 ? {} : { newer: days[i - 1]?.date, older: days[i + 1]?.date };
+/** "26 Oct to 1 Nov 2026". */
+export const formatWeekRange = (start: string, end: string) => `${DAY_MONTH.format(at(start))} to ${DAY_MONTH.format(at(end))} ${end.slice(0, 4)}`;
+/** "Week 44, 2026". */
+export const formatWeekName = (week: string) => `Week ${Number(week.slice(6))}, ${week.slice(0, 4)}`;
+
+/** The items next to one, in a list that is newest first. */
+export function neighbours<T>(list: readonly T[], item: T): { older?: T; newer?: T } {
+  const i = list.indexOf(item);
+  return i < 0 ? {} : { newer: list[i - 1], older: list[i + 1] };
+}
+
+/** How many whole days the newest facts are behind the last finished day; a calm note appears past a few. */
+export function daysBehind(newest: string | undefined, now: number): number {
+  if (!newest) return Number.POSITIVE_INFINITY;
+  const yesterday = Math.floor(now / 86_400_000) - 1;
+  return Math.max(0, yesterday - Math.floor(at(newest).getTime() / 86_400_000));
 }
 
 export interface MonthCell {
   date: string;
   dayOfMonth: number;
-  /** Present when the day has a page. */
-  news?: NewsDay;
+  /** The day has a page. */
+  hasNews: boolean;
 }
 
 /** A month as Monday-first weeks (null pads the ends), with the newest day of the months before and after it. */
-export function monthGrid(days: readonly NewsDay[], day: string): { weeks: (MonthCell | null)[][]; previous?: string; next?: string } {
+export function monthGrid(days: readonly string[], day: string): { weeks: (MonthCell | null)[][]; previous?: string; next?: string } {
   const [year, month] = day.split("-").map(Number);
   const prefix = day.slice(0, 7);
-  const inMonth = new Map(days.filter((d) => d.date.startsWith(prefix)).map((d) => [d.date, d]));
+  const here = new Set(days.filter((d) => d.startsWith(prefix)));
   const length = new Date(Date.UTC(year, month, 0)).getUTCDate();
   const lead = (new Date(Date.UTC(year, month - 1, 1)).getUTCDay() + 6) % 7;
   const cells: (MonthCell | null)[] = Array(lead).fill(null);
   for (let d = 1; d <= length; d++) {
     const date = `${prefix}-${String(d).padStart(2, "0")}`;
-    cells.push({ date, dayOfMonth: d, news: inMonth.get(date) });
+    cells.push({ date, dayOfMonth: d, hasNews: here.has(date) });
   }
   while (cells.length % 7) cells.push(null);
   const weeks = Array.from({ length: cells.length / 7 }, (_, i) => cells.slice(i * 7, i * 7 + 7));
   // The oldest day after this month is in the next month that has news.
-  const nextMonthDay = days.findLast((d) => d.date.slice(0, 7) > prefix)?.date;
+  const later = days.findLast((d) => d.slice(0, 7) > prefix);
   return {
     weeks,
     // `days` is newest first: the first day before this month is that month's newest.
-    previous: days.find((d) => d.date.slice(0, 7) < prefix)?.date,
-    next: nextMonthDay && days.find((d) => d.date.startsWith(nextMonthDay.slice(0, 7)))?.date,
+    previous: days.find((d) => d.slice(0, 7) < prefix),
+    next: later && days.find((d) => d.startsWith(later.slice(0, 7))),
   };
 }
 
@@ -218,16 +358,16 @@ const xml = (value: string) =>
     .replace(/>/g, "&gt;")
     .replace(/"/g, "&quot;");
 
-/** The written reports as an RSS 2.0 feed, newest first. */
-export function rssXml(site: string, reports: readonly NewsReport[]): string {
+/** The written reports as an RSS 2.0 feed, newest first; `end` gives a week's last day. */
+export function rssXml(site: string, reports: readonly NewsReport[], end: (week: string) => string): string {
   const items = reports.map((r) => {
-    const url = `${site}/news/${r.date}`;
+    const url = `${site}/news/${r.week}`;
     const text = `${r.summary} (Written by ${r.author} with ${r.tool} from public GitHub data.)`;
     return `    <item>
       <title>${xml(r.headline)}</title>
       <link>${xml(url)}</link>
       <guid isPermaLink="true">${xml(url)}</guid>
-      <pubDate>${new Date(`${r.date}T23:59:59Z`).toUTCString()}</pubDate>
+      <pubDate>${new Date(`${end(r.week)}T23:59:59Z`).toUTCString()}</pubDate>
       <description>${xml(text)}</description>
     </item>`;
   });
@@ -237,7 +377,7 @@ export function rssXml(site: string, reports: readonly NewsReport[]): string {
     <title>OpenRAC News</title>
     <link>${xml(`${site}/news`)}</link>
     <atom:link href="${xml(`${site}/news.xml`)}" rel="self" type="application/rss+xml" />
-    <description>What happens across the OpenRAC projects, day by day.</description>
+    <description>What happens across the OpenRAC projects, week by week.</description>
     <language>en</language>
 ${items.join("\n")}
   </channel>
