@@ -45,6 +45,7 @@ the same data as the page (`src/lib/machine.ts`), so it never says anything the 
 | `/llms.txt` | a short Markdown map of the site for AI tools ([llmstxt.org](https://llmstxt.org)) |
 | `/llms-full.txt` | the same, plus the FAQ in full |
 | `/mods.json` | every listed mod as JSON, open to any origin (CORS) |
+| `/news.xml` | the written news reports as RSS |
 | `/robots.txt` | allows everything; `Content-Signal: search=yes, ai-input=yes, ai-train=yes` says so explicitly |
 
 The home page and every mod page also carry schema.org JSON-LD (the projects as `SoftwareSourceCode`, mods as
@@ -62,6 +63,13 @@ the index build and served from this site (`/mods/media/...`), so visitors never
 - Mod pages show the latest comments of the mod's GitHub Discussion (needs `GITHUB_TOKEN`); commenting happens on GitHub.
 
 Browser tests: `npm run test:e2e` (Playwright) builds the site against the shared fixture index and runs `e2e/`.
+
+## News
+
+`/news` shows what happens across the projects, built from the [`news/`](news/) folder, so new news appears with the
+next deploy. A GitHub job collects each finished week's facts on Monday with no AI, and people add weekly reports through
+pull requests using their own AI tools ([how](news/CONTRIBUTING.md)). Every report names its author and tool and lists its
+sources, and text from those files is only ever shown as plain text.
 
 ## GitHub access
 

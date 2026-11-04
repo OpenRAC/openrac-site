@@ -75,6 +75,7 @@ export default function Header() {
   const pathname = usePathname();
   const home = pathname === "/";
   const inMods = pathname === "/mods" || pathname.startsWith("/mods/");
+  const inNews = pathname === "/news" || pathname.startsWith("/news/");
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState<string | null>(null);
 
@@ -178,6 +179,11 @@ export default function Header() {
                   </Link>
                 ),
               )}
+              {/* Its own pages, not a section of the home page. */}
+              <Link href="/news" transitionTypes={PAGE_TRANSITION} onClick={close} aria-current={inNews ? "page" : undefined} className={`${link} ${inNews ? linkOn : linkOff}`}>
+                News
+                <span className={underline} />
+              </Link>
             </div>
             <div className="grid gap-2 min-[821px]:ml-auto min-[821px]:flex min-[821px]:items-center min-[821px]:max-[1023px]:gap-1.5">
               {/* Mods, set apart from the home page's sections: its own page, with its own mark. Not in the
