@@ -28,6 +28,6 @@ export default defineConfig({
     url: `http://localhost:${PORT}/healthz`,
     timeout: 240_000,
     reuseExistingServer: !process.env.CI,
-    env: { MOD_INDEXES: `${fixture},${second}`, MODS_ALLOW_FILE: "1" },
+    env: { MOD_INDEXES: `${fixture},${second}`, MODS_ALLOW_FILE: "1", NEWS_DIR: resolve("src/lib/news/__fixtures__/repo") },
   },
 });
