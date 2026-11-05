@@ -65,6 +65,9 @@ export default async function ModsPage() {
           <a href="#publish" className="btn">
             Publish your mod
           </a>
+          <a href={SDK_DOCS} className="btn">
+            SDK docs
+          </a>
         </div>
       </div>
 
@@ -109,9 +112,9 @@ export default async function ModsPage() {
       <Section id="publish" title="Publish your mod" sub="Players install it in one click, and every new release reaches them by itself.">
         <Cards
           items={[
-            ["Build it with the SDK", "Script mods in Luau, native mods in C or C++, data packs from the level editor. The templates set everything up.", <a key="a" className="btn btn-sm" href={SDK_DOCS}>SDK docs</a>],
-            ["Release it on GitHub", "Tag a version: the template's workflow builds every system, packs the archives and writes SHA256SUMS.", null],
-            ["List it once", "All you need is a GitHub account. Fill in the form and a bot answers on the issue, with each problem and its fix. After that each release shows up here within the hour.", <a key="c" className="btn btn-sm" href={LIST_YOUR_MOD}>Open the submission on GitHub</a>],
+            ["Build it with the SDK", "Write a script in Luau, or a native mod in C or C++. A template sets it all up.", <a key="a" className="btn btn-sm" href={SDK_DOCS}>SDK docs</a>],
+            ["Release it on GitHub", "Push a version tag. The template builds the mod and publishes the release for you.", null],
+            ["List it once", "Fill in a short form on GitHub. A bot checks the mod and tells you what to fix. Then every new release shows up here within an hour.", <a key="c" className="btn btn-sm" href={LIST_YOUR_MOD}>Open the submission on GitHub</a>],
           ]}
         />
         <p className="mt-6 text-[14px] text-dim">
