@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState, useSyncExternalStore, type ReactNode } from "react";
+import HeroGalaxies from "@/components/ui/HeroGalaxies";
 import { HERO_SHOTS, heroSrc } from "@/lib/heroShots";
 
 const HOLD_MS = 7000; // each clip's time on screen (the clips run a little longer, through the fade)
@@ -18,7 +19,7 @@ const reducedMotion = () => window.matchMedia("(prefers-reduced-motion: reduce)"
  * and the caption names the game and place, fading with the picture. Each clip's first frame shows
  * while it loads, and alone with reduced motion; a clip not uploaded yet leaves the dark backdrop.
  */
-function HeroShotLayers({ at, missing, lost }: { at: number; missing: ReadonlySet<number>; lost: (i: number) => void }) {
+function HeroShotLayers({ at, off, missing, lost }: { at: number; off: boolean; missing: ReadonlySet<number>; lost: (i: number) => void }) {
   // A clip loads once it is on screen or next: the other six wait until their turn.
   const next = after(at, missing);
   const [wanted, setWanted] = useState(() => new Set([0, 1]));
@@ -30,16 +31,20 @@ function HeroShotLayers({ at, missing, lost }: { at: number; missing: ReadonlySe
   // The clip coming in starts from its beginning; the one going out stops once it has faded.
   useEffect(() => {
     const video = videos.current[at];
+    if (off) {
+      videos.current.forEach((v) => v?.pause());
+      return;
+    }
     if (video && !still) {
       video.currentTime = 0;
       video.play().catch(() => {}); // a browser refusing autoplay keeps the first frame
     }
     const stop = window.setTimeout(() => videos.current.forEach((v, i) => i !== at && v?.pause()), FADE_MS);
     return () => window.clearTimeout(stop);
-  }, [at, still]);
+  }, [at, still, off]);
 
   return (
-    <div aria-hidden className="absolute inset-0 overflow-hidden bg-ink-deep">
+    <div aria-hidden style={{ transitionDuration: `${FADE_MS}ms` }} className={`absolute inset-0 overflow-hidden bg-ink-deep transition-opacity ${off ? "opacity-0" : ""}`}>
       {HERO_SHOTS.map((shot, i) =>
         wanted.has(i) && !missing.has(i) ? (
           <video
@@ -74,14 +79,14 @@ function after(i: number, missing: ReadonlySet<number>) {
 }
 
 /** Which shot is showing: moves on by itself, waits while the tab is hidden, jumps on a click. */
-function useHeroShot(missing: ReadonlySet<number>) {
+function useHeroShot(missing: ReadonlySet<number>, paused: boolean) {
   const [at, setAt] = useState(0);
   const [round, setRound] = useState(0); // bumped by a click, so the timer starts over
   useEffect(() => {
     let timer = 0;
     const arm = () => {
       window.clearTimeout(timer);
-      if (!document.hidden) timer = window.setTimeout(() => setAt((i) => after(i, missing)), HOLD_MS);
+      if (!document.hidden && !paused) timer = window.setTimeout(() => setAt((i) => after(i, missing)), HOLD_MS);
     };
     arm();
     document.addEventListener("visibilitychange", arm);
@@ -89,7 +94,7 @@ function useHeroShot(missing: ReadonlySet<number>) {
       window.clearTimeout(timer);
       document.removeEventListener("visibilitychange", arm);
     };
-  }, [at, round, missing]);
+  }, [at, round, missing, paused]);
   return {
     at,
     go: (i: number) => {
@@ -103,7 +108,7 @@ function useHeroShot(missing: ReadonlySet<number>) {
 function HeroShotBar({ at, go, missing }: { at: number; go: (i: number) => void; missing: ReadonlySet<number> }) {
   return (
     <div className="mt-6">
-      <div className="-ml-1.5 flex" role="group" aria-label="Clips">
+      <div className="-ml-1.5 flex max-[700px]:ml-0 max-[700px]:justify-center" role="group" aria-label="Clips">
         {HERO_SHOTS.map((shot, i) => missing.has(i) ? null : (
           <button
             key={shot.file}
@@ -123,7 +128,7 @@ function HeroShotBar({ at, go, missing }: { at: number; go: (i: number) => void;
         ))}
       </div>
       {/* Every caption sits in the same spot; only the showing one is visible, so they crossfade. */}
-      <p className="mt-1 grid font-mono text-[12px] font-semibold tracking-[.04em] text-soft [&>span]:col-start-1 [&>span]:row-start-1">
+      <p className="mt-1 grid max-[700px]:justify-items-center font-mono text-[12px] font-semibold tracking-[.04em] text-soft [&>span]:col-start-1 [&>span]:row-start-1">
         {HERO_SHOTS.map((shot, i) => (
           <span
             key={shot.file}
@@ -138,14 +143,68 @@ function HeroShotBar({ at, go, missing }: { at: number; go: (i: number) => void;
   );
 }
 
+const KONAMI = ["ArrowUp", "ArrowUp", "ArrowDown", "ArrowDown", "ArrowLeft", "ArrowRight", "ArrowLeft", "ArrowRight", "b", "a"];
+// On a touch screen the same code is swipes, with two taps for B and A.
+const SWIPES = ["ArrowUp", "ArrowUp", "ArrowDown", "ArrowDown", "ArrowLeft", "ArrowRight", "ArrowLeft", "ArrowRight", "tap", "tap"];
+
+/** Calls ON each time the Konami code is entered: on the keyboard, or as swipes and taps on a touch screen. */
+function useKonami(on: () => void) {
+  const latest = useRef(on);
+  useEffect(() => {
+    latest.current = on;
+  });
+  useEffect(() => {
+    let keys: string[] = [];
+    let swipes: string[] = [];
+    let start: { x: number; y: number } | null = null;
+    const onKey = (e: KeyboardEvent) => {
+      if ((e.target as HTMLElement).closest("input,textarea,select,[contenteditable],dialog") || e.metaKey || e.ctrlKey || e.altKey) return;
+      keys = [...keys, e.key.length === 1 ? e.key.toLowerCase() : e.key].slice(-KONAMI.length);
+      if (keys.join() === KONAMI.join()) {
+        keys = [];
+        latest.current();
+      }
+    };
+    const onStart = (e: TouchEvent) => {
+      start = e.touches.length === 1 ? { x: e.touches[0].clientX, y: e.touches[0].clientY } : null;
+    };
+    const onEnd = (e: TouchEvent) => {
+      const t = e.changedTouches[0];
+      if (!start || !t) return;
+      const dx = t.clientX - start.x;
+      const dy = t.clientY - start.y;
+      start = null;
+      const far = Math.max(Math.abs(dx), Math.abs(dy));
+      // A swipe is the finger's way: up is ArrowUp. Anything between a tap and a swipe starts over.
+      const move = far < 10 ? "tap" : far < 40 ? "" : Math.abs(dx) > Math.abs(dy) ? (dx > 0 ? "ArrowRight" : "ArrowLeft") : dy > 0 ? "ArrowDown" : "ArrowUp";
+      swipes = move ? [...swipes, move].slice(-SWIPES.length) : [];
+      if (swipes.join() === SWIPES.join()) {
+        swipes = [];
+        latest.current();
+      }
+    };
+    addEventListener("keydown", onKey);
+    addEventListener("touchstart", onStart, { passive: true });
+    addEventListener("touchend", onEnd, { passive: true });
+    return () => {
+      removeEventListener("keydown", onKey);
+      removeEventListener("touchstart", onStart);
+      removeEventListener("touchend", onEnd);
+    };
+  }, []);
+}
+
 /**
  * The home page's first screen, edge to edge under the bar: the clips, a dark fade on the left and
  * bottom for the text, the corner HUD, then the text (children) bottom left with the bar under it.
+ * The Konami code swaps the clips for the series' galaxies (HeroGalaxies) and back.
  */
 export default function HeroStage({ hud, children }: { hud: ReactNode; children: ReactNode }) {
   // Clips not uploaded (yet) drop out of the turn and the bar.
   const [missing, setMissing] = useState<ReadonlySet<number>>(() => new Set());
-  const { at, go } = useHeroShot(missing);
+  const [sky, setSky] = useState(false);
+  useKonami(() => setSky((on) => !on));
+  const { at, go } = useHeroShot(missing, sky);
   const lost = (i: number) => {
     const now = new Set([...missing, i]);
     setMissing(now);
@@ -153,12 +212,24 @@ export default function HeroStage({ hud, children }: { hud: ReactNode; children:
   };
   return (
     <section className="relative mx-[calc(50%-50vw)] flex min-h-[calc(100svh-50px)] items-end">
-      <HeroShotLayers at={at} missing={missing} lost={lost} />
-      <div aria-hidden className="absolute inset-0 bg-[linear-gradient(90deg,rgb(12_12_18/.92)_0%,rgb(12_12_18/.55)_45%,transparent_75%),linear-gradient(0deg,var(--color-ink)_0%,transparent_35%)] max-[700px]:bg-[linear-gradient(0deg,var(--color-ink)_8%,rgb(12_12_18/.82)_55%,rgb(12_12_18/.35)_100%)]" />
+      <HeroShotLayers at={at} off={sky} missing={missing} lost={lost} />
+      {sky && (
+        <div className="absolute inset-0 animate-[sky-in_1.6s_ease-out_both]">
+          <HeroGalaxies />
+        </div>
+      )}
+      <div aria-hidden className={`absolute inset-0 transition-opacity duration-[1600ms] ${sky ? "opacity-60" : ""} bg-[linear-gradient(90deg,rgb(12_12_18/.92)_0%,rgb(12_12_18/.55)_45%,transparent_75%),linear-gradient(0deg,var(--color-ink)_0%,transparent_35%)] max-[700px]:bg-[linear-gradient(0deg,var(--color-ink)_8%,rgb(12_12_18/.82)_55%,rgb(12_12_18/.35)_100%)]`} />
       {hud}
-      <div className="relative mx-auto w-full max-w-[1080px] px-4 pb-14 pt-40">
+      {/* Phones: centred, with wider side margins; wider screens: bottom left. */}
+      <div className="relative mx-auto w-full max-w-[1080px] px-4 pb-14 pt-40 max-[700px]:px-7 max-[700px]:pb-24 max-[700px]:text-center max-[700px]:[&>*]:mx-auto">
         {children}
-        {missing.size < HERO_SHOTS.length && <HeroShotBar at={at} go={go} missing={missing} />}
+        {sky ? (
+          <p className="mt-7 font-mono text-[12px] font-semibold tracking-[.04em] text-soft">
+            <span className="text-gold">The series&apos; galaxies</span> · enter the code again to go back
+          </p>
+        ) : (
+          missing.size < HERO_SHOTS.length && <HeroShotBar at={at} go={go} missing={missing} />
+        )}
       </div>
     </section>
   );

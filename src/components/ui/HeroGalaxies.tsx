@@ -3,7 +3,8 @@
 import { useEffect, useRef } from "react";
 
 /*
- * A window onto the series' sky under the hero: the real galaxies of the games, drawn as faint dots.
+ * The series' sky, the hero's hidden backdrop (the Konami code swaps it for the clips): the real
+ * galaxies of the games, drawn as faint dots.
  * A picture first, an easter egg second: names show only on a closer look.
  *
  * Desktop: the scene leans with the cursor; hover a dot for its planet. Phones: only scrolling moves it
@@ -112,8 +113,9 @@ const QWARK: [number, number][][] = [
   [[44, 85], [55, 91], [68, 89], [75, 83]],
 ];
 
-const KONAMI = ["ArrowUp", "ArrowUp", "ArrowDown", "ArrowDown", "ArrowLeft", "ArrowRight", "ArrowLeft", "ArrowRight", "b", "a"];
 const GOLD = "245,192,64";
+// Messages and Qwark start below the hero's HUD in the top corner.
+const TOP = 170;
 const WHITE = "239,239,243";
 const MONO = "ui-monospace, SFMono-Regular, Menlo, Consolas, monospace";
 
@@ -160,7 +162,7 @@ export default function HeroGalaxies() {
     // the scene's lean: where it is, where it is going, and how fast
     const lean = { x: 0, y: 0, vx: 0, vy: 0, tx: 0, ty: 0, rot: 0, vr: 0, tr: 0 };
     let mouse: { x: number; y: number } | null = null;
-    let hover = "", tour = "", mirror = false, toast = "", toastTimer = 0, qwark = 0;
+    let hover = "", tour = "", toast = "", toastTimer = 0, qwark = 0;
     // seconds of spin so far: it only runs while the hero is on screen
     let clock = 0, last = 0;
     let bolts: boolean[] = [false, false, false];
@@ -169,7 +171,7 @@ export default function HeroGalaxies() {
     let hits: { id: string; x: number; y: number }[] = [];
 
     const at = (x: number, y: number, z: number) => {
-      const sx = X0 + (mirror ? 1000 - x : x) * S + lean.x * z, sy = Y0 + y * S + lean.y * z;
+      const sx = X0 + x * S + lean.x * z, sy = Y0 + y * S + lean.y * z;
       return [sx, sy] as const;
     };
 
@@ -177,9 +179,11 @@ export default function HeroGalaxies() {
       const r = cv!.getBoundingClientRect();
       W = r.width; H = r.height; DPR = Math.min(2, devicePixelRatio || 1);
       cv!.width = Math.round(W * DPR); cv!.height = Math.round(H * DPR);
-      // the scene in the window, centred, a little larger than the window so its edges crop
-      S = Math.min(W / 900, H / 520);
-      X0 = (W - 1000 * S) / 2; Y0 = (H - 600 * S) / 2; fade = 1;
+      // the scene centred, a little larger than the hero so its edges crop; on a tall phone screen
+      // larger still, and in the free space above the text
+      const tall = W < 700 && H > W;
+      S = tall ? W / 620 : Math.min(W / 900, H / 520);
+      X0 = (W - 1000 * S) / 2; Y0 = tall ? H * 0.37 - 300 * S : (H - 600 * S) / 2; fade = 1;
       sprites = GALAXIES.map((g, i) => galaxySprite(g, S * DPR, i));
       stars = [];
       for (let i = 0; i < Math.round((W * H) / 3200); i++)
@@ -195,7 +199,7 @@ export default function HeroGalaxies() {
       c.font = `400 10px ${MONO}`;
       const wide = Math.max(c.measureText(name).width * 1.1, c.measureText(sub).width);
       // to the left of the dot when the right side has no room
-      const left = x + 19 + wide > W - 8, d = left ? -1 : 1, tx = Math.max(8, left ? x - 19 - wide : x + 19);
+      const left = x + 19 + wide > W - 8, d = left ? -1 : 1, tx = Math.min(W - 8 - wide, Math.max(8, left ? x - 19 - wide : x + 19));
       c.strokeStyle = `rgba(${GOLD},0.4)`; c.lineWidth = 1;
       c.beginPath(); c.arc(x, y, 6, 0, 6.283); c.stroke();
       c.beginPath(); c.moveTo(x + 7 * d, y - 4); c.lineTo(x + 16 * d, y - 12); c.stroke();
@@ -225,9 +229,9 @@ export default function HeroGalaxies() {
         const [x, y] = at(g.x, g.y, g.z), o = g.r * S * 0.7;
         ctx!.font = `600 9px ${display}`;
         const w = Math.max(ctx!.measureText(g.n).width, 90);
-        // left of the galaxy when mirrored or when the right edge is too close
-        const flip = mirror || x + o + w > W - 8;
-        const lx = flip ? x - o - w : x + o, ly = flip && !mirror ? y - g.r * S * 0.75 : y + g.r * S * 0.42;
+        // left of the galaxy when the right edge is too close
+        const flip = x + o + w > W - 8;
+        const lx = flip ? x - o - w : x + o, ly = flip ? y - g.r * S * 0.75 : y + g.r * S * 0.42;
         text(g.n, lx, ly, `rgba(${WHITE},0.22)`, `600 9px ${display}`);
         text(g.games, lx, ly + 12, `rgba(${WHITE},0.12)`, `400 9px ${MONO}`);
       });
@@ -245,10 +249,10 @@ export default function HeroGalaxies() {
       }
       if (hot) label(hot[0], hot[1], hot[2].n, [hot[2].c, hot[2].g].filter(Boolean).join(" · "));
 
-      // messages (gold bolts, cheats) sit top right
+      // messages (gold bolts, cheats) sit on the right, under the HUD
       if (toast) {
         ctx!.textAlign = "right";
-        text(toast, W - 20, 28, `rgba(${GOLD},0.85)`, `600 11px ${MONO}`);
+        text(toast, W - 20, TOP, `rgba(${GOLD},0.85)`, `600 11px ${MONO}`);
         ctx!.textAlign = "start";
       }
       if (qwark) drawQwark();
@@ -263,13 +267,12 @@ export default function HeroGalaxies() {
       const a = p.a + turn(g), r = g.r * S * p.d;
       const ex = Math.cos(a) * r, ey = Math.sin(a) * r * g.flat;
       const ox = ex * Math.cos(g.tilt) - ey * Math.sin(g.tilt), oy = ex * Math.sin(g.tilt) + ey * Math.cos(g.tilt);
-      return [cx + (mirror ? -ox : ox), cy + oy] as const;
+      return [cx + ox, cy + oy] as const;
     }
 
     function drawGalaxy(i: number) {
       const g = GALAXIES[i], img = sprites[i], [x, y] = at(g.x, g.y, g.z), size = img.width / DPR;
       ctx!.save(); ctx!.translate(x, y);
-      if (mirror) ctx!.scale(-1, 1);
       ctx!.rotate(g.tilt); ctx!.scale(1, g.flat); ctx!.rotate(turn(g));
       ctx!.drawImage(img, -size / 2, -size / 2, size, size); ctx!.restore();
     }
@@ -318,7 +321,7 @@ export default function HeroGalaxies() {
       const t = performance.now() - qwark;
       if (t > QWARK_MS) { qwark = 0; return; }
       const a = still ? 1 : Math.min(1, t / 250, (QWARK_MS - t) / 250);
-      const k = Math.min(1.4, Math.max(0.8, H / 420)), x0 = W - 20 - 110 * k, y0 = Math.max(16, H * 0.08);
+      const k = Math.min(1.4, Math.max(0.8, H / 420)), x0 = W - 20 - 110 * k, y0 = TOP + 24;
       const c = ctx!;
       c.save(); c.globalAlpha = a; c.lineWidth = 1; c.strokeStyle = `rgba(${GOLD},0.55)`;
       for (const line of QWARK) { c.beginPath(); line.forEach(([x, y], i) => c[i ? "lineTo" : "moveTo"](x0 + x * k, y0 + y * k)); c.stroke(); }
@@ -402,13 +405,11 @@ export default function HeroGalaxies() {
       say(n < 3 ? `GOLD BOLT ${n}/3` : "GOLD BOLT 3/3 · a new place appeared");
     }
 
-    let keys: string[] = [], typed = "";
+    let typed = "";
     function onKey(e: KeyboardEvent) {
       const t = e.target as HTMLElement;
       if (t.closest("input,textarea,select,[contenteditable],dialog") || e.metaKey || e.ctrlKey || e.altKey) return;
       const k = e.key.length === 1 ? e.key.toLowerCase() : e.key;
-      keys = [...keys, k].slice(-KONAMI.length);
-      if (keys.join() === KONAMI.join()) { keys = []; mirror = !mirror; say(mirror ? "MIRROR MODE ON" : "MIRROR MODE OFF"); return; }
       if (k.length === 1) {
         typed = (typed + k).slice(-6);
         if (typed.endsWith("qwark")) {

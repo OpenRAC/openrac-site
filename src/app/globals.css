@@ -306,6 +306,8 @@ summary::-webkit-details-marker { display: none; }
 .ready .splash { opacity: 0; visibility: hidden; }
 @media (scripting: none) { .splash { display: none; } }
 /* The home page shot bar: the showing shot's bar fills over its time. */
+/* The Konami code's galaxies fading in over the clips. */
+@keyframes sky-in { from { opacity: 0; } }
 @keyframes shot-fill { from { transform: scaleX(0); } to { transform: scaleX(1); } }
 @keyframes splash-logo { from { opacity: 0.6; transform: scale(0.97); } }
 

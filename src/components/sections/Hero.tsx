@@ -21,8 +21,8 @@ export default function Hero({ progress, mods, release }: { progress: Partial<Re
 
   // The numbers as a game HUD in the top corner: the bolt counter is the code verified so far.
   const hud = (
-    <div className="absolute right-[max(16px,calc(50%-524px))] top-6 animate-rise text-right [animation-delay:.6s] max-[700px]:left-4 max-[700px]:right-auto max-[700px]:text-left">
-      <div className="flex items-center justify-end gap-2.5 font-orbitron text-[clamp(22px,4vw,30px)] font-extrabold tabular-nums text-gold [text-shadow:0_2px_0_#000] max-[700px]:justify-start">
+    <div className="absolute right-[max(16px,calc(50%-524px))] top-6 animate-rise text-right [animation-delay:.6s] max-[700px]:inset-x-6 max-[700px]:text-center">
+      <div className="flex items-center justify-end gap-2.5 font-orbitron text-[clamp(22px,4vw,30px)] font-extrabold tabular-nums text-gold [text-shadow:0_2px_0_#000] max-[700px]:justify-center">
         <svg viewBox="0 0 24 24" aria-hidden="true" className="size-[0.9em] fill-amber">
           <path fillRule="evenodd" d={bolt} />
         </svg>
