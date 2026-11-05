@@ -9,6 +9,9 @@ import { type Entry, find } from "@/lib/modDocs/search";
  * Opens with the button, "/" or Ctrl+K (Cmd+K); arrows and Enter pick. The list is fetched once, on
  * first open (/mods/docs/search/<version>).
  */
+/** What newcomers look for first. */
+const STARTERS = ["getting started", "openrac.hook", "take_damage", "settings", "on_pad", "manifest"];
+
 export default function Search({ version, label = "Search the docs" }: { version: string; label?: string }) {
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState("");
@@ -107,7 +110,18 @@ export default function Search({ version, label = "Search the docs" }: { version
           {failed && <li className="p-3 text-[14px] text-soft">The search list could not be loaded. Try again in a moment.</li>}
           {!failed && !entries && open && <li className="p-3 text-[14px] text-dim">Loading…</li>}
           {entries && query && !results.length && <li className="p-3 text-[14px] text-dim">Nothing found for “{query}”.</li>}
-          {entries && !query && <li className="p-3 text-[14px] text-dim">Type a name or a few words. Arrows move, Enter opens, Esc closes.</li>}
+          {entries && !query && (
+            <li className="grid gap-2 p-3 text-[14px] text-dim">
+              <span>Type a name or a few words. Arrows move, Enter opens, Esc closes.</span>
+              <span className="flex flex-wrap gap-1.5">
+                {STARTERS.map((w) => (
+                  <button key={w} type="button" className="rounded-md border border-line px-2 py-0.5 text-[13px] text-soft hover:border-amber hover:text-hi" onClick={() => { setQuery(w); setAt(0); input.current?.focus(); }}>
+                    {w}
+                  </button>
+                ))}
+              </span>
+            </li>
+          )}
           {results.map((e, i) => (
             <li key={`${e.h}-${i}`} id={`${listId}-${i}`} role="option" aria-selected={i === at}>
               <a
@@ -123,7 +137,8 @@ export default function Search({ version, label = "Search the docs" }: { version
                   <span className="min-w-0 truncate font-mono text-[14px] text-gold">{e.t}</span>
                   <span className="flex-none text-[12px] text-dim">{e.k}</span>
                 </span>
-                {e.d && <span className="mt-0.5 block truncate text-[13px] text-soft">{e.d}</span>}
+                {e.d && <span className="mt-0.5 line-clamp-2 block text-[13px] leading-snug text-soft">{e.d}</span>}
+                {e.s && <span className="mt-0.5 block truncate font-mono text-[12px] text-dim">{e.s}</span>}
               </a>
             </li>
           ))}

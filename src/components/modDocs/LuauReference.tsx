@@ -1,7 +1,7 @@
 import type { Release } from "@/lib/modDocs/types";
 import Code from "./Code";
 import { InlineMarkdown, type LinkContext } from "./DocMarkdown";
-import Entry, { Examples } from "./Entry";
+import Entry, { Examples, exampleSource } from "./Entry";
 import Since, { Tag } from "./Since";
 
 export function luauToc() {
@@ -29,6 +29,8 @@ export default function LuauReference({ r, ctx }: { r: Release; ctx: LinkContext
         {luau.members.map((m) => {
           const name = m.global ? m.name : `openrac.${m.name}`;
           const isFn = m.type.trim().startsWith("(");
+          // A short example is shown at once, under the type; longer ones and the rest fold.
+          const lead = m.examples?.[0] && m.examples[0].code.split("\n").length <= 12 ? m.examples[0] : null;
           return (
             <Entry key={name} id={name} title={isFn ? `${name}()` : name} badges={<><Since since={m.since} iface={r.interface} />{/experimental/i.test(m.about) && <Tag tone="warn">Experimental</Tag>}</>}>
               <Code code={`${m.global ? "" : "openrac."}${m.name}: ${m.type}`} lang="luau" title="Type" copy={false} className="my-0" />
@@ -42,7 +44,8 @@ export default function LuauReference({ r, ctx }: { r: Release; ctx: LinkContext
                   <InlineMarkdown ctx={ctx}>{m.about}</InlineMarkdown>
                 </p>
               )}
-              <Examples examples={m.examples} guides={r.guides} />
+              {lead && <Code code={lead.code} lang={lead.lang} title={exampleSource(lead.from, r.guides)} className="my-0" />}
+              <Examples examples={lead ? m.examples!.slice(1) : m.examples} guides={r.guides} />
             </Entry>
           );
         })}

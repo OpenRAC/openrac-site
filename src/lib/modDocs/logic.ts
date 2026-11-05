@@ -358,3 +358,32 @@ export function plainAbout(h: Pick<Hook, "about" | "name" | "aliases">): string 
   const names = new Set([h.name, ...h.aliases]);
   return h.about.replace(/\s*\(([A-Za-z_][\w]*)\)/g, (m, n: string) => (names.has(n) || /_|[a-z][A-Z]/.test(n) ? "" : m)).replace(/\s+([:;,.])/g, "$1");
 }
+
+/**
+ * The smallest whole mod of a release, for the overview: a script mod that takes no damage, made
+ * from the release's own interface and hook points. Null when the release has no script mods or
+ * no such hook point.
+ */
+export function firstMod(r: Pick<Release, "interface" | "luau" | "hooks">): { manifest: string; script: string; game: string } | null {
+  if (!r.luau) return null;
+  const g = r.hooks.find((x) => x.hooks.some((h) => h.id === `${x.game}.player.take_damage` && !h.experimental));
+  if (!g) return null;
+  const id = `${g.game}.player.take_damage`;
+  const manifest = {
+    format: 2,
+    id: "no-damage",
+    name: "No damage",
+    version: "0.1.0",
+    author: "You",
+    description: "The hero takes no damage.",
+    type: "script",
+    api: r.interface,
+    scripts: ["main.luau"],
+    games: { [g.game]: g.discs.length ? g.discs : ["pal", "ntsc"] },
+    hooks: [id],
+  };
+  const script = [`-- Each hit passes 0 on: none hurts.`, `openrac.hook("${id}", function(original, amount: number)`, "    original(0)", "end)"].join("\n");
+  // Short lists and the games on one line each, so the whole file fits on a screen.
+  const body = Object.entries(manifest).map(([k, v]) => `  ${JSON.stringify(k)}: ${JSON.stringify(v).replace(/([,:])(?=["[{\d])/g, "$1 ")}`);
+  return { manifest: `{\n${body.join(",\n")}\n}`, script, game: g.game };
+}

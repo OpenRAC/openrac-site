@@ -5,6 +5,7 @@ import rehypeSlug from "rehype-slug";
 import remarkGfm from "remark-gfm";
 import { guideLink } from "@/lib/modDocs/logic";
 import Code from "./Code";
+import HeadingAnchor from "./HeadingAnchor";
 
 /**
  * One of the SDK's guides (Markdown written for GitHub, from OpenRAC's own repository), rendered on
@@ -52,13 +53,13 @@ function components(ctx: LinkContext): Components {
     h2: ({ id, children }) => (
       <h2 id={id} className="group scroll-mt-20">
         {children}
-        {id && <a href={`#${id}`} aria-label="Link to this section" className="ml-2 text-dim no-underline opacity-0 transition-opacity group-hover:opacity-100 focus:opacity-100">#</a>}
+        {id && <HeadingAnchor id={id} />}
       </h2>
     ),
     h3: ({ id, children }) => (
       <h3 id={id} className="group scroll-mt-20">
         {children}
-        {id && <a href={`#${id}`} aria-label="Link to this section" className="ml-2 text-dim no-underline opacity-0 transition-opacity group-hover:opacity-100 focus:opacity-100">#</a>}
+        {id && <HeadingAnchor id={id} />}
       </h3>
     ),
   };

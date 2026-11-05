@@ -50,9 +50,9 @@ function Help({ text }: { text?: string }) {
   );
 }
 
-function Field({ label, help, error, children }: { label: string; help?: string; error?: string[]; children: React.ReactNode }) {
+function Field({ label, name, help, error, children }: { label: string; name?: string; help?: string; error?: string[]; children: React.ReactNode }) {
   return (
-    <div className="grid content-start gap-1">
+    <div id={name ? `mf-${name}` : undefined} className="grid scroll-mt-24 content-start gap-1">
       <label className="grid gap-1">
         <span className="text-[13px] font-semibold text-hi">{label}</span>
         {children}
@@ -66,6 +66,9 @@ function Field({ label, help, error, children }: { label: string; help?: string;
     </div>
   );
 }
+
+/** The fields the form has a place for: an error about one links to it. */
+const FORM_FIELDS = new Set(["id", "name", "version", "api", "license", "description", "homepage", "games", "scripts", "plugin", "hooks", "settings"]);
 
 const pretty = (m: unknown) => JSON.stringify(plain(m), null, 2);
 
@@ -89,6 +92,7 @@ export default function ManifestBuilder({
   hookNames,
   hookIds,
   help,
+  guide,
   examples,
 }: {
   iface: string;
@@ -101,6 +105,8 @@ export default function ManifestBuilder({
   hookNames: Record<string, string[]>;
   hookIds: string[];
   help: Record<string, string>;
+  /** The manifest guide's page, for "What it is" beside an error. */
+  guide?: string;
   examples: { title: string; json: string }[];
 }) {
   const minor = Number(iface.split(".")[1] ?? 0);
@@ -186,16 +192,16 @@ export default function ManifestBuilder({
           </div>
 
           <div className="grid gap-x-4 gap-y-3 sm:grid-cols-2">
-            <Field label="Id" help={help.id} error={by("id")}>
+            <Field label="Id" name="id" help={help.id} error={by("id")}>
               <input className="d-field font-mono" value={str("id")} onChange={(e) => set({ id: e.target.value })} spellCheck={false} />
             </Field>
-            <Field label="Name" help={help.name} error={by("name")}>
+            <Field label="Name" name="name" help={help.name} error={by("name")}>
               <input className="d-field" value={str("name")} onChange={(e) => set({ name: e.target.value })} />
             </Field>
-            <Field label="Version" help={help.version} error={by("version")}>
+            <Field label="Version" name="version" help={help.version} error={by("version")}>
               <input className="d-field font-mono" value={str("version")} onChange={(e) => set({ version: e.target.value })} spellCheck={false} />
             </Field>
-            <Field label="Interface (api)" help={help.api} error={by("api")}>
+            <Field label="Interface (api)" name="api" help={help.api} error={by("api")}>
               <select className="d-field w-full" value={str("api")} onChange={(e) => set({ api: e.target.value })}>
                 {!apis.includes(str("api")) && <option value={str("api")}>{str("api") || "(none)"}</option>}
                 {apis.map((a) => (
@@ -209,13 +215,13 @@ export default function ManifestBuilder({
             <Field label="Author" help={help.author}>
               <input className="d-field" value={str("author")} onChange={(e) => set({ author: e.target.value })} />
             </Field>
-            <Field label="License" error={by("license")}>
+            <Field label="License" name="license" error={by("license")}>
               <input className="d-field" value={str("license")} placeholder="MIT" onChange={(e) => set({ license: e.target.value })} />
             </Field>
-            <Field label="Description" error={by("description")}>
+            <Field label="Description" name="description" error={by("description")}>
               <input className="d-field" value={str("description")} onChange={(e) => set({ description: e.target.value })} />
             </Field>
-            <Field label="Homepage" help={help.homepage} error={by("homepage")}>
+            <Field label="Homepage" name="homepage" help={help.homepage} error={by("homepage")}>
               <input className="d-field" value={str("homepage")} placeholder="https://github.com/you/your-mod" onChange={(e) => set({ homepage: e.target.value })} />
             </Field>
           </div>
@@ -244,6 +250,7 @@ export default function ManifestBuilder({
                 )),
               )}
             </div>
+            <span id="mf-games" className="block scroll-mt-24" aria-hidden />
             <Help text={help.games} />
             {by("games").map((e) => (
               <span key={e} className="text-[13px] text-brand">
@@ -253,7 +260,7 @@ export default function ManifestBuilder({
           </div>
 
           {kind === "script" ? (
-            <Field label="Scripts" help={help.scripts} error={by("scripts")}>
+            <Field label="Scripts" name="scripts" help={help.scripts} error={by("scripts")}>
               <input className="d-field font-mono" value={Array.isArray(m?.scripts) ? (m!.scripts as string[]).join(", ") : ""} onChange={(e) => set({ scripts: e.target.value.split(",").map((s) => s.trim()).filter(Boolean) })} spellCheck={false} />
             </Field>
           ) : (
@@ -277,6 +284,7 @@ export default function ManifestBuilder({
                   </button>
                 ))}
               </div>
+              <span id="mf-plugin" className="block scroll-mt-24" aria-hidden />
               <Help text="You do not write `plugin` by hand in a real mod: the SDK's CMake fills in what it built. Here it lets you see the shape." />
               {by("plugin").map((e) => (
                 <span key={e} className="text-[13px] text-brand">
@@ -320,6 +328,7 @@ export default function ManifestBuilder({
                 ))}
               </datalist>
             </div>
+            <span id="mf-hooks" className="block scroll-mt-24" aria-hidden />
             <Help text={help.hooks} />
             {by("hooks").map((e) => (
               <span key={e} className="text-[13px] text-brand">
@@ -409,6 +418,7 @@ export default function ManifestBuilder({
                 </button>
               ))}
             </div>
+            <span id="mf-settings" className="block scroll-mt-24" aria-hidden />
             <Help text={help.settings} />
           </div>
           <p className="text-[13px] text-dim">
@@ -459,9 +469,30 @@ export default function ManifestBuilder({
                 {errors.length} problem{errors.length > 1 ? "s" : ""} to fix
               </p>
               <ul className="mt-2 grid list-disc gap-1 pl-5 text-[14px] text-body">
-                {errors.map((e) => (
-                  <li key={e}>{e}</li>
-                ))}
+                {errors.map((e) => {
+                  const f = fieldOf(e);
+                  return (
+                    <li key={e}>
+                      {e}
+                      {FORM_FIELDS.has(f) && !(f === "scripts" && kind !== "script") && !(f === "plugin" && kind !== "native") && (
+                        <>
+                          {" "}
+                          <a href={`#mf-${f}`} className="whitespace-nowrap text-[13px] text-amber underline">
+                            Go to {f}
+                          </a>
+                        </>
+                      )}
+                      {guide && help[f] && (
+                        <>
+                          <span className="text-dim"> · </span>
+                          <a href={`${guide}#fields`} className="whitespace-nowrap text-[13px] text-amber underline">
+                            What {f} is
+                          </a>
+                        </>
+                      )}
+                    </li>
+                  );
+                })}
               </ul>
             </>
           ) : (

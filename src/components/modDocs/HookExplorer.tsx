@@ -1,9 +1,10 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState, useSyncExternalStore } from "react";
 import { HOOK_IDEAS, HOOK_MODES, HOOK_TOPICS, type HookMode, hookParams, hookStubC, hookStubCpp, hookStubLuau, hookTopic, plainAbout } from "@/lib/modDocs/logic";
 import type { Hook } from "@/lib/modDocs/types";
 import Code from "./Code";
+import { readLang, writeLang } from "./LangMemory";
 
 type Lang = "luau" | "c" | "cpp";
 const LANGS: { lang: Lang; label: string }[] = [
@@ -13,6 +14,10 @@ const LANGS: { lang: Lang; label: string }[] = [
 ];
 const ID = /^[a-z0-9]+(-[a-z0-9]+)*$/;
 const PAGE = 40;
+const onStorage = (changed: () => void) => {
+  window.addEventListener("storage", changed);
+  return () => window.removeEventListener("storage", changed);
+};
 
 /**
  * The game's hook points for someone who has never seen them: ideas to start from, the hook
@@ -27,9 +32,16 @@ export default function HookExplorer({ hooks, game, discs, manifestHref, scripts
   const [topic, setTopic] = useState<string>("all");
   const [selected, setSelected] = useState<string>(() => key(ideas[0]?.hook ?? hooks.find((h) => !h.experimental) ?? hooks[0]));
   const [mode, setMode] = useState<HookMode>("wrap");
-  const [lang, setLang] = useState<Lang>(scripts ? "luau" : "c");
+  const [picked, setPicked] = useState<Lang | null>(null);
   const [modId, setModId] = useState("my-mod");
   const [shown, setShown] = useState(PAGE);
+  // The language picked on another page (or last time) is used here too, once the page is live.
+  const stored = useSyncExternalStore(onStorage, readLang, () => null);
+  const lang: Lang = picked ?? (stored && (stored !== "luau" || scripts) ? stored : scripts ? "luau" : "c");
+  const chooseLang = (l: Lang) => {
+    setPicked(l);
+    writeLang(l);
+  };
 
   const topics = useMemo(() => {
     const count = new Map<string, number>();
@@ -169,7 +181,7 @@ export default function HookExplorer({ hooks, game, discs, manifestHref, scripts
               </div>
               <div className="d-seg" role="radiogroup" aria-label="Language">
                 {LANGS.map((l) => (
-                  <button key={l.lang} type="button" role="radio" aria-checked={lang === l.lang} onClick={() => setLang(l.lang)}>
+                  <button key={l.lang} type="button" role="radio" aria-checked={lang === l.lang} onClick={() => chooseLang(l.lang)}>
                     {l.label}
                   </button>
                 ))}

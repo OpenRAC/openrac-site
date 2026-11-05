@@ -40,3 +40,11 @@ test("messages quote values as package_mod.py does", () => {
   // Python's True == 1: "format": true is read as a data pack there too.
   assert.match(checkManifest({ format: true }, tables)[0], /^format 1 is a data pack/);
 });
+
+test("the overview's first mod passes the newest SDK's check", async () => {
+  const { firstMod } = await import("./logic.ts");
+  const m = firstMod(latest);
+  assert.ok(m);
+  assert.deepEqual(checkManifest(parseManifestJson(m.manifest), tables), []);
+  assert.match(m.script, /openrac\.hook\("rac1\.player\.take_damage", function\(original, amount: number\)/);
+});

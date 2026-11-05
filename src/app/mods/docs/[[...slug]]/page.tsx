@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
 import Changelog from "@/components/modDocs/Changelog";
+import Code from "@/components/modDocs/Code";
 import CppReference, { cppToc } from "@/components/modDocs/CppReference";
 import CReference, { cToc } from "@/components/modDocs/CReference";
 import DocMarkdown, { type LinkContext } from "@/components/modDocs/DocMarkdown";
@@ -9,10 +10,11 @@ import DocsShell from "@/components/modDocs/DocsShell";
 import HookExplorer from "@/components/modDocs/HookExplorer";
 import LuauReference, { luauToc } from "@/components/modDocs/LuauReference";
 import ManifestBuilder from "@/components/modDocs/ManifestBuilder";
+import LangMemory from "@/components/modDocs/LangMemory";
 import Since from "@/components/modDocs/Since";
-import { SHARE_IMAGE } from "@/lib/machine";
+import { SHARE_IMAGE, siteUrl } from "@/lib/machine";
 import { getDocsIndex, getRelease } from "@/lib/modDocs";
-import { docsHref, gameName, manifestExamples, manifestHelp, pagesOf, parseSlug, REPO, slugger } from "@/lib/modDocs/logic";
+import { docsHref, firstMod, gameName, manifestExamples, manifestHelp, pagesOf, parseSlug, REPO, slugger } from "@/lib/modDocs/logic";
 import type { Release } from "@/lib/modDocs/types";
 
 // Every page is built ahead from mod-docs/data/; any other address is a 404.
@@ -66,6 +68,9 @@ export async function generateMetadata(props: PageProps<"/mods/docs/[[...slug]]"
   };
 }
 
+/** Guides about one language: reading one makes it the language the hook explorer shows. */
+const GUIDE_LANG: Record<string, "luau" | "c" | "cpp"> = { scripts: "luau", "native-c": "c", "native-cpp": "cpp" };
+
 function headingsToc(markdown: string) {
   const slug = slugger();
   return [...markdown.matchAll(/^(#{2,3})\s+(.+)$/gm)].map((m) => ({ id: slug(m[2].trim()), label: m[2].replace(/`/g, "").trim(), depth: m[1].length }));
@@ -79,6 +84,7 @@ function Overview({ r, latest, ctx }: { r: Release; latest: string; ctx: LinkCon
     has("native-c") && { href: at("native-c"), title: "Native mod in C", lang: "C", text: "A small library the game loads. Full speed, full reach. You build it for each platform." },
     r.cpp && has("native-cpp") && { href: at("native-cpp"), title: "Native mod in C++", lang: "C++", text: "The same, with less code: hooks as lambdas, typed settings, no manual cleanup." },
   ].filter(Boolean) as { href: string; title: string; lang: string; text: string }[];
+  const first = has("getting-started") && has("troubleshooting") ? firstMod(r) : null;
   const added = Object.values(r.changes.api).reduce((n, p) => n + p.added.length, 0);
   return (
     <div className="grid gap-8">
@@ -96,6 +102,38 @@ function Overview({ r, latest, ctx }: { r: Release; latest: string; ctx: LinkCon
             </a>
           )}
         </div>
+      )}
+      {first && (
+        <section aria-labelledby="first" className="grid gap-3">
+          <h2 id="first" className="text-[19px] font-semibold text-hi">
+            Your first mod in two minutes
+          </h2>
+          <ol className="grid gap-3 text-[15px] leading-relaxed text-body">
+            <li className="grid gap-2">
+              <span>
+                <span className="mr-2 font-semibold text-amber">1</span>Make a folder with these two files. No compiler, no SDK download.
+              </span>
+              <div className="grid gap-3">
+                <Code code={first.script} lang="luau" title="main.luau" className="my-0" />
+                <Code code={first.manifest} lang="json" title="openrac-mod.json" className="my-0" />
+              </div>
+            </li>
+            <li>
+              <span className="mr-2 font-semibold text-amber">2</span>In the launcher&apos;s <b className="text-hi">Mods</b> tab, <b className="text-hi">Add a mod</b> and pick the folder. Switch it on and press Play.
+            </li>
+            <li>
+              <span className="mr-2 font-semibold text-amber">3</span>Walk into an enemy: Ratchet&apos;s health stays full (a fall still costs a life). If it drops, the mod is off or did not load; see{" "}
+              <a href={at("troubleshooting")} className="text-amber underline">
+                troubleshooting
+              </a>
+              .
+            </li>
+          </ol>
+          <p className="text-[14.5px] text-soft">
+            Next: <a href={at("getting-started")} className="text-amber underline">make it a real mod</a> with the template and share it, or pick another hook point in{" "}
+            <a href={at(`reference/hooks-${first.game}`)} className="text-amber underline">the hook points</a>.
+          </p>
+        </section>
       )}
       {paths.length > 0 && (
         <section aria-labelledby="pick" className="grid gap-3">
@@ -161,7 +199,15 @@ export default async function DocsPage(props: PageProps<"/mods/docs/[[...slug]]"
       <a href={`${REPO}/blob/${r.tag}/${path}`} className="text-soft underline" rel="noopener">
         {path}
       </a>{" "}
-      at {r.tag}. To change this page, change that file in OpenRAC.
+      at {r.tag}.{" "}
+      <a href={`${REPO}/edit/develop/${path}`} className="text-soft underline" rel="noopener">
+        Edit this page
+      </a>{" "}
+      or{" "}
+      <a href={`${REPO}/issues/new?title=${encodeURIComponent(`Docs: ${page.parent ? `${page.parent}: ` : ""}${page.title}`)}&body=${encodeURIComponent(`Page: ${siteUrl()}${docsHref(version, page.path, latest)} (SDK ${version})\n\nWhat is wrong or missing:\n`)}`} className="text-soft underline" rel="noopener">
+        report a problem
+      </a>
+      .
     </p>
   );
 
@@ -176,6 +222,7 @@ export default async function DocsPage(props: PageProps<"/mods/docs/[[...slug]]"
       const g = r.guides.find((x) => x.slug === page.path)!;
       return (
         <DocsShell {...shell} title={g.title.replace(/`/g, "")} toc={headingsToc(g.markdown)}>
+          {GUIDE_LANG[g.slug] && <LangMemory lang={GUIDE_LANG[g.slug]} />}
           <DocMarkdown ctx={ctx(`sdk/docs/${g.slug}.md`)}>{g.markdown}</DocMarkdown>
           {source(`sdk/docs/${g.slug}.md`)}
         </DocsShell>
@@ -184,6 +231,7 @@ export default async function DocsPage(props: PageProps<"/mods/docs/[[...slug]]"
     case "c":
       return (
         <DocsShell {...shell} title="The C interface" lead={<>Everything the port hands a native mod: <code className="text-gold">openrac_mod.h</code>. A mod is built against this header alone. Each item says which interface version added it; check <code className="text-gold">api-&gt;api_minor</code> before you use something newer than your manifest&apos;s <code className="text-gold">api</code>.</>} toc={cToc(r)}>
+          <LangMemory lang="c" />
           <CReference r={r} />
           {source("sdk/include/openrac/openrac_mod.h")}
         </DocsShell>
@@ -191,6 +239,7 @@ export default async function DocsPage(props: PageProps<"/mods/docs/[[...slug]]"
     case "cpp":
       return (
         <DocsShell {...shell} title="The C++ layer" lead={<>A header-only C++17 layer over the C interface: <code className="text-gold">openrac/mod.hpp</code>. It is compiled into your mod; the game still sees only the C table.</>} toc={cppToc(r)}>
+          <LangMemory lang="cpp" />
           <CppReference r={r} />
           {source("sdk/include/openrac/mod.hpp")}
         </DocsShell>
@@ -198,6 +247,7 @@ export default async function DocsPage(props: PageProps<"/mods/docs/[[...slug]]"
     case "luau":
       return (
         <DocsShell {...shell} title="The Luau API" lead="What a script mod can use: the openrac table. Scripts run in a sandbox with a 2 ms budget per call." toc={luauToc()}>
+          <LangMemory lang="luau" />
           <LuauReference r={r} ctx={ctx("sdk/docs/scripts.md")} />
           {source(`sdk/${r.luau!.file}`)}
         </DocsShell>
@@ -273,6 +323,7 @@ export default async function DocsPage(props: PageProps<"/mods/docs/[[...slug]]"
             hookNames={r.hookNames}
             hookIds={r.hooks.flatMap((x) => x.hooks.filter((h) => h.id && !h.experimental).map((h) => h.id))}
             help={manifestHelp(md)}
+            guide={md ? docsHref(version, "manifest", latest) : undefined}
             examples={manifestExamples(md)}
           />
           </Suspense>

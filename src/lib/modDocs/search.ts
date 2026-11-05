@@ -3,14 +3,20 @@
  * browser runs over them. Built on the server (/mods/docs/search/<version>), fetched when the
  * search first opens.
  */
-import { docsHref, guideTitle, pagesOf, slugger, withoutSince } from "./logic.ts";
+import { docsHref, guideTitle, hookParams, pagesOf, parseSignature, plainAbout, slugger, withoutSince } from "./logic.ts";
 import type { Release } from "./types.ts";
 
-/** t: what is shown; k: what kind of thing it is; h: where it is; d: a line about it. */
-export type Entry = { t: string; k: string; h: string; d?: string };
+/** t: what is shown; k: what kind of thing it is; h: where it is; d: its first sentence; s: its signature; a: other names it answers to. */
+export type Entry = { t: string; k: string; h: string; d?: string; s?: string; a?: string };
 
-const short = (text: string, most = 110) => {
+/** The first sentence, so a result answers what the name is without opening it. */
+const short = (text: string, most = 140) => {
   const flat = withoutSince(text.replace(/[`*_[\]]/g, "").replace(/\(([^)]*\.md[^)]*)\)/g, "")).replace(/\s+/g, " ").trim();
+  const one = flat.match(/^(.{20,}?[.!?])(\s|$)/)?.[1] ?? flat;
+  return one.length > most ? `${one.slice(0, most - 1)}…` : one;
+};
+const line = (code: string, most = 120) => {
+  const flat = code.replace(/\s+/g, " ").trim();
   return flat.length > most ? `${flat.slice(0, most - 1)}…` : flat;
 };
 
@@ -30,8 +36,8 @@ export function searchEntries(r: Release, latest: string): Entry[] {
       if (item.kind === "constants") for (const c of item.items) out.push({ t: c.name, k: "C constant", h: at("reference/c-api", c.name), d: short(c.about || item.about) });
       else if (item.kind === "struct") {
         out.push({ t: item.name, k: "C struct", h: at("reference/c-api", item.name), d: short(item.about) });
-        for (const g of item.groups) for (const m of g.members) out.push({ t: item.name === "openrac_api" ? `api->${m.name}` : `${item.name}.${m.name}`, k: m.kind === "function" ? "C function" : "C field", h: at("reference/c-api", `${item.name}.${m.name}`), d: short(g.about) });
-      } else out.push({ t: item.name, k: item.kind === "macro" ? "C macro" : "C type", h: at("reference/c-api", item.name), d: short(item.about) });
+        for (const g of item.groups) for (const m of g.members) out.push({ t: item.name === "openrac_api" ? `api->${m.name}` : `${item.name}.${m.name}`, k: m.kind === "function" ? "C function" : "C field", h: at("reference/c-api", `${item.name}.${m.name}`), d: short(g.about), s: line(m.kind === "function" ? `${m.returns} ${m.name}(${m.params.map((p) => `${p.type} ${p.name}`).join(", ")})` : m.decl) });
+      } else out.push({ t: item.name, k: item.kind === "macro" ? "C macro" : "C type", h: at("reference/c-api", item.name), d: short(item.about), s: item.kind === "macro" ? `${item.name}(${item.params.join(", ")})` : item.kind === "callback" || item.kind === "type" ? line(item.decl) : undefined });
     }
   }
   for (const c of r.cpp?.classes ?? []) {
@@ -40,16 +46,19 @@ export function searchEntries(r: Release, latest: string): Entry[] {
     for (const m of c.members) {
       if (seen.has(m.name)) continue;
       seen.add(m.name);
-      out.push({ t: `${c.name}::${m.name}`, k: "C++", h: at("reference/cpp-api", `openrac::${c.name}::${m.name}`), d: short(m.about) });
+      out.push({ t: `${c.name}::${m.name}`, k: "C++", h: at("reference/cpp-api", `openrac::${c.name}::${m.name}`), d: short(m.about), s: line(m.decl) });
     }
   }
   for (const m of r.cpp?.macros ?? []) out.push({ t: m.name.split("(")[0], k: "C++ macro", h: at("reference/cpp-api", m.name.split("(")[0]), d: short(m.about) });
   for (const m of r.luau?.members ?? []) {
     const name = m.global ? m.name : `openrac.${m.name}`;
-    out.push({ t: name, k: "Luau", h: at("reference/luau-api", name), d: short(m.about) });
+    out.push({ t: name, k: "Luau", h: at("reference/luau-api", name), d: short(m.about), s: line(`${name}: ${m.type}`) });
   }
   for (const g of r.hooks) {
-    for (const h of g.hooks) out.push({ t: h.id || h.name, k: h.experimental ? "Hook (experimental)" : "Hook point", h: at(`reference/hooks-${g.game}`, h.id || h.name), d: short([h.id ? h.name : "", h.signature, h.about].filter(Boolean).join(" · ")) });
+    for (const h of g.hooks) {
+      const name = (h.id || h.name).split(".").pop();
+      out.push({ t: h.id || h.name, k: h.experimental ? "Hook (experimental)" : "Hook point", h: at(`reference/hooks-${g.game}`, h.id || h.name), d: short(plainAbout(h)) || undefined, a: [h.id ? h.name : "", ...h.aliases].filter(Boolean).join(" ") || undefined, s: line(`${parseSignature(h.signature).ret} ${name}(${hookParams(h).map((p) => `${p.type} ${p.name}`).join(", ")})`) });
+    }
     for (const f of g.fields) out.push({ t: `openrac.fields.${f.name}`, k: "Field", h: at(`reference/hooks-${g.game}`, `field-${f.name}`), d: short(`${f.type}${f.readonly ? ", read-only" : ""}. ${f.about}`) });
   }
   return out;
@@ -58,7 +67,7 @@ export function searchEntries(r: Release, latest: string): Entry[] {
 /** How well an entry answers a query: every word must be found; a name that starts with the query ranks first. */
 export function score(e: Entry, words: string[]): number {
   const t = e.t.toLowerCase();
-  const all = `${t} ${e.k.toLowerCase()} ${(e.d ?? "").toLowerCase()}`;
+  const all = `${t} ${e.k.toLowerCase()} ${(e.d ?? "").toLowerCase()} ${(e.s ?? "").toLowerCase()} ${(e.a ?? "").toLowerCase()}`;
   let s = 0;
   for (const w of words) {
     if (!all.includes(w)) return 0;

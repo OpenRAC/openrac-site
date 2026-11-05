@@ -65,7 +65,7 @@ function ApiGroup({ g, r, names }: { g: CGroup; r: Release; names: Map<string, s
         </>
       }
     >
-      <Code code={sig} lang="c" title={first.kind === "function" ? "Signature" : "Field"} copy={false} className="my-0" />
+      <Code code={single?.kind === "function" ? `${sig}\n\n// how a call looks\n${callShape(single)}` : sig} lang="c" title={first.kind === "function" ? "Signature" : "Field"} copy={false} className="my-0" />
       <Paragraphs text={text} names={names} />
       {single?.kind === "function" && single.params.length > 0 && (
         <Part label="Parameters">
@@ -95,7 +95,7 @@ function ApiGroup({ g, r, names }: { g: CGroup; r: Release; names: Map<string, s
           </span>
         </Part>
       )}
-      <Examples shape={single?.kind === "function" ? callShape(single) : undefined} examples={examples.slice(0, 2)} guides={r.guides} />
+      <Examples examples={examples.slice(0, 2)} guides={r.guides} />
     </Entry>
   );
 }

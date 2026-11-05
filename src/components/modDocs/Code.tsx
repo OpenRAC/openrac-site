@@ -16,7 +16,7 @@ export function Highlighted({ code, lang }: { code: string; lang: string }) {
 export default function Code({ code, lang = "", title, copy = true, className = "" }: { code: string; lang?: string; title?: string; copy?: boolean; className?: string }) {
   const name = title ?? LANG_NAME[lang] ?? lang;
   return (
-    <div className={`not-prose group relative my-4 overflow-hidden rounded-lg border border-line bg-ink-deep ${className}`}>
+    <div className={`not-prose group relative overflow-hidden rounded-lg border border-line bg-ink-deep ${/\bmy-/.test(className) ? "" : "my-4"} ${className}`}>
       {(name || copy) && (
         <div className="code-head">
           <span className="code-name">{name}</span>
