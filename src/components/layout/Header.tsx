@@ -227,9 +227,9 @@ export default function Header() {
                   Download
                 </Link>
               </div>
-              {/* Where the phone bar has no room for them: one capsule, gold like the Download button above. */}
+              {/* Where the phone bar has no room for them: bare gold marks, like the Download button above. */}
               <div className="flex justify-center min-[360px]:hidden">
-                <div className="flex items-center rounded-full border border-amber/40 px-1">
+                <div className="flex items-center">
                   <MarkButton site="github" onClick={close} className={`${mark} h-11 w-12`} />
                   <span aria-hidden className={menuDivider} />
                   <MarkButton site="discord" onClick={close} className={`${mark} h-11 w-12`} />
