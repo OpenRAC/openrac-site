@@ -257,10 +257,11 @@ export default function HeroGalaxies() {
       }
       if (hot) label(hot[0], hot[1], hot[2].n, [hot[2].c, hot[2].g].filter(Boolean).join(" · "));
 
-      // messages (gold bolts, cheats) sit top right, clear of the scene
+      // messages (gold bolts, cheats) sit top right
       if (toast) {
         ctx!.textAlign = "right";
-        text(toast, W - Math.max(16, W * 0.015), Math.max(24, H * 0.08), `rgba(${GOLD},0.85)`, `600 10px ${MONO}`);
+        // lined up with the right edge of the page's content (where the bar's Download ends), well clear of the screen's edge
+        text(toast, (W + Math.min(W, 1080)) / 2 - 16, Math.max(32, H * 0.09), `rgba(${GOLD},0.85)`, `600 11px ${MONO}`);
         ctx!.textAlign = "start";
       }
       if (qwark) drawQwark();
