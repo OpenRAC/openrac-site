@@ -90,6 +90,8 @@
     color: #1a0d00;
     box-shadow: 0 6px 24px rgb(232 163 23 / 0.3);
   }
+  /* A quiet button next to a main one: no fill until hovered. */
+  .btn-ghost { background: transparent; }
   .btn-sm {
     min-height: 2.5rem;
     padding: 0.5rem 1rem;
@@ -99,6 +101,7 @@
   .btn-discord { color: var(--color-discord); }
   @media (hover: hover) and (pointer: fine) {
     .btn:hover { transform: translateY(-2px); background-color: color-mix(in srgb, white 11%, var(--color-ink)); box-shadow: 0 8px 24px rgb(0 0 0 / 0.4); }
+    .btn-ghost:hover { transform: none; box-shadow: none; background-color: rgb(255 255 255 / 0.06); }
     .btn-primary:hover { filter: brightness(1.08); box-shadow: 0 8px 28px rgb(232 163 23 / 0.4); }
   }
 

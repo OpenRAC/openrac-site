@@ -6,6 +6,7 @@ import { type MouseEvent, useEffect, useState } from "react";
 import { PAGE_TRANSITION } from "@/components/layout/PageTransition";
 import { DiscordIcon, GithubIcon, NewsIcon } from "@/components/ui/icons";
 import Logo from "@/components/ui/Logo";
+import SiteSearch from "@/components/layout/SiteSearch";
 import { HAS_CREDITS } from "@/lib/credits";
 import { DISCORD_URL, GITHUB_URL } from "@/lib/projects";
 
@@ -20,13 +21,13 @@ const SECTIONS = ([
 ] as const).filter(([id]) => id !== "credits" || HAS_CREDITS);
 
 const link =
-  "group/l relative flex min-h-11 items-center rounded-md px-3.5 text-[17px] font-bold no-underline transition-colors min-[821px]:min-h-9 min-[821px]:whitespace-nowrap min-[821px]:text-[15px] min-[821px]:max-[1023px]:px-2 min-[821px]:max-[900px]:px-1.5 min-[821px]:max-[1023px]:text-[14px]";
+  "group/l relative flex min-h-11 items-center rounded-md px-3.5 text-[17px] font-bold no-underline transition-colors min-[821px]:min-h-9 min-[821px]:whitespace-nowrap min-[821px]:text-[15px] min-[821px]:max-[1023px]:px-2 min-[1024px]:px-2.5 min-[821px]:max-[900px]:px-1.5 min-[821px]:max-[1023px]:text-[14px]";
 // The open mobile menu sits on the page's colour, the bar on its stripes: light text there, dark here.
 // The current section: a pill as tall as the bar's buttons. Its label never wraps, so the pill cannot grow to the bar's height.
 const linkOn = "bg-white/[.06] text-amber min-[821px]:bg-[#1b1206] [&>span]:hidden";
 const linkOff = "text-hi hover:bg-white/5 min-[821px]:text-[#2a1800] min-[821px]:hover:bg-black/10";
 const underline =
-  "absolute inset-x-3.5 bottom-1 min-[821px]:max-[1023px]:inset-x-2 hidden h-0.5 origin-left scale-x-0 rounded bg-current transition-transform group-hover/l:scale-x-100 min-[821px]:block";
+  "absolute inset-x-3.5 bottom-1 min-[821px]:max-[1023px]:inset-x-2 min-[1024px]:inset-x-2.5 hidden h-0.5 origin-left scale-x-0 rounded bg-current transition-transform group-hover/l:scale-x-100 min-[821px]:block";
 const pill = "flex min-h-11 items-center justify-center rounded-md px-4 text-sm font-semibold no-underline transition-colors min-[821px]:min-h-9 min-[821px]:whitespace-nowrap min-[821px]:max-[1023px]:px-3";
 
 /** On a phone the bar's buttons are bare dark marks on the stripes: no discs or rings, a light shade under a finger. */
@@ -150,16 +151,19 @@ export default function Header() {
   return (
     <>
       <header style={{ viewTransitionName: "site-header" }} className="bar-stripes fixed inset-x-0 top-0 z-30 border-b border-black/30 text-black shadow-[inset_0_1px_0_rgb(255_255_255/0.35),0_4px_24px_rgb(0_0_0/0.45)]">
-        <div className="mx-auto flex h-[50px] max-w-[1080px] items-center gap-6 px-4 min-[821px]:max-[1023px]:gap-4 min-[821px]:max-[900px]:gap-2">
+        <div className="mx-auto flex h-[50px] max-w-[1080px] items-center gap-6 px-4 min-[1024px]:gap-4 min-[821px]:max-[1023px]:gap-4 min-[821px]:max-[900px]:gap-2">
           <Link href="/" transitionTypes={PAGE_TRANSITION} onClick={toTop} className="group flex items-center text-[#1b1206] no-underline" aria-label="OpenRAC home">
-            <Logo height={34} label="" className="transition-opacity group-hover:opacity-85" />
+            <Logo height={34} label="" className="transition-opacity group-hover:opacity-85 min-[821px]:max-[1279px]:h-7 min-[821px]:max-[1279px]:w-auto" />
           </Link>
 
+          {/* The site's search: a field on the wide bar (a bare mark below 1280 px), a mark on phones. */}
+          <SiteSearch className="hidden h-[34px] flex-none items-center justify-center gap-2 rounded-md bg-black/15 px-2.5 text-[14px] font-semibold text-[#1b1206]/75 shadow-[inset_0_0_0_1px_rgb(0_0_0/0.25)] transition-colors hover:bg-black/20 min-[821px]:flex min-[821px]:w-32 min-[821px]:max-[1279px]:w-[34px] min-[821px]:max-[1279px]:px-0" />
+          <SiteSearch compact className={`${barIcon} ml-auto`} />
           {/* News in reach on phones too, without opening the menu; Mods is a line of the menu. */}
-          <NewsButton on={inNews} onClick={close} className={`${barIcon} ml-auto`} />
-          {/* Too wide for the narrowest phones: there they move into the menu as lines, so the menu button stays on screen. */}
-          <MarkButton site="github" onClick={close} className={`${barIcon} -ml-5 max-[359px]:hidden`} />
-          <MarkButton site="discord" onClick={close} className={`${barIcon} -ml-5 max-[359px]:hidden`} />
+          <NewsButton on={inNews} onClick={close} className={`${barIcon} -ml-5`} />
+          {/* Too wide for narrow phones (below 400 px): there they move into the menu as lines, so the menu button stays on screen. */}
+          <MarkButton site="github" onClick={close} className={`${barIcon} -ml-5 max-[400px]:hidden`} />
+          <MarkButton site="discord" onClick={close} className={`${barIcon} -ml-5 max-[400px]:hidden`} />
           <button
             type="button"
             aria-label={open ? "Close menu" : "Open menu"}
@@ -176,7 +180,7 @@ export default function Header() {
 
           <nav
             id="nav"
-            className={`absolute inset-x-0 top-full flex max-h-[calc(100dvh-50px)] flex-col gap-3 overflow-y-auto overscroll-contain border-b border-white/10 bg-ink px-4 pb-[18px] pt-3.5 shadow-[0_20px_30px_rgb(0_0_0/0.4)] transition duration-200 max-[821px]:origin-top ${open ? "" : "max-[821px]:pointer-events-none max-[821px]:invisible max-[821px]:-translate-y-2 max-[821px]:opacity-0"} min-[821px]:static min-[821px]:max-h-none min-[821px]:flex-1 min-[821px]:flex-row min-[821px]:items-center min-[821px]:gap-[18px] min-[821px]:max-[1023px]:gap-2.5 min-[821px]:overflow-visible min-[821px]:border-0 min-[821px]:bg-transparent min-[821px]:p-0 min-[821px]:shadow-none`}
+            className={`absolute inset-x-0 top-full flex max-h-[calc(100dvh-50px)] flex-col gap-3 overflow-y-auto overscroll-contain border-b border-white/10 bg-ink px-4 pb-[18px] pt-3.5 shadow-[0_20px_30px_rgb(0_0_0/0.4)] transition duration-200 max-[821px]:origin-top ${open ? "" : "max-[821px]:pointer-events-none max-[821px]:invisible max-[821px]:-translate-y-2 max-[821px]:opacity-0"} min-[821px]:static min-[821px]:max-h-none min-[821px]:flex-1 min-[821px]:flex-row min-[821px]:items-center min-[821px]:gap-3 min-[821px]:max-[1023px]:gap-2.5 min-[821px]:overflow-visible min-[821px]:border-0 min-[821px]:bg-transparent min-[821px]:p-0 min-[821px]:shadow-none`}
           >
             <div className="flex flex-col gap-1 min-[821px]:ml-2 min-[821px]:flex-row">
               {SECTIONS.map(([id, label]) =>
@@ -196,10 +200,10 @@ export default function Header() {
               <Link href="/mods" transitionTypes={PAGE_TRANSITION} onClick={close} aria-current={inMods ? "page" : undefined} className={`${link} ${inMods ? linkOn : linkOff} min-[821px]:hidden`}>
                 Mods
               </Link>
-              <a href={GITHUB_URL} onClick={close} className={`${link} ${linkOff} min-[360px]:hidden`}>
+              <a href={GITHUB_URL} onClick={close} className={`${link} ${linkOff} min-[400px]:hidden`}>
                 GitHub
               </a>
-              <a href={DISCORD_URL} onClick={close} className={`${link} ${linkOff} min-[360px]:hidden`}>
+              <a href={DISCORD_URL} onClick={close} className={`${link} ${linkOff} min-[400px]:hidden`}>
                 Discord
               </a>
             </div>
@@ -210,7 +214,7 @@ export default function Header() {
               <div className={`${capsule} max-[821px]:contents`}>
                 {/* Mods: its own page, with its own mark, gold while there. */}
                 <Link href="/mods" transitionTypes={PAGE_TRANSITION} onClick={close} aria-current={inMods ? "page" : undefined} className={`${pill} gap-2 max-[821px]:hidden ${inMods ? on : off}`}>
-                  <ModsMark />
+                  <ModsMark className="size-4 min-[821px]:max-[1279px]:hidden" />
                   Mods
                 </Link>
                 <span aria-hidden className={divider} />
@@ -220,11 +224,11 @@ export default function Header() {
                 </Link>
               </div>
               <div className={`${capsule} max-[821px]:hidden`}>
-                <NewsButton on={inNews} onClick={close} className={`${offMark} h-9 w-10`} />
+                <NewsButton on={inNews} onClick={close} className={`${offMark} h-9 w-10 min-[821px]:max-[1279px]:w-8`} />
                 <span aria-hidden className={divider} />
-                <MarkButton site="github" onClick={close} className={`${offMark} h-9 w-10`} />
+                <MarkButton site="github" onClick={close} className={`${offMark} h-9 w-10 min-[821px]:max-[1279px]:w-8`} />
                 <span aria-hidden className={divider} />
-                <MarkButton site="discord" onClick={close} className={`${offMark} h-9 w-10`} />
+                <MarkButton site="discord" onClick={close} className={`${offMark} h-9 w-10 min-[821px]:max-[1279px]:w-8`} />
               </div>
             </div>
           </nav>
