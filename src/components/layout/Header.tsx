@@ -20,29 +20,26 @@ const SECTIONS = ([
 ] as const).filter(([id]) => id !== "credits" || HAS_CREDITS);
 
 const link =
-  "group/l relative flex min-h-11 items-center rounded-full px-3.5 text-[17px] font-bold no-underline transition-colors min-[821px]:min-h-9 min-[821px]:whitespace-nowrap min-[821px]:text-[15px] min-[821px]:max-[1023px]:px-2 min-[821px]:max-[900px]:px-1.5 min-[821px]:max-[1023px]:text-[14px]";
+  "group/l relative flex min-h-11 items-center rounded-md px-3.5 text-[17px] font-bold no-underline transition-colors min-[821px]:min-h-9 min-[821px]:whitespace-nowrap min-[821px]:text-[15px] min-[821px]:max-[1023px]:px-2 min-[821px]:max-[900px]:px-1.5 min-[821px]:max-[1023px]:text-[14px]";
 // The open mobile menu sits on the page's colour, the bar on its stripes: light text there, dark here.
 // The current section: a pill as tall as the bar's buttons. Its label never wraps, so the pill cannot grow to the bar's height.
 const linkOn = "bg-white/[.06] text-amber min-[821px]:bg-[#1b1206] [&>span]:hidden";
 const linkOff = "text-hi hover:bg-white/5 min-[821px]:text-[#2a1800] min-[821px]:hover:bg-black/10";
 const underline =
   "absolute inset-x-3.5 bottom-1 min-[821px]:max-[1023px]:inset-x-2 hidden h-0.5 origin-left scale-x-0 rounded bg-current transition-transform group-hover/l:scale-x-100 min-[821px]:block";
-const pill = "flex min-h-11 items-center justify-center rounded-full px-4 text-sm font-semibold no-underline transition-colors min-[821px]:min-h-9 min-[821px]:whitespace-nowrap min-[821px]:max-[1023px]:px-3";
+const pill = "flex min-h-11 items-center justify-center rounded-md px-4 text-sm font-semibold no-underline transition-colors min-[821px]:min-h-9 min-[821px]:whitespace-nowrap min-[821px]:max-[1023px]:px-3";
 
-/** The buttons in the open phone menu's capsule, and the hairlines between them. */
-const mark = "text-amber hover:bg-white/5";
-const menuDivider = "h-5 w-px flex-none bg-amber/25";
 /** On a phone the bar's buttons are bare dark marks on the stripes: no discs or rings, a light shade under a finger. */
-const barIcon = "flex size-10 flex-none items-center justify-center rounded-full text-[#1b1206] transition-colors hover:bg-black/10 active:bg-black/15 min-[821px]:hidden";
+const barIcon = "flex size-10 flex-none items-center justify-center rounded-md text-[#1b1206] transition-colors hover:bg-black/10 active:bg-black/15 min-[821px]:hidden";
 
 /** A dark capsule holding several of the wide bar's buttons, the bar's own dark and gold like the Download button. */
-const capsule = "min-[821px]:flex min-[821px]:items-center min-[821px]:px-1 min-[821px]:rounded-full min-[821px]:bg-[#1b1206] min-[821px]:shadow-[0_0_0_1px_rgb(0_0_0/0.25)]";
+const capsule = "min-[821px]:flex min-[821px]:items-center min-[821px]:px-1 min-[821px]:rounded-lg min-[821px]:bg-[#1b1206] min-[821px]:shadow-[0_0_0_1px_rgb(0_0_0/0.25)]";
 /** A hairline between the buttons of a capsule. */
 const divider = "h-4 w-px flex-none bg-white/15 max-[821px]:hidden";
 /** A button in a capsule, and Mods while on its pages, filled gold. */
 const off = "text-amber hover:bg-[#2a1800]";
 const on = "bg-amber text-[#1a0d00]";
-/** The same for a site's mark, white like on the phone menu. */
+/** The same for a site's mark, in white. */
 const offMark = "text-text hover:bg-[#2a1800]";
 
 /** A small puzzle piece: the mark of Mods in the bar. Its knobs sit top and right, so the view is shifted to
@@ -55,7 +52,7 @@ function ModsMark({ className = "size-4" }: { className?: string }) {
   );
 }
 
-/** News as a round button next to GitHub. It stays plain on its own pages; only screen readers hear it is the current one. */
+/** News as a button next to GitHub. It stays plain on its own pages; only screen readers hear it is the current one. */
 function NewsButton({ on, onClick, className = "" }: { on: boolean; onClick?: () => void; className?: string }) {
   return (
     <Link
@@ -65,14 +62,14 @@ function NewsButton({ on, onClick, className = "" }: { on: boolean; onClick?: ()
       aria-label="News"
       title="News"
       aria-current={on ? "page" : undefined}
-      className={`flex flex-none items-center justify-center rounded-full transition-colors ${className}`}
+      className={`flex flex-none items-center justify-center rounded-md transition-colors ${className}`}
     >
       <NewsIcon className="size-[21px] min-[821px]:size-[19px]" />
     </Link>
   );
 }
 
-/** A site's own mark in a round button (GitHub, Discord); `className` gives its colours. */
+/** A site's own mark in a button (GitHub, Discord); `className` gives its colours. */
 function MarkButton({ site, onClick, className = "" }: { site: "github" | "discord"; onClick?: () => void; className?: string }) {
   const Icon = site === "github" ? GithubIcon : DiscordIcon;
   const label = site === "github" ? "GitHub" : "Discord";
@@ -82,7 +79,7 @@ function MarkButton({ site, onClick, className = "" }: { site: "github" | "disco
       onClick={onClick}
       aria-label={label}
       title={label}
-      className={`flex flex-none items-center justify-center rounded-full transition-colors ${className}`}
+      className={`flex flex-none items-center justify-center rounded-md transition-colors ${className}`}
     >
       <Icon className="size-[20px] min-[821px]:size-[18px]" />
     </a>
@@ -158,20 +155,9 @@ export default function Header() {
             <Logo height={34} label="" className="transition-opacity group-hover:opacity-85" />
           </Link>
 
-          {/* Mods in reach on phones too, without opening the menu. */}
-          <Link
-            href="/mods"
-            transitionTypes={PAGE_TRANSITION}
-            onClick={close}
-            aria-label="Mods"
-            title="Mods"
-            aria-current={inMods ? "page" : undefined}
-            className={`${barIcon} ml-auto ${inMods ? "bg-black/15" : ""}`}
-          >
-            <ModsMark className="size-[22px]" />
-          </Link>
-          {/* Too wide for the narrowest phones: there they move into the menu (News first, below 400 px), so the menu button stays on screen. */}
-          <NewsButton on={inNews} onClick={close} className={`${barIcon} -ml-5 max-[400px]:hidden`} />
+          {/* News in reach on phones too, without opening the menu; Mods is a line of the menu. */}
+          <NewsButton on={inNews} onClick={close} className={`${barIcon} ml-auto`} />
+          {/* Too wide for the narrowest phones: there they move into the menu as lines, so the menu button stays on screen. */}
           <MarkButton site="github" onClick={close} className={`${barIcon} -ml-5 max-[359px]:hidden`} />
           <MarkButton site="discord" onClick={close} className={`${barIcon} -ml-5 max-[359px]:hidden`} />
           <button
@@ -206,15 +192,21 @@ export default function Header() {
                   </Link>
                 ),
               )}
-              {/* Where the phone bar has no room for its News button, News is a line of the menu. */}
-              <Link href="/news" transitionTypes={PAGE_TRANSITION} onClick={close} aria-current={inNews ? "page" : undefined} className={`${link} ${inNews ? linkOn : linkOff} min-[400px]:hidden`}>
-                News
+              {/* Lines of the phone menu only: on the wide bar these are buttons. */}
+              <Link href="/mods" transitionTypes={PAGE_TRANSITION} onClick={close} aria-current={inMods ? "page" : undefined} className={`${link} ${inMods ? linkOn : linkOff} min-[821px]:hidden`}>
+                Mods
               </Link>
+              <a href={GITHUB_URL} onClick={close} className={`${link} ${linkOff} min-[360px]:hidden`}>
+                GitHub
+              </a>
+              <a href={DISCORD_URL} onClick={close} className={`${link} ${linkOff} min-[360px]:hidden`}>
+                Discord
+              </a>
             </div>
             <div className="grid gap-2 min-[821px]:ml-auto min-[821px]:flex min-[821px]:items-center min-[821px]:max-[1023px]:gap-1.5">
               {/* Mods and Download share one dark capsule on the wide bar, News, GitHub and Discord another:
                   fewer gaps, so the bar has room for more. On phones the first capsule falls away (contents):
-                  Download is the menu's big button, and Mods has its own button in the bar. */}
+                  Download is the menu's big button, and Mods a line of the menu. */}
               <div className={`${capsule} max-[821px]:contents`}>
                 {/* Mods: its own page, with its own mark, gold while there. */}
                 <Link href="/mods" transitionTypes={PAGE_TRANSITION} onClick={close} aria-current={inMods ? "page" : undefined} className={`${pill} gap-2 max-[821px]:hidden ${inMods ? on : off}`}>
@@ -226,14 +218,6 @@ export default function Header() {
                 <Link href="/#download" transitionTypes={PAGE_TRANSITION} onClick={close} className={`${pill} border border-amber bg-amber text-[#1a0d00] hover:brightness-110 min-[821px]:border-0 min-[821px]:bg-transparent min-[821px]:text-amber min-[821px]:hover:bg-[#2a1800] min-[821px]:hover:brightness-100`}>
                   Download
                 </Link>
-              </div>
-              {/* Where the phone bar has no room for them: bare gold marks, like the Download button above. */}
-              <div className="flex justify-center min-[360px]:hidden">
-                <div className="flex items-center">
-                  <MarkButton site="github" onClick={close} className={`${mark} h-11 w-12`} />
-                  <span aria-hidden className={menuDivider} />
-                  <MarkButton site="discord" onClick={close} className={`${mark} h-11 w-12`} />
-                </div>
               </div>
               <div className={`${capsule} max-[821px]:hidden`}>
                 <NewsButton on={inNews} onClick={close} className={`${offMark} h-9 w-10`} />

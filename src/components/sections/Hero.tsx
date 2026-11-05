@@ -3,6 +3,7 @@ import { PROJECTS } from "@/lib/projects";
 import type { ProjectProgress } from "@/lib/progress";
 import type { ProjectId } from "@/lib/projects";
 import CountUp from "@/components/ui/CountUp";
+import HeroSmoke from "@/components/ui/HeroSmoke";
 import Particles from "@/components/ui/Particles";
 
 /** The top of the home page: headline, the two main buttons and four headline numbers. */
@@ -13,8 +14,7 @@ export default function Hero({ progress, mods }: { progress: Partial<Record<Proj
   return (
     <div className="relative isolate pb-8 pt-12 sm:pb-16 sm:pt-24">
       <Particles />
-      {/* A soft gold glow on the right: a radial gradient moved by transform only, so it costs no repaint (a CSS blur filter would, every frame). */}
-      <div aria-hidden className="absolute -right-56 -top-24 -z-10 size-[680px] bg-[radial-gradient(closest-side,rgb(214_160_32/0.3),transparent)] will-change-transform sm:animate-drift" />
+      <HeroSmoke />
 
       {/* One line at every width: on a phone the letters shrink with the screen rather than wrap. */}
       <p className="mb-4 whitespace-nowrap font-orbitron text-[clamp(7px,2.35vw,11px)] font-bold uppercase tracking-[.2em] text-brand sm:tracking-[.28em] after:mt-2 after:block after:h-[3px] after:w-11 after:rounded-sm after:bg-brand after:content-[''] sm:text-[13px]">
@@ -27,9 +27,8 @@ export default function Hero({ progress, mods }: { progress: Partial<Record<Proj
         </span>{" "}
         series, rebuilt from the original bytes.
       </h1>
-      <p className="mt-5 max-w-[600px] text-[15px] leading-relaxed text-soft sm:text-[17px]">
-        OpenRAC is a hub for community decompilation projects of the Ratchet &amp; Clank series. Each project reconstructs readable source code that compiles to the
-        same bytes as the original game, one function at a time, in the open.
+      <p className="mt-4 max-w-[520px] text-[15px] leading-relaxed text-soft sm:text-[16px]">
+        A hub for the community decompilations of Ratchet &amp; Clank: readable source code that compiles to the original games&apos; exact bytes.
       </p>
       <div className="mt-7 grid animate-rise gap-3 [animation-delay:.45s] min-[560px]:flex min-[560px]:flex-wrap">
         {/* The main thing a visitor comes for, so it leads; it opens the Download panel right under the hero (DownloadPanel.tsx). */}
@@ -44,7 +43,7 @@ export default function Hero({ progress, mods }: { progress: Partial<Record<Proj
         </a>
       </div>
 
-      <div className={`mt-10 grid animate-rise gap-2.5 sm:mt-12 sm:gap-3.5 [animation-delay:.6s] ${mods ? "max-w-[900px] grid-cols-2 min-[560px]:grid-cols-4" : "max-w-[760px] grid-cols-3"}`}>
+      <div className={`mt-8 grid animate-rise gap-2 sm:mt-10 sm:gap-2.5 [animation-delay:.6s] ${mods ? "max-w-[720px] grid-cols-2 min-[560px]:grid-cols-4" : "max-w-[560px] grid-cols-3"}`}>
         {[
           [<CountUp key="t" value={new Set(PROJECTS.map((p) => p.name)).size} />, "titles tracked"],
           [<CountUp key="a" value={active.length} />, "active projects"],
@@ -52,9 +51,9 @@ export default function Hero({ progress, mods }: { progress: Partial<Record<Proj
           ...(mods ? [[<CountUp key="m" value={mods} />, "community mods"]] : []),
           [<span key="b">{formatSize(bytes)}</span>, "of code verified across projects"],
         ].map(([value, label], i) => (
-          <div key={i} className="surface px-3 py-3 sm:px-[18px] sm:py-4">
-            <b className="block font-orbitron whitespace-nowrap text-[clamp(15px,4.2vw,26px)] font-bold leading-tight tabular-nums text-gold">{value}</b>
-            <span className="mt-0.5 block text-[12px] leading-snug text-dim sm:text-[13px]">{label}</span>
+          <div key={i} className="surface rounded-lg px-3 py-2 sm:px-3.5 sm:py-2.5">
+            <b className="block font-orbitron whitespace-nowrap text-[clamp(15px,3.8vw,20px)] font-bold leading-tight tabular-nums text-gold">{value}</b>
+            <span className="block text-[12px] leading-snug text-dim">{label}</span>
           </div>
         ))}
       </div>
