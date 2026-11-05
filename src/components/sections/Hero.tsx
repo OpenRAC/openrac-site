@@ -3,6 +3,7 @@ import { PROJECTS } from "@/lib/projects";
 import type { ProjectProgress } from "@/lib/progress";
 import type { ProjectId } from "@/lib/projects";
 import CountUp from "@/components/ui/CountUp";
+import HeroGalaxies from "@/components/ui/HeroGalaxies";
 
 /** The top of the home page: headline, the two main buttons and four headline numbers. */
 export default function Hero({ progress, mods }: { progress: Partial<Record<ProjectId, ProjectProgress>>; mods: number }) {
@@ -11,7 +12,7 @@ export default function Hero({ progress, mods }: { progress: Partial<Record<Proj
 
   return (
     <div className="relative isolate pb-8 pt-12 sm:pb-16 sm:pt-24">
-
+      <HeroGalaxies />
       {/* One line at every width: on a phone the letters shrink with the screen rather than wrap. */}
       <p className="mb-4 whitespace-nowrap font-orbitron text-[clamp(7px,2.35vw,11px)] font-bold uppercase tracking-[.2em] text-brand sm:tracking-[.28em] after:mt-2 after:block after:h-[3px] after:w-11 after:rounded-sm after:bg-brand after:content-[''] sm:text-[13px]">
         Unofficial · open source · community driven
