@@ -19,3 +19,5 @@ Containerfile
 .dockerignore
 # Card backdrops are game screenshots: never baked into the image, mounted at /data/img instead.
 public/img
+# The mod docs' generator stays out of the image; its data goes in.
+mod-docs/tools

@@ -1,0 +1,133 @@
+{
+ "schema": 1,
+ "source": "https://github.com/OpenRAC/OpenRAC",
+ "latest": "1.11.0",
+ "versions": [
+  {
+   "version": "1.11.0",
+   "tag": "sdk-v1.11.0",
+   "date": "2026-11-01",
+   "interface": "1.11",
+   "commit": "337aa7d916312be0cb198c96e05360e3ca000efa",
+   "added": 34,
+   "removed": 0
+  },
+  {
+   "version": "1.10.1",
+   "tag": "sdk-v1.10.1",
+   "date": "2026-10-28",
+   "interface": "1.10",
+   "commit": "bd3e1422dc6368d21f046bad1c98dd578a77f65c",
+   "added": 0,
+   "removed": 0
+  },
+  {
+   "version": "1.10.0",
+   "tag": "sdk-v1.10.0",
+   "date": "2026-10-28",
+   "interface": "1.10",
+   "commit": "fdb240ac673b2ef550f0b421210068a67168bfb5",
+   "added": 232,
+   "removed": 0
+  },
+  {
+   "version": "1.7.0",
+   "tag": "sdk-v1.7.0",
+   "date": "2026-10-27",
+   "interface": "1.7",
+   "commit": "d09968dbe47ac63bbdf08a560d994c17f60637e1",
+   "added": 97,
+   "removed": 0
+  },
+  {
+   "version": "1.5.0",
+   "tag": "sdk-v1.5.0",
+   "date": "2026-10-27",
+   "interface": "1.5",
+   "commit": "276d28e286216e8025b0e06b395bdac7073e95e7",
+   "added": 102,
+   "removed": 0
+  },
+  {
+   "version": "1.3.0",
+   "tag": "sdk-v1.3.0",
+   "date": "2026-10-21",
+   "interface": "1.3",
+   "commit": "94d681073167f774bd41f9607cedc7d586aa3a89",
+   "added": 9,
+   "removed": 0
+  },
+  {
+   "version": "1.2.1",
+   "tag": "sdk-v1.2.1",
+   "date": "2026-10-21",
+   "interface": "1.2",
+   "commit": "4743c9517c0c945ee615752bc2b6daa4771ed51f",
+   "added": 6,
+   "removed": 0
+  },
+  {
+   "version": "1.2.0",
+   "tag": "sdk-v1.2.0",
+   "date": "2026-10-21",
+   "interface": "1.2",
+   "commit": "7340dfbb410bee1fa988c09ccd16cb32b8319727",
+   "added": 51,
+   "removed": 0
+  },
+  {
+   "version": "1.1.2",
+   "tag": "sdk-v1.1.2",
+   "date": "2026-10-21",
+   "interface": "1.1",
+   "commit": "3392337ce828d817783defc8e09ac1ba2e71e126",
+   "added": 0,
+   "removed": 0
+  },
+  {
+   "version": "1.1.1",
+   "tag": "sdk-v1.1.1",
+   "date": "2026-10-21",
+   "interface": "1.1",
+   "commit": "db102f0faaa9ee9099b2e87cdf4bcc9ce88f06be",
+   "added": 5,
+   "removed": 0
+  },
+  {
+   "version": "1.1.0",
+   "tag": "sdk-v1.1.0",
+   "date": "2026-10-21",
+   "interface": "1.1",
+   "commit": "a9dabee250af044f45c1b1de7734fcaf618cae8a",
+   "added": 712,
+   "removed": 6
+  },
+  {
+   "version": "1.0.3",
+   "tag": "sdk-v1.0.3",
+   "date": "2026-10-21",
+   "interface": "1.0",
+   "commit": "d4f84bd8aa727c71d6e4e0e2a23ad569ece6c3e8",
+   "added": 0,
+   "removed": 0
+  },
+  {
+   "version": "1.0.2",
+   "tag": "sdk-v1.0.2",
+   "date": "2026-10-21",
+   "interface": "1.0",
+   "commit": "ff31069ab488971a08644949885d2006df651899",
+   "added": 0,
+   "removed": 0
+  },
+  {
+   "version": "1.0.1",
+   "tag": "sdk-v1.0.1",
+   "date": "2026-10-21",
+   "interface": "1.0",
+   "commit": "7546ba1606c17ed4ecf72602a3ba63135ff67ba4",
+   "added": 0,
+   "removed": 0
+  }
+ ]
+}

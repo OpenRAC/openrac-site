@@ -1,0 +1,46 @@
+# Keeps /mods/docs in step with OpenRAC's mod SDK: every day it reads the sdk-v* release tags of
+# OpenRAC/OpenRAC and rewrites mod-docs/data/ (a new release is a new version in the docs' menu).
+# Public data only, no secrets: the workflow's own token commits the result, which the next deploy
+# builds into the site, as with the news.
+name: mod-docs-sync
+
+on:
+  schedule:
+    - cron: "40 3 * * *"
+  workflow_dispatch:
+
+permissions: {}
+
+concurrency:
+  group: mod-docs-data
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    permissions:
+      contents: write # to commit the generated data
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Build the docs' data from the SDK's releases
+        run: |
+          python3 -m unittest discover -s mod-docs/tools
+          python3 mod-docs/tools/build.py
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 24
+          cache: npm
+      # The manifest builder must still give the SDK's verdicts on the new release's test vectors.
+      - name: Check the site against the new data
+        run: |
+          npm ci
+          node --test "src/lib/modDocs/*.test.ts"
+      - name: Publish
+        run: |
+          git add mod-docs/data
+          git diff --cached --quiet && exit 0
+          latest=$(python3 -c "import json; print(json.load(open('mod-docs/data/index.json'))['latest'])")
+          git -c user.name="github-actions[bot]" -c user.email="41898282+github-actions[bot]@users.noreply.github.com" commit -m "chore(mod-docs): SDK releases up to ${latest}"
+          git pull --rebase origin main
+          git push origin main
