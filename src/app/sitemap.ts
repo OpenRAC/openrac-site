@@ -1,13 +1,27 @@
 import type { MetadataRoute } from "next";
 import { siteUrl } from "@/lib/machine";
 import { getModCatalog } from "@/lib/mods";
+import { getDocsIndex, getRelease } from "@/lib/modDocs";
+import { docsHref, pagesOf } from "@/lib/modDocs/logic";
 import { isWithdrawn, mediaSrc, widthFor } from "@/lib/mods/logic";
 import { getNewsIndex } from "@/lib/news";
 
 // Rebuilt with the mod list, so a new mod is listed within minutes.
 export const revalidate = 300;
 
-/** Every page a search engine should know: the home page, the mod list and each mod, with its pictures and videos, and each week with a written report. */
+/** The mod SDK docs of the latest release (older releases are not offered: their pages say noindex). */
+function modDocs(site: string): MetadataRoute.Sitemap {
+  try {
+    const index = getDocsIndex();
+    const lastModified = new Date(`${index.versions[0].date}T12:00:00Z`);
+    return pagesOf(getRelease(index.latest)).map((p) => ({ url: `${site}${docsHref(index.latest, p.path, index.latest)}`, lastModified, changeFrequency: "weekly" as const, priority: p.path ? 0.5 : 0.7 }));
+  } catch (e) {
+    console.error(JSON.stringify({ level: "error", code: "mod_docs_read_failed", error: e instanceof Error ? e.message : String(e) }));
+    return [];
+  }
+}
+
+/** Every page a search engine should know: the home page, the mod list and each mod, with its pictures and videos, each week with a written report, and the mod SDK docs. */
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const site = siteUrl();
   const { catalog } = await getModCatalog();
@@ -19,6 +33,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   return [
     { url: `${site}/`, lastModified: new Date(), changeFrequency: "daily", priority: 1 },
     { url: `${site}/mods`, lastModified: newest ? new Date(newest) : new Date(), changeFrequency: "daily", priority: 0.9 },
+    ...modDocs(site),
     ...(news.length ? [{ url: `${site}/news`, lastModified: new Date(`${news[0].end}T23:59:59Z`), changeFrequency: "weekly" as const, priority: 0.8 }] : []),
     ...news.map((w) => ({ url: `${site}/news/${w.week}`, lastModified: new Date(`${w.end}T23:59:59Z`), changeFrequency: "monthly" as const, priority: 0.6 })),
     ...mods.map((m) => {

@@ -47,6 +47,8 @@ COPY --from=build --chown=node:node /app/.next/static ./.next/static
 COPY --from=build --chown=node:node /app/public ./public
 # The news: the home page and sitemap read it again whenever they are rebuilt in the background.
 COPY --from=build --chown=node:node /app/news ./news
+# The mod SDK docs' data: its pages are built ahead, the sitemap reads the latest release's list again.
+COPY --from=build --chown=node:node /app/mod-docs/data ./mod-docs/data
 USER node
 EXPOSE 3000
 # Next.js handles SIGTERM itself, so `podman stop` shuts the server down cleanly.

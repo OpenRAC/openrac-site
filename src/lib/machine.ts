@@ -117,6 +117,7 @@ export function llmsTxt(site: string, progress: ProgressMap, mods: ModText[]): s
 - [Progress data](${site}/progress.json): the numbers above as JSON, refreshed with the page
 - [Mods](${site}/mods): community mods for the PC port, installed into the launcher in one click with their dependencies
 - [Mod list data](${site}/mods.json): every listed mod as JSON
+- [Mod SDK docs](${site}/mods/docs): how to make mods (Luau scripts, native C and C++), the full API reference per SDK release, the hook points and a manifest checker
 - [News](${site}/news): what happens across the projects each week, in reports written by named people using AI tools
 - [News feed](${site}/news.xml): the written reports as RSS
 - [Full text](${site}/llms-full.txt): this file plus the FAQ in full
