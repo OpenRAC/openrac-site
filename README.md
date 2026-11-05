@@ -158,12 +158,12 @@ same `IMAGE_DIR` folder. The list (file name, game, place) is `src/lib/heroShots
 | `<name>-1080.mp4` | H.264, 1920x1080, for browsers without AV1 |
 | `<name>.webp` | the first frame, shown while the clip loads and with reduced motion |
 
-From a recording (cut to 9 seconds, no sound; each shows for 7 seconds plus the fade):
+From a 120 fps recording (9 seconds slowed to 18 at 60 fps with `setpts=2.0*PTS,fps=60`, no sound; each shows for 14 seconds plus the fade):
 
 ```sh
-ffmpeg -i master.mov -an -vf scale=1920:-2 -c:v libsvtav1 -crf 34 -preset 6 -pix_fmt yuv420p NAME-1080.webm
-ffmpeg -i master.mov -an -vf scale=1920:-2 -c:v libx264 -crf 23 -preset slow -pix_fmt yuv420p -movflags +faststart NAME-1080.mp4
-ffmpeg -i master.mov -frames:v 1 -vf scale=1920:-2 -c:v libwebp -quality 80 NAME.webp
+ffmpeg -ss START -t 9 -i rec.mp4 -an -vf "setpts=2.0*PTS,fps=60,scale=1920:-2" -c:v libsvtav1 -crf 42 -preset 4 -pix_fmt yuv420p NAME-1080.webm
+ffmpeg -ss START -t 9 -i rec.mp4 -an -vf "setpts=2.0*PTS,fps=60,scale=1920:-2" -c:v libx264 -crf 26 -preset slow -pix_fmt yuv420p -movflags +faststart NAME-1080.mp4
+ffmpeg -ss START -i rec.mp4 -frames:v 1 -vf scale=1920:-2 -c:v libwebp -quality 80 NAME.webp
 ```
 
 A clip whose files are missing drops out of the turn, so they can be added one at a time.

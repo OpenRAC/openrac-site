@@ -4,7 +4,7 @@ import { useEffect, useRef, useState, useSyncExternalStore, type ReactNode } fro
 import HeroGalaxies from "@/components/ui/HeroGalaxies";
 import { HERO_SHOTS, heroSrc } from "@/lib/heroShots";
 
-const HOLD_MS = 7000; // each clip's time on screen (the clips run a little longer, through the fade)
+const HOLD_MS = 14000; // each clip's time on screen (the 18 s clips, played at half speed, run on through the fade)
 const FADE_MS = 1600; // the crossfade, pictures and caption alike
 const FADE = "duration-[1600ms]";
 
