@@ -11,28 +11,59 @@ type Setting = Obj & { key: string; name: string; type: string };
 
 const LIB_EXT: Record<string, string> = { macos: "dylib", linux: "so", windows: "dll", android: "so" };
 
-/** Text with `code` spans, for the guide's one-line help under each field. */
+function HelpText({ text }: { text: string }) {
+  return <>{text.split(/(`[^`]+`)/g).map((p, i) => (p.startsWith("`") && p.length > 1 ? <code key={i} className="text-soft">{p.slice(1, -1)}</code> : p.replace(/\[([^\]]+)\]\([^)]*\)/g, "$1")))}</>;
+}
+
+/** Where the guide's help for a field stops being a hint: its first clause, if the rest is long. */
+function hintEnd(text: string): number {
+  let code = false;
+  for (let i = 12; i < text.length - 1; i++) {
+    if (text[i] === "`") code = !code;
+    else if (!code && (text[i] === "." || text[i] === ":" || text[i] === ";") && text[i + 1] === " ") return i + 1;
+  }
+  return text.length;
+}
+
+/** The guide's help under a field: a one-line hint, and the rest when asked for. */
 function Help({ text }: { text?: string }) {
   if (!text) return null;
+  const end = hintEnd(text);
+  const hint = text.slice(0, end).replace(/[:;]$/, ".");
+  const rest = text.slice(end).trim();
+  if (!rest || text.length < 90) {
+    return (
+      <span className="text-[13px] leading-snug text-dim">
+        <HelpText text={text} />
+      </span>
+    );
+  }
   return (
-    <span className="text-[13px] leading-snug text-dim">
-      {text.split(/(`[^`]+`)/g).map((p, i) => (p.startsWith("`") && p.length > 1 ? <code key={i} className="text-soft">{p.slice(1, -1)}</code> : p.replace(/\[([^\]]+)\]\([^)]*\)/g, "$1")))}
-    </span>
+    <details className="group/h text-[13px] leading-snug text-dim">
+      <summary className="cursor-pointer list-none">
+        <HelpText text={hint} /> <span className="text-soft underline decoration-dotted underline-offset-2 group-open/h:hidden">More</span>
+      </summary>
+      <p className="mt-1">
+        <HelpText text={rest} />
+      </p>
+    </details>
   );
 }
 
 function Field({ label, help, error, children }: { label: string; help?: string; error?: string[]; children: React.ReactNode }) {
   return (
-    <label className="grid content-start gap-1.5">
-      <span className="text-[13.5px] font-semibold text-hi">{label}</span>
-      {children}
+    <div className="grid content-start gap-1">
+      <label className="grid gap-1">
+        <span className="text-[13px] font-semibold text-hi">{label}</span>
+        {children}
+      </label>
       <Help text={help} />
       {error?.map((e) => (
         <span key={e} className="text-[13px] text-brand">
           {e}
         </span>
       ))}
-    </label>
+    </div>
   );
 }
 
@@ -136,7 +167,7 @@ export default function ManifestBuilder({
     <div className="grid gap-6 xl:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
       <form className="grid content-start gap-5" onSubmit={(e) => e.preventDefault()} aria-label="The manifest's fields">
         {!m && <p className="rounded-lg border-l-2 border-brand bg-brand/10 px-4 py-3 text-[14px] text-soft">The form needs the JSON on the right to be an object. Fix the JSON, or press Reset.</p>}
-        <fieldset disabled={!m} className="grid gap-5 disabled:opacity-50">
+        <fieldset disabled={!m} className="grid gap-4 disabled:opacity-50">
           <div className="grid gap-2">
             <span className="text-[13.5px] font-semibold text-hi">Kind of mod</span>
             <div className="d-seg self-start" role="radiogroup" aria-label="Kind of mod">
@@ -150,7 +181,7 @@ export default function ManifestBuilder({
             <Help text={kind === "script" ? "Runs everywhere, Android included. Sandboxed. No compiler needed." : "A library you build for each platform. The SDK's CMake fills in `plugin` for you."} />
           </div>
 
-          <div className="grid gap-4 sm:grid-cols-2">
+          <div className="grid gap-x-4 gap-y-3 sm:grid-cols-2">
             <Field label="Id" help={help.id} error={by("id")}>
               <input className="d-field font-mono" value={str("id")} onChange={(e) => set({ id: e.target.value })} spellCheck={false} />
             </Field>
@@ -177,13 +208,13 @@ export default function ManifestBuilder({
             <Field label="License" error={by("license")}>
               <input className="d-field" value={str("license")} placeholder="MIT" onChange={(e) => set({ license: e.target.value })} />
             </Field>
+            <Field label="Description" error={by("description")}>
+              <input className="d-field" value={str("description")} onChange={(e) => set({ description: e.target.value })} />
+            </Field>
+            <Field label="Homepage" help={help.homepage} error={by("homepage")}>
+              <input className="d-field" value={str("homepage")} placeholder="https://github.com/you/your-mod" onChange={(e) => set({ homepage: e.target.value })} />
+            </Field>
           </div>
-          <Field label="Description" error={by("description")}>
-            <input className="d-field" value={str("description")} onChange={(e) => set({ description: e.target.value })} />
-          </Field>
-          <Field label="Homepage" help={help.homepage} error={by("homepage")}>
-            <input className="d-field" value={str("homepage")} placeholder="https://github.com/you/your-mod" onChange={(e) => set({ homepage: e.target.value })} />
-          </Field>
 
           <div className="grid gap-2">
             <span className="text-[13.5px] font-semibold text-hi">Games and discs</span>

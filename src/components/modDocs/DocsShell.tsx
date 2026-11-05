@@ -75,12 +75,13 @@ export default function DocsShell({
       <div className="mx-auto max-w-[1280px] px-4 pb-16 pt-6 lg:grid lg:grid-cols-[240px_minmax(0,1fr)] lg:gap-10 xl:grid-cols-[240px_minmax(0,1fr)_200px]">
         <aside className="hidden lg:block">
           <div className="sticky top-4 grid max-h-[calc(100vh-32px)] gap-6 overflow-y-auto pb-6 pr-1 [scrollbar-width:thin]">
-            <div className="grid gap-2 px-3">
-              <Link href="/" className="inline-flex w-fit text-text no-underline opacity-90 hover:opacity-100" aria-label="OpenRAC home">
-                <Logo height={26} label="" accent />
+            <div className="flex items-center gap-3 px-3">
+              <Link href="/" className="inline-flex flex-none text-text no-underline opacity-90 hover:opacity-100" aria-label="OpenRAC home">
+                <Logo height={24} label="" accent />
               </Link>
-              <a href={docsHref(version, "", latest)} className="text-[16px] font-semibold text-hi no-underline">
-                Mod SDK docs
+              <span aria-hidden className="h-5 w-px bg-white/15" />
+              <a href={docsHref(version, "", latest)} className="text-[14.5px] font-medium text-soft no-underline hover:text-hi">
+                SDK docs
               </a>
             </div>
             {controls}
@@ -90,11 +91,12 @@ export default function DocsShell({
 
         <div className="min-w-0">
           <div className="mb-4 flex items-center gap-3 lg:hidden">
-            <Link href="/" className="inline-flex text-text no-underline" aria-label="OpenRAC home">
-              <Logo height={24} label="" accent />
+            <Link href="/" className="inline-flex flex-none text-text no-underline" aria-label="OpenRAC home">
+              <Logo height={22} label="" accent />
             </Link>
-            <a href={docsHref(version, "", latest)} className="text-[15px] font-semibold text-hi no-underline">
-              Mod SDK docs
+            <span aria-hidden className="h-5 w-px bg-white/15" />
+            <a href={docsHref(version, "", latest)} className="text-[14.5px] font-medium text-soft no-underline hover:text-hi">
+              SDK docs
             </a>
           </div>
           <div className="mb-4">

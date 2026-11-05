@@ -1,7 +1,7 @@
 import { callShape, namedConstants, splitReturns, withoutSince } from "@/lib/modDocs/logic";
 import type { CGroup, CItem, CMember, Release } from "@/lib/modDocs/types";
 import Code from "./Code";
-import CommentText, { Paragraphs } from "./CommentText";
+import CommentText, { Brief, Paragraphs } from "./CommentText";
 import Entry, { Examples, Part } from "./Entry";
 import Since, { Tag } from "./Since";
 
@@ -100,6 +100,17 @@ function ApiGroup({ g, r, names }: { g: CGroup; r: Release; names: Map<string, s
   );
 }
 
+/** Runs of constants one after another, without text of their own, read as one table. */
+function mergeConstants(items: CItem[]): CItem[] {
+  const out: CItem[] = [];
+  for (const it of items) {
+    const prev = out[out.length - 1];
+    if (it.kind === "constants" && prev?.kind === "constants" && !it.about) out[out.length - 1] = { ...prev, items: [...prev.items, ...it.items] };
+    else out.push(it);
+  }
+  return out;
+}
+
 function Item({ item, r, names }: { item: CItem; r: Release; names: Map<string, string> }) {
   if (item.kind === "constants") {
     return (
@@ -122,9 +133,9 @@ function Item({ item, r, names }: { item: CItem; r: Release; names: Map<string, 
               {item.items.map((c) => (
                 <tr key={c.name} id={c.name} className="scroll-mt-20 border-t border-line target:bg-amber/10">
                   <td className="whitespace-nowrap px-4 py-2 align-top font-mono text-[13px] text-gold">{c.name}</td>
-                  <td className="px-4 py-2 align-top font-mono text-[13px] text-hi">{c.values.join(" or ")}</td>
-                  <td className="px-4 py-2 align-top text-body">
-                    <Since since={c.since} iface={r.interface} /> <CommentText text={withoutSince(c.about)} names={names} />
+                  <td className="max-w-[14rem] px-4 py-2 align-top font-mono text-[13px] text-hi [overflow-wrap:anywhere]">{c.values.join(" or ")}</td>
+                  <td className="min-w-[18rem] px-4 py-2 align-top text-body">
+                    <Since since={c.since} iface={r.interface} /> <Brief text={withoutSince(c.about)} names={names} />
                   </td>
                 </tr>
               ))}
@@ -161,7 +172,7 @@ function Item({ item, r, names }: { item: CItem; r: Release; names: Map<string, 
                 g.members.map((m, j) => (
                   <tr key={m.name} id={`${item.name}.${m.name}`} className="scroll-mt-20 border-t border-line target:bg-amber/10">
                     <td className="px-3 py-2 align-top font-mono text-[13px] text-hi [overflow-wrap:anywhere]">{m.decl}</td>
-                    <td className="px-3 py-2 align-top text-body">{j === 0 ? <CommentText text={withoutSince(g.about)} names={names} /> : <span className="text-dim">(as above)</span>}</td>
+                    <td className="px-3 py-2 align-top text-body">{j === 0 ? <Brief text={withoutSince(g.about)} names={names} /> : <span className="text-dim">(as above)</span>}</td>
                   </tr>
                 )),
               )}
@@ -203,7 +214,7 @@ export default function CReference({ r }: { r: Release }) {
             <Since since={s.since} iface={r.interface} />
           </div>
           {s.about && <Paragraphs text={s.about} names={names} className="max-w-[760px]" />}
-          {s.items.map((item, j) => (
+          {mergeConstants(s.items).map((item, j) => (
             <Item key={j} item={item} r={r} names={names} />
           ))}
         </section>
