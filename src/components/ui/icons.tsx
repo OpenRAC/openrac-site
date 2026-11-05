@@ -19,6 +19,17 @@ export function GithubIcon({ className = "size-5" }: { className?: string }) {
   );
 }
 
+/** A folded newspaper: the mark of News. */
+export function NewsIcon({ className = "size-5" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true" className={`flex-none fill-none stroke-current ${className}`} strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
+      <path d="M4 5.5A1.5 1.5 0 0 1 5.5 4h10A1.5 1.5 0 0 1 17 5.5V18a2 2 0 0 0 2 2H6a2 2 0 0 1-2-2z" />
+      <path d="M17 9h2.5A1.5 1.5 0 0 1 21 10.5V18a2 2 0 0 1-2 2" />
+      <path d="M8 8h5M8 12h5M8 16h3" />
+    </svg>
+  );
+}
+
 /** The arrow at the end of a link row; it nudges right when its row (a `group`) is hovered. */
 export function Arrow() {
   return <span aria-hidden className="ml-auto flex-none text-brand transition-transform group-hover:translate-x-0.5">→</span>;

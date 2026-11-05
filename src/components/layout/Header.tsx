@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { type MouseEvent, useEffect, useState } from "react";
 import { PAGE_TRANSITION } from "@/components/layout/PageTransition";
-import { DiscordIcon, GithubIcon } from "@/components/ui/icons";
+import { DiscordIcon, GithubIcon, NewsIcon } from "@/components/ui/icons";
 import Logo from "@/components/ui/Logo";
 import { HAS_CREDITS } from "@/lib/credits";
 import { DISCORD_URL, GITHUB_URL } from "@/lib/projects";
@@ -20,7 +20,7 @@ const SECTIONS = ([
 ] as const).filter(([id]) => id !== "credits" || HAS_CREDITS);
 
 const link =
-  "group/l relative flex min-h-11 items-center rounded-full px-3.5 text-[17px] font-bold no-underline transition-colors min-[821px]:min-h-9 min-[821px]:whitespace-nowrap min-[821px]:text-[15px] min-[821px]:max-[1023px]:px-2 min-[821px]:max-[900px]:px-1.5 min-[821px]:max-[1023px]:text-[14px]";
+  "group/l relative flex min-h-11 items-center rounded-full px-3.5 text-[17px] font-bold no-underline transition-colors min-[821px]:min-h-9 min-[821px]:whitespace-nowrap min-[821px]:text-[15px] min-[821px]:max-[1023px]:px-2 min-[821px]:max-[900px]:px-1.5 min-[821px]:max-[860px]:px-1 min-[821px]:max-[1023px]:text-[14px]";
 // The open mobile menu sits on the page's colour, the bar on its stripes: light text there, dark here.
 // The current section: a pill as tall as the bar's buttons. Its label never wraps, so the pill cannot grow to the bar's height.
 const linkOn = "bg-white/[.06] text-amber min-[821px]:bg-[#1b1206] [&>span]:hidden";
@@ -38,6 +38,8 @@ const barIcon = "flex size-10 flex-none items-center justify-center rounded-full
 /** Mods on the wide bar: dark with gold like Download, filled gold while on /mods. */
 const modsOff = "border-black/25 bg-[#1b1206] text-amber hover:bg-[#2a1800]";
 const modsOn = "border-black/25 bg-amber text-[#1a0d00]";
+/** News while on /news: filled gold like Mods, with a dark ring so it stays a disc on the gold stripes. */
+const newsOn = "bg-amber text-[#1a0d00] ring-1 ring-inset ring-black/25";
 
 /** A small puzzle piece: the mark of Mods in the bar. Its knobs sit top and right, so the view is shifted to
     put the piece's weight, not its outline, in the middle of a round button. */
@@ -46,6 +48,23 @@ function ModsMark({ className = "size-4" }: { className?: string }) {
     <svg viewBox="-1 1 16 16" aria-hidden className={`flex-none fill-current ${className}`}>
       <path d="M6 1.5a2 2 0 0 1 2 2V4h3a1 1 0 0 1 1 1v3h.5a2 2 0 1 1 0 4H12v2.5a1 1 0 0 1-1 1H8V15a2 2 0 1 0-4 0v.5H1.5a1 1 0 0 1-1-1V12H1a2 2 0 1 0 0-4H.5V5a1 1 0 0 1 1-1H4v-.5a2 2 0 0 1 2-2z" />
     </svg>
+  );
+}
+
+/** News as a round button next to GitHub: its own pages, so it is marked gold while on them. */
+function NewsButton({ on, onClick, className = "" }: { on: boolean; onClick?: () => void; className?: string }) {
+  return (
+    <Link
+      href="/news"
+      transitionTypes={PAGE_TRANSITION}
+      onClick={onClick}
+      aria-label="News"
+      title="News"
+      aria-current={on ? "page" : undefined}
+      className={`flex flex-none items-center justify-center rounded-full transition-colors ${className}`}
+    >
+      <NewsIcon className="size-[21px] min-[821px]:size-[19px]" />
+    </Link>
   );
 }
 
@@ -147,7 +166,8 @@ export default function Header() {
           >
             <ModsMark className="size-[22px]" />
           </Link>
-          {/* Too wide for the narrowest phones: there they move into the menu, so the menu button stays on screen. */}
+          {/* Too wide for the narrowest phones: there they move into the menu (News first), so the menu button stays on screen. */}
+          <NewsButton on={inNews} onClick={close} className={`${barIcon} -ml-5 max-[400px]:hidden ${inNews ? "bg-black/15" : ""}`} />
           <MarkButton site="github" onClick={close} className={`${barIcon} -ml-5 max-[359px]:hidden`} />
           <MarkButton site="discord" onClick={close} className={`${barIcon} -ml-5 max-[359px]:hidden`} />
           <button
@@ -182,11 +202,6 @@ export default function Header() {
                   </Link>
                 ),
               )}
-              {/* Its own pages, not a section of the home page. */}
-              <Link href="/news" transitionTypes={PAGE_TRANSITION} onClick={close} aria-current={inNews ? "page" : undefined} className={`${link} ${inNews ? linkOn : linkOff}`}>
-                News
-                <span className={underline} />
-              </Link>
             </div>
             <div className="grid gap-2 min-[821px]:ml-auto min-[821px]:flex min-[821px]:items-center min-[821px]:max-[1023px]:gap-1.5">
               {/* Mods, set apart from the home page's sections: its own page, with its own mark. Not in the
@@ -199,12 +214,14 @@ export default function Header() {
               <Link href="/#download" transitionTypes={PAGE_TRANSITION} onClick={close} className={`${pill} border border-amber bg-amber text-[#1a0d00] hover:brightness-110 min-[821px]:border-black/25 min-[821px]:bg-[#1b1206] min-[821px]:text-amber min-[821px]:hover:bg-[#2a1800] min-[821px]:hover:brightness-100`}>
                 Download
               </Link>
-              <div className="flex justify-center gap-2 min-[360px]:hidden">
-                <MarkButton site="github" onClick={close} className={`${mark} size-11`} />
-                <MarkButton site="discord" onClick={close} className={`${mark} size-11`} />
+              <div className="flex justify-center gap-2 min-[400px]:hidden">
+                <NewsButton on={inNews} onClick={close} className={`${inNews ? newsOn : mark} size-11`} />
+                <MarkButton site="github" onClick={close} className={`${mark} size-11 min-[360px]:hidden`} />
+                <MarkButton site="discord" onClick={close} className={`${mark} size-11 min-[360px]:hidden`} />
               </div>
-              <MarkButton site="github" onClick={close} className={`${mark} size-9 max-[821px]:hidden`} />
-              <MarkButton site="discord" onClick={close} className={`${mark} size-9 max-[821px]:hidden`} />
+              <NewsButton on={inNews} onClick={close} className={`${inNews ? newsOn : mark} size-9 min-[821px]:max-[860px]:size-8 max-[821px]:hidden`} />
+              <MarkButton site="github" onClick={close} className={`${mark} size-9 min-[821px]:max-[860px]:size-8 max-[821px]:hidden`} />
+              <MarkButton site="discord" onClick={close} className={`${mark} size-9 min-[821px]:max-[860px]:size-8 max-[821px]:hidden`} />
             </div>
           </nav>
         </div>
