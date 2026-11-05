@@ -275,7 +275,7 @@ export default async function ModPage(props: PageProps<"/mods/[id]">) {
             {works === "dev" ? (
               <>
                 <b className="text-gold">Needs the dev build of the launcher.</b> It uses parts of the mod interface the released launcher does not have yet. Each system in the{" "}
-                <Link href="/#download" className="text-amber">
+                <Link href="/install" className="text-amber">
                   download panel
                 </Link>{" "}
                 has a DEV link.

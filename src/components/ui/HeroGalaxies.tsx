@@ -3,8 +3,8 @@
 import { useEffect, useRef } from "react";
 
 /*
- * A corner of the series' sky behind the hero: the real galaxies of the games, drawn as faint dots.
- * A background first, an easter egg second: names show only on a closer look.
+ * A window onto the series' sky under the hero: the real galaxies of the games, drawn as faint dots.
+ * A picture first, an easter egg second: names show only on a closer look.
  *
  * Desktop: the scene leans with the cursor; hover a dot for its planet. Phones: only scrolling moves it
  * (a slow turn and parallax) and walks through a few planets; touching the scene does nothing.
@@ -130,7 +130,7 @@ function galaxySprite(g: Galaxy, px: number, gi: number) {
     const t = hash(k + gi * 991, 1.3), arm = k % g.arms;
     const a = t * 5.4 + (arm * Math.PI * 2) / g.arms + (hash(k, 77 + gi) - 0.5) * 0.55;
     const d = Math.pow(t, 0.85) * rad + (hash(k + 3, gi * 13) - 0.5) * rad * 0.12;
-    x.fillStyle = `rgba(${GOLD},${0.1 + (1 - t) * 0.36})`;
+    x.fillStyle = `rgba(${GOLD},${0.14 + (1 - t) * 0.44})`;
     x.fillRect(size / 2 + Math.cos(a) * d, size / 2 + Math.sin(a) * d, dot, dot);
   }
   // a soft core, made of dots too: no glow
@@ -177,16 +177,9 @@ export default function HeroGalaxies() {
       const r = cv!.getBoundingClientRect();
       W = r.width; H = r.height; DPR = Math.min(2, devicePixelRatio || 1);
       cv!.width = Math.round(W * DPR); cv!.height = Math.round(H * DPR);
-      if (W >= 900) {
-        // the right part of a wide screen, clear of the headline
-        S = Math.min((W * 0.5) / 1000, (H * 0.95) / 600);
-        X0 = W - 1000 * S - Math.max(16, W * 0.015); Y0 = (H - 600 * S) / 2;
-        fade = W >= 1200 ? 1 : 0.7; // quieter where it reaches under the headline
-      } else {
-        // behind the buttons and numbers on a phone, as wide as the screen, quieter
-        S = (W * 1.08) / 1000;
-        X0 = -W * 0.06; Y0 = H - 600 * S - 24; fade = 0.75;
-      }
+      // the scene in the window, centred, a little larger than the window so its edges crop
+      S = Math.min(W / 900, H / 520);
+      X0 = (W - 1000 * S) / 2; Y0 = (H - 600 * S) / 2; fade = 1;
       sprites = GALAXIES.map((g, i) => galaxySprite(g, S * DPR, i));
       stars = [];
       for (let i = 0; i < Math.round((W * H) / 3200); i++)
@@ -227,8 +220,8 @@ export default function HeroGalaxies() {
       }
       GALAXIES.forEach((g, i) => drawGalaxy(i));
 
-      // galaxy names, quiet; not on a phone, where they would sit on the text
-      if (W >= 900) GALAXIES.forEach((g) => {
+      // galaxy names, quiet; not in a phone's small window
+      if (W >= 520) GALAXIES.forEach((g) => {
         const [x, y] = at(g.x, g.y, g.z), o = g.r * S * 0.7;
         ctx!.font = `600 9px ${display}`;
         const w = Math.max(ctx!.measureText(g.n).width, 90);
@@ -255,8 +248,7 @@ export default function HeroGalaxies() {
       // messages (gold bolts, cheats) sit top right
       if (toast) {
         ctx!.textAlign = "right";
-        // lined up with the right edge of the page's content (where the bar's Download ends), well clear of the screen's edge
-        text(toast, (W + Math.min(W, 1080)) / 2 - 16, Math.max(32, H * 0.09), `rgba(${GOLD},0.85)`, `600 11px ${MONO}`);
+        text(toast, W - 20, 28, `rgba(${GOLD},0.85)`, `600 11px ${MONO}`);
         ctx!.textAlign = "start";
       }
       if (qwark) drawQwark();
@@ -326,7 +318,7 @@ export default function HeroGalaxies() {
       const t = performance.now() - qwark;
       if (t > QWARK_MS) { qwark = 0; return; }
       const a = still ? 1 : Math.min(1, t / 250, (QWARK_MS - t) / 250);
-      const k = Math.min(1.5, Math.max(1, W / 1000)), x0 = W - Math.max(16, W * 0.015) - 110 * k, y0 = Math.max(40, H * 0.14);
+      const k = Math.min(1.4, Math.max(0.8, H / 420)), x0 = W - 20 - 110 * k, y0 = Math.max(16, H * 0.08);
       const c = ctx!;
       c.save(); c.globalAlpha = a; c.lineWidth = 1; c.strokeStyle = `rgba(${GOLD},0.55)`;
       for (const line of QWARK) { c.beginPath(); line.forEach(([x, y], i) => c[i ? "lineTo" : "moveTo"](x0 + x * k, y0 + y * k)); c.stroke(); }
@@ -370,18 +362,19 @@ export default function HeroGalaxies() {
     // How far the hero has scrolled away: 0 at the top, 1 once it is gone.
     function scrolled() {
       const r = cv!.getBoundingClientRect();
-      return Math.min(1, Math.max(0, -r.top / Math.max(1, r.height)));
+      // 0 as the window comes up from the bottom of the screen, 1 as it leaves at the top
+      return Math.min(1, Math.max(0, (innerHeight - r.top) / (innerHeight + r.height)));
     }
 
     function onScroll() {
       if (!visible) return;
       const k = scrolled();
       lean.tr = k * 0.35;
-      lean.ty = (mouse ? (mouse.y / H - 0.5) : 0) - k * 4;
+      lean.ty = (mouse ? (mouse.y / H - 0.5) : 0) - (k - 0.5) * 3;
       if (!fine) {
-        // a short tour, one stop at a time, only while the hero is still mostly on screen
-        const i = Math.floor((k / 0.75) * TOUR.length);
-        const next = k > 0.04 && i < TOUR.length ? spotId(TOUR[i]) : "";
+        // a short tour, one stop at a time, while the window crosses the middle of the screen
+        const i = Math.floor(((k - 0.3) / 0.45) * TOUR.length);
+        const next = i >= 0 && i < TOUR.length ? spotId(TOUR[i]) : "";
         if (next !== tour) tour = next;
       }
       kick();
@@ -446,7 +439,7 @@ export default function HeroGalaxies() {
     <canvas
       ref={ref}
       aria-hidden
-      className="pointer-events-none absolute inset-y-0 left-1/2 -z-10 h-full w-[100vw] -translate-x-1/2 [mask-image:linear-gradient(to_bottom,black_75%,transparent)]"
+      className="pointer-events-none absolute inset-0 size-full"
     />
   );
 }

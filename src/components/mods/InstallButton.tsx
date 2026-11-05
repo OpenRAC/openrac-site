@@ -4,7 +4,7 @@ import { useRef, useState } from "react";
 import { installUrl, intentUrl, type Wanted } from "@/lib/mods/logic";
 import Sheet from "./Sheet";
 
-const DOWNLOAD = "/#download";
+const DOWNLOAD = "/install";
 
 const arrow = (
   <svg viewBox="0 0 16 16" aria-hidden="true" className="size-4 flex-none fill-none stroke-current stroke-2">

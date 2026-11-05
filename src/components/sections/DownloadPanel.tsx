@@ -148,16 +148,18 @@ function SystemCard({ p, i, mine, release, dev, devAgo, fallback }: {
  * the link still opens it (CSS :target). `art`: the heading's drawing, drawn on the server so its
  * shapes never ship in this component's script.
  */
-export default function DownloadPanel({ release, dev, platforms, fallback, art }: {
+export default function DownloadPanel({ release, dev, platforms, fallback, art, standalone = false }: {
   release: LauncherRelease | null;
   dev: DevBuild | null;
   platforms: Platform[];
   fallback: string;
   art: ReactNode;
+  /** On its own page (/install): always open, the page's heading, nothing to close. */
+  standalone?: boolean;
 }) {
   const ref = useRef<HTMLElement>(null);
   const heading = useRef<HTMLHeadingElement>(null);
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(standalone);
   // Known only in the browser: the server renders no system as the visitor's and no "3 days ago".
   const mine = useSyncExternalStore(noChange, browserPlatform, () => null);
   // The build may be newer than this page: the panel asks the server again when it opens.
@@ -167,6 +169,7 @@ export default function DownloadPanel({ release, dev, platforms, fallback, art }
   const devAgo = useSyncExternalStore(noChange, () => (devDate ? ago(devDate) : ""), () => "");
 
   useEffect(() => {
+    if (standalone) return;
     const show = () => {
       setOpen(true);
       // after the panel is laid out open, so the scroll lands on its top
@@ -194,7 +197,7 @@ export default function DownloadPanel({ release, dev, platforms, fallback, art }
       document.removeEventListener("click", onClick, true);
       window.removeEventListener("hashchange", onHash);
     };
-  }, []);
+  }, [standalone]);
 
   useEffect(() => {
     if (!open || !dev) return;
@@ -228,15 +231,21 @@ export default function DownloadPanel({ release, dev, platforms, fallback, art }
         <div className="dl-inner relative pb-10 pt-4 sm:pb-14">
           <div className="mb-2 flex items-center gap-3 sm:gap-5">
             {art}
-            <h2
-              id="download-title"
-              ref={heading}
-              tabIndex={-1}
-              className="min-w-0 bg-gradient-to-r from-text to-soft bg-clip-text font-audiowide text-[clamp(24px,3.4vw,32px)] leading-tight text-transparent outline-none"
-            >
-              Get the launcher
-            </h2>
-            <button
+            {standalone ? (
+              <h1 id="download-title" className="min-w-0 bg-gradient-to-r from-text to-soft bg-clip-text font-audiowide text-[clamp(28px,4.4vw,42px)] leading-tight text-transparent">
+                Install OpenRAC
+              </h1>
+            ) : (
+              <h2
+                id="download-title"
+                ref={heading}
+                tabIndex={-1}
+                className="min-w-0 bg-gradient-to-r from-text to-soft bg-clip-text font-audiowide text-[clamp(24px,3.4vw,32px)] leading-tight text-transparent outline-none"
+              >
+                Get the launcher
+              </h2>
+            )}
+            {!standalone && <button
               type="button"
               onClick={close}
               aria-label="Close downloads"
@@ -245,7 +254,7 @@ export default function DownloadPanel({ release, dev, platforms, fallback, art }
               <svg viewBox="0 0 16 16" aria-hidden="true" className="size-4 fill-none stroke-current stroke-2">
                 <path d="M3.5 3.5l9 9m0-9-9 9" strokeLinecap="round" />
               </svg>
-            </button>
+            </button>}
           </div>
 
           <p className="mb-6 max-w-[760px] text-dim sm:mb-8">Pick your system: the launcher sets each game up from your own disc. No game is downloaded.</p>

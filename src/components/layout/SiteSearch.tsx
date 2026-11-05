@@ -8,7 +8,7 @@ type Entry = { t: string; k: string; h: string; d?: string };
 
 /** The site's own places, always there; the mods are added from /mods.json on first open. */
 const PLACES: Entry[] = [
-  { t: "Download", k: "Page", h: "/#download", d: "Get the OpenRAC launcher." },
+  { t: "Install", k: "Page", h: "/install", d: "Get the OpenRAC launcher for your system." },
   { t: "Progress", k: "Section", h: "/#progress", d: "How much of each game compiles to the retail bytes." },
   { t: "Contribute", k: "Section", h: "/#contribute", d: "Ways to help the decompilation projects." },
   { t: "How it works", k: "Section", h: "/#how", d: "What a matching decompilation is." },

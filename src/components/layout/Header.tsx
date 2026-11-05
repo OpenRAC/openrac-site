@@ -206,8 +206,8 @@ export default function Header() {
                   Mods
                 </Link>
                 <span aria-hidden className={`${divider} max-[821px]:hidden`} />
-                {/* The home page's Download panel; elsewhere it goes home and opens it there. */}
-                <Link href="/#download" transitionTypes={PAGE_TRANSITION} onClick={close} className={`${pill} border border-amber bg-amber text-[#1a0d00] hover:brightness-110 min-[821px]:border-0 min-[821px]:bg-transparent min-[821px]:text-amber min-[821px]:hover:bg-[#2a1800] min-[821px]:hover:brightness-100`}>
+                {/* The install page: the launcher for every system. */}
+                <Link href="/install" transitionTypes={PAGE_TRANSITION} onClick={close} aria-current={pathname === "/install" ? "page" : undefined} className={`${pill} border border-amber bg-amber text-[#1a0d00] hover:brightness-110 min-[821px]:border-0 min-[821px]:bg-transparent min-[821px]:text-amber min-[821px]:hover:bg-[#2a1800] min-[821px]:hover:brightness-100`}>
                   Download
                 </Link>
               </div>

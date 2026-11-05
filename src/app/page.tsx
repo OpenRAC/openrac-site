@@ -3,7 +3,6 @@ import Activity from "@/components/sections/Activity";
 import AiView from "@/components/sections/AiView";
 import Contribute from "@/components/sections/Contribute";
 import Credits from "@/components/sections/Credits";
-import Download from "@/components/sections/Download";
 import Faq from "@/components/sections/Faq";
 import Hero from "@/components/sections/Hero";
 import LatestNews from "@/components/sections/LatestNews";
@@ -17,14 +16,14 @@ import { getLatestReports } from "@/lib/news";
 import { isWithdrawn } from "@/lib/mods/logic";
 import { homeLd, ldJson, siteUrl } from "@/lib/machine";
 import { getProgress } from "@/lib/progress";
-import { getDevBuild, getLauncherRelease } from "@/lib/releases";
+import { getLauncherRelease } from "@/lib/releases";
 
 // Rendered on the server and cached; rebuilt in the background at most every 5 minutes.
 export const revalidate = 300;
 
-/** The home page: every section in order, with the progress, activity and latest launcher builds loaded on the server. */
+/** The home page: every section in order, with the progress, activity and latest launcher release loaded on the server. Downloads live on /install. */
 export default async function Home() {
-  const [progress, commits, release, dev, { catalog }, news] = await Promise.all([getProgress(), getActivity(), getLauncherRelease(), getDevBuild(), getModCatalog(), getLatestReports(3)]);
+  const [progress, commits, release, { catalog }, news] = await Promise.all([getProgress(), getActivity(), getLauncherRelease(), getModCatalog(), getLatestReports(3)]);
   // Counted as on /mods, so the two numbers agree.
   const mods = catalog.mods.filter((m) => !isWithdrawn(catalog.revoked, m.id)).length;
 
@@ -32,8 +31,7 @@ export default async function Home() {
     <PageTransition>
     <main className="mx-auto max-w-[1080px] px-4">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: ldJson(homeLd(siteUrl(), release)) }} />
-      <Hero progress={progress} mods={mods} />
-      <Download release={release} dev={dev} />
+      <Hero progress={progress} mods={mods} release={release} />
       <Progress progress={progress} />
       <Contribute />
       {news.length > 0 && <LatestNews reports={news} />}

@@ -4,28 +4,38 @@ import type { ProjectProgress } from "@/lib/progress";
 import type { ProjectId } from "@/lib/projects";
 import CountUp from "@/components/ui/CountUp";
 import HeroGalaxies from "@/components/ui/HeroGalaxies";
+import HeroDownload from "@/components/sections/HeroDownload";
+import Link from "next/link";
+import type { LauncherRelease } from "@/lib/releases";
 
-/** The top of the home page: headline, the two main buttons and four headline numbers. */
-export default function Hero({ progress, mods }: { progress: Partial<Record<ProjectId, ProjectProgress>>; mods: number }) {
+/**
+ * The top of the home page, centred: the latest release, the headline, one download button for the
+ * visitor's system, and a window onto the series' galaxies; the four headline numbers under it.
+ */
+export default function Hero({ progress, mods, release }: { progress: Partial<Record<ProjectId, ProjectProgress>>; mods: number; release: LauncherRelease | null }) {
   const active = Object.values(progress);
   const bytes = active.reduce((sum, p) => sum + (p?.code.done ?? 0), 0);
 
   return (
-    <div className="relative isolate pb-8 pt-12 sm:pb-16 sm:pt-24">
-      <HeroGalaxies />
-      {/* One line at every width: on a phone the letters shrink with the screen rather than wrap. */}
-      <p className="mb-4 whitespace-nowrap font-orbitron text-[clamp(7px,2.35vw,11px)] font-bold uppercase tracking-[.2em] text-brand sm:tracking-[.28em] after:mt-2 after:block after:h-[3px] after:w-11 after:rounded-sm after:bg-brand after:content-[''] sm:text-[13px]">
-        Unofficial · open source · community driven
-      </p>
+    <div className="relative flex flex-col items-center pb-10 pt-10 text-center sm:pb-16 sm:pt-14">
+      {/* What is new: the launcher's latest release and its notes. */}
+      {release && (
+        <a href={release.url} className="mb-7 inline-flex max-w-full flex-wrap justify-center gap-x-1.5 rounded-full bg-white/[.06] px-4 py-2 text-[13px] leading-snug text-soft no-underline transition-colors hover:bg-white/10 sm:text-[14px]">
+          <b className="font-semibold text-text">Launcher v{release.version} is out.</b>
+          <span>
+            See <span className="text-amber underline decoration-amber/40 underline-offset-2">what&apos;s new</span>
+          </span>
+        </a>
+      )}
       {/* Balanced lines: no word is ever left alone on the last line, whatever the width. */}
-      <h1 className="max-w-[700px] text-balance font-audiowide text-[clamp(28px,5.4vw,52px)] leading-[1.08]">
+      <h1 className="max-w-[760px] text-balance font-audiowide text-[clamp(28px,5.4vw,52px)] leading-[1.08]">
         <span className="animate-shine bg-gradient-to-r from-amber via-[#e8a317] to-gold bg-[length:220%_100%] bg-clip-text text-transparent">
           Ratchet &amp; Clank
         </span>{" "}
         {/* "original bytes." stays together, so "bytes." never sits alone on the last line. */}
         series, rebuilt from the <span className="whitespace-nowrap">original bytes.</span>
       </h1>
-      <p className="mt-4 max-w-[640px] text-[15px] leading-relaxed text-soft sm:text-[16px]">
+      <p className="mt-5 max-w-[620px] text-pretty text-[15px] leading-relaxed text-soft sm:text-[17px]">
         A hub for the <span className="text-amber">community decompilations</span> of Ratchet &amp; Clank:{" "}
         <span className="text-amber">readable source code</span> that compiles to the original games&apos;{" "}
         <span className="whitespace-nowrap">
@@ -36,20 +46,30 @@ export default function Hero({ progress, mods }: { progress: Partial<Record<Proj
           </svg>
         </span>
       </p>
-      <div className="mt-7 grid animate-rise gap-3 [animation-delay:.45s] min-[560px]:flex min-[560px]:flex-wrap">
-        {/* The main thing a visitor comes for, so it leads; it opens the Download panel right under the hero (DownloadPanel.tsx). */}
-        <a id="download-button" href="#download" aria-controls="download" className="btn btn-primary">
-          <svg viewBox="0 0 16 16" aria-hidden="true" className="size-4 flex-none fill-none stroke-current stroke-2">
-            <path d="M8 2v8m-3.5-3.5L8 10l3.5-3.5M3 13.5h10" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
-          Download the launcher
-        </a>
-        <a href="#progress" className="btn btn-ghost">
-          See progress
-        </a>
+      <HeroDownload version={release?.version ?? null} date={release?.date || null} ready={(release?.platforms ?? []).filter((p) => p.main).map((p) => p.id)} />
+      <p className="mt-6 max-w-[660px] text-[13px] leading-relaxed text-dim">
+        Unofficial and community driven. You need your own copy of the original game to play.{" "}
+        <Link href="/install#your-disc" className="whitespace-nowrap font-semibold text-hi no-underline hover:text-amber">
+          Learn more →
+        </Link>
+      </p>
+
+      {/* A window onto the series' sky, on a gold horizon that runs across the page behind it. */}
+      <div className="relative mt-10 w-full sm:mt-12">
+        <div aria-hidden className="absolute inset-x-[calc(50%-50vw)] bottom-[40%] top-[-30%] -z-10 bg-gradient-to-b from-transparent via-[#3a2606]/60 to-[#8a5c10]/75" />
+        <div className="overflow-hidden rounded-xl border border-white/10 bg-ink-deep shadow-[0_30px_80px_-30px_rgb(0_0_0/0.8)]">
+          <div className="flex h-9 items-center gap-2 border-b border-white/[.06] bg-white/[.03] px-4">
+            <span className="size-3 rounded-full bg-[#f5c040]" />
+            <span className="size-3 rounded-full bg-[#d6a020]" />
+            <span className="size-3 rounded-full bg-[#8a6512]" />
+          </div>
+          <div className="relative aspect-[4/3] min-[560px]:aspect-[16/8] lg:aspect-[16/7]">
+            <HeroGalaxies />
+          </div>
+        </div>
       </div>
 
-      <div className={`mt-8 grid animate-rise gap-x-6 gap-y-4 sm:mt-10 [animation-delay:.6s] ${mods ? "grid-cols-2" : "grid-cols-3"} min-[560px]:flex min-[560px]:flex-wrap min-[560px]:gap-x-6`}>
+      <div className={`mt-10 grid w-full animate-rise gap-x-6 gap-y-4 text-left [animation-delay:.6s] ${mods ? "grid-cols-2" : "grid-cols-3"} min-[560px]:flex min-[560px]:w-auto min-[560px]:flex-wrap min-[560px]:justify-center min-[560px]:gap-x-6`}>
         {[
           [<CountUp key="t" value={new Set(PROJECTS.map((p) => p.name)).size} />, "titles tracked"],
           [<CountUp key="a" value={active.length} />, "active projects"],
