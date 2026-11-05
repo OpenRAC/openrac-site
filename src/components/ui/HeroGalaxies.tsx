@@ -220,7 +220,8 @@ export default function HeroGalaxies() {
         ctx!.font = `600 9px ${display}`;
         const w = Math.max(ctx!.measureText(g.n).width, 90);
         // left of the galaxy when mirrored or when the right edge is too close
-        const lx = mirror || x + o + w > W - 8 ? x - o - w : x + o, ly = y + g.r * S * 0.42;
+        const flip = mirror || x + o + w > W - 8;
+        const lx = flip ? x - o - w : x + o, ly = flip && !mirror ? y - g.r * S * 0.75 : y + g.r * S * 0.42;
         text(g.n, lx, ly, `rgba(${WHITE},0.22)`, `600 9px ${display}`);
         text(g.games, lx, ly + 12, `rgba(${WHITE},0.12)`, `400 9px ${MONO}`);
       });
