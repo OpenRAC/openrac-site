@@ -9,8 +9,6 @@ const FADE_MS = 1600; // the crossfade, pictures and caption alike
 const FADE = "duration-[1600ms]";
 
 const noChange = () => () => {};
-// The 4K files only where they show: a screen at least 2400 device pixels wide.
-const wideScreen = () => window.screen.width * window.devicePixelRatio >= 2400;
 const reducedMotion = () => window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 /**
@@ -24,7 +22,6 @@ function HeroShotLayers({ at, off, missing, lost }: { at: number; off: boolean; 
   const next = after(at, missing);
   const [wanted, setWanted] = useState(() => new Set([0, 1]));
   if (!wanted.has(at) || !wanted.has(next)) setWanted(new Set([...wanted, at, next]));
-  const wide = useSyncExternalStore(noChange, wideScreen, () => false);
   const still = useSyncExternalStore(noChange, reducedMotion, () => true);
   const videos = useRef<(HTMLVideoElement | null)[]>([]);
 
@@ -48,7 +45,7 @@ function HeroShotLayers({ at, off, missing, lost }: { at: number; off: boolean; 
       {HERO_SHOTS.map((shot, i) =>
         wanted.has(i) && !missing.has(i) ? (
           <video
-            key={`${shot.file}${wide ? "-wide" : ""}`}
+            key={shot.file}
             ref={(v) => {
               videos.current[i] = v;
             }}
@@ -59,7 +56,7 @@ function HeroShotLayers({ at, off, missing, lost }: { at: number; off: boolean; 
             style={{ transitionDuration: `${FADE_MS}ms` }}
             className={`absolute inset-0 size-full object-cover transition-opacity ease-out ${i === at ? "opacity-100" : "opacity-0"}`}
           >
-            <source src={heroSrc(shot, wide ? "-2160.webm" : "-1080.webm")} type='video/webm; codecs="av01.0.08M.08"' />
+            <source src={heroSrc(shot, "-1080.webm")} type='video/webm; codecs="av01.0.08M.08"' />
             {/* The last source failing too means the clip is not there: drop it. */}
             <source src={heroSrc(shot, "-1080.mp4")} type="video/mp4" onError={() => lost(i)} />
           </video>

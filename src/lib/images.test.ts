@@ -19,9 +19,9 @@ test("resolveImage refuses anything else, including path tricks", () => {
 
 test("resolveImage serves the home page's clips with their video types", () => {
   assert.deepEqual(resolveImage("hero-rac1-kerwan-1080.mp4", "/d"), { file: "/d/hero-rac1-kerwan-1080.mp4", type: "video/mp4" });
-  assert.equal(resolveImage("hero-rac2-endako-2160.webm", "/d")?.type, "video/webm");
-  assert.equal(resolveImage("hero-rac2-endako.webp", "/d")?.type, "image/webp");
-  assert.equal(resolveImage("hero-rac2-endako-720.mp4", "/d"), null);
+  assert.equal(resolveImage("hero-rac1-gaspar-1080.webm", "/d")?.type, "video/webm");
+  assert.equal(resolveImage("hero-rac1-gaspar.webp", "/d")?.type, "image/webp");
+  assert.equal(resolveImage("hero-rac1-gaspar-720.mp4", "/d"), null);
 });
 
 test("byteRange reads the ranges a video player asks for", () => {

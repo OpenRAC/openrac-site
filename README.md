@@ -154,15 +154,13 @@ same `IMAGE_DIR` folder. The list (file name, game, place) is `src/lib/heroShots
 
 | File | What |
 | --- | --- |
-| `<name>-2160.webm` | AV1, 3840x2160, for 4K and high density screens |
 | `<name>-1080.webm` | AV1, 1920x1080 |
 | `<name>-1080.mp4` | H.264, 1920x1080, for browsers without AV1 |
 | `<name>.webp` | the first frame, shown while the clip loads and with reduced motion |
 
-From a 4K master (8 to 9 seconds, no sound; each shows for 7 seconds plus the fade):
+From a recording (cut to 9 seconds, no sound; each shows for 7 seconds plus the fade):
 
 ```sh
-ffmpeg -i master.mov -an -c:v libsvtav1 -crf 34 -preset 6 -pix_fmt yuv420p NAME-2160.webm
 ffmpeg -i master.mov -an -vf scale=1920:-2 -c:v libsvtav1 -crf 34 -preset 6 -pix_fmt yuv420p NAME-1080.webm
 ffmpeg -i master.mov -an -vf scale=1920:-2 -c:v libx264 -crf 23 -preset slow -pix_fmt yuv420p -movflags +faststart NAME-1080.mp4
 ffmpeg -i master.mov -frames:v 1 -vf scale=1920:-2 -c:v libwebp -quality 80 NAME.webp
