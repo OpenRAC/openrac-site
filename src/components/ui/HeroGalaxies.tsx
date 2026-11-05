@@ -8,11 +8,13 @@ import { useEffect, useRef } from "react";
  *
  * Desktop: the scene leans with the cursor; hover a dot for its planet. Phones: only scrolling moves it
  * (a slow turn and parallax) and walks through a few planets; touching the scene does nothing.
- * It draws only while something moves, from sprites made once per size, and never with reduced motion.
+ * The galaxies turn slowly in their own planes, from sprites made once per size; it stops while the hero is off
+ * screen or the tab is hidden, a phone draws at 30 fps, and with reduced motion it is a still picture.
  */
 
 type Planet = { n: string; g: string; c?: string; a: number; d: number };
-type Galaxy = { n: string; games: string; x: number; y: number; r: number; tilt: number; arms: number; flat: number; z: number; ps: Planet[] };
+// spin: how fast the galaxy turns in its own plane, radians a second (a slow, made-up rate: real ones take ages)
+type Galaxy = { n: string; games: string; x: number; y: number; r: number; tilt: number; arms: number; flat: number; z: number; spin: number; ps: Planet[] };
 type Spot = { id: string; x: number; y: number; z: number; n: string; c: string };
 
 const RC = "Ratchet & Clank";
@@ -23,13 +25,12 @@ const TOD = "Tools of Destruction";
 const QFB = "Quest for Booty";
 const ACIT = "A Crack in Time";
 const ITN = "Into the Nexus";
-const RA = "Rift Apart";
 
 // Scene units: a 1000 x 600 box. Planets sit at an angle and a distance (in galaxy radii) in their galaxy's plane.
 // Names and captions are checked against the games' Wikipedia articles and the fan wikis and guides; a caption
 // is left out where the sources disagree. Planets visited in more than one game list each of them.
 const GALAXIES: Galaxy[] = [
-  { n: "SOLANA", games: "PS2 · PS4", x: 235, y: 200, r: 125, tilt: 0.45, arms: 2, flat: 0.42, z: 14, ps: [
+  { n: "SOLANA", games: "PS2 · PS4", x: 240, y: 225, r: 140, tilt: 0.45, arms: 2, flat: 0.42, z: 14, spin: 0.014, ps: [
     { n: "Veldin", g: RC, c: "Kyzil Plateau", a: 0.3, d: 1.08 },
     { n: "Novalis", g: RC, c: "Tobruk Crater", a: 1.0, d: 0.78 },
     { n: "Kerwan", g: RC, c: "Metropolis", a: 1.7, d: 1.02 },
@@ -47,8 +48,14 @@ const GALAXIES: Galaxy[] = [
     { n: "Tyhrranosis", g: UYA, a: 4.4, d: 0.36 },
     { n: "Daxx", g: UYA, c: "superweapon research", a: 5.3, d: 0.3 },
     { n: "Obani Gemini", g: UYA, a: 1.35, d: 1.25 },
+    // the Shadow Sector: the lawless edge of Solana where DreadZone films its fights (Deadlocked)
+    { n: "Shaar", g: DL, c: "Shadow Sector · Temple of Shaar", a: 2.55, d: 1.42 },
+    { n: "Orxon", g: `${RC}, ${DL}`, c: "Shadow Sector", a: 2.85, d: 1.55 },
+    { n: "Kronos", g: DL, c: "Shadow Sector", a: 3.15, d: 1.4 },
+    { n: "Stygia", g: DL, c: "Shadow Sector · battered by meteors", a: 3.45, d: 1.58 },
+    { n: "Valix Belt", g: DL, c: "Shadow Sector · asteroids by a black hole", a: 3.8, d: 1.45 },
   ] },
-  { n: "BOGON", games: "PS2 · 2003", x: 735, y: 120, r: 85, tilt: -0.55, arms: 2, flat: 0.45, z: 18, ps: [
+  { n: "BOGON", games: "PS2 · 2003", x: 805, y: 125, r: 90, tilt: -0.55, arms: 2, flat: 0.45, z: 18, spin: -0.02, ps: [
     { n: "Oozla", g: GC, c: "Megacorp Outlet", a: 0.2, d: 1.1 },
     { n: "Maktar Nebula", g: GC, c: "Maktar Resort", a: 0.9, d: 0.8 },
     { n: "Endako", g: GC, c: "Megapolis", a: 1.6, d: 1.15 },
@@ -59,55 +66,41 @@ const GALAXIES: Galaxy[] = [
     { n: "Boldan", g: GC, a: 5.0, d: 0.85 },
     { n: "Yeedil", g: GC, c: "Megacorp's base", a: 5.7, d: 1.15 },
   ] },
-  { n: "POLARIS", games: "PS3 · PS5", x: 545, y: 420, r: 150, tilt: -0.18, arms: 2, flat: 0.4, z: 10, ps: [
+  { n: "POLARIS", games: "PS3 · 2007-2013", x: 650, y: 425, r: 160, tilt: -0.18, arms: 2, flat: 0.4, z: 10, spin: 0.01, ps: [
     { n: "Kerwan", g: TOD, c: "Polaris has one too", a: 0.15, d: 1.05 },
     { n: "Cobalia", g: TOD, c: "gel capital of Polaris", a: 0.6, d: 0.7 },
-    { n: "Ardolis", g: `${TOD}, ${RA}`, a: 1.05, d: 1.12 },
+    { n: "Ardolis", g: TOD, a: 1.05, d: 1.12 },
     { n: "Fastoon", g: TOD, c: "Lombax homeworld", a: 1.6, d: 0.55 },
     { n: "Igliak", g: `${TOD}, ${ITN}`, c: "Meridian City", a: 2.1, d: 1.0 },
     { n: "Merdegraw", g: QFB, c: "Drogol Sector", a: 2.6, d: 0.8 },
     { n: "Zanifar", g: ACIT, a: 3.05, d: 1.15 },
-    { n: "Torren IV", g: `${ACIT}, ${RA}`, a: 3.5, d: 0.65 },
+    { n: "Torren IV", g: ACIT, a: 3.5, d: 0.65 },
     { n: "Yerek", g: ITN, c: "Zarkov Sector", a: 4.0, d: 1.05 },
     { n: "Silox", g: ITN, c: "Weeblesnog City", a: 4.45, d: 0.45 },
-    { n: "Corson V", g: RA, c: "Megalopolis", a: 4.95, d: 0.95 },
-    { n: "Sargasso", g: `${TOD}, ${RA}`, a: 5.4, d: 0.6 },
-    { n: "Blizar Prime", g: RA, a: 5.85, d: 1.1 },
+    { n: "Kortog", g: TOD, a: 4.95, d: 0.95 },
+    { n: "Sargasso", g: TOD, a: 5.4, d: 0.6 },
+    { n: "Quantos", g: ACIT, a: 5.85, d: 1.1 },
     { n: "Lumos", g: ACIT, a: 3.8, d: 0.3 },
     { n: "Jasindu", g: TOD, c: "home of the Kerchu", a: 0.35, d: 0.38 },
   ] },
-  // not a galaxy: the lawless edge of Solana where DreadZone films its fights
-  { n: "SHADOW SECTOR", games: "Solana's edge · PS2 · 2005", x: 95, y: 405, r: 46, tilt: 1.1, arms: 3, flat: 0.5, z: 20, ps: [
-    { n: "Shaar", g: DL, c: "Temple of Shaar", a: 0.4, d: 1.55 },
-    { n: "Orxon", g: `${RC}, ${DL}`, a: 1.5, d: 1.7 },
-    { n: "Kronos", g: DL, a: 2.6, d: 1.45 },
-    { n: "Stygia", g: DL, c: "battered by meteors", a: 3.6, d: 1.8 },
-    { n: "Valix Belt", g: DL, c: "asteroids by a black hole", a: 4.6, d: 1.5 },
-  ] },
-  // through the rift: Rivet's dimension, where Nefarious won
-  { n: "RIVET'S DIMENSION", games: "through the rift · PS5", x: 885, y: 455, r: 62, tilt: -0.18, arms: 2, flat: 0.4, z: 24, ps: [
-    { n: "Nefarious City", g: RA, c: "Corson V, his way", a: 4.95, d: 0.95 },
-  ] },
 ];
-const GHOST = 4; // the other dimension: fainter, brighter while the rift is under the cursor
 
 // Things that are not planets, in scene units: hovered on desktop, found on phones by scrolling.
 const SPOTS: Spot[] = [
-  { id: "clock", x: 505, y: 298, z: 12, n: "The Great Clock", c: "centre of the universe, give or take fifty feet" },
-  { id: "rift", x: 790, y: 505, z: 18, n: "A dimensional rift", c: "Rift Apart" },
-  { id: "aphelion", x: 690, y: 330, z: 16, n: "Aphelion", c: "Ratchet's Lombax fighter" },
-  { id: "deplanetizer", x: 128, y: 110, z: 18, n: "The Deplanetizer", c: "Drek's, aimed at Veldin" },
-  { id: "phoenix", x: 385, y: 112, z: 16, n: "Starship Phoenix", c: "Q-Force base, Up Your Arsenal" },
-  { id: "station", x: 95, y: 405, z: 20, n: "DreadZone Station", c: "Gleeman Vox's game show" },
+  { id: "clock", x: 455, y: 335, z: 12, n: "The Great Clock", c: "centre of the universe, give or take fifty feet" },
+  { id: "aphelion", x: 905, y: 320, z: 16, n: "Aphelion", c: "Ratchet's Lombax fighter" },
+  { id: "deplanetizer", x: 100, y: 105, z: 18, n: "The Deplanetizer", c: "Drek's, aimed at Veldin" },
+  { id: "phoenix", x: 430, y: 95, z: 16, n: "Starship Phoenix", c: "Q-Force base, Up Your Arsenal" },
+  { id: "station", x: 62, y: 330, z: 20, n: "DreadZone Station", c: "Shadow Sector · Gleeman Vox's game show" },
 ];
 
 // Three gold bolts, hidden among the stars (desktop: click them). All three show the museum.
 const BOLTS = [{ x: 610, y: 40 }, { x: 975, y: 270 }, { x: 330, y: 575 }];
-const MUSEUM: Spot = { id: "museum", x: 640, y: 222, z: 14, n: "Insomniac Museum", c: "hidden since Going Commando" };
+const MUSEUM: Spot = { id: "museum", x: 560, y: 235, z: 14, n: "Insomniac Museum", c: "hidden since Going Commando" };
 
 // What a phone visitor meets while scrolling past the hero, in order.
 // Planets by galaxy/name (Kerwan is in two galaxies), other things by name.
-const TOUR = ["SOLANA/Veldin", "SOLANA/Novalis", "BOGON/Oozla", "DreadZone Station", "POLARIS/Fastoon", "The Great Clock", "RIVET'S DIMENSION/Nefarious City"];
+const TOUR = ["SOLANA/Veldin", "SOLANA/Novalis", "BOGON/Oozla", "DreadZone Station", "POLARIS/Fastoon", "The Great Clock", "POLARIS/Igliak"];
 
 // Captain Qwark's face as a constellation (type "qwark"): dots in a 100 x 120 box, joined by the lines below.
 const QWARK: [number, number][][] = [
@@ -126,25 +119,25 @@ const MONO = "ui-monospace, SFMono-Regular, Menlo, Consolas, monospace";
 
 const hash = (x: number, y: number) => { const s = Math.sin(x * 127.1 + y * 311.7) * 43758.5453; return s - Math.floor(s); };
 
-/** One galaxy as a sprite: spiral arms of dots, flattened, unrotated (the frame turns it). */
+/** One galaxy as a sprite, seen face on: spiral arms of dots. The frame turns it in its plane, then tilts and squashes it. */
 function galaxySprite(g: Galaxy, px: number, gi: number) {
   const size = Math.ceil(g.r * px * 2.3) + 4;
   const c = document.createElement("canvas");
   c.width = c.height = size;
   const x = c.getContext("2d")!;
-  const rad = g.r * px, n = Math.round(900 * g.r / 150) + 160, dot = Math.max(1, px * 1.1);
+  const rad = g.r * px, n = Math.round(900 * g.r / 150) + 160, dot = Math.max(1.2, px * 1.4);
   for (let k = 0; k < n; k++) {
     const t = hash(k + gi * 991, 1.3), arm = k % g.arms;
     const a = t * 5.4 + (arm * Math.PI * 2) / g.arms + (hash(k, 77 + gi) - 0.5) * 0.55;
     const d = Math.pow(t, 0.85) * rad + (hash(k + 3, gi * 13) - 0.5) * rad * 0.12;
-    x.fillStyle = `rgba(${GOLD},${0.08 + (1 - t) * 0.3})`;
-    x.fillRect(size / 2 + Math.cos(a) * d, size / 2 + Math.sin(a) * d * g.flat, dot, dot);
+    x.fillStyle = `rgba(${GOLD},${0.1 + (1 - t) * 0.36})`;
+    x.fillRect(size / 2 + Math.cos(a) * d, size / 2 + Math.sin(a) * d, dot, dot);
   }
   // a soft core, made of dots too: no glow
   for (let k = 0; k < 60; k++) {
     const a = hash(k, 5 + gi) * 6.283, d = hash(k, 9 + gi) * rad * 0.12;
     x.fillStyle = `rgba(${GOLD},0.32)`;
-    x.fillRect(size / 2 + Math.cos(a) * d, size / 2 + Math.sin(a) * d * g.flat, dot, dot);
+    x.fillRect(size / 2 + Math.cos(a) * d, size / 2 + Math.sin(a) * d, dot, dot);
   }
   return c;
 }
@@ -168,6 +161,8 @@ export default function HeroGalaxies() {
     const lean = { x: 0, y: 0, vx: 0, vy: 0, tx: 0, ty: 0, rot: 0, vr: 0, tr: 0 };
     let mouse: { x: number; y: number } | null = null;
     let hover = "", tour = "", mirror = false, toast = "", toastTimer = 0, qwark = 0;
+    // seconds of spin so far: it only runs while the hero is on screen
+    let clock = 0, last = 0;
     let bolts: boolean[] = [false, false, false];
     try { const b = JSON.parse(localStorage.getItem("openrac-bolts") || "[]"); if (Array.isArray(b)) bolts = [0, 1, 2].map((i) => !!b[i]); } catch {}
     let raf = 0, visible = true;
@@ -230,7 +225,7 @@ export default function HeroGalaxies() {
         ctx!.strokeStyle = `rgba(${GOLD},0.35)`; ctx!.setLineDash([3, 5]); ctx!.beginPath();
         pts.forEach(([x, y], i) => (i ? ctx!.lineTo(x, y) : ctx!.moveTo(x, y))); ctx!.stroke(); ctx!.setLineDash([]);
       }
-      GALAXIES.forEach((g, i) => drawGalaxy(i, 0, 0, i !== GHOST ? 1 : show === "rift" || show === "RIVET'S DIMENSION/Nefarious City" ? 0.9 : 0.4));
+      GALAXIES.forEach((g, i) => drawGalaxy(i));
 
       // galaxy names, quiet; not on a phone, where they would sit on the text
       if (W >= 900) GALAXIES.forEach((g) => {
@@ -268,18 +263,23 @@ export default function HeroGalaxies() {
       ctx!.globalAlpha = 1;
     }
 
+    // How far a galaxy has turned in its own plane: its slow spin, plus a little more as the page scrolls.
+    const turn = (g: Galaxy) => g.spin * clock + lean.rot * 2;
+
     function planetAt(g: Galaxy, p: Planet) {
       const [cx, cy] = at(g.x, g.y, g.z + 4);
-      const a = p.a + lean.rot * 2, r = g.r * S * p.d;
-      const ex = Math.cos(a) * r, ey = Math.sin(a) * r * g.flat, t = (mirror ? -g.tilt : g.tilt) + lean.rot;
-      return [cx + ex * Math.cos(t) - ey * Math.sin(t), cy + ex * Math.sin(t) + ey * Math.cos(t)] as const;
+      const a = p.a + turn(g), r = g.r * S * p.d;
+      const ex = Math.cos(a) * r, ey = Math.sin(a) * r * g.flat;
+      const ox = ex * Math.cos(g.tilt) - ey * Math.sin(g.tilt), oy = ex * Math.sin(g.tilt) + ey * Math.cos(g.tilt);
+      return [cx + (mirror ? -ox : ox), cy + oy] as const;
     }
 
-    function drawGalaxy(i: number, dx: number, dy: number, alpha: number) {
+    function drawGalaxy(i: number) {
       const g = GALAXIES[i], img = sprites[i], [x, y] = at(g.x, g.y, g.z), size = img.width / DPR;
-      ctx!.save(); ctx!.globalAlpha = fade * alpha; ctx!.translate(x + dx, y + dy);
-      ctx!.rotate((mirror ? -g.tilt : g.tilt) + lean.rot); ctx!.drawImage(img, -size / 2, -size / 2, size, size); ctx!.restore();
-      ctx!.globalAlpha = fade;
+      ctx!.save(); ctx!.translate(x, y);
+      if (mirror) ctx!.scale(-1, 1);
+      ctx!.rotate(g.tilt); ctx!.scale(1, g.flat); ctx!.rotate(turn(g));
+      ctx!.drawImage(img, -size / 2, -size / 2, size, size); ctx!.restore();
     }
 
     function drawSpots() {
@@ -295,8 +295,6 @@ export default function HeroGalaxies() {
           c.arc(x, y, 7, 0, 6.283);
           for (let k = 0; k < 12; k++) { const a = (k / 12) * 6.283; c.moveTo(x + Math.cos(a) * 9, y + Math.sin(a) * 9); c.lineTo(x + Math.cos(a) * 11, y + Math.sin(a) * 11); }
           c.moveTo(x, y); c.lineTo(x, y - 5); c.moveTo(x, y); c.lineTo(x + 3.5, y + 1);
-        } else if (s.id === "rift") {
-          c.moveTo(x - 9, y + 10); c.lineTo(x - 3, y + 2); c.lineTo(x - 6, y - 1); c.lineTo(x + 2, y - 9); c.lineTo(x, y - 3); c.lineTo(x + 6, y - 5);
         } else if (s.id === "aphelion") {
           c.moveTo(x + 7, y); c.lineTo(x - 5, y - 4); c.lineTo(x - 3, y); c.lineTo(x - 5, y + 4); c.closePath();
         } else if (s.id === "deplanetizer") {
@@ -341,15 +339,19 @@ export default function HeroGalaxies() {
       c.textAlign = "start"; c.restore();
     }
 
-    function step() {
+    function step(now: number) {
       raf = 0;
       if (still) { lean.x = lean.tx; lean.y = lean.ty; lean.rot = lean.tr; draw(); return; }
+      // the galaxies turn all the time; a phone redraws them at 30 fps, which is plenty for something this slow
+      const dt = last ? Math.min(0.05, (now - last) / 1000) : 0;
+      if (!fine && dt < 1 / 32 && last) { raf = requestAnimationFrame(step); return; }
+      last = now; clock += dt;
       lean.vx = (lean.vx + (lean.tx - lean.x) * 0.05) * 0.84;
       lean.vy = (lean.vy + (lean.ty - lean.y) * 0.05) * 0.84;
       lean.vr = (lean.vr + (lean.tr - lean.rot) * 0.06) * 0.82;
       lean.x += lean.vx; lean.y += lean.vy; lean.rot += lean.vr;
       draw();
-      if (qwark || Math.abs(lean.vx) + Math.abs(lean.vy) + Math.abs(lean.vr) * 40 > 0.0004) raf = requestAnimationFrame(step);
+      if (visible && !document.hidden) raf = requestAnimationFrame(step);
     }
     const kick = () => { if (!raf && visible) raf = requestAnimationFrame(step); };
 
@@ -423,17 +425,19 @@ export default function HeroGalaxies() {
       }
     }
 
-    layout(); onScroll(); draw();
+    layout(); onScroll(); draw(); kick();
     const ro = new ResizeObserver(() => { layout(); draw(); });
     ro.observe(cv);
-    const io = new IntersectionObserver(([e]) => { visible = e.isIntersecting; if (visible) onScroll(); });
+    const io = new IntersectionObserver(([e]) => { visible = e.isIntersecting; last = 0; if (visible) onScroll(); });
+    const onShow = () => { last = 0; if (!document.hidden) kick(); };
+    document.addEventListener("visibilitychange", onShow);
     io.observe(cv);
     addEventListener("scroll", onScroll, { passive: true });
     if (fine) { addEventListener("pointermove", onMove, { passive: true }); addEventListener("click", onClick); }
     addEventListener("keydown", onKey);
     return () => {
       ro.disconnect(); io.disconnect(); cancelAnimationFrame(raf); clearTimeout(toastTimer);
-      removeEventListener("scroll", onScroll); removeEventListener("pointermove", onMove);
+      removeEventListener("scroll", onScroll); document.removeEventListener("visibilitychange", onShow); removeEventListener("pointermove", onMove);
       removeEventListener("click", onClick); removeEventListener("keydown", onKey);
     };
   }, []);

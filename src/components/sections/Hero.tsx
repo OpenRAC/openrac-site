@@ -29,8 +29,8 @@ export default function Hero({ progress, mods }: { progress: Partial<Record<Proj
         A hub for the <span className="text-amber">community decompilations</span> of Ratchet &amp; Clank:{" "}
         <span className="text-amber">readable source code</span> that compiles to the original games&apos;{" "}
         <span className="whitespace-nowrap">
-          <span className="text-amber">exact bytes</span>.
-          {/* A bolt, the series' currency, to end the sentence. */}
+          <span className="text-amber">exact bytes</span>
+          {/* A bolt, the series' currency, ends the sentence in place of a full stop. */}
           <svg viewBox="0 0 24 24" aria-hidden="true" className="ml-1.5 inline-block size-[1.05em] -translate-y-px fill-amber align-[-0.15em]">
             <path fillRule="evenodd" d="M12 1.5 21.1 6.75v10.5L12 22.5 2.9 17.25V6.75L12 1.5Zm0 6.2a4.3 4.3 0 1 0 0 8.6 4.3 4.3 0 0 0 0-8.6Z" />
           </svg>
