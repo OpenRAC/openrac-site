@@ -14,7 +14,7 @@ export function exampleSource(from: string, guides: { slug: string; title: strin
 /** One documented item: its name and badges, then what it is, in a raised panel an anchor can land on. */
 export default function Entry({ id, ids = [], title, badges, children }: { id: string; ids?: string[]; title: ReactNode; badges?: ReactNode; children: ReactNode }) {
   return (
-    <article id={id} className="surface scroll-mt-20 p-4 target:border-amber sm:p-5">
+    <article id={id} className="d-card scroll-mt-20 p-4 target:border-amber">
       {ids.filter((x) => x !== id).map((x) => (
         <span key={x} id={x} className="block scroll-mt-20" aria-hidden />
       ))}
@@ -35,7 +35,7 @@ export default function Entry({ id, ids = [], title, badges, children }: { id: s
 export function Part({ label, children }: { label: string; children: ReactNode }) {
   return (
     <div>
-      <p className="mb-1 font-orbitron text-[10.5px] font-bold uppercase tracking-[.16em] text-dim">{label}</p>
+      <p className="mb-1 text-[12.5px] font-semibold text-dim">{label}</p>
       <div className="text-[14.5px] leading-relaxed text-body">{children}</div>
     </div>
   );
@@ -46,7 +46,7 @@ export function Examples({ shape, shapeLang = "c", examples = [], guides }: { sh
   if (!shape && !examples.length) return null;
   const n = examples.length;
   return (
-    <details className="group/ex rounded-xl border border-line">
+    <details className="group/ex rounded-lg border border-line">
       <summary className="flex min-h-10 cursor-pointer list-none items-center gap-2 px-3 text-[14px] font-semibold text-soft hover:text-hi">
         <span className="plus text-amber transition-transform">+</span>
         {n ? `Example${n > 1 ? "s" : ""} (${n})` : "How a call looks"}

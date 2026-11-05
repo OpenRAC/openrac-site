@@ -87,9 +87,9 @@ export default function Changelog({ releases, latest }: { releases: Release[]; l
         const total = PARTS.reduce((n, p) => n + r.changes.api[p.key].added.length + r.changes.api[p.key].removed.length + r.changes.api[p.key].changed.length, 0);
         const first = !r.changes.since;
         return (
-          <section key={r.version} id={`v${r.version}`} className="surface grid scroll-mt-20 gap-4 p-4 sm:p-5">
+          <section key={r.version} id={`v${r.version}`} className="d-card grid scroll-mt-20 gap-4 p-4">
             <header className="flex flex-wrap items-baseline justify-between gap-2">
-              <h2 className="font-audiowide text-[22px] text-hi">
+              <h2 className="text-[19px] text-hi font-semibold tracking-tight">
                 <a href={docsHref(r.version, "", latest)} className="no-underline hover:text-amber">
                   SDK {r.version}
                 </a>

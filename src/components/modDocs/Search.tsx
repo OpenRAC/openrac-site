@@ -59,7 +59,7 @@ export default function Search({ version, label = "Search the docs" }: { version
 
   return (
     <>
-      <button type="button" onClick={show} className="field flex items-center gap-2 text-left text-[15px] text-dim">
+      <button type="button" onClick={show} className="d-field flex items-center gap-2 text-left text-[15px] text-dim">
         <svg viewBox="0 0 16 16" aria-hidden className="size-4 flex-none fill-none stroke-current stroke-2">
           <circle cx="7" cy="7" r="4.5" />
           <path d="m10.5 10.5 3.5 3.5" strokeLinecap="round" />
@@ -72,13 +72,13 @@ export default function Search({ version, label = "Search the docs" }: { version
         onClose={() => setOpen(false)}
         onClick={(e) => e.target === dialog.current && hide()}
         aria-label="Search the docs"
-        className="m-0 mx-auto mt-[8vh] w-[min(640px,calc(100vw-32px))] rounded-2xl border border-line bg-ink p-0 text-text shadow-2xl backdrop:bg-black/60 backdrop:backdrop-blur-sm"
+        className="m-0 mx-auto mt-[8vh] w-[min(640px,calc(100vw-32px))] rounded-lg border border-line bg-ink p-0 text-text shadow-2xl backdrop:bg-black/60 backdrop:backdrop-blur-sm"
       >
         <div className="border-b border-line p-3">
           <input
             ref={input}
             type="search"
-            className="field"
+            className="d-field"
             placeholder="hook, setting_int, on_pad, rac1.player..."
             value={query}
             role="combobox"
@@ -117,11 +117,11 @@ export default function Search({ version, label = "Search the docs" }: { version
                   go(e);
                 }}
                 onMouseMove={() => setAt(i)}
-                className={`block rounded-xl px-3 py-2 no-underline ${i === at ? "bg-amber/12 text-hi" : "text-body"}`}
+                className={`block rounded-lg px-3 py-2 no-underline ${i === at ? "bg-amber/12 text-hi" : "text-body"}`}
               >
                 <span className="flex items-baseline justify-between gap-3">
                   <span className="min-w-0 truncate font-mono text-[14px] text-gold">{e.t}</span>
-                  <span className="flex-none text-[11px] font-semibold uppercase tracking-wider text-dim">{e.k}</span>
+                  <span className="flex-none text-[12px] text-dim">{e.k}</span>
                 </span>
                 {e.d && <span className="mt-0.5 block truncate text-[13px] text-soft">{e.d}</span>}
               </a>

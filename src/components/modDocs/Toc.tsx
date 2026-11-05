@@ -19,8 +19,8 @@ export default function Toc({ items }: { items: { id: string; label: string; dep
     return () => io.disconnect();
   }, [items]);
   return (
-    <nav aria-label="On this page" className="sticky top-[66px] max-h-[calc(100vh-82px)] overflow-y-auto pb-6 [scrollbar-width:thin]">
-      <p className="mb-2 font-orbitron text-[11px] font-bold uppercase tracking-[.16em] text-dim">On this page</p>
+    <nav aria-label="On this page" className="sticky top-4 max-h-[calc(100vh-32px)] overflow-y-auto pb-6 [scrollbar-width:thin]">
+      <p className="mb-2 text-[12.5px] font-semibold text-dim">On this page</p>
       <ul className="grid gap-0.5 border-l border-line">
         {items.map((s) => (
           <li key={s.id}>

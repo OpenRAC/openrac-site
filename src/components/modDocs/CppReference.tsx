@@ -45,8 +45,8 @@ export default function CppReference({ r }: { r: Release }) {
   const cpp = r.cpp!;
   const seen = new Set<string>();
   return (
-    <div className="grid gap-10">
-      <details className="surface p-4">
+    <div className="grid gap-8">
+      <details className="d-card p-4">
         <summary className="cursor-pointer list-none font-semibold text-hi">
           <span className="plus mr-2 inline-block text-amber transition-transform">+</span>About this header
         </summary>
@@ -79,7 +79,7 @@ export default function CppReference({ r }: { r: Release }) {
       ))}
       {cpp.macros.length > 0 && (
         <section id="macros" className="grid scroll-mt-20 gap-3">
-          <h2 className="font-orbitron text-[21px] font-bold text-hi">Macros</h2>
+          <h2 className="text-[19px] font-semibold text-hi">Macros</h2>
           {cpp.macros.map((m) => (
             <Entry key={m.name} id={m.name.split("(")[0]} title={m.name} badges={<Since since={m.about.match(/Since (\d+\.\d+)/)?.[1]} iface={r.interface} />}>
               <Paragraphs text={withoutSince(m.about)} />

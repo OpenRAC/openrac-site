@@ -12,9 +12,9 @@ export function luauToc() {
 export default function LuauReference({ r, ctx }: { r: Release; ctx: LinkContext }) {
   const luau = r.luau!;
   return (
-    <div className="grid gap-10">
+    <div className="grid gap-8">
       <section id="openrac" className="grid scroll-mt-20 gap-3">
-        <h2 className="font-orbitron text-[21px] font-bold text-hi">The openrac table</h2>
+        <h2 className="text-[19px] font-semibold text-hi">The openrac table</h2>
         <p className="max-w-[760px] text-[15px] text-body">
           A script mod sees one global, <code className="text-gold">openrac</code>, and the safe parts of Luau&apos;s library. For autocomplete, point your editor&apos;s Luau language server at the SDK&apos;s{" "}
           <code className="text-gold">{luau.file}</code>.
@@ -41,7 +41,7 @@ export default function LuauReference({ r, ctx }: { r: Release; ctx: LinkContext
         })}
       </section>
       <section id="types" className="grid scroll-mt-20 gap-3">
-        <h2 className="font-orbitron text-[21px] font-bold text-hi">Types</h2>
+        <h2 className="text-[19px] font-semibold text-hi">Types</h2>
         {luau.types.map((t) => (
           <div key={t.name} id={t.name} className="scroll-mt-20">
             <h3 className="font-mono text-[16px] font-semibold text-gold">{t.name}</h3>

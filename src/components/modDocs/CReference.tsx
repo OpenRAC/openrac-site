@@ -103,7 +103,7 @@ function ApiGroup({ g, r, names }: { g: CGroup; r: Release; names: Map<string, s
 function Item({ item, r, names }: { item: CItem; r: Release; names: Map<string, string> }) {
   if (item.kind === "constants") {
     return (
-      <div className="surface overflow-hidden">
+      <div className="d-card overflow-hidden">
         {item.about && (
           <div className="border-b border-line px-4 py-3">
             <Paragraphs text={withoutSince(item.about)} names={names} />
@@ -111,7 +111,7 @@ function Item({ item, r, names }: { item: CItem; r: Release; names: Map<string, 
         )}
         <div tabIndex={0} className="overflow-x-auto">
           <table className="w-full text-left text-[14px]">
-            <thead className="text-[11px] uppercase tracking-wider text-dim">
+            <thead className="text-[12.5px] font-medium text-dim">
               <tr>
                 <th className="px-4 py-2 font-semibold">Name</th>
                 <th className="px-4 py-2 font-semibold">Value</th>
@@ -148,9 +148,9 @@ function Item({ item, r, names }: { item: CItem; r: Release; names: Map<string, 
     return (
       <Entry id={item.name} title={`struct ${item.name}`} badges={<Since since={item.since} iface={r.interface} />}>
         <Paragraphs text={withoutSince(item.about)} names={names} />
-        <div tabIndex={0} className="overflow-x-auto rounded-xl border border-line">
+        <div tabIndex={0} className="overflow-x-auto rounded-lg border border-line">
           <table className="w-full text-left text-[14px]">
-            <thead className="text-[11px] uppercase tracking-wider text-dim">
+            <thead className="text-[12.5px] font-medium text-dim">
               <tr>
                 <th className="px-3 py-2 font-semibold">Member</th>
                 <th className="px-3 py-2 font-semibold">What it is</th>
@@ -195,11 +195,11 @@ function Item({ item, r, names }: { item: CItem; r: Release; names: Map<string, 
 export default function CReference({ r }: { r: Release }) {
   const names = cNames(r);
   return (
-    <div className="grid gap-10">
+    <div className="grid gap-8">
       {r.c.sections.map((s, i) => (
         <section key={i} id={sectionId(s.title, i)} className="grid scroll-mt-20 gap-4">
           <div className="flex flex-wrap items-center gap-3">
-            <h2 className="font-orbitron text-[21px] font-bold text-hi">{s.title || "The interface"}</h2>
+            <h2 className="text-[19px] font-semibold text-hi">{s.title || "The interface"}</h2>
             <Since since={s.since} iface={r.interface} />
           </div>
           {s.about && <Paragraphs text={s.about} names={names} className="max-w-[760px]" />}

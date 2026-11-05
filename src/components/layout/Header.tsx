@@ -76,6 +76,8 @@ export default function Header() {
   const home = pathname === "/";
   const inMods = pathname === "/mods" || pathname.startsWith("/mods/");
   const inNews = pathname === "/news" || pathname.startsWith("/news/");
+  // The SDK docs have their own frame: a logo back to the site instead of the bar.
+  const inDocs = pathname === "/mods/docs" || pathname.startsWith("/mods/docs/");
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState<string | null>(null);
 
@@ -124,6 +126,7 @@ export default function Header() {
     window.scrollTo({ top: 0 });
   };
 
+  if (inDocs) return null;
   return (
     <>
       <header style={{ viewTransitionName: "site-header" }} className="bar-stripes fixed inset-x-0 top-0 z-30 border-b border-black/30 text-black shadow-[inset_0_1px_0_rgb(255_255_255/0.35),0_4px_24px_rgb(0_0_0/0.45)]">

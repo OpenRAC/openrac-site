@@ -17,7 +17,7 @@ export default function CopyButton({ text, label = "Copy", className = "" }: { t
           () => setDone(false),
         );
       }}
-      className={`rounded-full border border-white/15 bg-ink px-2.5 py-1 text-[12px] font-semibold text-soft transition-colors hover:border-amber hover:text-amber ${className}`}
+      className={`d-btn h-6 px-2 text-[12px] ${className}`}
       aria-live="polite"
     >
       {done ? "Copied" : label}

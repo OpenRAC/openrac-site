@@ -1,8 +1,10 @@
+import Link from "next/link";
 import type { ReactNode } from "react";
 import PageTransition from "@/components/layout/PageTransition";
 import { docsHref, type Page } from "@/lib/modDocs/logic";
 import type { ReleaseIndex } from "@/lib/modDocs/types";
 import Search from "./Search";
+import Logo from "@/components/ui/Logo";
 import Toc from "./Toc";
 import VersionSwitcher, { type VersionOption } from "./VersionSwitcher";
 
@@ -10,20 +12,20 @@ const GROUPS: Page["group"][] = ["Start", "Guides", "Reference", "Try it", "Rele
 
 function Nav({ pages, current, version, latest }: { pages: Page[]; current: string; version: string; latest: string }) {
   return (
-    <nav aria-label="Docs" className="grid gap-5">
+    <nav aria-label="Docs" className="grid gap-4">
       {GROUPS.map((g) => {
         const items = pages.filter((p) => p.group === g);
         if (!items.length) return null;
         return (
           <div key={g}>
-            <p className="mb-1.5 px-3 font-orbitron text-[11px] font-bold uppercase tracking-[.16em] text-dim">{g}</p>
+            <p className="mb-1.5 px-3 text-[12.5px] font-semibold text-dim">{g}</p>
             <ul className="grid gap-0.5">
               {items.map((p) => (
                 <li key={p.path}>
                   <a
                     href={docsHref(version, p.path, latest)}
                     aria-current={p.path === current ? "page" : undefined}
-                    className={`flex min-h-9 items-center rounded-lg px-3 text-[14.5px] no-underline transition-colors ${p.path === current ? "bg-amber/12 font-semibold text-amber" : "text-soft hover:bg-white/5 hover:text-hi"}`}
+                    className={`flex min-h-8 items-center rounded-md px-3 text-[14px] no-underline transition-colors ${p.path === current ? "bg-amber/12 font-semibold text-amber" : "text-soft hover:bg-white/5 hover:text-hi"}`}
                   >
                     {p.title}
                   </a>
@@ -72,20 +74,33 @@ export default function DocsShell({
     <PageTransition>
       <div className="mx-auto max-w-[1280px] px-4 pb-16 pt-6 lg:grid lg:grid-cols-[240px_minmax(0,1fr)] lg:gap-10 xl:grid-cols-[240px_minmax(0,1fr)_200px]">
         <aside className="hidden lg:block">
-          <div className="sticky top-[66px] grid max-h-[calc(100vh-82px)] gap-6 overflow-y-auto pb-6 pr-1 [scrollbar-width:thin]">
-            <a href={docsHref(version, "", latest)} className="px-3 font-audiowide text-[19px] text-hi no-underline">
-              Mod <span className="text-amber">SDK</span> docs
-            </a>
+          <div className="sticky top-4 grid max-h-[calc(100vh-32px)] gap-6 overflow-y-auto pb-6 pr-1 [scrollbar-width:thin]">
+            <div className="grid gap-2 px-3">
+              <Link href="/" className="inline-flex w-fit text-text no-underline opacity-90 hover:opacity-100" aria-label="OpenRAC home">
+                <Logo height={26} label="" accent />
+              </Link>
+              <a href={docsHref(version, "", latest)} className="text-[16px] font-semibold text-hi no-underline">
+                Mod SDK docs
+              </a>
+            </div>
             {controls}
             <Nav pages={pages} current={page.path} version={version} latest={latest} />
           </div>
         </aside>
 
         <div className="min-w-0">
+          <div className="mb-4 flex items-center gap-3 lg:hidden">
+            <Link href="/" className="inline-flex text-text no-underline" aria-label="OpenRAC home">
+              <Logo height={24} label="" accent />
+            </Link>
+            <a href={docsHref(version, "", latest)} className="text-[15px] font-semibold text-hi no-underline">
+              Mod SDK docs
+            </a>
+          </div>
           <div className="mb-4">
             <Search version={version} />
           </div>
-          <details className="surface mb-5 lg:hidden">
+          <details className="d-card mb-5 lg:hidden">
             <summary className="flex min-h-12 cursor-pointer list-none items-center justify-between gap-3 px-4 font-semibold text-hi">
               <span>
                 Docs menu <span className="font-normal text-dim">· {page.title}</span>
@@ -99,7 +114,7 @@ export default function DocsShell({
           </details>
 
           {old && (
-            <p className="mb-5 rounded-xl border-l-4 border-brand bg-brand/10 px-4 py-3 text-[14.5px] text-soft">
+            <p className="mb-5 rounded-lg border-l-2 border-brand bg-brand/10 px-4 py-3 text-[14.5px] text-soft">
               You are reading the docs of SDK {version}, an older release.{" "}
               <a href={docsHref(latest, pages.some((p) => p.path === page.path) ? page.path : "", latest)} className="font-semibold text-amber underline">
                 See the latest ({latest})
@@ -110,18 +125,18 @@ export default function DocsShell({
 
           <main id="content">
             <header className="mb-6">
-              <p className="mb-2 font-orbitron text-[11px] font-bold uppercase tracking-[.18em] text-brand">
+              <p className="mb-1.5 text-[13px] text-dim">
                 {page.group} · SDK {version}
               </p>
-              <h1 className="text-balance font-audiowide text-[clamp(26px,4vw,38px)] leading-[1.12] text-hi">{title}</h1>
-              {lead && <div className="mt-3 max-w-[720px] text-[16px] leading-relaxed text-soft">{lead}</div>}
+              <h1 className="text-balance text-[26px] sm:text-[30px] leading-[1.12] text-hi font-semibold tracking-tight">{title}</h1>
+              {lead && <div className="mt-3 max-w-[720px] text-[15.5px] leading-relaxed text-soft">{lead}</div>}
             </header>
             {children}
           </main>
 
           <nav aria-label="Next and previous page" className="mt-12 grid gap-3 border-t border-line pt-6 sm:grid-cols-2">
             {prev ? (
-              <a href={docsHref(version, prev.path, latest)} className="surface surface-link block p-4 no-underline">
+              <a href={docsHref(version, prev.path, latest)} className="d-card d-card-link block p-3.5 no-underline">
                 <span className="text-[12px] text-dim">Previous</span>
                 <span className="block font-semibold text-hi">← {prev.title}</span>
               </a>
@@ -129,7 +144,7 @@ export default function DocsShell({
               <span />
             )}
             {next && (
-              <a href={docsHref(version, next.path, latest)} className="surface surface-link block p-4 text-right no-underline">
+              <a href={docsHref(version, next.path, latest)} className="d-card d-card-link block p-4 text-right no-underline">
                 <span className="text-[12px] text-dim">Next</span>
                 <span className="block font-semibold text-hi">{next.title} →</span>
               </a>

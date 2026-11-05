@@ -135,11 +135,11 @@ export default function ManifestBuilder({
   return (
     <div className="grid gap-6 xl:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
       <form className="grid content-start gap-5" onSubmit={(e) => e.preventDefault()} aria-label="The manifest's fields">
-        {!m && <p className="rounded-xl border-l-4 border-brand bg-brand/10 px-4 py-3 text-[14px] text-soft">The form needs the JSON on the right to be an object. Fix the JSON, or start again from an example.</p>}
+        {!m && <p className="rounded-lg border-l-2 border-brand bg-brand/10 px-4 py-3 text-[14px] text-soft">The form needs the JSON on the right to be an object. Fix the JSON, or press Reset.</p>}
         <fieldset disabled={!m} className="grid gap-5 disabled:opacity-50">
           <div className="grid gap-2">
             <span className="text-[13.5px] font-semibold text-hi">Kind of mod</span>
-            <div className="seg self-start" role="radiogroup" aria-label="Kind of mod">
+            <div className="d-seg self-start" role="radiogroup" aria-label="Kind of mod">
               <button type="button" role="radio" aria-checked={kind === "script"} disabled={!scriptsAllowed} onClick={() => set({ type: "script", plugin: undefined, scripts: m?.scripts ?? ["main.luau"], api: Number((str("api") || "1.1").split(".")[1]) >= 1 ? str("api") || iface : iface })}>
                 Script (Luau)
               </button>
@@ -152,16 +152,16 @@ export default function ManifestBuilder({
 
           <div className="grid gap-4 sm:grid-cols-2">
             <Field label="Id" help={help.id} error={by("id")}>
-              <input className="field font-mono" value={str("id")} onChange={(e) => set({ id: e.target.value })} spellCheck={false} />
+              <input className="d-field font-mono" value={str("id")} onChange={(e) => set({ id: e.target.value })} spellCheck={false} />
             </Field>
             <Field label="Name" help={help.name} error={by("name")}>
-              <input className="field" value={str("name")} onChange={(e) => set({ name: e.target.value })} />
+              <input className="d-field" value={str("name")} onChange={(e) => set({ name: e.target.value })} />
             </Field>
             <Field label="Version" help={help.version} error={by("version")}>
-              <input className="field font-mono" value={str("version")} onChange={(e) => set({ version: e.target.value })} spellCheck={false} />
+              <input className="d-field font-mono" value={str("version")} onChange={(e) => set({ version: e.target.value })} spellCheck={false} />
             </Field>
             <Field label="Interface (api)" help={help.api} error={by("api")}>
-              <select className="field w-full" value={str("api")} onChange={(e) => set({ api: e.target.value })}>
+              <select className="d-field w-full" value={str("api")} onChange={(e) => set({ api: e.target.value })}>
                 {!apis.includes(str("api")) && <option value={str("api")}>{str("api") || "(none)"}</option>}
                 {apis.map((a) => (
                   <option key={a} value={a} disabled={kind === "script" && a === "1.0"}>
@@ -172,17 +172,17 @@ export default function ManifestBuilder({
               </select>
             </Field>
             <Field label="Author" help={help.author}>
-              <input className="field" value={str("author")} onChange={(e) => set({ author: e.target.value })} />
+              <input className="d-field" value={str("author")} onChange={(e) => set({ author: e.target.value })} />
             </Field>
             <Field label="License" error={by("license")}>
-              <input className="field" value={str("license")} placeholder="MIT" onChange={(e) => set({ license: e.target.value })} />
+              <input className="d-field" value={str("license")} placeholder="MIT" onChange={(e) => set({ license: e.target.value })} />
             </Field>
           </div>
           <Field label="Description" error={by("description")}>
-            <input className="field" value={str("description")} onChange={(e) => set({ description: e.target.value })} />
+            <input className="d-field" value={str("description")} onChange={(e) => set({ description: e.target.value })} />
           </Field>
           <Field label="Homepage" help={help.homepage} error={by("homepage")}>
-            <input className="field" value={str("homepage")} placeholder="https://github.com/you/your-mod" onChange={(e) => set({ homepage: e.target.value })} />
+            <input className="d-field" value={str("homepage")} placeholder="https://github.com/you/your-mod" onChange={(e) => set({ homepage: e.target.value })} />
           </Field>
 
           <div className="grid gap-2">
@@ -192,7 +192,7 @@ export default function ManifestBuilder({
                 <button
                   key={d}
                   type="button"
-                  className="chip"
+                  className="d-btn"
                   aria-pressed={gameDiscs.includes(d)}
                   onClick={() => {
                     const next = gameDiscs.includes(d) ? gameDiscs.filter((x) => x !== d) : [...gameDiscs, d];
@@ -213,7 +213,7 @@ export default function ManifestBuilder({
 
           {kind === "script" ? (
             <Field label="Scripts" help={help.scripts} error={by("scripts")}>
-              <input className="field font-mono" value={Array.isArray(m?.scripts) ? (m!.scripts as string[]).join(", ") : ""} onChange={(e) => set({ scripts: e.target.value.split(",").map((s) => s.trim()).filter(Boolean) })} spellCheck={false} />
+              <input className="d-field font-mono" value={Array.isArray(m?.scripts) ? (m!.scripts as string[]).join(", ") : ""} onChange={(e) => set({ scripts: e.target.value.split(",").map((s) => s.trim()).filter(Boolean) })} spellCheck={false} />
             </Field>
           ) : (
             <div className="grid gap-2">
@@ -223,7 +223,7 @@ export default function ManifestBuilder({
                   <button
                     key={p}
                     type="button"
-                    className="chip font-mono"
+                    className="d-btn font-mono"
                     aria-pressed={p in plugin}
                     onClick={() => {
                       const next = { ...plugin };
@@ -249,14 +249,14 @@ export default function ManifestBuilder({
             <span className="text-[13.5px] font-semibold text-hi">Hook points</span>
             <div className="flex flex-wrap gap-2">
               {hooks.map((h) => (
-                <button key={h} type="button" className="chip font-mono" data-on onClick={() => set({ hooks: hooks.filter((x) => x !== h).length ? hooks.filter((x) => x !== h) : undefined })} aria-label={`Remove ${h}`}>
+                <button key={h} type="button" className="d-btn font-mono" data-on onClick={() => set({ hooks: hooks.filter((x) => x !== h).length ? hooks.filter((x) => x !== h) : undefined })} aria-label={`Remove ${h}`}>
                   {h} <span aria-hidden>×</span>
                 </button>
               ))}
             </div>
             <div className="flex gap-2">
               <input
-                className="field font-mono"
+                className="d-field font-mono"
                 list="hook-ids"
                 placeholder={hookIds[0] ?? "rac1.player.turn_to_heading"}
                 value={hookInput}
@@ -270,7 +270,7 @@ export default function ManifestBuilder({
                 }}
                 aria-label="Add a hook point"
               />
-              <button type="button" className="btn btn-sm flex-none" disabled={!hookInput.trim()} onClick={() => { set({ hooks: [...new Set([...hooks, hookInput.trim()])] }); setHookInput(""); }}>
+              <button type="button" className="d-btn flex-none" disabled={!hookInput.trim()} onClick={() => { set({ hooks: [...new Set([...hooks, hookInput.trim()])] }); setHookInput(""); }}>
                 Add
               </button>
               <datalist id="hook-ids">
@@ -290,17 +290,17 @@ export default function ManifestBuilder({
           <div className="grid gap-3">
             <span className="text-[13.5px] font-semibold text-hi">Settings players can change</span>
             {settings.map((s, i) => (
-              <fieldset key={i} className="surface grid gap-3 p-3">
+              <fieldset key={i} className="d-card grid gap-3 p-3">
                 <legend className="sr-only">Setting {i + 1}</legend>
                 <div className="grid gap-3 sm:grid-cols-3">
                   <Field label="Key">
-                    <input className="field font-mono" value={String(s.key ?? "")} onChange={(e) => setSetting(i, { key: e.target.value })} spellCheck={false} />
+                    <input className="d-field font-mono" value={String(s.key ?? "")} onChange={(e) => setSetting(i, { key: e.target.value })} spellCheck={false} />
                   </Field>
                   <Field label="Name">
-                    <input className="field" value={String(s.name ?? "")} onChange={(e) => setSetting(i, { name: e.target.value })} />
+                    <input className="d-field" value={String(s.name ?? "")} onChange={(e) => setSetting(i, { name: e.target.value })} />
                   </Field>
                   <Field label="Type">
-                    <select className="field w-full" value={String(s.type)} onChange={(e) => set({ settings: settings.map((x, j) => (j === i ? { ...newSetting(e.target.value), key: s.key, name: s.name } : x)) })}>
+                    <select className="d-field w-full" value={String(s.type)} onChange={(e) => set({ settings: settings.map((x, j) => (j === i ? { ...newSetting(e.target.value), key: s.key, name: s.name } : x)) })}>
                       {["bool", "int", "float", "choice", "string", "keybind"].map((t) => (
                         <option key={t}>{t}</option>
                       ))}
@@ -310,7 +310,7 @@ export default function ManifestBuilder({
                 <div className="grid gap-3 sm:grid-cols-3">
                   {s.type === "bool" && (
                     <Field label="Default">
-                      <select className="field w-full" value={String(s.default)} onChange={(e) => setSetting(i, { default: e.target.value === "true" })}>
+                      <select className="d-field w-full" value={String(s.default)} onChange={(e) => setSetting(i, { default: e.target.value === "true" })}>
                         <option>true</option>
                         <option>false</option>
                       </select>
@@ -319,24 +319,24 @@ export default function ManifestBuilder({
                   {(s.type === "int" || s.type === "float") &&
                     (["default", "min", "max", ...(s.type === "float" ? ["step"] : [])] as const).map((k) => (
                       <Field key={k} label={k[0].toUpperCase() + k.slice(1)}>
-                        <input className="field font-mono" inputMode="decimal" value={s[k] === undefined ? "" : String(s[k])} onChange={(e) => setSetting(i, { [k]: e.target.value === "" ? undefined : Number.isNaN(Number(e.target.value)) ? e.target.value : Number(e.target.value) })} />
+                        <input className="d-field font-mono" inputMode="decimal" value={s[k] === undefined ? "" : String(s[k])} onChange={(e) => setSetting(i, { [k]: e.target.value === "" ? undefined : Number.isNaN(Number(e.target.value)) ? e.target.value : Number(e.target.value) })} />
                       </Field>
                     ))}
                   {(s.type === "string" || s.type === "keybind" || s.type === "choice") && (
                     <Field label="Default">
-                      <input className="field font-mono" list={s.type === "keybind" ? "bind-names" : undefined} value={String(s.default ?? "")} onChange={(e) => setSetting(i, { default: e.target.value })} spellCheck={false} />
+                      <input className="d-field font-mono" list={s.type === "keybind" ? "bind-names" : undefined} value={String(s.default ?? "")} onChange={(e) => setSetting(i, { default: e.target.value })} spellCheck={false} />
                     </Field>
                   )}
                   {s.type === "string" && (
                     <Field label="Max length">
-                      <input className="field font-mono" inputMode="numeric" value={s.max_length === undefined ? "" : String(s.max_length)} onChange={(e) => setSetting(i, { max_length: e.target.value === "" ? undefined : Number(e.target.value) })} />
+                      <input className="d-field font-mono" inputMode="numeric" value={s.max_length === undefined ? "" : String(s.max_length)} onChange={(e) => setSetting(i, { max_length: e.target.value === "" ? undefined : Number(e.target.value) })} />
                     </Field>
                   )}
                 </div>
                 {s.type === "choice" && (
                   <Field label="Choices, one per line: value = name">
                     <textarea
-                      className="field h-auto min-h-[88px] rounded-2xl py-2 font-mono"
+                      className="d-field min-h-[88px] font-mono"
                       value={(Array.isArray(s.choices) ? (s.choices as Obj[]) : []).map((c) => `${c.value} = ${c.name}`).join("\n")}
                       onChange={(e) => setSetting(i, { choices: e.target.value.split("\n").filter((l) => l.trim()).map((l) => { const [v, ...n] = l.split("="); return { value: v.trim(), name: n.join("=").trim() || v.trim() }; }) })}
                     />
@@ -350,7 +350,7 @@ export default function ManifestBuilder({
                       </span>
                     ))}
                   </span>
-                  <button type="button" className="btn btn-sm" onClick={() => set({ settings: settings.filter((_, j) => j !== i).length ? settings.filter((_, j) => j !== i) : undefined })}>
+                  <button type="button" className="d-btn" onClick={() => set({ settings: settings.filter((_, j) => j !== i).length ? settings.filter((_, j) => j !== i) : undefined })}>
                     Remove
                   </button>
                 </div>
@@ -363,7 +363,7 @@ export default function ManifestBuilder({
             </datalist>
             <div className="flex flex-wrap gap-2">
               {["bool", "int", "float", "choice", "string", ...(minor >= 2 ? ["keybind"] : [])].map((t) => (
-                <button key={t} type="button" className="chip" onClick={() => set({ settings: [...settings, newSetting(t)] })}>
+                <button key={t} type="button" className="d-btn" onClick={() => set({ settings: [...settings, newSetting(t)] })}>
                   + {t}
                 </button>
               ))}
@@ -376,23 +376,24 @@ export default function ManifestBuilder({
         </fieldset>
       </form>
 
-      <div className="grid content-start gap-4 xl:sticky xl:top-[66px]">
-        <div className="flex flex-wrap items-center gap-2">
+      <div className="grid content-start gap-4 xl:sticky xl:top-4">
+        <div className="flex flex-wrap items-center gap-1.5 text-[13px] text-dim">
+          <span className="mr-1">Examples:</span>
           {examples.map((e) => (
-            <button key={e.title} type="button" className="chip" onClick={() => setText(e.json)}>
-              Load: {e.title}
+            <button key={e.title} type="button" className="d-btn h-7 px-2 text-[12.5px]" onClick={() => setText(e.json)}>
+              {e.title}
             </button>
           ))}
-          <button type="button" className="chip" onClick={() => setText(pretty(starter(scriptsAllowed ? "script" : "native", iface, discs, game)))}>
-            Start again
+          <button type="button" className="d-btn ml-auto h-7 px-2 text-[12.5px]" onClick={() => setText(pretty(starter(scriptsAllowed ? "script" : "native", iface, discs, game)))}>
+            Reset
           </button>
         </div>
-        <div className="overflow-hidden rounded-xl border border-line bg-ink-deep">
+        <div className="overflow-hidden rounded-lg border border-line bg-ink-deep">
           <div className="flex items-center justify-between gap-2 border-b border-line px-3 py-1.5">
-            <span className="font-orbitron text-[11px] font-bold uppercase tracking-[.14em] text-dim">openrac-mod.json</span>
+            <span className="text-[12.5px] font-semibold text-dim">openrac-mod.json</span>
             <span className="flex gap-2">
               <CopyButton text={text} />
-              <button type="button" onClick={download} className="rounded-full border border-white/15 bg-ink px-2.5 py-1 text-[12px] font-semibold text-soft transition-colors hover:border-amber hover:text-amber">
+              <button type="button" onClick={download} className="d-btn h-6 px-2 text-[12px]">
                 Download
               </button>
             </span>
@@ -405,7 +406,7 @@ export default function ManifestBuilder({
             className="block min-h-[360px] w-full resize-y bg-transparent p-3.5 font-mono text-[13px] leading-[1.6] text-text outline-none"
           />
         </div>
-        <div role="status" aria-live="polite" className={`rounded-xl border p-4 ${parsed.error || errors.length ? "border-brand/60 bg-brand/5" : "border-amber/50 bg-amber/5"}`}>
+        <div role="status" aria-live="polite" className={`rounded-lg border p-4 ${parsed.error || errors.length ? "border-brand/60 bg-brand/5" : "border-amber/50 bg-amber/5"}`}>
           {parsed.error ? (
             <>
               <p className="font-semibold text-hi">This is not valid JSON yet.</p>
@@ -430,7 +431,7 @@ export default function ManifestBuilder({
           </p>
         </div>
         {!parsed.error && !errors.length && kind === "script" && (
-          <details className="rounded-xl border border-line">
+          <details className="rounded-lg border border-line">
             <summary className="cursor-pointer list-none px-3 py-2 text-[14px] font-semibold text-soft">
               <span className="plus mr-2 inline-block text-amber transition-transform">+</span>Reading the settings in your script
             </summary>

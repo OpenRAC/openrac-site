@@ -62,7 +62,7 @@ function components(ctx: LinkContext): Components {
 
 export default function DocMarkdown({ children, ctx, className = "" }: { children: string; ctx: LinkContext; className?: string }) {
   return (
-    <div className={`prose prose-invert prose-openrac max-w-none prose-pre:p-0 prose-h2:mt-10 prose-h2:text-[22px] prose-h3:text-[18px] ${className}`}>
+    <div className={`prose prose-invert prose-openrac d-prose max-w-none prose-pre:p-0 prose-h2:mt-10 prose-h2:text-[20px] prose-h3:text-[16.5px] ${className}`}>
       <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeSlug, [rehypeSanitize, schema]]} components={components(ctx)}>
         {children}
       </ReactMarkdown>

@@ -71,8 +71,8 @@ export default function HookExplorer({ hooks, game, discs, manifestHref, scripts
   return (
     <div className="grid gap-5 lg:grid-cols-[minmax(0,320px)_minmax(0,1fr)]">
       <div className="grid content-start gap-3">
-        <input type="search" className="field" placeholder="Search hook points" aria-label="Search hook points" value={query} onChange={(e) => { setQuery(e.target.value); setShown(PAGE); }} />
-        <div className="seg self-start" role="radiogroup" aria-label="Which hook points">
+        <input type="search" className="d-field" placeholder="Search hook points" aria-label="Search hook points" value={query} onChange={(e) => { setQuery(e.target.value); setShown(PAGE); }} />
+        <div className="d-seg self-start" role="radiogroup" aria-label="Which hook points">
           {([["stable", `Stable (${stableCount})`], ["all", `All (${hooks.length})`], ["experimental", "Experimental"]] as const).map(([v, label]) => (
             <button key={v} type="button" role="radio" aria-checked={show === v} onClick={() => { setShow(v); setShown(PAGE); }}>
               {label}
@@ -82,7 +82,7 @@ export default function HookExplorer({ hooks, game, discs, manifestHref, scripts
         <p className="text-[13px] text-dim" aria-live="polite">
           {list.length} hook point{list.length === 1 ? "" : "s"}
         </p>
-        <ul className="surface max-h-[520px] overflow-y-auto p-1.5 [scrollbar-width:thin]">
+        <ul className="d-card max-h-[520px] overflow-y-auto p-1.5 [scrollbar-width:thin]">
           {list.slice(0, shown).map((x) => (
             <li key={key(x)}>
               <button
@@ -101,7 +101,7 @@ export default function HookExplorer({ hooks, game, discs, manifestHref, scripts
           ))}
           {list.length > shown && (
             <li>
-              <button type="button" className="btn btn-sm mt-1 w-full" onClick={() => setShown((s) => s + PAGE * 2)}>
+              <button type="button" className="d-btn mt-1 w-full" onClick={() => setShown((s) => s + PAGE * 2)}>
                 Show more ({list.length - shown} left)
               </button>
             </li>
@@ -111,10 +111,10 @@ export default function HookExplorer({ hooks, game, discs, manifestHref, scripts
       </div>
 
       <div id="hook-detail" className="grid min-w-0 scroll-mt-20 content-start gap-4">
-        <div className="surface grid gap-3 p-4 sm:p-5">
+        <div className="d-card grid gap-3 p-4">
           <div className="flex flex-wrap items-center gap-2">
             <h3 className="min-w-0 font-mono text-[18px] font-semibold text-gold [overflow-wrap:anywhere]">{key(h)}</h3>
-            {h.experimental && <span className="rounded-full border border-brand/60 px-2 py-px text-[11px] font-semibold text-brand">Experimental</span>}
+            {h.experimental && <span className="badge border-brand/50 text-brand">Experimental</span>}
           </div>
           {h.about && <p className="text-[15px] leading-relaxed text-body">{h.about}</p>}
           <dl className="grid gap-x-4 gap-y-1.5 text-[14px] sm:grid-cols-[max-content_1fr]">
@@ -155,11 +155,11 @@ export default function HookExplorer({ hooks, game, discs, manifestHref, scripts
           {h.experimental && <p className="text-[13.5px] text-soft">Experimental: this hook point comes from the behaviour catalogue, which names the game&apos;s internals. Its id stays; its name and fields may change. Check the moby&apos;s class in your hook when several classes share it.</p>}
         </div>
 
-        <div className="surface grid gap-4 p-4 sm:p-5">
-          <p className="font-orbitron text-[12px] font-bold uppercase tracking-[.16em] text-hi">Start a mod with this hook point</p>
+        <div className="d-card grid gap-3 p-4">
+          <p className="text-[12.5px] font-semibold text-hi">Start a mod with this hook point</p>
           <div className="grid gap-2">
             <span className="text-[13px] font-semibold text-soft">1. How do you want to use it?</span>
-            <div className="seg flex-wrap self-start" role="radiogroup" aria-label="How to use the hook point">
+            <div className="d-seg flex-wrap self-start" role="radiogroup" aria-label="How to use the hook point">
               {HOOK_MODES.map((m) => (
                 <button key={m.mode} type="button" role="radio" aria-checked={mode === m.mode} onClick={() => setMode(m.mode)}>
                   {m.label}
@@ -170,7 +170,7 @@ export default function HookExplorer({ hooks, game, discs, manifestHref, scripts
           </div>
           <div className="grid gap-2">
             <span className="text-[13px] font-semibold text-soft">2. Which language?</span>
-            <div className="seg self-start" role="radiogroup" aria-label="Language">
+            <div className="d-seg self-start" role="radiogroup" aria-label="Language">
               {LANGS.map((l) => (
                 <button key={l.lang} type="button" role="radio" aria-checked={lang === l.lang} onClick={() => setLang(l.lang)}>
                   {l.label}
@@ -181,11 +181,11 @@ export default function HookExplorer({ hooks, game, discs, manifestHref, scripts
           {lang !== "luau" && (
             <label className="grid max-w-[320px] gap-1.5">
               <span className="text-[13px] font-semibold text-soft">3. Your mod&apos;s id</span>
-              <input className="field font-mono" value={modId} onChange={(e) => setModId(e.target.value)} spellCheck={false} aria-invalid={!ID.test(modId)} />
+              <input className="d-field font-mono" value={modId} onChange={(e) => setModId(e.target.value)} spellCheck={false} aria-invalid={!ID.test(modId)} />
               {!ID.test(modId) && <span className="text-[13px] text-brand">Lower-case letters and digits, joined by single hyphens. The code uses “my-mod” until then.</span>}
             </label>
           )}
-          {code ? <Code code={code} lang={lang} title={lang === "luau" ? "main.luau" : lang === "cpp" ? "src/mod.cpp" : "src/mod.c"} className="my-0" /> : <p className="rounded-xl border border-line p-3 text-[14px] text-soft">{why}</p>}
+          {code ? <Code code={code} lang={lang} title={lang === "luau" ? "main.luau" : lang === "cpp" ? "src/mod.cpp" : "src/mod.c"} className="my-0" /> : <p className="rounded-lg border border-line p-3 text-[14px] text-soft">{why}</p>}
           <p className="text-[14px] text-body">
             List it in your manifest too, so the launcher can show which mods share it:{" "}
             <code className="text-gold">&quot;hooks&quot;: [&quot;{key(h)}&quot;]</code>.{" "}

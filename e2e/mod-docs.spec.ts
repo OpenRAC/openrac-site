@@ -28,8 +28,12 @@ test("a guide's links lead to this site's pages, and its code can be copied", as
 
 test("search finds a call of the table and goes to it", async ({ page }) => {
   await page.goto("/mods/docs");
-  await page.keyboard.press("/");
   const box = page.getByPlaceholder("hook, setting_int, on_pad, rac1.player...");
+  // The key only works once the page has hydrated; press it until the search opens.
+  await expect(async () => {
+    await page.keyboard.press("/");
+    await expect(box).toBeVisible({ timeout: 1000 });
+  }).toPass();
   await box.fill("setting_int");
   await expect(page.getByRole("listbox").getByRole("option").first()).toContainText("api->setting_int");
   await box.press("Enter");

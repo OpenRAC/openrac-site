@@ -80,17 +80,17 @@ function Overview({ r, latest, ctx }: { r: Release; latest: string; ctx: LinkCon
   ].filter(Boolean) as { href: string; title: string; lang: string; text: string }[];
   const added = Object.values(r.changes.api).reduce((n, p) => n + p.added.length, 0);
   return (
-    <div className="grid gap-10">
+    <div className="grid gap-8">
       {has("getting-started") && (
         <div className="flex flex-wrap gap-3">
-          <a href={at("getting-started")} className="btn btn-primary">
+          <a href={at("getting-started")} className="d-btn d-btn-primary">
             Make your first mod
           </a>
-          <a href={at("tools/manifest")} className="btn">
+          <a href={at("tools/manifest")} className="d-btn">
             Try the manifest builder
           </a>
           {r.hooks[0] && (
-            <a href={at(`reference/hooks-${r.hooks[0].game}`)} className="btn">
+            <a href={at(`reference/hooks-${r.hooks[0].game}`)} className="d-btn">
               Browse hook points
             </a>
           )}
@@ -98,14 +98,14 @@ function Overview({ r, latest, ctx }: { r: Release; latest: string; ctx: LinkCon
       )}
       {paths.length > 0 && (
         <section aria-labelledby="pick" className="grid gap-3">
-          <h2 id="pick" className="font-orbitron text-[19px] font-bold text-hi">
+          <h2 id="pick" className="text-[19px] font-semibold text-hi">
             Pick your way in
           </h2>
           <div className="grid gap-3 md:grid-cols-3">
             {paths.map((p) => (
-              <a key={p.href} href={p.href} className="surface surface-link grid content-start gap-2 p-4 no-underline">
-                <span className="font-orbitron text-[11px] font-bold uppercase tracking-[.16em] text-brand">{p.lang}</span>
-                <span className="text-[17px] font-semibold text-hi">{p.title}</span>
+              <a key={p.href} href={p.href} className="d-card d-card-link grid content-start gap-2 p-3.5 no-underline">
+                <span className="text-[12.5px] font-semibold text-brand">{p.lang}</span>
+                <span className="text-[15.5px] font-semibold text-hi">{p.title}</span>
                 <span className="text-[14px] leading-relaxed text-soft">{p.text}</span>
               </a>
             ))}
@@ -113,22 +113,22 @@ function Overview({ r, latest, ctx }: { r: Release; latest: string; ctx: LinkCon
         </section>
       )}
       <section aria-labelledby="ref" className="grid gap-3">
-        <h2 id="ref" className="font-orbitron text-[19px] font-bold text-hi">
+        <h2 id="ref" className="text-[19px] font-semibold text-hi">
           Reference
         </h2>
         <div className="grid gap-3 sm:grid-cols-2">
           {pagesOf(r)
             .filter((p) => p.group === "Reference")
             .map((p) => (
-              <a key={p.path} href={at(p.path)} className="surface surface-link grid gap-1 p-4 no-underline">
+              <a key={p.path} href={at(p.path)} className="d-card d-card-link grid gap-1 p-3.5 no-underline">
                 <span className="font-semibold text-hi">{p.title}</span>
                 {p.blurb && <span className="text-[14px] text-soft">{p.blurb}</span>}
               </a>
             ))}
         </div>
       </section>
-      <section aria-labelledby="new" className="surface grid gap-2 p-4">
-        <h2 id="new" className="flex flex-wrap items-center gap-2 font-orbitron text-[16px] font-bold text-hi">
+      <section aria-labelledby="new" className="d-card grid gap-2 p-4">
+        <h2 id="new" className="flex flex-wrap items-center gap-2 text-[16px] font-semibold text-hi">
           In this release <Since since={r.interface} iface={r.interface} />
         </h2>
         <p className="text-[14.5px] text-body">
@@ -167,7 +167,7 @@ export default async function DocsPage(props: PageProps<"/mods/docs/[[...slug]]"
   switch (page.kind) {
     case "overview":
       return (
-        <DocsShell {...shell} title={<>Make mods for <span className="text-amber">OpenRAC</span></>} lead="Change how Ratchet & Clank plays on the PC port: new moves, swapped buttons, tweaks to enemies. These docs teach the mod SDK one piece at a time, with code you can copy.">
+        <DocsShell {...shell} title="Make mods for OpenRAC" lead="Change how Ratchet & Clank plays on the PC port: new moves, swapped buttons, tweaks to enemies. These docs teach the mod SDK one piece at a time, with code you can copy.">
           <Overview r={r} latest={latest} ctx={ctx(r.guides.length ? "sdk/docs/README.md" : "sdk/README.md")} />
         </DocsShell>
       );
@@ -222,13 +222,13 @@ export default async function DocsPage(props: PageProps<"/mods/docs/[[...slug]]"
           </section>
           {g.fields.length > 0 && (
             <section id="fields" className="mt-12 grid scroll-mt-20 gap-3">
-              <h2 className="font-orbitron text-[21px] font-bold text-hi">Fields</h2>
+              <h2 className="text-[19px] font-semibold text-hi">Fields</h2>
               <p className="max-w-[760px] text-[15px] text-body">
                 Game state a script reads and writes by name: <code className="text-gold">openrac.fields.{g.fields[0].name}</code>. <b className="text-hi">Experimental:</b> these name the game&apos;s internals and follow the decompilation.
               </p>
-              <div tabIndex={0} className="surface overflow-x-auto">
+              <div tabIndex={0} className="d-card overflow-x-auto">
                 <table className="w-full text-left text-[14px]">
-                  <thead className="text-[11px] uppercase tracking-wider text-dim">
+                  <thead className="text-[12.5px] font-medium text-dim">
                     <tr>
                       <th className="px-4 py-2 font-semibold">Name</th>
                       <th className="px-4 py-2 font-semibold">Type</th>
@@ -260,7 +260,7 @@ export default async function DocsPage(props: PageProps<"/mods/docs/[[...slug]]"
       const g = r.hooks[0];
       return (
         <DocsShell {...shell} title="Manifest builder" lead={<>Every mod has an <code className="text-gold">openrac-mod.json</code>. Fill in the form or paste your own: it is checked as you type, by the same rules the SDK uses.{md ? <> Each field is explained in <a href={docsHref(version, "manifest", latest)} className="text-amber underline">the manifest guide</a>.</> : null}</>}>
-          <Suspense fallback={<div className="surface h-[640px] animate-pulse" />}>
+          <Suspense fallback={<div className="d-card h-[640px] animate-pulse" />}>
           <ManifestBuilder
             iface={r.interface}
             sdk={r.version}

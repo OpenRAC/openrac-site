@@ -13,10 +13,10 @@ export default function VersionSwitcher({ versions, current, path, latest }: { v
   const router = useRouter();
   return (
     <label className="grid gap-1.5">
-      <span className="font-orbitron text-[11px] font-bold uppercase tracking-[.16em] text-dim">SDK version</span>
+      <span className="text-[12.5px] font-semibold text-dim">SDK version</span>
       <span className="sr-only">Each version is a release of the SDK. The docs show what that release has.</span>
       <select
-        className="field w-full"
+        className="d-field w-full"
         value={current}
         onChange={(e) => {
           const to = versions.find((v) => v.version === e.target.value);
