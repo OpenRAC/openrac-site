@@ -21,10 +21,11 @@ const PAGE = 40;
  */
 export default function HookExplorer({ hooks, game, discs, manifestHref, scripts }: { hooks: Hook[]; game: string; discs: string[]; manifestHref: string; scripts: boolean }) {
   const key = (h: Hook) => h.id || h.name;
-  const ideas = HOOK_IDEAS.filter((i) => hooks.some((h) => h.id === i.id && !h.experimental));
+  // The ideas name hook points by what follows the game ("player.take_damage"), so they fit every game that has them.
+  const ideas = HOOK_IDEAS.map((i) => ({ ...i, hook: hooks.find((h) => h.id === `${game}.${i.id}` && !h.experimental) })).filter((i): i is typeof i & { hook: Hook } => !!i.hook);
   const [query, setQuery] = useState("");
   const [topic, setTopic] = useState<string>("all");
-  const [selected, setSelected] = useState<string>(() => key(hooks.find((h) => h.id === ideas[0]?.id) ?? hooks.find((h) => !h.experimental) ?? hooks[0]));
+  const [selected, setSelected] = useState<string>(() => key(ideas[0]?.hook ?? hooks.find((h) => !h.experimental) ?? hooks[0]));
   const [mode, setMode] = useState<HookMode>("wrap");
   const [lang, setLang] = useState<Lang>(scripts ? "luau" : "c");
   const [modId, setModId] = useState("my-mod");
@@ -86,44 +87,34 @@ export default function HookExplorer({ hooks, game, discs, manifestHref, scripts
   return (
     <div className="grid gap-6">
       {ideas.length > 0 && (
-        <div className="grid gap-2">
-          <p className="text-[13px] font-semibold text-hi">Not sure where to start? Try one of these</p>
-          <ul className="grid gap-1.5 sm:grid-cols-2 lg:grid-cols-3">
-            {ideas.map((i) => {
-              const x = hooks.find((y) => y.id === i.id)!;
-              return (
-                <li key={i.id}>
-                  <button type="button" onClick={() => { setQuery(""); setTopic(hookTopic(x)); pick(x); }} aria-pressed={key(x) === key(h)} className={`flex min-h-8 w-full items-center gap-2 rounded-md border px-2.5 py-1 text-left text-[13px] transition-colors ${key(x) === key(h) ? "border-amber/45 text-amber" : "border-white/12 text-soft hover:border-white/25 hover:text-hi"}`}>
-                    <span aria-hidden className="text-dim">→</span>
-                    {i.idea}
-                  </button>
-                </li>
-              );
-            })}
-          </ul>
-        </div>
+        <p className="text-[13.5px] leading-relaxed text-soft">
+          <span className="text-dim">Start with: </span>
+          {ideas.map((i, n) => (
+            <span key={i.id}>
+              {n > 0 && <span className="text-dim"> · </span>}
+              <button type="button" onClick={() => { setQuery(""); setTopic("all"); pick(i.hook); }} className={`underline decoration-white/20 underline-offset-2 hover:text-hi hover:decoration-white/50 ${key(i.hook) === key(h) ? "text-amber decoration-amber/50" : ""}`}>
+                {i.idea}
+              </button>
+            </span>
+          ))}
+        </p>
       )}
 
       <div className="grid gap-5 lg:grid-cols-[minmax(0,300px)_minmax(0,1fr)]">
-        <div className="grid content-start gap-2.5">
-          <input type="search" className="d-field" placeholder="Search hook points" aria-label="Search hook points" value={query} onChange={(e) => { setQuery(e.target.value); setShown(PAGE); }} />
-          <div className="flex flex-wrap gap-1" role="radiogroup" aria-label="Part of the game">
-            {[{ topic: "all", label: "All", n: hooks.filter((x) => !x.experimental).length, what: "every stable hook point" }, ...topics].map((t) => (
-              <button
-                key={t.topic}
-                type="button"
-                role="radio"
-                aria-checked={!query && topic === t.topic}
-                title={t.what}
-                onClick={() => { setQuery(""); setTopic(t.topic); setShown(PAGE); }}
-                className={`h-7 rounded-md px-2 text-[12.5px] transition-colors ${!query && topic === t.topic ? "bg-white/10 text-hi" : "text-soft hover:bg-white/5 hover:text-hi"}`}
-              >
-                {t.label} <span className={!query && topic === t.topic ? "text-soft" : "text-dim"}>{t.n}</span>
-              </button>
-            ))}
+        <div className="grid content-start gap-2">
+          <div className="flex gap-2">
+            <input type="search" className="d-field min-w-0 flex-1" placeholder="Search hook points" aria-label="Search hook points" value={query} onChange={(e) => { setQuery(e.target.value); setShown(PAGE); }} />
+            <select className="d-field w-auto max-w-[45%]" aria-label="Part of the game" value={topic} onChange={(e) => { setQuery(""); setTopic(e.target.value); setShown(PAGE); }}>
+              <option value="all">All ({hooks.filter((x) => !x.experimental).length})</option>
+              {topics.map((t) => (
+                <option key={t.topic} value={t.topic}>
+                  {t.label} ({t.n})
+                </option>
+              ))}
+            </select>
           </div>
-          <p className="text-[12.5px] text-dim" aria-live="polite">
-            {query ? `${list.length} found` : topics.find((t) => t.topic === topic)?.what || (topic === "all" ? "The stable hook points. Pick a part of the game, or search." : "")}
+          <p className="sr-only" aria-live="polite">
+            {list.length} hook points
           </p>
           <ul className="d-card max-h-[460px] overflow-y-auto p-1 [scrollbar-width:thin]">
             {list.slice(0, shown).map((x) => (

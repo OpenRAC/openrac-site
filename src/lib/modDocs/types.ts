@@ -34,7 +34,7 @@ export type CppClass = { name: string; template: string; about: string; members:
 export type CppDoc = { intro: string; classes: CppClass[]; macros: { name: string; about: string; examples?: Example[] }[] };
 
 export type LuauMember = { name: string; type: string; about: string; usage: string; since: string | null; global?: boolean; examples?: Example[] };
-export type LuauDoc = { file: string; members: LuauMember[]; types: { name: string; text: string; about: string }[] };
+export type LuauDoc = { file: string; /** Every game's types file (older data: only `file`). */ files?: string[]; members: LuauMember[]; types: { name: string; text: string; about: string }[] };
 
 export type Hook = {
   id: string;

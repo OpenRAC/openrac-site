@@ -79,9 +79,9 @@ test("a call of the table and its comment", () => {
 test("the pages of a release follow what it ships", () => {
   const old = pagesOf({ guides: [], cpp: null, luau: null, hooks: [{ game: "rac1", discs: [], hooks: [], fields: [] }] }).map((p) => p.path);
   assert.deepEqual(old, ["", "reference/c-api", "reference/hooks-rac1", "tools/manifest", "changelog"]);
-  // A second game is a tab of the one "Hook points" page, at its own address.
+  // Each game's hook points: a page under "Hook points" in the menu.
   const two = pagesOf({ guides: [], cpp: null, luau: null, hooks: ["rac1", "rac2"].map((game) => ({ game, discs: [], hooks: [], fields: [] })) }).filter((p) => p.kind === "hooks");
-  assert.deepEqual(two.map((p) => [p.path, p.title, !!p.tab]), [["reference/hooks-rac1", "Hook points", false], ["reference/hooks-rac2", "Hook points", true]]);
+  assert.deepEqual(two.map((p) => [p.path, p.title, p.parent]), [["reference/hooks-rac1", "Ratchet & Clank", "Hook points"], ["reference/hooks-rac2", "Going Commando", "Hook points"]]);
 });
 
 test("the manifest guide's fields and examples", () => {

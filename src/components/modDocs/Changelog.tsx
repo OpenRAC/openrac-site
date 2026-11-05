@@ -10,7 +10,7 @@ const PARTS: { key: keyof Release["changes"]["api"]; label: string }[] = [
 ];
 
 /** Where a changed name is documented in that release. */
-function nameHref(part: string, name: string, version: string, latest: string): string {
+function nameHref(part: string, name: string, version: string, latest: string, games: Release["hooks"] = []): string {
   const at = (path: string, hash: string) => `${docsHref(version, path, latest)}#${encodeURI(hash)}`;
   if (part === "c") return at("reference/c-api", name);
   if (part === "cpp") return at("reference/cpp-api", name);
@@ -19,16 +19,17 @@ function nameHref(part: string, name: string, version: string, latest: string): 
     const [game, field] = name.split(":");
     return at(`reference/hooks-${game}`, `field-${field}`);
   }
-  const game = name.includes(".") ? name.split(".")[0] : "rac1";
+  // A name without an id ("Hero_TakeDamage") belongs to the game whose hook points have it.
+  const game = name.includes(".") ? name.split(".")[0] : (games.find((g) => g.hooks.some((h) => h.name === name || h.aliases.includes(name)))?.game ?? games[0]?.game ?? "rac1");
   return at(`reference/hooks-${game}`, name);
 }
 
-function Names({ names, part, version, latest, most = 24 }: { names: string[]; part: string; version: string; latest: string; most?: number }) {
+function Names({ names, part, version, latest, games, most = 24 }: { names: string[]; part: string; version: string; latest: string; games: Release["hooks"]; most?: number }) {
   const shown = names.slice(0, most);
   return (
     <span className="flex flex-wrap gap-1.5">
       {shown.map((n) => (
-        <a key={n} href={nameHref(part, n, version, latest)} className="rounded-md border border-line px-1.5 py-0.5 font-mono text-[12.5px] text-gold no-underline hover:border-amber">
+        <a key={n} href={nameHref(part, n, version, latest, games)} className="rounded-md border border-line px-1.5 py-0.5 font-mono text-[12.5px] text-gold no-underline hover:border-amber">
           {n}
         </a>
       ))}
@@ -45,7 +46,7 @@ function PartChanges({ part, label, d, r, latest }: { part: string; label: strin
       {d.added.length > 0 && (
         <div className="grid gap-1.5 sm:grid-cols-[90px_1fr]">
           <span className="text-[13px] font-semibold text-amber">Added {d.added.length}</span>
-          <Names names={d.added} part={part} version={r.version} latest={latest} />
+          <Names names={d.added} part={part} version={r.version} latest={latest} games={r.hooks} />
         </div>
       )}
       {d.changed.length > 0 && (
@@ -54,7 +55,7 @@ function PartChanges({ part, label, d, r, latest }: { part: string; label: strin
           <ul className="grid gap-1 text-[13px]">
             {d.changed.slice(0, 12).map((c) => (
               <li key={c.name} className="font-mono text-body [overflow-wrap:anywhere]">
-                <a href={nameHref(part, c.name, r.version, latest)} className="text-gold underline decoration-gold/40 underline-offset-2">
+                <a href={nameHref(part, c.name, r.version, latest, r.hooks)} className="text-gold underline decoration-gold/40 underline-offset-2">
                   {c.name}
                 </a>
                 : <span className="text-dim line-through">{c.from}</span> → {c.to}

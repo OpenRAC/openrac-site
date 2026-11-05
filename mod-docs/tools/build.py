@@ -175,6 +175,8 @@ def luau(sdk: Path, ref) -> dict | None:
         if len(ty["text"]) > 4000:
             ty["text"] = ty["text"][:4000].rsplit("\n", 1)[0] + "\n    -- ... (the rest in the SDK's types file)"
     t["file"] = path.relative_to(sdk).as_posix()
+    # One types file per game; the openrac table is the same in each, its hook point names differ.
+    t["files"] = [p.relative_to(sdk).as_posix() for p in sorted((sdk / "types").glob("*.d.luau"))]
     if "require" in docs:
         t["members"].append({"name": "require", "type": "(name: string) -> any", "about": docs["require"]["about"],
                              "usage": docs["require"]["usage"], "since": "1.1", "global": True})

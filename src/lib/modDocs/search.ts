@@ -17,7 +17,7 @@ const short = (text: string, most = 110) => {
 export function searchEntries(r: Release, latest: string): Entry[] {
   const at = (path: string, hash = "") => docsHref(r.version, path, latest) + (hash ? `#${hash}` : "");
   const out: Entry[] = [];
-  for (const p of pagesOf(r)) out.push({ t: p.title, k: p.group === "Guides" || p.group === "Start" ? "Guide" : p.group, h: at(p.path), d: p.blurb });
+  for (const p of pagesOf(r)) out.push({ t: p.parent ? `${p.parent}: ${p.title}` : p.title, k: p.group === "Guides" || p.group === "Start" ? "Guide" : p.group, h: at(p.path), d: p.blurb });
   for (const g of r.guides) {
     const slug = slugger();
     for (const m of g.markdown.matchAll(/^(#{2,3})\s+(.+)$/gm)) {

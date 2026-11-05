@@ -44,13 +44,14 @@ export async function generateMetadata(props: PageProps<"/mods/docs/[[...slug]]"
   const at = resolve(slug);
   if (!at) return { title: "Page not found", robots: { index: false } };
   const { page, version, index, release } = at;
-  const title = page.kind === "overview" ? "Mod SDK docs" : page.kind === "hooks" && release.hooks.length > 1 ? `Hook points (${gameName(page.game!)}) · Mod SDK docs` : `${page.title} · Mod SDK docs`;
+  const name = page.parent ? `${page.parent}: ${page.title}` : page.title;
+  const title = page.kind === "overview" ? "Mod SDK docs" : `${name} · Mod SDK docs`;
   const description =
     page.kind === "overview"
       ? `How to make mods for OpenRAC, the native port of Ratchet & Clank: script mods in Luau, native mods in C and C++, and the full API reference of SDK ${version}.`
       : page.kind === "guide"
         ? `${page.title}: a guide to making mods for OpenRAC with SDK ${version}.`
-        : `${page.title} of the OpenRAC mod SDK ${version}${page.blurb ? `: ${page.blurb}` : ""}.`;
+        : `${name} of the OpenRAC mod SDK ${version}${page.blurb ? `: ${page.blurb}` : ""}.`;
   // One address per page for search engines: the latest release's, without the version.
   const canonical = docsHref(index.latest, pagesOf(getRelease(index.latest)).some((p) => p.path === page.path) ? page.path : "", index.latest);
   const url = docsHref(version, page.path, index.latest);
@@ -118,10 +119,10 @@ function Overview({ r, latest, ctx }: { r: Release; latest: string; ctx: LinkCon
         </h2>
         <div className="grid gap-3 sm:grid-cols-2">
           {pagesOf(r)
-            .filter((p) => p.group === "Reference" && !p.tab)
+            .filter((p) => p.group === "Reference" && (!p.parent || p === pagesOf(r).find((x) => x.parent === p.parent)))
             .map((p) => (
               <a key={p.path} href={at(p.path)} className="d-card d-card-link grid gap-1 p-3.5 no-underline">
-                <span className="font-semibold text-hi">{p.title}</span>
+                <span className="font-semibold text-hi">{p.parent ?? p.title}</span>
                 {p.blurb && <span className="text-[14px] text-soft">{p.blurb}</span>}
               </a>
             ))}
@@ -208,22 +209,7 @@ export default async function DocsPage(props: PageProps<"/mods/docs/[[...slug]]"
         <DocsShell
           {...shell}
           title="Hook points"
-          lead={
-            <>
-              {r.hooks.length > 1 && (
-                <nav aria-label="Game" className="mb-3">
-                  <div className="d-seg">
-                  {r.hooks.map((x) => (
-                    <a key={x.game} href={docsHref(version, `reference/hooks-${x.game}`, latest)} aria-current={x.game === g.game ? "page" : undefined} className={`flex h-[26px] items-center rounded px-2.5 text-[13px] no-underline ${x.game === g.game ? "bg-white/8 font-medium text-hi" : "text-soft hover:text-hi"}`}>
-                      {gameName(x.game)}
-                    </a>
-                  ))}
-                  </div>
-                </nav>
-              )}
-              A hook point is a function of {gameName(g.game)} your mod can take over. Pick one to see what it does and get a whole mod that uses it. {g.hooks.length} hook points, {stable} of them stable.
-            </>
-          }
+          lead={<>Functions of {gameName(g.game)} your mod can take over: {g.hooks.length} in all, {stable} of them stable.</>}
           toc={[{ id: "explorer", label: "Hook points" }, ...(g.fields.length ? [{ id: "fields", label: "Fields" }] : [])]}
         >
           <section id="explorer" aria-labelledby="explorer-title" className="scroll-mt-20">
@@ -275,7 +261,6 @@ export default async function DocsPage(props: PageProps<"/mods/docs/[[...slug]]"
     }
     case "manifest": {
       const md = r.guides.find((x) => x.slug === "manifest")?.markdown ?? "";
-      const g = r.hooks[0];
       return (
         <DocsShell {...shell} title="Manifest builder" lead={<>Every mod has an <code className="text-gold">openrac-mod.json</code>. Fill in the form or paste your own: it is checked as you type, by the rules of the newest SDK.{md ? <> Each field is explained in <a href={docsHref(version, "manifest", latest)} className="text-amber underline">the manifest guide</a>.</> : null}</>}>
           <Suspense fallback={<div className="d-card h-[640px] animate-pulse" />}>
@@ -283,11 +268,10 @@ export default async function DocsPage(props: PageProps<"/mods/docs/[[...slug]]"
             iface={r.interface}
             sdk={r.version}
             rules={latest}
-            game={g?.game ?? "rac1"}
-            discs={g?.discs.length ? g.discs : ["pal", "ntsc"]}
+            games={r.hooks.length ? r.hooks.map((x) => ({ game: x.game, discs: x.discs.length ? x.discs : ["pal", "ntsc"] })) : [{ game: "rac1", discs: ["pal", "ntsc"] }]}
             keys={r.keys}
             hookNames={r.hookNames}
-            hookIds={(g?.hooks ?? []).filter((h) => h.id && !h.experimental).map((h) => h.id)}
+            hookIds={r.hooks.flatMap((x) => x.hooks.filter((h) => h.id && !h.experimental).map((h) => h.id))}
             help={manifestHelp(md)}
             examples={manifestExamples(md)}
           />

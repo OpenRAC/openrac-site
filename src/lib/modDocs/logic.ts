@@ -29,7 +29,7 @@ export function isNewIn(since: string | null | undefined, iface: string): boolea
 // ---- Pages ----
 
 export type PageKind = "overview" | "guide" | "c" | "cpp" | "luau" | "hooks" | "changelog" | "manifest";
-export type Page = { path: string; title: string; kind: PageKind; group: "Start" | "Guides" | "Reference" | "Try it" | "Releases"; game?: string; blurb?: string; tab?: boolean };
+export type Page = { path: string; title: string; kind: PageKind; group: "Start" | "Guides" | "Reference" | "Try it" | "Releases"; game?: string; blurb?: string; parent?: string };
 
 /** Every page a release has, in the sidebar's order. A page exists only when the release ships its source. */
 export function pagesOf(r: Pick<Release, "guides" | "cpp" | "luau" | "hooks">): Page[] {
@@ -40,8 +40,8 @@ export function pagesOf(r: Pick<Release, "guides" | "cpp" | "luau" | "hooks">): 
   out.push({ path: "reference/c-api", title: "C interface", kind: "c", group: "Reference", blurb: "openrac_mod.h: the table every native mod gets" });
   if (r.cpp) out.push({ path: "reference/cpp-api", title: "C++ layer", kind: "cpp", group: "Reference", blurb: "mod.hpp: hooks as lambdas, typed settings" });
   if (r.luau) out.push({ path: "reference/luau-api", title: "Luau API", kind: "luau", group: "Reference", blurb: "the openrac table a script mod sees" });
-  // One "Hook points" page in the menu; each further game is a tab of it, at its own address.
-  r.hooks.forEach((g, i) => out.push({ path: `reference/hooks-${g.game}`, title: "Hook points", kind: "hooks", group: "Reference", game: g.game, blurb: "every hook point, with code to start from", ...(i ? { tab: true } : {}) }));
+  // "Hook points" folds open in the menu on one page per game.
+  for (const g of r.hooks) out.push({ path: `reference/hooks-${g.game}`, title: gameName(g.game), parent: "Hook points", kind: "hooks", group: "Reference", game: g.game, blurb: "every hook point, with code to start from" });
   out.push({ path: "tools/manifest", title: "Manifest builder", kind: "manifest", group: "Try it" });
   out.push({ path: "changelog", title: "Changelog", kind: "changelog", group: "Releases" });
   return out;
@@ -343,14 +343,14 @@ export function hookTopic(h: Pick<Hook, "id" | "name" | "experimental">): string
   return HOOK_TOPICS.find((t) => t.parts.includes(part))?.topic ?? "other";
 }
 
-/** Things people often want to change first, and the hook point that does it (shown when the release has it). */
+/** Things people often want to change first, and the hook point that does it, by its id after the game (shown where the game has it). */
 export const HOOK_IDEAS: { idea: string; id: string }[] = [
-  { idea: "Take less damage, or none", id: "rac1.player.take_damage" },
-  { idea: "Never run out of ammo", id: "rac1.weapon.take_ammo" },
-  { idea: "Run faster or slower", id: "rac1.player.approach_speed" },
-  { idea: "Change what crates and enemies drop", id: "rac1.ammo.choose_drop" },
-  { idea: "React when Ratchet gets an item", id: "rac1.item.give" },
-  { idea: "Remap or read the buttons", id: "rac1.pad.process_report" },
+  { idea: "Take less damage, or none", id: "player.take_damage" },
+  { idea: "Never run out of ammo", id: "weapon.take_ammo" },
+  { idea: "Run faster or slower", id: "player.approach_speed" },
+  { idea: "Change what crates and enemies drop", id: "ammo.choose_drop" },
+  { idea: "React when Ratchet gets an item", id: "item.give" },
+  { idea: "Remap or read the buttons", id: "pad.process_report" },
 ];
 
 /** A hook point's description without the game's own function name in brackets: "(Hero_TakeDamage)". */

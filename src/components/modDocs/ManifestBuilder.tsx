@@ -84,8 +84,7 @@ export default function ManifestBuilder({
   iface,
   sdk,
   rules,
-  game,
-  discs,
+  games,
   keys,
   hookNames,
   hookIds,
@@ -96,8 +95,8 @@ export default function ManifestBuilder({
   sdk: string;
   /** The SDK release whose package_mod.py the checks follow: the newest. */
   rules: string;
-  game: string;
-  discs: string[];
+  /** Each game the release has hook points for, with its discs. */
+  games: { game: string; discs: string[] }[];
   keys: string[];
   hookNames: Record<string, string[]>;
   hookIds: string[];
@@ -112,7 +111,9 @@ export default function ManifestBuilder({
   const [text, setText] = useState(() => {
     const hooks = query.get("hooks")?.split(",").filter(Boolean);
     const type = query.get("type") === "native" || !scriptsAllowed ? "native" : "script";
-    return pretty({ ...starter(type, iface, discs, game), ...(hooks?.length ? { hooks } : {}) });
+    // The game of the hook point the link names (rac2.player... is Going Commando), else the first.
+    const g = games.find((x) => hooks?.some((h) => h.startsWith(`${x.game}.`))) ?? games[0];
+    return pretty({ ...starter(type, iface, g.discs, g.game), ...(hooks?.length ? { hooks } : {}) });
   });
   const [hookInput, setHookInput] = useState("");
 
@@ -139,7 +140,7 @@ export default function ManifestBuilder({
   };
   const str = (k: string) => (m && typeof m[k] === "string" ? (m[k] as string) : "");
   const kind = m?.type === "script" ? "script" : "native";
-  const gameDiscs: string[] = m && m.games && typeof m.games === "object" && Array.isArray((m.games as Obj)[game]) ? ((m.games as Obj)[game] as string[]) : [];
+  const discsOf = (game: string): string[] => (m && m.games && typeof m.games === "object" && Array.isArray((m.games as Obj)[game]) ? ((m.games as Obj)[game] as string[]) : []);
   const hooks: string[] = Array.isArray(m?.hooks) ? (m!.hooks as string[]) : [];
   const settings: Setting[] = Array.isArray(m?.settings) ? (m!.settings as Setting[]) : [];
   const plugin = m?.plugin && typeof m.plugin === "object" ? (m.plugin as Record<string, string>) : {};
@@ -222,20 +223,26 @@ export default function ManifestBuilder({
           <div className="grid gap-2">
             <span className="text-[13.5px] font-semibold text-hi">Games and discs</span>
             <div className="flex flex-wrap gap-2">
-              {discs.map((d) => (
-                <button
-                  key={d}
-                  type="button"
-                  className="d-btn"
-                  aria-pressed={gameDiscs.includes(d)}
-                  onClick={() => {
-                    const next = gameDiscs.includes(d) ? gameDiscs.filter((x) => x !== d) : [...gameDiscs, d];
-                    set({ games: next.length ? { ...((m?.games as Obj) ?? {}), [game]: next } : undefined });
-                  }}
-                >
-                  {game} · {d.toUpperCase()}
-                </button>
-              ))}
+              {games.flatMap(({ game, discs }) =>
+                discs.map((d) => (
+                  <button
+                    key={`${game}-${d}`}
+                    type="button"
+                    className="d-btn"
+                    aria-pressed={discsOf(game).includes(d)}
+                    onClick={() => {
+                      const now = discsOf(game);
+                      const next = now.includes(d) ? now.filter((x) => x !== d) : [...now, d];
+                      const all: Obj = { ...((m?.games as Obj) ?? {}) };
+                      if (next.length) all[game] = next;
+                      else delete all[game];
+                      set({ games: Object.keys(all).length ? all : undefined });
+                    }}
+                  >
+                    {game} · {d.toUpperCase()}
+                  </button>
+                )),
+              )}
             </div>
             <Help text={help.games} />
             {by("games").map((e) => (
@@ -418,7 +425,7 @@ export default function ManifestBuilder({
               {e.title}
             </button>
           ))}
-          <button type="button" className="d-btn ml-auto h-7 px-2 text-[12.5px]" onClick={() => setText(pretty(starter(scriptsAllowed ? "script" : "native", iface, discs, game)))}>
+          <button type="button" className="d-btn ml-auto h-7 px-2 text-[12.5px]" onClick={() => setText(pretty(starter(scriptsAllowed ? "script" : "native", iface, games[0].discs, games[0].game)))}>
             Reset
           </button>
         </div>

@@ -11,13 +11,20 @@ export function luauToc() {
 /** The `openrac` table a script mod sees (types/<game>.d.luau), with what scripts.md says of each member. */
 export default function LuauReference({ r, ctx }: { r: Release; ctx: LinkContext }) {
   const luau = r.luau!;
+  const files = luau.files ?? [luau.file];
   return (
     <div className="grid gap-8">
       <section id="openrac" className="grid scroll-mt-20 gap-3">
         <h2 className="text-[19px] font-semibold text-hi">The openrac table</h2>
         <p className="max-w-[760px] text-[15px] text-body">
           A script mod sees one global, <code className="text-gold">openrac</code>, and the safe parts of Luau&apos;s library. For autocomplete, point your editor&apos;s Luau language server at the SDK&apos;s{" "}
-          <code className="text-gold">{luau.file}</code>.
+          {files.map((f, n) => (
+            <span key={f}>
+              {n > 0 && (n === files.length - 1 ? " or " : ", ")}
+              <code className="text-gold">{f}</code>
+            </span>
+          ))}
+          {files.length > 1 && " (one per game)"}.
         </p>
         {luau.members.map((m) => {
           const name = m.global ? m.name : `openrac.${m.name}`;
