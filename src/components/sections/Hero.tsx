@@ -11,7 +11,7 @@ export default function Hero({ progress, mods }: { progress: Partial<Record<Proj
   const bytes = active.reduce((sum, p) => sum + (p?.code.done ?? 0), 0);
 
   return (
-    <div className="relative isolate pb-8 pt-12 sm:pb-16 sm:pt-24">
+    <div className="relative isolate flex min-h-[calc(100svh-50px)] flex-col pb-6 pt-12 sm:pt-24">
       <Particles />
       {/* A soft gold glow on the right: a radial gradient moved by transform only, so it costs no repaint (a CSS blur filter would, every frame). */}
       <div aria-hidden className="absolute -right-56 -top-24 -z-10 size-[680px] bg-[radial-gradient(closest-side,rgb(214_160_32/0.3),transparent)] will-change-transform sm:animate-drift" />
@@ -57,6 +57,16 @@ export default function Hero({ progress, mods }: { progress: Partial<Record<Proj
             <span className="mt-0.5 block text-[12px] leading-snug text-dim sm:text-[13px]">{label}</span>
           </div>
         ))}
+      </div>
+
+      {/* Fill a tall first screen, but let short screens grow rather than clipping the introduction. */}
+      <div className="mt-auto pt-10 text-center sm:pt-12">
+        <a href="#progress" className="group inline-flex min-h-11 items-center gap-3 rounded-full border border-brand/30 bg-brand/5 px-5 py-3 text-[13px] font-semibold text-gold transition-colors hover:border-brand/60 hover:bg-brand/10">
+          Scroll to explore progress
+          <svg viewBox="0 0 20 20" aria-hidden="true" className="progress-scroll-arrow size-5 flex-none fill-none stroke-current stroke-[1.5]">
+            <path d="m5 5 5 5 5-5m-10 6 5 5 5-5" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+        </a>
       </div>
     </div>
   );

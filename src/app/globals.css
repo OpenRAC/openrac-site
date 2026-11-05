@@ -363,6 +363,13 @@ summary::-webkit-details-marker { display: none; }
   .dl:target .dl-inner { opacity: 1; transform: none; }
 }
 
+/* A brief invitation, not a perpetual distraction; the reduced-motion rule below disables it. */
+.progress-scroll-arrow { animation: progress-scroll-nudge 1.8s ease-in-out 2; }
+@keyframes progress-scroll-nudge {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(4px); }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation: none !important; transition: none !important; }
