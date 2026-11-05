@@ -14,6 +14,7 @@ export const HERO_SHOTS: readonly HeroShot[] = [
   { game: "Ratchet & Clank", place: "Jowai Resort, Pokitaru", file: "hero-rac1-pokitaru" },
   { game: "Ratchet & Clank", place: "Blarg Depot, Gaspar", file: "hero-rac1-gaspar" },
   { game: "Ratchet & Clank", place: "Qwark's Hideout, Umbris", file: "hero-rac1-umbris" },
+  { game: "Ratchet & Clank", place: "Batalia", file: "hero-rac1-batalia" },
 ];
 
 export const HERO_FILES = ["-1080.webm", "-1080.mp4", ".webp"] as const;
