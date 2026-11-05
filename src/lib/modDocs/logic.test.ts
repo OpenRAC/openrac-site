@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
-import { callShape, compareVersions, docsHref, guideLink, hookStubC, hookStubCpp, hookStubLuau, manifestExamples, manifestHelp, pagesOf, parseSlug, splitReturns, withoutSince } from "./logic.ts";
+import { callShape, compareVersions, docsHref, guideLink, hookStubC, hookStubCpp, hookStubLuau, hookTopic, manifestExamples, manifestHelp, pagesOf, parseSlug, plainAbout, splitReturns, withoutSince } from "./logic.ts";
 import type { Hook } from "./types.ts";
 
 const index = { latest: "1.11.0", versions: [{ version: "1.11.0" }, { version: "1.10.1" }, { version: "1.2.0" }] } as Parameters<typeof parseSlug>[1];
@@ -57,6 +57,15 @@ test("a hook point's code comes from its own signature", () => {
   // A replace uses none of its arguments yet: they are marked, so -Wall -Wextra stays quiet.
   assert.match(hookStubC(turn, "rac1", "x", "replace"), /\(void\)mode; \(void\)accel; \(void\)damping; \(void\)limit;/);
   assert.match(hookStubCpp(turn, "rac1", "x", "replace")!, /\(void\)mode;/);
+});
+
+test("hook points are found by what they touch, described without the game's names", () => {
+  assert.equal(hookTopic({ id: "rac1.player.take_damage", name: "Hero_TakeDamage", experimental: false }), "hero");
+  assert.equal(hookTopic({ id: "rac1.gold_bolt.count_collected", name: "x", experimental: false }), "items");
+  assert.equal(hookTopic({ id: "rac1.moby.bolt.update", name: "x", experimental: true }), "experimental");
+  assert.equal(hookTopic({ id: "rac1.new_part.x", name: "x", experimental: false }), "other");
+  assert.equal(plainAbout({ about: "Takes hit points off the hero (Hero_TakeDamage): at most one.", name: "Hero_TakeDamage", aliases: [] }), "Takes hit points off the hero: at most one.");
+  assert.equal(plainAbout({ about: "One report (PadState, at pad), each poll.", name: "Pad_ProcessReport", aliases: [] }), "One report (PadState, at pad), each poll.");
 });
 
 test("a call of the table and its comment", () => {

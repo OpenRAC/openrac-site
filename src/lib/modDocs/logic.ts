@@ -318,3 +318,42 @@ export function manifestExamples(md: string): { title: string; json: string }[] 
   }
   return out;
 }
+
+// ---- Finding a hook point without knowing the API ----
+
+/** What part of the game a hook point is about, by the second part of its id (rac1.<part>.*). */
+export const HOOK_TOPICS: { topic: string; label: string; what: string; parts: string[] }[] = [
+  { topic: "hero", label: "Ratchet", what: "how he moves, turns, runs and takes damage", parts: ["player"] },
+  { topic: "controls", label: "Controls", what: "the pad, before the game reads it", parts: ["pad"] },
+  { topic: "camera", label: "Camera", what: "where the follow camera looks", parts: ["camera"] },
+  { topic: "items", label: "Items and ammo", what: "gadgets, weapons, ammo and bolts", parts: ["item", "weapon", "ammo", "gold_bolt"] },
+  { topic: "world", label: "Enemies and objects", what: "hits, deaths and pickups", parts: ["moby", "combat"] },
+  { topic: "travel", label: "Levels and travel", what: "level loads, planets, the ship", parts: ["level", "planet", "ship"] },
+  { topic: "vendor", label: "Vendor", what: "what the shop sells", parts: ["vendor"] },
+  { topic: "hud", label: "HUD", what: "the quick select in play", parts: ["hud"] },
+  { topic: "menu", label: "Pause menu", what: "the item grid, previews, quick select", parts: ["menu"] },
+  { topic: "saves", label: "Saves", what: "new games, saving and loading", parts: ["save"] },
+];
+
+/** The topic of a hook point; experimental ones (the behaviour catalogue) are a topic of their own. */
+export function hookTopic(h: Pick<Hook, "id" | "name" | "experimental">): string {
+  if (h.experimental) return "experimental";
+  const part = (h.id || "").split(".")[1] ?? "";
+  return HOOK_TOPICS.find((t) => t.parts.includes(part))?.topic ?? "other";
+}
+
+/** Things people often want to change first, and the hook point that does it (shown when the release has it). */
+export const HOOK_IDEAS: { idea: string; id: string }[] = [
+  { idea: "Take less damage, or none", id: "rac1.player.take_damage" },
+  { idea: "Never run out of ammo", id: "rac1.weapon.take_ammo" },
+  { idea: "Run faster or slower", id: "rac1.player.approach_speed" },
+  { idea: "Change what crates and enemies drop", id: "rac1.ammo.choose_drop" },
+  { idea: "React when Ratchet gets an item", id: "rac1.item.give" },
+  { idea: "Remap or read the buttons", id: "rac1.pad.process_report" },
+];
+
+/** A hook point's description without the game's own function name in brackets: "(Hero_TakeDamage)". */
+export function plainAbout(h: Pick<Hook, "about" | "name" | "aliases">): string {
+  const names = new Set([h.name, ...h.aliases]);
+  return h.about.replace(/\s*\(([A-Za-z_][\w]*)\)/g, (m, n: string) => (names.has(n) || /_|[a-z][A-Z]/.test(n) ? "" : m)).replace(/\s+([:;,.])/g, "$1");
+}
