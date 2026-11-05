@@ -14,7 +14,7 @@ function Nav({ pages, current, version, latest }: { pages: Page[]; current: stri
   return (
     <nav aria-label="Docs" className="grid gap-4">
       {GROUPS.map((g) => {
-        const items = pages.filter((p) => p.group === g);
+        const items = pages.filter((p) => p.group === g && !p.tab);
         if (!items.length) return null;
         return (
           <div key={g}>
@@ -66,9 +66,12 @@ export default function DocsShell({
 }) {
   const latest = index.latest;
   const old = version !== latest;
-  const at = pages.indexOf(page);
-  const prev = at > 0 ? pages[at - 1] : null;
-  const next = at >= 0 && at < pages.length - 1 ? pages[at + 1] : null;
+  // A tab (a further game's hook points) is not a page of its own in the menu or in prev/next.
+  const menu = pages.filter((p) => !p.tab);
+  const here = page.tab ? (menu.find((p) => p.kind === page.kind) ?? page) : page;
+  const at = menu.indexOf(here);
+  const prev = at > 0 ? menu[at - 1] : null;
+  const next = at >= 0 && at < menu.length - 1 ? menu[at + 1] : null;
   const controls = <VersionSwitcher versions={versions} current={version} path={page.path} latest={latest} />;
   return (
     <PageTransition>
@@ -85,7 +88,7 @@ export default function DocsShell({
               </a>
             </div>
             {controls}
-            <Nav pages={pages} current={page.path} version={version} latest={latest} />
+            <Nav pages={pages} current={here.path} version={version} latest={latest} />
           </div>
         </aside>
 
@@ -106,13 +109,13 @@ export default function DocsShell({
             <details className="d-card mb-5 lg:hidden">
               <summary className="flex min-h-12 cursor-pointer list-none items-center justify-between gap-3 px-4 font-semibold text-hi">
                 <span>
-                  Docs menu <span className="font-normal text-dim">· {page.title}</span>
+                  Docs menu <span className="font-normal text-dim">· {here.title}</span>
                 </span>
                 <span className="plus text-xl leading-none text-amber transition-transform">+</span>
               </summary>
               <div className="grid gap-5 border-t border-line p-4">
                 {controls}
-                <Nav pages={pages} current={page.path} version={version} latest={latest} />
+                <Nav pages={pages} current={here.path} version={version} latest={latest} />
               </div>
             </details>
           </header>

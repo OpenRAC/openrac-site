@@ -29,7 +29,7 @@ export function isNewIn(since: string | null | undefined, iface: string): boolea
 // ---- Pages ----
 
 export type PageKind = "overview" | "guide" | "c" | "cpp" | "luau" | "hooks" | "changelog" | "manifest";
-export type Page = { path: string; title: string; kind: PageKind; group: "Start" | "Guides" | "Reference" | "Try it" | "Releases"; game?: string; blurb?: string };
+export type Page = { path: string; title: string; kind: PageKind; group: "Start" | "Guides" | "Reference" | "Try it" | "Releases"; game?: string; blurb?: string; tab?: boolean };
 
 /** Every page a release has, in the sidebar's order. A page exists only when the release ships its source. */
 export function pagesOf(r: Pick<Release, "guides" | "cpp" | "luau" | "hooks">): Page[] {
@@ -40,7 +40,8 @@ export function pagesOf(r: Pick<Release, "guides" | "cpp" | "luau" | "hooks">): 
   out.push({ path: "reference/c-api", title: "C interface", kind: "c", group: "Reference", blurb: "openrac_mod.h: the table every native mod gets" });
   if (r.cpp) out.push({ path: "reference/cpp-api", title: "C++ layer", kind: "cpp", group: "Reference", blurb: "mod.hpp: hooks as lambdas, typed settings" });
   if (r.luau) out.push({ path: "reference/luau-api", title: "Luau API", kind: "luau", group: "Reference", blurb: "the openrac table a script mod sees" });
-  for (const g of r.hooks) out.push({ path: `reference/hooks-${g.game}`, title: `Hook points: ${gameName(g.game)}`, kind: "hooks", group: "Reference", game: g.game, blurb: "every hook point, with code to start from" });
+  // One "Hook points" page in the menu; each further game is a tab of it, at its own address.
+  r.hooks.forEach((g, i) => out.push({ path: `reference/hooks-${g.game}`, title: "Hook points", kind: "hooks", group: "Reference", game: g.game, blurb: "every hook point, with code to start from", ...(i ? { tab: true } : {}) }));
   out.push({ path: "tools/manifest", title: "Manifest builder", kind: "manifest", group: "Try it" });
   out.push({ path: "changelog", title: "Changelog", kind: "changelog", group: "Releases" });
   return out;
