@@ -396,3 +396,8 @@ body:has([data-install-bar]) footer { padding-bottom: calc(96px + env(safe-area-
 
 /* Docs: a one-column grid never grows past its column for a long name or line of code. */
 :where(#content) .grid:not([class*="grid-cols"]) { grid-template-columns: minmax(0, 1fr); }
+
+/* The corner dock (News, GitHub, Discord) rises above a page's install bar while that bar is up. */
+body:has([data-install-bar]:not([inert])) .site-dock {
+  translate: 0 calc(-1 * var(--install-bar-h, 64px));
+}

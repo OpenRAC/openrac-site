@@ -36,7 +36,7 @@ const barIcon = "flex size-10 flex-none items-center justify-center rounded-md t
 /** A dark capsule holding several of the wide bar's buttons, the bar's own dark and gold like the Download button. */
 const capsule = "min-[821px]:flex min-[821px]:items-center min-[821px]:px-1 min-[821px]:rounded-lg min-[821px]:bg-[#1b1206] min-[821px]:shadow-[0_0_0_1px_rgb(0_0_0/0.25)]";
 /** A hairline between the buttons of a capsule. */
-const divider = "h-4 w-px flex-none bg-white/15 max-[821px]:hidden";
+const divider = "h-4 w-px flex-none bg-white/15";
 /** A button in a capsule, and Mods while on its pages, filled gold. */
 const off = "text-amber hover:bg-[#2a1800]";
 const on = "bg-amber text-[#1a0d00]";
@@ -53,7 +53,7 @@ function ModsMark({ className = "size-4" }: { className?: string }) {
   );
 }
 
-/** News as a button next to GitHub. It stays plain on its own pages; only screen readers hear it is the current one. */
+/** News as a button next to GitHub, in the corner dock. It stays plain on its own pages; only screen readers hear it is the current one. */
 function NewsButton({ on, onClick, className = "" }: { on: boolean; onClick?: () => void; className?: string }) {
   return (
     <Link
@@ -65,7 +65,7 @@ function NewsButton({ on, onClick, className = "" }: { on: boolean; onClick?: ()
       aria-current={on ? "page" : undefined}
       className={`flex flex-none items-center justify-center rounded-md transition-colors ${className}`}
     >
-      <NewsIcon className="size-[21px] min-[821px]:size-[19px]" />
+      <NewsIcon className="size-[19px]" />
     </Link>
   );
 }
@@ -82,7 +82,7 @@ function MarkButton({ site, onClick, className = "" }: { site: "github" | "disco
       title={label}
       className={`flex flex-none items-center justify-center rounded-md transition-colors ${className}`}
     >
-      <Icon className="size-[20px] min-[821px]:size-[18px]" />
+      <Icon className="size-[18px]" />
     </a>
   );
 }
@@ -159,11 +159,6 @@ export default function Header() {
           {/* The site's search: a field on the wide bar (a bare mark below 1280 px), a mark on phones. */}
           <SiteSearch className="hidden h-[34px] flex-none items-center justify-center gap-2 rounded-md bg-black/15 px-2.5 text-[14px] font-semibold text-[#1b1206]/75 shadow-[inset_0_0_0_1px_rgb(0_0_0/0.25)] transition-colors hover:bg-black/20 min-[821px]:flex min-[821px]:w-32 min-[821px]:max-[1279px]:w-[34px] min-[821px]:max-[1279px]:px-0" />
           <SiteSearch compact className={`${barIcon} ml-auto`} />
-          {/* News in reach on phones too, without opening the menu; Mods is a line of the menu. */}
-          <NewsButton on={inNews} onClick={close} className={`${barIcon} -ml-5`} />
-          {/* Too wide for narrow phones (below 400 px): there they move into the menu as lines, so the menu button stays on screen. */}
-          <MarkButton site="github" onClick={close} className={`${barIcon} -ml-5 max-[400px]:hidden`} />
-          <MarkButton site="discord" onClick={close} className={`${barIcon} -ml-5 max-[400px]:hidden`} />
           <button
             type="button"
             aria-label={open ? "Close menu" : "Open menu"}
@@ -200,16 +195,9 @@ export default function Header() {
               <Link href="/mods" transitionTypes={PAGE_TRANSITION} onClick={close} aria-current={inMods ? "page" : undefined} className={`${link} ${inMods ? linkOn : linkOff} min-[821px]:hidden`}>
                 Mods
               </Link>
-              <a href={GITHUB_URL} onClick={close} className={`${link} ${linkOff} min-[400px]:hidden`}>
-                GitHub
-              </a>
-              <a href={DISCORD_URL} onClick={close} className={`${link} ${linkOff} min-[400px]:hidden`}>
-                Discord
-              </a>
             </div>
             <div className="grid gap-2 min-[821px]:ml-auto min-[821px]:flex min-[821px]:items-center min-[821px]:max-[1023px]:gap-1.5">
-              {/* Mods and Download share one dark capsule on the wide bar, News, GitHub and Discord another:
-                  fewer gaps, so the bar has room for more. On phones the first capsule falls away (contents):
+              {/* Mods and Download share one dark capsule on the wide bar. On phones it falls away (contents):
                   Download is the menu's big button, and Mods a line of the menu. */}
               <div className={`${capsule} max-[821px]:contents`}>
                 {/* Mods: its own page, with its own mark, gold while there. */}
@@ -217,18 +205,11 @@ export default function Header() {
                   <ModsMark className="size-4 min-[821px]:max-[1279px]:hidden" />
                   Mods
                 </Link>
-                <span aria-hidden className={divider} />
+                <span aria-hidden className={`${divider} max-[821px]:hidden`} />
                 {/* The home page's Download panel; elsewhere it goes home and opens it there. */}
                 <Link href="/#download" transitionTypes={PAGE_TRANSITION} onClick={close} className={`${pill} border border-amber bg-amber text-[#1a0d00] hover:brightness-110 min-[821px]:border-0 min-[821px]:bg-transparent min-[821px]:text-amber min-[821px]:hover:bg-[#2a1800] min-[821px]:hover:brightness-100`}>
                   Download
                 </Link>
-              </div>
-              <div className={`${capsule} max-[821px]:hidden`}>
-                <NewsButton on={inNews} onClick={close} className={`${offMark} h-9 w-10 min-[821px]:max-[1279px]:w-8`} />
-                <span aria-hidden className={divider} />
-                <MarkButton site="github" onClick={close} className={`${offMark} h-9 w-10 min-[821px]:max-[1279px]:w-8`} />
-                <span aria-hidden className={divider} />
-                <MarkButton site="discord" onClick={close} className={`${offMark} h-9 w-10 min-[821px]:max-[1279px]:w-8`} />
               </div>
             </div>
           </nav>
@@ -236,6 +217,14 @@ export default function Header() {
       </header>
       {/* Holds the bar's place in the page. */}
       <div aria-hidden className="h-[50px]" />
+      {/* News, GitHub and Discord float in the bottom right corner, out of the crowded bar, in reach on every screen. */}
+      <nav aria-label="News and community" className="site-dock fixed bottom-[max(16px,env(safe-area-inset-bottom))] right-[max(16px,env(safe-area-inset-right))] z-20 flex items-center rounded-lg bg-[#1b1206] px-1 shadow-[0_0_0_1px_rgb(0_0_0/0.25),0_8px_24px_rgb(0_0_0/0.45)] transition-[translate] duration-200 motion-reduce:transition-none">
+        <NewsButton on={inNews} className={`${offMark} size-10`} />
+        <span aria-hidden className={divider} />
+        <MarkButton site="github" className={`${offMark} size-10`} />
+        <span aria-hidden className={divider} />
+        <MarkButton site="discord" className={`${offMark} size-10`} />
+      </nav>
     </>
   );
 }
