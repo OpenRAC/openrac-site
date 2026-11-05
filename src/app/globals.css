@@ -305,6 +305,8 @@ summary::-webkit-details-marker { display: none; }
 .splash svg { animation: splash-logo 0.9s ease-in-out infinite alternate; }
 .ready .splash { opacity: 0; visibility: hidden; }
 @media (scripting: none) { .splash { display: none; } }
+/* The home page shot bar: the showing shot's bar fills over its time. */
+@keyframes shot-fill { from { transform: scaleX(0); } to { transform: scaleX(1); } }
 @keyframes splash-logo { from { opacity: 0.6; transform: scale(0.97); } }
 
 /* Without scripts a backdrop cannot report that it loaded: show it as it is. */

@@ -1,0 +1,165 @@
+"use client";
+
+import { useEffect, useRef, useState, useSyncExternalStore, type ReactNode } from "react";
+import { HERO_SHOTS, heroSrc } from "@/lib/heroShots";
+
+const HOLD_MS = 7000; // each clip's time on screen (the clips run a little longer, through the fade)
+const FADE_MS = 1600; // the crossfade, pictures and caption alike
+const FADE = "duration-[1600ms]";
+
+const noChange = () => () => {};
+// The 4K files only where they show: a screen at least 2400 device pixels wide.
+const wideScreen = () => window.screen.width * window.devicePixelRatio >= 2400;
+const reducedMotion = () => window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+/**
+ * The title screen's clips: one full-bleed cinematic flight at a time, crossfading to the next like
+ * a console's title screen. Under the text, a bar per clip fills while it shows (click one to jump)
+ * and the caption names the game and place, fading with the picture. Each clip's first frame shows
+ * while it loads, and alone with reduced motion; a clip not uploaded yet leaves the dark backdrop.
+ */
+function HeroShotLayers({ at, missing, lost }: { at: number; missing: ReadonlySet<number>; lost: (i: number) => void }) {
+  // A clip loads once it is on screen or next: the other six wait until their turn.
+  const next = after(at, missing);
+  const [wanted, setWanted] = useState(() => new Set([0, 1]));
+  if (!wanted.has(at) || !wanted.has(next)) setWanted(new Set([...wanted, at, next]));
+  const wide = useSyncExternalStore(noChange, wideScreen, () => false);
+  const still = useSyncExternalStore(noChange, reducedMotion, () => true);
+  const videos = useRef<(HTMLVideoElement | null)[]>([]);
+
+  // The clip coming in starts from its beginning; the one going out stops once it has faded.
+  useEffect(() => {
+    const video = videos.current[at];
+    if (video && !still) {
+      video.currentTime = 0;
+      video.play().catch(() => {}); // a browser refusing autoplay keeps the first frame
+    }
+    const stop = window.setTimeout(() => videos.current.forEach((v, i) => i !== at && v?.pause()), FADE_MS);
+    return () => window.clearTimeout(stop);
+  }, [at, still]);
+
+  return (
+    <div aria-hidden className="absolute inset-0 overflow-hidden bg-ink-deep">
+      {HERO_SHOTS.map((shot, i) =>
+        wanted.has(i) && !missing.has(i) ? (
+          <video
+            key={`${shot.file}${wide ? "-wide" : ""}`}
+            ref={(v) => {
+              videos.current[i] = v;
+            }}
+            poster={heroSrc(shot, ".webp")}
+            muted
+            playsInline
+            preload={i === at || i === next ? "auto" : "metadata"}
+            style={{ transitionDuration: `${FADE_MS}ms` }}
+            className={`absolute inset-0 size-full object-cover transition-opacity ease-out ${i === at ? "opacity-100" : "opacity-0"}`}
+          >
+            <source src={heroSrc(shot, wide ? "-2160.webm" : "-1080.webm")} type='video/webm; codecs="av01.0.08M.08"' />
+            {/* The last source failing too means the clip is not there: drop it. */}
+            <source src={heroSrc(shot, "-1080.mp4")} type="video/mp4" onError={() => lost(i)} />
+          </video>
+        ) : null,
+      )}
+    </div>
+  );
+}
+
+/** The clip after I, passing over the ones not uploaded (I itself when no other is there). */
+function after(i: number, missing: ReadonlySet<number>) {
+  for (let k = 1; k <= HERO_SHOTS.length; k++) {
+    const j = (i + k) % HERO_SHOTS.length;
+    if (!missing.has(j)) return j;
+  }
+  return i;
+}
+
+/** Which shot is showing: moves on by itself, waits while the tab is hidden, jumps on a click. */
+function useHeroShot(missing: ReadonlySet<number>) {
+  const [at, setAt] = useState(0);
+  const [round, setRound] = useState(0); // bumped by a click, so the timer starts over
+  useEffect(() => {
+    let timer = 0;
+    const arm = () => {
+      window.clearTimeout(timer);
+      if (!document.hidden) timer = window.setTimeout(() => setAt((i) => after(i, missing)), HOLD_MS);
+    };
+    arm();
+    document.addEventListener("visibilitychange", arm);
+    return () => {
+      window.clearTimeout(timer);
+      document.removeEventListener("visibilitychange", arm);
+    };
+  }, [at, round, missing]);
+  return {
+    at,
+    go: (i: number) => {
+      setAt(i);
+      setRound((r) => r + 1);
+    },
+  };
+}
+
+/** A bar per shot (the showing one fills over its time) and the caption, crossfading with the shot. */
+function HeroShotBar({ at, go, missing }: { at: number; go: (i: number) => void; missing: ReadonlySet<number> }) {
+  return (
+    <div className="mt-6">
+      <div className="-ml-1.5 flex" role="group" aria-label="Clips">
+        {HERO_SHOTS.map((shot, i) => missing.has(i) ? null : (
+          <button
+            key={shot.file}
+            type="button"
+            aria-label={`${shot.game}, ${shot.place}`}
+            aria-current={i === at}
+            onClick={() => go(i)}
+            // A 40 px hit area (fingers) around the 4 px bar it draws.
+            className="group flex size-10 cursor-pointer items-center px-1.5 sm:w-12"
+          >
+            <span className="relative h-1 w-full overflow-hidden rounded-full bg-white/20 transition-colors group-hover:bg-white/35">
+              {i === at && (
+                <span key={`${at}`} style={{ animationDuration: `${HOLD_MS}ms` }} className="absolute inset-y-0 left-0 w-full origin-left animate-[shot-fill_linear_forwards] rounded-full bg-amber motion-reduce:animate-none" />
+              )}
+            </span>
+          </button>
+        ))}
+      </div>
+      {/* Every caption sits in the same spot; only the showing one is visible, so they crossfade. */}
+      <p className="mt-1 grid font-mono text-[12px] font-semibold tracking-[.04em] text-soft [&>span]:col-start-1 [&>span]:row-start-1">
+        {HERO_SHOTS.map((shot, i) => (
+          <span
+            key={shot.file}
+            aria-hidden={i !== at}
+            className={`transition-[opacity,translate] ${FADE} ease-out ${i === at ? "translate-y-0 opacity-100" : "translate-y-1 opacity-0"} motion-reduce:translate-y-0`}
+          >
+            <span className="text-gold">{shot.game}</span> · {shot.place}
+          </span>
+        ))}
+      </p>
+    </div>
+  );
+}
+
+/**
+ * The home page's first screen, edge to edge under the bar: the clips, a dark fade on the left and
+ * bottom for the text, the corner HUD, then the text (children) bottom left with the bar under it.
+ */
+export default function HeroStage({ hud, children }: { hud: ReactNode; children: ReactNode }) {
+  // Clips not uploaded (yet) drop out of the turn and the bar.
+  const [missing, setMissing] = useState<ReadonlySet<number>>(() => new Set());
+  const { at, go } = useHeroShot(missing);
+  const lost = (i: number) => {
+    const now = new Set([...missing, i]);
+    setMissing(now);
+    if (i === at && now.size < HERO_SHOTS.length) go(after(at, now)); // no dark wait for a missing first clip
+  };
+  return (
+    <section className="relative mx-[calc(50%-50vw)] flex min-h-[calc(100svh-50px)] items-end">
+      <HeroShotLayers at={at} missing={missing} lost={lost} />
+      <div aria-hidden className="absolute inset-0 bg-[linear-gradient(90deg,rgb(12_12_18/.92)_0%,rgb(12_12_18/.55)_45%,transparent_75%),linear-gradient(0deg,var(--color-ink)_0%,transparent_35%)] max-[700px]:bg-[linear-gradient(0deg,var(--color-ink)_8%,rgb(12_12_18/.82)_55%,rgb(12_12_18/.35)_100%)]" />
+      {hud}
+      <div className="relative mx-auto w-full max-w-[1080px] px-4 pb-14 pt-40">
+        {children}
+        {missing.size < HERO_SHOTS.length && <HeroShotBar at={at} go={go} missing={missing} />}
+      </div>
+    </section>
+  );
+}

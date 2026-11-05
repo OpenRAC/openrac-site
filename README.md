@@ -146,6 +146,30 @@ request. Drop a file in and it is used at once, with no rebuild or restart; a mi
 gradient (never a broken picture). Only those eight names are ever served. Resized copies are cached for a day, so a replaced image can take up to a day to show (or restart
 the service after clearing the cache volume).
 
+### Home page clips
+
+The first screen plays short free-camera clips from the games, crossfading one into the next, with the game
+and place under the text. They are game footage too, so they are not in the repository either: they sit in the
+same `IMAGE_DIR` folder. The list (file name, game, place) is `src/lib/heroShots.ts`; each clip has four files:
+
+| File | What |
+| --- | --- |
+| `<name>-2160.webm` | AV1, 3840x2160, for 4K and high density screens |
+| `<name>-1080.webm` | AV1, 1920x1080 |
+| `<name>-1080.mp4` | H.264, 1920x1080, for browsers without AV1 |
+| `<name>.webp` | the first frame, shown while the clip loads and with reduced motion |
+
+From a 4K master (8 to 9 seconds, no sound; each shows for 7 seconds plus the fade):
+
+```sh
+ffmpeg -i master.mov -an -c:v libsvtav1 -crf 34 -preset 6 -pix_fmt yuv420p NAME-2160.webm
+ffmpeg -i master.mov -an -vf scale=1920:-2 -c:v libsvtav1 -crf 34 -preset 6 -pix_fmt yuv420p NAME-1080.webm
+ffmpeg -i master.mov -an -vf scale=1920:-2 -c:v libx264 -crf 23 -preset slow -pix_fmt yuv420p -movflags +faststart NAME-1080.mp4
+ffmpeg -i master.mov -frames:v 1 -vf scale=1920:-2 -c:v libwebp -quality 80 NAME.webp
+```
+
+A clip whose files are missing drops out of the turn, so they can be added one at a time.
+
 ### Adding a title
 
 Add an entry to `PROJECTS` in `src/lib/projects.ts`. If the project publishes progress, add a loader and a
