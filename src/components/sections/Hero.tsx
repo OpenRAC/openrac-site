@@ -19,10 +19,10 @@ export default function Hero({ progress, mods, release }: { progress: Partial<Re
 
   const bolt = "M12 1.5 21.1 6.75v10.5L12 22.5 2.9 17.25V6.75L12 1.5Zm0 6.2a4.3 4.3 0 1 0 0 8.6 4.3 4.3 0 0 0 0-8.6Z";
 
-  // The numbers as a game HUD in the top corner: the bolt counter is the code verified so far.
+  // The numbers as a game HUD in the top corner (left out on phones, for room): the bolt counter is the code verified so far.
   const hud = (
-    <div className="absolute right-[max(16px,calc(50%-524px))] top-6 animate-rise text-right [animation-delay:.6s] max-[700px]:inset-x-6 max-[700px]:text-center">
-      <div className="flex items-center justify-end gap-2.5 font-orbitron text-[clamp(22px,4vw,30px)] font-extrabold tabular-nums text-gold [text-shadow:0_2px_0_#000] max-[700px]:justify-center">
+    <div className="absolute right-[max(16px,calc(50%-524px))] top-6 animate-rise text-right [animation-delay:.6s] max-[700px]:hidden">
+      <div className="flex items-center justify-end gap-2.5 font-orbitron text-[clamp(22px,4vw,30px)] font-extrabold tabular-nums text-gold [text-shadow:0_2px_0_#000]">
         <svg viewBox="0 0 24 24" aria-hidden="true" className="size-[0.9em] fill-amber">
           <path fillRule="evenodd" d={bolt} />
         </svg>
@@ -41,7 +41,7 @@ export default function Hero({ progress, mods, release }: { progress: Partial<Re
     <HeroStage hud={hud}>
       {/* What is new: the launcher's latest release and its notes. */}
       {release && (
-        <a href={release.url} className="mb-6 inline-flex max-w-full flex-wrap gap-x-1.5 rounded-full bg-black/40 px-4 py-2 text-[13px] leading-snug text-soft no-underline backdrop-blur-sm transition-colors hover:bg-black/55 sm:text-[14px]">
+        <a href={release.url} className="mb-6 max-[700px]:mb-8 inline-flex max-w-full flex-wrap gap-x-1.5 rounded-full bg-black/40 px-4 py-2 text-[13px] leading-snug text-soft no-underline backdrop-blur-sm transition-colors hover:bg-black/55 sm:text-[14px]">
           <b className="font-semibold text-text">Launcher v{release.version} is out.</b>
           <span>
             See <span className="text-amber underline decoration-amber/40 underline-offset-2">what&apos;s new</span>
@@ -55,13 +55,13 @@ export default function Hero({ progress, mods, release }: { progress: Partial<Re
         {/* "original bytes." stays together, so "bytes." never sits alone on the last line. */}
         series, rebuilt from the <span className="whitespace-nowrap">original bytes.</span>
       </h1>
-      <p className="mt-5 max-w-[560px] text-pretty text-[15px] leading-relaxed text-body sm:text-[17px]">
+      <p className="mt-5 max-[700px]:mt-6 max-w-[560px] text-pretty text-[15px] leading-relaxed text-body sm:text-[17px]">
         A hub for the <span className="text-amber">community decompilations</span> of Ratchet &amp; Clank:{" "}
         <span className="text-amber">readable source code</span> that compiles to the original games&apos;{" "}
         <span className="text-amber">exact bytes</span>
       </p>
       <HeroDownload version={release?.version ?? null} date={release?.date || null} ready={(release?.platforms ?? []).filter((p) => p.main).map((p) => p.id)} />
-      <p className="mt-5 max-w-[560px] text-[13px] leading-relaxed text-dim">
+      <p className="mt-5 max-[700px]:mt-8 max-w-[560px] text-[13px] leading-relaxed text-dim">
         Unofficial and community driven. You need your own copy of the original game to play.{" "}
         <Link href="/install#your-disc" className="whitespace-nowrap font-semibold text-hi no-underline hover:text-amber">
           Learn more →

@@ -22,7 +22,7 @@ export default function HeroDownload({ version, date, ready }: { version: string
   const mine = useSyncExternalStore(noChange, browserPlatform, () => null);
   const direct = mine && ready.includes(mine) ? mine : null;
   return (
-    <div className="mt-8 flex flex-wrap items-center gap-x-5 gap-y-3 max-[700px]:flex-col max-[700px]:gap-y-4">
+    <div className="mt-8 flex flex-wrap items-center gap-x-5 gap-y-3 max-[700px]:mt-10 max-[700px]:flex-col max-[700px]:gap-y-5">
       <a
         id="download-button"
         href={direct ? `/download/${direct}` : "/install"}

@@ -93,13 +93,13 @@ export default function SiteSearch({ className = "", compact = false }: { classN
 
   return (
     <>
-      <button type="button" onClick={show} aria-label="Search" title="Search (/)" className={className}>
+      <button type="button" onClick={show} aria-label={compact ? "Search" : undefined} title="Search (/)" className={className}>
         <svg viewBox="0 0 16 16" aria-hidden className={`${compact ? "size-5" : "size-[15px]"} flex-none fill-none stroke-current stroke-2`}>
           <circle cx="7" cy="7" r="4.5" />
           <path d="m10.5 10.5 3.5 3.5" strokeLinecap="round" />
         </svg>
-        {!compact && <span className="min-w-0 flex-1 truncate text-left max-[1279px]:hidden">Search</span>}
-        {!compact && <kbd className="rounded border max-[1279px]:hidden border-current/35 px-1 font-sans text-[11px] leading-4 opacity-75">/</kbd>}
+        {!compact && <span className="min-w-0 flex-1 truncate text-left">Search the site</span>}
+        {!compact && <kbd className="rounded border border-current/35 px-1 font-sans text-[11px] leading-4 opacity-75">/</kbd>}
       </button>
       <dialog
         ref={dialog}

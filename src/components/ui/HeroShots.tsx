@@ -104,7 +104,7 @@ function useHeroShot(missing: ReadonlySet<number>, paused: boolean) {
 /** A bar per shot (the showing one fills over its time) and the caption, crossfading with the shot. */
 function HeroShotBar({ at, go, missing }: { at: number; go: (i: number) => void; missing: ReadonlySet<number> }) {
   return (
-    <div className="mt-6">
+    <div className="mt-6 max-[700px]:mt-10">
       <div className="-ml-1.5 flex max-[700px]:ml-0 max-[700px]:justify-center" role="group" aria-label="Clips">
         {HERO_SHOTS.map((shot, i) => missing.has(i) ? null : (
           <button
@@ -124,8 +124,8 @@ function HeroShotBar({ at, go, missing }: { at: number; go: (i: number) => void;
           </button>
         ))}
       </div>
-      {/* Every caption sits in the same spot; only the showing one is visible, so they crossfade. */}
-      <p className="mt-1 grid max-[700px]:justify-items-center font-mono text-[12px] font-semibold tracking-[.04em] text-soft [&>span]:col-start-1 [&>span]:row-start-1">
+      {/* Every caption sits in the same spot (phones leave them out, for room); only the showing one is visible, so they crossfade. */}
+      <p className="mt-1 grid font-mono max-[700px]:hidden text-[12px] font-semibold tracking-[.04em] text-soft [&>span]:col-start-1 [&>span]:row-start-1">
         {HERO_SHOTS.map((shot, i) => (
           <span
             key={shot.file}
