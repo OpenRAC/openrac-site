@@ -29,14 +29,13 @@ const underline =
   "absolute inset-x-3.5 bottom-1 min-[821px]:max-[1023px]:inset-x-2 hidden h-0.5 origin-left scale-x-0 rounded bg-current transition-transform group-hover/l:scale-x-100 min-[821px]:block";
 const pill = "flex min-h-11 items-center justify-center rounded-full px-4 text-sm font-semibold no-underline transition-colors min-[821px]:min-h-9 min-[821px]:whitespace-nowrap min-[821px]:max-[1023px]:px-3";
 
-/** The bar's own dark and gold, like the Download button, so the buttons on the bar read as a set. */
-/** The same dark, with the GitHub and Discord marks in white (the phone menu). */
-const mark = "bg-[#1b1206] text-text hover:bg-[#2a1800]";
+/** The round buttons in the open phone menu: a light shade on its dark, the marks in white. */
+const mark = "bg-white/[.07] text-text ring-1 ring-inset ring-white/10 hover:bg-white/[.12]";
 /** On a phone the bar's buttons are bare dark marks on the stripes: no discs or rings, a light shade under a finger. */
 const barIcon = "flex size-10 flex-none items-center justify-center rounded-full text-[#1b1206] transition-colors hover:bg-black/10 active:bg-black/15 min-[821px]:hidden";
 
 /** A dark capsule holding several of the wide bar's buttons, the bar's own dark and gold like the Download button. */
-const capsule = "min-[821px]:flex min-[821px]:items-center min-[821px]:rounded-full min-[821px]:bg-[#1b1206] min-[821px]:shadow-[0_0_0_1px_rgb(0_0_0/0.25)]";
+const capsule = "min-[821px]:flex min-[821px]:items-center min-[821px]:px-1 min-[821px]:rounded-full min-[821px]:bg-[#1b1206] min-[821px]:shadow-[0_0_0_1px_rgb(0_0_0/0.25)]";
 /** A hairline between the buttons of a capsule. */
 const divider = "h-4 w-px flex-none bg-white/15 max-[821px]:hidden";
 /** A button in a capsule, and the one for the page you are on, filled gold. */
@@ -229,11 +228,11 @@ export default function Header() {
                 <MarkButton site="discord" onClick={close} className={`${mark} size-11 min-[360px]:hidden`} />
               </div>
               <div className={`${capsule} max-[821px]:hidden`}>
-                <NewsButton on={inNews} onClick={close} className={`${inNews ? on : offMark} size-9`} />
+                <NewsButton on={inNews} onClick={close} className={`${inNews ? on : offMark} h-9 w-10`} />
                 <span aria-hidden className={divider} />
-                <MarkButton site="github" onClick={close} className={`${offMark} size-9`} />
+                <MarkButton site="github" onClick={close} className={`${offMark} h-9 w-10`} />
                 <span aria-hidden className={divider} />
-                <MarkButton site="discord" onClick={close} className={`${offMark} size-9`} />
+                <MarkButton site="discord" onClick={close} className={`${offMark} h-9 w-10`} />
               </div>
             </div>
           </nav>
