@@ -22,10 +22,19 @@ export default function Hero({ progress, mods }: { progress: Partial<Record<Proj
         <span className="animate-shine bg-gradient-to-r from-amber via-[#e8a317] to-gold bg-[length:220%_100%] bg-clip-text text-transparent">
           Ratchet &amp; Clank
         </span>{" "}
-        series, rebuilt from the original bytes.
+        {/* "original bytes." stays together, so "bytes." never sits alone on the last line. */}
+        series, rebuilt from the <span className="whitespace-nowrap">original bytes.</span>
       </h1>
       <p className="mt-4 max-w-[640px] text-[15px] leading-relaxed text-soft sm:text-[16px]">
-        A hub for the community decompilations of Ratchet &amp; Clank: readable source code that compiles to the original games&apos; exact bytes.
+        A hub for the <span className="text-amber">community decompilations</span> of Ratchet &amp; Clank:{" "}
+        <span className="text-amber">readable source code</span> that compiles to the original games&apos;{" "}
+        <span className="whitespace-nowrap">
+          <span className="text-amber">exact bytes</span>.
+          {/* A bolt, the series' currency, to end the sentence. */}
+          <svg viewBox="0 0 24 24" aria-hidden="true" className="ml-1.5 inline-block size-[1.05em] -translate-y-px fill-amber align-[-0.15em]">
+            <path fillRule="evenodd" d="M12 1.5 21.1 6.75v10.5L12 22.5 2.9 17.25V6.75L12 1.5Zm0 6.2a4.3 4.3 0 1 0 0 8.6 4.3 4.3 0 0 0 0-8.6Z" />
+          </svg>
+        </span>
       </p>
       <div className="mt-7 grid animate-rise gap-3 [animation-delay:.45s] min-[560px]:flex min-[560px]:flex-wrap">
         {/* The main thing a visitor comes for, so it leads; it opens the Download panel right under the hero (DownloadPanel.tsx). */}
@@ -40,15 +49,16 @@ export default function Hero({ progress, mods }: { progress: Partial<Record<Proj
         </a>
       </div>
 
-      <div className={`mt-8 grid animate-rise gap-x-6 gap-y-4 sm:mt-10 [animation-delay:.6s] ${mods ? "grid-cols-2" : "grid-cols-3"} min-[560px]:flex min-[560px]:flex-wrap min-[560px]:gap-x-12`}>
+      <div className={`mt-8 grid animate-rise gap-x-6 gap-y-4 sm:mt-10 [animation-delay:.6s] ${mods ? "grid-cols-2" : "grid-cols-3"} min-[560px]:flex min-[560px]:flex-wrap min-[560px]:gap-x-6`}>
         {[
           [<CountUp key="t" value={new Set(PROJECTS.map((p) => p.name)).size} />, "titles tracked"],
           [<CountUp key="a" value={active.length} />, "active projects"],
           // Left out while the mod list cannot be read, rather than claiming none.
           ...(mods ? [[<CountUp key="m" value={mods} />, "community mods"]] : []),
           [<span key="b">{formatSize(bytes)}</span>, "of code verified across projects"],
-        ].map(([value, label], i) => (
-          <div key={i}>
+        ].map(([value, label], i, all) => (
+          // A thin gold rule between the numbers: in the row from 560 px, between the columns below.
+          <div key={i} className={`${i ? "min-[560px]:border-l min-[560px]:border-brand/50 min-[560px]:pl-6" : ""} ${i % (all.length === 4 ? 2 : 3) ? "max-[559px]:border-l max-[559px]:border-brand/50 max-[559px]:pl-4" : ""}`}>
             <b className="block font-orbitron whitespace-nowrap text-[clamp(15px,3.8vw,20px)] font-bold leading-tight tabular-nums text-gold">{value}</b>
             <span className="block text-[12px] leading-snug text-dim">{label}</span>
           </div>
