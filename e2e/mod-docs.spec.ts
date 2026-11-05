@@ -62,9 +62,9 @@ test("the manifest builder checks a manifest as it is typed, by the SDK's rules"
   const json = page.getByLabel("The manifest as JSON: edit it, or paste your own");
   await expect(json).toHaveValue(/"rac1\.player\.turn_to_heading"/);
   await expect(page.getByText("The manifest passes every check.")).toBeVisible();
-  await page.getByLabel("Id").fill("My Mod");
+  await page.getByLabel("ID", { exact: true }).fill("My Mod");
   await expect(page.getByText(/^id: lower case letters and digits/).first()).toBeVisible();
-  await page.getByLabel("Id").fill("my-mod");
+  await page.getByLabel("ID", { exact: true }).fill("my-mod");
   await json.fill(JSON.stringify({ format: 2, id: "x", name: "X", version: "1.0.0", type: "script", api: "1.1", scripts: ["main.luau"], games: { rac1: ["pal"] }, hooks: ["rac1.nothing.here"] }));
   await expect(page.getByText("hooks: rac1.nothing.here is not a hook point of rac1").first()).toBeVisible();
   await json.fill("{ not json");

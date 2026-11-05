@@ -188,13 +188,13 @@ export default function HookExplorer({ hooks, game, discs, manifestHref, scripts
               </div>
               {lang !== "luau" && (
                 <label className="flex items-center gap-2 text-[13px] text-soft">
-                  Mod id
+                  Mod ID
                   <input className="d-field h-[30px] w-[140px] font-mono text-[13px]" value={modId} onChange={(e) => setModId(e.target.value)} spellCheck={false} aria-invalid={!ID.test(modId)} />
                 </label>
               )}
             </div>
             <p className="text-[13.5px] text-soft">{HOOK_MODES.find((m) => m.mode === mode)!.what}</p>
-            {lang !== "luau" && !ID.test(modId) && <p className="text-[13px] text-brand">A mod id is lower-case letters and digits, joined by single hyphens. The code uses “my-mod” until then.</p>}
+            {lang !== "luau" && !ID.test(modId) && <p className="text-[13px] text-brand">A mod ID is lower-case letters and digits, joined by single hyphens. The code uses “my-mod” until then.</p>}
             {code ? <Code code={code} lang={lang} title={lang === "luau" ? "main.luau" : lang === "cpp" ? "src/mod.cpp" : "src/mod.c"} className="my-0" /> : <p className="rounded-lg border border-line p-3 text-[14px] text-soft">{why}</p>}
             <p className="text-[13.5px] text-soft">
               Name it in your manifest too: <code className="text-gold">&quot;hooks&quot;: [&quot;{key(h)}&quot;]</code>.{" "}

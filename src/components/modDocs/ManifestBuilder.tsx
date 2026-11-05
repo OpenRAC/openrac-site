@@ -192,7 +192,7 @@ export default function ManifestBuilder({
           </div>
 
           <div className="grid gap-x-4 gap-y-3 sm:grid-cols-2">
-            <Field label="Id" name="id" help={help.id} error={by("id")}>
+            <Field label="ID" name="id" help={help.id} error={by("id")}>
               <input className="d-field font-mono" value={str("id")} onChange={(e) => set({ id: e.target.value })} spellCheck={false} />
             </Field>
             <Field label="Name" name="name" help={help.name} error={by("name")}>
