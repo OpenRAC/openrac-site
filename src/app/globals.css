@@ -265,6 +265,19 @@ html {
   background: var(--color-ink);
 }
 body { background: var(--color-ink); color: var(--color-text); }
+/* Home preview theme: shared footer markup stays unchanged on the other pages. */
+body:has(main[data-home-design]) footer {
+  padding-block: 44px;
+  background: linear-gradient(180deg, #111118, #0c0c12);
+  border-top-color: rgb(245 192 64 / .2);
+}
+body:has(main[data-home-design]) footer > div {
+  max-width: 1328px;
+  padding-inline: 24px;
+  column-gap: 64px;
+  align-items: start;
+}
+body:has(main[data-home-design]) footer p { line-height: 1.9; }
 ::selection { background: rgb(245 192 64 / 0.35); color: #fff; }
 :focus-visible { outline: 2px solid var(--color-amber); outline-offset: 3px; }
 /* An element focused only by script (tabindex="-1", such as the Download panel's heading) takes no ring: the reader did not move there with the keyboard. */
