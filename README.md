@@ -62,6 +62,9 @@ the index build and served from this site (`/mods/media/...`), so visitors never
 - `/mods/set?m=id@1.2.0,...` is a "Share my setup" link from the launcher: a friend's mods at exact versions.
 - Mod pages show the latest comments of the mod's GitHub Discussion (needs `GITHUB_TOKEN`); commenting happens on GitHub.
 
+`/mods/docs` is the mod SDK's documentation, per SDK release, generated from OpenRAC's `sdk-v*` tags
+([mod-docs/](mod-docs/README.md)).
+
 Browser tests: `npm run test:e2e` (Playwright) builds the site against the shared fixture index and runs `e2e/`.
 
 ## News

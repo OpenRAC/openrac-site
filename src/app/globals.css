@@ -221,6 +221,19 @@
 .prose-openrac { overflow-wrap: break-word; }
 .prose-openrac :where(code):not(:where(pre *)) { overflow-wrap: anywhere; }
 
+/* The mod docs' code (src/lib/modDocs/highlight.ts): short class names, as a page has thousands of them. */
+.tk-c { color: var(--color-dim); font-style: italic; }
+.tk-s { color: #e9d9a6; }
+.tk-n, .tk-f { color: var(--color-gold); }
+.tk-k { color: var(--color-amber); }
+.tk-t { color: var(--color-hi); font-weight: 600; }
+.tk-m { color: var(--color-brand); }
+.code-head { display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; border-bottom: 1px solid var(--color-line); padding: 0.375rem 0.75rem; }
+.code-name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-family: var(--font-orbitron); font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-dim); }
+.badge { display: inline-flex; flex: none; align-items: center; border-radius: 9999px; border: 1px solid rgb(255 255 255 / 0.15); padding: 1px 0.5rem; font-family: var(--font-orbitron); font-size: 10.5px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-dim); vertical-align: middle; }
+.badge-new { border-color: var(--color-amber); background: color-mix(in srgb, var(--color-amber) 15%, transparent); color: var(--color-amber); }
+.code-pre { overflow-x: auto; padding: 0.875rem; font-size: 13.5px; line-height: 1.6; color: var(--color-text); }
+
 html {
   scroll-behavior: smooth;
   /* The fixed header (50 px) covers the top of the page; anchors stop below it. */

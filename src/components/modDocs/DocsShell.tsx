@@ -1,0 +1,148 @@
+import type { ReactNode } from "react";
+import PageTransition from "@/components/layout/PageTransition";
+import { docsHref, type Page } from "@/lib/modDocs/logic";
+import type { ReleaseIndex } from "@/lib/modDocs/types";
+import Search from "./Search";
+import Toc from "./Toc";
+import VersionSwitcher, { type VersionOption } from "./VersionSwitcher";
+
+const GROUPS: Page["group"][] = ["Start", "Guides", "Reference", "Try it", "Releases"];
+
+function Nav({ pages, current, version, latest }: { pages: Page[]; current: string; version: string; latest: string }) {
+  return (
+    <nav aria-label="Docs" className="grid gap-5">
+      {GROUPS.map((g) => {
+        const items = pages.filter((p) => p.group === g);
+        if (!items.length) return null;
+        return (
+          <div key={g}>
+            <p className="mb-1.5 px-3 font-orbitron text-[11px] font-bold uppercase tracking-[.16em] text-dim">{g}</p>
+            <ul className="grid gap-0.5">
+              {items.map((p) => (
+                <li key={p.path}>
+                  <a
+                    href={docsHref(version, p.path, latest)}
+                    aria-current={p.path === current ? "page" : undefined}
+                    className={`flex min-h-9 items-center rounded-lg px-3 text-[14.5px] no-underline transition-colors ${p.path === current ? "bg-amber/12 font-semibold text-amber" : "text-soft hover:bg-white/5 hover:text-hi"}`}
+                  >
+                    {p.title}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        );
+      })}
+    </nav>
+  );
+}
+
+/**
+ * Every docs page: the menu of the release's pages with the version and the search on the left (a
+ * folding menu on phones), the page in the middle, and its contents on the right on wide screens.
+ */
+export default function DocsShell({
+  index,
+  versions,
+  version,
+  pages,
+  page,
+  title,
+  lead,
+  toc = [],
+  children,
+}: {
+  index: ReleaseIndex;
+  versions: VersionOption[];
+  version: string;
+  pages: Page[];
+  page: Page;
+  title: ReactNode;
+  lead?: ReactNode;
+  toc?: { id: string; label: string; depth?: number }[];
+  children: ReactNode;
+}) {
+  const latest = index.latest;
+  const old = version !== latest;
+  const at = pages.indexOf(page);
+  const prev = at > 0 ? pages[at - 1] : null;
+  const next = at >= 0 && at < pages.length - 1 ? pages[at + 1] : null;
+  const controls = <VersionSwitcher versions={versions} current={version} path={page.path} latest={latest} />;
+  return (
+    <PageTransition>
+      <div className="mx-auto max-w-[1280px] px-4 pb-16 pt-6 lg:grid lg:grid-cols-[240px_minmax(0,1fr)] lg:gap-10 xl:grid-cols-[240px_minmax(0,1fr)_200px]">
+        <aside className="hidden lg:block">
+          <div className="sticky top-[66px] grid max-h-[calc(100vh-82px)] gap-6 overflow-y-auto pb-6 pr-1 [scrollbar-width:thin]">
+            <a href={docsHref(version, "", latest)} className="px-3 font-audiowide text-[19px] text-hi no-underline">
+              Mod <span className="text-amber">SDK</span> docs
+            </a>
+            {controls}
+            <Nav pages={pages} current={page.path} version={version} latest={latest} />
+          </div>
+        </aside>
+
+        <div className="min-w-0">
+          <div className="mb-4">
+            <Search version={version} />
+          </div>
+          <details className="surface mb-5 lg:hidden">
+            <summary className="flex min-h-12 cursor-pointer list-none items-center justify-between gap-3 px-4 font-semibold text-hi">
+              <span>
+                Docs menu <span className="font-normal text-dim">· {page.title}</span>
+              </span>
+              <span className="plus text-xl leading-none text-amber transition-transform">+</span>
+            </summary>
+            <div className="grid gap-5 border-t border-line p-4">
+              {controls}
+              <Nav pages={pages} current={page.path} version={version} latest={latest} />
+            </div>
+          </details>
+
+          {old && (
+            <p className="mb-5 rounded-xl border-l-4 border-brand bg-brand/10 px-4 py-3 text-[14.5px] text-soft">
+              You are reading the docs of SDK {version}, an older release.{" "}
+              <a href={docsHref(latest, pages.some((p) => p.path === page.path) ? page.path : "", latest)} className="font-semibold text-amber underline">
+                See the latest ({latest})
+              </a>
+              .
+            </p>
+          )}
+
+          <main id="content">
+            <header className="mb-6">
+              <p className="mb-2 font-orbitron text-[11px] font-bold uppercase tracking-[.18em] text-brand">
+                {page.group} · SDK {version}
+              </p>
+              <h1 className="text-balance font-audiowide text-[clamp(26px,4vw,38px)] leading-[1.12] text-hi">{title}</h1>
+              {lead && <div className="mt-3 max-w-[720px] text-[16px] leading-relaxed text-soft">{lead}</div>}
+            </header>
+            {children}
+          </main>
+
+          <nav aria-label="Next and previous page" className="mt-12 grid gap-3 border-t border-line pt-6 sm:grid-cols-2">
+            {prev ? (
+              <a href={docsHref(version, prev.path, latest)} className="surface surface-link block p-4 no-underline">
+                <span className="text-[12px] text-dim">Previous</span>
+                <span className="block font-semibold text-hi">← {prev.title}</span>
+              </a>
+            ) : (
+              <span />
+            )}
+            {next && (
+              <a href={docsHref(version, next.path, latest)} className="surface surface-link block p-4 text-right no-underline">
+                <span className="text-[12px] text-dim">Next</span>
+                <span className="block font-semibold text-hi">{next.title} →</span>
+              </a>
+            )}
+          </nav>
+        </div>
+
+        {toc.length > 1 && (
+          <aside className="hidden xl:block">
+            <Toc items={toc} />
+          </aside>
+        )}
+      </div>
+    </PageTransition>
+  );
+}
