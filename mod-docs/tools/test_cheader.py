@@ -77,6 +77,12 @@ class Parse(unittest.TestCase):
         m = self.items[3]
         self.assertEqual((m["kind"], m["name"], m["params"]), ("macro", "OPENRAC_GREF", ["api", "T", "a"]))
 
+    def test_since_is_the_dating_sentence(self):
+        self.assertEqual(cheader.since("Shows a page. Since 1.9 also on the main menu. Since 1.7."), "1.7")
+        self.assertEqual(cheader.since("Since 1.2: returns whether ..."), "1.2")
+        self.assertEqual(cheader.since("No version."), None)
+        self.assertEqual(cheader.since("Shows this page (or since 1.9 a main-menu item's page)."), None)
+
 
 if __name__ == "__main__":
     unittest.main()

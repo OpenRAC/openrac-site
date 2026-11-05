@@ -73,7 +73,7 @@ export default function DocsShell({
   return (
     <PageTransition>
       <div className="mx-auto max-w-[1280px] px-4 pb-16 pt-6 lg:grid lg:grid-cols-[240px_minmax(0,1fr)] lg:gap-10 xl:grid-cols-[240px_minmax(0,1fr)_200px]">
-        <aside className="hidden lg:block">
+        <aside aria-label="Docs menu" className="hidden lg:block">
           <div className="sticky top-4 grid max-h-[calc(100vh-32px)] gap-6 overflow-y-auto pb-6 pr-1 [scrollbar-width:thin]">
             <div className="flex items-center gap-3 px-3">
               <Link href="/" className="inline-flex flex-none text-text no-underline opacity-90 hover:opacity-100" aria-label="OpenRAC home">
@@ -90,42 +90,43 @@ export default function DocsShell({
         </aside>
 
         <div className="min-w-0">
-          <div className="mb-4 flex items-center gap-3 lg:hidden">
-            <Link href="/" className="inline-flex flex-none text-text no-underline" aria-label="OpenRAC home">
-              <Logo height={22} label="" accent />
-            </Link>
-            <span aria-hidden className="h-5 w-px bg-white/15" />
-            <a href={docsHref(version, "", latest)} className="text-[14.5px] font-medium text-soft no-underline hover:text-hi">
-              SDK docs
-            </a>
-          </div>
-          <div className="mb-4">
-            <Search version={version} />
-          </div>
-          <details className="d-card mb-5 lg:hidden">
-            <summary className="flex min-h-12 cursor-pointer list-none items-center justify-between gap-3 px-4 font-semibold text-hi">
-              <span>
-                Docs menu <span className="font-normal text-dim">· {page.title}</span>
-              </span>
-              <span className="plus text-xl leading-none text-amber transition-transform">+</span>
-            </summary>
-            <div className="grid gap-5 border-t border-line p-4">
-              {controls}
-              <Nav pages={pages} current={page.path} version={version} latest={latest} />
-            </div>
-          </details>
-
-          {old && (
-            <p className="mb-5 rounded-lg border-l-2 border-brand bg-brand/10 px-4 py-3 text-[14.5px] text-soft">
-              You are reading the docs of SDK {version}, an older release.{" "}
-              <a href={docsHref(latest, pages.some((p) => p.path === page.path) ? page.path : "", latest)} className="font-semibold text-amber underline">
-                See the latest ({latest})
+          <header>
+            <div className="mb-4 flex items-center gap-3 lg:hidden">
+              <Link href="/" className="inline-flex flex-none text-text no-underline" aria-label="OpenRAC home">
+                <Logo height={22} label="" accent />
+              </Link>
+              <span aria-hidden className="h-5 w-px bg-white/15" />
+              <a href={docsHref(version, "", latest)} className="text-[14.5px] font-medium text-soft no-underline hover:text-hi">
+                SDK docs
               </a>
-              .
-            </p>
-          )}
+            </div>
+            <div className="mb-4">
+              <Search version={version} />
+            </div>
+            <details className="d-card mb-5 lg:hidden">
+              <summary className="flex min-h-12 cursor-pointer list-none items-center justify-between gap-3 px-4 font-semibold text-hi">
+                <span>
+                  Docs menu <span className="font-normal text-dim">· {page.title}</span>
+                </span>
+                <span className="plus text-xl leading-none text-amber transition-transform">+</span>
+              </summary>
+              <div className="grid gap-5 border-t border-line p-4">
+                {controls}
+                <Nav pages={pages} current={page.path} version={version} latest={latest} />
+              </div>
+            </details>
+          </header>
 
           <main id="content">
+            {old && (
+              <p className="mb-5 rounded-lg border-l-2 border-brand bg-brand/10 px-4 py-3 text-[14.5px] text-soft">
+                You are reading the docs of SDK {version}, an older release.{" "}
+                <a href={docsHref(latest, pages.some((p) => p.path === page.path) ? page.path : "", latest)} className="font-semibold text-amber underline">
+                  See the latest ({latest})
+                </a>
+                .
+              </p>
+            )}
             <header className="mb-6">
               <p className="mb-1.5 text-[13px] text-dim">
                 {page.group} · SDK {version}
@@ -155,7 +156,7 @@ export default function DocsShell({
         </div>
 
         {toc.length > 1 && (
-          <aside className="hidden xl:block">
+          <aside aria-label="Contents" className="hidden xl:block">
             <Toc items={toc} />
           </aside>
         )}

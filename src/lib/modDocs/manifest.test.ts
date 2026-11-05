@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import { test } from "node:test";
-import { checkManifest, parseManifestJson } from "./manifest.ts";
+import { checkManifest, parseManifestJson, pyRepr } from "./manifest.ts";
 
 // The SDK's own test vectors and tables, from the newest release (mod-docs/tools/build.py copies them).
 const root = new URL("../../../mod-docs/data/", import.meta.url);
@@ -30,4 +30,13 @@ test("a whole number written with a point stays a float", () => {
   assert.equal(typeof m.b, "number");
   assert.equal(m.c, 0.5);
   assert.notEqual(typeof m.a, "number");
+});
+
+test("messages quote values as package_mod.py does", () => {
+  assert.equal(pyRepr("main.lua"), "'main.lua'");
+  assert.equal(pyRepr("it's"), '"it\'s"');
+  assert.equal(pyRepr(null), "None");
+  assert.equal(pyRepr([true, 1, parseManifestJson("2.0")]), "[True, 1, 2.0]");
+  // Python's True == 1: "format": true is read as a data pack there too.
+  assert.match(checkManifest({ format: true }, tables)[0], /^format 1 is a data pack/);
 });

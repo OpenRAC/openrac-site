@@ -54,7 +54,7 @@ function PartChanges({ part, label, d, r, latest }: { part: string; label: strin
           <ul className="grid gap-1 text-[13px]">
             {d.changed.slice(0, 12).map((c) => (
               <li key={c.name} className="font-mono text-body [overflow-wrap:anywhere]">
-                <a href={nameHref(part, c.name, r.version, latest)} className="text-gold">
+                <a href={nameHref(part, c.name, r.version, latest)} className="text-gold underline decoration-gold/40 underline-offset-2">
                   {c.name}
                 </a>
                 : <span className="text-dim line-through">{c.from}</span> → {c.to}

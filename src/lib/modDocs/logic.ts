@@ -171,7 +171,8 @@ export function hookStubC(h: Hook, game: string, modId: string, mode: HookMode):
   const call = cret === "void" ? `s_original(${args});` : `${cret} result = s_original(${args});`;
   const tail = cret === "void" ? [] : ["    return result;"];
   let body: string[];
-  if (mode === "replace") body = ["    /* your code: the game's own does not run */", ...(cret === "void" ? [] : [`    return 0;`])];
+  const unused = params.length ? [`    ${params.map((p) => `(void)${p.name};`).join(" ")} /* until you use them */`] : [];
+  if (mode === "replace") body = ["    /* your code: the game's own does not run */", ...unused, ...(cret === "void" ? [] : [`    return 0;`])];
   else if (mode === "before") body = ["    /* your code, before the game's */", `    ${call}`, ...tail];
   else if (mode === "after") body = [`    ${call}`, "    /* your code, after the game's */", ...tail];
   else body = ["    /* before: change an argument, count a call, ... */", `    ${call}`, "    /* after */", ...tail];
@@ -217,7 +218,8 @@ export function hookStubCpp(h: Hook, game: string, modId: string, mode: HookMode
   const call = cret === "void" ? `original(${args});` : `auto result = original(${args});`;
   const tail = cret === "void" ? [] : ["            return result;"];
   let body: string[];
-  if (mode === "replace") body = ["            // your code: the game's own does not run", ...(cret === "void" ? [] : [`            return ${cret}{};`])];
+  const unused = params.length ? [`            ${params.map((p) => `(void)${p.name};`).join(" ")} // until you use them`] : [];
+  if (mode === "replace") body = ["            // your code: the game's own does not run", ...unused, ...(cret === "void" ? [] : [`            return ${cret}{};`])];
   else if (mode === "before") body = ["            // your code, before the game's", `            ${call}`, ...tail];
   else if (mode === "after") body = [`            ${call}`, "            // your code, after the game's", ...tail];
   else body = ["            // before: change an argument, count a call, ...", `            ${call}`, "            // after", ...tail];

@@ -83,6 +83,7 @@ function starter(type: "script" | "native", iface: string, discs: string[], game
 export default function ManifestBuilder({
   iface,
   sdk,
+  rules,
   game,
   discs,
   keys,
@@ -93,6 +94,8 @@ export default function ManifestBuilder({
 }: {
   iface: string;
   sdk: string;
+  /** The SDK release whose package_mod.py the checks follow: the newest. */
+  rules: string;
   game: string;
   discs: string[];
   keys: string[];
@@ -458,7 +461,8 @@ export default function ManifestBuilder({
             <p className="font-semibold text-amber">✓ The manifest passes every check.</p>
           )}
           <p className="mt-2 text-[12.5px] text-dim">
-            Checked in your browser by the rules of SDK {sdk}: the same as <code>tools/package_mod.py --check</code>, without looking for the files it names.
+            Checked in your browser by the rules of SDK {rules}: the same as its <code>tools/package_mod.py --check</code>, without looking for the files it names.
+            {sdk !== rules && <> Those are the newest rules; the tool of SDK {sdk} differs on a few fields.</>}
           </p>
         </div>
         {!parsed.error && !errors.length && kind === "script" && (

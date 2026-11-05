@@ -43,6 +43,10 @@ function components(ctx: LinkContext): Components {
         <table>{children}</table>
       </div>
     ),
+    // A table written with an empty header row (`| | |`) is a plain list of pairs: no header.
+    thead: ({ node, children }) => (node && !text(node.children).trim() ? null : <thead>{children}</thead>),
+    // The empty corner of a table that compares columns heads nothing: a plain cell.
+    th: ({ node, children, style }) => (node && !text(node.children).trim() ? <td /> : <th style={style}>{children}</th>),
     // The page has its own title: the guide's first heading is not shown again.
     h1: () => null,
     h2: ({ id, children }) => (

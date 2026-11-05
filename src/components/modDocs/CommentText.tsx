@@ -131,9 +131,10 @@ export function Paragraphs({ text, names, className = "" }: { text: string; name
   if (!text) return null;
   const [first, ...rest] = text.split(/\n\n+/);
   const p = (t: string, i: number) => (
-    <p key={i} className={`text-[15px] leading-relaxed text-body ${className}`}>
+    // A div, not a p: a long paragraph folds its rest into a <details>, which a <p> cannot hold.
+    <div key={i} className={`text-[15px] leading-relaxed text-body ${className}`}>
       <Brief text={t} names={names} at={320} />
-    </p>
+    </div>
   );
   if (!rest.length || rest.join(" ").length < 160) return <>{[first, ...rest].map(p)}</>;
   return (

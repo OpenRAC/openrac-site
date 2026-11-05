@@ -54,6 +54,9 @@ test("a hook point's code comes from its own signature", () => {
   assert.match(hookStubLuau(turn, "before")!, /^openrac\.before\("rac1\.player\.turn_to_heading", function\(mode, accel, damping, limit\)/);
   assert.match(hookStubLuau(moby, "wrap")!, /local result = original\(moby\)[\s\S]*return result/);
   assert.equal(hookStubLuau({ ...turn, id: "" }, "wrap"), null);
+  // A replace uses none of its arguments yet: they are marked, so -Wall -Wextra stays quiet.
+  assert.match(hookStubC(turn, "rac1", "x", "replace"), /\(void\)mode; \(void\)accel; \(void\)damping; \(void\)limit;/);
+  assert.match(hookStubCpp(turn, "rac1", "x", "replace")!, /\(void\)mode;/);
 });
 
 test("a call of the table and its comment", () => {

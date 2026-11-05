@@ -11,13 +11,24 @@ from __future__ import annotations
 
 import re
 
-SINCE = re.compile(r"[Ss]ince (\d+\.\d+)")
+SINCE = re.compile(r"(?:^|[.;:]\s+|\n)Since (\d+\.\d+)|\([Ss]ince (\d+\.\d+)\)")
+# The sentence that dates an item is "Since X.Y." on its own; prose may name later versions too
+# ("Since 1.9 also while ...").
+SINCE_TAG = re.compile(r"(?:^|[.;:]\s+|\n)Since (\d+\.\d+)\.(?=\s|$)")
+
+
+def _key(v: str) -> tuple[int, ...]:
+    return tuple(int(x) for x in v.split("."))
 
 
 def since(text: str) -> str | None:
-    """The first "Since X.Y" in a comment: the interface that added the item."""
-    m = SINCE.search(text)
-    return m.group(1) if m else None
+    """The interface that added an item: its "Since X.Y." sentence, else a sentence that opens with
+    "Since X.Y". A "since 1.9" inside a sentence says when something changed, not when it came."""
+    tags = SINCE_TAG.findall(text)
+    if tags:
+        return min(tags, key=_key)
+    found = [a or b for a, b in SINCE.findall(text)]
+    return min(found, key=_key) if found else None
 
 
 def _strip(comment: str) -> str:

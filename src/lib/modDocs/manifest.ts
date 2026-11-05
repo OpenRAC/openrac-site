@@ -36,6 +36,25 @@ export function plain(value: unknown): unknown {
   return value;
 }
 
+/** Python's repr() of a JSON value, so a message reads as package_mod.py writes it ('main.lua', None). */
+export function pyRepr(v: unknown): string {
+  if (v === null || v === undefined) return "None";
+  if (v === true) return "True";
+  if (v === false) return "False";
+  if (v instanceof FloatNum) return Number.isInteger(v.value) ? `${v.value}.0` : String(v.value);
+  if (typeof v === "number") return String(v);
+  if (typeof v === "string") {
+    const q = v.includes("'") && !v.includes('"') ? '"' : "'";
+    const body = v.replace(/\\/g, "\\\\").replace(/\n/g, "\\n").replace(/\r/g, "\\r").replace(/\t/g, "\\t");
+    return q + (q === "'" ? body.replace(/'/g, "\\'") : body) + q;
+  }
+  if (Array.isArray(v)) return `[${v.map(pyRepr).join(", ")}]`;
+  return `{${Object.entries(v as Record<string, unknown>).map(([k, x]) => `${pyRepr(k)}: ${pyRepr(x)}`).join(", ")}}`;
+}
+
+/** Python's str(): a string as it is, anything else as repr() writes it. */
+const pyStr = (v: unknown): string => (typeof v === "string" ? v : pyRepr(v));
+
 const isObj = (v: unknown): v is Record<string, unknown> => !!v && typeof v === "object" && !Array.isArray(v) && !(v instanceof FloatNum);
 const isStr = (v: unknown): v is string => typeof v === "string";
 /** Python's isinstance(v, int) and not bool. */
@@ -259,7 +278,8 @@ export function checkManifest(m: unknown, t: Tables): string[] {
   const errors: string[] = [];
   if (!isObj(m)) return ["the manifest is not a JSON object"];
   if (!isNum(m.format) || num(m.format) !== FORMAT) {
-    if (isNum(m.format) && num(m.format) === 1) return ["format 1 is a data pack (editor/MODDING.md): it is added as a pack, not packaged here"];
+    // Python: True == 1, so "format": true reads as format 1 there too.
+    if (m.format === true || (isNum(m.format) && num(m.format) === 1)) return ["format 1 is a data pack (editor/MODDING.md): it is added as a pack, not packaged here"];
     return [`format must be ${FORMAT}`];
   }
   const mid = m.id;
@@ -293,7 +313,7 @@ export function checkManifest(m: unknown, t: Tables): string[] {
     else {
       for (const path of scripts) {
         const p = isStr(path) ? posix(path) : null;
-        if (!p || !path || p.absolute || p.parts.includes("..") || (path as string).includes("\\") || !(path as string).endsWith(".luau")) errors.push(`scripts: ${JSON.stringify(path)} is not a .luau file inside the mod`);
+        if (!p || !path || p.absolute || p.parts.includes("..") || (path as string).includes("\\") || !(path as string).endsWith(".luau")) errors.push(`scripts: ${pyRepr(path)} is not a .luau file inside the mod`);
       }
     }
   } else if (scripts !== undefined && scripts !== null) {
@@ -326,7 +346,7 @@ export function checkManifest(m: unknown, t: Tables): string[] {
   else {
     settings.forEach((s, i) => checkSetting(i, s, errors, keys));
     const keyList = settings.filter(isObj).map((s) => s.key);
-    const dup = [...new Set(keyList.filter((k, i) => keyList.indexOf(k) !== i))].map(String).sort();
+    const dup = [...new Set(keyList.filter((k, i) => keyList.indexOf(k) !== i))].map(pyStr).sort();
     if (dup.length) errors.push(`settings: a key twice (${dup.join(", ")})`);
     const byKey = new Map<unknown, Record<string, unknown>>();
     for (const s of settings) if (isObj(s) && "key" in s) byKey.set(s.key, s);

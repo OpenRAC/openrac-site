@@ -47,7 +47,7 @@ export async function generateMetadata(props: PageProps<"/mods/docs/[[...slug]]"
   const title = page.kind === "overview" ? "Mod SDK docs" : `${page.title} · Mod SDK docs`;
   const description =
     page.kind === "overview"
-      ? `How to make mods for OpenRAC, the native PC port of Ratchet & Clank: script mods in Luau, native mods in C and C++, and the full API reference of SDK ${version}.`
+      ? `How to make mods for OpenRAC, the native port of Ratchet & Clank: script mods in Luau, native mods in C and C++, and the full API reference of SDK ${version}.`
       : page.kind === "guide"
         ? `${page.title}: a guide to making mods for OpenRAC with SDK ${version}.`
         : `${page.title} of the OpenRAC mod SDK ${version}${page.blurb ? `: ${page.blurb}` : ""}.`;
@@ -167,7 +167,7 @@ export default async function DocsPage(props: PageProps<"/mods/docs/[[...slug]]"
   switch (page.kind) {
     case "overview":
       return (
-        <DocsShell {...shell} title="Make mods for OpenRAC" lead="Change how Ratchet & Clank plays on the PC port: new moves, swapped buttons, tweaks to enemies. These docs teach the mod SDK one piece at a time, with code you can copy.">
+        <DocsShell {...shell} title="Make mods for OpenRAC" lead="Change how Ratchet & Clank plays in OpenRAC: new moves, swapped buttons, tweaks to enemies. These docs teach the mod SDK one piece at a time, with code you can copy.">
           <Overview r={r} latest={latest} ctx={ctx(r.guides.length ? "sdk/docs/README.md" : "sdk/README.md")} />
         </DocsShell>
       );
@@ -211,7 +211,10 @@ export default async function DocsPage(props: PageProps<"/mods/docs/[[...slug]]"
           lead={<>A hook point is a function of the game your mod can take over. Pick one to see what it does and get a whole mod that uses it. {g.hooks.length} hook points, {stable} of them stable.</>}
           toc={[{ id: "explorer", label: "Hook points" }, ...(g.fields.length ? [{ id: "fields", label: "Fields" }] : [])]}
         >
-          <section id="explorer" className="scroll-mt-20">
+          <section id="explorer" aria-labelledby="explorer-title" className="scroll-mt-20">
+            <h2 id="explorer-title" className="sr-only">
+              Hook points
+            </h2>
             {/* A link to a hook point (#rac1.player.take_damage) lands here; the explorer then picks it. */}
             <div aria-hidden className="h-0 overflow-hidden">
               {g.hooks.map((h) => (
@@ -259,11 +262,12 @@ export default async function DocsPage(props: PageProps<"/mods/docs/[[...slug]]"
       const md = r.guides.find((x) => x.slug === "manifest")?.markdown ?? "";
       const g = r.hooks[0];
       return (
-        <DocsShell {...shell} title="Manifest builder" lead={<>Every mod has an <code className="text-gold">openrac-mod.json</code>. Fill in the form or paste your own: it is checked as you type, by the same rules the SDK uses.{md ? <> Each field is explained in <a href={docsHref(version, "manifest", latest)} className="text-amber underline">the manifest guide</a>.</> : null}</>}>
+        <DocsShell {...shell} title="Manifest builder" lead={<>Every mod has an <code className="text-gold">openrac-mod.json</code>. Fill in the form or paste your own: it is checked as you type, by the rules of the newest SDK.{md ? <> Each field is explained in <a href={docsHref(version, "manifest", latest)} className="text-amber underline">the manifest guide</a>.</> : null}</>}>
           <Suspense fallback={<div className="d-card h-[640px] animate-pulse" />}>
           <ManifestBuilder
             iface={r.interface}
             sdk={r.version}
+            rules={latest}
             game={g?.game ?? "rac1"}
             discs={g?.discs.length ? g.discs : ["pal", "ntsc"]}
             keys={r.keys}
