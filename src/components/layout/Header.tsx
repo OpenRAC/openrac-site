@@ -29,8 +29,9 @@ const underline =
   "absolute inset-x-3.5 bottom-1 min-[821px]:max-[1023px]:inset-x-2 hidden h-0.5 origin-left scale-x-0 rounded bg-current transition-transform group-hover/l:scale-x-100 min-[821px]:block";
 const pill = "flex min-h-11 items-center justify-center rounded-full px-4 text-sm font-semibold no-underline transition-colors min-[821px]:min-h-9 min-[821px]:whitespace-nowrap min-[821px]:max-[1023px]:px-3";
 
-/** The round buttons in the open phone menu: a light shade on its dark, the marks in white. */
-const mark = "bg-white/[.07] text-text ring-1 ring-inset ring-white/10 hover:bg-white/[.12]";
+/** The buttons in the open phone menu's capsule, and the hairlines between them. */
+const mark = "text-amber hover:bg-white/5";
+const menuDivider = "h-5 w-px flex-none bg-amber/25";
 /** On a phone the bar's buttons are bare dark marks on the stripes: no discs or rings, a light shade under a finger. */
 const barIcon = "flex size-10 flex-none items-center justify-center rounded-full text-[#1b1206] transition-colors hover:bg-black/10 active:bg-black/15 min-[821px]:hidden";
 
@@ -38,7 +39,7 @@ const barIcon = "flex size-10 flex-none items-center justify-center rounded-full
 const capsule = "min-[821px]:flex min-[821px]:items-center min-[821px]:px-1 min-[821px]:rounded-full min-[821px]:bg-[#1b1206] min-[821px]:shadow-[0_0_0_1px_rgb(0_0_0/0.25)]";
 /** A hairline between the buttons of a capsule. */
 const divider = "h-4 w-px flex-none bg-white/15 max-[821px]:hidden";
-/** A button in a capsule, and the one for the page you are on, filled gold. */
+/** A button in a capsule, and Mods while on its pages, filled gold. */
 const off = "text-amber hover:bg-[#2a1800]";
 const on = "bg-amber text-[#1a0d00]";
 /** The same for a site's mark, white like on the phone menu. */
@@ -54,7 +55,7 @@ function ModsMark({ className = "size-4" }: { className?: string }) {
   );
 }
 
-/** News as a round button next to GitHub: its own pages, so it is marked gold while on them. */
+/** News as a round button next to GitHub. It stays plain on its own pages; only screen readers hear it is the current one. */
 function NewsButton({ on, onClick, className = "" }: { on: boolean; onClick?: () => void; className?: string }) {
   return (
     <Link
@@ -169,8 +170,8 @@ export default function Header() {
           >
             <ModsMark className="size-[22px]" />
           </Link>
-          {/* Too wide for the narrowest phones: there they move into the menu (News first), so the menu button stays on screen. */}
-          <NewsButton on={inNews} onClick={close} className={`${barIcon} -ml-5 max-[400px]:hidden ${inNews ? "bg-black/15" : ""}`} />
+          {/* Too wide for the narrowest phones: there they move into the menu (News first, below 400 px), so the menu button stays on screen. */}
+          <NewsButton on={inNews} onClick={close} className={`${barIcon} -ml-5 max-[400px]:hidden`} />
           <MarkButton site="github" onClick={close} className={`${barIcon} -ml-5 max-[359px]:hidden`} />
           <MarkButton site="discord" onClick={close} className={`${barIcon} -ml-5 max-[359px]:hidden`} />
           <button
@@ -205,6 +206,10 @@ export default function Header() {
                   </Link>
                 ),
               )}
+              {/* Where the phone bar has no room for its News button, News is a line of the menu. */}
+              <Link href="/news" transitionTypes={PAGE_TRANSITION} onClick={close} aria-current={inNews ? "page" : undefined} className={`${link} ${inNews ? linkOn : linkOff} min-[400px]:hidden`}>
+                News
+              </Link>
             </div>
             <div className="grid gap-2 min-[821px]:ml-auto min-[821px]:flex min-[821px]:items-center min-[821px]:max-[1023px]:gap-1.5">
               {/* Mods and Download share one dark capsule on the wide bar, News, GitHub and Discord another:
@@ -222,13 +227,16 @@ export default function Header() {
                   Download
                 </Link>
               </div>
-              <div className="flex justify-center gap-2 min-[400px]:hidden">
-                <NewsButton on={inNews} onClick={close} className={`${inNews ? on : mark} size-11`} />
-                <MarkButton site="github" onClick={close} className={`${mark} size-11 min-[360px]:hidden`} />
-                <MarkButton site="discord" onClick={close} className={`${mark} size-11 min-[360px]:hidden`} />
+              {/* Where the phone bar has no room for them: one capsule, gold like the Download button above. */}
+              <div className="flex justify-center min-[360px]:hidden">
+                <div className="flex items-center rounded-full border border-amber/40 px-1">
+                  <MarkButton site="github" onClick={close} className={`${mark} h-11 w-12`} />
+                  <span aria-hidden className={menuDivider} />
+                  <MarkButton site="discord" onClick={close} className={`${mark} h-11 w-12`} />
+                </div>
               </div>
               <div className={`${capsule} max-[821px]:hidden`}>
-                <NewsButton on={inNews} onClick={close} className={`${inNews ? on : offMark} h-9 w-10`} />
+                <NewsButton on={inNews} onClick={close} className={`${offMark} h-9 w-10`} />
                 <span aria-hidden className={divider} />
                 <MarkButton site="github" onClick={close} className={`${offMark} h-9 w-10`} />
                 <span aria-hidden className={divider} />
