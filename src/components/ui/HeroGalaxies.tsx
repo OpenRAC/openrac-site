@@ -26,77 +26,98 @@ const ITN = "Into the Nexus";
 const RA = "Rift Apart";
 
 // Scene units: a 1000 x 600 box. Planets sit at an angle and a distance (in galaxy radii) in their galaxy's plane.
+// Names and captions are checked against the games' Wikipedia articles and the fan wikis and guides; a caption
+// is left out where the sources disagree. Planets visited in more than one game list each of them.
 const GALAXIES: Galaxy[] = [
-  { n: "SOLANA", games: "PS2 · 2002, 2004", x: 250, y: 200, r: 125, tilt: 0.45, arms: 2, flat: 0.42, z: 14, ps: [
+  { n: "SOLANA", games: "PS2 · PS4", x: 235, y: 200, r: 125, tilt: 0.45, arms: 2, flat: 0.42, z: 14, ps: [
     { n: "Veldin", g: RC, c: "Kyzil Plateau", a: 0.3, d: 1.08 },
     { n: "Novalis", g: RC, c: "Tobruk Crater", a: 1.0, d: 0.78 },
     { n: "Kerwan", g: RC, c: "Metropolis", a: 1.7, d: 1.02 },
     { n: "Eudora", g: RC, c: "Logging Site", a: 2.3, d: 0.62 },
     { n: "Rilgar", g: RC, c: "Blackwater City", a: 2.9, d: 1.12 },
-    { n: "Pokitaru", g: RC, c: "Jowai Resort", a: 3.5, d: 0.85 },
-    { n: "Orxon", g: RC, c: "Kogor Refinery", a: 4.1, d: 1.05 },
-    { n: "Umbris", g: RC, c: "Snivelak", a: 4.7, d: 0.7 },
-    { n: "Quartu", g: RC, c: "Bot factory", a: 5.25, d: 1.15 },
-    { n: "Florana", g: UYA, a: 5.8, d: 0.55 },
-    { n: "Marcadia", g: UYA, a: 0.7, d: 0.45 },
-    { n: "Aquatos", g: UYA, a: 2.0, d: 0.4 },
-    { n: "Tyhrranosis", g: UYA, a: 3.2, d: 0.5 },
-    { n: "Daxx", g: UYA, a: 4.4, d: 0.36 },
-    { n: "Obani Gemini", g: UYA, a: 5.4, d: 0.85 },
+    { n: "Aridia", g: `${RC}, ${UYA}`, c: "Outpost X11", a: 3.5, d: 0.85 },
+    { n: "Umbris", g: RC, c: "Qwark's HQ", a: 4.1, d: 1.05 },
+    { n: "Pokitaru", g: RC, a: 4.7, d: 0.7 },
+    { n: "Quartu", g: RC, a: 5.25, d: 1.15 },
+    { n: "Nebula G34", g: RC, c: "Blarg Station", a: 5.75, d: 0.95 },
+    { n: "Florana", g: UYA, a: 5.8, d: 0.5 },
+    { n: "Marcadia", g: UYA, c: "Capital City", a: 0.7, d: 0.45 },
+    { n: "Annihilation Nation", g: UYA, c: "a deadly game show", a: 2.0, d: 0.4 },
+    { n: "Aquatos", g: UYA, a: 3.2, d: 0.5 },
+    { n: "Tyhrranosis", g: UYA, a: 4.4, d: 0.36 },
+    { n: "Daxx", g: UYA, c: "superweapon research", a: 5.3, d: 0.3 },
+    { n: "Obani Gemini", g: UYA, a: 1.35, d: 1.25 },
   ] },
   { n: "BOGON", games: "PS2 · 2003", x: 735, y: 120, r: 85, tilt: -0.55, arms: 2, flat: 0.45, z: 18, ps: [
-    { n: "Oozla", g: GC, c: "Megacorp Store", a: 0.2, d: 1.1 },
-    { n: "Maktar Nebula", g: GC, c: "Arena", a: 0.9, d: 0.8 },
-    { n: "Endako", g: GC, a: 1.6, d: 1.15 },
+    { n: "Oozla", g: GC, c: "Megacorp Outlet", a: 0.2, d: 1.1 },
+    { n: "Maktar Nebula", g: GC, c: "Maktar Resort", a: 0.9, d: 0.8 },
+    { n: "Endako", g: GC, c: "Megapolis", a: 1.6, d: 1.15 },
     { n: "Barlow", g: GC, a: 2.3, d: 0.7 },
     { n: "Notak", g: GC, a: 3.0, d: 1.1 },
-    { n: "Siberius", g: GC, a: 3.7, d: 0.6 },
-    { n: "Tabora", g: GC, a: 4.3, d: 1.05 },
-    { n: "Boldan", g: GC, c: "Floating City", a: 5.0, d: 0.85 },
-    { n: "Yeedil", g: GC, a: 5.7, d: 1.15 },
+    { n: "Joba", g: GC, c: "Megacorp Games", a: 3.7, d: 0.6 },
+    { n: "Aranos", g: GC, c: "Angela's lab", a: 4.3, d: 1.05 },
+    { n: "Boldan", g: GC, a: 5.0, d: 0.85 },
+    { n: "Yeedil", g: GC, c: "Megacorp's base", a: 5.7, d: 1.15 },
   ] },
-  { n: "DREADZONE", games: "PS2 · 2005", x: 900, y: 455, r: 52, tilt: 1.1, arms: 3, flat: 0.5, z: 22, ps: [
-    { n: "Catacrom IV", g: DL, a: 0.4, d: 1.5 },
-    { n: "Sarathos", g: DL, a: 1.4, d: 1.7 },
-    { n: "Kronos", g: DL, a: 2.4, d: 1.45 },
-    { n: "Shaar", g: DL, a: 3.4, d: 1.8 },
-    { n: "Valix Belt", g: DL, a: 4.3, d: 1.5 },
-    { n: "Torval", g: DL, a: 5.2, d: 1.75 },
-  ] },
-  { n: "POLARIS", games: "PS3 · PS4 · PS5", x: 545, y: 420, r: 150, tilt: -0.18, arms: 2, flat: 0.4, z: 10, ps: [
-    { n: "Kerchu", g: TOD, a: 0.15, d: 1.05 },
-    { n: "Cobalia", g: TOD, a: 0.6, d: 0.7 },
-    { n: "Ardolis", g: TOD, c: "Pirate base", a: 1.05, d: 1.12 },
+  { n: "POLARIS", games: "PS3 · PS5", x: 545, y: 420, r: 150, tilt: -0.18, arms: 2, flat: 0.4, z: 10, ps: [
+    { n: "Kerwan", g: TOD, c: "Polaris has one too", a: 0.15, d: 1.05 },
+    { n: "Cobalia", g: TOD, c: "gel capital of Polaris", a: 0.6, d: 0.7 },
+    { n: "Ardolis", g: `${TOD}, ${RA}`, a: 1.05, d: 1.12 },
     { n: "Fastoon", g: TOD, c: "Lombax homeworld", a: 1.6, d: 0.55 },
-    { n: "Zordoom", g: TOD, c: "Prison", a: 2.1, d: 1.0 },
-    { n: "Merdegraw", g: QFB, a: 2.6, d: 0.8 },
+    { n: "Igliak", g: `${TOD}, ${ITN}`, c: "Meridian City", a: 2.1, d: 1.0 },
+    { n: "Merdegraw", g: QFB, c: "Drogol Sector", a: 2.6, d: 0.8 },
     { n: "Zanifar", g: ACIT, a: 3.05, d: 1.15 },
-    { n: "Torren IV", g: ACIT, a: 3.5, d: 0.65 },
-    { n: "Yerek", g: ITN, a: 4.0, d: 1.05 },
-    { n: "Kragmite", g: ITN, a: 4.45, d: 0.45 },
-    { n: "Corson V", g: RA, c: "Nefarious City", a: 4.95, d: 0.95 },
-    { n: "Sargasso", g: RA, a: 5.4, d: 0.6 },
+    { n: "Torren IV", g: `${ACIT}, ${RA}`, a: 3.5, d: 0.65 },
+    { n: "Yerek", g: ITN, c: "Zarkov Sector", a: 4.0, d: 1.05 },
+    { n: "Silox", g: ITN, c: "Weeblesnog City", a: 4.45, d: 0.45 },
+    { n: "Corson V", g: RA, c: "Megalopolis", a: 4.95, d: 0.95 },
+    { n: "Sargasso", g: `${TOD}, ${RA}`, a: 5.4, d: 0.6 },
     { n: "Blizar Prime", g: RA, a: 5.85, d: 1.1 },
-    { n: "Cordelion", g: RA, a: 3.8, d: 0.3 },
+    { n: "Lumos", g: ACIT, a: 3.8, d: 0.3 },
+    { n: "Jasindu", g: TOD, c: "home of the Kerchu", a: 0.35, d: 0.38 },
+  ] },
+  // not a galaxy: the lawless edge of Solana where DreadZone films its fights
+  { n: "SHADOW SECTOR", games: "Solana's edge · PS2 · 2005", x: 95, y: 405, r: 46, tilt: 1.1, arms: 3, flat: 0.5, z: 20, ps: [
+    { n: "Shaar", g: DL, c: "Temple of Shaar", a: 0.4, d: 1.55 },
+    { n: "Orxon", g: `${RC}, ${DL}`, a: 1.5, d: 1.7 },
+    { n: "Kronos", g: DL, a: 2.6, d: 1.45 },
+    { n: "Stygia", g: DL, c: "battered by meteors", a: 3.6, d: 1.8 },
+    { n: "Valix Belt", g: DL, c: "asteroids by a black hole", a: 4.6, d: 1.5 },
+  ] },
+  // through the rift: Rivet's dimension, where Nefarious won
+  { n: "RIVET'S DIMENSION", games: "through the rift · PS5", x: 885, y: 455, r: 62, tilt: -0.18, arms: 2, flat: 0.4, z: 24, ps: [
+    { n: "Nefarious City", g: RA, c: "Corson V, his way", a: 4.95, d: 0.95 },
   ] },
 ];
+const GHOST = 4; // the other dimension: fainter, brighter while the rift is under the cursor
 
 // Things that are not planets, in scene units: hovered on desktop, found on phones by scrolling.
 const SPOTS: Spot[] = [
-  { id: "clock", x: 505, y: 298, z: 12, n: "The Great Clock", c: "the centre of the universe" },
-  { id: "rift", x: 330, y: 500, z: 8, n: "A dimensional rift", c: "someone left it open" },
-  { id: "aphelion", x: 690, y: 330, z: 16, n: "Aphelion", c: "parked, engine still warm" },
-  { id: "deplanetizer", x: 128, y: 120, z: 18, n: "The Deplanetizer", c: "Drek's, idling over Veldin" },
-  { id: "phoenix", x: 380, y: 118, z: 16, n: "Starship Phoenix", c: "Q-Force on patrol" },
-  { id: "station", x: 900, y: 455, z: 22, n: "DreadZone Station", c: "live on every channel" },
+  { id: "clock", x: 505, y: 298, z: 12, n: "The Great Clock", c: "centre of the universe, give or take fifty feet" },
+  { id: "rift", x: 790, y: 505, z: 18, n: "A dimensional rift", c: "Rift Apart" },
+  { id: "aphelion", x: 690, y: 330, z: 16, n: "Aphelion", c: "Ratchet's Lombax fighter" },
+  { id: "deplanetizer", x: 128, y: 110, z: 18, n: "The Deplanetizer", c: "Drek's, aimed at Veldin" },
+  { id: "phoenix", x: 385, y: 112, z: 16, n: "Starship Phoenix", c: "Q-Force base, Up Your Arsenal" },
+  { id: "station", x: 95, y: 405, z: 20, n: "DreadZone Station", c: "Gleeman Vox's game show" },
 ];
 
 // Three gold bolts, hidden among the stars (desktop: click them). All three show the museum.
-const BOLTS = [{ x: 610, y: 40 }, { x: 960, y: 250 }, { x: 70, y: 470 }];
-const MUSEUM: Spot = { id: "museum", x: 205, y: 330, z: 14, n: "Insomniac Museum", c: "you found the way in" };
+const BOLTS = [{ x: 610, y: 40 }, { x: 975, y: 270 }, { x: 330, y: 575 }];
+const MUSEUM: Spot = { id: "museum", x: 640, y: 222, z: 14, n: "Insomniac Museum", c: "hidden since Going Commando" };
 
 // What a phone visitor meets while scrolling past the hero, in order.
-const TOUR = ["Veldin", "Kerwan", "Oozla", "DreadZone Station", "Fastoon", "The Great Clock", "Corson V"];
+// Planets by galaxy/name (Kerwan is in two galaxies), other things by name.
+const TOUR = ["SOLANA/Veldin", "SOLANA/Novalis", "BOGON/Oozla", "DreadZone Station", "POLARIS/Fastoon", "The Great Clock", "RIVET'S DIMENSION/Nefarious City"];
+
+// Captain Qwark's face as a constellation (type "qwark"): dots in a 100 x 120 box, joined by the lines below.
+const QWARK: [number, number][][] = [
+  [[30, 22], [44, 6], [62, 8], [76, 18], [72, 30]],
+  [[30, 22], [25, 46], [27, 70], [35, 92], [48, 108], [60, 113], [72, 108], [81, 94], [83, 70], [80, 46], [72, 30]],
+  [[60, 113], [60, 105]],
+  [[37, 47], [50, 45]], [[62, 45], [75, 47]],
+  [[56, 55], [54, 72], [61, 74]],
+  [[44, 85], [55, 91], [68, 89], [75, 83]],
+];
 
 const KONAMI = ["ArrowUp", "ArrowUp", "ArrowDown", "ArrowDown", "ArrowLeft", "ArrowRight", "ArrowLeft", "ArrowRight", "b", "a"];
 const GOLD = "245,192,64";
@@ -146,7 +167,7 @@ export default function HeroGalaxies() {
     // the scene's lean: where it is, where it is going, and how fast
     const lean = { x: 0, y: 0, vx: 0, vy: 0, tx: 0, ty: 0, rot: 0, vr: 0, tr: 0 };
     let mouse: { x: number; y: number } | null = null;
-    let hover = "", tour = "", mirror = false, toast = "", toastTimer = 0;
+    let hover = "", tour = "", mirror = false, toast = "", toastTimer = 0, qwark = 0;
     let bolts: boolean[] = [false, false, false];
     try { const b = JSON.parse(localStorage.getItem("openrac-bolts") || "[]"); if (Array.isArray(b)) bolts = [0, 1, 2].map((i) => !!b[i]); } catch {}
     let raf = 0, visible = true;
@@ -186,7 +207,7 @@ export default function HeroGalaxies() {
       c.font = `400 10px ${MONO}`;
       const wide = Math.max(c.measureText(name).width * 1.1, c.measureText(sub).width);
       // to the left of the dot when the right side has no room
-      const left = x + 19 + wide > W - 8, d = left ? -1 : 1, tx = left ? x - 19 - wide : x + 19;
+      const left = x + 19 + wide > W - 8, d = left ? -1 : 1, tx = Math.max(8, left ? x - 19 - wide : x + 19);
       c.strokeStyle = `rgba(${GOLD},0.4)`; c.lineWidth = 1;
       c.beginPath(); c.arc(x, y, 6, 0, 6.283); c.stroke();
       c.beginPath(); c.moveTo(x + 7 * d, y - 4); c.lineTo(x + 16 * d, y - 12); c.stroke();
@@ -204,18 +225,15 @@ export default function HeroGalaxies() {
       for (const s of stars) { ctx!.fillStyle = `rgba(${WHITE},${s.a})`; ctx!.fillRect(s.x + lean.x * s.z, s.y + lean.y * s.z, s.r, s.r); }
 
       // Veldin shows the first trip of the first game
-      if (show === "Veldin") {
+      if (show === "SOLANA/Veldin") {
         const g = GALAXIES[0], pts = ["Veldin", "Novalis", "Kerwan"].map((n) => planetAt(g, g.ps.find((p) => p.n === n)!));
         ctx!.strokeStyle = `rgba(${GOLD},0.35)`; ctx!.setLineDash([3, 5]); ctx!.beginPath();
         pts.forEach(([x, y], i) => (i ? ctx!.lineTo(x, y) : ctx!.moveTo(x, y))); ctx!.stroke(); ctx!.setLineDash([]);
       }
-      // through the rift: Polaris again, as the other dimension has it
-      if (show === "rift") drawGalaxy(3, 26, -18, 0.35);
+      GALAXIES.forEach((g, i) => drawGalaxy(i, 0, 0, i !== GHOST ? 1 : show === "rift" || show === "RIVET'S DIMENSION/Nefarious City" ? 0.9 : 0.4));
 
-      GALAXIES.forEach((g, i) => drawGalaxy(i, 0, 0, 1));
-
-      // galaxy names, quiet
-      GALAXIES.forEach((g) => {
+      // galaxy names, quiet; not on a phone, where they would sit on the text
+      if (W >= 900) GALAXIES.forEach((g) => {
         const [x, y] = at(g.x, g.y, g.z), o = g.r * S * 0.7;
         ctx!.font = `600 9px ${display}`;
         const w = Math.max(ctx!.measureText(g.n).width, 90);
@@ -231,18 +249,21 @@ export default function HeroGalaxies() {
       // planets
       let hot: [number, number, Planet] | null = null;
       for (const g of GALAXIES) for (const p of g.ps) {
-        const [x, y] = planetAt(g, p), on = show === p.n;
-        hits.push({ id: p.n, x, y });
+        const id = `${g.n}/${p.n}`, [x, y] = planetAt(g, p), on = show === id;
+        hits.push({ id, x, y });
         ctx!.fillStyle = on ? `rgba(${GOLD},0.95)` : `rgba(${WHITE},0.26)`;
         ctx!.beginPath(); ctx!.arc(x, y, on ? 2.2 : 1.3, 0, 6.283); ctx!.fill();
         if (on) hot = [x, y, p];
       }
       if (hot) label(hot[0], hot[1], hot[2].n, [hot[2].c, hot[2].g].filter(Boolean).join(" · "));
 
+      // messages (gold bolts, cheats) sit top right, clear of the scene
       if (toast) {
-        const [x, y] = at(30, 590, 0);
-        text(toast, mirror ? x - 260 : x, Math.min(y, H - 12), `rgba(${GOLD},0.8)`, `600 10px ${MONO}`);
+        ctx!.textAlign = "right";
+        text(toast, W - Math.max(16, W * 0.015), Math.max(24, H * 0.08), `rgba(${GOLD},0.85)`, `600 10px ${MONO}`);
+        ctx!.textAlign = "start";
       }
+      if (qwark) drawQwark();
       ctx!.globalAlpha = 1;
     }
 
@@ -300,6 +321,25 @@ export default function HeroGalaxies() {
       });
     }
 
+    // Qwark's face pops up for two seconds on the right, as a constellation, fading in and out.
+    const QWARK_MS = 2000;
+    function drawQwark() {
+      const t = performance.now() - qwark;
+      if (t > QWARK_MS) { qwark = 0; return; }
+      const a = still ? 1 : Math.min(1, t / 250, (QWARK_MS - t) / 250);
+      const k = Math.min(1.5, Math.max(1, W / 1000)), x0 = W - Math.max(16, W * 0.015) - 110 * k, y0 = Math.max(40, H * 0.14);
+      const c = ctx!;
+      c.save(); c.globalAlpha = a; c.lineWidth = 1; c.strokeStyle = `rgba(${GOLD},0.55)`;
+      for (const line of QWARK) { c.beginPath(); line.forEach(([x, y], i) => c[i ? "lineTo" : "moveTo"](x0 + x * k, y0 + y * k)); c.stroke(); }
+      c.fillStyle = `rgba(${GOLD},0.95)`;
+      for (const line of QWARK) for (const [x, y] of line) { c.beginPath(); c.arc(x0 + x * k, y0 + y * k, 1.6, 0, 6.283); c.fill(); }
+      c.beginPath(); c.arc(x0 + 44 * k, y0 + 56 * k, 2, 0, 6.283); c.arc(x0 + 68 * k, y0 + 56 * k, 2, 0, 6.283); c.fill();
+      c.textAlign = "center";
+      text("CAPTAIN QWARK", x0 + 55 * k, y0 + 132 * k, `rgba(${GOLD},0.9)`, `600 10px ${display}`);
+      text("hero, allegedly", x0 + 55 * k, y0 + 132 * k + 13, `rgba(${WHITE},0.45)`, `400 10px ${MONO}`);
+      c.textAlign = "start"; c.restore();
+    }
+
     function step() {
       raf = 0;
       if (still) { lean.x = lean.tx; lean.y = lean.ty; lean.rot = lean.tr; draw(); return; }
@@ -308,7 +348,7 @@ export default function HeroGalaxies() {
       lean.vr = (lean.vr + (lean.tr - lean.rot) * 0.06) * 0.82;
       lean.x += lean.vx; lean.y += lean.vy; lean.rot += lean.vr;
       draw();
-      if (Math.abs(lean.vx) + Math.abs(lean.vy) + Math.abs(lean.vr) * 40 > 0.0004) raf = requestAnimationFrame(step);
+      if (qwark || Math.abs(lean.vx) + Math.abs(lean.vy) + Math.abs(lean.vr) * 40 > 0.0004) raf = requestAnimationFrame(step);
     }
     const kick = () => { if (!raf && visible) raf = requestAnimationFrame(step); };
 
@@ -375,9 +415,10 @@ export default function HeroGalaxies() {
       if (keys.join() === KONAMI.join()) { keys = []; mirror = !mirror; say(mirror ? "MIRROR MODE ON" : "MIRROR MODE OFF"); return; }
       if (k.length === 1) {
         typed = (typed + k).slice(-6);
-        if (typed.endsWith("qwark")) say("Captain Qwark approves this decompilation.");
-        else if (typed.endsWith("clank")) say("Clank: we appear to be in the background, Ratchet.");
-        else if (typed.endsWith("bolts")) say(`${bolts.filter(Boolean).length} of 3 gold bolts found. Look closer.`);
+        if (typed.endsWith("qwark")) {
+          qwark = performance.now(); kick();
+          if (still) window.setTimeout(() => { qwark = 0; draw(); }, QWARK_MS);
+        } else if (typed.endsWith("bolts")) say(`${bolts.filter(Boolean).length} of 3 gold bolts found. Look closer.`);
       }
     }
 
