@@ -90,7 +90,7 @@ export const PROJECTS: readonly Project[] = [
     category: "mainline",
     platform: "PlayStation 2",
     tag: "GC",
-    maintainers: ["llesieur99", "platypet2217-star"],
+    maintainers: ["llesieur99"],
     contributing: `${GH}/OpenRAC/rac2-gc-decomp/blob/master/CONTRIBUTING.md`,
     guide: { label: "Start here", url: `${GH}/OpenRAC/rac2-gc-decomp/blob/master/README.md` },
   },

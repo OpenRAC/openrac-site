@@ -1,5 +1,6 @@
 import { Arrow } from "@/components/ui/icons";
-import Section, { SUBHEADING } from "@/components/ui/Section";
+import Section from "./HomeSection";
+import styles from "./Home.module.css";
 import { listName, PROJECTS } from "@/lib/projects";
 
 /** "Resources": each project's guide, the tools the projects use, and related community work. */
@@ -25,8 +26,8 @@ const COMMUNITY: Resource[] = [
 /** A column of links with a line about each: easier to scan than a grid of tiles. */
 function ResourceList({ title, items }: { title: string; items: Resource[] }) {
   return (
-    <div className="surface px-5 pb-2 pt-4 sm:px-6">
-      <h3 className={SUBHEADING}>{title}</h3>
+    <div className={styles.resourceColumn}>
+      <h3>{title}</h3>
       <ul>
         {items.map(({ title, href, text }) => (
           <li key={href} className="border-t border-line first:border-0">
@@ -52,7 +53,7 @@ export default function Resources() {
   );
   return (
     <Section id="resources" title="Resources" sub="Tools, guides and related work that decompilation projects like these rely on.">
-      <div className="grid items-start gap-4 sm:gap-5 lg:grid-cols-3">
+      <div className={styles.resources}>
         <ResourceList title="Project guides" items={guides} />
         <ResourceList title="Tools" items={TOOLS} />
         <ResourceList title="Related community work" items={COMMUNITY} />

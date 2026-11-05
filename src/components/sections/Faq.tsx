@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
-import Section from "@/components/ui/Section";
+import Section from "./HomeSection";
+import styles from "./Home.module.css";
 import { ALSO_WORKED_ON, DISCORD_URL, PROJECTS } from "@/lib/projects";
 
 /** Every listed game with the projects working on it (from PROJECTS and ALSO_WORKED_ON), so it never goes stale. */
@@ -71,21 +72,21 @@ export const FAQ: readonly (readonly [string, ReactNode])[] = [
 /** "FAQ": each question opens in place (plain <details>, no script). */
 export default function Faq() {
   return (
-    <Section id="faq" title="FAQ" sub="The short answers.">
-      <div className="grid gap-2.5">
+    <Section id="faq" title="FAQ" sub="The short answers." aside>
+      <div className={styles.faqList}>
         {FAQ.map(([q, a]) => (
-          <details key={q} className="group surface px-4 open:border-brand open:bg-panel-hi hover:border-brand/70 sm:px-5">
-            <summary className="flex min-h-16 cursor-pointer list-none items-center justify-between gap-4 py-3.5 text-[16px] font-semibold text-text sm:text-[17px]">
+          <details key={q} className={styles.faqItem}>
+            <summary>
               {q}
               {/* A real button-looking control, so it is plain that the row opens. */}
               <span
                 aria-hidden
-                className="plus flex size-9 flex-none items-center justify-center rounded-full border border-brand/50 bg-brand/15 font-orbitron text-[20px] leading-none text-amber transition group-hover:bg-brand group-hover:text-[#1a0d00] group-open:bg-brand group-open:text-[#1a0d00]"
+                className={styles.faqPlus}
               >
                 +
               </span>
             </summary>
-            {typeof a === "string" ? <p className="pb-5 text-soft">{a}</p> : a}
+            <div className={styles.faqAnswer}>{typeof a === "string" ? <p>{a}</p> : a}</div>
           </details>
         ))}
       </div>

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ReportPoster } from "@/components/news/parts";
-import Section from "@/components/ui/Section";
+import Section from "./HomeSection";
+import styles from "./Home.module.css";
 import { leadProject } from "@/lib/news/logic";
 import type { NewsReport, NewsWeekFacts } from "@/lib/news/types";
 
@@ -8,13 +9,13 @@ import type { NewsReport, NewsWeekFacts } from "@/lib/news/types";
 export default function LatestNews({ reports }: { reports: { report: NewsReport; facts: NewsWeekFacts }[] }) {
   return (
     <Section id="news" title="Latest news" sub="What happens across the projects, week by week.">
-      <div className="grid gap-3 md:grid-cols-3">
+      <div className={styles.newsGrid}>
         {reports.map(({ report, facts }) => (
           <ReportPoster key={report.week} entry={facts} report={report} lead={leadProject(facts.projects)?.repo} heading="h3" />
         ))}
       </div>
-      <Link href="/news" className="btn mt-4">
-        All news
+      <Link href="/news" className={styles.sectionLink}>
+        All news <span aria-hidden>↗</span>
       </Link>
     </Section>
   );

@@ -1,3 +1,4 @@
+import homeStyles from "@/components/sections/Home.module.css";
 import PageTransition from "@/components/layout/PageTransition";
 import Activity from "@/components/sections/Activity";
 import AiView from "@/components/sections/AiView";
@@ -30,7 +31,7 @@ export default async function Home() {
 
   return (
     <PageTransition>
-    <main className="mx-auto max-w-[1080px] px-4">
+    <main data-home-design className={homeStyles.home}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: ldJson(homeLd(siteUrl(), release)) }} />
       <Hero progress={progress} mods={mods} />
       <Download release={release} dev={dev} />
