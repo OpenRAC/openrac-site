@@ -31,7 +31,7 @@ const RESEARCH_TEXT = "Research phase: the game and its toolchain are still bein
 /** Marks a project that is still in its research phase. */
 function ResearchBadge({ className = "" }: { className?: string }) {
   return (
-    <span className={`inline-flex items-center gap-2 rounded-full border px-3 py-1 font-orbitron text-[10px] font-bold uppercase tracking-[.2em] sm:text-[11px] ${className}`}>
+    <span className={`inline-flex items-center gap-2 rounded px-3 py-1 font-orbitron text-[10px] font-bold uppercase tracking-[.2em] sm:text-[11px] ${className}`}>
       <i aria-hidden className="size-1.5 animate-pulse rounded-full bg-current" />
       Research phase
     </span>
@@ -79,7 +79,7 @@ function Bar({ value, name, data = false }: { value: number | null; name: string
       aria-valuenow={value == null ? undefined : Math.round(value * 10) / 10}
       aria-valuemin={0}
       aria-valuemax={100}
-      className={`${data ? "h-1" : "h-1.5"} overflow-hidden rounded-full bg-white/10`}
+      className={`${data ? "h-1" : "h-1.5"} overflow-hidden rounded-full bg-ink-deep`}
     >
       {value != null && (
         <i style={{ "--w": `${value}%` } as CSSProperties} className={`bar-fill block h-full rounded-full ${data ? "bg-(--tx)/45" : "bg-(--tx)"}`} />
@@ -109,12 +109,12 @@ function Card({ project: g, progress: p, release = false }: { project: Project; 
       aria-label={`${g.name}${g.region ? ` (${g.region})` : ""}${g.phase === "research" ? ", research phase" : ""} progress`}
       style={{ "--tx": accent(g.theme) } as CSSProperties}
       data-reveal
-      className="group/card @container relative isolate overflow-hidden rounded-2xl bg-ink"
+      className="group/card @container relative isolate overflow-hidden rounded-xl bg-panel"
     >
       {/* The backdrop leans in a little under the pointer (hover only: never on touch screens). Its
           zoom runs on a layer of its own, which a rounded overflow does not always clip (square
           corners in Chrome and Safari), so the backdrop is cut to the card's corners itself. */}
-      <Backdrop src={g.image} fallback={g.fallbackImage} zoom="group-hover/card:[--zoom:1.04]" className="rounded-[inherit] [clip-path:inset(0_round_16px)] [mask-image:linear-gradient(#000,#000)] saturate-[.7]" />
+      <Backdrop src={g.image} fallback={g.fallbackImage} zoom="group-hover/card:[--zoom:1.04]" className="rounded-[inherit] [clip-path:inset(0_round_12px)] [mask-image:linear-gradient(#000,#000)] saturate-[.7]" />
       {/* Dark over the whole picture, darkest where the text sits. */}
       <div aria-hidden className="absolute inset-0 bg-gradient-to-r from-ink/95 via-ink/85 to-ink/70" />
 
@@ -126,7 +126,7 @@ function Card({ project: g, progress: p, release = false }: { project: Project; 
             <p className={`mt-1 flex flex-wrap items-center gap-x-2.5 gap-y-1 text-dim ${SIZES.small}`}>
               <span>{g.subtitle ?? `decompilation · ${g.year}${g.region && !release ? ` · ${g.region}` : ""}`}</span>
               {release && g.region && (
-                <span className="rounded-full border border-white/15 px-2 py-0.5 text-[10px] uppercase tracking-[.15em] @xl:text-[11px]">
+                <span className="rounded bg-ink-deep px-2 py-0.5 text-[10px] uppercase tracking-[.15em] @xl:text-[11px]">
                   {REGION_NAME[g.region] ?? g.region}
                 </span>
               )}
@@ -166,13 +166,11 @@ function Card({ project: g, progress: p, release = false }: { project: Project; 
         </div>
         {g.phase === "research" && (
           <p className="flex flex-wrap items-center gap-2.5 text-[12px] text-dim">
-            <ResearchBadge className="border-white/15 text-text" />
+            <ResearchBadge className="bg-ink-deep text-text" />
             <span>{RESEARCH_TEXT}</span>
           </p>
         )}
       </div>
-      {/* The frame, drawn over everything: the picture under it never shows past its line or its corners. */}
-      <div aria-hidden className="pointer-events-none absolute inset-0 rounded-[inherit] border border-white/8 transition-colors duration-500 group-hover/card:border-white/20" />
     </section>
   );
 }
@@ -205,7 +203,7 @@ function Group({ title, text, platforms, projects, progress }: {
           </h3>
           <p className="mt-1 text-sm text-dim">{text}</p>
         </div>
-        <span className="rounded-full border border-white/10 px-3 py-1 font-orbitron text-xs text-dim">{platforms}</span>
+        <span className="rounded bg-ink-deep px-3 py-1 font-orbitron text-xs text-dim">{platforms}</span>
       </div>
       <div className="grid gap-3 sm:gap-4">
         {rows(projects).map((row) =>

@@ -135,7 +135,7 @@ export default function HookExplorer({ hooks, game, discs, manifestHref, scripts
                   type="button"
                   onClick={() => pick(x)}
                   aria-pressed={key(x) === key(h)}
-                  className={`block w-full rounded-md px-2.5 py-1.5 text-left transition-colors ${key(x) === key(h) ? "bg-white/8" : "hover:bg-white/5"}`}
+                  className={`block w-full rounded-md px-2.5 py-1.5 text-left transition-colors ${key(x) === key(h) ? "bg-amber/12" : "hover:bg-coal"}`}
                 >
                   <span className={`line-clamp-2 block text-[13.5px] leading-snug ${key(x) === key(h) ? "text-hi" : "text-body"}`}>{shortAbout(x) || key(x)}</span>
                   <span className={`block truncate font-mono text-[11.5px] ${key(x) === key(h) ? "text-soft" : "text-dim"}`}>{key(x)}</span>
@@ -157,7 +157,7 @@ export default function HookExplorer({ hooks, game, discs, manifestHref, scripts
           <div className="grid gap-2">
             <div className="flex flex-wrap items-center gap-2">
               <h3 className="min-w-0 font-mono text-[16px] font-semibold text-gold [overflow-wrap:anywhere]">{key(h)}</h3>
-              {h.experimental && <span className="badge border-brand/50 text-brand">Experimental</span>}
+              {h.experimental && <span className="badge !bg-brand/10 !text-brand">Experimental</span>}
             </div>
             {h.about && <p className="text-[15px] leading-relaxed text-body">{plainAbout(h)}</p>}
             <div tabIndex={0} aria-label="Signature" className="overflow-x-auto rounded-md border border-line bg-ink-deep px-3 py-2 [scrollbar-width:thin]">

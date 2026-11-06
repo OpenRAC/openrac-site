@@ -32,6 +32,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const news = ((await getNewsIndex())?.weeks ?? []).filter((w) => w.report);
   return [
     { url: `${site}/`, lastModified: new Date(), changeFrequency: "daily", priority: 1 },
+    { url: `${site}/install`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.9 },
     { url: `${site}/mods`, lastModified: newest ? new Date(newest) : new Date(), changeFrequency: "daily", priority: 0.9 },
     ...modDocs(site),
     ...(news.length ? [{ url: `${site}/news`, lastModified: new Date(`${news[0].end}T23:59:59Z`), changeFrequency: "weekly" as const, priority: 0.8 }] : []),

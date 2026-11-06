@@ -44,7 +44,7 @@ export default async function NewsDayProjectPage(props: PageProps<"/news/days/[d
         {branches.length > 0 && (
           <Block title="Commits landed">
             {branches.map((b) => (
-              <details key={b.name} className="mb-2 rounded-xl border border-line bg-panel px-4">
+              <details key={b.name} className="mb-2 rounded-xl bg-panel px-4">
                 <summary className="flex min-h-11 cursor-pointer items-center font-semibold text-hi">{b.name}: {b.commits.length} {b.commits.length === 1 ? "commit" : "commits"}</summary>
                 <ul>
                   {b.commits.map((c) => (

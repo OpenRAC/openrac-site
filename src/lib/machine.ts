@@ -162,7 +162,7 @@ export function launcherLd(site: string, release: LauncherRelease) {
     "@id": `${site}/#launcher`,
     name: "OpenRAC Launcher",
     description: "The desktop and Android app that sets each Ratchet & Clank game up from your own disc and builds its native port.",
-    url: `${site}/#download`,
+    url: `${site}/install`,
     applicationCategory: "GameApplication",
     operatingSystem: release.platforms.filter((p) => p.main).map((p) => p.name).join(", "),
     softwareVersion: release.version,

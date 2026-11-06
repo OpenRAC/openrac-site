@@ -9,7 +9,7 @@ export default function AddToSet({ id }: { id: string }) {
   const on = picked.includes(id);
   return (
     <span className="inline-flex items-center gap-2">
-      <button type="button" aria-pressed={on} onClick={() => setPicked(on ? picked.filter((x) => x !== id) : [...picked, id])} className={`btn ${on ? "!border-amber text-amber" : ""}`}>
+      <button type="button" aria-pressed={on} onClick={() => setPicked(on ? picked.filter((x) => x !== id) : [...picked, id])} className="btn">
         {on ? "In your set ✓" : "Add to set"}
       </button>
       {on && (

@@ -146,6 +146,34 @@ request. Drop a file in and it is used at once, with no rebuild or restart; a mi
 gradient (never a broken picture). Only those eight names are ever served. Resized copies are cached for a day, so a replaced image can take up to a day to show (or restart
 the service after clearing the cache volume).
 
+### Home page clips
+
+The first screen plays short free-camera clips from the games, crossfading one into the next. They are game footage too, so they are not in the repository either: they sit in the
+same `IMAGE_DIR` folder. The list (file name and game) is `src/lib/heroShots.ts`; each clip has three files:
+
+| File | What |
+| --- | --- |
+| `<name>-1080.webm` | AV1, 1920x1080 |
+| `<name>-1080.mp4` | H.264, 1920x1080, for browsers without AV1 |
+| `<name>.webp` | the first frame, shown while the clip loads and with reduced motion |
+
+From a 120 fps recording: 9 seconds slowed to 18 at 60 fps, no sound; each shows for 14 seconds plus the fade.
+Screen recordings repeat frames whenever the game misses the recorder's beat, which stutters once slowed down.
+`scripts/hero_clip_retime.py` drops the repeated frames and evens out the camera's pace, then motion
+interpolation fills in equal 60 fps steps:
+
+```sh
+python3 scripts/hero_clip_retime.py rec.mp4 START smooth.mp4   # half speed, repeats dropped, variable frame rate
+ffmpeg -i smooth.mp4 -vf "minterpolate=fps=60:mi_mode=mci:mc_mode=aobmc:me_mode=bidir:vsbmc=1" -t 18 -c:v libx264 -crf 10 -preset veryfast 60.mp4
+ffmpeg -i 60.mp4 -an -c:v libsvtav1 -crf 42 -preset 4 -g 120 -pix_fmt yuv420p NAME-1080.webm
+ffmpeg -i 60.mp4 -an -c:v libx264 -crf 26 -preset slow -g 120 -pix_fmt yuv420p -movflags +faststart NAME-1080.mp4
+ffmpeg -ss START -i rec.mp4 -frames:v 1 -vf scale=1920:-2 -c:v libwebp -quality 80 NAME.webp
+```
+
+The interpolation runs at about one frame a second on a CPU, so a clip takes 20 minutes or so.
+
+A clip whose files are missing drops out of the turn, so they can be added one at a time.
+
 ### Adding a title
 
 Add an entry to `PROJECTS` in `src/lib/projects.ts`. If the project publishes progress, add a loader and a

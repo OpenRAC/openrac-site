@@ -16,7 +16,7 @@ export default function Since({ since, iface }: { since?: string | null; iface: 
 /** A small label: Experimental, Read-only, ... */
 export function Tag({ children, tone = "quiet" }: { children: React.ReactNode; tone?: "quiet" | "warn" }) {
   return (
-    <span className={`inline-flex flex-none items-center badge ${tone === "warn" ? "border-brand/60 text-brand" : "border-white/15 text-dim"}`}>
+    <span className={`inline-flex flex-none items-center badge ${tone === "warn" ? "!bg-brand/10 !text-brand" : ""}`}>
       {children}
     </span>
   );

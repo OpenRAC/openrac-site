@@ -18,7 +18,6 @@ function tagStyle(id: ProjectId): CSSProperties {
   const t = PROJECTS.find((p) => p.id === id)!.theme;
   return {
     color: t.text2,
-    borderColor: `color-mix(in srgb, ${t.border} 55%, transparent)`,
     background: `color-mix(in srgb, ${t.from} 45%, transparent)`,
   };
 }
@@ -32,8 +31,8 @@ export default function Activity({ commits }: { commits: Commit[] }) {
       ) : (
         <ul className="grid grid-cols-[minmax(0,1fr)] gap-2.5">
           {commits.map((c) => (
-            <li key={c.url} className="flex min-w-0 flex-wrap items-center gap-x-3.5 gap-y-1.5 rounded-xl border border-line bg-panel px-4 py-3">
-              <span className="flex-none rounded-full border px-2.5 py-1 font-orbitron text-[11px] font-semibold tracking-wider" style={tagStyle(c.projectId)}>
+            <li key={c.url} className="flex min-w-0 flex-wrap items-center gap-x-3.5 gap-y-1.5 rounded-xl bg-panel px-4 py-3">
+              <span className="flex-none rounded px-2.5 py-1 font-orbitron text-[11px] font-semibold tracking-wider" style={tagStyle(c.projectId)}>
                 {c.project}
               </span>
               <a href={c.url} className="order-3 min-w-0 basis-full truncate text-text no-underline hover:text-amber sm:order-none sm:basis-0 sm:flex-1">{c.message}</a>

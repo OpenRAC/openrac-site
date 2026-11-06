@@ -8,7 +8,7 @@ export default function manifest(): MetadataRoute.Manifest {
     description: "Unofficial hub for community decompilation projects of the Ratchet & Clank series.",
     start_url: "/",
     display: "standalone",
-    background_color: "#12121a",
+    background_color: "#0a0a0a",
     theme_color: "#d6a020",
     icons: [
       {

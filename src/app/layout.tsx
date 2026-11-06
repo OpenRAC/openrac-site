@@ -3,8 +3,10 @@ import { Audiowide, Chakra_Petch, Inter, Orbitron, Pixelify_Sans } from "next/fo
 import SiteFooter from "@/components/layout/Footer";
 import Header from "@/components/layout/Header";
 import Logo from "@/components/ui/Logo";
+import ScrollReset from "@/components/layout/ScrollReset";
 import RevealObserver from "@/components/layout/RevealObserver";
 import { SHARE_IMAGE, siteUrl } from "@/lib/machine";
+import { detectPlatform } from "@/lib/platform";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter", display: "swap" });
@@ -92,7 +94,7 @@ export const viewport: Viewport = {
 /** The frame of every page: fonts, metadata, the loading screen, header and footer. */
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    // suppressHydrationWarning: the splash script below adds "ready" to <html> before React hydrates.
+    // suppressHydrationWarning: the splash script below adds "ready" and data-os to <html> before React hydrates.
     <html lang="en" suppressHydrationWarning className={`${inter.variable} ${audiowide.variable} ${orbitron.variable} ${pixel.variable} ${chakra.variable}`}>
       <body className="font-sans text-base leading-relaxed antialiased">
         {/* The logo over a blank page until the fonts are in, then a fade: the page never pops in
@@ -104,7 +106,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <script
           dangerouslySetInnerHTML={{
             __html:
-              "(function(){var d=document.documentElement,r=function(){d.classList.add('ready')};try{if(new URL(document.referrer).origin===location.origin)r()}catch(e){}setTimeout(r,1500);if(document.fonts)document.fonts.ready.then(r);})()",
+              "(function(){var d=document.documentElement,r=function(){d.classList.add('ready')};try{if(new URL(document.referrer).origin===location.origin)r()}catch(e){}setTimeout(r,1500);if(document.fonts)document.fonts.ready.then(r);" +
+              // The visitor's system, before the first paint, so /install can put its card first on a phone without moving the page.
+              `try{var n=navigator,o=(${detectPlatform.toString()})(n.userAgent,n.userAgentData&&n.userAgentData.platform);if(o)d.dataset.os=o}catch(e){}})()`,
           }}
         />
         {/* Glows in the hero reach past the viewport; clip them so phones never scroll sideways.
@@ -115,6 +119,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           <SiteFooter />
         </div>
         <RevealObserver />
+        <ScrollReset />
       </body>
     </html>
   );

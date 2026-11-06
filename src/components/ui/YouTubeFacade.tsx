@@ -12,7 +12,7 @@ export default function YouTubeFacade({ id, title, thumbnail, label }: { id: str
   const [playing, setPlaying] = useState(false);
 
   return (
-    <div className="overflow-hidden rounded-2xl border border-line bg-black shadow-[0_12px_32px_rgb(0_0_0/0.4)]">
+    <div className="overflow-hidden rounded-xl bg-black shadow-[0_12px_32px_rgb(0_0_0/0.4)]">
       <div className="relative aspect-video">
         {playing ? (
           <iframe

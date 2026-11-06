@@ -69,9 +69,9 @@ export default function ModTable({
         </thead>
         <tbody>
           {mods.map((m) => (
-            <tr key={m.id} className="group/row relative border-t border-line first:border-0 hover:bg-white/[.02] max-[1024px]:grid max-[1024px]:grid-cols-[auto_minmax(0,1fr)_auto] max-[560px]:grid-cols-[auto_minmax(0,1fr)] max-[1024px]:items-center max-[1024px]:gap-x-3 max-[1024px]:px-3 max-[1024px]:py-3">
+            <tr key={m.id} className="group/row relative border-t border-line first:border-0 hover:bg-ink-deep max-[1024px]:grid max-[1024px]:grid-cols-[auto_minmax(0,1fr)_auto] max-[560px]:grid-cols-[auto_minmax(0,1fr)] max-[1024px]:items-center max-[1024px]:gap-x-3 max-[1024px]:px-3 max-[1024px]:py-3">
               <td className="px-1 py-2 max-[1024px]:row-span-2 max-[560px]:row-span-3 max-[1024px]:p-0">
-                <label className="relative z-10 flex size-11 cursor-pointer items-center justify-center rounded-lg hover:bg-white/5">
+                <label className="relative z-10 flex size-11 cursor-pointer items-center justify-center rounded-lg hover:bg-coal">
                   <input type="checkbox" checked={picked.has(m.id)} onChange={() => onPick(m.id)} className="size-[18px] accent-amber" />
                   <span className="sr-only">Add {m.name} to the set</span>
                 </label>

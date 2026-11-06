@@ -29,7 +29,7 @@ function Names({ names, part, version, latest, games, most = 24 }: { names: stri
   return (
     <span className="flex flex-wrap gap-1.5">
       {shown.map((n) => (
-        <a key={n} href={nameHref(part, n, version, latest, games)} className="rounded-md border border-line px-1.5 py-0.5 font-mono text-[12.5px] text-gold no-underline hover:border-amber">
+        <a key={n} href={nameHref(part, n, version, latest, games)} className="rounded-md bg-coal px-1.5 py-0.5 font-mono text-[12.5px] text-gold no-underline hover:bg-coal-hi">
           {n}
         </a>
       ))}
@@ -69,7 +69,7 @@ function PartChanges({ part, label, d, r, latest }: { part: string; label: strin
           <span className="text-[13px] font-semibold text-brand">Removed {d.removed.length}</span>
           <span className="flex flex-wrap gap-1.5">
             {d.removed.map((n) => (
-              <span key={n} className="rounded-md border border-brand/40 px-1.5 py-0.5 font-mono text-[12.5px] text-soft line-through">
+              <span key={n} className="rounded-md bg-brand/10 px-1.5 py-0.5 font-mono text-[12.5px] text-soft line-through">
                 {n}
               </span>
             ))}

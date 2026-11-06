@@ -1,10 +1,10 @@
 "use client";
 
-import { useEffect, useRef, useState, useSyncExternalStore, type CSSProperties, type ReactNode } from "react";
+import { useEffect, useState, useSyncExternalStore, type CSSProperties, type ReactNode } from "react";
 import { SystemIcon } from "@/components/ui/icons";
+import { useBrowserPlatform } from "@/components/ui/useBrowserPlatform";
 import { formatSize } from "@/lib/format";
-import { detectPlatform } from "@/lib/platform";
-import type { DevBuild, LauncherRelease, Platform, PlatformId } from "@/lib/releases";
+import type { DevBuild, LauncherRelease, Platform } from "@/lib/releases";
 
 /** "25 October 2026", the same on the server and in the browser (UTC, one locale), so it never changes on hydration. */
 const longDate = (iso: string) => new Date(iso).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" });
@@ -22,10 +22,6 @@ function ago(iso: string): string {
 }
 
 const noChange = () => () => {};
-function browserPlatform(): PlatformId | null {
-  const nav = navigator as Navigator & { userAgentData?: { platform?: string } };
-  return detectPlatform(nav.userAgent, nav.userAgentData?.platform);
-}
 
 /** A tick before a line of what a system needs. */
 const Check = () => (
@@ -48,18 +44,19 @@ function SystemCard({ p, i, mine, release, dev, devAgo, fallback }: {
     // Four rows shared with the cards beside it (subgrid), so their buttons line up whatever the text above.
     <article
       style={{ "--i": i } as CSSProperties}
-      className={`dl-card surface surface-link relative row-span-4 grid grid-cols-[minmax(0,1fr)] grid-rows-subgrid gap-0 p-5 sm:p-6 ${mine ? "dl-mine border-brand/70 max-sm:order-first" : ""}`}
+      data-os={p.id}
+      className={`dl-card surface surface-link relative row-span-4 grid grid-cols-[minmax(0,1fr)] grid-rows-subgrid gap-0 p-5 sm:p-6 ${mine ? "dl-mine" : ""}`}
     >
       <div className="flex items-center gap-3.5">
         <span
-          className={`dl-tile grid size-12 flex-none place-items-center rounded-xl border ${mine ? "border-amber/50 bg-amber/10 text-amber" : "border-line bg-white/[.03] text-hi"}`}
+          className={`dl-tile grid size-12 flex-none place-items-center rounded-md ${mine ? "bg-amber/15 text-amber" : "bg-ink-deep text-hi"}`}
         >
           <SystemIcon id={p.id} />
         </span>
         <h3 className="font-orbitron text-[19px] font-bold text-text">{p.name}</h3>
       </div>
       {mine && (
-        <span className="absolute -top-3 right-5 rounded-full border border-amber/50 bg-[#2a1800] px-2.5 py-1 font-orbitron text-[10px] font-bold uppercase leading-none tracking-[.14em] text-amber">
+        <span className="absolute -top-3 right-5 rounded bg-amber px-2.5 py-1 font-orbitron text-[10px] font-bold uppercase leading-none tracking-[.14em] text-[#1b1206]">
           Your system
         </span>
       )}
@@ -110,9 +107,9 @@ function SystemCard({ p, i, mine, release, dev, devAgo, fallback }: {
         {dev && (
           <a
             href={dev.url}
-            className="mt-3 flex flex-wrap items-center justify-center gap-x-2 gap-y-0.5 rounded-lg border border-dashed border-line px-3 py-2 text-[12px] text-soft no-underline transition-colors hover:border-amber/60 hover:text-amber"
+            className="mt-3 flex flex-wrap items-center justify-center gap-x-2 gap-y-0.5 rounded-md px-3 py-2 text-[12px] text-soft no-underline transition-colors hover:text-amber"
           >
-            <span className="rounded border border-amber/40 px-1.5 py-px font-orbitron text-[9px] font-bold tracking-[.12em] text-amber">DEV</span>
+            <span className="rounded bg-amber/10 px-1.5 py-px font-orbitron text-[9px] font-bold tracking-[.12em] text-amber">DEV</span>
             <span>{dev.version ? `v${dev.version}` : "Latest build"}</span>
             {devAgo && <span className="text-dim">{devAgo}</span>}
           </a>
@@ -128,7 +125,7 @@ function SystemCard({ p, i, mine, release, dev, devAgo, fallback }: {
             <ul className="grid gap-1 pb-1">
               {p.others.map((d) => (
                 <li key={d.url}>
-                  <a href={d.url} download className="flex items-baseline gap-2 rounded-lg px-2 py-1.5 text-[13px] text-amber no-underline hover:bg-white/5">
+                  <a href={d.url} download className="flex items-baseline gap-2 rounded-lg px-2 py-1.5 text-[13px] text-amber no-underline hover:bg-coal">
                     <span className="min-w-0">{d.label}</span>
                     <span className="ml-auto flex-none text-[12px] tabular-nums text-dim">{formatSize(d.size)}</span>
                   </a>
@@ -143,10 +140,8 @@ function SystemCard({ p, i, mine, release, dev, devAgo, fallback }: {
 }
 
 /**
- * The Download panel under the hero: folded away until a link to #download is followed (the
- * hero's button, the bar's), then it opens in place and the page scrolls to it. Without scripts
- * the link still opens it (CSS :target). `art`: the heading's drawing, drawn on the server so its
- * shapes never ship in this component's script.
+ * The launcher's downloads (/install): a card per system, the visitor's own marked. `art`: the
+ * heading's drawing, drawn on the server so its shapes never ship in this component's script.
  */
 export default function DownloadPanel({ release, dev, platforms, fallback, art }: {
   release: LauncherRelease | null;
@@ -155,123 +150,57 @@ export default function DownloadPanel({ release, dev, platforms, fallback, art }
   fallback: string;
   art: ReactNode;
 }) {
-  const ref = useRef<HTMLElement>(null);
-  const heading = useRef<HTMLHeadingElement>(null);
-  const [open, setOpen] = useState(false);
   // Known only in the browser: the server renders no system as the visitor's and no "3 days ago".
-  const mine = useSyncExternalStore(noChange, browserPlatform, () => null);
-  // The build may be newer than this page: the panel asks the server again when it opens.
+  const mine = useBrowserPlatform();
+  // The build may be newer than this page: ask the server again once the page is open.
   const [latest, setLatest] = useState<{ version: string; date: string } | null>(null);
   const devVersion = latest?.version ?? dev?.version ?? "";
   const devDate = latest?.date ?? dev?.date ?? "";
   const devAgo = useSyncExternalStore(noChange, () => (devDate ? ago(devDate) : ""), () => "");
 
   useEffect(() => {
-    const show = () => {
-      setOpen(true);
-      // after the panel is laid out open, so the scroll lands on its top
-      requestAnimationFrame(() => {
-        ref.current?.scrollIntoView({ block: "start" });
-        heading.current?.focus({ preventScroll: true });
-      });
-    };
-    if (location.hash === "#download") show();
-    // Captured before the link's own handler, so a Next <Link> to it does not navigate as well.
-    const onClick = (e: MouseEvent) => {
-      if (e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
-      const a = (e.target as Element | null)?.closest?.("a[href]") as HTMLAnchorElement | null;
-      if (!a) return;
-      const url = new URL(a.href, location.href);
-      if (url.hash !== "#download" || url.pathname !== location.pathname || url.origin !== location.origin) return;
-      e.preventDefault();
-      history.replaceState(null, "", "#download");
-      show();
-    };
-    const onHash = () => location.hash === "#download" && show();
-    document.addEventListener("click", onClick, true);
-    window.addEventListener("hashchange", onHash);
-    return () => {
-      document.removeEventListener("click", onClick, true);
-      window.removeEventListener("hashchange", onHash);
-    };
-  }, []);
-
-  useEffect(() => {
-    if (!open || !dev) return;
+    if (!dev) return;
     const ask = new AbortController();
     fetch("/download/dev", { signal: ask.signal })
       .then((r) => (r.ok ? r.json() : null))
       .then((d: { version: string; date: string } | null) => d && setLatest(d))
       .catch(() => {});
     return () => ask.abort();
-  }, [open, dev]);
-
-  const close = () => {
-    setOpen(false);
-    history.replaceState(null, "", location.pathname + location.search);
-    // back to the button that opened it, so the page does not slide away under the reader
-    const button = document.getElementById("download-button");
-    button?.focus({ preventScroll: true });
-    if (button && button.getBoundingClientRect().top < 50) button.scrollIntoView({ block: "center" });
-  };
+  }, [dev]);
 
   return (
-    <section
-      ref={ref}
-      id="download"
-      aria-labelledby="download-title"
-      data-open={open}
-      onKeyDown={(e) => e.key === "Escape" && open && close()}
-      className="dl scroll-mt-[4px]"
-    >
-      <div className="dl-clip">
-        <div className="dl-inner relative pb-10 pt-4 sm:pb-14">
-          <div className="mb-2 flex items-center gap-3 sm:gap-5">
-            {art}
-            <h2
-              id="download-title"
-              ref={heading}
-              tabIndex={-1}
-              className="min-w-0 bg-gradient-to-r from-text to-soft bg-clip-text font-audiowide text-[clamp(24px,3.4vw,32px)] leading-tight text-transparent outline-none"
-            >
-              Get the launcher
-            </h2>
-            <button
-              type="button"
-              onClick={close}
-              aria-label="Close downloads"
-              className="ml-auto grid size-11 flex-none place-items-center rounded-full border border-line text-soft transition-colors hover:border-amber hover:text-amber"
-            >
-              <svg viewBox="0 0 16 16" aria-hidden="true" className="size-4 fill-none stroke-current stroke-2">
-                <path d="M3.5 3.5l9 9m0-9-9 9" strokeLinecap="round" />
-              </svg>
-            </button>
-          </div>
-
-          <p className="mb-6 max-w-[760px] text-dim sm:mb-8">Pick your system: the launcher sets each game up from your own disc. No game is downloaded.</p>
-
-          <div className="grid gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-4">
-            {platforms.map((p, i) => (
-              <SystemCard
-                key={p.id}
-                p={p}
-                i={i}
-                mine={p.id === mine}
-                release={release}
-                dev={dev?.files[p.id] ? { version: devVersion, url: `/download/dev/${p.id}` } : null}
-                devAgo={devAgo}
-                fallback={fallback}
-              />
-            ))}
-          </div>
-
-          <p className="mt-5 flex flex-wrap items-center gap-x-4 gap-y-1 text-[13px] text-dim">
-            <a href={release?.url || fallback} className="text-amber no-underline hover:underline">
-              Release notes and every file on GitHub →
-            </a>
-            <span>Updates install from inside the launcher. DEV builds come from every merge to master and can be unstable.</span>
-          </p>
+    <section id="download" aria-labelledby="download-title">
+      <div className="relative pb-10 pt-4 sm:pb-14">
+        <div className="mb-2 flex items-center gap-3 sm:gap-5">
+          {art}
+          <h1 id="download-title" className="min-w-0 bg-gradient-to-r from-text to-soft bg-clip-text font-audiowide text-[clamp(28px,4.4vw,42px)] leading-tight text-transparent">
+            Install OpenRAC
+          </h1>
         </div>
+
+        <p className="mb-6 max-w-[760px] text-dim sm:mb-8">Pick your system: the launcher sets each game up from your own disc. No game is downloaded</p>
+
+        <div className="grid gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-4">
+          {platforms.map((p, i) => (
+            <SystemCard
+              key={p.id}
+              p={p}
+              i={i}
+              mine={p.id === mine}
+              release={release}
+              dev={dev?.files[p.id] ? { version: devVersion, url: `/download/dev/${p.id}` } : null}
+              devAgo={devAgo}
+              fallback={fallback}
+            />
+          ))}
+        </div>
+
+        <p className="mt-5 flex flex-wrap items-center gap-x-4 gap-y-1 text-[13px] text-dim">
+          <a href={release?.url || fallback} className="text-amber no-underline hover:underline">
+            Release notes and every file on GitHub →
+          </a>
+          <span>Updates install from inside the launcher. DEV builds come from every merge to master and can be unstable.</span>
+        </p>
       </div>
     </section>
   );

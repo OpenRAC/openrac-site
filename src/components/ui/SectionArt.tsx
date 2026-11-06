@@ -6,7 +6,7 @@ import type { ReactNode } from "react";
  * Decorative only: screen readers skip them, the heading names the section.
  */
 
-const INK = "#0c0c12";
+const INK = "#050505";
 const GOLD = "#f5c040";
 const GOLD_DARK = "#d6a020";
 const GOLD_LIGHT = "#ffe08f";

@@ -19,6 +19,15 @@ export function GithubIcon({ className = "size-5" }: { className?: string }) {
   );
 }
 
+/** A newspaper, filled like the GitHub and Discord marks: the mark of News. */
+export function NewsIcon({ className = "size-5" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true" className={`flex-none fill-current ${className}`}>
+      <path fillRule="evenodd" d="M4 2.5h11a2 2 0 0 1 2 2V7h3a2 2 0 0 1 2 2v9.5a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-14a2 2 0 0 1 2-2zM5.5 6v4.5h8V6zm0 7v1.8h8V13zm0 3.6v1.8h5.5v-1.8zM17 9v9.5a1.25 1.25 0 0 0 2.5 0V9z" />
+    </svg>
+  );
+}
+
 /** The arrow at the end of a link row; it nudges right when its row (a `group`) is hovered. */
 export function Arrow() {
   return <span aria-hidden className="ml-auto flex-none text-brand transition-transform group-hover:translate-x-0.5">→</span>;

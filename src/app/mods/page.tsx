@@ -53,10 +53,10 @@ export default async function ModsPage() {
           Community made · one-click install
         </p>
         <h1 className="max-w-[860px] text-balance font-audiowide text-[clamp(30px,5.6vw,56px)] leading-[1.06]">
-          <span className="animate-shine bg-gradient-to-r from-amber via-[#e8a317] to-gold bg-[length:220%_100%] bg-clip-text text-transparent">Mods</span> for the Ratchet &amp; Clank port.
+          <span className="text-amber">Mods</span> for the Ratchet &amp; Clank port
         </h1>
         <p className="mt-4 max-w-[620px] text-[15px] leading-relaxed text-soft sm:text-[17px]">
-          Made by the community for OpenRAC. Press <b className="font-semibold text-hi">Install</b> and the launcher adds the mod with everything it needs, checks every file, and keeps it up to date.
+          Made by the community for OpenRAC. Press <b className="font-semibold text-hi">Install</b> and the launcher adds the mod with everything it needs, checks every file, and keeps it up to date
         </p>
         <div className="mt-6 grid animate-rise gap-3 [animation-delay:.3s] min-[560px]:flex min-[560px]:flex-wrap">
           <a href="#all" className="btn btn-primary">
@@ -72,7 +72,7 @@ export default async function ModsPage() {
       </div>
 
       {catalog.stale && (
-        <p className="mb-2 rounded-xl border-l-4 border-brand bg-brand/10 px-4 py-3 text-[15px] text-soft">
+        <p className="mb-2 rounded-xl bg-brand/10 px-4 py-3 text-[15px] text-soft">
           {mods.length ? "The mod list may be a little out of date: GitHub did not answer just now. It refreshes by itself." : "The mod list could not be loaded just now. It refreshes by itself; try again in a minute."}
         </p>
       )}
@@ -81,7 +81,7 @@ export default async function ModsPage() {
         <Section id="featured" title="Featured" sub="Picked by the community: a good place to start.">
           <div className="grid gap-4 min-[480px]:grid-cols-2 min-[821px]:grid-cols-3">
             {featured.map((m, i) => (
-              <ModCard key={m.id} mod={m} now={now} priority={i === 0} actions={<InstallButton mods={[{ id: m.id }]} small primary={false} devOnly={m.works !== "release"} />} />
+              <ModCard key={m.id} mod={m} now={now} priority={i === 0} morph={false} actions={<InstallButton mods={[{ id: m.id }]} small primary={false} devOnly={m.works !== "release"} />} />
             ))}
           </div>
         </Section>
@@ -94,7 +94,7 @@ export default async function ModsPage() {
           <div className="-mx-4 -mt-2 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-3 pt-2 [scrollbar-width:thin]">
             {fresh.map((m) => (
               <div key={m.id} className="w-[min(280px,80vw)] flex-none snap-start">
-                <ModCard mod={m} now={now} sizes="280px" />
+                <ModCard mod={m} now={now} sizes="280px" morph={false} />
               </div>
             ))}
           </div>

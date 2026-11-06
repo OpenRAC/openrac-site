@@ -11,7 +11,7 @@ export default function CommentText({ text, names }: { text: string; names?: Rea
     <>
       {parts.map((part, i) =>
         part.startsWith("`") && part.endsWith("`") && part.length > 1 ? (
-          <code key={i} className="rounded bg-white/5 px-1 py-px text-[0.92em] text-gold">
+          <code key={i} className="rounded bg-ink-deep px-1 py-px text-[0.92em] text-gold">
             {linked(part.slice(1, -1), names)}
           </code>
         ) : (
@@ -26,7 +26,7 @@ export default function CommentText({ text, names }: { text: string; names?: Rea
 const VERSION = /(?<![\w.])(1\.\d{1,2})(?!\w|\.\d)/g;
 
 function Ver({ v }: { v: string }) {
-  return <span className="whitespace-nowrap rounded bg-white/5 px-1 font-mono text-[0.88em] text-hi">{v}</span>;
+  return <span className="whitespace-nowrap rounded bg-ink-deep px-1 font-mono text-[0.88em] text-hi">{v}</span>;
 }
 
 function versioned(text: string, names: ReadonlyMap<string, string> | undefined, k: number) {

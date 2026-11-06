@@ -5,7 +5,7 @@ import { slimChangeSet, type SlimMod } from "@/lib/mods/slim";
 import InstallButton from "./InstallButton";
 import Sheet from "./Sheet";
 
-const row = "flex items-center justify-between gap-3 rounded-xl border border-line bg-ink/60 px-3.5 py-2.5";
+const row = "flex items-center justify-between gap-3 rounded-md bg-navy px-3.5 py-2.5";
 
 /**
  * CKAN's "Apply changes" for the web: what was picked, what comes with it, what the authors
@@ -37,11 +37,11 @@ export default function ChangeSetDialog({ mods, picked, open, onClose, onDone }:
     >
       <div className="grid gap-5 text-[15px]">
         {cs.conflicts.map(({ a, b }) => (
-          <p key={a.id + b.id} className="rounded-xl border-l-4 border-amber bg-amber/10 px-4 py-3 text-soft">
+          <p key={a.id + b.id} className="rounded-xl bg-amber/10 px-4 py-3 text-soft">
             <b className="text-gold">{a.name}</b> and <b className="text-gold">{b.name}</b> can&apos;t run together. Untick one of them to go on.
           </p>
         ))}
-        {cs.missing.length > 0 && <p className="rounded-xl border-l-4 border-amber bg-amber/10 px-4 py-3 text-soft">Something this set needs is not in the mod list any more: {cs.missing.join(", ")}.</p>}
+        {cs.missing.length > 0 && <p className="rounded-xl bg-amber/10 px-4 py-3 text-soft">Something this set needs is not in the mod list any more: {cs.missing.join(", ")}.</p>}
 
         <section>
           <h3 className="mb-2 font-orbitron text-[12px] font-bold uppercase tracking-[.2em] text-hi">You picked</h3>
@@ -99,7 +99,7 @@ export default function ChangeSetDialog({ mods, picked, open, onClose, onDone }:
         )}
 
         {cs.native.length > 0 && (
-          <p className="rounded-xl border-l-4 border-amber bg-amber/10 px-4 py-3 text-soft">
+          <p className="rounded-xl bg-amber/10 px-4 py-3 text-soft">
             <b className="text-gold">{cs.native.map((m) => m.name).join(", ")}</b> {cs.native.length === 1 ? "runs" : "run"} native code on your computer, outside the game&apos;s script sandbox. Every
             file is checked against the hashes in the signed mod list before it is used.
           </p>

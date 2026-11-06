@@ -33,7 +33,7 @@ export default async function Credits() {
         {shown.map((c) => (
           <div key={c.name}>
             <h3 className="flex items-center gap-3 font-orbitron text-xl font-bold text-gold">
-              {c.avatar && <Image src={c.avatar} alt="" width={36} height={36} className="size-9 rounded-full border border-line" />}
+              {c.avatar && <Image src={c.avatar} alt="" width={36} height={36} className="size-9 rounded-full" />}
               {(c.url ?? c.infos[0].channelUrl) ? <a href={c.url ?? c.infos[0].channelUrl} className="no-underline hover:underline">{c.name}</a> : c.name}
             </h3>
             {c.blurb && <p className="mt-1 max-w-[720px] text-soft">{c.blurb}</p>}
@@ -51,7 +51,7 @@ export default async function Credits() {
           {thanks.map((c, i) => (
             <span key={c.name}>
               {i > 0 && (i === thanks.length - 1 ? " and " : ", ")}
-              {c.avatar && <Image src={c.avatar} alt="" width={32} height={32} className="mx-1 inline-block size-8 rounded-full border border-line align-middle" />}
+              {c.avatar && <Image src={c.avatar} alt="" width={32} height={32} className="mx-1 inline-block size-8 rounded-full align-middle" />}
               {c.url ? <a href={c.url} className="font-semibold text-gold no-underline hover:underline">{c.name}</a> : <b className="font-semibold text-gold">{c.name}</b>}
               {c.blurb ? ` (${c.blurb})` : ""}
               {c.links?.map((l, n) => (

@@ -219,12 +219,12 @@ export default function ModBrowser({ mods, tags, now }: { mods: SlimMod[]; tags:
             placeholder="Search name, author or what it does"
             className="field pl-11 pr-12"
           />
-          <kbd aria-hidden className="pointer-events-none absolute right-4 top-1/2 hidden -translate-y-1/2 rounded border border-white/15 px-1.5 text-[12px] text-dim [@media(hover:hover)]:block">
+          <kbd aria-hidden className="pointer-events-none absolute right-4 top-1/2 hidden -translate-y-1/2 rounded bg-navy px-1.5 text-[12px] text-dim [@media(hover:hover)]:block">
             /
           </kbd>
         </label>
         {/* Every filter in one panel: the list stays a list, not a wall of buttons. */}
-        <button type="button" onClick={() => setFiltersOpen(true)} className={`btn ${active ? "!border-amber" : ""}`} aria-haspopup="dialog">
+        <button type="button" onClick={() => setFiltersOpen(true)} data-on={active > 0 || undefined} className="btn" aria-haspopup="dialog">
           <svg viewBox="0 0 16 16" aria-hidden className="size-4 fill-none stroke-current stroke-2" strokeLinecap="round">
             <path d="M2 4h12M4.5 8h7M7 12h2" />
           </svg>
@@ -317,7 +317,7 @@ export default function ModBrowser({ mods, tags, now }: { mods: SlimMod[]; tags:
                 actions={
                   <>
                     <InstallButton mods={[{ id: m.id }]} small primary={false} devOnly={m.works !== "release"} />
-                    <button type="button" aria-pressed={picked.includes(m.id)} onClick={() => pick(m.id)} className={`btn btn-sm ${picked.includes(m.id) ? "!border-amber text-amber" : ""}`}>
+                    <button type="button" aria-pressed={picked.includes(m.id)} onClick={() => pick(m.id)} className="btn btn-sm">
                       {picked.includes(m.id) ? "In set ✓" : "Add to set"}
                     </button>
                   </>

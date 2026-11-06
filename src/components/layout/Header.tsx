@@ -2,42 +2,31 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { type MouseEvent, useEffect, useState } from "react";
+import { type MouseEvent, useEffect, useRef, useState } from "react";
 import { PAGE_TRANSITION } from "@/components/layout/PageTransition";
-import { DiscordIcon, GithubIcon } from "@/components/ui/icons";
+import { DiscordIcon, GithubIcon, NewsIcon } from "@/components/ui/icons";
 import Logo from "@/components/ui/Logo";
-import { HAS_CREDITS } from "@/lib/credits";
+import SiteSearch from "@/components/layout/SiteSearch";
 import { DISCORD_URL, GITHUB_URL } from "@/lib/projects";
 
-/** Sections of the home page. Plain anchors on the home page (they scroll); elsewhere links that go home first, without reloading. */
-const SECTIONS = ([
-  ["progress", "Progress"],
-  ["contribute", "Contribute"],
-  ["how", "How it works"],
-  ["faq", "FAQ"],
-  ["ai", "AI"],
-  ["credits", "Credits"],
-] as const).filter(([id]) => id !== "credits" || HAS_CREDITS);
+/** A line of the open phone menu, on the page's colour; the current page in gold. */
+const link = "flex min-h-11 items-center rounded-md px-3.5 text-[17px] font-bold no-underline transition-colors";
+const linkOn = "bg-coal text-amber";
+const linkOff = "text-hi hover:bg-coal";
+const pill = "flex min-h-11 items-center justify-center rounded-md px-4 text-sm font-semibold no-underline transition-colors min-[821px]:min-h-8 min-[821px]:whitespace-nowrap min-[821px]:max-[1023px]:px-3";
 
-const link =
-  "group/l relative flex min-h-11 items-center rounded-full px-3.5 text-[17px] font-bold no-underline transition-colors min-[821px]:min-h-9 min-[821px]:whitespace-nowrap min-[821px]:text-[15px] min-[821px]:max-[1023px]:px-2 min-[821px]:max-[900px]:px-1.5 min-[821px]:max-[1023px]:text-[14px]";
-// The open mobile menu sits on the page's colour, the bar on its stripes: light text there, dark here.
-// The current section: a pill as tall as the bar's buttons. Its label never wraps, so the pill cannot grow to the bar's height.
-const linkOn = "bg-white/[.06] text-amber min-[821px]:bg-[#1b1206] [&>span]:hidden";
-const linkOff = "text-hi hover:bg-white/5 min-[821px]:text-[#2a1800] min-[821px]:hover:bg-black/10";
-const underline =
-  "absolute inset-x-3.5 bottom-1 min-[821px]:max-[1023px]:inset-x-2 hidden h-0.5 origin-left scale-x-0 rounded bg-current transition-transform group-hover/l:scale-x-100 min-[821px]:block";
-const pill = "flex min-h-11 items-center justify-center rounded-full px-4 text-sm font-semibold no-underline transition-colors min-[821px]:min-h-9 min-[821px]:whitespace-nowrap min-[821px]:max-[1023px]:px-3";
-
-/** The bar's own dark and gold, like the Download button, so the buttons on the bar read as a set. */
-/** The same dark, with the GitHub and Discord marks in white. */
-const mark = "bg-[#1b1206] text-text hover:bg-[#2a1800]";
 /** On a phone the bar's buttons are bare dark marks on the stripes: no discs or rings, a light shade under a finger. */
-const barIcon = "flex size-10 flex-none items-center justify-center rounded-full text-[#1b1206] transition-colors hover:bg-black/10 active:bg-black/15 min-[821px]:hidden";
+const barIcon = "flex size-10 flex-none items-center justify-center rounded-md text-[#1b1206] transition-colors hover:bg-black/10 active:bg-black/15 min-[821px]:hidden";
 
-/** Mods on the wide bar: dark with gold like Download, filled gold while on /mods. */
-const modsOff = "border-black/25 bg-[#1b1206] text-amber hover:bg-[#2a1800]";
-const modsOn = "border-black/25 bg-amber text-[#1a0d00]";
+/** A wide bar button: the bar's own stripes in coal, lined up with the bar's, and gold text; the same as the search field. */
+const shade = "min-[821px]:h-8.5 min-[821px]:coal-stripes";
+/** A hairline between the buttons of the dark dock. */
+const divider = "h-4 w-px flex-none bg-white/15";
+/** A bar button, and Mods while on its pages: the same fill with gold text. */
+const off = `${shade} text-text min-[821px]:text-amber min-[821px]:hover:coal-stripes-hi`;
+const on = "min-[821px]:h-8.5 bg-coal min-[821px]:border-0 min-[821px]:coal-stripes-hi text-gold";
+/** The same for a site's mark, in white. */
+const offMark = "text-text hover:bg-coal-hi";
 
 /** A small puzzle piece: the mark of Mods in the bar. Its knobs sit top and right, so the view is shifted to
     put the piece's weight, not its outline, in the middle of a round button. */
@@ -49,7 +38,24 @@ function ModsMark({ className = "size-4" }: { className?: string }) {
   );
 }
 
-/** A site's own mark in a round button (GitHub, Discord); `className` gives its colours. */
+/** News as a button next to GitHub, in the corner dock. It stays plain on its own pages; only screen readers hear it is the current one. */
+function NewsButton({ on, onClick, className = "" }: { on: boolean; onClick?: () => void; className?: string }) {
+  return (
+    <Link
+      href="/news"
+      transitionTypes={PAGE_TRANSITION}
+      onClick={onClick}
+      aria-label="News"
+      title="News"
+      aria-current={on ? "page" : undefined}
+      className={`flex flex-none items-center justify-center rounded-md transition-colors ${className}`}
+    >
+      <NewsIcon className="size-[19px]" />
+    </Link>
+  );
+}
+
+/** A site's own mark in a button (GitHub, Discord); `className` gives its colours. */
 function MarkButton({ site, onClick, className = "" }: { site: "github" | "discord"; onClick?: () => void; className?: string }) {
   const Icon = site === "github" ? GithubIcon : DiscordIcon;
   const label = site === "github" ? "GitHub" : "Discord";
@@ -59,17 +65,16 @@ function MarkButton({ site, onClick, className = "" }: { site: "github" | "disco
       onClick={onClick}
       aria-label={label}
       title={label}
-      className={`flex flex-none items-center justify-center rounded-full transition-colors ${className}`}
+      className={`flex flex-none items-center justify-center rounded-md transition-colors ${className}`}
     >
-      <Icon className="size-[20px] min-[821px]:size-[18px]" />
+      <Icon className="size-[18px]" />
     </a>
   );
 }
 
 /**
  * Orange bar fixed to the top, striped like the launcher's, one height at every scroll position.
- * Client-side for the mobile menu and scroll-spy; the spy watches the page with an
- * IntersectionObserver, so scrolling runs no script and reads no layout.
+ * Client-side for the phone menu.
  */
 export default function Header() {
   const pathname = usePathname();
@@ -79,29 +84,6 @@ export default function Header() {
   // The SDK docs have their own frame: a logo back to the site instead of the bar.
   const inDocs = pathname === "/mods/docs" || pathname.startsWith("/mods/docs/");
   const [open, setOpen] = useState(false);
-  const [active, setActive] = useState<string | null>(null);
-
-  // Scroll-spy: the section crossing the middle of the screen is the current one.
-  useEffect(() => {
-    if (!home) return;
-    const seen = new Set<string>();
-    const io = new IntersectionObserver(
-      (entries) => {
-        for (const e of entries) {
-          if (e.isIntersecting) seen.add(e.target.id);
-          else seen.delete(e.target.id);
-        }
-        // the last one in page order wins, so a short section is still marked when it reaches the middle
-        setActive(SECTIONS.map(([id]) => id).findLast((id) => seen.has(id)) ?? null);
-      },
-      { rootMargin: "-45% 0px -50% 0px" },
-    );
-    for (const [id] of SECTIONS) {
-      const el = document.getElementById(id);
-      if (el) io.observe(el);
-    }
-    return () => { io.disconnect(); setActive(null); };
-  }, [home]);
 
   // The menu closes with Escape, and on its own when the screen grows past the mobile layout.
   useEffect(() => {
@@ -116,6 +98,18 @@ export default function Header() {
 
   const close = () => setOpen(false);
 
+  // At the very top the bar floats, inset with rounded corners; once the page moves it docks to the edge.
+  // One observer on a 12 px strip at the top of the document: no scroll handler, no work while scrolling.
+  const [floating, setFloating] = useState(true);
+  const top = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const strip = top.current;
+    if (!strip) return;
+    const io = new IntersectionObserver(([e]) => setFloating(e.isIntersecting));
+    io.observe(strip);
+    return () => io.disconnect();
+  }, []);
+
   // On the home page the router has nowhere to go, so the logo would do nothing: scroll to the top
   // ourselves, and drop a #section from the address.
   const toTop = (e: MouseEvent<HTMLAnchorElement>) => {
@@ -129,27 +123,20 @@ export default function Header() {
   if (inDocs) return null;
   return (
     <>
-      <header style={{ viewTransitionName: "site-header" }} className="bar-stripes fixed inset-x-0 top-0 z-30 border-b border-black/30 text-black shadow-[inset_0_1px_0_rgb(255_255_255/0.35),0_4px_24px_rgb(0_0_0/0.45)]">
-        <div className="mx-auto flex h-[50px] max-w-[1080px] items-center gap-6 px-4 min-[821px]:max-[1023px]:gap-4 min-[821px]:max-[900px]:gap-2">
+      <div ref={top} aria-hidden className="pointer-events-none absolute inset-x-0 top-0 h-3" />
+      <header
+        style={{ viewTransitionName: "site-header" }}
+        data-floating={floating && !open ? "" : undefined}
+        className="bar-stripes fixed left-0 right-0 top-0 z-30 border-b border-black/30 text-black shadow-[inset_0_1px_0_rgb(255_255_255/0.35),0_4px_24px_rgb(0_0_0/0.45)] transition-[top,left,right,border-radius] duration-300 ease-out motion-reduce:transition-none data-[floating]:left-[max(12px,calc(50%-556px))] data-[floating]:right-[max(12px,calc(50%-556px))] data-[floating]:top-3 data-[floating]:rounded-xl data-[floating]:border-b-0 data-[floating]:shadow-[inset_0_1px_0_rgb(255_255_255/0.35),0_10px_30px_rgb(0_0_0/0.5)]"
+      >
+        <div className="mx-auto flex h-[50px] max-w-[1080px] items-center gap-6 px-4 min-[821px]:gap-4 min-[821px]:max-[900px]:gap-2">
           <Link href="/" transitionTypes={PAGE_TRANSITION} onClick={toTop} className="group flex items-center text-[#1b1206] no-underline" aria-label="OpenRAC home">
             <Logo height={34} label="" className="transition-opacity group-hover:opacity-85" />
           </Link>
 
-          {/* Mods in reach on phones too, without opening the menu. */}
-          <Link
-            href="/mods"
-            transitionTypes={PAGE_TRANSITION}
-            onClick={close}
-            aria-label="Mods"
-            title="Mods"
-            aria-current={inMods ? "page" : undefined}
-            className={`${barIcon} ml-auto ${inMods ? "bg-black/15" : ""}`}
-          >
-            <ModsMark className="size-[22px]" />
-          </Link>
-          {/* Too wide for the narrowest phones: there they move into the menu, so the menu button stays on screen. */}
-          <MarkButton site="github" onClick={close} className={`${barIcon} -ml-5 max-[359px]:hidden`} />
-          <MarkButton site="discord" onClick={close} className={`${barIcon} -ml-5 max-[359px]:hidden`} />
+          {/* The site's search: a field on the wide bar, a mark on phones. */}
+          <SiteSearch className="hidden h-8.5 flex-none items-center gap-2 rounded-md coal-stripes px-3 text-[14px] font-semibold text-amber transition-colors hover:coal-stripes-hi min-[821px]:flex min-[821px]:w-64" />
+          <SiteSearch compact className={`${barIcon} ml-auto`} />
           <button
             type="button"
             aria-label={open ? "Close menu" : "Open menu"}
@@ -166,51 +153,42 @@ export default function Header() {
 
           <nav
             id="nav"
-            className={`absolute inset-x-0 top-full flex max-h-[calc(100dvh-50px)] flex-col gap-3 overflow-y-auto overscroll-contain border-b border-white/10 bg-ink px-4 pb-[18px] pt-3.5 shadow-[0_20px_30px_rgb(0_0_0/0.4)] transition duration-200 max-[821px]:origin-top ${open ? "" : "max-[821px]:pointer-events-none max-[821px]:invisible max-[821px]:-translate-y-2 max-[821px]:opacity-0"} min-[821px]:static min-[821px]:max-h-none min-[821px]:flex-1 min-[821px]:flex-row min-[821px]:items-center min-[821px]:gap-[18px] min-[821px]:max-[1023px]:gap-2.5 min-[821px]:overflow-visible min-[821px]:border-0 min-[821px]:bg-transparent min-[821px]:p-0 min-[821px]:shadow-none`}
+            className={`absolute inset-x-0 top-full flex max-h-[calc(100dvh-50px)] flex-col gap-3 overflow-y-auto overscroll-contain border-b border-white/10 bg-ink px-4 pb-[18px] pt-3.5 shadow-[0_20px_30px_rgb(0_0_0/0.4)] transition duration-200 max-[821px]:origin-top ${open ? "" : "max-[821px]:pointer-events-none max-[821px]:invisible max-[821px]:-translate-y-2 max-[821px]:opacity-0"} min-[821px]:static min-[821px]:max-h-none min-[821px]:flex-1 min-[821px]:flex-row min-[821px]:items-center min-[821px]:gap-3 min-[821px]:max-[1023px]:gap-2.5 min-[821px]:overflow-visible min-[821px]:border-0 min-[821px]:bg-transparent min-[821px]:p-0 min-[821px]:shadow-none`}
           >
-            <div className="flex flex-col gap-1 min-[821px]:ml-2 min-[821px]:flex-row">
-              {SECTIONS.map(([id, label]) =>
-                home ? (
-                  <a key={id} href={`#${id}`} onClick={close} aria-current={active === id ? "true" : undefined} className={`${link} ${active === id ? linkOn : linkOff}`}>
-                    {label}
-                    <span className={underline} />
-                  </a>
-                ) : (
-                  <Link key={id} href={`/#${id}`} transitionTypes={PAGE_TRANSITION} onClick={close} className={`${link} ${linkOff}`}>
-                    {label}
-                    <span className={underline} />
-                  </Link>
-                ),
-              )}
-              {/* Its own pages, not a section of the home page. */}
-              <Link href="/news" transitionTypes={PAGE_TRANSITION} onClick={close} aria-current={inNews ? "page" : undefined} className={`${link} ${inNews ? linkOn : linkOff}`}>
-                News
-                <span className={underline} />
+            <div className="flex flex-col gap-1 min-[821px]:hidden">
+              {/* Lines of the phone menu only: on the wide bar these are buttons. */}
+              <Link href="/mods" transitionTypes={PAGE_TRANSITION} onClick={close} aria-current={inMods ? "page" : undefined} className={`${link} ${inMods ? linkOn : linkOff}`}>
+                Mods
               </Link>
             </div>
             <div className="grid gap-2 min-[821px]:ml-auto min-[821px]:flex min-[821px]:items-center min-[821px]:max-[1023px]:gap-1.5">
-              {/* Mods, set apart from the home page's sections: its own page, with its own mark. Not in the
-                  open phone menu: the bar there already has its own Mods button. */}
-              <Link href="/mods" transitionTypes={PAGE_TRANSITION} onClick={close} aria-current={inMods ? "page" : undefined} className={`${pill} gap-2 border max-[821px]:hidden ${inMods ? modsOn : modsOff}`}>
-                <ModsMark />
-                Mods
-              </Link>
-              {/* The home page's Download panel; elsewhere it goes home and opens it there. */}
-              <Link href="/#download" transitionTypes={PAGE_TRANSITION} onClick={close} className={`${pill} border border-amber bg-amber text-[#1a0d00] hover:brightness-110 min-[821px]:border-black/25 min-[821px]:bg-[#1b1206] min-[821px]:text-amber min-[821px]:hover:bg-[#2a1800] min-[821px]:hover:brightness-100`}>
-                Download
-              </Link>
-              <div className="flex justify-center gap-2 min-[360px]:hidden">
-                <MarkButton site="github" onClick={close} className={`${mark} size-11`} />
-                <MarkButton site="discord" onClick={close} className={`${mark} size-11`} />
+              {/* Mods and Download: two buttons side by side on the wide bar. On phones the row falls away (contents):
+                  Download is the menu's big button, and Mods a line of the menu. */}
+              <div className="min-[821px]:flex min-[821px]:items-center min-[821px]:gap-2 max-[821px]:contents">
+                {/* Mods: its own page, with its own mark, gold while there. */}
+                <Link href="/mods" transitionTypes={PAGE_TRANSITION} onClick={close} aria-current={inMods ? "page" : undefined} className={`${pill} gap-2 max-[821px]:hidden ${inMods ? on : off}`}>
+                  <ModsMark className="size-4" />
+                  Mods
+                </Link>
+                {/* The install page: the launcher for every system. */}
+                <Link href="/install" transitionTypes={PAGE_TRANSITION} onClick={close} aria-current={pathname === "/install" ? "page" : undefined} className={`${pill} border border-amber bg-amber text-[#1a0d00] hover:brightness-110 min-[821px]:border-0 min-[821px]:h-8.5 min-[821px]:coal-stripes min-[821px]:text-amber min-[821px]:hover:coal-stripes-hi min-[821px]:hover:brightness-100`}>
+                  Download
+                </Link>
               </div>
-              <MarkButton site="github" onClick={close} className={`${mark} size-9 max-[821px]:hidden`} />
-              <MarkButton site="discord" onClick={close} className={`${mark} size-9 max-[821px]:hidden`} />
             </div>
           </nav>
         </div>
       </header>
       {/* Holds the bar's place in the page. */}
       <div aria-hidden className="h-[50px]" />
+      {/* News, GitHub and Discord float in the bottom right corner, out of the crowded bar, in reach on every screen. */}
+      <nav aria-label="News and community" className="site-dock fixed bottom-[max(16px,env(safe-area-inset-bottom))] right-[max(16px,env(safe-area-inset-right))] z-20 flex items-center rounded-lg border-0 bg-coal px-1 shadow-[0_8px_24px_rgb(0_0_0/0.45)] transition-[translate] duration-200 motion-reduce:transition-none">
+        <NewsButton on={inNews} className={`${offMark} size-10`} />
+        <span aria-hidden className={divider} />
+        <MarkButton site="github" className={`${offMark} size-10`} />
+        <span aria-hidden className={divider} />
+        <MarkButton site="discord" className={`${offMark} size-10`} />
+      </nav>
     </>
   );
 }

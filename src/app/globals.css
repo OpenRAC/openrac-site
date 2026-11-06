@@ -11,10 +11,23 @@
 
 @theme {
   /* Neutral darks with a hair of violet: the page, raised panels, the footer. */
-  --color-ink: #12121a;
-  --color-ink-deep: #0c0c12;
-  --color-panel: #1d1d27;
-  --color-panel-hi: #23232f;
+  --color-ink: #0a0a0a;
+  --color-ink-deep: #050505;
+  /* Every second home section: a band a little lighter than the page. */
+  --color-band: #111111;
+  --color-panel: #161616;
+  --color-panel-hi: #1c1c1c;
+  /* Warm mid brown, light enough to stand beside the gold: the fill of every plain control (buttons, fields, chips). Never grey. */
+  --color-coal: #121212;
+  --color-coal-hi: #1e1e1e;
+  /* Controls sitting on a coal surface (a dialog) are navy, so they still stand out. */
+  --color-navy: #1d1b2a;
+  --color-navy-hi: #29253b;
+  /* The coal stripes every card and panel wears, the same as the bar's search field (see STYLE.md). */
+  --stripes: repeating-linear-gradient(35deg, #151515 0 20px, #121212 20px 40px);
+  --stripes-hi: repeating-linear-gradient(35deg, #1c1c1c 0 20px, #191919 20px 40px);
+  /* The 1 px gold edge round everything filled with coal. */
+  --color-edge: rgb(245 192 64 / 0.35);
   --color-brand: #d6a020;
   --color-amber: #f5c040;
   --color-gold: #ffe08f;
@@ -31,7 +44,6 @@
   --animate-rise: rise 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) both;
   --animate-drift: drift 16s ease-in-out infinite alternate;
   --animate-pulse-dot: pulse-dot 2s infinite;
-  --animate-shine: shine 6s linear infinite;
 
   @keyframes rise {
     from { opacity: 0; transform: translateY(26px); }
@@ -43,9 +55,6 @@
   @keyframes pulse-dot {
     70% { box-shadow: 0 0 0 9px transparent; }
     100% { box-shadow: 0 0 0 0 transparent; }
-  }
-  @keyframes shine {
-    to { background-position: 220% 0; }
   }
 }
 
@@ -60,9 +69,37 @@
 }
 
 /* The header bar: wide stripes of two close golds, as the launcher draws it. */
+/* The bar's stripes are laid on the window, not the bar, so the stripes in its buttons continue them exactly. */
 @utility bar-stripes {
   background: repeating-linear-gradient(35deg, #c99222 0 20px, #bd8619 20px 40px);
+  /* Laid on the window only where the bar's striped buttons show; phones move fixed backgrounds as the page scrolls. */
+  @media (min-width: 821px) { background-attachment: fixed; }
 }
+@utility coal-stripes {
+  background: repeating-linear-gradient(35deg, #181818 0 20px, #121212 20px 40px) fixed;
+}
+@utility coal-stripes-hi {
+  background: repeating-linear-gradient(35deg, #252525 0 20px, #1f1f1f 20px 40px) fixed;
+}
+
+/* Anything filled with coal wears the gold edge, the bar's striped buttons excepted (they sit in the gold). */
+@layer components {
+  .bg-coal { border: 1px solid var(--color-edge); }
+}
+
+/* Panels drawn with bg-panel wear the same stripes; their hover and open states the lighter ones. */
+@layer components {
+  .bg-panel { background-image: var(--stripes); }
+  [class*="hover:bg-panel-hi"]:hover, [class*="open:bg-panel-hi"][open] { background-image: var(--stripes-hi); }
+}
+
+/* On a coal surface (a dialog, a sheet) controls turn navy so they still stand out; the edge stays. */
+@layer components {
+  .bg-coal :is(.field, .chip, .seg, .btn:not(.btn-primary, .btn-ghost)) { background-color: var(--color-navy); }
+  .bg-coal :is(.btn:not(.btn-primary, .btn-ghost), .chip):hover { background-color: var(--color-navy-hi); }
+}
+.bg-coal :is(.d-field, .d-btn:not(.d-btn-primary), .d-seg) { background-color: var(--color-navy); }
+.bg-coal .d-btn:not(.d-btn-primary):hover { background-color: var(--color-navy-hi); }
 
 /* The shared pieces every section is built from, so buttons and panels look the same everywhere. */
 @layer components {
@@ -72,23 +109,32 @@
     justify-content: center;
     gap: 0.5rem;
     min-height: 2.75rem;
-    border-radius: 9999px;
-    border: 1px solid rgb(255 255 255 / 0.18);
-    /* opaque, the page's ink a shade lighter: the hero's embers pass under a button, never over it */
-    background: color-mix(in srgb, white 3%, var(--color-ink));
+    border-radius: 0.375rem;
+    /* coal with a thin gold edge (see STYLE.md); opaque, so the hero's embers pass under it */
+    border: 1px solid var(--color-edge);
+    background: var(--color-coal);
     padding: 0.625rem 1.25rem;
     font-weight: 600;
     line-height: 1.25;
     color: var(--color-text);
     text-decoration: none;
-    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, filter 0.2s ease;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease, color 0.2s ease;
   }
+  /* The one main action of a view: flat gold, dark text, the same as the home page's Download. */
   .btn-primary {
-    border-color: var(--color-amber);
-    background: linear-gradient(to bottom, var(--color-amber), #e8a317);
-    color: #1a0d00;
-    box-shadow: 0 6px 24px rgb(232 163 23 / 0.3);
+    border-color: transparent;
+    background: var(--color-amber);
+    color: #1b1206;
+    box-shadow: 0 10px 30px -10px rgb(245 166 35 / 0.6);
   }
+  /* A plain button that is switched on (picked, or a filter in use): a gold tint, gold text. */
+  .btn[aria-pressed="true"],
+  .btn[data-on] {
+    background: color-mix(in srgb, var(--color-amber) 22%, var(--color-ink));
+    color: var(--color-amber);
+  }
+  /* A quiet button next to a main one: no fill until hovered. */
+  .btn-ghost { background: transparent; border-color: transparent; }
   .btn-sm {
     min-height: 2.5rem;
     padding: 0.5rem 1rem;
@@ -97,25 +143,26 @@
   /* A plain button whose text and mark are Discord's blue. */
   .btn-discord { color: var(--color-discord); }
   @media (hover: hover) and (pointer: fine) {
-    .btn:hover { transform: translateY(-2px); border-color: var(--color-amber); box-shadow: 0 8px 24px rgb(0 0 0 / 0.4); }
-    .btn-primary:hover { filter: brightness(1.08); box-shadow: 0 8px 28px rgb(232 163 23 / 0.4); }
-    .btn-discord:hover { border-color: var(--color-discord); }
+    .btn:hover { transform: translateY(-2px); background-color: var(--color-coal-hi); box-shadow: 0 8px 24px rgb(0 0 0 / 0.4); }
+    .btn-ghost:hover { transform: none; box-shadow: none; background-color: var(--color-coal); }
+    .btn-primary:hover { background-color: var(--color-gold); box-shadow: 0 10px 30px -8px rgb(245 166 35 / 0.6); }
+    .btn[aria-pressed="true"]:hover, .btn[data-on]:hover { background-color: color-mix(in srgb, var(--color-amber) 28%, var(--color-ink)); }
   }
 
-  /* Form controls, one look for all: as tall as a button, the same border and fill, the accent on focus. */
+  /* Form controls, one look for all: as tall and as round as a button, a fill and no border, a gold ring on focus. */
   .field {
     height: 2.75rem;
     width: 100%;
-    border-radius: 9999px;
-    border: 1px solid rgb(255 255 255 / 0.18);
-    background: color-mix(in srgb, white 3%, var(--color-ink));
+    border-radius: 0.375rem;
+    border: 1px solid var(--color-edge);
+    background: var(--color-coal);
     padding-inline: 1.125rem;
     font-size: 16px; /* 16 px or more: phones do not zoom in on focus */
     color: var(--color-text);
-    transition: border-color 0.2s ease;
+    transition: background-color 0.2s ease, box-shadow 0.2s ease;
   }
   .field::placeholder { color: var(--color-dim); }
-  .field:focus { border-color: var(--color-amber); outline: none; }
+  .field:focus { box-shadow: inset 0 0 0 2px var(--color-amber); outline: none; }
   /* A dropdown: the same field with its own arrow. */
   select.field {
     width: auto;
@@ -140,55 +187,54 @@
     min-width: 2.5rem;
     min-height: 2.5rem;
     white-space: nowrap;
-    border-radius: 9999px;
+    border-radius: 0.375rem;
     padding-inline: 0.875rem;
     font-weight: 600;
     color: var(--color-soft);
-    transition: border-color 0.2s ease, color 0.2s ease, background-color 0.2s ease;
+    transition: color 0.2s ease, background-color 0.2s ease;
   }
   .chip {
-    border: 1px solid rgb(255 255 255 / 0.15);
-    background: color-mix(in srgb, white 3%, var(--color-ink));
+    border: 1px solid var(--color-edge);
+    background: var(--color-coal);
     font-size: 13px;
   }
   .chip[aria-pressed="true"],
   .chip[aria-checked="true"],
   .chip[data-on] {
-    border-color: var(--color-amber);
-    background: color-mix(in srgb, var(--color-amber) 15%, var(--color-ink));
+    background: color-mix(in srgb, var(--color-amber) 22%, var(--color-ink));
     color: var(--color-amber);
   }
-  /* A row of choices in one pill, one of them on: the list's presets, Showcase or List. */
+  /* A row of choices on one filled strip, one of them on: the list's presets, Showcase or List. */
   .seg {
     display: inline-flex;
     flex: none;
-    border-radius: 9999px;
-    border: 1px solid rgb(255 255 255 / 0.15);
-    padding: 1px;
+    border-radius: 0.375rem;
+    border: 1px solid var(--color-edge);
+    background: var(--color-coal);
+    padding: 2px;
   }
-  .seg > button { font-size: 14px; }
+  .seg > button { font-size: 14px; border-radius: 0.25rem; }
   @media (max-width: 479px) { .seg > button { padding-inline: 0.7rem; } }
   .seg > button[aria-pressed="true"],
   .seg > button[aria-checked="true"] {
-    background: color-mix(in srgb, var(--color-amber) 15%, transparent);
+    background: color-mix(in srgb, var(--color-amber) 22%, transparent);
     color: var(--color-amber);
   }
   @media (hover: hover) and (pointer: fine) {
-    .field:hover:not(:focus) { border-color: rgb(255 255 255 / 0.3); }
-    .chip:hover:not([aria-pressed="true"], [aria-checked="true"], [data-on]) { border-color: rgb(255 255 255 / 0.3); color: var(--color-hi); }
+    .field:hover:not(:focus) { background-color: var(--color-coal-hi); }
+    .chip:hover:not([aria-pressed="true"], [aria-checked="true"], [data-on]) { background-color: var(--color-coal-hi); color: var(--color-hi); }
     .seg > button:hover:not([aria-pressed="true"], [aria-checked="true"]) { color: var(--color-hi); }
   }
 
   /* A raised panel: info cards, resources, mod panels. */
   .surface {
-    border-radius: 1rem;
-    border: 1px solid var(--color-line);
-    /* barely lifted from the page, the border does the framing; opaque, so the hero's embers pass under it */
-    background: color-mix(in srgb, white 1.8%, var(--color-ink));
-    transition: transform 0.2s ease, border-color 0.2s ease;
+    border-radius: 0.75rem;
+    /* no border: coal stripes like the bar's search field; opaque, so the hero's embers pass under it */
+    background: var(--color-coal) var(--stripes);
+    transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
   }
   @media (hover: hover) and (pointer: fine) {
-    .surface-link:hover { transform: translateY(-3px); border-color: var(--color-brand); }
+    .surface-link:hover { transform: translateY(-3px); background-image: var(--stripes-hi); box-shadow: 0 12px 32px rgb(0 0 0 / 0.45); }
   }
 }
 
@@ -230,27 +276,27 @@
 .tk-m { color: var(--color-brand); }
 .code-head { display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; border-bottom: 1px solid var(--color-line); padding: 0.375rem 0.75rem; }
 .code-name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-family: var(--font-mono, ui-monospace, monospace); font-size: 12px; color: var(--color-dim); }
-.badge { display: inline-flex; flex: none; align-items: center; border-radius: 4px; border: 1px solid rgb(255 255 255 / 0.14); padding: 0 0.375rem; font-size: 11.5px; font-weight: 500; line-height: 18px; color: var(--color-dim); vertical-align: middle; }
-.badge-new { border-color: color-mix(in srgb, var(--color-amber) 45%, transparent); color: var(--color-amber); }
+.badge { display: inline-flex; flex: none; align-items: center; border-radius: 4px; background: var(--color-ink-deep); padding: 0 0.375rem; font-size: 11.5px; font-weight: 500; line-height: 18px; color: var(--color-soft); vertical-align: middle; }
+.badge-new { background: color-mix(in srgb, var(--color-amber) 15%, transparent); color: var(--color-amber); }
 
 /* Mod SDK docs: plain, compact controls in the manner of most API docs. */
-.d-card { border-radius: 8px; border: 1px solid var(--color-line); background: color-mix(in srgb, white 2%, var(--color-ink)); }
-.d-card-link { transition: border-color 0.15s ease; }
-.d-card-link:hover { border-color: rgb(255 255 255 / 0.22); }
-.d-btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.375rem; height: 30px; padding: 0 0.625rem; border-radius: 6px; border: 1px solid rgb(255 255 255 / 0.12); background: transparent; font-size: 13px; font-weight: 500; color: var(--color-soft); text-decoration: none; white-space: nowrap; cursor: pointer; transition: border-color 0.15s ease, color 0.15s ease, background 0.15s ease; }
-.d-btn:hover { border-color: rgb(255 255 255 / 0.24); color: var(--color-hi); }
-.d-btn[aria-pressed="true"], .d-btn[data-on] { border-color: color-mix(in srgb, var(--color-amber) 45%, transparent); color: var(--color-amber); }
+.d-card { border-radius: 8px; background: var(--color-coal) var(--stripes); }
+.d-card-link { transition: background-color 0.15s ease; }
+.d-card-link:hover { background-image: var(--stripes-hi); }
+.d-btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.375rem; height: 30px; padding: 0 0.625rem; border-radius: 6px; border: 1px solid var(--color-edge); background: var(--color-coal); font-size: 13px; font-weight: 500; color: var(--color-soft); text-decoration: none; white-space: nowrap; cursor: pointer; transition: color 0.15s ease, background 0.15s ease; }
+.d-btn:hover { background: var(--color-coal-hi); color: var(--color-hi); }
+.d-btn[aria-pressed="true"], .d-btn[data-on] { background: color-mix(in srgb, var(--color-amber) 22%, transparent); color: var(--color-amber); }
 .d-btn:disabled { opacity: 0.5; cursor: default; }
-.d-btn-primary { border-color: var(--color-amber); background: var(--color-amber); color: #1a1406; }
-.d-btn-primary:hover { border-color: var(--color-gold); background: var(--color-gold); color: #1a1406; }
-.d-seg { display: inline-flex; flex-wrap: wrap; gap: 2px; padding: 2px; border-radius: 6px; border: 1px solid var(--color-line); }
+.d-btn-primary { border-color: transparent; background: var(--color-amber); color: #1a1406; }
+.d-btn-primary:hover { background: var(--color-gold); color: #1a1406; }
+.d-seg { display: inline-flex; flex-wrap: wrap; gap: 2px; padding: 2px; border-radius: 6px; border: 1px solid var(--color-edge); background: var(--color-coal); }
 .d-seg > button { height: 26px; padding: 0 0.625rem; border-radius: 4px; font-size: 13px; color: var(--color-soft); cursor: pointer; transition: background 0.15s ease, color 0.15s ease; }
 .d-seg > button:hover { color: var(--color-hi); }
-.d-seg > button[aria-checked="true"] { background: rgb(255 255 255 / 0.08); color: var(--color-hi); font-weight: 500; }
-.d-field { width: 100%; height: 34px; padding: 0 0.625rem; border-radius: 6px; border: 1px solid rgb(255 255 255 / 0.12); background: var(--color-ink-deep); font-size: 14px; color: var(--color-text); }
+.d-seg > button[aria-checked="true"] { background: color-mix(in srgb, var(--color-amber) 22%, transparent); color: var(--color-amber); font-weight: 500; }
+.d-field { width: 100%; height: 34px; padding: 0 0.625rem; border-radius: 6px; border: 1px solid var(--color-edge); background: var(--color-coal); font-size: 14px; color: var(--color-text); }
 textarea.d-field { height: auto; padding: 0.5rem 0.625rem; line-height: 1.5; }
 .d-field::placeholder { color: var(--color-dim); }
-.d-field:focus { border-color: var(--color-amber); outline: none; }
+.d-field:focus { box-shadow: inset 0 0 0 2px var(--color-amber); outline: none; }
 @media (max-width: 639px) { .d-field { font-size: 16px; } }
 .d-prose h1, .d-prose h2, .d-prose h3, .d-prose h4 { font-family: var(--font-sans); text-transform: none; letter-spacing: -0.01em; font-weight: 600; }
 .code-pre { overflow-x: auto; padding: 0.875rem; font-size: 13.5px; line-height: 1.6; color: var(--color-text); }
@@ -269,7 +315,7 @@ body { background: var(--color-ink); color: var(--color-text); }
 :focus-visible { outline: 2px solid var(--color-amber); outline-offset: 3px; }
 /* An element focused only by script (tabindex="-1", such as the Download panel's heading) takes no ring: the reader did not move there with the keyboard. */
 [tabindex="-1"]:focus { outline: none; }
-/* Form fields show focus with their gold border (.field:focus); a ring around it as well would draw two frames. */
+/* Form fields show focus with their gold ring (.field:focus); a ring around it as well would draw two frames. */
 .field:focus-visible { outline: none; }
 
 /* Sections fade in once scrolled to. Only hidden when scripting is available,
@@ -302,38 +348,32 @@ summary::-webkit-details-marker { display: none; }
 .splash svg { animation: splash-logo 0.9s ease-in-out infinite alternate; }
 .ready .splash { opacity: 0; visibility: hidden; }
 @media (scripting: none) { .splash { display: none; } }
+/* The home page shot bar: the showing shot's bar fills over its time. */
+/* The Konami code's galaxies fading in over the clips. */
+@keyframes sky-in { from { opacity: 0; } }
+@keyframes shot-fill { from { transform: scaleX(0); } to { transform: scaleX(1); } }
 @keyframes splash-logo { from { opacity: 0.6; transform: scale(0.97); } }
 
 /* Without scripts a backdrop cannot report that it loaded: show it as it is. */
 @media (scripting: none) { .backdrop { opacity: 1 !important; } }
 
-/* The Download panel (DownloadPanel.tsx): folded to no height until opened. The row grows from 0fr
-   to 1fr, so it opens to its own height with no number to keep in step; hidden while folded, so
-   neither Tab nor a screen reader finds its links. */
-.dl {
-  display: grid;
-  grid-template-rows: 0fr;
-  visibility: hidden;
-  transition: grid-template-rows 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), visibility 0s linear 0.6s;
+/* The download cards (DownloadPanel.tsx, /install). */
+/* On a phone the visitor's system comes first: <html data-os> is set before the first paint (layout.tsx), so nothing moves. */
+@media (max-width: 639px) {
+  :root[data-os="windows"] .dl-card[data-os="windows"],
+  :root[data-os="macos"] .dl-card[data-os="macos"],
+  :root[data-os="linux"] .dl-card[data-os="linux"],
+  :root[data-os="android"] .dl-card[data-os="android"] { order: -1; }
 }
-.dl[data-open="true"] {
-  grid-template-rows: 1fr;
-  visibility: visible;
-  transition: grid-template-rows 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), visibility 0s;
-}
-/* Room at the sides for the glow of the visitor's card; the page's own wrapper clips what reaches past the screen. */
-.dl-clip { min-height: 0; overflow: hidden; margin-inline: -24px; padding-inline: 24px; }
-.dl-inner { opacity: 0; transform: translateY(-14px); transition: opacity 0.35s ease, transform 0.35s ease; }
-.dl[data-open="true"] .dl-inner { opacity: 1; transform: none; transition: opacity 0.5s ease 0.1s, transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) 0.1s; }
 /* The cards come in one after another, left to right. They move with `translate` and `scale`, not
    `transform`, so the hover lift (a transform) is never overridden by the entrance and never jumps
    when it ends; nothing is kept after it ends (fill backwards). */
-.dl[data-open="true"] .dl-card { animation: dl-card 0.7s cubic-bezier(0.2, 0.8, 0.2, 1) backwards; animation-delay: calc(0.15s + var(--i) * 0.08s); }
+.dl-card { animation: dl-card 0.7s cubic-bezier(0.2, 0.8, 0.2, 1) backwards; animation-delay: calc(0.15s + var(--i) * 0.08s); }
 @keyframes dl-card {
   from { opacity: 0; translate: 0 22px; scale: 0.98; }
 }
 /* The visitor's own system: a soft gold glow. */
-.dl-mine { box-shadow: 0 0 0 1px rgb(245 192 64 / 0.2), 0 18px 50px -18px rgb(232 163 23 / 0.45); }
+.dl-mine { background: color-mix(in srgb, var(--color-amber) 6%, var(--color-ink)); box-shadow: 0 18px 50px -18px rgb(232 163 23 / 0.45); }
 /* Corner brackets, like a game's target frame: on the visitor's card, and on the card under the pointer. */
 .dl-card::before,
 .dl-card::after {
@@ -346,8 +386,8 @@ summary::-webkit-details-marker { display: none; }
   pointer-events: none;
   transition: width 0.25s ease, height 0.25s ease, opacity 0.25s ease;
 }
-.dl-card::before { top: -1px; left: -1px; border-width: 2px 0 0 2px; border-top-left-radius: 1rem; }
-.dl-card::after { bottom: -1px; right: -1px; border-width: 0 2px 2px 0; border-bottom-right-radius: 1rem; }
+.dl-card::before { top: 0; left: 0; border-width: 2px 0 0 2px; border-top-left-radius: 0.75rem; }
+.dl-card::after { bottom: 0; right: 0; border-width: 0 2px 2px 0; border-bottom-right-radius: 0.75rem; }
 .dl-mine::before,
 .dl-mine::after { border-color: var(--color-amber); opacity: 1; }
 .dl-tile { transition: transform 0.25s ease, box-shadow 0.25s ease; }
@@ -355,12 +395,6 @@ summary::-webkit-details-marker { display: none; }
   .dl-card:hover::before,
   .dl-card:hover::after { width: 30px; height: 30px; opacity: 1; }
   .dl-card:hover .dl-tile { transform: scale(1.06); box-shadow: 0 0 18px rgb(245 192 64 / 0.2); }
-}
-
-/* Without scripts the Download links still open it. */
-@media (scripting: none) {
-  .dl:target { grid-template-rows: 1fr; visibility: visible; }
-  .dl:target .dl-inner { opacity: 1; transform: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -393,3 +427,26 @@ body:has([data-install-bar]) footer { padding-bottom: calc(96px + env(safe-area-
 
 /* Docs: a one-column grid never grows past its column for a long name or line of code. */
 :where(#content) .grid:not([class*="grid-cols"]) { grid-template-columns: minmax(0, 1fr); }
+
+/* The corner dock (News, GitHub, Discord) rises above a page's install bar while that bar is up. */
+body:has([data-install-bar]:not([inert])) .site-dock {
+  translate: 0 calc(-1 * var(--install-bar-h, 64px));
+}
+
+/* Home: every second section sits on a slightly lighter full-width band, so sections read apart on the black page. */
+.bands > section:nth-of-type(odd):not(:first-of-type) {
+  position: relative;
+  isolation: isolate;
+  /* On the lighter band, cards turn darker than it, so they still stand out. */
+  --stripes: repeating-linear-gradient(35deg, #0a0a0a 0 20px, #070707 20px 40px);
+  --stripes-hi: repeating-linear-gradient(35deg, #161616 0 20px, #131313 20px 40px);
+}
+.bands > section:nth-of-type(odd):not(:first-of-type)::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset-block: 0;
+  left: calc(50% - 50vw);
+  right: calc(50% - 50vw);
+  background: var(--color-band);
+}

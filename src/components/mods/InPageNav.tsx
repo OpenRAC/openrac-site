@@ -29,7 +29,7 @@ export default function InPageNav({ sections }: { sections: { id: string; label:
             <a
               href={`#${s.id}`}
               aria-current={active === s.id ? "true" : undefined}
-              className={`flex min-h-11 items-center rounded-full px-3.5 font-orbitron text-[12px] font-bold uppercase tracking-[.14em] no-underline transition-colors ${active === s.id ? "bg-amber/15 text-amber" : "text-soft hover:text-hi"}`}
+              className={`flex min-h-11 items-center rounded-md px-3.5 font-orbitron text-[12px] font-bold uppercase tracking-[.14em] no-underline transition-colors ${active === s.id ? "bg-amber/15 text-amber" : "text-soft hover:text-hi"}`}
             >
               {s.label}
             </a>

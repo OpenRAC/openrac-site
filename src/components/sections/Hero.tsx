@@ -3,61 +3,71 @@ import { PROJECTS } from "@/lib/projects";
 import type { ProjectProgress } from "@/lib/progress";
 import type { ProjectId } from "@/lib/projects";
 import CountUp from "@/components/ui/CountUp";
-import Particles from "@/components/ui/Particles";
+import HeroStage from "@/components/ui/HeroShots";
+import HeroDownload from "@/components/sections/HeroDownload";
+import Link from "next/link";
+import type { LauncherRelease } from "@/lib/releases";
 
-/** The top of the home page: headline, the two main buttons and four headline numbers. */
-export default function Hero({ progress, mods }: { progress: Partial<Record<ProjectId, ProjectProgress>>; mods: number }) {
+/**
+ * The home page's first screen, like a game's title screen: free-camera clips from the games crossfading
+ * edge to edge, the headline numbers as a HUD in the corner, and bottom left the latest release, the
+ * headline and one download button for the visitor's system.
+ */
+export default function Hero({ progress, mods, release }: { progress: Partial<Record<ProjectId, ProjectProgress>>; mods: number; release: LauncherRelease | null }) {
   const active = Object.values(progress);
   const bytes = active.reduce((sum, p) => sum + (p?.code.done ?? 0), 0);
 
-  return (
-    <div className="relative isolate pb-8 pt-12 sm:pb-16 sm:pt-24">
-      <Particles />
-      {/* A soft gold glow on the right: a radial gradient moved by transform only, so it costs no repaint (a CSS blur filter would, every frame). */}
-      <div aria-hidden className="absolute -right-56 -top-24 -z-10 size-[680px] bg-[radial-gradient(closest-side,rgb(214_160_32/0.3),transparent)] will-change-transform sm:animate-drift" />
+  const bolt = "M12 1.5 21.1 6.75v10.5L12 22.5 2.9 17.25V6.75L12 1.5Zm0 6.2a4.3 4.3 0 1 0 0 8.6 4.3 4.3 0 0 0 0-8.6Z";
 
-      {/* One line at every width: on a phone the letters shrink with the screen rather than wrap. */}
-      <p className="mb-4 whitespace-nowrap font-orbitron text-[clamp(7px,2.35vw,11px)] font-bold uppercase tracking-[.2em] text-brand sm:tracking-[.28em] after:mt-2 after:block after:h-[3px] after:w-11 after:rounded-sm after:bg-brand after:content-[''] sm:text-[13px]">
-        Unofficial · open source · community driven
+  // The numbers as a game HUD in the top corner (left out on phones, for room): the bolt counter is the code verified so far.
+  // The intro's colours (body text, amber numbers), a soft dark halo around each letter and a faint glow behind keep them readable on a bright clip.
+  const hud = (
+    <div className="absolute right-[max(16px,calc(50%-524px))] top-[86px] isolate animate-rise text-right [animation-delay:.6s] [text-shadow:0_0_10px_rgb(5_5_5/.9),0_0_22px_rgb(5_5_5/.6)] before:absolute before:-inset-x-12 before:-inset-y-8 before:-z-10 before:bg-[radial-gradient(closest-side,rgb(5_5_5/.45),transparent)] before:content-[''] max-[700px]:hidden">
+      <div className="flex items-center justify-end gap-2.5 font-orbitron text-[clamp(22px,4vw,30px)] font-extrabold tabular-nums text-amber">
+        <svg viewBox="0 0 24 24" aria-hidden="true" className="size-[0.9em] fill-amber">
+          <path fillRule="evenodd" d={bolt} />
+        </svg>
+        {formatSize(bytes)}
+      </div>
+      <small className="block font-mono text-[11px] font-semibold tracking-[.08em] text-body">OF CODE VERIFIED</small>
+      <p className="mt-2.5 font-mono text-[12px] font-semibold text-body">
+        <b className="text-amber"><CountUp value={new Set(PROJECTS.map((p) => p.name)).size} /></b> titles · <b className="text-amber"><CountUp value={active.length} /></b> projects
+        {/* Left out while the mod list cannot be read, rather than claiming none. */}
+        {mods > 0 && <> · <b className="text-amber"><CountUp value={mods} /></b> mods</>}
       </p>
-      {/* Balanced lines: no word is ever left alone on the last line, whatever the width. */}
-      <h1 className="max-w-[860px] text-balance font-audiowide text-[clamp(32px,6.6vw,68px)] leading-[1.06]">
-        <span className="animate-shine bg-gradient-to-r from-amber via-[#e8a317] to-gold bg-[length:220%_100%] bg-clip-text text-transparent">
+    </div>
+  );
+
+  return (
+    <HeroStage hud={hud}>
+      {/* What is new: the launcher's latest release and its notes. */}
+      {release && (
+        <a href={release.url} className="mb-6 max-[700px]:mb-8 inline-flex max-w-full flex-wrap gap-x-1.5 rounded-full bg-coal px-4 py-2 text-[13px] leading-snug text-soft no-underline backdrop-blur-sm transition-colors hover:bg-coal-hi sm:text-[14px]">
+          <b className="font-semibold text-text">Launcher v{release.version} is out.</b>
+          <span>
+            See <span className="text-amber underline decoration-amber/40 underline-offset-2">what&apos;s new</span>
+          </span>
+        </a>
+      )}
+      <h1 className="max-w-[640px] text-pretty font-audiowide text-[clamp(30px,5.4vw,54px)] leading-[1.08] [text-shadow:0_2px_24px_rgb(0_0_0/0.6)]">
+        <span className="text-amber">
           Ratchet &amp; Clank
         </span>{" "}
-        series, rebuilt from the original bytes.
+        {/* "original bytes" stays together, so "bytes" never sits alone on the last line. */}
+        series, rebuilt from the <span className="whitespace-nowrap">original bytes</span>
       </h1>
-      <p className="mt-5 max-w-[600px] text-[15px] leading-relaxed text-soft sm:text-[17px]">
-        OpenRAC is a hub for community decompilation projects of the Ratchet &amp; Clank series. Each project reconstructs readable source code that compiles to the
-        same bytes as the original game, one function at a time, in the open.
+      <p className="mt-5 max-[700px]:mt-6 max-w-[660px] text-pretty text-[15px] leading-relaxed text-body sm:text-[17px]">
+        A hub for the <span className="text-amber">community decompilations</span> of Ratchet &amp; Clank:{" "}
+        <span className="whitespace-nowrap text-amber">readable source code</span> that compiles to the original games&apos;{" "}
+        <span className="whitespace-nowrap text-amber">exact bytes</span>
       </p>
-      <div className="mt-7 grid animate-rise gap-3 [animation-delay:.45s] min-[560px]:flex min-[560px]:flex-wrap">
-        {/* The main thing a visitor comes for, so it leads; it opens the Download panel right under the hero (DownloadPanel.tsx). */}
-        <a id="download-button" href="#download" aria-controls="download" className="btn btn-primary">
-          <svg viewBox="0 0 16 16" aria-hidden="true" className="size-4 flex-none fill-none stroke-current stroke-2">
-            <path d="M8 2v8m-3.5-3.5L8 10l3.5-3.5M3 13.5h10" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
-          Download the launcher
-        </a>
-        <a href="#progress" className="btn">
-          See progress
-        </a>
-      </div>
-
-      <div className={`mt-10 grid animate-rise gap-2.5 sm:mt-12 sm:gap-3.5 [animation-delay:.6s] ${mods ? "max-w-[900px] grid-cols-2 min-[560px]:grid-cols-4" : "max-w-[760px] grid-cols-3"}`}>
-        {[
-          [<CountUp key="t" value={new Set(PROJECTS.map((p) => p.name)).size} />, "titles tracked"],
-          [<CountUp key="a" value={active.length} />, "active projects"],
-          // Left out while the mod list cannot be read, rather than claiming none.
-          ...(mods ? [[<CountUp key="m" value={mods} />, "community mods"]] : []),
-          [<span key="b">{formatSize(bytes)}</span>, "of code verified across projects"],
-        ].map(([value, label], i) => (
-          <div key={i} className="surface px-3 py-3 sm:px-[18px] sm:py-4">
-            <b className="block font-orbitron whitespace-nowrap text-[clamp(15px,4.2vw,26px)] font-bold leading-tight tabular-nums text-gold">{value}</b>
-            <span className="mt-0.5 block text-[12px] leading-snug text-dim sm:text-[13px]">{label}</span>
-          </div>
-        ))}
-      </div>
-    </div>
+      <HeroDownload version={release?.version ?? null} date={release?.date || null} ready={(release?.platforms ?? []).filter((p) => p.main).map(({ id, name }) => ({ id, name }))} />
+      <p className="mt-5 max-[700px]:mt-8 max-w-[560px] text-[13px] leading-relaxed text-dim">
+        Unofficial and community driven. You need your own copy of the original game to play.{" "}
+        <Link href="/install#your-disc" className="whitespace-nowrap font-semibold text-hi no-underline hover:text-amber">
+          Learn more →
+        </Link>
+      </p>
+    </HeroStage>
   );
 }

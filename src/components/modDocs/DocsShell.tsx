@@ -10,7 +10,7 @@ import VersionSwitcher, { type VersionOption } from "./VersionSwitcher";
 
 const GROUPS: Page["group"][] = ["Start", "Guides", "Reference", "Try it", "Releases"];
 
-const itemClass = (on: boolean) => `flex min-h-8 items-center rounded-md px-3 text-[14px] no-underline transition-colors ${on ? "bg-amber/12 font-semibold text-amber" : "text-soft hover:bg-white/5 hover:text-hi"}`;
+const itemClass = (on: boolean) => `flex min-h-8 items-center rounded-md px-3 text-[14px] no-underline transition-colors ${on ? "bg-amber/12 font-semibold text-amber" : "text-soft hover:bg-coal hover:text-hi"}`;
 
 function Nav({ pages, current, version, latest }: { pages: Page[]; current: string; version: string; latest: string }) {
   return (
@@ -36,7 +36,7 @@ function Nav({ pages, current, version, latest }: { pages: Page[]; current: stri
                 "children" in r ? (
                   <li key={r.parent}>
                     <details open={r.children.some((c) => c.path === current)} className="group/nav">
-                      <summary className="flex min-h-8 cursor-pointer list-none items-center justify-between rounded-md px-3 text-[14px] text-soft transition-colors hover:bg-white/5 hover:text-hi">
+                      <summary className="flex min-h-8 cursor-pointer list-none items-center justify-between rounded-md px-3 text-[14px] text-soft transition-colors hover:bg-coal hover:text-hi">
                         {r.parent}
                         <span aria-hidden className="text-[11px] text-dim transition-transform group-open/nav:rotate-90">
                           ▶

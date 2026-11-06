@@ -4,13 +4,13 @@ const WEEK = "2026-W44";
 
 test("the site points to the news: nav, home, footer, sitemap, llms.txt", async ({ page, request }) => {
   await page.goto("/");
-  await expect(page.getByRole("navigation").first().getByRole("link", { name: "News", exact: true })).toBeAttached();
+  await expect(page.getByRole("navigation", { name: "News and community" }).getByRole("link", { name: "News", exact: true })).toBeAttached();
   const section = page.locator("#news");
   await section.scrollIntoViewIfNeeded();
   await expect(section).toContainText("Ratchet & Clank reaches 100% matched");
   await section.getByRole("link", { name: "Ratchet & Clank reaches 100% matched" }).click();
   await expect(page).toHaveURL(new RegExp(`/news/${WEEK}$`));
-  await expect(page.getByRole("navigation").first().getByRole("link", { name: "News", exact: true })).toHaveAttribute("aria-current", "page");
+  await expect(page.getByRole("navigation", { name: "News and community" }).getByRole("link", { name: "News", exact: true })).toHaveAttribute("aria-current", "page");
   await expect(page.getByRole("contentinfo").getByRole("link", { name: "News" })).toHaveAttribute("href", "/news");
   const sitemap = await request.get("/sitemap.xml").then((r) => r.text());
   expect(sitemap).toContain("/news<");
