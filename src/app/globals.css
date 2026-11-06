@@ -432,8 +432,8 @@ body:has([data-install-bar]:not([inert])) .site-dock {
 }
 
 /* Home: every second section sits on a slightly lighter full-width band, so sections read apart on the black page. */
-.bands > section:nth-of-type(even) { position: relative; isolation: isolate; }
-.bands > section:nth-of-type(even)::before {
+.bands > section:nth-of-type(odd):not(:first-of-type) { position: relative; isolation: isolate; }
+.bands > section:nth-of-type(odd):not(:first-of-type)::before {
   content: "";
   position: absolute;
   z-index: -1;
