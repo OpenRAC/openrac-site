@@ -22,7 +22,7 @@ export default function Hero({ progress, mods, release }: { progress: Partial<Re
   // The numbers as a game HUD in the top corner (left out on phones, for room): the bolt counter is the code verified so far.
   // The intro's colours (body text, amber numbers), a soft dark halo around each letter and a faint glow behind keep them readable on a bright clip.
   const hud = (
-    <div className="absolute right-[max(16px,calc(50%-524px))] top-6 isolate animate-rise text-right [animation-delay:.6s] [text-shadow:0_0_10px_rgb(12_12_18/.9),0_0_22px_rgb(12_12_18/.6)] before:absolute before:-inset-x-12 before:-inset-y-8 before:-z-10 before:bg-[radial-gradient(closest-side,rgb(12_12_18/.45),transparent)] before:content-[''] max-[700px]:hidden">
+    <div className="absolute right-[max(16px,calc(50%-524px))] top-[86px] isolate animate-rise text-right [animation-delay:.6s] [text-shadow:0_0_10px_rgb(12_12_18/.9),0_0_22px_rgb(12_12_18/.6)] before:absolute before:-inset-x-12 before:-inset-y-8 before:-z-10 before:bg-[radial-gradient(closest-side,rgb(12_12_18/.45),transparent)] before:content-[''] max-[700px]:hidden">
       <div className="flex items-center justify-end gap-2.5 font-orbitron text-[clamp(22px,4vw,30px)] font-extrabold tabular-nums text-amber">
         <svg viewBox="0 0 24 24" aria-hidden="true" className="size-[0.9em] fill-amber">
           <path fillRule="evenodd" d={bolt} />

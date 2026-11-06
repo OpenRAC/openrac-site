@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { type MouseEvent, useEffect, useState } from "react";
+import { type MouseEvent, useEffect, useRef, useState } from "react";
 import { PAGE_TRANSITION } from "@/components/layout/PageTransition";
 import { DiscordIcon, GithubIcon, NewsIcon } from "@/components/ui/icons";
 import Logo from "@/components/ui/Logo";
@@ -98,6 +98,18 @@ export default function Header() {
 
   const close = () => setOpen(false);
 
+  // At the very top the bar floats, inset with rounded corners; once the page moves it docks to the edge.
+  // One observer on a 12 px strip at the top of the document: no scroll handler, no work while scrolling.
+  const [floating, setFloating] = useState(true);
+  const top = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const strip = top.current;
+    if (!strip) return;
+    const io = new IntersectionObserver(([e]) => setFloating(e.isIntersecting));
+    io.observe(strip);
+    return () => io.disconnect();
+  }, []);
+
   // On the home page the router has nowhere to go, so the logo would do nothing: scroll to the top
   // ourselves, and drop a #section from the address.
   const toTop = (e: MouseEvent<HTMLAnchorElement>) => {
@@ -111,7 +123,12 @@ export default function Header() {
   if (inDocs) return null;
   return (
     <>
-      <header style={{ viewTransitionName: "site-header" }} className="bar-stripes fixed inset-x-0 top-0 z-30 border-b border-black/30 text-black shadow-[inset_0_1px_0_rgb(255_255_255/0.35),0_4px_24px_rgb(0_0_0/0.45)]">
+      <div ref={top} aria-hidden className="pointer-events-none absolute inset-x-0 top-0 h-3" />
+      <header
+        style={{ viewTransitionName: "site-header" }}
+        data-floating={floating && !open ? "" : undefined}
+        className="bar-stripes fixed left-0 right-0 top-0 z-30 border-b border-black/30 text-black shadow-[inset_0_1px_0_rgb(255_255_255/0.35),0_4px_24px_rgb(0_0_0/0.45)] transition-[top,left,right,border-radius] duration-300 ease-out motion-reduce:transition-none data-[floating]:left-[max(12px,calc(50%-556px))] data-[floating]:right-[max(12px,calc(50%-556px))] data-[floating]:top-3 data-[floating]:rounded-xl data-[floating]:border-b-0 data-[floating]:shadow-[inset_0_1px_0_rgb(255_255_255/0.35),0_10px_30px_rgb(0_0_0/0.5)]"
+      >
         <div className="mx-auto flex h-[50px] max-w-[1080px] items-center gap-6 px-4 min-[821px]:gap-4 min-[821px]:max-[900px]:gap-2">
           <Link href="/" transitionTypes={PAGE_TRANSITION} onClick={toTop} className="group flex items-center text-[#1b1206] no-underline" aria-label="OpenRAC home">
             <Logo height={34} label="" className="transition-opacity group-hover:opacity-85" />

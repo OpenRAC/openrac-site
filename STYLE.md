@@ -49,6 +49,8 @@ the `d-*` classes for the mod docs). Use them before writing new classes.
 
 ## Header bar
 
+- At the very top of a page the bar floats: inset 12 px, `rounded-xl`, as wide as the content. Once the page
+  scrolls it docks to the top edge, full width. The home page's clip runs behind the floating bar.
 - The bar is gold (`bar-stripes`). The logo is dark; its buttons and search field are `umber` with light text.
 - Mods and Download are two separate buttons, filled `umber` with light text (`rounded-md`, 36 px tall).
   The open page is a darker button with gold text.

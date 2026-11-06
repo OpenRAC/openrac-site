@@ -245,8 +245,9 @@ export default function HeroStage({ hud, children }: { hud: ReactNode; children:
     setMissing(now);
     if (i === at && now.size < HERO_SHOTS.length) go(after(at, now)); // no dark wait for a missing first clip
   };
+  // Pulled up under the bar's place (-mt-[50px]), so the clip shows around the floating bar at the top.
   return (
-    <section ref={stage} className="relative mx-[calc(50%-50vw)] flex min-h-[calc(100svh-50px)] items-end">
+    <section ref={stage} className="relative mx-[calc(50%-50vw)] -mt-[50px] flex min-h-svh items-end">
       <HeroShotLayers at={at} off={sky} idle={idle} missing={missing} lost={lost} />
       {sky && (
         <div className={`absolute inset-0 animate-[sky-in_1.6s_ease-out_both] ${FADE_OUT}`}>
