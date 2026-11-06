@@ -23,7 +23,7 @@ export default function Hero({ progress, mods, release }: { progress: Partial<Re
   // A soft dark glow behind the numbers keeps them readable on a bright clip.
   const hud = (
     <div className="absolute right-[max(16px,calc(50%-524px))] top-6 isolate animate-rise text-right [animation-delay:.6s] before:absolute before:-inset-x-12 before:-inset-y-8 before:-z-10 before:bg-[radial-gradient(closest-side,rgb(12_12_18/.55),transparent)] before:content-[''] max-[700px]:hidden">
-      <div className="flex items-center justify-end gap-2.5 font-orbitron text-[clamp(22px,4vw,30px)] font-extrabold tabular-nums text-gold [text-shadow:0_2px_0_#000]">
+      <div className="flex items-center justify-end gap-2.5 font-orbitron text-[clamp(22px,4vw,30px)] font-extrabold tabular-nums text-gold">
         <svg viewBox="0 0 24 24" aria-hidden="true" className="size-[0.9em] fill-amber">
           <path fillRule="evenodd" d={bolt} />
         </svg>
