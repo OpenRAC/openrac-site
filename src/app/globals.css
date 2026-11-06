@@ -18,6 +18,8 @@
   /* Warm mid brown, light enough to stand beside the gold: the fill of every plain control (buttons, fields, chips). Never grey. */
   --color-coal: #121212;
   --color-coal-hi: #1e1e1e;
+  /* The 1 px gold edge round everything filled with coal. */
+  --color-edge: rgb(245 192 64 / 0.7);
   --color-brand: #d6a020;
   --color-amber: #f5c040;
   --color-gold: #ffe08f;
@@ -64,10 +66,15 @@
   background: repeating-linear-gradient(35deg, #c99222 0 20px, #bd8619 20px 40px) fixed;
 }
 @utility coal-stripes {
-  background: repeating-linear-gradient(35deg, #1d1d1d 0 20px, #121212 20px 40px) fixed;
+  background: repeating-linear-gradient(35deg, #181818 0 20px, #121212 20px 40px) fixed;
 }
 @utility coal-stripes-hi {
-  background: repeating-linear-gradient(35deg, #2b2b2b 0 20px, #1f1f1f 20px 40px) fixed;
+  background: repeating-linear-gradient(35deg, #252525 0 20px, #1f1f1f 20px 40px) fixed;
+}
+
+/* Anything filled with coal wears the gold edge, the bar's striped buttons excepted (they sit in the gold). */
+@layer components {
+  .bg-coal { border: 1px solid var(--color-edge); }
 }
 
 /* The shared pieces every section is built from, so buttons and panels look the same everywhere. */
@@ -79,9 +86,8 @@
     gap: 0.5rem;
     min-height: 2.75rem;
     border-radius: 0.375rem;
-    /* no outline: the fill alone sets a button apart (see STYLE.md) */
-    border: 0;
-    /* opaque warm brown (never grey): the hero's embers pass under a button, never over it */
+    /* coal with a thin gold edge (see STYLE.md); opaque, so the hero's embers pass under it */
+    border: 1px solid var(--color-edge);
     background: var(--color-coal);
     padding: 0.625rem 1.25rem;
     font-weight: 600;
@@ -92,6 +98,7 @@
   }
   /* The one main action of a view: flat gold, dark text, the same as the home page's Download. */
   .btn-primary {
+    border-color: transparent;
     background: var(--color-amber);
     color: #1b1206;
     box-shadow: 0 10px 30px -10px rgb(245 166 35 / 0.6);
@@ -103,7 +110,7 @@
     color: var(--color-amber);
   }
   /* A quiet button next to a main one: no fill until hovered. */
-  .btn-ghost { background: transparent; }
+  .btn-ghost { background: transparent; border-color: transparent; }
   .btn-sm {
     min-height: 2.5rem;
     padding: 0.5rem 1rem;
@@ -123,7 +130,7 @@
     height: 2.75rem;
     width: 100%;
     border-radius: 0.375rem;
-    border: 0;
+    border: 1px solid var(--color-edge);
     background: var(--color-coal);
     padding-inline: 1.125rem;
     font-size: 16px; /* 16 px or more: phones do not zoom in on focus */
@@ -163,6 +170,7 @@
     transition: color 0.2s ease, background-color 0.2s ease;
   }
   .chip {
+    border: 1px solid var(--color-edge);
     background: var(--color-coal);
     font-size: 13px;
   }
@@ -177,6 +185,7 @@
     display: inline-flex;
     flex: none;
     border-radius: 0.375rem;
+    border: 1px solid var(--color-edge);
     background: var(--color-coal);
     padding: 2px;
   }
@@ -250,17 +259,17 @@
 .d-card { border-radius: 8px; background: color-mix(in srgb, white 3.5%, var(--color-ink)); }
 .d-card-link { transition: background-color 0.15s ease; }
 .d-card-link:hover { background-color: color-mix(in srgb, white 6%, var(--color-ink)); }
-.d-btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.375rem; height: 30px; padding: 0 0.625rem; border-radius: 6px; border: 0; background: var(--color-coal); font-size: 13px; font-weight: 500; color: var(--color-soft); text-decoration: none; white-space: nowrap; cursor: pointer; transition: color 0.15s ease, background 0.15s ease; }
+.d-btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.375rem; height: 30px; padding: 0 0.625rem; border-radius: 6px; border: 1px solid var(--color-edge); background: var(--color-coal); font-size: 13px; font-weight: 500; color: var(--color-soft); text-decoration: none; white-space: nowrap; cursor: pointer; transition: color 0.15s ease, background 0.15s ease; }
 .d-btn:hover { background: var(--color-coal-hi); color: var(--color-hi); }
 .d-btn[aria-pressed="true"], .d-btn[data-on] { background: color-mix(in srgb, var(--color-amber) 22%, transparent); color: var(--color-amber); }
 .d-btn:disabled { opacity: 0.5; cursor: default; }
-.d-btn-primary { background: var(--color-amber); color: #1a1406; }
+.d-btn-primary { border-color: transparent; background: var(--color-amber); color: #1a1406; }
 .d-btn-primary:hover { background: var(--color-gold); color: #1a1406; }
-.d-seg { display: inline-flex; flex-wrap: wrap; gap: 2px; padding: 2px; border-radius: 6px; background: var(--color-coal); }
+.d-seg { display: inline-flex; flex-wrap: wrap; gap: 2px; padding: 2px; border-radius: 6px; border: 1px solid var(--color-edge); background: var(--color-coal); }
 .d-seg > button { height: 26px; padding: 0 0.625rem; border-radius: 4px; font-size: 13px; color: var(--color-soft); cursor: pointer; transition: background 0.15s ease, color 0.15s ease; }
 .d-seg > button:hover { color: var(--color-hi); }
 .d-seg > button[aria-checked="true"] { background: color-mix(in srgb, var(--color-amber) 22%, transparent); color: var(--color-amber); font-weight: 500; }
-.d-field { width: 100%; height: 34px; padding: 0 0.625rem; border-radius: 6px; border: 0; background: var(--color-coal); font-size: 14px; color: var(--color-text); }
+.d-field { width: 100%; height: 34px; padding: 0 0.625rem; border-radius: 6px; border: 1px solid var(--color-edge); background: var(--color-coal); font-size: 14px; color: var(--color-text); }
 textarea.d-field { height: auto; padding: 0.5rem 0.625rem; line-height: 1.5; }
 .d-field::placeholder { color: var(--color-dim); }
 .d-field:focus { box-shadow: inset 0 0 0 2px var(--color-amber); outline: none; }

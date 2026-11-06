@@ -24,7 +24,7 @@ const shade = "min-[821px]:h-8.5 min-[821px]:coal-stripes";
 const divider = "h-4 w-px flex-none bg-white/15";
 /** A bar button, and Mods while on its pages: the same fill with gold text. */
 const off = `${shade} text-text min-[821px]:text-amber min-[821px]:hover:coal-stripes-hi`;
-const on = "min-[821px]:h-8.5 bg-coal min-[821px]:coal-stripes-hi text-gold";
+const on = "min-[821px]:h-8.5 bg-coal min-[821px]:border-0 min-[821px]:coal-stripes-hi text-gold";
 /** The same for a site's mark, in white. */
 const offMark = "text-text hover:bg-coal-hi";
 
