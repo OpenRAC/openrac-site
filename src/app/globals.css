@@ -21,6 +21,9 @@
   /* Controls sitting on a coal surface (a dialog) are navy, so they still stand out. */
   --color-navy: #1d1b2a;
   --color-navy-hi: #29253b;
+  /* The coal stripes every card and panel wears, the same as the bar's search field (see STYLE.md). */
+  --stripes: repeating-linear-gradient(35deg, #181818 0 20px, #121212 20px 40px);
+  --stripes-hi: repeating-linear-gradient(35deg, #252525 0 20px, #1f1f1f 20px 40px);
   /* The 1 px gold edge round everything filled with coal. */
   --color-edge: rgb(245 192 64 / 0.35);
   --color-brand: #d6a020;
@@ -78,6 +81,12 @@
 /* Anything filled with coal wears the gold edge, the bar's striped buttons excepted (they sit in the gold). */
 @layer components {
   .bg-coal { border: 1px solid var(--color-edge); }
+}
+
+/* Panels drawn with bg-panel wear the same stripes; their hover and open states the lighter ones. */
+@layer components {
+  .bg-panel { background-image: var(--stripes); }
+  [class*="hover:bg-panel-hi"]:hover, [class*="open:bg-panel-hi"][open] { background-image: var(--stripes-hi); }
 }
 
 /* On a coal surface (a dialog, a sheet) controls turn navy so they still stand out; the edge stays. */
@@ -216,12 +225,12 @@
   /* A raised panel: info cards, resources, mod panels. */
   .surface {
     border-radius: 0.75rem;
-    /* no border: a fill a little lighter than the page frames it; opaque, so the hero's embers pass under it */
-    background: color-mix(in srgb, white 3.5%, var(--color-ink));
+    /* no border: coal stripes like the bar's search field; opaque, so the hero's embers pass under it */
+    background: var(--color-coal) var(--stripes);
     transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
   }
   @media (hover: hover) and (pointer: fine) {
-    .surface-link:hover { transform: translateY(-3px); background-color: color-mix(in srgb, white 6%, var(--color-ink)); box-shadow: 0 12px 32px rgb(0 0 0 / 0.45); }
+    .surface-link:hover { transform: translateY(-3px); background-image: var(--stripes-hi); box-shadow: 0 12px 32px rgb(0 0 0 / 0.45); }
   }
 }
 
@@ -267,9 +276,9 @@
 .badge-new { background: color-mix(in srgb, var(--color-amber) 15%, transparent); color: var(--color-amber); }
 
 /* Mod SDK docs: plain, compact controls in the manner of most API docs. */
-.d-card { border-radius: 8px; background: color-mix(in srgb, white 3.5%, var(--color-ink)); }
+.d-card { border-radius: 8px; background: var(--color-coal) var(--stripes); }
 .d-card-link { transition: background-color 0.15s ease; }
-.d-card-link:hover { background-color: color-mix(in srgb, white 6%, var(--color-ink)); }
+.d-card-link:hover { background-image: var(--stripes-hi); }
 .d-btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.375rem; height: 30px; padding: 0 0.625rem; border-radius: 6px; border: 1px solid var(--color-edge); background: var(--color-coal); font-size: 13px; font-weight: 500; color: var(--color-soft); text-decoration: none; white-space: nowrap; cursor: pointer; transition: color 0.15s ease, background 0.15s ease; }
 .d-btn:hover { background: var(--color-coal-hi); color: var(--color-hi); }
 .d-btn[aria-pressed="true"], .d-btn[data-on] { background: color-mix(in srgb, var(--color-amber) 22%, transparent); color: var(--color-amber); }

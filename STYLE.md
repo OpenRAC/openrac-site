@@ -9,8 +9,10 @@ the `d-*` classes for the mod docs). Use them before writing new classes.
 - One accent: gold. `amber` (#f5c040) for actions and things that are on, `gold` (#ffe08f) for numbers and
   highlights, `brand` (#d6a020) for small labels and notes. No second accent colour (no mint, copper, blue or
   red). Discord's blue is used only for Discord.
-- Backgrounds are near-black with a hint of violet: `ink` for the page, `ink-deep` for the darkest parts,
-  `panel` and `panel-hi` for raised things.
+- Backgrounds are near-black with a hint of violet: `ink` for the page, `ink-deep` for the darkest parts.
+- Every card and panel (`.surface`, `.d-card`, `bg-panel`: FAQ, Resources, How it works, Legal, news, mods,
+  docs) wears the same dark diagonal stripes as the bar's search field (`--stripes`: 35deg, 20 px, #181818
+  on #121212; `--stripes-hi` on hover or when open). One look everywhere; no flat lighter panels.
 - Controls (buttons, fields, chips, tabs, small tags you can click, the bar's buttons and search, the corner
   dock) are filled with `coal` (#121212, `coal-hi` #1e1e1e on hover) with a 1 px gold edge (`edge`, amber at 35 %). The rule is
   contrast with the background: on the site's violet-navy ink a control is neutral `#121212`; where the
@@ -37,8 +39,7 @@ the `d-*` classes for the mod docs). Use them before writing new classes.
   inside them turn navy (`navy` #1d1b2a, `navy-hi` #29253b on hover) so they still stand out; the edge stays.
 - Hover on a list row, menu line or icon button is `hover:bg-coal` (no edge). A picked row is `bg-amber/12`.
 - Inline code and badges sit on `ink-deep`, never a white mix.
-- Cards and panels have no border either: their fill is a little lighter than the page (`.surface`, or
-  `bg-panel`).
+- Cards and panels have no border: their coal stripes set them apart from the page.
 - On or picked: a gold tint on the page's ink with gold text (`aria-pressed="true"` or `data-on` on `.btn`/`.chip`, which do
   this for you). The gold edge stays as it is.
 - Focus on a field: a 2 px gold ring inside it (`.field` does it). Other elements use the browser's focus
