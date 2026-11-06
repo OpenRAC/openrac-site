@@ -73,8 +73,8 @@
     gap: 0.5rem;
     min-height: 2.75rem;
     border-radius: 0.375rem;
-    /* no outline: the fill alone sets a button apart (the border stays for the coloured variants) */
-    border: 1px solid transparent;
+    /* no outline: the fill alone sets a button apart (see STYLE.md) */
+    border: 0;
     /* opaque, the page's ink a few shades lighter: the hero's embers pass under a button, never over it */
     background: color-mix(in srgb, white 7%, var(--color-ink));
     padding: 0.625rem 1.25rem;
@@ -82,13 +82,19 @@
     line-height: 1.25;
     color: var(--color-text);
     text-decoration: none;
-    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, background-color 0.2s ease, filter 0.2s ease;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease, color 0.2s ease;
   }
+  /* The one main action of a view: flat gold, dark text, the same as the home page's Download. */
   .btn-primary {
-    border-color: var(--color-amber);
-    background: linear-gradient(to bottom, var(--color-amber), #e8a317);
-    color: #1a0d00;
-    box-shadow: 0 6px 24px rgb(232 163 23 / 0.3);
+    background: var(--color-amber);
+    color: #1b1206;
+    box-shadow: 0 10px 30px -10px rgb(245 166 35 / 0.6);
+  }
+  /* A plain button that is switched on (picked, or a filter in use): a gold tint, gold text. */
+  .btn[aria-pressed="true"],
+  .btn[data-on] {
+    background: color-mix(in srgb, var(--color-amber) 15%, var(--color-ink));
+    color: var(--color-amber);
   }
   /* A quiet button next to a main one: no fill until hovered. */
   .btn-ghost { background: transparent; }
@@ -102,23 +108,24 @@
   @media (hover: hover) and (pointer: fine) {
     .btn:hover { transform: translateY(-2px); background-color: color-mix(in srgb, white 11%, var(--color-ink)); box-shadow: 0 8px 24px rgb(0 0 0 / 0.4); }
     .btn-ghost:hover { transform: none; box-shadow: none; background-color: rgb(255 255 255 / 0.06); }
-    .btn-primary:hover { filter: brightness(1.08); box-shadow: 0 8px 28px rgb(232 163 23 / 0.4); }
+    .btn-primary:hover { background-color: var(--color-gold); box-shadow: 0 10px 30px -8px rgb(245 166 35 / 0.6); }
+    .btn[aria-pressed="true"]:hover, .btn[data-on]:hover { background-color: color-mix(in srgb, var(--color-amber) 22%, var(--color-ink)); }
   }
 
-  /* Form controls, one look for all: as tall as a button, the same border and fill, the accent on focus. */
+  /* Form controls, one look for all: as tall and as round as a button, a fill and no border, a gold ring on focus. */
   .field {
     height: 2.75rem;
     width: 100%;
-    border-radius: 9999px;
-    border: 1px solid rgb(255 255 255 / 0.18);
-    background: color-mix(in srgb, white 3%, var(--color-ink));
+    border-radius: 0.375rem;
+    border: 0;
+    background: color-mix(in srgb, white 6%, var(--color-ink));
     padding-inline: 1.125rem;
     font-size: 16px; /* 16 px or more: phones do not zoom in on focus */
     color: var(--color-text);
-    transition: border-color 0.2s ease;
+    transition: background-color 0.2s ease, box-shadow 0.2s ease;
   }
   .field::placeholder { color: var(--color-dim); }
-  .field:focus { border-color: var(--color-amber); outline: none; }
+  .field:focus { box-shadow: inset 0 0 0 2px var(--color-amber); outline: none; }
   /* A dropdown: the same field with its own arrow. */
   select.field {
     width: auto;
@@ -143,33 +150,31 @@
     min-width: 2.5rem;
     min-height: 2.5rem;
     white-space: nowrap;
-    border-radius: 9999px;
+    border-radius: 0.375rem;
     padding-inline: 0.875rem;
     font-weight: 600;
     color: var(--color-soft);
-    transition: border-color 0.2s ease, color 0.2s ease, background-color 0.2s ease;
+    transition: color 0.2s ease, background-color 0.2s ease;
   }
   .chip {
-    border: 1px solid rgb(255 255 255 / 0.15);
-    background: color-mix(in srgb, white 3%, var(--color-ink));
+    background: color-mix(in srgb, white 6%, var(--color-ink));
     font-size: 13px;
   }
   .chip[aria-pressed="true"],
   .chip[aria-checked="true"],
   .chip[data-on] {
-    border-color: var(--color-amber);
     background: color-mix(in srgb, var(--color-amber) 15%, var(--color-ink));
     color: var(--color-amber);
   }
-  /* A row of choices in one pill, one of them on: the list's presets, Showcase or List. */
+  /* A row of choices on one filled strip, one of them on: the list's presets, Showcase or List. */
   .seg {
     display: inline-flex;
     flex: none;
-    border-radius: 9999px;
-    border: 1px solid rgb(255 255 255 / 0.15);
-    padding: 1px;
+    border-radius: 0.375rem;
+    background: color-mix(in srgb, white 4%, var(--color-ink));
+    padding: 2px;
   }
-  .seg > button { font-size: 14px; }
+  .seg > button { font-size: 14px; border-radius: 0.25rem; }
   @media (max-width: 479px) { .seg > button { padding-inline: 0.7rem; } }
   .seg > button[aria-pressed="true"],
   .seg > button[aria-checked="true"] {
@@ -177,21 +182,20 @@
     color: var(--color-amber);
   }
   @media (hover: hover) and (pointer: fine) {
-    .field:hover:not(:focus) { border-color: rgb(255 255 255 / 0.3); }
-    .chip:hover:not([aria-pressed="true"], [aria-checked="true"], [data-on]) { border-color: rgb(255 255 255 / 0.3); color: var(--color-hi); }
+    .field:hover:not(:focus) { background-color: color-mix(in srgb, white 9%, var(--color-ink)); }
+    .chip:hover:not([aria-pressed="true"], [aria-checked="true"], [data-on]) { background-color: color-mix(in srgb, white 10%, var(--color-ink)); color: var(--color-hi); }
     .seg > button:hover:not([aria-pressed="true"], [aria-checked="true"]) { color: var(--color-hi); }
   }
 
   /* A raised panel: info cards, resources, mod panels. */
   .surface {
-    border-radius: 1rem;
-    border: 1px solid var(--color-line);
-    /* barely lifted from the page, the border does the framing; opaque, so the hero's embers pass under it */
-    background: color-mix(in srgb, white 1.8%, var(--color-ink));
-    transition: transform 0.2s ease, border-color 0.2s ease;
+    border-radius: 0.75rem;
+    /* no border: a fill a little lighter than the page frames it; opaque, so the hero's embers pass under it */
+    background: color-mix(in srgb, white 3.5%, var(--color-ink));
+    transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
   }
   @media (hover: hover) and (pointer: fine) {
-    .surface-link:hover { transform: translateY(-3px); border-color: var(--color-brand); }
+    .surface-link:hover { transform: translateY(-3px); background-color: color-mix(in srgb, white 6%, var(--color-ink)); box-shadow: 0 12px 32px rgb(0 0 0 / 0.45); }
   }
 }
 
@@ -233,27 +237,27 @@
 .tk-m { color: var(--color-brand); }
 .code-head { display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; border-bottom: 1px solid var(--color-line); padding: 0.375rem 0.75rem; }
 .code-name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-family: var(--font-mono, ui-monospace, monospace); font-size: 12px; color: var(--color-dim); }
-.badge { display: inline-flex; flex: none; align-items: center; border-radius: 4px; border: 1px solid rgb(255 255 255 / 0.14); padding: 0 0.375rem; font-size: 11.5px; font-weight: 500; line-height: 18px; color: var(--color-dim); vertical-align: middle; }
-.badge-new { border-color: color-mix(in srgb, var(--color-amber) 45%, transparent); color: var(--color-amber); }
+.badge { display: inline-flex; flex: none; align-items: center; border-radius: 4px; background: rgb(255 255 255 / 0.07); padding: 0 0.375rem; font-size: 11.5px; font-weight: 500; line-height: 18px; color: var(--color-soft); vertical-align: middle; }
+.badge-new { background: color-mix(in srgb, var(--color-amber) 15%, transparent); color: var(--color-amber); }
 
 /* Mod SDK docs: plain, compact controls in the manner of most API docs. */
-.d-card { border-radius: 8px; border: 1px solid var(--color-line); background: color-mix(in srgb, white 2%, var(--color-ink)); }
-.d-card-link { transition: border-color 0.15s ease; }
-.d-card-link:hover { border-color: rgb(255 255 255 / 0.22); }
-.d-btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.375rem; height: 30px; padding: 0 0.625rem; border-radius: 6px; border: 1px solid rgb(255 255 255 / 0.12); background: transparent; font-size: 13px; font-weight: 500; color: var(--color-soft); text-decoration: none; white-space: nowrap; cursor: pointer; transition: border-color 0.15s ease, color 0.15s ease, background 0.15s ease; }
-.d-btn:hover { border-color: rgb(255 255 255 / 0.24); color: var(--color-hi); }
-.d-btn[aria-pressed="true"], .d-btn[data-on] { border-color: color-mix(in srgb, var(--color-amber) 45%, transparent); color: var(--color-amber); }
+.d-card { border-radius: 8px; background: color-mix(in srgb, white 3.5%, var(--color-ink)); }
+.d-card-link { transition: background-color 0.15s ease; }
+.d-card-link:hover { background-color: color-mix(in srgb, white 6%, var(--color-ink)); }
+.d-btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.375rem; height: 30px; padding: 0 0.625rem; border-radius: 6px; border: 0; background: rgb(255 255 255 / 0.07); font-size: 13px; font-weight: 500; color: var(--color-soft); text-decoration: none; white-space: nowrap; cursor: pointer; transition: color 0.15s ease, background 0.15s ease; }
+.d-btn:hover { background: rgb(255 255 255 / 0.12); color: var(--color-hi); }
+.d-btn[aria-pressed="true"], .d-btn[data-on] { background: color-mix(in srgb, var(--color-amber) 15%, transparent); color: var(--color-amber); }
 .d-btn:disabled { opacity: 0.5; cursor: default; }
-.d-btn-primary { border-color: var(--color-amber); background: var(--color-amber); color: #1a1406; }
-.d-btn-primary:hover { border-color: var(--color-gold); background: var(--color-gold); color: #1a1406; }
-.d-seg { display: inline-flex; flex-wrap: wrap; gap: 2px; padding: 2px; border-radius: 6px; border: 1px solid var(--color-line); }
+.d-btn-primary { background: var(--color-amber); color: #1a1406; }
+.d-btn-primary:hover { background: var(--color-gold); color: #1a1406; }
+.d-seg { display: inline-flex; flex-wrap: wrap; gap: 2px; padding: 2px; border-radius: 6px; background: rgb(255 255 255 / 0.04); }
 .d-seg > button { height: 26px; padding: 0 0.625rem; border-radius: 4px; font-size: 13px; color: var(--color-soft); cursor: pointer; transition: background 0.15s ease, color 0.15s ease; }
 .d-seg > button:hover { color: var(--color-hi); }
 .d-seg > button[aria-checked="true"] { background: rgb(255 255 255 / 0.08); color: var(--color-hi); font-weight: 500; }
-.d-field { width: 100%; height: 34px; padding: 0 0.625rem; border-radius: 6px; border: 1px solid rgb(255 255 255 / 0.12); background: var(--color-ink-deep); font-size: 14px; color: var(--color-text); }
+.d-field { width: 100%; height: 34px; padding: 0 0.625rem; border-radius: 6px; border: 0; background: rgb(255 255 255 / 0.06); font-size: 14px; color: var(--color-text); }
 textarea.d-field { height: auto; padding: 0.5rem 0.625rem; line-height: 1.5; }
 .d-field::placeholder { color: var(--color-dim); }
-.d-field:focus { border-color: var(--color-amber); outline: none; }
+.d-field:focus { box-shadow: inset 0 0 0 2px var(--color-amber); outline: none; }
 @media (max-width: 639px) { .d-field { font-size: 16px; } }
 .d-prose h1, .d-prose h2, .d-prose h3, .d-prose h4 { font-family: var(--font-sans); text-transform: none; letter-spacing: -0.01em; font-weight: 600; }
 .code-pre { overflow-x: auto; padding: 0.875rem; font-size: 13.5px; line-height: 1.6; color: var(--color-text); }
@@ -272,7 +276,7 @@ body { background: var(--color-ink); color: var(--color-text); }
 :focus-visible { outline: 2px solid var(--color-amber); outline-offset: 3px; }
 /* An element focused only by script (tabindex="-1", such as the Download panel's heading) takes no ring: the reader did not move there with the keyboard. */
 [tabindex="-1"]:focus { outline: none; }
-/* Form fields show focus with their gold border (.field:focus); a ring around it as well would draw two frames. */
+/* Form fields show focus with their gold ring (.field:focus); a ring around it as well would draw two frames. */
 .field:focus-visible { outline: none; }
 
 /* Sections fade in once scrolled to. Only hidden when scripting is available,

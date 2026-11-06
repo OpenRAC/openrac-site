@@ -103,7 +103,7 @@ export default function ModCard({
 }) {
   return (
     <article
-      className="group/card surface surface-link relative isolate flex flex-col overflow-hidden rounded-2xl [contain-intrinsic-size:auto_380px] [content-visibility:auto]"
+      className="group/card surface surface-link relative isolate flex flex-col overflow-hidden [contain-intrinsic-size:auto_380px] [content-visibility:auto]"
     >
       <CardPicture mod={mod} sizes={sizes} priority={priority}>
         {/* One line of badges on the picture's dark bottom edge: a long one shortens with "…" rather than wrapping. */}
@@ -119,7 +119,7 @@ export default function ModCard({
         <div className="min-w-0">
           <h3 className="font-orbitron text-[17px] font-bold leading-tight text-hi [overflow-wrap:anywhere]">
             {/* The card's one link, stretched over the whole card. */}
-            <Link href={`/mods/${mod.id}`} prefetch={false} className="no-underline after:absolute after:inset-0 after:content-[''] focus-visible:outline-none focus-visible:after:rounded-2xl focus-visible:after:outline focus-visible:after:outline-2 focus-visible:after:outline-amber">
+            <Link href={`/mods/${mod.id}`} prefetch={false} className="no-underline after:absolute after:inset-0 after:content-[''] focus-visible:outline-none focus-visible:after:rounded-xl focus-visible:after:outline focus-visible:after:outline-2 focus-visible:after:outline-amber">
               <Marked text={mod.name} query={query} />
             </Link>
           </h3>

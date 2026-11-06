@@ -72,7 +72,7 @@ export default async function ModsPage() {
       </div>
 
       {catalog.stale && (
-        <p className="mb-2 rounded-xl border-l-4 border-brand bg-brand/10 px-4 py-3 text-[15px] text-soft">
+        <p className="mb-2 rounded-xl bg-brand/10 px-4 py-3 text-[15px] text-soft">
           {mods.length ? "The mod list may be a little out of date: GitHub did not answer just now. It refreshes by itself." : "The mod list could not be loaded just now. It refreshes by itself; try again in a minute."}
         </p>
       )}

@@ -157,7 +157,7 @@ export default function HookExplorer({ hooks, game, discs, manifestHref, scripts
           <div className="grid gap-2">
             <div className="flex flex-wrap items-center gap-2">
               <h3 className="min-w-0 font-mono text-[16px] font-semibold text-gold [overflow-wrap:anywhere]">{key(h)}</h3>
-              {h.experimental && <span className="badge border-brand/50 text-brand">Experimental</span>}
+              {h.experimental && <span className="badge !bg-brand/10 !text-brand">Experimental</span>}
             </div>
             {h.about && <p className="text-[15px] leading-relaxed text-body">{plainAbout(h)}</p>}
             <div tabIndex={0} aria-label="Signature" className="overflow-x-auto rounded-md border border-line bg-ink-deep px-3 py-2 [scrollbar-width:thin]">

@@ -14,7 +14,7 @@ export function exampleSource(from: string, guides: { slug: string; title: strin
 /** One documented item: its name and badges, then what it is, in a raised panel an anchor can land on. */
 export default function Entry({ id, ids = [], title, badges, children }: { id: string; ids?: string[]; title: ReactNode; badges?: ReactNode; children: ReactNode }) {
   return (
-    <article id={id} className="d-card scroll-mt-20 p-4 target:border-amber">
+    <article id={id} className="d-card scroll-mt-20 p-4 target:shadow-[inset_0_0_0_1px_var(--color-amber)]">
       {ids.filter((x) => x !== id).map((x) => (
         <span key={x} id={x} className="block scroll-mt-20" aria-hidden />
       ))}

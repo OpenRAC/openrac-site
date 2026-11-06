@@ -41,7 +41,7 @@ export default function MediaGallery({ items, name }: { items: GalleryItem[]; na
 
   return (
     <div>
-      <div className="relative overflow-hidden rounded-2xl border border-line bg-ink-deep">
+      <div className="relative overflow-hidden rounded-xl bg-ink-deep">
         {item.kind === "video" ? (
           <YouTubeFacade key={item.youtube} id={item.youtube} title={item.title} thumbnail={youtubeThumb(item.youtube)} label="Video" />
         ) : (
@@ -61,7 +61,7 @@ export default function MediaGallery({ items, name }: { items: GalleryItem[]; na
                 onClick={() => setAt(i)}
                 aria-current={i === at ? "true" : undefined}
                 aria-label={x.kind === "video" ? `Video: ${x.title}` : `Picture ${images.indexOf(i) + 1}: ${x.caption ?? x.alt}`}
-                className={`relative block aspect-video w-[118px] overflow-hidden rounded-lg border-2 transition ${i === at ? "border-amber" : "border-transparent opacity-70 hover:opacity-100"}`}
+                className={`relative block aspect-video w-[118px] overflow-hidden rounded-md transition ${i === at ? "outline-2 outline-offset-2 outline-amber" : "opacity-70 hover:opacity-100"}`}
               >
                 {x.kind === "video" ? (
                   <>

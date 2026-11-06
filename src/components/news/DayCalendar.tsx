@@ -8,7 +8,7 @@ export default function DayCalendar({ days, day }: { days: readonly string[]; da
   const { weeks, previous, next } = monthGrid(days, day);
   const step = "flex size-11 items-center justify-center rounded-full text-[18px] text-soft no-underline hover:bg-white/5 hover:text-hi";
   return (
-    <nav aria-label="Pick a day" className="rounded-2xl border border-line bg-panel p-3">
+    <nav aria-label="Pick a day" className="rounded-xl bg-panel p-3">
       <div className="mb-1 flex items-center justify-between">
         {previous ? <Link href={`/news/days/${previous}`} aria-label={`Earlier month: ${formatMonth(previous)}`} className={step}>‹</Link> : <span className="size-11" />}
         <span className="font-orbitron text-[13px] font-bold text-hi">{formatMonth(day)}</span>

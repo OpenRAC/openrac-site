@@ -74,7 +74,7 @@ export default function Faq() {
     <Section id="faq" title="FAQ" sub="The short answers.">
       <div className="grid gap-2.5">
         {FAQ.map(([q, a]) => (
-          <details key={q} className="group surface px-4 open:border-brand open:bg-panel-hi hover:border-brand/70 sm:px-5">
+          <details key={q} className="group surface px-4 open:bg-panel-hi hover:bg-panel-hi sm:px-5">
             <summary className="flex min-h-16 cursor-pointer list-none items-center justify-between gap-4 py-3.5 text-[16px] font-semibold text-text sm:text-[17px]">
               {q}
               {/* A real button-looking control, so it is plain that the row opens. */}

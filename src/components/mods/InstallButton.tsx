@@ -93,7 +93,7 @@ export default function InstallButton({
             Install opens the <b className="font-semibold text-hi">OpenRAC launcher</b>, which installs the mod and everything it needs. If nothing happened, the launcher is probably not installed yet.
           </p>
           {devOnly && (
-            <p className="rounded-xl border-l-4 border-amber bg-amber/10 px-4 py-3 text-[15px]">
+            <p className="rounded-xl bg-amber/10 px-4 py-3 text-[15px]">
               This mod needs the <b className="text-gold">dev build</b> of the launcher. Each system in the download panel has a <b className="text-gold">DEV</b> link for it.
             </p>
           )}

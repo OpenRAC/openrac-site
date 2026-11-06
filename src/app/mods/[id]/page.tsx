@@ -228,7 +228,7 @@ export default async function ModPage(props: PageProps<"/mods/[id]">) {
             </ol>
           </nav>
           <div className="flex items-end gap-4">
-            {mod.media.icon && <ModImage img={slimImageOf(mod.media.icon)!} sizes="88px" alt="" className="size-[72px] flex-none rounded-2xl border border-white/15 object-cover sm:size-[88px]" />}
+            {mod.media.icon && <ModImage img={slimImageOf(mod.media.icon)!} sizes="88px" alt="" className="size-[72px] flex-none rounded-xl object-cover sm:size-[88px]" />}
             <div className="min-w-0">
               <h1 className="font-audiowide text-[clamp(30px,5.5vw,54px)] leading-[1.05] text-text [overflow-wrap:anywhere]">{mod.name}</h1>
               <p className="mt-1.5 text-[15px] text-soft">
@@ -266,12 +266,12 @@ export default async function ModPage(props: PageProps<"/mods/[id]">) {
         <InPageNav sections={sections} />
 
         {revokedAll && (
-          <p className="mt-6 rounded-xl border-l-4 border-amber bg-amber/10 px-4 py-3 text-soft">
+          <p className="mt-6 rounded-xl bg-amber/10 px-4 py-3 text-soft">
             <b className="text-gold">This mod was taken off the list.</b> {catalog.revoked.find((r) => r.id === mod.id)?.reason} Launchers turn it off by themselves.
           </p>
         )}
         {works !== "release" && !revokedAll && (
-          <p className="mt-6 rounded-xl border-l-4 border-brand bg-brand/10 px-4 py-3 text-[15px] text-soft">
+          <p className="mt-6 rounded-xl bg-brand/10 px-4 py-3 text-[15px] text-soft">
             {works === "dev" ? (
               <>
                 <b className="text-gold">Needs the dev build of the launcher.</b> It uses parts of the mod interface the released launcher does not have yet. Each system in the{" "}
@@ -377,8 +377,8 @@ export default async function ModPage(props: PageProps<"/mods/[id]">) {
                       <details className="surface group open:pb-1" open={i === 0}>
                         <summary className="flex min-h-12 cursor-pointer list-none flex-wrap items-center gap-x-4 gap-y-1 px-4 py-2.5">
                           <span className="font-orbitron font-bold tabular-nums text-gold">v{ver.version}</span>
-                          {ver.prerelease && <span className="rounded-full border border-amber/40 px-2 font-orbitron text-[10px] uppercase tracking-[.15em] text-amber">Pre-release</span>}
-                          {gone && <span className="rounded-full border border-white/15 px-2 font-orbitron text-[10px] uppercase tracking-[.15em] text-dim">Withdrawn</span>}
+                          {ver.prerelease && <span className="rounded bg-amber/10 px-2 font-orbitron text-[10px] uppercase tracking-[.15em] text-amber">Pre-release</span>}
+                          {gone && <span className="rounded bg-white/[.07] px-2 font-orbitron text-[10px] uppercase tracking-[.15em] text-dim">Withdrawn</span>}
                           <span className="text-[13px] text-dim">{new Date(ver.released).toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" })}</span>
                           <span className="text-[13px] text-dim">{Object.values(ver.games).flat().map((d) => DISC_LABEL[d] ?? d).join(", ")}</span>
                           {ver.size > 0 && <span className="text-[13px] tabular-nums text-dim">{formatSize(ver.size)}</span>}
@@ -448,7 +448,7 @@ export default async function ModPage(props: PageProps<"/mods/[id]">) {
             <div className="surface grid gap-4 p-5 [@media(min-height:800px)]:sticky [@media(min-height:800px)]:top-[112px]">
               <Facts mod={mod} catalog={catalog} now={now} />
               {mod.type === "native" && (
-                <p className="rounded-xl border-l-4 border-amber bg-amber/10 px-3 py-2.5 text-[13px] text-soft">
+                <p className="rounded-xl bg-amber/10 px-3 py-2.5 text-[13px] text-soft">
                   <span aria-hidden>⚠ </span>Runs native code on your computer. Every file is checked against the signed mod list before use.
                 </p>
               )}

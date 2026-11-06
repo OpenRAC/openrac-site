@@ -68,7 +68,7 @@ export function Sources({ report, projects }: { report: NewsReport; projects: re
   const sources = reportSources(report, projects);
   if (!sources.length) return null;
   return (
-    <details open className="rounded-2xl border border-line bg-panel px-5">
+    <details open className="rounded-xl bg-panel px-5">
       <summary className="flex min-h-12 cursor-pointer items-center font-orbitron text-[13px] font-bold text-gold">Sources ({sources.length})</summary>
       <ul className="grid gap-1.5 pb-4 text-[14px] leading-snug">
         {sources.map((s) => (
@@ -128,7 +128,7 @@ export function ProjectCard({ project, children, href }: { project: NewsProject;
   const game = gameOf(project.repo);
   const inner = (
     <>
-      {game && <Backdrop src={game.image} fallback={game.fallbackImage} className="rounded-[inherit] [clip-path:inset(0_round_1rem)]" />}
+      {game && <Backdrop src={game.image} fallback={game.fallbackImage} className="rounded-[inherit] [clip-path:inset(0_round_.75rem)]" />}
       <div aria-hidden className="absolute inset-0 bg-gradient-to-r from-ink/95 via-ink/85 to-ink/70" />
       <div className="relative grid gap-3 p-5">
         <h3 className={`text-[20px] leading-tight text-hi sm:text-[22px] ${game?.fontClass ?? "font-orbitron font-semibold"}`}>{project.title}</h3>
@@ -142,9 +142,9 @@ export function ProjectCard({ project, children, href }: { project: NewsProject;
       </div>
     </>
   );
-  const box = "relative isolate block overflow-hidden rounded-2xl border border-line bg-ink";
+  const box = "relative isolate block overflow-hidden rounded-xl bg-panel";
   return href ? (
-    <Link href={href} data-reveal style={accentStyle(project.repo)} className={`${box} no-underline transition-colors hover:border-(--tx)`}>
+    <Link href={href} data-reveal style={accentStyle(project.repo)} className={`${box} no-underline transition-[background-color,translate] hover:-translate-y-0.5 hover:bg-panel-hi`}>
       {inner}
     </Link>
   ) : (
@@ -176,7 +176,7 @@ export function ReportSection({ section, known, repo }: { section: NewsReportSec
 /** A plain line about what the page can and cannot show. Says what happened and what still works; never alarms. */
 export function Notice({ children }: { children: ReactNode }) {
   return (
-    <p role="status" className="rounded-xl border border-line border-l-4 border-l-amber bg-panel px-4 py-3 text-[15px] text-soft">
+    <p role="status" className="rounded-xl bg-amber/10 px-4 py-3 text-[15px] text-soft">
       {children}
     </p>
   );
@@ -200,9 +200,9 @@ export function NoReport({ state }: { state: "none" | "invalid" }) {
 export function ReportPoster({ entry, report, lead, large = false, heading: Heading = "h2" }: { entry: Pick<NewsWeekEntry, "week" | "start" | "end">; report: NewsReport; lead?: string; large?: boolean; heading?: "h2" | "h3" }) {
   const game = gameOf(lead);
   return (
-    <article data-reveal style={accentStyle(lead)} className={`group/poster relative isolate flex overflow-hidden rounded-2xl border border-line bg-ink transition-colors hover:border-(--tx) ${large ? "min-h-[340px]" : "min-h-[240px]"}`}>
-      {game && <Backdrop src={game.image} fallback={game.fallbackImage} zoom="group-hover/poster:[--zoom:1.04]" className="rounded-[inherit] [clip-path:inset(0_round_1rem)]" />}
-      <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-ink via-ink/85 to-ink/40" />
+    <article data-reveal style={accentStyle(lead)} className={`group/poster relative isolate flex overflow-hidden rounded-xl bg-panel transition-[translate] hover:-translate-y-0.5 ${large ? "min-h-[340px]" : "min-h-[240px]"}`}>
+      {game && <Backdrop src={game.image} fallback={game.fallbackImage} zoom="group-hover/poster:[--zoom:1.04]" className="rounded-[inherit] [clip-path:inset(0_round_.75rem)]" />}
+      <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-panel via-panel/85 to-panel/40" />
       <div className="relative mt-auto grid w-full min-w-0 gap-2 p-5 [overflow-wrap:anywhere] sm:p-6">
         <p className="font-orbitron text-[12px] font-bold uppercase tracking-[.16em] text-(--tx)">
           {formatWeekName(entry.week)} · <time dateTime={entry.end}>{formatWeekRange(entry.start, entry.end)}</time>

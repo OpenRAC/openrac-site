@@ -75,14 +75,14 @@ export default async function NewsPage() {
 
         <div className="grid items-start gap-5 sm:grid-cols-2">
           {newestDay && (
-            <section aria-labelledby="facts" className="rounded-2xl border border-line bg-panel p-5">
+            <section aria-labelledby="facts" className="rounded-xl bg-panel p-5">
               <h2 id="facts" className="mb-1 font-orbitron text-lg font-bold text-gold">Latest facts</h2>
               <p className="mb-3 text-soft">Collected from GitHub, day by day, before anyone writes them up.</p>
               <Link href={`/news/days/${newestDay}`} className="btn">{formatDay(newestDay)}</Link>
             </section>
           )}
           {waiting.length > 0 && (
-            <section aria-labelledby="waiting" className="rounded-2xl border border-line bg-panel p-5">
+            <section aria-labelledby="waiting" className="rounded-xl bg-panel p-5">
               <h2 id="waiting" className="mb-1 font-orbitron text-lg font-bold text-gold">Waiting for a report</h2>
               <p className="mb-3 text-soft">People write these with their own AI tools. <a href={NEWS_CONTRIBUTING} className="text-amber underline underline-offset-2">Help write one</a></p>
               <ul className="grid gap-1">
