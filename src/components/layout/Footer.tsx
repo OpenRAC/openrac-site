@@ -19,7 +19,7 @@ export default function SiteFooter() {
             OpenRAC · unofficial community project · <Link className={a} href="/mods" transitionTypes={PAGE_TRANSITION}>Mods</Link> · <Link className={a} href="/news" transitionTypes={PAGE_TRANSITION}>News</Link> · <Link className={a} href="/#legal" transitionTypes={PAGE_TRANSITION}>Legal</Link> ·{" "}
             <a className={a} href="https://github.com/OpenRAC">GitHub</a> · <a className={a} href={DISCORD_URL}>Discord</a>
           </p>
-          <p className="max-w-[820px]">
+          <p className="min-[1080px]:whitespace-nowrap">
             Progress is read from the projects&apos; repositories on the server and refreshed every ten minutes. For scripts and AI tools:{" "}
             <a className={a} href="/progress.json">progress.json</a> · <a className={a} href="/llms.txt">llms.txt</a>
           </p>

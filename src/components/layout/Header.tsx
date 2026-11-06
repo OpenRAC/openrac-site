@@ -182,7 +182,7 @@ export default function Header() {
       {/* Holds the bar's place in the page. */}
       <div aria-hidden className="h-[50px]" />
       {/* News, GitHub and Discord float in the bottom right corner, out of the crowded bar, in reach on every screen. */}
-      <nav aria-label="News and community" className="site-dock fixed bottom-[max(16px,env(safe-area-inset-bottom))] right-[max(16px,env(safe-area-inset-right))] z-20 flex items-center rounded-lg bg-coal px-1 shadow-[0_8px_24px_rgb(0_0_0/0.45)] transition-[translate] duration-200 motion-reduce:transition-none">
+      <nav aria-label="News and community" className="site-dock fixed bottom-[max(16px,env(safe-area-inset-bottom))] right-[max(16px,env(safe-area-inset-right))] z-20 flex items-center rounded-lg border-0 bg-coal px-1 shadow-[0_8px_24px_rgb(0_0_0/0.45)] transition-[translate] duration-200 motion-reduce:transition-none">
         <NewsButton on={inNews} className={`${offMark} size-10`} />
         <span aria-hidden className={divider} />
         <MarkButton site="github" className={`${offMark} size-10`} />

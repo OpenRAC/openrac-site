@@ -6,47 +6,66 @@ the `d-*` classes for the mod docs). Use them before writing new classes.
 
 ## Colour
 
-- One accent: gold. `amber` (#f5c040) for actions and things that are on, `gold` (#ffe08f) for numbers and
-  highlights, `brand` (#d6a020) for small labels and notes. No second accent colour (no mint, copper, blue or
-  red). Discord's blue is used only for Discord.
-- Backgrounds are black (user: no navy page): `ink` (#0a0a0a) for the page, `ink-deep` (#050505) for the
-  darkest parts.
-- Home sections alternate: the hero melts into a dark Progress, then every second section sits on a full-width band a little lighter than the page
-  (`--color-band` #111111, `main.bands`), with hard edges, no gradient (user), so sections read apart. On a band the card stripes turn darker
-  than the band (#0a0a0a on #070707).
-- Every card and panel (`.surface`, `.d-card`, `bg-panel`: FAQ, Resources, How it works, Legal, news, mods,
-  docs) wears the same dark diagonal stripes as the bar's search field (`--stripes`: 35deg, 20 px, a faint #151515
-  on #121212, a light background, never loud; `--stripes-hi` on hover or when open). One look everywhere; no flat lighter panels.
-- Controls (buttons, fields, chips, tabs, small tags you can click, the bar's buttons and search, the corner
-  dock) are filled with `coal` (#121212, `coal-hi` #1e1e1e on hover) with a 1 px gold edge (`edge`, amber at 35 %). The rule is
-  contrast with the background: on the site's black ink a control is `#121212` with the gold edge; where the
-  background is neutral `#121212`, a control is navy (`#1d1b2a`). No brown fills, no mid greys, never
-  `bg-white/…` or a white mix for a control.
+- One accent: gold. `amber` (#f5c040) for actions, gold text and things that are on, `gold` (#ffe08f) for
+  numbers and highlights, `brand` (#d6a020) for small labels and notes. No second accent colour (no mint,
+  copper, blue or red). Discord's blue is used only for Discord.
+- No grey, no brown, no white mix anywhere: never `bg-white/…`, `rgb(255 255 255 / …)` or a mid grey as a
+  fill, and no brown control (`umber` and every brown tried were rejected). The only neutrals are the blacks
+  and coals below.
 - Text: `hi` for headings, `body` for reading text, `soft` for secondary text, `dim` for the quietest text.
-- Gold text sits on dark only. On a gold fill, the text is dark (`#1b1206`).
+  Gold text sits on dark only. On a gold fill, the text is dark (`#1b1206`).
+
+### The page
+
+- The page is black, never navy: `ink` #0a0a0a, `ink-deep` #050505 for the darkest parts (code blocks,
+  inline code, badges). Every shade made from the page colour (the hero's gradients, halos) uses the same
+  black.
+- Home sections alternate so they read apart. The hero melts into a dark Progress; after it every second
+  section (Get involved, Recent activity, Resources, Our view on AI…) sits on a full-width band a little
+  lighter than the page: `--color-band` #111111, drawn by `main.bands > section:nth-of-type(odd):not(:first-of-type)`.
+  The band has hard edges, no gradient.
+
+### Cards and panels
+
+- Every card and panel (`.surface`, `.d-card`, `bg-panel`: FAQ, Resources, How it works, Legal, Get involved,
+  news, mods, docs, the day calendar) wears faint dark diagonal stripes, the same pattern as the bar's search
+  field: `--stripes` = 35deg, 20 px bands, #151515 on #121212. Hover or open: `--stripes-hi` (#1c1c1c on
+  #191919). They are a light background, never loud. No flat lighter panels, no border.
+- On a lighter home band the card stripes turn darker than the band, so cards still stand out:
+  #0a0a0a on #070707 (hover #161616 on #131313). The band section sets `--stripes` itself.
+- Card stripes scroll with the card (no `fixed`); only the bar's stripes are fixed to the window.
+
+### Controls
+
+- Controls (`.btn`, `.field`, `.chip`, `.seg`, the `d-*` controls, anything `bg-coal`, the hero's
+  "Launcher … is out" pill) are filled with `coal` #121212 (`coal-hi` #1e1e1e on hover) and have a 1 px gold
+  edge: `--color-edge`, amber at 35 % (half strength; full gold is too loud).
+- No edge on: the gold main button (`.btn-primary`), ghost buttons, the bar's striped buttons and search
+  (the gold bar is their edge), the two search dialogs, and the corner dock with the News, GitHub and
+  Discord icons.
+- Contrast rule (also for the launcher and the game's menu, where themes change the background): on a
+  black or navy background a control is #121212; on a #121212 background it is navy `navy` #1d1b2a
+  (`navy-hi` #29253b on hover). So controls inside a coal dialog or sheet turn navy; the edge stays.
+- On or picked: a gold tint on the page's black (`color-mix(amber 22 %, ink)`) with gold text
+  (`aria-pressed="true"`, `aria-checked="true"` or `data-on` on `.btn`/`.chip`). The edge stays.
+  A picked row in a list (search results, docs menu, hook explorer) is `bg-amber/12`.
+- Hover on a list row, menu line, calendar day or icon button is `hover:bg-coal` (no edge).
+- The "/" key hint is a small navy cap (`bg-navy`).
 
 ## Corners
 
-- Buttons, fields, chips, tabs, small boxes: `rounded-md` (6 px).
+- Buttons, fields, chips, tabs, small boxes: `rounded-md` (6 px). These corners stay whatever the look.
 - Badges and tags inside text: `rounded` (4 px).
 - Cards, panels, pictures, dialogs: `rounded-xl` (12 px). Nothing bigger.
 - Round (`rounded-full`) only for things that are really round: avatars, dots, icon-only circle buttons,
-  count bubbles.
+  count bubbles, the hero's news pill.
 
-## Edges
+## Lines and boxes
 
-- Everything filled with `coal` (`.btn`, `.field`, `.chip`, `.seg`, the `d-*` controls, anything `bg-coal`,
-  the corner dock) has a 1 px gold edge (`--color-edge`). The gold main button and ghost buttons have none.
-  The bar's striped buttons have none either: the gold bar around them is their edge.
-- Badges have no border; a fill sets them apart.
+- Badges have no border; they sit on `ink-deep`.
+- Inline code sits on `ink-deep` with gold text.
 - Dialogs and sheets (site search, docs search, the mods sheet) are `coal`. The two search dialogs have no
-  edge (user); the mods sheet keeps it. Controls
-  inside them turn navy (`navy` #1d1b2a, `navy-hi` #29253b on hover) so they still stand out; the edge stays.
-- Hover on a list row, menu line or icon button is `hover:bg-coal` (no edge). A picked row is `bg-amber/12`.
-- Inline code and badges sit on `ink-deep`, never a white mix.
-- Cards and panels have no border: their coal stripes set them apart from the page.
-- On or picked: a gold tint on the page's ink with gold text (`aria-pressed="true"` or `data-on` on `.btn`/`.chip`, which do
-  this for you). The gold edge stays as it is.
+  edge; the mods sheet keeps it. Their field is navy.
 - Focus on a field: a 2 px gold ring inside it (`.field` does it). Other elements use the browser's focus
   outline.
 - A thin 1 px line (`border-line`) is fine only to split things: table rows, a list, a bar from the page,
@@ -57,8 +76,9 @@ the `d-*` classes for the mod docs). Use them before writing new classes.
 
 ## Buttons
 
-- Main action (one per view): `.btn btn-primary`, a flat gold fill with dark text.
-- Other actions: `.btn`, a `coal` fill with light text. `.btn-ghost` has no fill until hovered.
+- Main action (one per view): `.btn btn-primary`, a flat gold fill with dark text, no edge.
+- Other actions: `.btn`, coal with the gold edge and light text. `.btn-ghost` has no fill until hovered
+  (then coal).
 - `.btn-sm` for buttons inside cards and rows.
 - On hover a button lifts 2 px and gets a little lighter. No colour changes besides that.
 - A link that reads as text stays text: no fill.
@@ -66,17 +86,39 @@ the `d-*` classes for the mod docs). Use them before writing new classes.
 ## Header bar
 
 - At the very top of a page the bar floats: inset 12 px, `rounded-xl`, as wide as the content. Once the page
-  scrolls it docks to the top edge, full width. The home page's clip runs behind the floating bar.
-- The bar is gold (`bar-stripes`). The logo is dark. Its buttons and search field carry the same stripes in
-  coal (`coal-stripes`, `coal-stripes-hi` on hover; the dark stripes are faint, #181818 on #121212) with gold
-  text and no edge. Both stripe sets are laid on
-  the window (`background-attachment: fixed`), so a button's stripes continue the bar's exactly; keep
-  angle and width (35deg, 20 px) the same in both.
-- Mods and Download are two separate buttons, striped coal with gold text (`rounded-md`, `h-8.5`: 34 px tall).
-  The open page has the lighter stripes (`coal-stripes-hi`) with light gold text.
-- The search field matches them: same height, the same coal stripes, same corners, gold text.
+  scrolls it docks to the top edge, full width (an IntersectionObserver on a 12 px strip at the top, no
+  scroll handler; 300 ms ease-out, none for "reduce motion"). The home page's clip runs behind the floating bar.
+- The bar is gold stripes (`bar-stripes`: 35deg, 20 px, #c99222 and #bd8619). The logo is dark.
+- Its buttons (Mods, Download) and search field continue the bar's stripes in coal (`coal-stripes`: #181818
+  on #121212, faint; `coal-stripes-hi` #252525 on #1f1f1f on hover) with gold text and no edge. Both stripe
+  sets are laid on the window (`background-attachment: fixed`), so a button's stripes continue the bar's
+  exactly; keep angle and width the same in both.
+- Mods and Download are two separate buttons, `rounded-md`, `h-8.5` (34 px tall). The open page has the
+  lighter stripes with light gold text.
+- The search field matches them: same height, stripes and corners, gold text, a navy "/" cap.
 - Phone bar icons (search, menu) stay bare dark marks on the stripes.
-- The corner dock (News, GitHub, Discord) is `coal` too, with the gold edge.
+- The corner dock (News, GitHub, Discord) sits bottom right, coal, with no edge. It rises over a mod
+  page's install bar.
+
+## Home first screen
+
+- Title: "Ratchet & Clank" in plain `text-amber` (no shimmer), then "series, rebuilt from the original
+  bytes" with no full stop. "original bytes" never breaks.
+- Intro: "A hub for the community decompilations of Ratchet & Clank: readable source code that compiles to
+  the original games' exact bytes". The gold phrases "readable source code" and "exact bytes" never break
+  across lines; the paragraph is 660 px wide so it is two lines on a desktop.
+- Buttons: the gold download for the visitor's system, then "See progress ↓" (`.btn`, scrolls smoothly to
+  the progress cards, jumps for "reduce motion"), then the version and date.
+- The stats HUD (top right, under the bar, hidden on phones): the big number in `text-amber`, labels in
+  `text-body`, counts in amber. No hard text shadow; only a soft halo behind the letters so it reads on
+  bright clips.
+- The clip melts into the page with an eased mask, never a hard line. The galaxies easter egg (Konami
+  code) draws only to the right of the text on wide screens.
+
+## Footer
+
+- The footer's progress line ("Progress is read from the projects' repositories … progress.json · llms.txt")
+  is one line on a desktop (`whitespace-nowrap` from 1080 px); it wraps only on narrower screens.
 
 ## Sizes and touch
 
