@@ -88,7 +88,7 @@ function ApiGroup({ g, r, names }: { g: CGroup; r: Release; names: Map<string, s
         <Part label={results.some((n) => n.startsWith("OPENRAC_HOOK_")) ? "Results and errors" : "Constants it uses"}>
           <span className="flex flex-wrap gap-1.5">
             {results.map((n) => (
-              <a key={n} href={names.get(n)} className="rounded-md bg-umber px-1.5 py-0.5 font-mono text-[12.5px] text-amber no-underline hover:bg-umber-hi">
+              <a key={n} href={names.get(n)} className="rounded-md bg-coal px-1.5 py-0.5 font-mono text-[12.5px] text-amber no-underline hover:bg-coal-hi">
                 {n}
               </a>
             ))}

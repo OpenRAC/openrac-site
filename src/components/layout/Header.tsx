@@ -11,22 +11,22 @@ import { DISCORD_URL, GITHUB_URL } from "@/lib/projects";
 
 /** A line of the open phone menu, on the page's colour; the current page in gold. */
 const link = "flex min-h-11 items-center rounded-md px-3.5 text-[17px] font-bold no-underline transition-colors";
-const linkOn = "bg-umber text-amber";
+const linkOn = "bg-coal text-amber";
 const linkOff = "text-hi hover:bg-white/5";
 const pill = "flex min-h-11 items-center justify-center rounded-md px-4 text-sm font-semibold no-underline transition-colors min-[821px]:min-h-8 min-[821px]:whitespace-nowrap min-[821px]:max-[1023px]:px-3";
 
 /** On a phone the bar's buttons are bare dark marks on the stripes: no discs or rings, a light shade under a finger. */
 const barIcon = "flex size-10 flex-none items-center justify-center rounded-md text-[#1b1206] transition-colors hover:bg-black/10 active:bg-black/15 min-[821px]:hidden";
 
-/** A wide bar button: filled umber with light text, the same as the search field. */
-const shade = "min-[821px]:h-9 min-[821px]:bg-umber";
+/** A wide bar button: filled coal (#121212) with light text, the same as the search field. */
+const shade = "min-[821px]:h-9 min-[821px]:bg-coal";
 /** A hairline between the buttons of the dark dock. */
 const divider = "h-4 w-px flex-none bg-white/15";
 /** A bar button, and Mods while on its pages: the same fill with gold text. */
-const off = `${shade} text-text hover:bg-umber-hi`;
-const on = "min-[821px]:h-9 bg-umber text-amber";
+const off = `${shade} text-text hover:bg-coal-hi`;
+const on = "min-[821px]:h-9 bg-coal text-amber";
 /** The same for a site's mark, in white. */
-const offMark = "text-text hover:bg-umber-hi";
+const offMark = "text-text hover:bg-coal-hi";
 
 /** A small puzzle piece: the mark of Mods in the bar. Its knobs sit top and right, so the view is shifted to
     put the piece's weight, not its outline, in the middle of a round button. */
@@ -135,7 +135,7 @@ export default function Header() {
           </Link>
 
           {/* The site's search: a field on the wide bar, a mark on phones. */}
-          <SiteSearch className="hidden h-9 flex-none items-center gap-2 rounded-md bg-umber px-3 text-[14px] font-semibold text-soft transition-colors hover:bg-umber-hi min-[821px]:flex min-[821px]:w-64" />
+          <SiteSearch className="hidden h-9 flex-none items-center gap-2 rounded-md bg-coal px-3 text-[14px] font-semibold text-soft transition-colors hover:bg-coal-hi min-[821px]:flex min-[821px]:w-64" />
           <SiteSearch compact className={`${barIcon} ml-auto`} />
           <button
             type="button"
@@ -171,7 +171,7 @@ export default function Header() {
                   Mods
                 </Link>
                 {/* The install page: the launcher for every system. */}
-                <Link href="/install" transitionTypes={PAGE_TRANSITION} onClick={close} aria-current={pathname === "/install" ? "page" : undefined} className={`${pill} border border-amber bg-amber text-[#1a0d00] hover:brightness-110 min-[821px]:border-0 min-[821px]:h-9 min-[821px]:bg-umber min-[821px]:text-text min-[821px]:hover:bg-umber-hi min-[821px]:hover:brightness-100`}>
+                <Link href="/install" transitionTypes={PAGE_TRANSITION} onClick={close} aria-current={pathname === "/install" ? "page" : undefined} className={`${pill} border border-amber bg-amber text-[#1a0d00] hover:brightness-110 min-[821px]:border-0 min-[821px]:h-9 min-[821px]:bg-coal min-[821px]:text-text min-[821px]:hover:bg-coal-hi min-[821px]:hover:brightness-100`}>
                   Download
                 </Link>
               </div>
@@ -182,7 +182,7 @@ export default function Header() {
       {/* Holds the bar's place in the page. */}
       <div aria-hidden className="h-[50px]" />
       {/* News, GitHub and Discord float in the bottom right corner, out of the crowded bar, in reach on every screen. */}
-      <nav aria-label="News and community" className="site-dock fixed bottom-[max(16px,env(safe-area-inset-bottom))] right-[max(16px,env(safe-area-inset-right))] z-20 flex items-center rounded-lg bg-umber px-1 shadow-[0_0_0_1px_rgb(0_0_0/0.25),0_8px_24px_rgb(0_0_0/0.45)] transition-[translate] duration-200 motion-reduce:transition-none">
+      <nav aria-label="News and community" className="site-dock fixed bottom-[max(16px,env(safe-area-inset-bottom))] right-[max(16px,env(safe-area-inset-right))] z-20 flex items-center rounded-lg bg-coal px-1 shadow-[0_8px_24px_rgb(0_0_0/0.45)] transition-[translate] duration-200 motion-reduce:transition-none">
         <NewsButton on={inNews} className={`${offMark} size-10`} />
         <span aria-hidden className={divider} />
         <MarkButton site="github" className={`${offMark} size-10`} />

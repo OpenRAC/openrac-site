@@ -29,7 +29,7 @@ function Names({ names, part, version, latest, games, most = 24 }: { names: stri
   return (
     <span className="flex flex-wrap gap-1.5">
       {shown.map((n) => (
-        <a key={n} href={nameHref(part, n, version, latest, games)} className="rounded-md bg-umber px-1.5 py-0.5 font-mono text-[12.5px] text-gold no-underline hover:bg-umber-hi">
+        <a key={n} href={nameHref(part, n, version, latest, games)} className="rounded-md bg-coal px-1.5 py-0.5 font-mono text-[12.5px] text-gold no-underline hover:bg-coal-hi">
           {n}
         </a>
       ))}

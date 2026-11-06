@@ -115,7 +115,7 @@ export default function Search({ version, label = "Search the docs" }: { version
               <span>Type a name or a few words. Arrows move, Enter opens, Esc closes.</span>
               <span className="flex flex-wrap gap-1.5">
                 {STARTERS.map((w) => (
-                  <button key={w} type="button" className="rounded-md bg-umber px-2 py-0.5 text-[13px] text-soft hover:bg-umber-hi hover:text-hi" onClick={() => { setQuery(w); setAt(0); input.current?.focus(); }}>
+                  <button key={w} type="button" className="rounded-md bg-coal px-2 py-0.5 text-[13px] text-soft hover:bg-coal-hi hover:text-hi" onClick={() => { setQuery(w); setAt(0); input.current?.focus(); }}>
                     {w}
                   </button>
                 ))}

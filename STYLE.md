@@ -11,9 +11,11 @@ the `d-*` classes for the mod docs). Use them before writing new classes.
   red). Discord's blue is used only for Discord.
 - Backgrounds are near-black with a hint of violet: `ink` for the page, `ink-deep` for the darkest parts,
   `panel` and `panel-hi` for raised things.
-- No grey anywhere. Plain controls (buttons, fields, chips, tabs, small tags you can click) are filled
-  with `umber` (#5c3f16), a warm mid brown light enough to sit beside the gold (`umber-hi`, #6e4c1b,
-  on hover). Not darker: a near-black brown looks dead next to the yellow. Never `bg-white/…` or a white mix for a control.
+- Controls (buttons, fields, chips, tabs, small tags you can click, the bar's buttons and search, the corner
+  dock) are filled with `coal` (#121212, `coal-hi` #1e1e1e on hover), with no border or edge. The rule is
+  contrast with the background: on the site's violet-navy ink a control is neutral `#121212`; where the
+  background is neutral `#121212`, a control is navy (`#1d1b2a`). No brown fills, no mid greys, never
+  `bg-white/…` or a white mix for a control.
 - Text: `hi` for headings, `body` for reading text, `soft` for secondary text, `dim` for the quietest text.
 - Gold text sits on dark only. On a gold fill, the text is dark (`#1b1206`).
 
@@ -30,7 +32,7 @@ the `d-*` classes for the mod docs). Use them before writing new classes.
 - Buttons, fields, chips, tabs and badges have no border. A fill sets them apart.
 - Cards and panels have no border either: their fill is a little lighter than the page (`.surface`, or
   `bg-panel`).
-- On or picked: darker than `umber` (a gold tint on the page's ink) with gold text (`aria-pressed="true"` or `data-on` on `.btn`/`.chip`, which do
+- On or picked: a gold tint on the page's ink with gold text (`aria-pressed="true"` or `data-on` on `.btn`/`.chip`, which do
   this for you). Do not add a gold border.
 - Focus on a field: a 2 px gold ring inside it (`.field` does it). Other elements use the browser's focus
   outline.
@@ -43,21 +45,21 @@ the `d-*` classes for the mod docs). Use them before writing new classes.
 ## Buttons
 
 - Main action (one per view): `.btn btn-primary`, a flat gold fill with dark text.
-- Other actions: `.btn`, an `umber` fill with light text. `.btn-ghost` has no fill until hovered.
+- Other actions: `.btn`, a `coal` fill with light text. `.btn-ghost` has no fill until hovered.
 - `.btn-sm` for buttons inside cards and rows.
 - On hover a button lifts 2 px and gets a little lighter. No colour changes besides that.
-- A link that reads as text ("Other systems →") stays text: no fill.
+- A link that reads as text stays text: no fill.
 
 ## Header bar
 
 - At the very top of a page the bar floats: inset 12 px, `rounded-xl`, as wide as the content. Once the page
   scrolls it docks to the top edge, full width. The home page's clip runs behind the floating bar.
-- The bar is gold (`bar-stripes`). The logo is dark; its buttons and search field are `umber` with light text.
-- Mods and Download are two separate buttons, filled `umber` with light text (`rounded-md`, 36 px tall).
+- The bar is gold (`bar-stripes`). The logo is dark; its buttons and search field are `coal` with light text, no edge.
+- Mods and Download are two separate buttons, filled `coal` with light text (`rounded-md`, 36 px tall).
   The open page has the same fill with gold text.
-- The search field matches them: same height, the same `umber` fill, same corners, soft light text.
+- The search field matches them: same height, the same `coal` fill, same corners, soft light text.
 - Phone bar icons (search, menu) stay bare dark marks on the stripes.
-- The corner dock (News, GitHub, Discord) is `umber` too. There is no darker brown anywhere.
+- The corner dock (News, GitHub, Discord) is `coal` too, with no edge.
 
 ## Sizes and touch
 
