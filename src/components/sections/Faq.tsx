@@ -21,11 +21,11 @@ function OtherTitles() {
       </p>
       <ul className="grid gap-2">
         {games.map(({ game, projects }) => (
-          <li key={game.id} className="flex flex-wrap items-baseline gap-x-3 gap-y-1 rounded-xl border border-line bg-ink/60 px-4 py-2.5">
+          <li key={game.id} className="flex flex-wrap items-baseline gap-x-3 gap-y-1 rounded-md bg-white/[.04] px-4 py-2.5">
             <span className="font-orbitron text-[15px] font-bold text-gold">{game.name}</span>
             <span className="text-[13px] text-dim">{game.year}</span>
             {game.phase === "research" && (
-              <span className="rounded-full border border-amber/40 px-2 py-0.5 font-orbitron text-[10px] uppercase tracking-[.15em] text-amber">research phase</span>
+              <span className="rounded bg-amber/10 px-2 py-0.5 font-orbitron text-[10px] uppercase tracking-[.15em] text-amber">research phase</span>
             )}
             <span className="flex flex-wrap gap-x-3 gap-y-1 sm:ml-auto">
               {projects.map((p) =>
@@ -40,7 +40,7 @@ function OtherTitles() {
           </li>
         ))}
       </ul>
-      <div className="rounded-xl border-l-4 border-brand bg-brand/10 px-4 py-3.5">
+      <div className="rounded-xl bg-brand/10 px-4 py-3.5">
         <b className="mb-1 block font-orbitron text-[15px] text-gold">Working on a Ratchet &amp; Clank decompilation?</b>
         <p>
           We offer every team the same thing: one shared place where people can follow your progress next to the others, measured the same way and
@@ -80,7 +80,7 @@ export default function Faq() {
               {/* A real button-looking control, so it is plain that the row opens. */}
               <span
                 aria-hidden
-                className="plus flex size-9 flex-none items-center justify-center rounded-full border border-brand/50 bg-brand/15 font-orbitron text-[20px] leading-none text-amber transition group-hover:bg-brand group-hover:text-[#1a0d00] group-open:bg-brand group-open:text-[#1a0d00]"
+                className="plus flex size-9 flex-none items-center justify-center rounded-full bg-brand/15 font-orbitron text-[20px] leading-none text-amber transition group-hover:bg-brand group-hover:text-[#1a0d00] group-open:bg-brand group-open:text-[#1a0d00]"
               >
                 +
               </span>

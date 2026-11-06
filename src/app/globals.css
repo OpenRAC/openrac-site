@@ -344,7 +344,7 @@ summary::-webkit-details-marker { display: none; }
   from { opacity: 0; translate: 0 22px; scale: 0.98; }
 }
 /* The visitor's own system: a soft gold glow. */
-.dl-mine { box-shadow: 0 0 0 1px rgb(245 192 64 / 0.2), 0 18px 50px -18px rgb(232 163 23 / 0.45); }
+.dl-mine { background: color-mix(in srgb, var(--color-amber) 6%, var(--color-ink)); box-shadow: 0 18px 50px -18px rgb(232 163 23 / 0.45); }
 /* Corner brackets, like a game's target frame: on the visitor's card, and on the card under the pointer. */
 .dl-card::before,
 .dl-card::after {
@@ -357,8 +357,8 @@ summary::-webkit-details-marker { display: none; }
   pointer-events: none;
   transition: width 0.25s ease, height 0.25s ease, opacity 0.25s ease;
 }
-.dl-card::before { top: -1px; left: -1px; border-width: 2px 0 0 2px; border-top-left-radius: 1rem; }
-.dl-card::after { bottom: -1px; right: -1px; border-width: 0 2px 2px 0; border-bottom-right-radius: 1rem; }
+.dl-card::before { top: 0; left: 0; border-width: 2px 0 0 2px; border-top-left-radius: 0.75rem; }
+.dl-card::after { bottom: 0; right: 0; border-width: 0 2px 2px 0; border-bottom-right-radius: 0.75rem; }
 .dl-mine::before,
 .dl-mine::after { border-color: var(--color-amber); opacity: 1; }
 .dl-tile { transition: transform 0.25s ease, box-shadow 0.25s ease; }

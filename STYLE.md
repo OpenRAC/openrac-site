@@ -34,6 +34,8 @@ the `d-*` classes for the mod docs). Use them before writing new classes.
 - A thin 1 px line (`border-line`) is fine only to split things: table rows, a list, a bar from the page,
   a code block's head. Never around a control.
 - Notes and warnings are a tinted box (`rounded-xl bg-amber/10 px-4 py-3`), with no coloured stripe.
+- Two decorations stay: the gold corner brackets on the download cards (a game's target frame) and the
+  gold bar beside a pull quote. Do not copy them onto other things.
 
 ## Buttons
 

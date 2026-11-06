@@ -65,7 +65,7 @@ function componentsFor(base?: string): Components {
       if (alt === "") return null;
       const to = typeof src === "string" ? resolve(src, base) : null;
       return to && /^https:\/\//.test(to) ? (
-        <a href={to} rel="nofollow ugc noopener noreferrer" className="not-prose inline-flex items-center gap-1.5 rounded-md border border-line px-2 py-0.5 text-[13px] text-amber no-underline hover:border-amber">
+        <a href={to} rel="nofollow ugc noopener noreferrer" className="not-prose inline-flex items-center gap-1.5 rounded-md bg-white/[.06] px-2 py-0.5 text-[13px] text-amber no-underline hover:bg-white/[.12]">
           <svg viewBox="0 0 16 16" aria-hidden="true" className="size-3.5 fill-none stroke-current stroke-[1.6]">
             <rect x="2" y="3" width="12" height="10" rx="1.5" />
             <path d="m3 12 3.5-4 2.5 3 2-2 2 3" strokeLinejoin="round" />

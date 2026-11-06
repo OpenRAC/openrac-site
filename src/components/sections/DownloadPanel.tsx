@@ -48,18 +48,18 @@ function SystemCard({ p, i, mine, release, dev, devAgo, fallback }: {
     // Four rows shared with the cards beside it (subgrid), so their buttons line up whatever the text above.
     <article
       style={{ "--i": i } as CSSProperties}
-      className={`dl-card surface surface-link relative row-span-4 grid grid-cols-[minmax(0,1fr)] grid-rows-subgrid gap-0 p-5 sm:p-6 ${mine ? "dl-mine border-brand/70 max-sm:order-first" : ""}`}
+      className={`dl-card surface surface-link relative row-span-4 grid grid-cols-[minmax(0,1fr)] grid-rows-subgrid gap-0 p-5 sm:p-6 ${mine ? "dl-mine max-sm:order-first" : ""}`}
     >
       <div className="flex items-center gap-3.5">
         <span
-          className={`dl-tile grid size-12 flex-none place-items-center rounded-xl border ${mine ? "border-amber/50 bg-amber/10 text-amber" : "border-line bg-white/[.03] text-hi"}`}
+          className={`dl-tile grid size-12 flex-none place-items-center rounded-md ${mine ? "bg-amber/15 text-amber" : "bg-white/[.06] text-hi"}`}
         >
           <SystemIcon id={p.id} />
         </span>
         <h3 className="font-orbitron text-[19px] font-bold text-text">{p.name}</h3>
       </div>
       {mine && (
-        <span className="absolute -top-3 right-5 rounded-full border border-amber/50 bg-[#2a1800] px-2.5 py-1 font-orbitron text-[10px] font-bold uppercase leading-none tracking-[.14em] text-amber">
+        <span className="absolute -top-3 right-5 rounded bg-amber px-2.5 py-1 font-orbitron text-[10px] font-bold uppercase leading-none tracking-[.14em] text-[#1b1206]">
           Your system
         </span>
       )}
@@ -110,9 +110,9 @@ function SystemCard({ p, i, mine, release, dev, devAgo, fallback }: {
         {dev && (
           <a
             href={dev.url}
-            className="mt-3 flex flex-wrap items-center justify-center gap-x-2 gap-y-0.5 rounded-lg border border-dashed border-line px-3 py-2 text-[12px] text-soft no-underline transition-colors hover:border-amber/60 hover:text-amber"
+            className="mt-3 flex flex-wrap items-center justify-center gap-x-2 gap-y-0.5 rounded-md bg-white/[.04] px-3 py-2 text-[12px] text-soft no-underline transition-colors hover:bg-white/[.08] hover:text-amber"
           >
-            <span className="rounded border border-amber/40 px-1.5 py-px font-orbitron text-[9px] font-bold tracking-[.12em] text-amber">DEV</span>
+            <span className="rounded bg-amber/10 px-1.5 py-px font-orbitron text-[9px] font-bold tracking-[.12em] text-amber">DEV</span>
             <span>{dev.version ? `v${dev.version}` : "Latest build"}</span>
             {devAgo && <span className="text-dim">{devAgo}</span>}
           </a>
@@ -249,7 +249,7 @@ export default function DownloadPanel({ release, dev, platforms, fallback, art, 
               type="button"
               onClick={close}
               aria-label="Close downloads"
-              className="ml-auto grid size-11 flex-none place-items-center rounded-full border border-line text-soft transition-colors hover:border-amber hover:text-amber"
+              className="ml-auto grid size-11 flex-none place-items-center rounded-full bg-white/[.06] text-soft transition-colors hover:bg-white/[.12] hover:text-amber"
             >
               <svg viewBox="0 0 16 16" aria-hidden="true" className="size-4 fill-none stroke-current stroke-2">
                 <path d="M3.5 3.5l9 9m0-9-9 9" strokeLinecap="round" />
