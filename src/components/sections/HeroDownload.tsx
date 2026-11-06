@@ -1,16 +1,23 @@
 "use client";
 
-import Link from "next/link";
-import { useEffect } from "react";
+import { type MouseEvent, useEffect } from "react";
 import { useBrowserPlatform } from "@/components/ui/useBrowserPlatform";
 import type { PlatformId } from "@/lib/releases";
 
 /** "25 Oct 2026", the same on the server and in the browser. */
 const shortDate = (iso: string) => new Date(iso).toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric", timeZone: "UTC" });
 
+/** Glides down to the progress cards (jumps for "reduce motion"), keeping the address clean. */
+function toProgress(e: MouseEvent<HTMLAnchorElement>) {
+  const target = document.getElementById("progress");
+  if (!target || e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return;
+  e.preventDefault();
+  target.scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
+}
+
 /**
  * The hero's one download button, for the visitor's own system once the browser tells it (the
- * server renders the plain one), with "Other systems" and the release it gives beside it.
+ * server renders the plain one), a button down to the progress, and the release it gives.
  */
 export default function HeroDownload({ version, date, ready }: { version: string | null; date: string | null; ready: { id: PlatformId; name: string }[] }) {
   const mine = useBrowserPlatform();
@@ -31,17 +38,19 @@ export default function HeroDownload({ version, date, ready }: { version: string
         </svg>
         {direct ? `Download for ${direct.name}` : "Download the launcher"}
       </a>
-      <p className="text-[15px] leading-snug text-dim">
-        <Link href="/install" className="font-semibold text-hi no-underline hover:text-amber">
-          Other systems →
-        </Link>
-        {version && (
-          <span className="block text-[13px]">
-            v{version}
-            {date && <> · <time dateTime={date}>{shortDate(date)}</time></>}
-          </span>
-        )}
-      </p>
+      {/* The second action: down to the progress of every game. */}
+      <a href="#progress" onClick={toProgress} className="btn gap-2 no-underline">
+        See progress
+        <svg viewBox="0 0 16 16" aria-hidden="true" className="size-4 flex-none fill-none stroke-current stroke-2">
+          <path d="M8 3v10m-4-4 4 4 4-4" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+      </a>
+      {version && (
+        <p className="text-[13px] leading-snug text-dim">
+          v{version}
+          {date && <> · <time dateTime={date}>{shortDate(date)}</time></>}
+        </p>
+      )}
     </div>
   );
 }
