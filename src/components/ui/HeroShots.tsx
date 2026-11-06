@@ -56,6 +56,11 @@ function HeroShotLayers({ at, off, idle, missing, lost }: { at: number; off: boo
   const still = useSyncExternalStore(noChange, stillOnly, () => true);
   const av1 = useAv1();
   const videos = useRef<(HTMLVideoElement | null)[]>([]);
+  // Whether the showing clip should be running now, read by the clips' own load events.
+  const live = useRef({ at, run: false });
+  useEffect(() => {
+    live.current = { at, run: !off && !idle && !still };
+  });
 
   // The clip coming in starts from its beginning; the one going out stops once it has faded.
   useEffect(() => {
@@ -66,7 +71,13 @@ function HeroShotLayers({ at, off, idle, missing, lost }: { at: number; off: boo
     }
     if (video && !still) {
       video.currentTime = 0;
-      video.play().catch(() => {}); // a browser refusing autoplay keeps the first frame
+      // A browser refusing autoplay (a phone saving power) keeps the first frame until the first touch or key.
+      video.play().catch(() => {
+        const retry = () => {
+          if (live.current.run && videos.current[live.current.at]?.paused) videos.current[live.current.at]?.play().catch(() => {});
+        };
+        for (const type of ["pointerdown", "touchend", "keydown"]) addEventListener(type, retry, { once: true, passive: true });
+      });
     }
     const stop = window.setTimeout(() => videos.current.forEach((v, i) => i !== at && v?.pause()), FADE_MS);
     return () => window.clearTimeout(stop);
@@ -85,6 +96,15 @@ function HeroShotLayers({ at, off, idle, missing, lost }: { at: number; off: boo
             muted
             playsInline
             onPlaying={() => setWarm(true)}
+            // The files arrive after the first play() call (once the codec is chosen), and their load
+            // cancels it: on a first visit the clip would sit on its first frame. Start it once it can play.
+            onCanPlay={(e) => {
+              const v = e.currentTarget;
+              if (i === live.current.at && live.current.run && v.paused) v.play().catch(() => {});
+            }}
+            // The browser's own autoplay starts the showing clip as soon as it has enough of it, the surest
+            // way on phones; the calls above and onCanPlay only back it up.
+            autoPlay={i === at && !still && !off && !idle}
             preload={i === at || i === next ? "auto" : "metadata"}
             style={{ transitionDuration: `${FADE_MS}ms` }}
             className={`absolute inset-0 size-full object-cover transition-opacity ease-out ${i === at ? "opacity-100" : "opacity-0"}`}
