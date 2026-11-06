@@ -432,7 +432,13 @@ body:has([data-install-bar]:not([inert])) .site-dock {
 }
 
 /* Home: every second section sits on a slightly lighter full-width band, so sections read apart on the black page. */
-.bands > section:nth-of-type(odd):not(:first-of-type) { position: relative; isolation: isolate; }
+.bands > section:nth-of-type(odd):not(:first-of-type) {
+  position: relative;
+  isolation: isolate;
+  /* On the lighter band, cards turn darker than it, so they still stand out. */
+  --stripes: repeating-linear-gradient(35deg, #0a0a0a 0 20px, #070707 20px 40px);
+  --stripes-hi: repeating-linear-gradient(35deg, #161616 0 20px, #131313 20px 40px);
+}
 .bands > section:nth-of-type(odd):not(:first-of-type)::before {
   content: "";
   position: absolute;
