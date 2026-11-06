@@ -214,7 +214,7 @@ export default async function DocsPage(props: PageProps<"/mods/docs/[[...slug]]"
   switch (page.kind) {
     case "overview":
       return (
-        <DocsShell {...shell} title="Make mods for OpenRAC" lead="Change how Ratchet & Clank plays in OpenRAC: new moves, swapped buttons, tweaks to enemies. These docs teach the mod SDK one piece at a time, with code you can copy.">
+        <DocsShell {...shell} title="Make mods for OpenRAC" lead="Change how Ratchet & Clank plays in OpenRAC: new moves, swapped buttons, tweaks to enemies. These docs teach the mod SDK one piece at a time, with code you can copy">
           <Overview r={r} latest={latest} ctx={ctx(r.guides.length ? "sdk/docs/README.md" : "sdk/README.md")} />
         </DocsShell>
       );
@@ -230,7 +230,7 @@ export default async function DocsPage(props: PageProps<"/mods/docs/[[...slug]]"
     }
     case "c":
       return (
-        <DocsShell {...shell} title="The C interface" lead={<>Everything the port hands a native mod: <code className="text-gold">openrac_mod.h</code>. A mod is built against this header alone. Each item says which interface version added it; check <code className="text-gold">api-&gt;api_minor</code> before you use something newer than your manifest&apos;s <code className="text-gold">api</code>.</>} toc={cToc(r)}>
+        <DocsShell {...shell} title="The C interface" lead={<>Everything the port hands a native mod: <code className="text-gold">openrac_mod.h</code>. A mod is built against this header alone. Each item says which interface version added it; check <code className="text-gold">api-&gt;api_minor</code> before you use something newer than your manifest&apos;s <code className="text-gold">api</code></>} toc={cToc(r)}>
           <LangMemory lang="c" />
           <CReference r={r} />
           {source("sdk/include/openrac/openrac_mod.h")}
@@ -238,7 +238,7 @@ export default async function DocsPage(props: PageProps<"/mods/docs/[[...slug]]"
       );
     case "cpp":
       return (
-        <DocsShell {...shell} title="The C++ layer" lead={<>A header-only C++17 layer over the C interface: <code className="text-gold">openrac/mod.hpp</code>. It is compiled into your mod; the game still sees only the C table.</>} toc={cppToc(r)}>
+        <DocsShell {...shell} title="The C++ layer" lead={<>A header-only C++17 layer over the C interface: <code className="text-gold">openrac/mod.hpp</code>. It is compiled into your mod; the game still sees only the C table</>} toc={cppToc(r)}>
           <LangMemory lang="cpp" />
           <CppReference r={r} />
           {source("sdk/include/openrac/mod.hpp")}
@@ -246,7 +246,7 @@ export default async function DocsPage(props: PageProps<"/mods/docs/[[...slug]]"
       );
     case "luau":
       return (
-        <DocsShell {...shell} title="The Luau API" lead="What a script mod can use: the openrac table. Scripts run in a sandbox with a 2 ms budget per call." toc={luauToc()}>
+        <DocsShell {...shell} title="The Luau API" lead="What a script mod can use: the openrac table. Scripts run in a sandbox with a 2 ms budget per call" toc={luauToc()}>
           <LangMemory lang="luau" />
           <LuauReference r={r} ctx={ctx("sdk/docs/scripts.md")} />
           {source(`sdk/${r.luau!.file}`)}
@@ -259,7 +259,7 @@ export default async function DocsPage(props: PageProps<"/mods/docs/[[...slug]]"
         <DocsShell
           {...shell}
           title="Hook points"
-          lead={<>Functions of {gameName(g.game)} your mod can take over: {g.hooks.length} in all, {stable} of them stable.</>}
+          lead={<>Functions of {gameName(g.game)} your mod can take over: {g.hooks.length} in all, {stable} of them stable</>}
           toc={[{ id: "explorer", label: "Hook points" }, ...(g.fields.length ? [{ id: "fields", label: "Fields" }] : [])]}
         >
           <section id="explorer" aria-labelledby="explorer-title" className="scroll-mt-20">
@@ -312,7 +312,7 @@ export default async function DocsPage(props: PageProps<"/mods/docs/[[...slug]]"
     case "manifest": {
       const md = r.guides.find((x) => x.slug === "manifest")?.markdown ?? "";
       return (
-        <DocsShell {...shell} title="Manifest builder" lead={<>Every mod has an <code className="text-gold">openrac-mod.json</code>. Fill in the form or paste your own: it is checked as you type, by the rules of the newest SDK.{md ? <> Each field is explained in <a href={docsHref(version, "manifest", latest)} className="text-amber underline">the manifest guide</a>.</> : null}</>}>
+        <DocsShell {...shell} title="Manifest builder" lead={<>Every mod has an <code className="text-gold">openrac-mod.json</code>. Fill in the form or paste your own: it is checked as you type, by the rules of the newest SDK{md ? <>. Each field is explained in <a href={docsHref(version, "manifest", latest)} className="text-amber underline">the manifest guide</a></> : null}</>}>
           <Suspense fallback={<div className="d-card h-[640px] animate-pulse" />}>
           <ManifestBuilder
             iface={r.interface}
@@ -337,7 +337,7 @@ export default async function DocsPage(props: PageProps<"/mods/docs/[[...slug]]"
         <DocsShell
           {...shell}
           title="Changelog"
-          lead={<>Every SDK release, newest first. A minor version only adds to the interface, so a mod built for 1.2 still loads on 1.11. Something is removed only with a new major version.{removed ? "" : " Nothing has been removed so far."}</>}
+          lead={<>Every SDK release, newest first. A minor version only adds to the interface, so a mod built for 1.2 still loads on 1.11. Something is removed only with a new major version{removed ? "" : ". Nothing has been removed so far"}</>}
           toc={releases.map((x) => ({ id: `v${x.version}`, label: x.version }))}
         >
           <Changelog releases={releases} latest={latest} />

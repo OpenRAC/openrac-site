@@ -28,7 +28,7 @@ export default async function NewsPage() {
       <SectionArt id="news" className="h-14 w-auto sm:h-16" />
       <div>
         <h1 className="font-audiowide text-[clamp(28px,4.4vw,42px)] leading-tight text-hi">News</h1>
-        <p className="text-soft">What happens across the projects, week by week.</p>
+        <p className="text-soft">What happens across the projects, week by week</p>
       </div>
     </div>
   );

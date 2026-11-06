@@ -39,7 +39,7 @@ export default async function NewsDayPage(props: PageProps<"/news/days/[day]">) 
       <main className="mx-auto max-w-[1080px] px-4 pb-12 pt-8">
         <p className="mb-1 text-[14px]">{hasWeek && <Link href={`/news/${week}`} className="inline-flex min-h-11 items-center text-amber underline underline-offset-2">‹ {formatWeekName(week)}</Link>}</p>
         <h1 className="font-audiowide text-[clamp(26px,4vw,38px)] leading-tight text-hi">{formatDay(day)}</h1>
-        <p className="mt-1.5 text-soft">The day&apos;s facts from GitHub: {facts.totals.commits} commits landed, {facts.totals.pullRequestsMerged} pull requests merged, {facts.totals.contributors} contributors.</p>
+        <p className="mt-1.5 text-soft">The day&apos;s facts from GitHub: {facts.totals.commits} commits landed, {facts.totals.pullRequestsMerged} pull requests merged, {facts.totals.contributors} contributors</p>
         <div className="mt-6 grid items-start gap-8 min-[821px]:grid-cols-[minmax(0,1fr)_320px]">
           <div className="grid min-w-0 gap-5">
             {active.length === 0 ? (

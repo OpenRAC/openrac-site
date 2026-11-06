@@ -178,7 +178,7 @@ export default function DownloadPanel({ release, dev, platforms, fallback, art }
           </h1>
         </div>
 
-        <p className="mb-6 max-w-[760px] text-dim sm:mb-8">Pick your system: the launcher sets each game up from your own disc. No game is downloaded.</p>
+        <p className="mb-6 max-w-[760px] text-dim sm:mb-8">Pick your system: the launcher sets each game up from your own disc. No game is downloaded</p>
 
         <div className="grid gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-4">
           {platforms.map((p, i) => (

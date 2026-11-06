@@ -158,3 +158,7 @@ the `d-*` classes for the mod docs). Use them before writing new classes.
 ## Writing on the page
 
 - Plain, short English. Say what something does, not how great it is.
+- Every page's big title and the line right under it end with no full stop, like the home page (mods,
+  install, news, news days, SDK docs leads, error and not-found pages). A title or line with several
+  sentences keeps the stops between them and drops only the last one. A written week report's headline
+  loses a trailing stop when shown. Text from mod authors (a mod's description) is shown as written.

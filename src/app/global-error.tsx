@@ -13,7 +13,7 @@ export default function GlobalError({ error, reset }: { error: Error & { digest?
           <div style={{ height: 6, marginBottom: 24, borderRadius: 3, background: "repeating-linear-gradient(-55deg,#c99222 0 10px,#bd8619 10px 20px)" }} />
           <h1 style={{ fontSize: 26, margin: "0 0 8px" }}>OpenRAC hit a snag</h1>
           <p style={{ color: "#b4b4bf", margin: "0 0 20px" }}>
-            Something went wrong on our side. Try again in a moment.{error.digest ? ` Error code: ${error.digest}` : ""}
+            Something went wrong on our side. Try again in a moment{error.digest ? `. Error code: ${error.digest}` : ""}
           </p>
           <button type="button" onClick={reset} style={{ minHeight: 44, padding: "10px 20px", border: 0, borderRadius: 6, background: "#f5c040", color: "#1a0d00", fontWeight: 600, cursor: "pointer" }}>
             Try again

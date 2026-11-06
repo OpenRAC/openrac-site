@@ -71,7 +71,7 @@ export default async function NewsWeekPage(props: PageProps<"/news/[week]">) {
             <p className="font-orbitron text-[12px] font-bold uppercase tracking-[.16em] text-(--tx)">
               {formatWeekName(week)} · <time dateTime={facts.end}>{formatWeekRange(facts.start, facts.end)}</time>
             </p>
-            <h1 className="font-audiowide text-[clamp(26px,4.4vw,42px)] leading-[1.15] text-hi [overflow-wrap:anywhere]">{report ? report.headline : "What happened this week"}</h1>
+            <h1 className="font-audiowide text-[clamp(26px,4.4vw,42px)] leading-[1.15] text-hi [overflow-wrap:anywhere]">{report ? report.headline.replace(/\.$/, "") : "What happened this week"}</h1>
             <p className="text-[14px] text-soft">
               {totals.commits.toLocaleString("en-GB")} commits landed · {totals.pullRequestsMerged.toLocaleString("en-GB")} pull requests merged · {totals.contributors.toLocaleString("en-GB")} contributors
             </p>

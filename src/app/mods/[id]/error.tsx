@@ -9,7 +9,7 @@ export default function ModError({ error, reset }: { error: Error & { digest?: s
     <main className="mx-auto grid max-w-[1080px] justify-items-center gap-4 px-4 py-24 text-center">
       <SectionArt id="mods" className="h-20 w-auto" />
       <h1 className="font-audiowide text-[clamp(26px,4vw,38px)] text-hi">This mod page did not load</h1>
-      <p className="max-w-[480px] text-dim">Something went wrong on our side. Try again, or go back to the list.{error.digest ? ` Error code: ${error.digest}` : ""}</p>
+      <p className="max-w-[480px] text-dim">Something went wrong on our side. Try again, or go back to the list{error.digest ? `. Error code: ${error.digest}` : ""}</p>
       <div className="flex flex-wrap justify-center gap-2.5">
         <button type="button" className="btn btn-primary" onClick={reset}>
           Try again
