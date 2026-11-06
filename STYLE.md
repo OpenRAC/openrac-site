@@ -55,7 +55,7 @@ the `d-*` classes for the mod docs). Use them before writing new classes.
 - At the very top of a page the bar floats: inset 12 px, `rounded-xl`, as wide as the content. Once the page
   scrolls it docks to the top edge, full width. The home page's clip runs behind the floating bar.
 - The bar is gold (`bar-stripes`). The logo is dark; its buttons and search field are `coal` with light text, no edge.
-- Mods and Download are two separate buttons, filled `coal` with light text (`rounded-md`, 36 px tall).
+- Mods and Download are two separate buttons, filled `coal` with light text (`rounded-md`, `h-8.5`: 34 px tall).
   The open page has the same fill with gold text.
 - The search field matches them: same height, the same `coal` fill, same corners, soft light text.
 - Phone bar icons (search, menu) stay bare dark marks on the stripes.
