@@ -9,13 +9,11 @@ import Logo from "@/components/ui/Logo";
 import SiteSearch from "@/components/layout/SiteSearch";
 import { DISCORD_URL, GITHUB_URL } from "@/lib/projects";
 
-const link =
-  "group/l relative flex min-h-11 items-center rounded-md px-3.5 text-[17px] font-bold no-underline transition-colors min-[821px]:min-h-9 min-[821px]:whitespace-nowrap min-[821px]:text-[15px] min-[821px]:max-[1023px]:px-2 min-[1024px]:px-2.5 min-[821px]:max-[900px]:px-1.5 min-[821px]:max-[1023px]:text-[14px]";
-// The open mobile menu sits on the page's colour, the bar on its stripes: light text there, dark here.
-// The current section: a pill as tall as the bar's buttons. Its label never wraps, so the pill cannot grow to the bar's height.
-const linkOn = "bg-white/[.06] text-amber min-[821px]:bg-[#1b1206] [&>span]:hidden";
-const linkOff = "text-hi hover:bg-white/5 min-[821px]:text-[#2a1800] min-[821px]:hover:bg-black/10";
-const pill = "flex min-h-11 items-center justify-center rounded-md px-4 text-sm font-semibold no-underline transition-colors min-[821px]:min-h-9 min-[821px]:whitespace-nowrap min-[821px]:max-[1023px]:px-3";
+/** A line of the open phone menu, on the page's colour; the current page in gold. */
+const link = "flex min-h-11 items-center rounded-md px-3.5 text-[17px] font-bold no-underline transition-colors";
+const linkOn = "bg-white/[.06] text-amber";
+const linkOff = "text-hi hover:bg-white/5";
+const pill = "flex min-h-11 items-center justify-center rounded-md px-4 text-sm font-semibold no-underline transition-colors min-[821px]:min-h-8 min-[821px]:whitespace-nowrap min-[821px]:max-[1023px]:px-3";
 
 /** On a phone the bar's buttons are bare dark marks on the stripes: no discs or rings, a light shade under a finger. */
 const barIcon = "flex size-10 flex-none items-center justify-center rounded-md text-[#1b1206] transition-colors hover:bg-black/10 active:bg-black/15 min-[821px]:hidden";
@@ -78,8 +76,7 @@ function MarkButton({ site, onClick, className = "" }: { site: "github" | "disco
 
 /**
  * Orange bar fixed to the top, striped like the launcher's, one height at every scroll position.
- * Client-side for the mobile menu and scroll-spy; the spy watches the page with an
- * IntersectionObserver, so scrolling runs no script and reads no layout.
+ * Client-side for the phone menu.
  */
 export default function Header() {
   const pathname = usePathname();
@@ -117,7 +114,7 @@ export default function Header() {
   return (
     <>
       <header style={{ viewTransitionName: "site-header" }} className="bar-stripes fixed inset-x-0 top-0 z-30 border-b border-black/30 text-black shadow-[inset_0_1px_0_rgb(255_255_255/0.35),0_4px_24px_rgb(0_0_0/0.45)]">
-        <div className="mx-auto flex h-[50px] max-w-[1080px] items-center gap-6 px-4 min-[1024px]:gap-4 min-[821px]:max-[1023px]:gap-4 min-[821px]:max-[900px]:gap-2">
+        <div className="mx-auto flex h-[50px] max-w-[1080px] items-center gap-6 px-4 min-[821px]:gap-4 min-[821px]:max-[900px]:gap-2">
           <Link href="/" transitionTypes={PAGE_TRANSITION} onClick={toTop} className="group flex items-center text-[#1b1206] no-underline" aria-label="OpenRAC home">
             <Logo height={34} label="" className="transition-opacity group-hover:opacity-85" />
           </Link>
@@ -145,7 +142,7 @@ export default function Header() {
           >
             <div className="flex flex-col gap-1 min-[821px]:hidden">
               {/* Lines of the phone menu only: on the wide bar these are buttons. */}
-              <Link href="/mods" transitionTypes={PAGE_TRANSITION} onClick={close} aria-current={inMods ? "page" : undefined} className={`${link} ${inMods ? linkOn : linkOff} min-[821px]:hidden`}>
+              <Link href="/mods" transitionTypes={PAGE_TRANSITION} onClick={close} aria-current={inMods ? "page" : undefined} className={`${link} ${inMods ? linkOn : linkOff}`}>
                 Mods
               </Link>
             </div>
@@ -154,13 +151,13 @@ export default function Header() {
                   Download is the menu's big button, and Mods a line of the menu. */}
               <div className={`${capsule} max-[821px]:contents`}>
                 {/* Mods: its own page, with its own mark, gold while there. */}
-                <Link href="/mods" transitionTypes={PAGE_TRANSITION} onClick={close} aria-current={inMods ? "page" : undefined} className={`${pill} gap-2 max-[821px]:hidden min-[821px]:min-h-8 ${inMods ? on : off}`}>
+                <Link href="/mods" transitionTypes={PAGE_TRANSITION} onClick={close} aria-current={inMods ? "page" : undefined} className={`${pill} gap-2 max-[821px]:hidden ${inMods ? on : off}`}>
                   <ModsMark className="size-4" />
                   Mods
                 </Link>
                 <span aria-hidden className={`${capsuleDivider} max-[821px]:hidden`} />
                 {/* The install page: the launcher for every system. */}
-                <Link href="/install" transitionTypes={PAGE_TRANSITION} onClick={close} aria-current={pathname === "/install" ? "page" : undefined} className={`${pill} border border-amber bg-amber text-[#1a0d00] hover:brightness-110 min-[821px]:min-h-8 min-[821px]:border-0 min-[821px]:bg-transparent min-[821px]:text-[#1b1206] min-[821px]:hover:bg-black/10 min-[821px]:hover:brightness-100`}>
+                <Link href="/install" transitionTypes={PAGE_TRANSITION} onClick={close} aria-current={pathname === "/install" ? "page" : undefined} className={`${pill} border border-amber bg-amber text-[#1a0d00] hover:brightness-110 min-[821px]:border-0 min-[821px]:bg-transparent min-[821px]:text-[#1b1206] min-[821px]:hover:bg-black/10 min-[821px]:hover:brightness-100`}>
                   Download
                 </Link>
               </div>

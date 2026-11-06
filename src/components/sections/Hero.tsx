@@ -61,7 +61,7 @@ export default function Hero({ progress, mods, release }: { progress: Partial<Re
         <span className="text-amber">readable source code</span> that compiles to the original games&apos;{" "}
         <span className="text-amber">exact bytes</span>
       </p>
-      <HeroDownload version={release?.version ?? null} date={release?.date || null} ready={(release?.platforms ?? []).filter((p) => p.main).map((p) => p.id)} />
+      <HeroDownload version={release?.version ?? null} date={release?.date || null} ready={(release?.platforms ?? []).filter((p) => p.main).map(({ id, name }) => ({ id, name }))} />
       <p className="mt-5 max-[700px]:mt-8 max-w-[560px] text-[13px] leading-relaxed text-dim">
         Unofficial and community driven. You need your own copy of the original game to play.{" "}
         <Link href="/install#your-disc" className="whitespace-nowrap font-semibold text-hi no-underline hover:text-amber">

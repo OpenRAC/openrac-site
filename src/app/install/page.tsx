@@ -30,7 +30,6 @@ export default async function InstallPage() {
     <PageTransition>
       <main className="mx-auto max-w-[1080px] px-4 pb-16 pt-8">
         <DownloadPanel
-          standalone
           release={release}
           dev={dev}
           platforms={release?.platforms ?? noFiles()}

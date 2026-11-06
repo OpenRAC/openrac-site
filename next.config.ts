@@ -17,8 +17,8 @@ const CSP = [
   "font-src 'self'",
   "connect-src 'self'",
   "frame-src https://www.youtube-nocookie.com",
-  // No audio or video is ever served from here: mod videos are YouTube's, played in its frame.
-  "media-src 'none'",
+  // The home page's clips come from here (/img); mod videos are YouTube's, played in its frame.
+  "media-src 'self'",
   "object-src 'none'",
   "base-uri 'self'",
   "form-action 'self'",

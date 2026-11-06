@@ -318,28 +318,18 @@ summary::-webkit-details-marker { display: none; }
 /* Without scripts a backdrop cannot report that it loaded: show it as it is. */
 @media (scripting: none) { .backdrop { opacity: 1 !important; } }
 
-/* The Download panel (DownloadPanel.tsx): folded to no height until opened. The row grows from 0fr
-   to 1fr, so it opens to its own height with no number to keep in step; hidden while folded, so
-   neither Tab nor a screen reader finds its links. */
-.dl {
-  display: grid;
-  grid-template-rows: 0fr;
-  visibility: hidden;
-  transition: grid-template-rows 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), visibility 0s linear 0.6s;
+/* The download cards (DownloadPanel.tsx, /install). */
+/* On a phone the visitor's system comes first: <html data-os> is set before the first paint (layout.tsx), so nothing moves. */
+@media (max-width: 639px) {
+  :root[data-os="windows"] .dl-card[data-os="windows"],
+  :root[data-os="macos"] .dl-card[data-os="macos"],
+  :root[data-os="linux"] .dl-card[data-os="linux"],
+  :root[data-os="android"] .dl-card[data-os="android"] { order: -1; }
 }
-.dl[data-open="true"] {
-  grid-template-rows: 1fr;
-  visibility: visible;
-  transition: grid-template-rows 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), visibility 0s;
-}
-/* Room at the sides for the glow of the visitor's card; the page's own wrapper clips what reaches past the screen. */
-.dl-clip { min-height: 0; overflow: hidden; margin-inline: -24px; padding-inline: 24px; }
-.dl-inner { opacity: 0; transform: translateY(-14px); transition: opacity 0.35s ease, transform 0.35s ease; }
-.dl[data-open="true"] .dl-inner { opacity: 1; transform: none; transition: opacity 0.5s ease 0.1s, transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) 0.1s; }
 /* The cards come in one after another, left to right. They move with `translate` and `scale`, not
    `transform`, so the hover lift (a transform) is never overridden by the entrance and never jumps
    when it ends; nothing is kept after it ends (fill backwards). */
-.dl[data-open="true"] .dl-card { animation: dl-card 0.7s cubic-bezier(0.2, 0.8, 0.2, 1) backwards; animation-delay: calc(0.15s + var(--i) * 0.08s); }
+.dl-card { animation: dl-card 0.7s cubic-bezier(0.2, 0.8, 0.2, 1) backwards; animation-delay: calc(0.15s + var(--i) * 0.08s); }
 @keyframes dl-card {
   from { opacity: 0; translate: 0 22px; scale: 0.98; }
 }
@@ -366,12 +356,6 @@ summary::-webkit-details-marker { display: none; }
   .dl-card:hover::before,
   .dl-card:hover::after { width: 30px; height: 30px; opacity: 1; }
   .dl-card:hover .dl-tile { transform: scale(1.06); box-shadow: 0 0 18px rgb(245 192 64 / 0.2); }
-}
-
-/* Without scripts the Download links still open it. */
-@media (scripting: none) {
-  .dl:target { grid-template-rows: 1fr; visibility: visible; }
-  .dl:target .dl-inner { opacity: 1; transform: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {
