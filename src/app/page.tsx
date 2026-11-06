@@ -29,7 +29,7 @@ export default async function Home() {
 
   return (
     <PageTransition>
-    <main className="mx-auto max-w-[1080px] px-4">
+    <main className="bands mx-auto max-w-[1080px] px-4">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: ldJson(homeLd(siteUrl(), release)) }} />
       <Hero progress={progress} mods={mods} release={release} />
       <Progress progress={progress} />

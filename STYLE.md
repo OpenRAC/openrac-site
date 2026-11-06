@@ -11,6 +11,8 @@ the `d-*` classes for the mod docs). Use them before writing new classes.
   red). Discord's blue is used only for Discord.
 - Backgrounds are black (user: no navy page): `ink` (#0a0a0a) for the page, `ink-deep` (#050505) for the
   darkest parts.
+- Home sections alternate: every second one sits on a full-width band a little lighter than the page
+  (`--color-band` #111111, `main.bands`), with hard edges, no gradient (user), so sections read apart.
 - Every card and panel (`.surface`, `.d-card`, `bg-panel`: FAQ, Resources, How it works, Legal, news, mods,
   docs) wears the same dark diagonal stripes as the bar's search field (`--stripes`: 35deg, 20 px, a faint #151515
   on #121212, a light background, never loud; `--stripes-hi` on hover or when open). One look everywhere; no flat lighter panels.
