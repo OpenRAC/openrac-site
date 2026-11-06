@@ -72,7 +72,7 @@ export default function SiteSearch({ className = "", compact = false }: { classN
           <path d="m10.5 10.5 3.5 3.5" strokeLinecap="round" />
         </svg>
         {!compact && <span className="min-w-0 flex-1 truncate text-left">Search the site</span>}
-        {!compact && <kbd className="rounded bg-black/10 px-1 font-sans text-[11px] leading-4 opacity-75">/</kbd>}
+        {!compact && <kbd className="rounded bg-black/25 px-1 font-sans text-[11px] leading-4 opacity-75">/</kbd>}
       </button>
       <dialog
         ref={dialog}

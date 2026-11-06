@@ -18,13 +18,13 @@ const pill = "flex min-h-11 items-center justify-center rounded-md px-4 text-sm 
 /** On a phone the bar's buttons are bare dark marks on the stripes: no discs or rings, a light shade under a finger. */
 const barIcon = "flex size-10 flex-none items-center justify-center rounded-md text-[#1b1206] transition-colors hover:bg-black/10 active:bg-black/15 min-[821px]:hidden";
 
-/** A wide bar button: a light shade of the stripes, the same as the search field. */
-const shade = "min-[821px]:h-9 min-[821px]:bg-black/15 min-[821px]:shadow-[inset_0_0_0_1px_rgb(0_0_0/0.25)]";
+/** A wide bar button: filled umber with light text, the same as the search field. */
+const shade = "min-[821px]:h-9 min-[821px]:bg-umber";
 /** A hairline between the buttons of the dark dock. */
 const divider = "h-4 w-px flex-none bg-white/15";
-/** A bar button (dark ink on its shade), and Mods while on its pages, filled dark. */
-const off = `${shade} text-[#1b1206] hover:bg-black/25`;
-const on = "min-[821px]:h-9 bg-[#1b1206] text-amber";
+/** A bar button, and Mods while on its pages: darker still, with gold text. */
+const off = `${shade} text-text hover:bg-umber-hi`;
+const on = "min-[821px]:h-9 bg-[#140d05] text-amber";
 /** The same for a site's mark, in white. */
 const offMark = "text-text hover:bg-[#2a1800]";
 
@@ -118,7 +118,7 @@ export default function Header() {
           </Link>
 
           {/* The site's search: a field on the wide bar, a mark on phones. */}
-          <SiteSearch className="hidden h-9 flex-none items-center gap-2 rounded-md bg-black/15 px-3 text-[14px] font-semibold text-[#1b1206]/70 shadow-[inset_0_0_0_1px_rgb(0_0_0/0.25)] transition-colors hover:bg-black/20 min-[821px]:flex min-[821px]:w-64" />
+          <SiteSearch className="hidden h-9 flex-none items-center gap-2 rounded-md bg-umber px-3 text-[14px] font-semibold text-soft transition-colors hover:bg-umber-hi min-[821px]:flex min-[821px]:w-64" />
           <SiteSearch compact className={`${barIcon} ml-auto`} />
           <button
             type="button"
@@ -154,7 +154,7 @@ export default function Header() {
                   Mods
                 </Link>
                 {/* The install page: the launcher for every system. */}
-                <Link href="/install" transitionTypes={PAGE_TRANSITION} onClick={close} aria-current={pathname === "/install" ? "page" : undefined} className={`${pill} border border-amber bg-amber text-[#1a0d00] hover:brightness-110 min-[821px]:border-0 min-[821px]:h-9 min-[821px]:bg-black/15 min-[821px]:shadow-[inset_0_0_0_1px_rgb(0_0_0/0.25)] min-[821px]:text-[#1b1206] min-[821px]:hover:bg-black/25 min-[821px]:hover:brightness-100`}>
+                <Link href="/install" transitionTypes={PAGE_TRANSITION} onClick={close} aria-current={pathname === "/install" ? "page" : undefined} className={`${pill} border border-amber bg-amber text-[#1a0d00] hover:brightness-110 min-[821px]:border-0 min-[821px]:h-9 min-[821px]:bg-umber min-[821px]:text-text min-[821px]:hover:bg-umber-hi min-[821px]:hover:brightness-100`}>
                   Download
                 </Link>
               </div>

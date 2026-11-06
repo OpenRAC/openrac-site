@@ -49,10 +49,11 @@ the `d-*` classes for the mod docs). Use them before writing new classes.
 
 ## Header bar
 
-- The bar is gold (`bar-stripes`). Everything on it is dark: dark text, dark logo.
-- Mods and Download are two separate buttons, each a light shade of the bar (`bg-black/15`,
-  `rounded-md`). The open page is a dark button with gold text.
-- The search field matches them: same height (36 px), same fill, same corners.
+- The bar is gold (`bar-stripes`). The logo is dark; its buttons and search field are `umber` with light text.
+- Mods and Download are two separate buttons, filled `umber` with light text (`rounded-md`, 36 px tall).
+  The open page is a darker button with gold text.
+- The search field matches them: same height, the same `umber` fill, same corners, soft light text.
+- Phone bar icons (search, menu) stay bare dark marks on the stripes.
 
 ## Sizes and touch
 
