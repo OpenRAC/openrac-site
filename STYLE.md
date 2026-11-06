@@ -12,7 +12,7 @@ the `d-*` classes for the mod docs). Use them before writing new classes.
 - Backgrounds are near-black with a hint of violet: `ink` for the page, `ink-deep` for the darkest parts,
   `panel` and `panel-hi` for raised things.
 - Controls (buttons, fields, chips, tabs, small tags you can click, the bar's buttons and search, the corner
-  dock) are filled with `coal` (#121212, `coal-hi` #1e1e1e on hover) with a 1 px gold edge (`edge`, amber at 70 %). The rule is
+  dock) are filled with `coal` (#121212, `coal-hi` #1e1e1e on hover) with a 1 px gold edge (`edge`, amber at 35 %). The rule is
   contrast with the background: on the site's violet-navy ink a control is neutral `#121212`; where the
   background is neutral `#121212`, a control is navy (`#1d1b2a`). No brown fills, no mid greys, never
   `bg-white/…` or a white mix for a control.

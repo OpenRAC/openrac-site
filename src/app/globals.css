@@ -22,7 +22,7 @@
   --color-navy: #1d1b2a;
   --color-navy-hi: #29253b;
   /* The 1 px gold edge round everything filled with coal. */
-  --color-edge: rgb(245 192 64 / 0.7);
+  --color-edge: rgb(245 192 64 / 0.35);
   --color-brand: #d6a020;
   --color-amber: #f5c040;
   --color-gold: #ffe08f;
