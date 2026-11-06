@@ -198,8 +198,9 @@ export default async function ModPage(props: PageProps<"/mods/[id]">) {
     <main className="pb-10">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: ldJson(ld) }} />
 
-      {/* The hero: the banner full width, darkened where the title sits. */}
-      <div className="relative isolate overflow-hidden border-b border-line">
+      {/* The hero: the banner full width, darkened where the title sits. Pulled up under the bar's
+          place (-mt-[50px]), so the picture reaches the top of the page around the floating bar. */}
+      <div className="relative isolate -mt-[50px] overflow-hidden border-b border-line">
         {/* Named like the mod's card in the list: the card's picture grows into this banner. */}
         <ViewTransition name={`mod-${mod.id}`} share="morph" default="none">
           <div aria-hidden className="absolute inset-0 -z-10 bg-gradient-to-br from-panel-hi to-ink bg-cover bg-center" style={blur ? { backgroundImage: `url(${blur})` } : undefined}>
@@ -207,7 +208,7 @@ export default async function ModPage(props: PageProps<"/mods/[id]">) {
           </div>
         </ViewTransition>
         <div aria-hidden className="absolute inset-0 -z-10 bg-gradient-to-t from-ink via-ink/75 to-ink/20" />
-        <div className="mx-auto max-w-[1080px] px-4 pb-8 pt-[clamp(120px,22vw,240px)]">
+        <div className="mx-auto max-w-[1080px] px-4 pb-8 pt-[clamp(170px,calc(22vw+50px),290px)]">
           <nav aria-label="Breadcrumb" className="mb-3 text-[13px] text-dim">
             <ol className="flex flex-wrap gap-1.5">
               <li>

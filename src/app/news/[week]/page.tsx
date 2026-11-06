@@ -64,10 +64,11 @@ export default async function NewsWeekPage(props: PageProps<"/news/[week]">) {
     <PageTransition>
       <main className="pb-12" style={accentStyle(lead?.repo)}>
         {report && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: ldJson(newsWeekLd(siteUrl(), { ...report, end: facts.end })) }} />}
-        <header className="relative isolate overflow-hidden border-b border-line">
+        {/* Pulled up under the bar's place, so the picture reaches the top of the page around the floating bar. */}
+        <header className="relative isolate -mt-[50px] overflow-hidden border-b border-line">
           {game && <Backdrop src={game.image} fallback={game.fallbackImage} />}
           <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-ink via-ink/85 to-ink/50" />
-          <div className="relative mx-auto grid min-h-[clamp(260px,32vw,380px)] max-w-[820px] content-end gap-2.5 px-4 pb-7 pt-14">
+          <div className="relative mx-auto grid min-h-[clamp(310px,calc(32vw+50px),430px)] max-w-[820px] content-end gap-2.5 px-4 pb-7 pt-[106px]">
             <p className="font-orbitron text-[12px] font-bold uppercase tracking-[.16em] text-(--tx)">
               {formatWeekName(week)} · <time dateTime={facts.end}>{formatWeekRange(facts.start, facts.end)}</time>
             </p>

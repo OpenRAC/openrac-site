@@ -143,6 +143,9 @@ the `d-*` classes for the mod docs). Use them before writing new classes.
 - Text over a picture or video gets a dark gradient under it, and a soft text shadow
   (`[text-shadow:0_2px_24px_rgb(0_0_0/0.6)]`). Small text over video gets a soft dark glow behind it.
 - Video is muted, plays inline, has a poster, and stops for "reduce motion".
+- A full-width picture at the top of a page (home clips, a mod's banner, a news week's header) is
+  pulled up under the bar's place (`-mt-[50px]`, with 50 px more top padding), so it reaches the top
+  edge around the floating bar. Never a black strip above it.
 - No game assets in git: no screenshots, video, logos or art from the games. They are served from
   `IMAGE_DIR`.
 

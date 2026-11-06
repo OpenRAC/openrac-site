@@ -62,6 +62,12 @@ function HeroShotLayers({ at, off, idle, hidden, missing, lost }: { at: number; 
     live.current = { at, run: !off && !idle && !still };
   });
 
+  // A clip's own load events start it when it is the one showing and should run (onLoadedData, onCanPlay).
+  const startIfDue = (i: number) => (e: { currentTarget: HTMLVideoElement }) => {
+    const v = e.currentTarget;
+    if (i === live.current.at && live.current.run && v.paused) v.play().catch(() => {});
+  };
+
   // The clip coming in starts from its beginning; the one going out stops once it has faded.
   useEffect(() => {
     const video = videos.current[at];
@@ -69,7 +75,11 @@ function HeroShotLayers({ at, off, idle, hidden, missing, lost }: { at: number; 
       videos.current.forEach((v) => v?.pause());
       return;
     }
-    if (video && !still) {
+    // No play() before the files are in (the codec check): Safari drops a play() made on an empty clip.
+    if (video && !still && av1 !== null) {
+      // Files just added and not picked up yet: load them now, so the play() below waits for them
+      // instead of being cancelled by their load (Safari otherwise keeps the first frame).
+      if (video.readyState === HTMLMediaElement.HAVE_NOTHING && !video.currentSrc) video.load();
       video.currentTime = 0;
       // A browser refusing autoplay (a phone saving power) keeps the first frame until the first touch or key.
       video.play().catch(() => {
@@ -103,12 +113,9 @@ function HeroShotLayers({ at, off, idle, hidden, missing, lost }: { at: number; 
             muted
             playsInline
             onPlaying={() => setWarm(true)}
-            // The files arrive after the first play() call (once the codec is chosen), and their load
-            // cancels it: on a first visit the clip would sit on its first frame. Start it once it can play.
-            onCanPlay={(e) => {
-              const v = e.currentTarget;
-              if (i === live.current.at && live.current.run && v.paused) v.play().catch(() => {});
-            }}
+            // Backups for a play() a browser dropped while the files loaded: start once there is a frame.
+            onCanPlay={startIfDue(i)}
+            onLoadedData={startIfDue(i)}
             // The browser's own autoplay starts the showing clip as soon as it has enough of it, the surest
             // way on phones; the calls above and onCanPlay only back it up.
             autoPlay={i === at && !still && !off && !idle}
