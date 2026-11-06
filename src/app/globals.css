@@ -11,10 +11,10 @@
 
 @theme {
   /* Neutral darks with a hair of violet: the page, raised panels, the footer. */
-  --color-ink: #12121a;
-  --color-ink-deep: #0c0c12;
-  --color-panel: #1d1d27;
-  --color-panel-hi: #23232f;
+  --color-ink: #0a0a0a;
+  --color-ink-deep: #050505;
+  --color-panel: #161616;
+  --color-panel-hi: #1c1c1c;
   /* Warm mid brown, light enough to stand beside the gold: the fill of every plain control (buttons, fields, chips). Never grey. */
   --color-coal: #121212;
   --color-coal-hi: #1e1e1e;
