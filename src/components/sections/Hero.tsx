@@ -30,7 +30,7 @@ export default function Hero({ progress, mods, release }: { progress: Partial<Re
         {formatSize(bytes)}
       </div>
       <small className="block font-mono text-[11px] font-semibold tracking-[.08em] text-soft">OF CODE VERIFIED</small>
-      <p className="mt-2.5 font-mono text-[12px] font-semibold text-soft [text-shadow:0_1px_0_#000]">
+      <p className="mt-2.5 font-mono text-[12px] font-semibold text-soft">
         <b className="text-gold"><CountUp value={new Set(PROJECTS.map((p) => p.name)).size} /></b> titles · <b className="text-gold"><CountUp value={active.length} /></b> projects
         {/* Left out while the mod list cannot be read, rather than claiming none. */}
         {mods > 0 && <> · <b className="text-gold"><CountUp value={mods} /></b> mods</>}
