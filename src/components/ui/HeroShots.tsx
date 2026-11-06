@@ -108,6 +108,13 @@ function HeroShotLayers({ at, off, idle, hidden, missing, lost }: { at: number; 
             key={shot.file}
             ref={(v) => {
               videos.current[i] = v;
+              // React sets muted only as a property on a clip it creates itself (coming back to the home page
+              // without a reload), and iOS Safari then refuses to autoplay it: give it the real attribute too.
+              if (v && !v.hasAttribute("muted")) {
+                v.defaultMuted = true;
+                v.muted = true;
+                v.setAttribute("muted", "");
+              }
             }}
             poster={heroSrc(shot, ".webp")}
             muted
