@@ -53,7 +53,7 @@ export default async function ModsPage() {
           Community made · one-click install
         </p>
         <h1 className="max-w-[860px] text-balance font-audiowide text-[clamp(30px,5.6vw,56px)] leading-[1.06]">
-          <span className="animate-shine bg-gradient-to-r from-amber via-[#e8a317] to-gold bg-[length:220%_100%] bg-clip-text text-transparent">Mods</span> for the Ratchet &amp; Clank port.
+          <span className="text-amber">Mods</span> for the Ratchet &amp; Clank port.
         </h1>
         <p className="mt-4 max-w-[620px] text-[15px] leading-relaxed text-soft sm:text-[17px]">
           Made by the community for OpenRAC. Press <b className="font-semibold text-hi">Install</b> and the launcher adds the mod with everything it needs, checks every file, and keeps it up to date.

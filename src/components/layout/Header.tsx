@@ -18,15 +18,13 @@ const pill = "flex min-h-11 items-center justify-center rounded-md px-4 text-sm 
 /** On a phone the bar's buttons are bare dark marks on the stripes: no discs or rings, a light shade under a finger. */
 const barIcon = "flex size-10 flex-none items-center justify-center rounded-md text-[#1b1206] transition-colors hover:bg-black/10 active:bg-black/15 min-[821px]:hidden";
 
-/** A light capsule holding several of the wide bar's buttons: a shade of the stripes, the same as the search field. */
-const capsule = "min-[821px]:flex min-[821px]:h-9 min-[821px]:items-center min-[821px]:px-0.5 min-[821px]:rounded-md min-[821px]:bg-black/15 min-[821px]:shadow-[inset_0_0_0_1px_rgb(0_0_0/0.25)]";
-/** A hairline between the buttons of the capsule. */
-const capsuleDivider = "h-4 w-px flex-none bg-black/25";
+/** A wide bar button: a light shade of the stripes, the same as the search field. */
+const shade = "min-[821px]:h-9 min-[821px]:bg-black/15 min-[821px]:shadow-[inset_0_0_0_1px_rgb(0_0_0/0.25)]";
 /** A hairline between the buttons of the dark dock. */
 const divider = "h-4 w-px flex-none bg-white/15";
-/** A button in the capsule (dark ink on the stripes), and Mods while on its pages, filled dark. */
-const off = "text-[#1b1206] hover:bg-black/10";
-const on = "bg-[#1b1206] text-amber";
+/** A bar button (dark ink on its shade), and Mods while on its pages, filled dark. */
+const off = `${shade} text-[#1b1206] hover:bg-black/25`;
+const on = "min-[821px]:h-9 bg-[#1b1206] text-amber";
 /** The same for a site's mark, in white. */
 const offMark = "text-text hover:bg-[#2a1800]";
 
@@ -147,17 +145,16 @@ export default function Header() {
               </Link>
             </div>
             <div className="grid gap-2 min-[821px]:ml-auto min-[821px]:flex min-[821px]:items-center min-[821px]:max-[1023px]:gap-1.5">
-              {/* Mods and Download share one light capsule on the wide bar. On phones it falls away (contents):
+              {/* Mods and Download: two buttons side by side on the wide bar. On phones the row falls away (contents):
                   Download is the menu's big button, and Mods a line of the menu. */}
-              <div className={`${capsule} max-[821px]:contents`}>
+              <div className="min-[821px]:flex min-[821px]:items-center min-[821px]:gap-2 max-[821px]:contents">
                 {/* Mods: its own page, with its own mark, gold while there. */}
                 <Link href="/mods" transitionTypes={PAGE_TRANSITION} onClick={close} aria-current={inMods ? "page" : undefined} className={`${pill} gap-2 max-[821px]:hidden ${inMods ? on : off}`}>
                   <ModsMark className="size-4" />
                   Mods
                 </Link>
-                <span aria-hidden className={`${capsuleDivider} max-[821px]:hidden`} />
                 {/* The install page: the launcher for every system. */}
-                <Link href="/install" transitionTypes={PAGE_TRANSITION} onClick={close} aria-current={pathname === "/install" ? "page" : undefined} className={`${pill} border border-amber bg-amber text-[#1a0d00] hover:brightness-110 min-[821px]:border-0 min-[821px]:bg-transparent min-[821px]:text-[#1b1206] min-[821px]:hover:bg-black/10 min-[821px]:hover:brightness-100`}>
+                <Link href="/install" transitionTypes={PAGE_TRANSITION} onClick={close} aria-current={pathname === "/install" ? "page" : undefined} className={`${pill} border border-amber bg-amber text-[#1a0d00] hover:brightness-110 min-[821px]:border-0 min-[821px]:h-9 min-[821px]:bg-black/15 min-[821px]:shadow-[inset_0_0_0_1px_rgb(0_0_0/0.25)] min-[821px]:text-[#1b1206] min-[821px]:hover:bg-black/25 min-[821px]:hover:brightness-100`}>
                   Download
                 </Link>
               </div>

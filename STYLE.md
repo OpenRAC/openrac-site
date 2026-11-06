@@ -48,9 +48,9 @@ the `d-*` classes for the mod docs). Use them before writing new classes.
 ## Header bar
 
 - The bar is gold (`bar-stripes`). Everything on it is dark: dark text, dark logo.
-- The links (Mods, Download) sit in one light capsule (`bg-black/15`, `rounded-md`) with thin dark
-  dividers. The open page is a dark chip with gold text.
-- The search field matches the capsule: same height (36 px), same fill, same corners.
+- Mods and Download are two separate buttons, each a light shade of the bar (`bg-black/15`,
+  `rounded-md`). The open page is a dark button with gold text.
+- The search field matches them: same height (36 px), same fill, same corners.
 
 ## Sizes and touch
 
@@ -76,6 +76,8 @@ the `d-*` classes for the mod docs). Use them before writing new classes.
 ## Motion
 
 - Short and calm: 0.2 s for hover, about 1.6 s for big fades.
+- Text never shimmers or cycles colours: gold words are a plain `text-amber`.
+- A full-bleed video or picture melts into the page at the bottom (an eased mask), never a hard edge.
 - Everything that moves on its own respects `prefers-reduced-motion`.
 
 ## Writing on the page

@@ -36,6 +36,9 @@ function useAv1() {
   return av1;
 }
 
+
+/** The clips and the galaxies melt into the page at the bottom: an eased mask, so no edge shows while scrolling past. */
+const FADE_OUT = "[mask-image:linear-gradient(to_bottom,#000_50%,rgb(0_0_0/.82)_63%,rgb(0_0_0/.52)_75%,rgb(0_0_0/.24)_86%,rgb(0_0_0/.07)_94%,transparent)]";
 /**
  * The title screen's clips: one full-bleed cinematic flight at a time, crossfading to the next like
  * a console's title screen. Under the text, a bar per clip fills while it shows (click one to jump).
@@ -70,7 +73,7 @@ function HeroShotLayers({ at, off, idle, missing, lost }: { at: number; off: boo
   }, [at, still, off, idle, av1]);
 
   return (
-    <div aria-hidden style={{ transitionDuration: `${FADE_MS}ms` }} className={`absolute inset-0 overflow-hidden bg-ink-deep transition-opacity ${off ? "opacity-0" : ""}`}>
+    <div aria-hidden style={{ transitionDuration: `${FADE_MS}ms` }} className={`absolute inset-0 overflow-hidden bg-ink-deep transition-opacity ${FADE_OUT} ${off ? "opacity-0" : ""}`}>
       {HERO_SHOTS.map((shot, i) =>
         wanted.has(i) && !missing.has(i) ? (
           <video
@@ -246,11 +249,11 @@ export default function HeroStage({ hud, children }: { hud: ReactNode; children:
     <section ref={stage} className="relative mx-[calc(50%-50vw)] flex min-h-[calc(100svh-50px)] items-end">
       <HeroShotLayers at={at} off={sky} idle={idle} missing={missing} lost={lost} />
       {sky && (
-        <div className="absolute inset-0 animate-[sky-in_1.6s_ease-out_both]">
+        <div className={`absolute inset-0 animate-[sky-in_1.6s_ease-out_both] ${FADE_OUT}`}>
           <HeroGalaxies />
         </div>
       )}
-      <div aria-hidden className={`absolute inset-0 transition-opacity duration-[1600ms] ${sky ? "opacity-60" : ""} bg-[linear-gradient(90deg,rgb(12_12_18/.92)_0%,rgb(12_12_18/.55)_45%,transparent_75%),linear-gradient(0deg,var(--color-ink)_0%,transparent_35%)] max-[700px]:bg-[linear-gradient(0deg,var(--color-ink)_8%,rgb(12_12_18/.82)_55%,rgb(12_12_18/.35)_100%)]`} />
+      <div aria-hidden className={`absolute inset-0 transition-opacity duration-[1600ms] ${sky ? "opacity-60" : ""} bg-[linear-gradient(0deg,var(--color-ink)_0%,rgb(18_18_26/.6)_14%,rgb(18_18_26/.25)_30%,transparent_45%),linear-gradient(90deg,rgb(12_12_18/.92)_0%,rgb(12_12_18/.55)_45%,transparent_75%)] max-[700px]:bg-[linear-gradient(0deg,var(--color-ink)_8%,rgb(12_12_18/.82)_55%,rgb(12_12_18/.35)_100%)]`} />
       {hud}
       {/* Phones: centred, with wider side margins; wider screens: bottom left. */}
       <div className="relative mx-auto w-full max-w-[1080px] px-4 pb-14 pt-40 max-[700px]:px-7 max-[700px]:pb-24 max-[700px]:text-center max-[700px]:[&>*]:mx-auto">

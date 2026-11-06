@@ -50,7 +50,7 @@ export default function Hero({ progress, mods, release }: { progress: Partial<Re
         </a>
       )}
       <h1 className="max-w-[640px] text-pretty font-audiowide text-[clamp(30px,5.4vw,54px)] leading-[1.08] [text-shadow:0_2px_24px_rgb(0_0_0/0.6)]">
-        <span className="animate-shine bg-gradient-to-r from-amber via-[#e8a317] to-gold bg-[length:220%_100%] bg-clip-text text-transparent">
+        <span className="text-amber">
           Ratchet &amp; Clank
         </span>{" "}
         {/* "original bytes." stays together, so "bytes." never sits alone on the last line. */}
