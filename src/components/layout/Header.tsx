@@ -22,11 +22,11 @@ const barIcon = "flex size-10 flex-none items-center justify-center rounded-md t
 const shade = "min-[821px]:h-9 min-[821px]:bg-umber";
 /** A hairline between the buttons of the dark dock. */
 const divider = "h-4 w-px flex-none bg-white/15";
-/** A bar button, and Mods while on its pages: darker still, with gold text. */
+/** A bar button, and Mods while on its pages: the same fill with gold text. */
 const off = `${shade} text-text hover:bg-umber-hi`;
-const on = "min-[821px]:h-9 bg-[#140d05] text-amber";
+const on = "min-[821px]:h-9 bg-umber text-amber";
 /** The same for a site's mark, in white. */
-const offMark = "text-text hover:bg-[#2a1800]";
+const offMark = "text-text hover:bg-umber-hi";
 
 /** A small puzzle piece: the mark of Mods in the bar. Its knobs sit top and right, so the view is shifted to
     put the piece's weight, not its outline, in the middle of a round button. */
@@ -182,7 +182,7 @@ export default function Header() {
       {/* Holds the bar's place in the page. */}
       <div aria-hidden className="h-[50px]" />
       {/* News, GitHub and Discord float in the bottom right corner, out of the crowded bar, in reach on every screen. */}
-      <nav aria-label="News and community" className="site-dock fixed bottom-[max(16px,env(safe-area-inset-bottom))] right-[max(16px,env(safe-area-inset-right))] z-20 flex items-center rounded-lg bg-[#1b1206] px-1 shadow-[0_0_0_1px_rgb(0_0_0/0.25),0_8px_24px_rgb(0_0_0/0.45)] transition-[translate] duration-200 motion-reduce:transition-none">
+      <nav aria-label="News and community" className="site-dock fixed bottom-[max(16px,env(safe-area-inset-bottom))] right-[max(16px,env(safe-area-inset-right))] z-20 flex items-center rounded-lg bg-umber px-1 shadow-[0_0_0_1px_rgb(0_0_0/0.25),0_8px_24px_rgb(0_0_0/0.45)] transition-[translate] duration-200 motion-reduce:transition-none">
         <NewsButton on={inNews} className={`${offMark} size-10`} />
         <span aria-hidden className={divider} />
         <MarkButton site="github" className={`${offMark} size-10`} />

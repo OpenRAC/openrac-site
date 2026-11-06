@@ -15,9 +15,9 @@
   --color-ink-deep: #0c0c12;
   --color-panel: #1d1d27;
   --color-panel-hi: #23232f;
-  /* Warm dark brown, the bar's ink lifted a little: the fill of every plain control (buttons, fields, chips). Never grey. */
-  --color-umber: #261b0e;
-  --color-umber-hi: #33240f;
+  /* Warm mid brown, light enough to stand beside the gold: the fill of every plain control (buttons, fields, chips). Never grey. */
+  --color-umber: #5c3f16;
+  --color-umber-hi: #6e4c1b;
   --color-brand: #d6a020;
   --color-amber: #f5c040;
   --color-gold: #ffe08f;

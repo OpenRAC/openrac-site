@@ -12,7 +12,8 @@ the `d-*` classes for the mod docs). Use them before writing new classes.
 - Backgrounds are near-black with a hint of violet: `ink` for the page, `ink-deep` for the darkest parts,
   `panel` and `panel-hi` for raised things.
 - No grey anywhere. Plain controls (buttons, fields, chips, tabs, small tags you can click) are filled
-  with `umber`, a warm dark brown (`umber-hi` on hover). Never `bg-white/…` or a white mix for a control.
+  with `umber` (#5c3f16), a warm mid brown light enough to sit beside the gold (`umber-hi`, #6e4c1b,
+  on hover). Not darker: a near-black brown looks dead next to the yellow. Never `bg-white/…` or a white mix for a control.
 - Text: `hi` for headings, `body` for reading text, `soft` for secondary text, `dim` for the quietest text.
 - Gold text sits on dark only. On a gold fill, the text is dark (`#1b1206`).
 
@@ -29,7 +30,7 @@ the `d-*` classes for the mod docs). Use them before writing new classes.
 - Buttons, fields, chips, tabs and badges have no border. A fill sets them apart.
 - Cards and panels have no border either: their fill is a little lighter than the page (`.surface`, or
   `bg-panel`).
-- On or picked: a stronger gold tint and gold text (`aria-pressed="true"` or `data-on` on `.btn`/`.chip`, which do
+- On or picked: darker than `umber` (a gold tint on the page's ink) with gold text (`aria-pressed="true"` or `data-on` on `.btn`/`.chip`, which do
   this for you). Do not add a gold border.
 - Focus on a field: a 2 px gold ring inside it (`.field` does it). Other elements use the browser's focus
   outline.
@@ -53,9 +54,10 @@ the `d-*` classes for the mod docs). Use them before writing new classes.
   scrolls it docks to the top edge, full width. The home page's clip runs behind the floating bar.
 - The bar is gold (`bar-stripes`). The logo is dark; its buttons and search field are `umber` with light text.
 - Mods and Download are two separate buttons, filled `umber` with light text (`rounded-md`, 36 px tall).
-  The open page is a darker button with gold text.
+  The open page has the same fill with gold text.
 - The search field matches them: same height, the same `umber` fill, same corners, soft light text.
 - Phone bar icons (search, menu) stay bare dark marks on the stripes.
+- The corner dock (News, GitHub, Discord) is `umber` too. There is no darker brown anywhere.
 
 ## Sizes and touch
 
