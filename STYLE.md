@@ -11,8 +11,8 @@ the `d-*` classes for the mod docs). Use them before writing new classes.
   red). Discord's blue is used only for Discord.
 - Backgrounds are near-black with a hint of violet: `ink` for the page, `ink-deep` for the darkest parts.
 - Every card and panel (`.surface`, `.d-card`, `bg-panel`: FAQ, Resources, How it works, Legal, news, mods,
-  docs) wears the same dark diagonal stripes as the bar's search field (`--stripes`: 35deg, 20 px, #181818
-  on #121212; `--stripes-hi` on hover or when open). One look everywhere; no flat lighter panels.
+  docs) wears the same dark diagonal stripes as the bar's search field (`--stripes`: 35deg, 20 px, a faint #151515
+  on #121212, a light background, never loud; `--stripes-hi` on hover or when open). One look everywhere; no flat lighter panels.
 - Controls (buttons, fields, chips, tabs, small tags you can click, the bar's buttons and search, the corner
   dock) are filled with `coal` (#121212, `coal-hi` #1e1e1e on hover) with a 1 px gold edge (`edge`, amber at 35 %). The rule is
   contrast with the background: on the site's violet-navy ink a control is neutral `#121212`; where the

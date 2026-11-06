@@ -22,8 +22,8 @@
   --color-navy: #1d1b2a;
   --color-navy-hi: #29253b;
   /* The coal stripes every card and panel wears, the same as the bar's search field (see STYLE.md). */
-  --stripes: repeating-linear-gradient(35deg, #181818 0 20px, #121212 20px 40px);
-  --stripes-hi: repeating-linear-gradient(35deg, #252525 0 20px, #1f1f1f 20px 40px);
+  --stripes: repeating-linear-gradient(35deg, #151515 0 20px, #121212 20px 40px);
+  --stripes-hi: repeating-linear-gradient(35deg, #1c1c1c 0 20px, #191919 20px 40px);
   /* The 1 px gold edge round everything filled with coal. */
   --color-edge: rgb(245 192 64 / 0.35);
   --color-brand: #d6a020;
