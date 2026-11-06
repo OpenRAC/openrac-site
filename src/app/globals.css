@@ -71,7 +71,9 @@
 /* The header bar: wide stripes of two close golds, as the launcher draws it. */
 /* The bar's stripes are laid on the window, not the bar, so the stripes in its buttons continue them exactly. */
 @utility bar-stripes {
-  background: repeating-linear-gradient(35deg, #c99222 0 20px, #bd8619 20px 40px) fixed;
+  background: repeating-linear-gradient(35deg, #c99222 0 20px, #bd8619 20px 40px);
+  /* Laid on the window only where the bar's striped buttons show; phones move fixed backgrounds as the page scrolls. */
+  @media (min-width: 821px) { background-attachment: fixed; }
 }
 @utility coal-stripes {
   background: repeating-linear-gradient(35deg, #181818 0 20px, #121212 20px 40px) fixed;

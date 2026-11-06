@@ -150,6 +150,8 @@ the `d-*` classes for the mod docs). Use them before writing new classes.
 - Text never shimmers or cycles colours: gold words are a plain `text-amber`.
 - A full-bleed video or picture melts into the page at the bottom (an eased mask), never a hard edge.
 - Everything that moves on its own respects `prefers-reduced-motion`.
+- A link to another page opens it at the top; Back and Forward return to where the page was left
+  (`ScrollReset`). On phones the bar's stripes scroll with the bar (no `fixed`), so they never slide.
 
 ## Writing on the page
 

@@ -3,6 +3,7 @@ import { Audiowide, Chakra_Petch, Inter, Orbitron, Pixelify_Sans } from "next/fo
 import SiteFooter from "@/components/layout/Footer";
 import Header from "@/components/layout/Header";
 import Logo from "@/components/ui/Logo";
+import ScrollReset from "@/components/layout/ScrollReset";
 import RevealObserver from "@/components/layout/RevealObserver";
 import { SHARE_IMAGE, siteUrl } from "@/lib/machine";
 import { detectPlatform } from "@/lib/platform";
@@ -118,6 +119,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           <SiteFooter />
         </div>
         <RevealObserver />
+        <ScrollReset />
       </body>
     </html>
   );
