@@ -110,7 +110,7 @@ function SystemCard({ p, i, mine, release, dev, devAgo, fallback }: {
         {dev && (
           <a
             href={dev.url}
-            className="mt-3 flex flex-wrap items-center justify-center gap-x-2 gap-y-0.5 rounded-md bg-white/[.04] px-3 py-2 text-[12px] text-soft no-underline transition-colors hover:bg-white/[.08] hover:text-amber"
+            className="mt-3 flex flex-wrap items-center justify-center gap-x-2 gap-y-0.5 rounded-md px-3 py-2 text-[12px] text-soft no-underline transition-colors hover:text-amber"
           >
             <span className="rounded bg-amber/10 px-1.5 py-px font-orbitron text-[9px] font-bold tracking-[.12em] text-amber">DEV</span>
             <span>{dev.version ? `v${dev.version}` : "Latest build"}</span>
