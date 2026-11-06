@@ -59,8 +59,15 @@
 }
 
 /* The header bar: wide stripes of two close golds, as the launcher draws it. */
+/* The bar's stripes are laid on the window, not the bar, so the stripes in its buttons continue them exactly. */
 @utility bar-stripes {
-  background: repeating-linear-gradient(35deg, #c99222 0 20px, #bd8619 20px 40px);
+  background: repeating-linear-gradient(35deg, #c99222 0 20px, #bd8619 20px 40px) fixed;
+}
+@utility coal-stripes {
+  background: repeating-linear-gradient(35deg, #1d1d1d 0 20px, #121212 20px 40px) fixed;
+}
+@utility coal-stripes-hi {
+  background: repeating-linear-gradient(35deg, #2b2b2b 0 20px, #1f1f1f 20px 40px) fixed;
 }
 
 /* The shared pieces every section is built from, so buttons and panels look the same everywhere. */

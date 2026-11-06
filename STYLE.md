@@ -54,10 +54,13 @@ the `d-*` classes for the mod docs). Use them before writing new classes.
 
 - At the very top of a page the bar floats: inset 12 px, `rounded-xl`, as wide as the content. Once the page
   scrolls it docks to the top edge, full width. The home page's clip runs behind the floating bar.
-- The bar is gold (`bar-stripes`). The logo is dark; its buttons and search field are `coal` with light text, no edge.
-- Mods and Download are two separate buttons, filled `coal` with light text (`rounded-md`, `h-8.5`: 34 px tall).
-  The open page has the same fill with gold text.
-- The search field matches them: same height, the same `coal` fill, same corners, soft light text.
+- The bar is gold (`bar-stripes`). The logo is dark. Its buttons and search field carry the same stripes in
+  coal (`coal-stripes`, `coal-stripes-hi` on hover) with gold text and no edge. Both stripe sets are laid on
+  the window (`background-attachment: fixed`), so a button's stripes continue the bar's exactly; keep
+  angle and width (35deg, 20 px) the same in both.
+- Mods and Download are two separate buttons, striped coal with gold text (`rounded-md`, `h-8.5`: 34 px tall).
+  The open page has the lighter stripes (`coal-stripes-hi`) with light gold text.
+- The search field matches them: same height, the same coal stripes, same corners, soft light text.
 - Phone bar icons (search, menu) stay bare dark marks on the stripes.
 - The corner dock (News, GitHub, Discord) is `coal` too, with no edge.
 
