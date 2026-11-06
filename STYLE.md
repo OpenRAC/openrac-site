@@ -11,7 +11,7 @@ the `d-*` classes for the mod docs). Use them before writing new classes.
   copper, blue or red). Discord's blue is used only for Discord.
 - No grey, no brown, no white mix anywhere: never `bg-white/…`, `rgb(255 255 255 / …)` or a mid grey as a
   fill, and no brown control (`umber` and every brown tried were rejected). The only neutrals are the blacks
-  and coals below.
+  and coals below. The one exception is the thin dividing line (`border-line`, `w-px` dividers).
 - Text: `hi` for headings, `body` for reading text, `soft` for secondary text, `dim` for the quietest text.
   Gold text sits on dark only. On a gold fill, the text is dark (`#1b1206`).
 
@@ -62,7 +62,8 @@ the `d-*` classes for the mod docs). Use them before writing new classes.
 
 ## Lines and boxes
 
-- Badges have no border; they sit on `ink-deep`.
+- Badges, tags (platform, region, "research"), progress-bar tracks and small icon tiles sit on `ink-deep`,
+  never a white mix. Badges have no border.
 - Inline code sits on `ink-deep` with gold text.
 - Dialogs and sheets (site search, docs search, the mods sheet) are `coal`. The two search dialogs have no
   edge; the mods sheet keeps it. Their field is navy.
@@ -112,6 +113,8 @@ the `d-*` classes for the mod docs). Use them before writing new classes.
 - The stats HUD (top right, under the bar, hidden on phones): the big number in `text-amber`, labels in
   `text-body`, counts in amber. No hard text shadow; only a soft halo behind the letters so it reads on
   bright clips.
+- The clips are served from the server (`IMAGE_DIR` through `/img/…`), like the card pictures; never from
+  git. A clip that is not on the server drops out; with none at all the first screen is plain black.
 - The clip melts into the page with an eased mask, never a hard line. The galaxies easter egg (Konami
   code) draws only to the right of the text on wide screens.
 

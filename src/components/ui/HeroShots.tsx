@@ -151,7 +151,7 @@ function HeroShotBar({ at, round, go, missing }: { at: number; round: number; go
             // A 40 px hit area (fingers) around the 4 px bar it draws.
             className="group flex size-10 cursor-pointer items-center px-1.5 sm:w-12"
           >
-            <span className="relative h-1 w-full overflow-hidden rounded-full bg-white/20 transition-colors group-hover:bg-white/35">
+            <span className="relative h-1 w-full overflow-hidden rounded-full bg-black/50 transition-colors group-hover:bg-black/70">
               {i === at && (
                 <span key={`${at}-${round}`} style={{ animationDuration: `${HOLD_MS}ms` }} className="absolute inset-y-0 left-0 w-full origin-left animate-[shot-fill_linear_forwards] rounded-full bg-amber motion-reduce:animate-none" />
               )}

@@ -378,7 +378,7 @@ export default async function ModPage(props: PageProps<"/mods/[id]">) {
                         <summary className="flex min-h-12 cursor-pointer list-none flex-wrap items-center gap-x-4 gap-y-1 px-4 py-2.5">
                           <span className="font-orbitron font-bold tabular-nums text-gold">v{ver.version}</span>
                           {ver.prerelease && <span className="rounded bg-amber/10 px-2 font-orbitron text-[10px] uppercase tracking-[.15em] text-amber">Pre-release</span>}
-                          {gone && <span className="rounded bg-white/[.07] px-2 font-orbitron text-[10px] uppercase tracking-[.15em] text-dim">Withdrawn</span>}
+                          {gone && <span className="rounded bg-ink-deep px-2 font-orbitron text-[10px] uppercase tracking-[.15em] text-dim">Withdrawn</span>}
                           <span className="text-[13px] text-dim">{new Date(ver.released).toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" })}</span>
                           <span className="text-[13px] text-dim">{Object.values(ver.games).flat().map((d) => DISC_LABEL[d] ?? d).join(", ")}</span>
                           {ver.size > 0 && <span className="text-[13px] tabular-nums text-dim">{formatSize(ver.size)}</span>}

@@ -79,7 +79,7 @@ function Bar({ value, name, data = false }: { value: number | null; name: string
       aria-valuenow={value == null ? undefined : Math.round(value * 10) / 10}
       aria-valuemin={0}
       aria-valuemax={100}
-      className={`${data ? "h-1" : "h-1.5"} overflow-hidden rounded-full bg-white/10`}
+      className={`${data ? "h-1" : "h-1.5"} overflow-hidden rounded-full bg-ink-deep`}
     >
       {value != null && (
         <i style={{ "--w": `${value}%` } as CSSProperties} className={`bar-fill block h-full rounded-full ${data ? "bg-(--tx)/45" : "bg-(--tx)"}`} />
@@ -126,7 +126,7 @@ function Card({ project: g, progress: p, release = false }: { project: Project; 
             <p className={`mt-1 flex flex-wrap items-center gap-x-2.5 gap-y-1 text-dim ${SIZES.small}`}>
               <span>{g.subtitle ?? `decompilation · ${g.year}${g.region && !release ? ` · ${g.region}` : ""}`}</span>
               {release && g.region && (
-                <span className="rounded bg-white/[.08] px-2 py-0.5 text-[10px] uppercase tracking-[.15em] @xl:text-[11px]">
+                <span className="rounded bg-ink-deep px-2 py-0.5 text-[10px] uppercase tracking-[.15em] @xl:text-[11px]">
                   {REGION_NAME[g.region] ?? g.region}
                 </span>
               )}
@@ -166,7 +166,7 @@ function Card({ project: g, progress: p, release = false }: { project: Project; 
         </div>
         {g.phase === "research" && (
           <p className="flex flex-wrap items-center gap-2.5 text-[12px] text-dim">
-            <ResearchBadge className="bg-white/[.08] text-text" />
+            <ResearchBadge className="bg-ink-deep text-text" />
             <span>{RESEARCH_TEXT}</span>
           </p>
         )}
@@ -203,7 +203,7 @@ function Group({ title, text, platforms, projects, progress }: {
           </h3>
           <p className="mt-1 text-sm text-dim">{text}</p>
         </div>
-        <span className="rounded bg-white/[.06] px-3 py-1 font-orbitron text-xs text-dim">{platforms}</span>
+        <span className="rounded bg-ink-deep px-3 py-1 font-orbitron text-xs text-dim">{platforms}</span>
       </div>
       <div className="grid gap-3 sm:gap-4">
         {rows(projects).map((row) =>

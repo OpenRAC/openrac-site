@@ -97,7 +97,7 @@ export function ProgressBar({ progress }: { progress: NonNullable<NewsProgress> 
     <div
       role="img"
       aria-label={before ? `Code matched rose from ${formatPercent(before)} to ${formatPercent(after)}` : `${formatPercent(after)} of code matched`}
-      className="relative h-2.5 overflow-hidden rounded-full bg-white/10"
+      className="relative h-2.5 overflow-hidden rounded-full bg-ink-deep"
     >
       <i style={{ "--w": width } as CSSProperties} className="bar-fill absolute inset-y-0 left-0 block rounded-full bg-(--tx)" />
       {before && change && <i style={{ "--w": `${newsPercent(before)}%` } as CSSProperties} className="bar-fill absolute inset-y-0 left-0 block rounded-full bg-(--tx) brightness-50" />}

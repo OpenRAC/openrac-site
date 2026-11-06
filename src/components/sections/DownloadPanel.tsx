@@ -49,7 +49,7 @@ function SystemCard({ p, i, mine, release, dev, devAgo, fallback }: {
     >
       <div className="flex items-center gap-3.5">
         <span
-          className={`dl-tile grid size-12 flex-none place-items-center rounded-md ${mine ? "bg-amber/15 text-amber" : "bg-white/[.06] text-hi"}`}
+          className={`dl-tile grid size-12 flex-none place-items-center rounded-md ${mine ? "bg-amber/15 text-amber" : "bg-ink-deep text-hi"}`}
         >
           <SystemIcon id={p.id} />
         </span>

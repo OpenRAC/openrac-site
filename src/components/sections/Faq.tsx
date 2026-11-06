@@ -21,7 +21,7 @@ function OtherTitles() {
       </p>
       <ul className="grid gap-2">
         {games.map(({ game, projects }) => (
-          <li key={game.id} className="flex flex-wrap items-baseline gap-x-3 gap-y-1 rounded-md bg-white/[.04] px-4 py-2.5">
+          <li key={game.id} className="flex flex-wrap items-baseline gap-x-3 gap-y-1 rounded-md bg-ink-deep px-4 py-2.5">
             <span className="font-orbitron text-[15px] font-bold text-gold">{game.name}</span>
             <span className="text-[13px] text-dim">{game.year}</span>
             {game.phase === "research" && (
