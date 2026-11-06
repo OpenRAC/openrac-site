@@ -125,7 +125,7 @@ function SystemCard({ p, i, mine, release, dev, devAgo, fallback }: {
             <ul className="grid gap-1 pb-1">
               {p.others.map((d) => (
                 <li key={d.url}>
-                  <a href={d.url} download className="flex items-baseline gap-2 rounded-lg px-2 py-1.5 text-[13px] text-amber no-underline hover:bg-white/5">
+                  <a href={d.url} download className="flex items-baseline gap-2 rounded-lg px-2 py-1.5 text-[13px] text-amber no-underline hover:bg-coal">
                     <span className="min-w-0">{d.label}</span>
                     <span className="ml-auto flex-none text-[12px] tabular-nums text-dim">{formatSize(d.size)}</span>
                   </a>

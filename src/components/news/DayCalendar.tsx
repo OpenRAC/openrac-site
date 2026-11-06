@@ -6,7 +6,7 @@ const WEEKDAYS = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 /** The month around a day, as plain links: no script. */
 export default function DayCalendar({ days, day }: { days: readonly string[]; day: string }) {
   const { weeks, previous, next } = monthGrid(days, day);
-  const step = "flex size-11 items-center justify-center rounded-full text-[18px] text-soft no-underline hover:bg-white/5 hover:text-hi";
+  const step = "flex size-11 items-center justify-center rounded-full text-[18px] text-soft no-underline hover:bg-coal hover:text-hi";
   return (
     <nav aria-label="Pick a day" className="rounded-xl bg-panel p-3">
       <div className="mb-1 flex items-center justify-between">
@@ -32,7 +32,7 @@ export default function DayCalendar({ days, day }: { days: readonly string[]; da
                       href={`/news/days/${cell.date}`}
                       aria-label={formatDay(cell.date)}
                       aria-current={cell.date === day ? "date" : undefined}
-                      className={`mx-auto flex size-11 items-center justify-center rounded-full no-underline ${cell.date === day ? "bg-amber font-bold text-[#1a0d00]" : "text-text hover:bg-white/10"}`}
+                      className={`mx-auto flex size-11 items-center justify-center rounded-full no-underline ${cell.date === day ? "bg-amber font-bold text-[#1a0d00]" : "text-text hover:bg-coal"}`}
                     >
                       {cell.dayOfMonth}
                     </Link>

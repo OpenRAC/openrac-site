@@ -68,14 +68,14 @@ export default function Search({ version, label = "Search the docs" }: { version
           <path d="m10.5 10.5 3.5 3.5" strokeLinecap="round" />
         </svg>
         <span className="min-w-0 flex-1 truncate">{label}</span>
-        <kbd className="hidden rounded border border-white/15 px-1.5 text-[11px] text-dim sm:inline">/</kbd>
+        <kbd className="hidden rounded bg-navy px-1.5 text-[11px] text-dim sm:inline">/</kbd>
       </button>
       <dialog
         ref={dialog}
         onClose={() => setOpen(false)}
         onClick={(e) => e.target === dialog.current && hide()}
         aria-label="Search the docs"
-        className="m-0 mx-auto mt-[8vh] w-[min(640px,calc(100vw-32px))] rounded-lg border border-line bg-ink p-0 text-text shadow-2xl backdrop:bg-black/60 backdrop:backdrop-blur-sm"
+        className="m-0 mx-auto mt-[8vh] w-[min(640px,calc(100vw-32px))] rounded-xl bg-coal p-0 text-text shadow-2xl backdrop:bg-black/60 backdrop:backdrop-blur-sm"
       >
         <div className="border-b border-line p-3">
           <input

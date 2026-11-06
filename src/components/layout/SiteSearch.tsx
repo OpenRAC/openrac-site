@@ -72,13 +72,13 @@ export default function SiteSearch({ className = "", compact = false }: { classN
           <path d="m10.5 10.5 3.5 3.5" strokeLinecap="round" />
         </svg>
         {!compact && <span className="min-w-0 flex-1 truncate text-left">Search the site</span>}
-        {!compact && <kbd className="rounded bg-black/25 px-1 font-sans text-[11px] leading-4 opacity-75">/</kbd>}
+        {!compact && <kbd className="rounded bg-navy px-1 font-sans text-[11px] leading-4 opacity-75">/</kbd>}
       </button>
       <dialog
         ref={dialog}
         onClick={(e) => e.target === dialog.current && hide()}
         aria-label="Search the site"
-        className="m-0 mx-auto mt-[8vh] w-[min(560px,calc(100vw-32px))] rounded-xl bg-panel p-0 text-text shadow-2xl backdrop:bg-black/60 backdrop:backdrop-blur-sm"
+        className="m-0 mx-auto mt-[8vh] w-[min(560px,calc(100vw-32px))] rounded-xl bg-coal p-0 text-text shadow-2xl backdrop:bg-black/60 backdrop:backdrop-blur-sm"
       >
         <div className="border-b border-line p-3">
           <input

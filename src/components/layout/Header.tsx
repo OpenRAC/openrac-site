@@ -12,7 +12,7 @@ import { DISCORD_URL, GITHUB_URL } from "@/lib/projects";
 /** A line of the open phone menu, on the page's colour; the current page in gold. */
 const link = "flex min-h-11 items-center rounded-md px-3.5 text-[17px] font-bold no-underline transition-colors";
 const linkOn = "bg-coal text-amber";
-const linkOff = "text-hi hover:bg-white/5";
+const linkOff = "text-hi hover:bg-coal";
 const pill = "flex min-h-11 items-center justify-center rounded-md px-4 text-sm font-semibold no-underline transition-colors min-[821px]:min-h-8 min-[821px]:whitespace-nowrap min-[821px]:max-[1023px]:px-3";
 
 /** On a phone the bar's buttons are bare dark marks on the stripes: no discs or rings, a light shade under a finger. */

@@ -33,6 +33,10 @@ the `d-*` classes for the mod docs). Use them before writing new classes.
   the corner dock) has a 1 px gold edge (`--color-edge`). The gold main button and ghost buttons have none.
   The bar's striped buttons have none either: the gold bar around them is their edge.
 - Badges have no border; a fill sets them apart.
+- Dialogs and sheets (site search, docs search, the mods sheet) are `coal` with the gold edge. Controls
+  inside them turn navy (`navy` #1d1b2a, `navy-hi` #29253b on hover) so they still stand out; the edge stays.
+- Hover on a list row, menu line or icon button is `hover:bg-coal` (no edge). A picked row is `bg-amber/12`.
+- Inline code and badges sit on `ink-deep`, never a white mix.
 - Cards and panels have no border either: their fill is a little lighter than the page (`.surface`, or
   `bg-panel`).
 - On or picked: a gold tint on the page's ink with gold text (`aria-pressed="true"` or `data-on` on `.btn`/`.chip`, which do

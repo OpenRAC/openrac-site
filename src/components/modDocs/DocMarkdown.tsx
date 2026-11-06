@@ -81,7 +81,7 @@ export function InlineMarkdown({ children, ctx }: { children: string; ctx: LinkC
     <ReactMarkdown
       remarkPlugins={[remarkGfm]}
       rehypePlugins={[[rehypeSanitize, schema]]}
-      components={{ ...components(ctx), p: ({ children: c }) => <>{c}</>, code: ({ children: c }) => <code className="rounded bg-white/5 px-1 py-px text-[0.92em] text-gold">{c}</code> }}
+      components={{ ...components(ctx), p: ({ children: c }) => <>{c}</>, code: ({ children: c }) => <code className="rounded bg-ink-deep px-1 py-px text-[0.92em] text-gold">{c}</code> }}
     >
       {children}
     </ReactMarkdown>

@@ -5,7 +5,7 @@ import { slimChangeSet, type SlimMod } from "@/lib/mods/slim";
 import InstallButton from "./InstallButton";
 import Sheet from "./Sheet";
 
-const row = "flex items-center justify-between gap-3 rounded-md bg-white/5 px-3.5 py-2.5";
+const row = "flex items-center justify-between gap-3 rounded-md bg-navy px-3.5 py-2.5";
 
 /**
  * CKAN's "Apply changes" for the web: what was picked, what comes with it, what the authors

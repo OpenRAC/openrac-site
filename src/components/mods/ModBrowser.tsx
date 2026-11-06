@@ -219,7 +219,7 @@ export default function ModBrowser({ mods, tags, now }: { mods: SlimMod[]; tags:
             placeholder="Search name, author or what it does"
             className="field pl-11 pr-12"
           />
-          <kbd aria-hidden className="pointer-events-none absolute right-4 top-1/2 hidden -translate-y-1/2 rounded bg-white/10 px-1.5 text-[12px] text-dim [@media(hover:hover)]:block">
+          <kbd aria-hidden className="pointer-events-none absolute right-4 top-1/2 hidden -translate-y-1/2 rounded bg-navy px-1.5 text-[12px] text-dim [@media(hover:hover)]:block">
             /
           </kbd>
         </label>

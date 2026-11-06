@@ -135,7 +135,7 @@ export default function HookExplorer({ hooks, game, discs, manifestHref, scripts
                   type="button"
                   onClick={() => pick(x)}
                   aria-pressed={key(x) === key(h)}
-                  className={`block w-full rounded-md px-2.5 py-1.5 text-left transition-colors ${key(x) === key(h) ? "bg-white/8" : "hover:bg-white/5"}`}
+                  className={`block w-full rounded-md px-2.5 py-1.5 text-left transition-colors ${key(x) === key(h) ? "bg-amber/12" : "hover:bg-coal"}`}
                 >
                   <span className={`line-clamp-2 block text-[13.5px] leading-snug ${key(x) === key(h) ? "text-hi" : "text-body"}`}>{shortAbout(x) || key(x)}</span>
                   <span className={`block truncate font-mono text-[11.5px] ${key(x) === key(h) ? "text-soft" : "text-dim"}`}>{key(x)}</span>
