@@ -60,7 +60,7 @@ the `d-*` classes for the mod docs). Use them before writing new classes.
   angle and width (35deg, 20 px) the same in both.
 - Mods and Download are two separate buttons, striped coal with gold text (`rounded-md`, `h-8.5`: 34 px tall).
   The open page has the lighter stripes (`coal-stripes-hi`) with light gold text.
-- The search field matches them: same height, the same coal stripes, same corners, soft light text.
+- The search field matches them: same height, the same coal stripes, same corners, gold text.
 - Phone bar icons (search, menu) stay bare dark marks on the stripes.
 - The corner dock (News, GitHub, Discord) is `coal` too, with no edge.
 
