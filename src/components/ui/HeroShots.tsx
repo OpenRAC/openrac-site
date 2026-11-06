@@ -44,7 +44,7 @@ const FADE_OUT = "[mask-image:linear-gradient(to_bottom,#000_50%,rgb(0_0_0/.82)_
  * a console's title screen. Under the text, a bar per clip fills while it shows (click one to jump).
  * Each clip's first frame shows while it loads, and alone with reduced motion; a clip not uploaded yet leaves the dark backdrop.
  */
-function HeroShotLayers({ at, off, idle, missing, lost }: { at: number; off: boolean; idle: boolean; missing: ReadonlySet<number>; lost: (i: number) => void }) {
+function HeroShotLayers({ at, off, idle, hidden, missing, lost }: { at: number; off: boolean; idle: boolean; hidden: boolean; missing: ReadonlySet<number>; lost: (i: number) => void }) {
   // A clip loads once it is on screen or next: the others wait until their turn. The next one waits
   // until the first is playing, so on a slow line the first screen's picture comes first.
   const [warm, setWarm] = useState(false);
@@ -82,6 +82,13 @@ function HeroShotLayers({ at, off, idle, missing, lost }: { at: number; off: boo
     const stop = window.setTimeout(() => videos.current.forEach((v, i) => i !== at && v?.pause()), FADE_MS);
     return () => window.clearTimeout(stop);
   }, [at, still, off, idle, av1]);
+
+  // A hidden tab holds the clip where it is (the clock waits too); back on the tab it plays on from there.
+  useEffect(() => {
+    const video = videos.current[live.current.at];
+    if (hidden) video?.pause();
+    else if (live.current.run && video?.paused) video.play().catch(() => {});
+  }, [hidden]);
 
   return (
     <div aria-hidden style={{ transitionDuration: `${FADE_MS}ms` }} className={`absolute inset-0 overflow-hidden bg-ink-deep transition-opacity ${FADE_OUT} ${off ? "opacity-0" : ""}`}>
@@ -129,26 +136,40 @@ function after(i: number, missing: ReadonlySet<number>) {
   return i;
 }
 
-/** Which shot is showing: moves on by itself, waits while the tab is hidden, jumps on a click. */
+const onVisibility = (change: () => void) => {
+  document.addEventListener("visibilitychange", change);
+  return () => document.removeEventListener("visibilitychange", change);
+};
+/** Whether the browser tab is in the background. */
+function useHidden() {
+  return useSyncExternalStore(onVisibility, () => document.hidden, () => false);
+}
+
+/**
+ * Which shot is showing: moves on by itself, jumps on a click. While the tab is hidden the clock
+ * stops; back on the tab it runs on for the time left, in step with the clip and its bar.
+ */
 function useHeroShot(missing: ReadonlySet<number>, paused: boolean) {
   const [at, setAt] = useState(0);
   const [round, setRound] = useState(0); // bumped by a click, so the timer starts over
+  const hidden = useHidden();
+  const spent = useRef(0); // time the showing clip has been on screen so far
   useEffect(() => {
-    let timer = 0;
-    const arm = () => {
-      window.clearTimeout(timer);
-      if (!document.hidden && !paused) timer = window.setTimeout(() => setAt((i) => after(i, missing)), HOLD_MS);
-    };
-    arm();
-    document.addEventListener("visibilitychange", arm);
+    spent.current = 0;
+  }, [at, round, paused]);
+  useEffect(() => {
+    if (hidden || paused) return;
+    const start = performance.now();
+    const timer = window.setTimeout(() => setAt((i) => after(i, missing)), Math.max(0, HOLD_MS - spent.current));
     return () => {
       window.clearTimeout(timer);
-      document.removeEventListener("visibilitychange", arm);
+      spent.current += performance.now() - start;
     };
-  }, [at, round, missing, paused]);
+  }, [at, round, missing, paused, hidden]);
   return {
     at,
     round,
+    hidden,
     go: (i: number) => {
       setAt(i);
       setRound((r) => r + 1);
@@ -157,7 +178,7 @@ function useHeroShot(missing: ReadonlySet<number>, paused: boolean) {
 }
 
 /** A bar per clip: the showing one fills over its time; a click jumps to that clip. */
-function HeroShotBar({ at, round, go, missing }: { at: number; round: number; go: (i: number) => void; missing: ReadonlySet<number> }) {
+function HeroShotBar({ at, round, go, missing, hidden }: { at: number; round: number; go: (i: number) => void; missing: ReadonlySet<number>; hidden: boolean }) {
   return (
     <div className="mt-6 max-[700px]:mt-10">
       <div className="-ml-1.5 flex max-[700px]:ml-0 max-[700px]:justify-center" role="group" aria-label="Clips">
@@ -173,7 +194,7 @@ function HeroShotBar({ at, round, go, missing }: { at: number; round: number; go
           >
             <span className="relative h-1 w-full overflow-hidden rounded-full bg-white/20 transition-colors group-hover:bg-white/35">
               {i === at && (
-                <span key={`${at}-${round}`} style={{ animationDuration: `${HOLD_MS}ms` }} className="absolute inset-y-0 left-0 w-full origin-left animate-[shot-fill_linear_forwards] rounded-full bg-amber motion-reduce:animate-none" />
+                <span key={`${at}-${round}`} style={{ animationDuration: `${HOLD_MS}ms`, animationPlayState: hidden ? "paused" : "running" }} className="absolute inset-y-0 left-0 w-full origin-left animate-[shot-fill_linear_forwards] rounded-full bg-amber motion-reduce:animate-none" />
               )}
             </span>
           </button>
@@ -247,7 +268,7 @@ export default function HeroStage({ hud, children }: { hud: ReactNode; children:
   // Scrolled out of view: the clips stop and the turn waits; back in view, the clip starts over.
   const stage = useRef<HTMLElement>(null);
   const [idle, setIdle] = useState(false);
-  const { at, round, go } = useHeroShot(missing, sky || idle);
+  const { at, round, hidden, go } = useHeroShot(missing, sky || idle);
   const resume = useRef(() => {});
   useEffect(() => {
     resume.current = () => go(at);
@@ -268,7 +289,7 @@ export default function HeroStage({ hud, children }: { hud: ReactNode; children:
   // Pulled up under the bar's place (-mt-[50px]), so the clip shows around the floating bar at the top.
   return (
     <section ref={stage} className="relative mx-[calc(50%-50vw)] -mt-[50px] flex min-h-svh items-end">
-      <HeroShotLayers at={at} off={sky} idle={idle} missing={missing} lost={lost} />
+      <HeroShotLayers at={at} off={sky} idle={idle} hidden={hidden} missing={missing} lost={lost} />
       {sky && (
         <div className={`absolute inset-0 animate-[sky-in_1.6s_ease-out_both] ${FADE_OUT}`}>
           <HeroGalaxies />
@@ -284,7 +305,7 @@ export default function HeroStage({ hud, children }: { hud: ReactNode; children:
             <span className="text-gold">The series&apos; galaxies</span> · enter the code again to go back
           </p>
         ) : (
-          missing.size < HERO_SHOTS.length && <HeroShotBar at={at} round={round} go={go} missing={missing} />
+          missing.size < HERO_SHOTS.length && <HeroShotBar at={at} round={round} go={go} missing={missing} hidden={hidden} />
         )}
       </div>
     </section>
