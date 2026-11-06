@@ -148,9 +148,8 @@ the service after clearing the cache volume).
 
 ### Home page clips
 
-The first screen plays short free-camera clips from the games, crossfading one into the next, with the game
-and place under the text. They are game footage too, so they are not in the repository either: they sit in the
-same `IMAGE_DIR` folder. The list (file name, game, place) is `src/lib/heroShots.ts`; each clip has four files:
+The first screen plays short free-camera clips from the games, crossfading one into the next. They are game footage too, so they are not in the repository either: they sit in the
+same `IMAGE_DIR` folder. The list (file name and game) is `src/lib/heroShots.ts`; each clip has three files:
 
 | File | What |
 | --- | --- |

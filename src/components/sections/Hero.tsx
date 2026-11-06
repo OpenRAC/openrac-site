@@ -11,7 +11,7 @@ import type { LauncherRelease } from "@/lib/releases";
 /**
  * The home page's first screen, like a game's title screen: free-camera clips from the games crossfading
  * edge to edge, the headline numbers as a HUD in the corner, and bottom left the latest release, the
- * headline, one download button for the visitor's system and the clip captions.
+ * headline and one download button for the visitor's system.
  */
 export default function Hero({ progress, mods, release }: { progress: Partial<Record<ProjectId, ProjectProgress>>; mods: number; release: LauncherRelease | null }) {
   const active = Object.values(progress);

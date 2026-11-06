@@ -5,17 +5,15 @@ import HeroGalaxies from "@/components/ui/HeroGalaxies";
 import { HERO_SHOTS, heroSrc } from "@/lib/heroShots";
 
 const HOLD_MS = 14000; // each clip's time on screen (the 18 s clips, played at half speed, run on through the fade)
-const FADE_MS = 1600; // the crossfade, pictures and caption alike
-const FADE = "duration-[1600ms]";
+const FADE_MS = 1600; // the crossfade
 
 const noChange = () => () => {};
 const reducedMotion = () => window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 /**
  * The title screen's clips: one full-bleed cinematic flight at a time, crossfading to the next like
- * a console's title screen. Under the text, a bar per clip fills while it shows (click one to jump)
- * and the caption names the game and place, fading with the picture. Each clip's first frame shows
- * while it loads, and alone with reduced motion; a clip not uploaded yet leaves the dark backdrop.
+ * a console's title screen. Under the text, a bar per clip fills while it shows (click one to jump).
+ * Each clip's first frame shows while it loads, and alone with reduced motion; a clip not uploaded yet leaves the dark backdrop.
  */
 function HeroShotLayers({ at, off, missing, lost }: { at: number; off: boolean; missing: ReadonlySet<number>; lost: (i: number) => void }) {
   // A clip loads once it is on screen or next: the other six wait until their turn.
@@ -101,7 +99,7 @@ function useHeroShot(missing: ReadonlySet<number>, paused: boolean) {
   };
 }
 
-/** A bar per shot (the showing one fills over its time) and the caption, crossfading with the shot. */
+/** A bar per clip: the showing one fills over its time; a click jumps to that clip. */
 function HeroShotBar({ at, go, missing }: { at: number; go: (i: number) => void; missing: ReadonlySet<number> }) {
   return (
     <div className="mt-6 max-[700px]:mt-10">
@@ -110,7 +108,7 @@ function HeroShotBar({ at, go, missing }: { at: number; go: (i: number) => void;
           <button
             key={shot.file}
             type="button"
-            aria-label={`${shot.game}, ${shot.place}`}
+            aria-label={`${shot.game}, clip ${i + 1}`}
             aria-current={i === at}
             onClick={() => go(i)}
             // A 40 px hit area (fingers) around the 4 px bar it draws.
@@ -124,18 +122,6 @@ function HeroShotBar({ at, go, missing }: { at: number; go: (i: number) => void;
           </button>
         ))}
       </div>
-      {/* Every caption sits in the same spot (phones leave them out, for room); only the showing one is visible, so they crossfade. */}
-      <p className="mt-1 grid font-mono max-[700px]:hidden text-[12px] font-semibold tracking-[.04em] text-soft [&>span]:col-start-1 [&>span]:row-start-1">
-        {HERO_SHOTS.map((shot, i) => (
-          <span
-            key={shot.file}
-            aria-hidden={i !== at}
-            className={`transition-[opacity,translate] ${FADE} ease-out ${i === at ? "translate-y-0 opacity-100" : "translate-y-1 opacity-0"} motion-reduce:translate-y-0`}
-          >
-            <span className="text-gold">{shot.game}</span> · {shot.place}
-          </span>
-        ))}
-      </p>
     </div>
   );
 }
