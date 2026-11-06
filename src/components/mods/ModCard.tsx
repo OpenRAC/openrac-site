@@ -27,7 +27,7 @@ export function Marked({ text, query }: { text: string; query?: string }) {
 }
 
 /** The card's picture: its banner, then, under a pointer, the screenshots one after another (loaded only once hovered). */
-function CardPicture({ mod, sizes, priority, children }: { mod: SlimMod; sizes: string; priority?: boolean; children?: ReactNode }) {
+function CardPicture({ mod, sizes, priority, morph, children }: { mod: SlimMod; sizes: string; priority?: boolean; morph: boolean; children?: ReactNode }) {
   const [hovered, setHovered] = useState(false);
   const [i, setI] = useState(0);
   const frames = [mod.card, ...mod.shots.filter((s) => s.hash !== mod.card?.hash)].filter((f) => f !== null);
@@ -39,10 +39,7 @@ function CardPicture({ mod, sizes, priority, children }: { mod: SlimMod; sizes: 
     return () => clearInterval(t);
   }, [hovered, frames.length]);
 
-  return (
-    // The same name as the mod page's banner: on browsers with view transitions, opening the page
-    // grows this picture into its banner (and back), so the eye follows where it went.
-    <ViewTransition name={`mod-${mod.id}`} share="morph" default="none">
+  const picture = (
       <div
         className="relative aspect-[2/1] overflow-hidden bg-gradient-to-br from-panel-hi to-ink"
         onPointerEnter={(e) => e.pointerType === "mouse" && setHovered(true)}
@@ -78,7 +75,16 @@ function CardPicture({ mod, sizes, priority, children }: { mod: SlimMod; sizes: 
           </span>
         )}
       </div>
+  );
+  // The same name as the mod page's banner: on browsers with view transitions, opening the page
+  // grows this picture into its banner (and back), so the eye follows where it went. A name may be
+  // on the page only once, so a second card of the same mod (Featured, New) goes without.
+  return morph ? (
+    <ViewTransition name={`mod-${mod.id}`} share="morph" default="none">
+      {picture}
     </ViewTransition>
+  ) : (
+    picture
   );
 }
 
@@ -93,6 +99,7 @@ export default function ModCard({
   actions,
   sizes = "(max-width: 480px) 100vw, (max-width: 820px) 50vw, 340px",
   priority,
+  morph = true,
 }: {
   mod: SlimMod;
   now: number;
@@ -100,12 +107,14 @@ export default function ModCard({
   actions?: ReactNode;
   sizes?: string;
   priority?: boolean;
+  /** False for a second card of a mod already on the page. */
+  morph?: boolean;
 }) {
   return (
     <article
       className="group/card surface surface-link relative isolate flex flex-col overflow-hidden [contain-intrinsic-size:auto_380px] [content-visibility:auto]"
     >
-      <CardPicture mod={mod} sizes={sizes} priority={priority}>
+      <CardPicture mod={mod} sizes={sizes} priority={priority} morph={morph}>
         {/* One line of badges on the picture's dark bottom edge: a long one shortens with "…" rather than wrapping. */}
         <div className="absolute inset-x-4 bottom-3 flex min-w-0 gap-1.5">
           <TypeBadge type={mod.type} />

@@ -81,7 +81,7 @@ export default async function ModsPage() {
         <Section id="featured" title="Featured" sub="Picked by the community: a good place to start.">
           <div className="grid gap-4 min-[480px]:grid-cols-2 min-[821px]:grid-cols-3">
             {featured.map((m, i) => (
-              <ModCard key={m.id} mod={m} now={now} priority={i === 0} actions={<InstallButton mods={[{ id: m.id }]} small primary={false} devOnly={m.works !== "release"} />} />
+              <ModCard key={m.id} mod={m} now={now} priority={i === 0} morph={false} actions={<InstallButton mods={[{ id: m.id }]} small primary={false} devOnly={m.works !== "release"} />} />
             ))}
           </div>
         </Section>
@@ -94,7 +94,7 @@ export default async function ModsPage() {
           <div className="-mx-4 -mt-2 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-3 pt-2 [scrollbar-width:thin]">
             {fresh.map((m) => (
               <div key={m.id} className="w-[min(280px,80vw)] flex-none snap-start">
-                <ModCard mod={m} now={now} sizes="280px" />
+                <ModCard mod={m} now={now} sizes="280px" morph={false} />
               </div>
             ))}
           </div>
