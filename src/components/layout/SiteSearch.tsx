@@ -1,49 +1,22 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { useCallback, useEffect, useId, useRef, useState } from "react";
+import { useCallback, useDeferredValue, useEffect, useId, useMemo, useRef, useState } from "react";
 
-/** t: what is shown; k: what kind of thing it is; h: where it goes; d: a line about it. */
-type Entry = { t: string; k: string; h: string; d?: string };
+import { find, prepare, type Entry } from "@/lib/search";
+import { PLACES } from "@/lib/searchIndex.places";
 
-/** The site's own places, always there; the mods are added from /mods.json on first open. */
-const PLACES: Entry[] = [
-  { t: "Install", k: "Page", h: "/install", d: "Get the OpenRAC launcher for your system." },
-  { t: "Progress", k: "Section", h: "/#progress", d: "How much of each game compiles to the retail bytes." },
-  { t: "Contribute", k: "Section", h: "/#contribute", d: "Ways to help the decompilation projects." },
-  { t: "How it works", k: "Section", h: "/#how", d: "What a matching decompilation is." },
-  { t: "FAQ", k: "Section", h: "/#faq", d: "Common questions." },
-  { t: "AI", k: "Section", h: "/#ai", d: "How the projects use AI." },
-  { t: "News", k: "Page", h: "/news", d: "Weekly reports from every project." },
-  { t: "Mods", k: "Page", h: "/mods", d: "Community mods for the OpenRAC ports." },
-  { t: "Make mods (SDK docs)", k: "Page", h: "/mods/docs", d: "Guides and reference for the mod SDK." },
-];
-
-/** Every word must be found; a word at the start of the title counts most, one in the line least. */
-function find(entries: Entry[], query: string): Entry[] {
-  const words = query.toLowerCase().split(/\s+/).filter(Boolean);
-  if (!words.length) return [];
-  const scored: [Entry, number][] = [];
-  for (const e of entries) {
-    const t = e.t.toLowerCase(), d = (e.d ?? "").toLowerCase();
-    let s = 0;
-    for (const w of words) {
-      const hit = t.startsWith(w) ? 3 : t.includes(w) ? 2 : d.includes(w) ? 1 : 0;
-      if (!hit) { s = 0; break; }
-      s += hit;
-    }
-    if (s) scored.push([e, s]);
-  }
-  return scored.sort((a, b) => b[1] - a[1]).slice(0, 20).map(([e]) => e);
-}
+/** Until the full list is in (or if it cannot be fetched), the site's own places answer. */
+const FIRST = prepare(PLACES);
 
 /**
- * Search over the site: its sections and pages, and every mod by name. Opens with the button, "/"
+ * Search over the whole site (see lib/searchIndex): pages, projects, mods, the SDK docs and the news. Opens with the button, "/"
  * or Ctrl+K (Cmd+K); arrows and Enter pick. `compact` draws the button as a bare mark (the phone bar).
  */
 export default function SiteSearch({ className = "", compact = false }: { className?: string; compact?: boolean }) {
   const [query, setQuery] = useState("");
-  const [entries, setEntries] = useState<Entry[]>(PLACES);
+  const [entries, setEntries] = useState<Entry[] | null>(null);
+  const list = useMemo(() => (entries ? prepare(entries) : FIRST), [entries]);
   const loaded = useRef(false);
   const [at, setAt] = useState(0);
   const dialog = useRef<HTMLDialogElement>(null);
@@ -52,14 +25,12 @@ export default function SiteSearch({ className = "", compact = false }: { classN
   const listId = useId();
 
   const show = useCallback(() => {
-    // The mods are fetched once, on first open; until then (or if it fails) the site's own places answer.
+    // The list is fetched once, on first open.
     if (!loaded.current) {
       loaded.current = true;
-      fetch("/mods.json")
+      fetch("/search.json")
         .then((r) => (r.ok ? r.json() : Promise.reject(new Error(String(r.status)))))
-        .then((j: { mods?: { id: string; name: string; description?: string }[] }) =>
-          setEntries([...PLACES, ...(j.mods ?? []).map((m) => ({ t: m.name, k: "Mod", h: `/mods/${m.id}`, d: m.description }))]),
-        )
+        .then((j: Entry[]) => Array.isArray(j) && setEntries(j))
         .catch(() => {});
     }
     dialog.current?.showModal();
@@ -84,7 +55,9 @@ export default function SiteSearch({ className = "", compact = false }: { classN
   }, [show, compact]);
 
 
-  const results = find(entries, query);
+  // Scoring a few thousand entries can take a moment on a slow phone: typing stays smooth, the list follows.
+  const typed = useDeferredValue(query);
+  const results = useMemo(() => find(list, typed), [list, typed]);
   const go = (e: Entry | undefined) => {
     if (!e) return;
     hide();
@@ -112,7 +85,7 @@ export default function SiteSearch({ className = "", compact = false }: { classN
             ref={input}
             type="search"
             className="d-field"
-            placeholder="Progress, news, a mod's name..."
+            placeholder="A game, a mod, a hook, a news item..."
             value={query}
             role="combobox"
             aria-expanded={results.length > 0}
