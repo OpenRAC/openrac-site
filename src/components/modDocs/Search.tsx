@@ -75,7 +75,7 @@ export default function Search({ version, label = "Search the docs" }: { version
         onClose={() => setOpen(false)}
         onClick={(e) => e.target === dialog.current && hide()}
         aria-label="Search the docs"
-        className="m-0 mx-auto mt-[8vh] w-[min(640px,calc(100vw-32px))] rounded-xl bg-coal p-0 text-text shadow-2xl backdrop:bg-black/60 backdrop:backdrop-blur-sm"
+        className="m-0 mx-auto mt-[8vh] w-[min(640px,calc(100vw-32px))] rounded-xl border-0 bg-coal p-0 text-text shadow-2xl backdrop:bg-black/60 backdrop:backdrop-blur-sm"
       >
         <div className="border-b border-line p-3">
           <input
