@@ -11,7 +11,9 @@ the `d-*` classes for the mod docs). Use them before writing new classes.
   copper, blue or red). Discord's blue is used only for Discord.
 - No grey, no brown, no white mix anywhere: never `bg-white/…`, `rgb(255 255 255 / …)` or a mid grey as a
   fill, and no brown control (`umber` and every brown tried were rejected). The only neutrals are the blacks
-  and coals below. The one exception is the thin dividing line (`border-line`, `w-px` dividers).
+  and coals below. The exceptions are the thin dividing line (`border-line`, `w-px` dividers) and the clip progress
+  bars on the home first screen: their track is `bg-white/20` (hover `bg-white/35`) so it shows on
+  black; the fill is gold.
 - Text: `hi` for headings, `body` for reading text, `soft` for secondary text, `dim` for the quietest text.
   Gold text sits on dark only. On a gold fill, the text is dark (`#1b1206`).
 
