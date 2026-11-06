@@ -53,8 +53,8 @@ export default function Hero({ progress, mods, release }: { progress: Partial<Re
         <span className="text-amber">
           Ratchet &amp; Clank
         </span>{" "}
-        {/* "original bytes." stays together, so "bytes." never sits alone on the last line. */}
-        series, rebuilt from the <span className="whitespace-nowrap">original bytes.</span>
+        {/* "original bytes" stays together, so "bytes" never sits alone on the last line. */}
+        series, rebuilt from the <span className="whitespace-nowrap">original bytes</span>
       </h1>
       <p className="mt-5 max-[700px]:mt-6 max-w-[560px] text-pretty text-[15px] leading-relaxed text-body sm:text-[17px]">
         A hub for the <span className="text-amber">community decompilations</span> of Ratchet &amp; Clank:{" "}
