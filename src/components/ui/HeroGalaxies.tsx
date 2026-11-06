@@ -179,11 +179,13 @@ export default function HeroGalaxies() {
       const r = cv!.getBoundingClientRect();
       W = r.width; H = r.height; DPR = Math.min(2, devicePixelRatio || 1);
       cv!.width = Math.round(W * DPR); cv!.height = Math.round(H * DPR);
-      // the scene centred, a little larger than the hero so its edges crop; on a tall phone screen
-      // larger still, and in the free space above the text
+      // On a wide screen the scene keeps to the right of the hero's text (a block up to ~600 px from the
+      // page column's left edge), a little larger than that space so its edges crop. On a tall phone
+      // screen it is larger still, in the free space above the text.
       const tall = W < 700 && H > W;
-      S = tall ? W / 620 : Math.min(W / 900, H / 520);
-      X0 = (W - 1000 * S) / 2; Y0 = tall ? H * 0.37 - 300 * S : (H - 600 * S) / 2; fade = 1;
+      const left = tall ? 0 : Math.min(W * 0.5, Math.max(W * 0.42, (W - 1080) / 2 + 600));
+      S = tall ? W / 620 : Math.min((W - left) / 900, H / 520);
+      X0 = tall ? (W - 1000 * S) / 2 : left + (W - left - 1000 * S) / 2; Y0 = tall ? H * 0.37 - 300 * S : (H - 600 * S) / 2; fade = 1;
       sprites = GALAXIES.map((g, i) => galaxySprite(g, S * DPR, i));
       stars = [];
       for (let i = 0; i < Math.round((W * H) / 3200); i++)
