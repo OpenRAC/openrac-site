@@ -56,10 +56,10 @@ export default function Hero({ progress, mods, release }: { progress: Partial<Re
         {/* "original bytes" stays together, so "bytes" never sits alone on the last line. */}
         series, rebuilt from the <span className="whitespace-nowrap">original bytes</span>
       </h1>
-      <p className="mt-5 max-[700px]:mt-6 max-w-[560px] text-pretty text-[15px] leading-relaxed text-body sm:text-[17px]">
+      <p className="mt-5 max-[700px]:mt-6 max-w-[660px] text-pretty text-[15px] leading-relaxed text-body sm:text-[17px]">
         A hub for the <span className="text-amber">community decompilations</span> of Ratchet &amp; Clank:{" "}
-        <span className="text-amber">readable source code</span> that compiles to the original games&apos;{" "}
-        <span className="text-amber">exact bytes</span>
+        <span className="whitespace-nowrap text-amber">readable source code</span> that compiles to the original games&apos;{" "}
+        <span className="whitespace-nowrap text-amber">exact bytes</span>
       </p>
       <HeroDownload version={release?.version ?? null} date={release?.date || null} ready={(release?.platforms ?? []).filter((p) => p.main).map(({ id, name }) => ({ id, name }))} />
       <p className="mt-5 max-[700px]:mt-8 max-w-[560px] text-[13px] leading-relaxed text-dim">
