@@ -100,6 +100,7 @@ export default function Header() {
 
   // At the very top the bar floats, inset with rounded corners; once the page moves it docks to the edge.
   // One observer on a 12 px strip at the top of the document: no scroll handler, no work while scrolling.
+  // The SDK docs drop the bar and its strip, so the observer starts again when the bar comes back.
   const [floating, setFloating] = useState(true);
   const top = useRef<HTMLDivElement>(null);
   useEffect(() => {
@@ -108,7 +109,7 @@ export default function Header() {
     const io = new IntersectionObserver(([e]) => setFloating(e.isIntersecting));
     io.observe(strip);
     return () => io.disconnect();
-  }, []);
+  }, [inDocs]);
 
   // On the home page the router has nowhere to go, so the logo would do nothing: scroll to the top
   // ourselves, and drop a #section from the address.
