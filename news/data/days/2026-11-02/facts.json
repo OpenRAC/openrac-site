@@ -1,0 +1,1553 @@
+{
+ "format": 1,
+ "date": "2026-11-02",
+ "totals": {
+  "commits": 64,
+  "pullRequestsMerged": 61,
+  "pullRequestsOpened": 64,
+  "contributors": 13
+ },
+ "projects": [
+  {
+   "repo": "OpenRAC",
+   "title": "OpenRAC launcher",
+   "branches": [
+    {
+     "name": "develop",
+     "commits": [
+      {
+       "sha": "5744fcc76416db737be8c3da335b0dd607ba7c99",
+       "title": "fix(port): allow freecam rotation while developer paused (#221)",
+       "author": "pezzadev",
+       "date": "2026-11-02T23:32:15Z"
+      },
+      {
+       "sha": "edb70b9eed7c8f1c11ca3c06576699ac89127b6b",
+       "title": "feat(port): one shared in-game menu for desktop and Android, in the launcher's look (#211)",
+       "author": "nickyyOO",
+       "date": "2026-11-02T22:44:19Z"
+      },
+      {
+       "sha": "60158599b8a89daa39cb8e20eb7a6cf0f06cec53",
+       "title": "fix(ci): publish compiler caches only after successful jobs (#220)",
+       "author": "pezzadev",
+       "date": "2026-11-02T22:23:45Z"
+      },
+      {
+       "sha": "a57a7807027e4955932e1284d06e02e63fc993f6",
+       "title": "fix(port): cast playable Clank shadow volumes (#217)",
+       "author": "pezzadev",
+       "date": "2026-11-02T21:31:40Z"
+      },
+      {
+       "sha": "6786a882d6b385458e05dc732af3c1bcd51e7437",
+       "title": "fix(launcher): accept GitHub's asset digest without SHA256SUMS (#219)",
+       "author": "Lynder063",
+       "date": "2026-11-02T21:15:49Z"
+      },
+      {
+       "sha": "c2d663096b7f9a573c26f05173c3ba2a186c782f",
+       "title": "feat(enhanced): pack probe depth as RG16 UNORM (#215)",
+       "author": "pezzadev",
+       "date": "2026-11-02T20:18:48Z"
+      },
+      {
+       "sha": "ae2fed40a9f4caa2e252db09b8507dc262689905",
+       "title": "feat(sdk): mod interface 1.12 (hero driven by a mod, collision, props, sounds, camera, heat haze) (#203)",
+       "author": "nickyyOO",
+       "date": "2026-11-02T19:47:55Z"
+      },
+      {
+       "sha": "c8e4cae12bc2a7fac27c14a9015838cfc600b4cd",
+       "title": "ci(port): reduce cache churn and reuse validated hostgen output (#213)",
+       "author": "pezzadev",
+       "date": "2026-11-02T19:24:25Z"
+      },
+      {
+       "sha": "6b4b48373e47590af6428f762773373e5f07a7ec",
+       "title": "perf(port): build shaders behind the loading screen on Vulkan and OpenGL (#216)",
+       "author": "nickyyOO",
+       "date": "2026-11-02T19:09:26Z"
+      },
+      {
+       "sha": "bb92f00070e45ba7e5634ab35a7d75c83108a1bb",
+       "title": "fix(port): the pause Options list has Video from its first frame (#214)",
+       "author": "nickyyOO",
+       "date": "2026-11-02T18:49:24Z"
+      },
+      {
+       "sha": "8b862810c15fbe7bdd5f072f4548b08d09150529",
+       "title": "fix(port): fade distant mobys and shrubs the way the PS2 does (#210)",
+       "author": "nickyyOO",
+       "date": "2026-11-02T14:38:09Z"
+      },
+      {
+       "sha": "cef31939b148c83894f36c8682cc9bbdd8782c4a",
+       "title": "fix(launcher): show a mod file's copy and install while it is added (#209)",
+       "author": "nickyyOO",
+       "date": "2026-11-02T11:40:51Z"
+      },
+      {
+       "sha": "45c3bfee2d283c4e3ffaa045172d353af77179f7",
+       "title": "feat(rac2): native port of Going Commando (#191 with develop merged) (#206)",
+       "author": "Lynder063",
+       "date": "2026-11-02T09:15:17Z"
+      },
+      {
+       "sha": "d3b198cc0e0488f9b4ee3c3ee111ec5d61889145",
+       "title": "fix(port): keep white moby glow colours on Vulkan (#208)",
+       "author": "nickyyOO",
+       "date": "2026-11-02T09:10:01Z"
+      },
+      {
+       "sha": "101866a8e0cb2fd380205c34140104d7dddae77a",
+       "title": "fix(rac1): weapon HUD background spans the panel with HUD at the edges (#207)",
+       "author": "nickyyOO",
+       "date": "2026-11-02T08:45:07Z"
+      },
+      {
+       "sha": "8ea538ff85bf67d5a058fa8251d74382dd4abdbb",
+       "title": "feat(port): HDR output on the Vulkan renderer (#204)",
+       "author": "nickyyOO",
+       "date": "2026-11-02T08:02:24Z"
+      },
+      {
+       "sha": "fb3803367cbea5632017b9c3ad4e10f28e55b87b",
+       "title": "feat(launcher): add an Audio tab to replace the game's sounds, music and speech (#164)",
+       "author": "bigbeno37",
+       "date": "2026-11-02T08:02:13Z"
+      },
+      {
+       "sha": "e0f11c1d8ddb525eac0525ece2aee86355bc945e",
+       "title": "Track the RAC5 USA ByteMatch version in the launcher (#200)",
+       "author": "llesieur99",
+       "date": "2026-11-02T08:02:04Z"
+      },
+      {
+       "sha": "703c997e02e7d67d0399928844d56ce5199cff7b",
+       "title": "ci(port): reuse build preparation across checks (#202)",
+       "author": "pezzadev",
+       "date": "2026-11-02T04:46:41Z"
+      },
+      {
+       "sha": "1fae063da972a0a26ead4cb73716a6785b296031",
+       "title": "perf(port): reuse native programs in GTAO rendering tests (#201)",
+       "author": "pezzadev",
+       "date": "2026-11-02T03:44:36Z"
+      },
+      {
+       "sha": "19f91969a4538a1b5ea55e3c9dab95f08201c417",
+       "title": "perf(port): reduce Vulkan equivalence test overhead (#199)",
+       "author": "pezzadev",
+       "date": "2026-11-02T02:32:40Z"
+      }
+     ]
+    },
+    {
+     "name": "master",
+     "commits": []
+    }
+   ],
+   "commitCount": 21,
+   "pullRequests": {
+    "merged": [
+     {
+      "number": 164,
+      "title": "feat(launcher): add an Audio tab to replace the game's sounds, music and speech",
+      "author": "bigbeno37",
+      "untrustedBody": "## Why\r\n\r\nPlayers can already change Ratchet & Clank's textures, models and levels, but not its sound. This adds an **Audio** tab under Mods for replacing any sound effect, song or line of speech, on both the NTSC and PAL discs.\r\n\r\n<img width=\"1200\" height=\"780\" alt=\"audio-tab\" src=\"https://github.com/user-attachments/assets/4609208d-b889-4983-be5e-6fb887e960d3\" />\r\n\r\n## How it works\r\n\r\n1. **Export** the sounds as WAV files, from one level or the whole game.\r\n2. **Edit** the ones you want in any audio editor.\r\n3. **Import** the folder. The files you changed become a pack in My mods, and it works on either disc.\r\n\r\nWith no audio pack, or with Mods off, the game plays as before.\r\n\r\n## What changed\r\n\r\n- **`port/`:** plays a pack's WAV in place of a sound, found by a hash of the sound's content.\r\n- **`editor/audio.py`:** the export and import. Guide: `editor/AUDIO_MODDING.md`.\r\n- **`launcher/`:** the tab, and a sound count on packs.\r\n\r\n## Known limits\r\n\r\n- **Song names** come from a fan-ma",
+      "mergedAt": "2026-11-02T08:02:14Z"
+     },
+     {
+      "number": 199,
+      "title": "perf(port): reduce Vulkan equivalence test overhead",
+      "author": "pezzadev",
+      "untrustedBody": "The Vulkan equivalence test repeatedly compiled identical programs, read back every frame separately, and toggled features absent from its scene. This keeps scene comparisons intact while moving those features to required tests that exercise their actual paths.\n\n- Verify fresh-driver determinism and discarded attachments once, then share checksummed, build/device/settings-specific ephemeral baselines between two balanced shards.\n- Retain matching immutable Vulkan program objects only when tests explicitly enable it. Every GL link resets uniforms and descriptors; compilation/cache/lifecycle comparisons keep fresh objects. Player launches leave retention disabled.\n- Batch exact RGBA8 snapshots while preserving deliberate depth-pass readbacks.\n- Keep all 61 optimisation entries covered: 37 scene entries retain seven scenarios, eight frames, both modes and existing tolerances; 24 entries have required focused test owners. Add baseline corruption, program lifetime/layout isolation, capture ",
+      "mergedAt": "2026-11-02T02:32:41Z"
+     },
+     {
+      "number": 200,
+      "title": "Track the RAC5 USA ByteMatch version in the launcher",
+      "author": "llesieur99",
+      "untrustedBody": "The installed launcher currently caches RAC5's PAL-default ByteMatch measures (87,784 / 6,418,460, 1.37%) for its USA disc `SCUS_976.15`. Matching the project slug alone does not select a report version once the ByteMatch project contains both PAL and USA.\n\nFor `rac5/ntsc` only, fetch `OpenRAC/rac5-sm-decomp/SCUS_976.15.json` and use that version's measures and commit date. All other games keep their existing project-list behavior. A failed USA-specific request retains an earlier USA cache entry and never substitutes the PAL default. The test reproduces a PAL-default list at 1.37% alongside a USA-specific report at 9.63%, then checks the fallback.\n\nThis pairs with RAC5 progress PR #115, which fixes the USA report itself. No launcher release or installed application is changed by this PR.\n\nValidation: `cargo fmt --all -- --check`; 348 passing `openrac-launcher-core` Rust tests (one pre-existing ignored). The tests ran in a sparse checkout expanded with the repository files the core suit",
+      "mergedAt": "2026-11-02T08:02:04Z"
+     },
+     {
+      "number": 201,
+      "title": "perf(port): reuse native programs in GTAO rendering tests",
+      "author": "pezzadev",
+      "untrustedBody": "The GTAO scene matrix repeatedly created identical Vulkan programs across fresh scene fixtures. Tests now opt into the existing immutable native-program pool after the lazy-quality compilation regression has run on fresh driver objects. Every scene, rendering comparison, tolerance and resource-lifetime assertion remains.\n\n- Keep the lazy-quality test independent and assert that it borrowed no programs.\n- Add `gtao_test --fresh-programs` for matching reference runs, assert reuse occurs in the default matrix, and disable retention before the existing timestamp-recording regression.\n- Extract that timestamp regression into a helper and add phase wall/compiler/driver timings for both GTAO tests. Horizon rendering and its per-image readbacks are unchanged.\n- Document the reference switch and the scope of the local measurements in the existing performance guide.\n\nValidation:\n- Two alternating cold-cache software Vulkan pairs, validation enabled and two Mesa workers: scene mean 107.6 s fresh ",
+      "mergedAt": "2026-11-02T03:44:36Z"
+     },
+     {
+      "number": 202,
+      "title": "ci(port): reuse build preparation across checks",
+      "author": "pezzadev",
+      "untrustedBody": "Native checks repeatedly start cold: the Windows sample spent 4m30s configuring and 12m30s compiling/linking, with no compiler cache restored and only 1/1,033 cacheable calls hitting. Checks currently run after pushes to master even though develop is the default PR base.\n\n- Run checks after develop merges so compiler, Rust, shader and package caches can be populated in the default-branch scope. Cancel superseded develop runs while retaining master's release-check behavior.\n- Add isolated preparation caches to Ubuntu compatibility, headless, enhanced/baker, Fedora and Windows checks. Cache dependency sources, fingerprint-checked hostgen output, CMakeCache and versioned compiler metadata. Keep objects in ccache and regenerate Ninja files and test results.\n- Match preparation to tool paths/content, Python, installed Linux packages, runner image/Windows SDK, workspace, CPU capabilities and configuration. Restore prefixes never cross toolchain/configuration identities; missing identity info",
+      "mergedAt": "2026-11-02T04:46:42Z"
+     },
+     {
+      "number": 203,
+      "title": "feat(sdk): mod interface 1.12 (hero driven by a mod, collision, props, sounds, camera, heat haze)",
+      "author": "nickyyOO",
+      "untrustedBody": "## Before\nMods could watch and nudge the hero but not replace how he moves, draw their own meshes, play their own sounds or move the camera.\n\n## After\nMod interface 1.12, added to the end of the table (1.0-1.11 mods load as before):\n- `rac1.player.update` hook point and `hero_set_pose` / `hero_set_joints`: a mod moves and poses the hero itself.\n- `collision_triangles`: the level's and mobys' collision around a box, read only.\n- Props: `.glb` meshes of the mod drawn in the level (tint, alpha or added blending, hero shadow).\n- Sounds: `.wav`/`.ogg` of the mod, mixed at the game's sound volume; a mod controls only its own voices.\n- `camera_view` / `camera_set`: the game's camera read or put somewhere by one mod at a time.\n- `haze_set`: heat haze patches over the picture (GL and Vulkan).\n\n## How\nNew entries at the end of `openrac_api`, new structs with a `size` field where they are passed one at a time, `mod.hpp` checks `api_minor` and the table size. The camera is written into the game's ",
+      "mergedAt": "2026-11-02T19:47:56Z"
+     },
+     {
+      "number": 204,
+      "title": "feat(port): HDR output on the Vulkan renderer",
+      "author": "nickyyOO",
+      "untrustedBody": "**Before:** the game always went to the screen in SDR. On a desktop in HDR mode it looked dim and washed out.\n\n**After:** with `hdr = auto` or `on` (Vulkan), the picture goes out as HDR10 or scRGB, with the game's white at the player's paper white, so it looks like SDR. While HDR is on, the frame is drawn in half floats. Each draw's colour is still clamped to 0..1, so only the game's own blending (glows, explosions, lasers) goes above white. That light rolls off towards the display's peak. Off by default, and nothing changes when it is off.\n\n**How:**\n- `renderer/hdr.h`: the arithmetic (PQ, BT.2020, roll-off, levels).\n- `hdr_encode.comp`: one compute pass into the swapchain image.\n- `surface_format.h`: picks the format, falling back to SDR.\n- Clamped fragment variant per program (`clamped_fragment`), made only for the HDR frame.\n- Settings: Video options, the drawer, the settings file and the launcher (`OPENRAC_HDR`).\n- Android: reads the display's HDR/SDR headroom through GameActivity.",
+      "mergedAt": "2026-11-02T08:02:25Z"
+     },
+     {
+      "number": 206,
+      "title": "feat(rac2): native port of Going Commando (#191 with develop merged)",
+      "author": "Lynder063",
+      "untrustedBody": "Replaces #191 with develop merged in.\nStream mixer keeps both rac2 two-file stereo and #164 multi-channel; rac1 hud.c keeps #207's fix.",
+      "mergedAt": "2026-11-02T09:15:18Z"
+     },
+     {
+      "number": 207,
+      "title": "fix(rac1): weapon HUD background spans the panel with HUD at the edges",
+      "author": "nickyyOO",
+      "untrustedBody": "The weapon panel's dark strip is as wide as its x plus the frame width, so moving x out for the HUD at the picture's edges made it shorter. Draw that panel at its own place with the screen's left moved instead.",
+      "mergedAt": "2026-11-02T08:45:08Z"
+     },
+     {
+      "number": 208,
+      "title": "fix(port): keep white moby glow colours on Vulkan",
+      "author": "nickyyOO",
+      "untrustedBody": "mesh.vert decoded a moby's glow word (instance w = 1 + RGB) as int(w - 1.0 + 0.5). For a white glow (0xFFFFFF) w is 2^24, and 2^24 - 1 + 0.5 rounds back up to 2^24 in a float, so the colour became 0x1000000: black. Mesa's GL compiler folds the constants and hides it; the Vulkan path does not, so glow packets in white went dark there, like the lit floor under the Giant Clank pad's grate on Quartu and Veldin. Round w first, then take the 1 off.",
+      "mergedAt": "2026-11-02T09:10:01Z"
+     },
+     {
+      "number": 209,
+      "title": "fix(launcher): show a mod file's copy and install while it is added",
+      "author": "nickyyOO",
+      "untrustedBody": "**Before:** After picking a mod with File… nothing showed until the add was done. On Android the chosen .zip is first copied into the app, and the spinner only appeared after that copy. If the picker or the copy failed, the error was lost (unhandled promise), so the click looked like it did nothing. A picked file whose name came without `.zip` was refused by the install. The Search mods field was a plain browser `type=\"search\"` input and did not look like the other fields.\r\n\r\n**After:** From the moment the picker closes, the Add a mod panel shows what is happening under the buttons: \"Copying <file> into the launcher…\" with a percentage and bar (Android), then \"Adding <file>…\" with a moving bar, then the usual success or error line. Errors from the picker or the copy are shown there too. Search mods now has the launcher's text field look.\r\n\r\n**How:** `pick_zip` sends its own `mod-copy` events (the first one at once) and cleans the picked name (`zip_file_name`: no folder, `.zip` added, `",
+      "mergedAt": "2026-11-02T11:40:52Z"
+     },
+     {
+      "number": 210,
+      "title": "fix(port): fade distant mobys and shrubs the way the PS2 does",
+      "author": "nickyyOO",
+      "untrustedBody": "**Before:** a moby (crates, enemies, pickups, props) popped in at once when the camera came within its draw distance. With \"Scenery detail: Original\", shrubs (rocks, plants, tree thorns) also popped in and out by a rough distance test, and the far ones never turned into their billboard sprites.\n\n**After:** mobys and shrubs fade in and out as MobyProc and ShrubProc do on the PS2, and far shrubs of a class with a billboard are drawn as that billboard, cross-faded with the mesh. Checked against PCSX2 on Veldin.\n\n**How:**\n- Mobys: `moby_distance_fade` replays MobyProc's distance test and fade from the asm (NTSC boot 0x211B60) on the PS2 float model (`common/ps2_float.h`). Fading mobys get blend kind 3 (TEST AREF 0x08); the blended pass is split at the moby's alpha reference so the opaque texels still write depth.\n- Shrubs: `shrub_proc` (game/rac1/shrub_proc.cpp) replays ShrubProc (NTSC boot 0x228BE8, same code in every level) from game RAM each tick: cull, near test, mesh fade, billboard a",
+      "mergedAt": "2026-11-02T14:38:09Z"
+     },
+     {
+      "number": 211,
+      "title": "feat(port): one shared in-game menu for desktop and Android, in the launcher's look",
+      "author": "nickyyOO",
+      "untrustedBody": "**Before:** the desktop had an ImGui menu bar and a separate controller bindings window. Android had its own drawer rows. Messages over the game (toast, notice, status badge) were plain ImGui text.\n\n**After:**\n- One menu catalog feeds both the desktop menu and the Android drawer, so an option added once shows on both.\n- Desktop: a menu bar and window in the launcher's look, coloured with the game's accent. It has a help pane and a version corner, and works with a controller, a keyboard or a mouse. Select+Start opens it on any controller.\n- Controls tab: bindings, sticks, players and the menu keys are rows of the tab. The old bindings window is gone. Android shows these rows in a \"Controller settings\" panel beside the drawer and keeps the on-screen button editor.\n- Notifications: one API (`debug_overlay::notify` / `dismiss`) draws cards at the top of the screen. Screenshots, recordings, reports, level errors, pause/speed and a mod's line all use it. A short hint at start says how to ope",
+      "mergedAt": "2026-11-02T22:44:20Z"
+     },
+     {
+      "number": 213,
+      "title": "ci(port): reduce cache churn and reuse validated hostgen output",
+      "author": "pezzadev",
+      "untrustedBody": "Native checks were losing reusable compiler and preparation caches to large PR-private snapshots. Keep those PR caches read-only, identify compilers by content, and separate validated hostgen text from CPU-specific CMake metadata so changing runner CPUs does not force translation again.\n\nCompressonator remains pinned to the same revision, but now downloads a checksum-verified source archive and extracts only its BC6H kernel, seven headers and licence (391 KB extracted instead of a roughly 790 MB checkout). Preserve the existing offline source override and codec patch.\n\nValidation:\n- `python3 -m unittest discover -s tools -v`: 279 tests, six expected skips, no failures. Includes real compiler-cache, CMake restore, hostgen invalidation and selective-extraction regressions.\n- `python3 -m unittest discover -s port/tools/hostgen -v`: all 219 tests passed, including PAL/NTSC host-hook parity.\n- Pinned actionlint, touched conventions, layering and `git diff --check`: passed.\n- BC6 kernel buil",
+      "mergedAt": "2026-11-02T19:24:25Z"
+     },
+     {
+      "number": 214,
+      "title": "fix(port): the pause Options list has Video from its first frame",
+      "author": "nickyyOO",
+      "untrustedBody": "**Before:** the first time the pause Options page opened in a level, the list showed seven rows for one frame (no Video), then jumped to eight. Later opens were fine.\n\n**After:** Video is there from the first frame the list is drawn.\n\n**How:** the port now swaps in its items, hints and pictures while the menu is switching to the Options page (menu_system.next), before the game enters it, instead of a frame after.\n\n**Tested:** NTSC in the container (software GL), Novalis, Options opened twice, frame by frame before and after; pause_options test, conventions, layering. Not tested: PAL, a real device.",
+      "mergedAt": "2026-11-02T18:49:24Z"
+     },
+     {
+      "number": 215,
+      "title": "feat(enhanced): pack probe depth as RG16 UNORM",
+      "author": "pezzadev",
+      "untrustedBody": "Canonical probe depth maps currently use 512 bytes per probe for RG32F moments. Store normalized mean and spread in RG16 UNORM with 16 bytes of FP32 ranges instead, bringing depth storage to 272 bytes per probe, a 46.9% reduction including the ranges.\n\nThe encoder uses precision curves for blocker-depth endpoints and small spreads. The shader reconstructs FP32 total variance from two native hardware gathers, preserving octahedral gutters. Colour compression and relocation metadata remain independent. Format 8 invalidates automatic bake caches; legacy version 6 raw moments and version 7 RG8/ASTC depth remain readable.\n\nReject GPU-packed encoder inputs before plane access and omit unused raw-depth staging. Add CPU codec, malformed-input, parallel encoding and production GPU upload/sampling regressions, and update the native cache integration test. No baked game assets are included.\n\nValidation:\n- Windows incremental baker and relevant probe test builds passed. Existing warnings in unchan",
+      "mergedAt": "2026-11-02T20:18:48Z"
+     },
+     {
+      "number": 216,
+      "title": "perf(port): build shaders behind the loading screen on Vulkan and OpenGL",
+      "author": "nickyyOO",
+      "untrustedBody": "**Before.** Vulkan compiled a pipeline the first time a program was drawn in a new state, mid-frame. One pre-warm worker ran and nobody waited for it. The pipeline cache was saved only on a clean exit. OpenGL drivers recompiled programs at the first draw in a new state too.\n\n**After.** Shaders from earlier runs are built during the loading screen on both APIs. A new Vulkan pipeline is linked from parts at once (graphics pipeline library, like DXVK), and the optimised one replaces it later. Nothing drawn changes.\n\n**How.**\n- `vk-pipeline-library` (desktop only): shader parts are built at program link; a new pipeline is fast-linked, then swapped for the full one.\n- 1 to 4 pre-warm workers; `vkgl::finish_pipelines()` waits for them at level load.\n- Pipeline cache and manifest saved in the background at each load and every 2 minutes.\n- `gl-state-warmup`: saves each new draw state per driver and draws it once at level load into a private 4x4 target.\n\n**Tested.** Container (lavapipe, llvmpip",
+      "mergedAt": "2026-11-02T19:09:27Z"
+     },
+     {
+      "number": 217,
+      "title": "fix(port): cast playable Clank shadow volumes",
+      "author": "pezzadev",
+      "untrustedBody": "Original stencil shadows only accepted Ratchet’s class, so playable Clank did not submit his animated shadow proxies. Select the game’s active hero body instead, and read its ownership callback even when the enhanced shadow map is disabled. Inactive Ratchet and attached equipment cannot replace the controlled body as the shadow anchor.\n\nThe bounded ownership selection now lives in a small frontend helper shared by both shadow paths. Existing class-based fallbacks remain available when a game has no readable rig. Both RAC1 versions use the shared callback with their existing version-specific hero and direction addresses.\n\nValidation:\n- Windows CMake/CTest fixture: `hero_shadow_rig` and `hero_attachments` passed. The new selection test fails with the old enhanced-only gate restored.\n- Both focused tests compiled and passed on Linux.\n- Windows syntax checks passed for PAL and NTSC with enhanced rendering enabled and disabled. Existing unrelated `fopen` deprecation and local-shadow warning",
+      "mergedAt": "2026-11-02T21:31:41Z"
+     },
+     {
+      "number": 219,
+      "title": "fix(launcher): accept GitHub's asset digest without SHA256SUMS",
+      "author": "Lynder063",
+      "untrustedBody": "A release no longer needs SHA256SUMS when GitHub gives a digest for the asset.\nIf both exist they must match; with neither, the install is still refused.",
+      "mergedAt": "2026-11-02T21:15:50Z"
+     },
+     {
+      "number": 220,
+      "title": "fix(ci): publish compiler caches only after successful jobs",
+      "author": "pezzadev",
+      "untrustedBody": "A cancelled develop job published a partial compiler-cache snapshot which later PRs restored. The slow compatibility run on #217 got only 3.56% compiler-cache hits and spent 31m37s building.\n\nUse a shared compiler-cache action for all five native checks configurations and launcher game builds. GitHub's pinned cache action publishes branch snapshots through its success-only post step. ccache-action still installs/configures ccache and reports statistics, with its own restore/save disabled.\n\nPRs remain restore-only. Prefer successful snapshots, then fall back to older keys so existing caches remain usable. Preserve Windows/POSIX archive path spelling, per-job namespaces and cache-size limits. Restore before configuration so an archived ccache.conf cannot override the current job's settings.\n\nValidation:\n- python3 -m unittest discover -s tools -v: 281 tests, six expected skips, no failures; includes real compiler-cache and CMake restore fixtures.\n- Pinned actionlint and git diff --check: ",
+      "mergedAt": "2026-11-02T22:23:46Z"
+     },
+     {
+      "number": 221,
+      "title": "fix(port): allow freecam rotation while developer paused",
+      "author": "pezzadev",
+      "untrustedBody": "Freecam mouse look stopped during developer pause because the paused event loop did not forward events to the camera controls. Between-tick redraws also dropped these events.\n\nForward freecam events even when the UI consumes them, so Alt/right-button releases and focus loss remain visible. Refresh mouse capture after between-tick event processing, matching normal ticks; preserve develop's existing paused capture handling.\n\nValidation:\n- Windows enhanced-rendering game build and launch before rebase; changed translation unit rebuilt after rebase.\n- camera_debug CTest passed after rebase.\n- Pinned clang-format 21.1.8, conventions and layering checks passed. The conventions formatter wrapper is broken locally; the direct pinned formatter check passed.\n- clang-tidy completed with existing destructor/function-size warnings; no diagnostics on added lines.\n\nThis is shared frontend code for PAL/NTSC and graphics backends. Interactive paused mouse-look verification, PAL gameplay, macOS and Andr",
+      "mergedAt": "2026-11-02T23:32:16Z"
+     }
+    ],
+    "opened": [
+     {
+      "number": 199,
+      "title": "perf(port): reduce Vulkan equivalence test overhead",
+      "author": "pezzadev",
+      "untrustedBody": "The Vulkan equivalence test repeatedly compiled identical programs, read back every frame separately, and toggled features absent from its scene. This keeps scene comparisons intact while moving those features to required tests that exercise their actual paths.\n\n- Verify fresh-driver determinism and discarded attachments once, then share checksummed, build/device/settings-specific ephemeral baselines between two balanced shards.\n- Retain matching immutable Vulkan program objects only when tests explicitly enable it. Every GL link resets uniforms and descriptors; compilation/cache/lifecycle comparisons keep fresh objects. Player launches leave retention disabled.\n- Batch exact RGBA8 snapshots while preserving deliberate depth-pass readbacks.\n- Keep all 61 optimisation entries covered: 37 scene entries retain seven scenarios, eight frames, both modes and existing tolerances; 24 entries have required focused test owners. Add baseline corruption, program lifetime/layout isolation, capture ",
+      "mergedAt": "2026-11-02T02:32:41Z"
+     },
+     {
+      "number": 200,
+      "title": "Track the RAC5 USA ByteMatch version in the launcher",
+      "author": "llesieur99",
+      "untrustedBody": "The installed launcher currently caches RAC5's PAL-default ByteMatch measures (87,784 / 6,418,460, 1.37%) for its USA disc `SCUS_976.15`. Matching the project slug alone does not select a report version once the ByteMatch project contains both PAL and USA.\n\nFor `rac5/ntsc` only, fetch `OpenRAC/rac5-sm-decomp/SCUS_976.15.json` and use that version's measures and commit date. All other games keep their existing project-list behavior. A failed USA-specific request retains an earlier USA cache entry and never substitutes the PAL default. The test reproduces a PAL-default list at 1.37% alongside a USA-specific report at 9.63%, then checks the fallback.\n\nThis pairs with RAC5 progress PR #115, which fixes the USA report itself. No launcher release or installed application is changed by this PR.\n\nValidation: `cargo fmt --all -- --check`; 348 passing `openrac-launcher-core` Rust tests (one pre-existing ignored). The tests ran in a sparse checkout expanded with the repository files the core suit",
+      "mergedAt": "2026-11-02T08:02:04Z"
+     },
+     {
+      "number": 201,
+      "title": "perf(port): reuse native programs in GTAO rendering tests",
+      "author": "pezzadev",
+      "untrustedBody": "The GTAO scene matrix repeatedly created identical Vulkan programs across fresh scene fixtures. Tests now opt into the existing immutable native-program pool after the lazy-quality compilation regression has run on fresh driver objects. Every scene, rendering comparison, tolerance and resource-lifetime assertion remains.\n\n- Keep the lazy-quality test independent and assert that it borrowed no programs.\n- Add `gtao_test --fresh-programs` for matching reference runs, assert reuse occurs in the default matrix, and disable retention before the existing timestamp-recording regression.\n- Extract that timestamp regression into a helper and add phase wall/compiler/driver timings for both GTAO tests. Horizon rendering and its per-image readbacks are unchanged.\n- Document the reference switch and the scope of the local measurements in the existing performance guide.\n\nValidation:\n- Two alternating cold-cache software Vulkan pairs, validation enabled and two Mesa workers: scene mean 107.6 s fresh ",
+      "mergedAt": "2026-11-02T03:44:36Z"
+     },
+     {
+      "number": 202,
+      "title": "ci(port): reuse build preparation across checks",
+      "author": "pezzadev",
+      "untrustedBody": "Native checks repeatedly start cold: the Windows sample spent 4m30s configuring and 12m30s compiling/linking, with no compiler cache restored and only 1/1,033 cacheable calls hitting. Checks currently run after pushes to master even though develop is the default PR base.\n\n- Run checks after develop merges so compiler, Rust, shader and package caches can be populated in the default-branch scope. Cancel superseded develop runs while retaining master's release-check behavior.\n- Add isolated preparation caches to Ubuntu compatibility, headless, enhanced/baker, Fedora and Windows checks. Cache dependency sources, fingerprint-checked hostgen output, CMakeCache and versioned compiler metadata. Keep objects in ccache and regenerate Ninja files and test results.\n- Match preparation to tool paths/content, Python, installed Linux packages, runner image/Windows SDK, workspace, CPU capabilities and configuration. Restore prefixes never cross toolchain/configuration identities; missing identity info",
+      "mergedAt": "2026-11-02T04:46:42Z"
+     },
+     {
+      "number": 203,
+      "title": "feat(sdk): mod interface 1.12 (hero driven by a mod, collision, props, sounds, camera, heat haze)",
+      "author": "nickyyOO",
+      "untrustedBody": "## Before\nMods could watch and nudge the hero but not replace how he moves, draw their own meshes, play their own sounds or move the camera.\n\n## After\nMod interface 1.12, added to the end of the table (1.0-1.11 mods load as before):\n- `rac1.player.update` hook point and `hero_set_pose` / `hero_set_joints`: a mod moves and poses the hero itself.\n- `collision_triangles`: the level's and mobys' collision around a box, read only.\n- Props: `.glb` meshes of the mod drawn in the level (tint, alpha or added blending, hero shadow).\n- Sounds: `.wav`/`.ogg` of the mod, mixed at the game's sound volume; a mod controls only its own voices.\n- `camera_view` / `camera_set`: the game's camera read or put somewhere by one mod at a time.\n- `haze_set`: heat haze patches over the picture (GL and Vulkan).\n\n## How\nNew entries at the end of `openrac_api`, new structs with a `size` field where they are passed one at a time, `mod.hpp` checks `api_minor` and the table size. The camera is written into the game's ",
+      "mergedAt": "2026-11-02T19:47:56Z"
+     },
+     {
+      "number": 204,
+      "title": "feat(port): HDR output on the Vulkan renderer",
+      "author": "nickyyOO",
+      "untrustedBody": "**Before:** the game always went to the screen in SDR. On a desktop in HDR mode it looked dim and washed out.\n\n**After:** with `hdr = auto` or `on` (Vulkan), the picture goes out as HDR10 or scRGB, with the game's white at the player's paper white, so it looks like SDR. While HDR is on, the frame is drawn in half floats. Each draw's colour is still clamped to 0..1, so only the game's own blending (glows, explosions, lasers) goes above white. That light rolls off towards the display's peak. Off by default, and nothing changes when it is off.\n\n**How:**\n- `renderer/hdr.h`: the arithmetic (PQ, BT.2020, roll-off, levels).\n- `hdr_encode.comp`: one compute pass into the swapchain image.\n- `surface_format.h`: picks the format, falling back to SDR.\n- Clamped fragment variant per program (`clamped_fragment`), made only for the HDR frame.\n- Settings: Video options, the drawer, the settings file and the launcher (`OPENRAC_HDR`).\n- Android: reads the display's HDR/SDR headroom through GameActivity.",
+      "mergedAt": "2026-11-02T08:02:25Z"
+     },
+     {
+      "number": 205,
+      "title": "feat(sdk): mod interface 1.12 (#203 with develop merged)",
+      "author": "Lynder063",
+      "untrustedBody": "Replaces #203 with develop merged in.\nsound_engine.cpp keeps both the mod sounds and the audio-mod stream replacement from #164.\n\n---\n_Generated by [Claude Code](https://claude.ai/code/session_01E5SuSUPNJVp9NtcyUkjx6q)_"
+     },
+     {
+      "number": 206,
+      "title": "feat(rac2): native port of Going Commando (#191 with develop merged)",
+      "author": "Lynder063",
+      "untrustedBody": "Replaces #191 with develop merged in.\nStream mixer keeps both rac2 two-file stereo and #164 multi-channel; rac1 hud.c keeps #207's fix.",
+      "mergedAt": "2026-11-02T09:15:18Z"
+     },
+     {
+      "number": 207,
+      "title": "fix(rac1): weapon HUD background spans the panel with HUD at the edges",
+      "author": "nickyyOO",
+      "untrustedBody": "The weapon panel's dark strip is as wide as its x plus the frame width, so moving x out for the HUD at the picture's edges made it shorter. Draw that panel at its own place with the screen's left moved instead.",
+      "mergedAt": "2026-11-02T08:45:08Z"
+     },
+     {
+      "number": 208,
+      "title": "fix(port): keep white moby glow colours on Vulkan",
+      "author": "nickyyOO",
+      "untrustedBody": "mesh.vert decoded a moby's glow word (instance w = 1 + RGB) as int(w - 1.0 + 0.5). For a white glow (0xFFFFFF) w is 2^24, and 2^24 - 1 + 0.5 rounds back up to 2^24 in a float, so the colour became 0x1000000: black. Mesa's GL compiler folds the constants and hides it; the Vulkan path does not, so glow packets in white went dark there, like the lit floor under the Giant Clank pad's grate on Quartu and Veldin. Round w first, then take the 1 off.",
+      "mergedAt": "2026-11-02T09:10:01Z"
+     },
+     {
+      "number": 209,
+      "title": "fix(launcher): show a mod file's copy and install while it is added",
+      "author": "nickyyOO",
+      "untrustedBody": "**Before:** After picking a mod with File… nothing showed until the add was done. On Android the chosen .zip is first copied into the app, and the spinner only appeared after that copy. If the picker or the copy failed, the error was lost (unhandled promise), so the click looked like it did nothing. A picked file whose name came without `.zip` was refused by the install. The Search mods field was a plain browser `type=\"search\"` input and did not look like the other fields.\r\n\r\n**After:** From the moment the picker closes, the Add a mod panel shows what is happening under the buttons: \"Copying <file> into the launcher…\" with a percentage and bar (Android), then \"Adding <file>…\" with a moving bar, then the usual success or error line. Errors from the picker or the copy are shown there too. Search mods now has the launcher's text field look.\r\n\r\n**How:** `pick_zip` sends its own `mod-copy` events (the first one at once) and cleans the picked name (`zip_file_name`: no folder, `.zip` added, `",
+      "mergedAt": "2026-11-02T11:40:52Z"
+     },
+     {
+      "number": 210,
+      "title": "fix(port): fade distant mobys and shrubs the way the PS2 does",
+      "author": "nickyyOO",
+      "untrustedBody": "**Before:** a moby (crates, enemies, pickups, props) popped in at once when the camera came within its draw distance. With \"Scenery detail: Original\", shrubs (rocks, plants, tree thorns) also popped in and out by a rough distance test, and the far ones never turned into their billboard sprites.\n\n**After:** mobys and shrubs fade in and out as MobyProc and ShrubProc do on the PS2, and far shrubs of a class with a billboard are drawn as that billboard, cross-faded with the mesh. Checked against PCSX2 on Veldin.\n\n**How:**\n- Mobys: `moby_distance_fade` replays MobyProc's distance test and fade from the asm (NTSC boot 0x211B60) on the PS2 float model (`common/ps2_float.h`). Fading mobys get blend kind 3 (TEST AREF 0x08); the blended pass is split at the moby's alpha reference so the opaque texels still write depth.\n- Shrubs: `shrub_proc` (game/rac1/shrub_proc.cpp) replays ShrubProc (NTSC boot 0x228BE8, same code in every level) from game RAM each tick: cull, near test, mesh fade, billboard a",
+      "mergedAt": "2026-11-02T14:38:09Z"
+     },
+     {
+      "number": 211,
+      "title": "feat(port): one shared in-game menu for desktop and Android, in the launcher's look",
+      "author": "nickyyOO",
+      "untrustedBody": "**Before:** the desktop had an ImGui menu bar and a separate controller bindings window. Android had its own drawer rows. Messages over the game (toast, notice, status badge) were plain ImGui text.\n\n**After:**\n- One menu catalog feeds both the desktop menu and the Android drawer, so an option added once shows on both.\n- Desktop: a menu bar and window in the launcher's look, coloured with the game's accent. It has a help pane and a version corner, and works with a controller, a keyboard or a mouse. Select+Start opens it on any controller.\n- Controls tab: bindings, sticks, players and the menu keys are rows of the tab. The old bindings window is gone. Android shows these rows in a \"Controller settings\" panel beside the drawer and keeps the on-screen button editor.\n- Notifications: one API (`debug_overlay::notify` / `dismiss`) draws cards at the top of the screen. Screenshots, recordings, reports, level errors, pause/speed and a mod's line all use it. A short hint at start says how to ope",
+      "mergedAt": "2026-11-02T22:44:20Z"
+     },
+     {
+      "number": 212,
+      "title": "feat(rac2): second round of port fixes, enhanced graphics and retail parity",
+      "author": "Veradictus",
+      "untrustedBody": "Second round on Going Commando's native port: player-reported bugs, enhanced graphics, retail parity and the functional C repin. **Levels format goes to 20: re-run \"Get the levels ready\".**\n\n## Player-reported fixes\n\n- **Crash on nanotech level-up:** the level-up sparks' slots (`D_00232760`) were paired through the particle loop's end pointer instead of their own address. In every level they landed on the fade list, so a live fade entry read a spark as a moby and crashed. Pairs now prefer the global's own halves; 767 level-to-level pairs move to their real symbols.\n- **Saves reset on New Game:** a `.DS_Store` (or any extra file) in the save folder made the game see no save data, so New Game wiped all slots. The card listing now hides host files, as retail does. Also fixed a crash on New Game's save page from a mis-aligned call table.\n- **Maktar arena froze on entry:** `func_00132318` (snd_BankLoadByLoc) waited on a sound RPC reply the port never wrote. It is now hosted and loads the ba",
+      "mergedAt": "2026-11-03T08:03:46Z"
+     },
+     {
+      "number": 213,
+      "title": "ci(port): reduce cache churn and reuse validated hostgen output",
+      "author": "pezzadev",
+      "untrustedBody": "Native checks were losing reusable compiler and preparation caches to large PR-private snapshots. Keep those PR caches read-only, identify compilers by content, and separate validated hostgen text from CPU-specific CMake metadata so changing runner CPUs does not force translation again.\n\nCompressonator remains pinned to the same revision, but now downloads a checksum-verified source archive and extracts only its BC6H kernel, seven headers and licence (391 KB extracted instead of a roughly 790 MB checkout). Preserve the existing offline source override and codec patch.\n\nValidation:\n- `python3 -m unittest discover -s tools -v`: 279 tests, six expected skips, no failures. Includes real compiler-cache, CMake restore, hostgen invalidation and selective-extraction regressions.\n- `python3 -m unittest discover -s port/tools/hostgen -v`: all 219 tests passed, including PAL/NTSC host-hook parity.\n- Pinned actionlint, touched conventions, layering and `git diff --check`: passed.\n- BC6 kernel buil",
+      "mergedAt": "2026-11-02T19:24:25Z"
+     },
+     {
+      "number": 214,
+      "title": "fix(port): the pause Options list has Video from its first frame",
+      "author": "nickyyOO",
+      "untrustedBody": "**Before:** the first time the pause Options page opened in a level, the list showed seven rows for one frame (no Video), then jumped to eight. Later opens were fine.\n\n**After:** Video is there from the first frame the list is drawn.\n\n**How:** the port now swaps in its items, hints and pictures while the menu is switching to the Options page (menu_system.next), before the game enters it, instead of a frame after.\n\n**Tested:** NTSC in the container (software GL), Novalis, Options opened twice, frame by frame before and after; pause_options test, conventions, layering. Not tested: PAL, a real device.",
+      "mergedAt": "2026-11-02T18:49:24Z"
+     },
+     {
+      "number": 215,
+      "title": "feat(enhanced): pack probe depth as RG16 UNORM",
+      "author": "pezzadev",
+      "untrustedBody": "Canonical probe depth maps currently use 512 bytes per probe for RG32F moments. Store normalized mean and spread in RG16 UNORM with 16 bytes of FP32 ranges instead, bringing depth storage to 272 bytes per probe, a 46.9% reduction including the ranges.\n\nThe encoder uses precision curves for blocker-depth endpoints and small spreads. The shader reconstructs FP32 total variance from two native hardware gathers, preserving octahedral gutters. Colour compression and relocation metadata remain independent. Format 8 invalidates automatic bake caches; legacy version 6 raw moments and version 7 RG8/ASTC depth remain readable.\n\nReject GPU-packed encoder inputs before plane access and omit unused raw-depth staging. Add CPU codec, malformed-input, parallel encoding and production GPU upload/sampling regressions, and update the native cache integration test. No baked game assets are included.\n\nValidation:\n- Windows incremental baker and relevant probe test builds passed. Existing warnings in unchan",
+      "mergedAt": "2026-11-02T20:18:48Z"
+     },
+     {
+      "number": 216,
+      "title": "perf(port): build shaders behind the loading screen on Vulkan and OpenGL",
+      "author": "nickyyOO",
+      "untrustedBody": "**Before.** Vulkan compiled a pipeline the first time a program was drawn in a new state, mid-frame. One pre-warm worker ran and nobody waited for it. The pipeline cache was saved only on a clean exit. OpenGL drivers recompiled programs at the first draw in a new state too.\n\n**After.** Shaders from earlier runs are built during the loading screen on both APIs. A new Vulkan pipeline is linked from parts at once (graphics pipeline library, like DXVK), and the optimised one replaces it later. Nothing drawn changes.\n\n**How.**\n- `vk-pipeline-library` (desktop only): shader parts are built at program link; a new pipeline is fast-linked, then swapped for the full one.\n- 1 to 4 pre-warm workers; `vkgl::finish_pipelines()` waits for them at level load.\n- Pipeline cache and manifest saved in the background at each load and every 2 minutes.\n- `gl-state-warmup`: saves each new draw state per driver and draws it once at level load into a private 4x4 target.\n\n**Tested.** Container (lavapipe, llvmpip",
+      "mergedAt": "2026-11-02T19:09:27Z"
+     },
+     {
+      "number": 217,
+      "title": "fix(port): cast playable Clank shadow volumes",
+      "author": "pezzadev",
+      "untrustedBody": "Original stencil shadows only accepted Ratchet’s class, so playable Clank did not submit his animated shadow proxies. Select the game’s active hero body instead, and read its ownership callback even when the enhanced shadow map is disabled. Inactive Ratchet and attached equipment cannot replace the controlled body as the shadow anchor.\n\nThe bounded ownership selection now lives in a small frontend helper shared by both shadow paths. Existing class-based fallbacks remain available when a game has no readable rig. Both RAC1 versions use the shared callback with their existing version-specific hero and direction addresses.\n\nValidation:\n- Windows CMake/CTest fixture: `hero_shadow_rig` and `hero_attachments` passed. The new selection test fails with the old enhanced-only gate restored.\n- Both focused tests compiled and passed on Linux.\n- Windows syntax checks passed for PAL and NTSC with enhanced rendering enabled and disabled. Existing unrelated `fopen` deprecation and local-shadow warning",
+      "mergedAt": "2026-11-02T21:31:41Z"
+     },
+     {
+      "number": 219,
+      "title": "fix(launcher): accept GitHub's asset digest without SHA256SUMS",
+      "author": "Lynder063",
+      "untrustedBody": "A release no longer needs SHA256SUMS when GitHub gives a digest for the asset.\nIf both exist they must match; with neither, the install is still refused.",
+      "mergedAt": "2026-11-02T21:15:50Z"
+     },
+     {
+      "number": 220,
+      "title": "fix(ci): publish compiler caches only after successful jobs",
+      "author": "pezzadev",
+      "untrustedBody": "A cancelled develop job published a partial compiler-cache snapshot which later PRs restored. The slow compatibility run on #217 got only 3.56% compiler-cache hits and spent 31m37s building.\n\nUse a shared compiler-cache action for all five native checks configurations and launcher game builds. GitHub's pinned cache action publishes branch snapshots through its success-only post step. ccache-action still installs/configures ccache and reports statistics, with its own restore/save disabled.\n\nPRs remain restore-only. Prefer successful snapshots, then fall back to older keys so existing caches remain usable. Preserve Windows/POSIX archive path spelling, per-job namespaces and cache-size limits. Restore before configuration so an archived ccache.conf cannot override the current job's settings.\n\nValidation:\n- python3 -m unittest discover -s tools -v: 281 tests, six expected skips, no failures; includes real compiler-cache and CMake restore fixtures.\n- Pinned actionlint and git diff --check: ",
+      "mergedAt": "2026-11-02T22:23:46Z"
+     },
+     {
+      "number": 221,
+      "title": "fix(port): allow freecam rotation while developer paused",
+      "author": "pezzadev",
+      "untrustedBody": "Freecam mouse look stopped during developer pause because the paused event loop did not forward events to the camera controls. Between-tick redraws also dropped these events.\n\nForward freecam events even when the UI consumes them, so Alt/right-button releases and focus loss remain visible. Refresh mouse capture after between-tick event processing, matching normal ticks; preserve develop's existing paused capture handling.\n\nValidation:\n- Windows enhanced-rendering game build and launch before rebase; changed translation unit rebuilt after rebase.\n- camera_debug CTest passed after rebase.\n- Pinned clang-format 21.1.8, conventions and layering checks passed. The conventions formatter wrapper is broken locally; the direct pinned formatter check passed.\n- clang-tidy completed with existing destructor/function-size warnings; no diagnostics on added lines.\n\nThis is shared frontend code for PAL/NTSC and graphics backends. Interactive paused mouse-look verification, PAL gameplay, macOS and Andr",
+      "mergedAt": "2026-11-02T23:32:16Z"
+     },
+     {
+      "number": 222,
+      "title": "fix(port): Vulkan pipeline parts take only their own state; bindings only their own stages",
+      "author": "Veradictus",
+      "untrustedBody": "#216's pipeline-library linking built each shared part with the whole state of the first key that needed it. NVIDIA (GTX 1070, 580.178) carried the vertex input given to the shared output part into every pipeline linked from it, so draws with another vertex layout read the wrong vertices. llvmpipe ignores the extra state, which is why CI passed.\n\nSix Vulkan tests failed on NVIDIA from #216 on: render_equivalence_vulkan, render_equivalence_vulkan_remaining, enhanced_rendering_vulkan, sun_shadow_vulkan, sun_shadow_filter_reference_vulkan, probe_gpu_vulkan.\n\n- Each part now gets only its own state (vertex input and assembly; viewport and rasteriser; depth and stencil; blend and samples) and null for the rest. Part sharing, fast linking and the prewarm workers are unchanged, so the speed-up stays.\n- `vulkan_prewarm` gains a test: one program drawn with two vertex layouts, linked against whole pipelines. It fails on NVIDIA without the fix.\n- #216's own linked-parts test now runs with prewar",
+      "mergedAt": "2026-11-03T01:27:04Z"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [
+     {
+      "number": 218,
+      "title": "[Feature request] Resident-world support and mod API for seamless inter-level portals",
+      "author": "noire342"
+     }
+    ],
+    "closed": []
+   },
+   "releases": [],
+   "progress": null,
+   "contributors": [
+    "bigbeno37",
+    "llesieur99",
+    "Lynder063",
+    "nickyyOO",
+    "pezzadev",
+    "Veradictus"
+   ]
+  },
+  {
+   "repo": "rac1-decomp",
+   "title": "Ratchet & Clank",
+   "branches": [
+    {
+     "name": "main",
+     "commits": [
+      {
+       "sha": "ebe2698070500b6991f9ba59799ec9ba1b6aba59",
+       "title": "Merge pull request #233 from OpenRAC/refactor/fake-aliases",
+       "author": "Lynder063",
+       "date": "2026-11-02T21:00:29Z"
+      },
+      {
+       "sha": "92dede620da1e360e6d8b4fc05a282362a95d58e",
+       "title": "Merge pull request #232 from OpenRAC/refactor/fake-bases-2",
+       "author": "Lynder063",
+       "date": "2026-11-02T19:46:11Z"
+      },
+      {
+       "sha": "2902ab53a183028ba03530f3db738d56b9c8f430",
+       "title": "Merge pull request #231 from OpenRAC/refactor/fakematch-fixes",
+       "author": "Lynder063",
+       "date": "2026-11-02T19:26:34Z"
+      },
+      {
+       "sha": "0cf5f77473ad65e9893c082e8b4a22cd6037fc79",
+       "title": "Merge pull request #230 from OpenRAC/refactor/hero-direct",
+       "author": "Lynder063",
+       "date": "2026-11-02T19:02:30Z"
+      },
+      {
+       "sha": "4caaaab3cc1eed93754c41d8299ca0a58b0d859c",
+       "title": "Merge pull request #229 from OpenRAC/refactor/hero-pointers",
+       "author": "Lynder063",
+       "date": "2026-11-02T18:26:57Z"
+      },
+      {
+       "sha": "fc91af0d371675d29e9548eab98b32b22df912c7",
+       "title": "Merge pull request #228 from OpenRAC/refactor/voice-rows",
+       "author": "Lynder063",
+       "date": "2026-11-02T18:11:54Z"
+      },
+      {
+       "sha": "a4846cfb113064d785e31e8e2fa68e5c5424c686",
+       "title": "Merge pull request #227 from OpenRAC/refactor/control-modes",
+       "author": "Lynder063",
+       "date": "2026-11-02T17:54:28Z"
+      },
+      {
+       "sha": "0b2ad179b74697d493571eb2c53e44dc40622d79",
+       "title": "Merge pull request #226 from OpenRAC/refactor/game-gp-scalars",
+       "author": "Lynder063",
+       "date": "2026-11-02T17:40:27Z"
+      },
+      {
+       "sha": "5875d1ac44a07681c9f778d7b4d2471286ba282a",
+       "title": "Merge pull request #225 from OpenRAC/docs/readme-dumps",
+       "author": "Lynder063",
+       "date": "2026-11-02T16:42:00Z"
+      },
+      {
+       "sha": "738200743fdd159289f10aea508a097d5576e3dc",
+       "title": "Merge pull request #224 from OpenRAC/refactor/stage4-fakematch",
+       "author": "Lynder063",
+       "date": "2026-11-02T13:39:58Z"
+      },
+      {
+       "sha": "e7d24d47ad9830db1fdaf25a2db4c128e087bf25",
+       "title": "Merge pull request #223 from OpenRAC/refactor/github-readable",
+       "author": "Lynder063",
+       "date": "2026-11-02T12:47:29Z"
+      },
+      {
+       "sha": "6bf1b8eb30bd140639f6dbadb7b84ad3ee4f8a11",
+       "title": "Merge pull request #222 from OpenRAC/refactor/data-split",
+       "author": "Lynder063",
+       "date": "2026-11-02T12:05:08Z"
+      },
+      {
+       "sha": "c2c4f02eb5ef000002afb07df64380e084f461a7",
+       "title": "Merge pull request #221 from OpenRAC/refactor/fresh-clone",
+       "author": "Lynder063",
+       "date": "2026-11-02T11:22:09Z"
+      },
+      {
+       "sha": "454f48f3c894b771b8f97fcc9e7550fe8871927a",
+       "title": "Merge pull request #220 from OpenRAC/refactor/readable-switches",
+       "author": "Lynder063",
+       "date": "2026-11-02T10:52:10Z"
+      },
+      {
+       "sha": "80099e68b1c9df29fb8b15d120b3f371a57ac561",
+       "title": "Merge pull request #219 from OpenRAC/refactor/data-rodata",
+       "author": "Lynder063",
+       "date": "2026-11-02T10:37:07Z"
+      },
+      {
+       "sha": "e2edc9239639ae8406f7ca6139f251a317da7130",
+       "title": "Merge pull request #218 from OpenRAC/refactor/data-local-types",
+       "author": "Lynder063",
+       "date": "2026-11-02T10:22:30Z"
+      },
+      {
+       "sha": "27b4015c3f09165c77b50803f5957564b826ad2b",
+       "title": "Merge pull request #217 from OpenRAC/refactor/data-tables",
+       "author": "Lynder063",
+       "date": "2026-11-02T09:56:47Z"
+      },
+      {
+       "sha": "d1b1bc87756b576bcad5f69634c10deb153ad8b5",
+       "title": "Merge pull request #216 from OpenRAC/refactor/stage3-enums",
+       "author": "Lynder063",
+       "date": "2026-11-02T09:34:07Z"
+      },
+      {
+       "sha": "0cc1b0082d746d78080b4d39c5d8619297b0ad20",
+       "title": "Merge pull request #215 from OpenRAC/refactor/stage3-globals",
+       "author": "Lynder063",
+       "date": "2026-11-02T09:20:21Z"
+      },
+      {
+       "sha": "12380c9847edcd679d0ac035099940a89cd9484d",
+       "title": "Merge pull request #214 from OpenRAC/refactor/stage3-fake-bases",
+       "author": "Lynder063",
+       "date": "2026-11-02T08:43:49Z"
+      },
+      {
+       "sha": "4372ef6ff906b41b79b1804184ef35c889f90980",
+       "title": "Merge pull request #213 from OpenRAC/refactor/stage3-bulk",
+       "author": "Lynder063",
+       "date": "2026-11-02T08:22:28Z"
+      },
+      {
+       "sha": "ab2014ffaadcac3a5b147a049b03ae6e4784acfa",
+       "title": "Merge pull request #212 from OpenRAC/refactor/stage3-moby2",
+       "author": "Lynder063",
+       "date": "2026-11-02T07:34:09Z"
+      },
+      {
+       "sha": "c1ce7d2ff3eedb75a15eb07868e2221ff2cff7a7",
+       "title": "Merge pull request #211 from OpenRAC/refactor/stage3-measure",
+       "author": "Lynder063",
+       "date": "2026-11-02T07:20:35Z"
+      }
+     ]
+    }
+   ],
+   "commitCount": 23,
+   "pullRequests": {
+    "merged": [
+     {
+      "number": 211,
+      "title": "refactor(overlays): give byte pointers that are certainly mobys their Moby fields",
+      "author": "Lynder063",
+      "untrustedBody": "A pointer converts only if its name, offsets and access sizes all fit Moby. Raw offset casts go from 6947 to 6667, and check_all passes with the same reports.\noclass_literals rises from 126 to 153 on purpose: those class numbers were hidden in raw offsets, and none has a name in the table.",
+      "mergedAt": "2026-11-02T07:20:36Z"
+     },
+     {
+      "number": 212,
+      "title": "refactor(overlays): give moby fields to files that lacked the Moby header",
+      "author": "Lynder063",
+      "untrustedBody": "Eleven files get the Moby header and fields. Raw offset casts go from 6667 to 6607, and check_all passes with the same reports.\noclass_literals rises from 153 to 175 on purpose: the class numbers were hidden in raw offsets, and none has a name in the table.",
+      "mergedAt": "2026-11-02T07:34:09Z"
+     },
+     {
+      "number": 213,
+      "title": "refactor(overlays): convert raw offsets to fields in bulk",
+      "author": "Lynder063",
+      "untrustedBody": "Raw offset casts fall from 6607 to 5965: a pointer converts only if its source or layout makes its type certain, with new shared PartBase and HitMessage headers and a pvars struct per function.\ncheck_all passes with the same reports; 15 functions that changed stay raw, and fields with no known meaning stay unk_XX.",
+      "mergedAt": "2026-11-02T08:22:29Z"
+     },
+     {
+      "number": 214,
+      "title": "refactor(overlays): replace fake base addresses with the real globals",
+      "author": "Lynder063",
+      "untrustedBody": "hero_globals_base + 0xE1D is g_hero: 3339 of 4015 base-plus-constant sites now use the global the symbol table names there, and functions that need the old spelling keep it. check_all passes with the same reports.\nextern_lines rises from 31497 to 31654 on purpose: a file with one base declaration now names each global it uses.",
+      "mergedAt": "2026-11-02T08:43:49Z"
+     },
+     {
+      "number": 215,
+      "title": "refactor(overlays): finish fake bases in fragments and give globals their real types",
+      "author": "Lynder063",
+      "untrustedBody": "Real globals now reach the version fragments and the files the tool's bugs had skipped, and globals with one use become plain variables. A function that stops matching keeps its old spelling.\ncheck_all passes with the same reports, and extern_lines ends at 31,667 (it rises because files name each global they use).",
+      "mergedAt": "2026-11-02T09:20:21Z"
+     },
+     {
+      "number": 216,
+      "title": "refactor(overlays): give small-data globals their real types with SDATA",
+      "author": "Lynder063",
+      "untrustedBody": "extern short x read as *(float *)&x becomes extern float x SDATA(D_x) and plain x, so float_int_casts falls from 2408 to 723. check_all passes with the same reports, and src/game stays out because it changed .data.\naddress_names_in_code rises from 11687 to 13497 on purpose: each SDATA declaration has to name its address.",
+      "mergedAt": "2026-11-02T09:34:08Z"
+     },
+     {
+      "number": 217,
+      "title": "feat(data): write out zero blocks and pointer tables, and give data real types",
+      "author": "Lynder063",
+      "untrustedBody": "104462 of 141334 data values are now plain C: all-zero blocks and tables of symbols, with no retail numbers committed. Float blocks and blocks with a shared struct type get real types, and their other values stay generated.\ncheck_all passes with the same reports. LEGAL.md now says no numeric values, since tables hold symbol names.",
+      "mergedAt": "2026-11-02T09:56:48Z"
+     },
+     {
+      "number": 218,
+      "title": "feat(data): put all of .data in C and give blocks their local struct types",
+      "author": "Lynder063",
+      "untrustedBody": "All of .data is in C except 196 bytes (180 of them zero padding): a label not on 8 bytes joins the block before it, and the linker keeps it defined. No retail numbers are committed, and 18 more blocks get their real struct type.\ncheck_all passes with the same code reports, and matched data rises from about 74% to near 98% of the data sections.",
+      "mergedAt": "2026-11-02T10:22:31Z"
+     },
+     {
+      "number": 219,
+      "title": "feat(data): put .lit, core rdata and level tables in C",
+      "author": "Lynder063",
+      "untrustedBody": "Data sections are now 99.955% in C: 315 of 699072 bytes are left in the blobs, 28 of them non-zero. No retail numbers are committed, and most blocks are still plain words.\ncheck_all passes with the same code reports, and the data report now counts only bytes inside retail's sections.",
+      "mergedAt": "2026-11-02T10:37:08Z"
+     },
+     {
+      "number": 220,
+      "title": "style(repo): mark case fall-throughs and use one number base per switch",
+      "author": "Lynder063",
+      "untrustedBody": "63 cases that run into the next now say /* fall through */, and 29 switches use one number base. STYLE.md now says to keep empty cases, since removing them loses what the binary shows.\nComments and number style only: check_all passes with the same reports.",
+      "mergedAt": "2026-11-02T10:52:11Z"
+     },
+     {
+      "number": 221,
+      "title": "feat(data): give blocks the types the code reads them as, and add setup_compilers",
+      "author": "Lynder063",
+      "untrustedBody": "219 data blocks now use the type the code already reads them as, and values stay generated. A fresh clone showed the README missed two compilers, so tools/setup_compilers.sh now fetches them.\ncheck_all passes with the same reports, here and on a clean clone of main.",
+      "mergedAt": "2026-11-02T11:22:09Z"
+     },
+     {
+      "number": 222,
+      "title": "feat(data): split blocks at the addresses the code uses inside them",
+      "author": "Lynder063",
+      "untrustedBody": "pad_globals_base and others hid variables like g_controller_state with no label, so 373 addresses the code uses now start their own blocks and 84 of them take the code's type. Data in C stays at 99.95%.\ncheck_all passes with the same code reports. build_sn.sh now rebuilds its list of undefined symbols each run, since data in C defines them.",
+      "mergedAt": "2026-11-02T12:05:09Z"
+     },
+     {
+      "number": 223,
+      "title": "refactor(data): readable names in SDATA, and move 465 blocks to the files that use them",
+      "author": "Lynder063",
+      "untrustedBody": "SDATA now takes the readable name, which removes 2256 addresses, and Ghidra's references move 465 data blocks out of shared/data.c. Generated files are marked for GitHub, and 13 mass commits join the blame-ignore list.\ncheck_all passes with the same reports. numbered_names rises by 1 on purpose: one name now also appears inside SDATA.",
+      "mergedAt": "2026-11-02T12:47:29Z"
+     },
+     {
+      "number": 224,
+      "title": "docs(repo): record what each fakematch does, measured by removing it",
+      "author": "Lynder063",
+      "untrustedBody": "Each volatile and if (0) hack was removed once and compiled: all still change the code, so they stay, and 19 tags now say the exact effect. The other 13 tags already did.\nComments only: check_all passes with the same reports.",
+      "mergedAt": "2026-11-02T13:39:58Z"
+     },
+     {
+      "number": 225,
+      "title": "docs(repo): list the ISOs and dump commands in the README setup",
+      "author": "Lynder063",
+      "untrustedBody": "The README skipped the level and version dumps that setup_asm.sh and check_all.sh need.\nFound by the fresh clone check.",
+      "mergedAt": "2026-11-02T16:42:00Z"
+     },
+     {
+      "number": 226,
+      "title": "refactor(game): give small-data globals their real types",
+      "author": "Lynder063",
+      "untrustedBody": "84 more globals read as their real type; float casts go from 723 to 636.\nThe old src/game difference was a tool bug: a trailing comment hid the declaration.",
+      "mergedAt": "2026-11-02T17:40:28Z"
+     },
+     {
+      "number": 227,
+      "title": "refactor(hero): name the control modes the code proves",
+      "author": "Lynder063",
+      "untrustedBody": "Adds enum HeroControlMode and uses it at 1,532 sites; 8 unclear values stay numbers.\nEach name comes from the states HeroEnterMoveState pairs with that value.",
+      "mergedAt": "2026-11-02T17:54:29Z"
+     },
+     {
+      "number": 228,
+      "title": "refactor(audio): replace 50 local voice slot views with one shared type",
+      "author": "Lynder063",
+      "untrustedBody": "Row13E650, Voice, Snd and others were the same record, now VoicePoolRow with real field names.\nf74, b74, on, playing and looping were all the slot's state byte.",
+      "mergedAt": "2026-11-02T18:11:54Z"
+     },
+     {
+      "number": 229,
+      "title": "refactor(hero): give local hero pointers their real type",
+      "author": "Lynder063",
+      "untrustedBody": "117 char pointers become struct Hero pointers, removing 874 casts.\nA pointer used any other way stays.",
+      "mergedAt": "2026-11-02T18:26:57Z"
+     },
+     {
+      "number": 230,
+      "title": "refactor(hero): read the hero directly, and merge HS and T_8 into shared records",
+      "author": "Lynder063",
+      "untrustedBody": "1,108 casts of g_hero's own address become g_hero.field.\nHS is now CollisionHit and T_8 is HitMessage, in 14 files.",
+      "mergedAt": "2026-11-02T19:02:30Z"
+     },
+     {
+      "number": 231,
+      "title": "refactor(game): remove two if (0) hacks and three gp views with SDATA",
+      "author": "Lynder063",
+      "untrustedBody": "Fakematch tags go from 31 to 29; two volatile casts become SDATA declarations.\nThe other sites each had one reasoned try, and it changed the code, so they stay.",
+      "mergedAt": "2026-11-02T19:26:34Z"
+     },
+     {
+      "number": 232,
+      "title": "docs(repo): write down the backlog after the refactor plan",
+      "author": "Lynder063",
+      "untrustedBody": "Lists what is left: fakematches, fake bases and unnamed control modes.\nAdds the five new mass commits to the blame-ignore list.",
+      "mergedAt": "2026-11-02T19:46:12Z"
+     },
+     {
+      "number": 233,
+      "title": "refactor(overlays): replace fake base aliases and type more extern short globals",
+      "author": "Lynder063",
+      "untrustedBody": "Local base aliases and version fragments now use real globals, and 83 extern short globals get real types.\nAlso drops 543 duplicate externs, taking extern_lines below where the refactor plan started.",
+      "mergedAt": "2026-11-02T21:00:30Z"
+     }
+    ],
+    "opened": [
+     {
+      "number": 211,
+      "title": "refactor(overlays): give byte pointers that are certainly mobys their Moby fields",
+      "author": "Lynder063",
+      "untrustedBody": "A pointer converts only if its name, offsets and access sizes all fit Moby. Raw offset casts go from 6947 to 6667, and check_all passes with the same reports.\noclass_literals rises from 126 to 153 on purpose: those class numbers were hidden in raw offsets, and none has a name in the table.",
+      "mergedAt": "2026-11-02T07:20:36Z"
+     },
+     {
+      "number": 212,
+      "title": "refactor(overlays): give moby fields to files that lacked the Moby header",
+      "author": "Lynder063",
+      "untrustedBody": "Eleven files get the Moby header and fields. Raw offset casts go from 6667 to 6607, and check_all passes with the same reports.\noclass_literals rises from 153 to 175 on purpose: the class numbers were hidden in raw offsets, and none has a name in the table.",
+      "mergedAt": "2026-11-02T07:34:09Z"
+     },
+     {
+      "number": 213,
+      "title": "refactor(overlays): convert raw offsets to fields in bulk",
+      "author": "Lynder063",
+      "untrustedBody": "Raw offset casts fall from 6607 to 5965: a pointer converts only if its source or layout makes its type certain, with new shared PartBase and HitMessage headers and a pvars struct per function.\ncheck_all passes with the same reports; 15 functions that changed stay raw, and fields with no known meaning stay unk_XX.",
+      "mergedAt": "2026-11-02T08:22:29Z"
+     },
+     {
+      "number": 214,
+      "title": "refactor(overlays): replace fake base addresses with the real globals",
+      "author": "Lynder063",
+      "untrustedBody": "hero_globals_base + 0xE1D is g_hero: 3339 of 4015 base-plus-constant sites now use the global the symbol table names there, and functions that need the old spelling keep it. check_all passes with the same reports.\nextern_lines rises from 31497 to 31654 on purpose: a file with one base declaration now names each global it uses.",
+      "mergedAt": "2026-11-02T08:43:49Z"
+     },
+     {
+      "number": 215,
+      "title": "refactor(overlays): finish fake bases in fragments and give globals their real types",
+      "author": "Lynder063",
+      "untrustedBody": "Real globals now reach the version fragments and the files the tool's bugs had skipped, and globals with one use become plain variables. A function that stops matching keeps its old spelling.\ncheck_all passes with the same reports, and extern_lines ends at 31,667 (it rises because files name each global they use).",
+      "mergedAt": "2026-11-02T09:20:21Z"
+     },
+     {
+      "number": 216,
+      "title": "refactor(overlays): give small-data globals their real types with SDATA",
+      "author": "Lynder063",
+      "untrustedBody": "extern short x read as *(float *)&x becomes extern float x SDATA(D_x) and plain x, so float_int_casts falls from 2408 to 723. check_all passes with the same reports, and src/game stays out because it changed .data.\naddress_names_in_code rises from 11687 to 13497 on purpose: each SDATA declaration has to name its address.",
+      "mergedAt": "2026-11-02T09:34:08Z"
+     },
+     {
+      "number": 217,
+      "title": "feat(data): write out zero blocks and pointer tables, and give data real types",
+      "author": "Lynder063",
+      "untrustedBody": "104462 of 141334 data values are now plain C: all-zero blocks and tables of symbols, with no retail numbers committed. Float blocks and blocks with a shared struct type get real types, and their other values stay generated.\ncheck_all passes with the same reports. LEGAL.md now says no numeric values, since tables hold symbol names.",
+      "mergedAt": "2026-11-02T09:56:48Z"
+     },
+     {
+      "number": 218,
+      "title": "feat(data): put all of .data in C and give blocks their local struct types",
+      "author": "Lynder063",
+      "untrustedBody": "All of .data is in C except 196 bytes (180 of them zero padding): a label not on 8 bytes joins the block before it, and the linker keeps it defined. No retail numbers are committed, and 18 more blocks get their real struct type.\ncheck_all passes with the same code reports, and matched data rises from about 74% to near 98% of the data sections.",
+      "mergedAt": "2026-11-02T10:22:31Z"
+     },
+     {
+      "number": 219,
+      "title": "feat(data): put .lit, core rdata and level tables in C",
+      "author": "Lynder063",
+      "untrustedBody": "Data sections are now 99.955% in C: 315 of 699072 bytes are left in the blobs, 28 of them non-zero. No retail numbers are committed, and most blocks are still plain words.\ncheck_all passes with the same code reports, and the data report now counts only bytes inside retail's sections.",
+      "mergedAt": "2026-11-02T10:37:08Z"
+     },
+     {
+      "number": 220,
+      "title": "style(repo): mark case fall-throughs and use one number base per switch",
+      "author": "Lynder063",
+      "untrustedBody": "63 cases that run into the next now say /* fall through */, and 29 switches use one number base. STYLE.md now says to keep empty cases, since removing them loses what the binary shows.\nComments and number style only: check_all passes with the same reports.",
+      "mergedAt": "2026-11-02T10:52:11Z"
+     },
+     {
+      "number": 221,
+      "title": "feat(data): give blocks the types the code reads them as, and add setup_compilers",
+      "author": "Lynder063",
+      "untrustedBody": "219 data blocks now use the type the code already reads them as, and values stay generated. A fresh clone showed the README missed two compilers, so tools/setup_compilers.sh now fetches them.\ncheck_all passes with the same reports, here and on a clean clone of main.",
+      "mergedAt": "2026-11-02T11:22:09Z"
+     },
+     {
+      "number": 222,
+      "title": "feat(data): split blocks at the addresses the code uses inside them",
+      "author": "Lynder063",
+      "untrustedBody": "pad_globals_base and others hid variables like g_controller_state with no label, so 373 addresses the code uses now start their own blocks and 84 of them take the code's type. Data in C stays at 99.95%.\ncheck_all passes with the same code reports. build_sn.sh now rebuilds its list of undefined symbols each run, since data in C defines them.",
+      "mergedAt": "2026-11-02T12:05:09Z"
+     },
+     {
+      "number": 223,
+      "title": "refactor(data): readable names in SDATA, and move 465 blocks to the files that use them",
+      "author": "Lynder063",
+      "untrustedBody": "SDATA now takes the readable name, which removes 2256 addresses, and Ghidra's references move 465 data blocks out of shared/data.c. Generated files are marked for GitHub, and 13 mass commits join the blame-ignore list.\ncheck_all passes with the same reports. numbered_names rises by 1 on purpose: one name now also appears inside SDATA.",
+      "mergedAt": "2026-11-02T12:47:29Z"
+     },
+     {
+      "number": 224,
+      "title": "docs(repo): record what each fakematch does, measured by removing it",
+      "author": "Lynder063",
+      "untrustedBody": "Each volatile and if (0) hack was removed once and compiled: all still change the code, so they stay, and 19 tags now say the exact effect. The other 13 tags already did.\nComments only: check_all passes with the same reports.",
+      "mergedAt": "2026-11-02T13:39:58Z"
+     },
+     {
+      "number": 225,
+      "title": "docs(repo): list the ISOs and dump commands in the README setup",
+      "author": "Lynder063",
+      "untrustedBody": "The README skipped the level and version dumps that setup_asm.sh and check_all.sh need.\nFound by the fresh clone check.",
+      "mergedAt": "2026-11-02T16:42:00Z"
+     },
+     {
+      "number": 226,
+      "title": "refactor(game): give small-data globals their real types",
+      "author": "Lynder063",
+      "untrustedBody": "84 more globals read as their real type; float casts go from 723 to 636.\nThe old src/game difference was a tool bug: a trailing comment hid the declaration.",
+      "mergedAt": "2026-11-02T17:40:28Z"
+     },
+     {
+      "number": 227,
+      "title": "refactor(hero): name the control modes the code proves",
+      "author": "Lynder063",
+      "untrustedBody": "Adds enum HeroControlMode and uses it at 1,532 sites; 8 unclear values stay numbers.\nEach name comes from the states HeroEnterMoveState pairs with that value.",
+      "mergedAt": "2026-11-02T17:54:29Z"
+     },
+     {
+      "number": 228,
+      "title": "refactor(audio): replace 50 local voice slot views with one shared type",
+      "author": "Lynder063",
+      "untrustedBody": "Row13E650, Voice, Snd and others were the same record, now VoicePoolRow with real field names.\nf74, b74, on, playing and looping were all the slot's state byte.",
+      "mergedAt": "2026-11-02T18:11:54Z"
+     },
+     {
+      "number": 229,
+      "title": "refactor(hero): give local hero pointers their real type",
+      "author": "Lynder063",
+      "untrustedBody": "117 char pointers become struct Hero pointers, removing 874 casts.\nA pointer used any other way stays.",
+      "mergedAt": "2026-11-02T18:26:57Z"
+     },
+     {
+      "number": 230,
+      "title": "refactor(hero): read the hero directly, and merge HS and T_8 into shared records",
+      "author": "Lynder063",
+      "untrustedBody": "1,108 casts of g_hero's own address become g_hero.field.\nHS is now CollisionHit and T_8 is HitMessage, in 14 files.",
+      "mergedAt": "2026-11-02T19:02:30Z"
+     },
+     {
+      "number": 231,
+      "title": "refactor(game): remove two if (0) hacks and three gp views with SDATA",
+      "author": "Lynder063",
+      "untrustedBody": "Fakematch tags go from 31 to 29; two volatile casts become SDATA declarations.\nThe other sites each had one reasoned try, and it changed the code, so they stay.",
+      "mergedAt": "2026-11-02T19:26:34Z"
+     },
+     {
+      "number": 232,
+      "title": "docs(repo): write down the backlog after the refactor plan",
+      "author": "Lynder063",
+      "untrustedBody": "Lists what is left: fakematches, fake bases and unnamed control modes.\nAdds the five new mass commits to the blame-ignore list.",
+      "mergedAt": "2026-11-02T19:46:12Z"
+     },
+     {
+      "number": 233,
+      "title": "refactor(overlays): replace fake base aliases and type more extern short globals",
+      "author": "Lynder063",
+      "untrustedBody": "Local base aliases and version fragments now use real globals, and 83 extern short globals get real types.\nAlso drops 543 duplicate externs, taking extern_lines below where the refactor plan started.",
+      "mergedAt": "2026-11-02T21:00:30Z"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": {
+    "before": {
+     "code": {
+      "done": 3713096,
+      "total": 3713096
+     },
+     "functions": {
+      "done": 5116,
+      "total": 5116
+     },
+     "data": {
+      "done": 516916,
+      "total": 699072
+     }
+    },
+    "after": {
+     "code": {
+      "done": 3713096,
+      "total": 3713096
+     },
+     "functions": {
+      "done": 5116,
+      "total": 5116
+     },
+     "data": {
+      "done": 698751,
+      "total": 699072
+     }
+    }
+   },
+   "contributors": [
+    "Lynder063"
+   ]
+  },
+  {
+   "repo": "rac2-decomp",
+   "title": "Going Commando",
+   "branches": [
+    {
+     "name": "master",
+     "commits": [
+      {
+       "sha": "998b247d04de88cf823c920144a264f5baea775c",
+       "title": "chore(progress): 7793 of 8580 functions",
+       "author": "Veradictus",
+       "date": "2026-11-02T23:08:11Z"
+      },
+      {
+       "sha": "1162442c23c06f8be40c8fd856bb59a38554f9aa",
+       "title": "Merge pull request #395 from cadelass/batch/cadelass-reserva-2",
+       "author": "Veradictus",
+       "date": "2026-11-02T22:35:22Z"
+      },
+      {
+       "sha": "37c78fb7bed1d336a6bb659ced79fdc500de459b",
+       "title": "Merge pull request #394 from DrLegitamate/match/drlegitamate-joba-00434580",
+       "author": "Veradictus",
+       "date": "2026-11-02T22:34:08Z"
+      },
+      {
+       "sha": "1ac67beb1053306e0ff59f408efe24533f731e32",
+       "title": "Merge pull request #392 from Fromnowheree/match/l26-003d4590",
+       "author": "Veradictus",
+       "date": "2026-11-02T22:34:00Z"
+      },
+      {
+       "sha": "fe9a71384a9074939d68129f30d34702ab67161e",
+       "title": "feat(src): match shared steering update and retain large-function repairs (#391)",
+       "author": "llesieur99",
+       "date": "2026-11-02T08:01:51Z"
+      },
+      {
+       "sha": "296d8dbc85eb2cc4c12fc6987da78358eaec68ae",
+       "title": "Merge pull request #389 from OpenRAC/port/backfill",
+       "author": "Veradictus",
+       "date": "2026-11-02T07:56:33Z"
+      },
+      {
+       "sha": "ea1ff2706b5b5c5bf02423a554f4e3f13b8381e7",
+       "title": "Merge pull request #390 from OpenRAC/match/largest-five-solo-20261101",
+       "author": "llesieur99",
+       "date": "2026-11-02T02:42:50Z"
+      }
+     ]
+    }
+   ],
+   "commitCount": 7,
+   "pullRequests": {
+    "merged": [
+     {
+      "number": 389,
+      "title": "feat(functional): backfill for the native port",
+      "author": "Veradictus",
+      "untrustedBody": "Functional C for USA v1.01's remaining assembly, for the native port in OpenRAC. OpenRAC's native port (OpenRAC#191) is pinned to this branch's tip.\n\nNo matches here, 0 functions added to the report. `progress/`, the README table and `docs/VERSIONS.md` are untouched. Nothing in `nonmatching/functional/` is compiled into the matching build.\n\n## What's in it\n\n- 357 rows in `nonmatching/functional.tsv`, up from 29. 12 are per-level copies, each SAME on its own level's captures.\n- Gate result: 342 SAME, 0 differ, 2 not checked. `func_002BA0E0` can't place in level 02, whose table holds its own routine (`func_L02_0033C8B8`) where the row names `func_002BEE70`. `func_002A0558` is never called in the capture runs.\n- `func_002F2758` is out: it's a piece of hand-written code with register inputs, and its row made hostgen call the wrong thing. `func_L09_00410200` is out too: #388 matched it.\n- `tools/fcheck.py`: `$RAC2_FCHECK_OPT` and far branches, for gating a whole kernel in hostgen's console ",
+      "mergedAt": "2026-11-02T07:56:33Z"
+     },
+     {
+      "number": 390,
+      "title": "fix(nonmatching): repair five large actor and loader reconstructions",
+      "author": "llesieur99",
+      "untrustedBody": "## What\n\nRepair retained C for the five largest available unfinished USA v1.01 routines\n(58,424 retail bytes). **No complete function matches, no matching credit is added,\nand none of these drafts is enabled in the functional manifest.**\n\n- `func_L22_0039D708`: recover three float-to-int conversions, the canonical\n  collision and animation callees, all five collision arguments, complete byte\n  addresses, and real vector/matrix scratch storage. The old draft silently used\n  zero for unsupported operations and split vector fields into unrelated locals.\n- `func_L11_00420C88`: preserve separate projectile paths, the shared hero-state\n  object, strict angle comparisons, and selector/mount transition order.\n- `func_L00_00300618`: use an explicit C loop that preserves the four source-cursor\n  advances. Its complete 24-word record-copy sequence now equals retail at all\n  27 USA placements, without changing the compiler.\n- `func_L00_003AE900`: use normal aligned template assignments with the cu",
+      "mergedAt": "2026-11-02T02:42:51Z"
+     },
+     {
+      "number": 391,
+      "title": "feat(src): match shared steering update and repair retained large functions",
+      "author": "llesieur99",
+      "untrustedBody": "## What\n\nMatch `func_L04_003FA7E0`, the shared steering and impact-effect update: **4,516\ndistinct USA code bytes**, placed in Barlow and Joba in both USA v1.01 and v2.00.\nPAL has no row with this canonical identity.\n\nThe current compiler already produces the normal aligned 0x50-byte template copy.\nRestoring the helpers' real float, integer and pointer return declarations closes\nthe remaining camera-store/call scheduling difference. The return contracts were\nchecked against consuming callers and deliberate return sequences in retail. The\nimplementation uses canonical external names and the existing per-file profile;\nno compiler patch, register pin, synthetic dependency or ad-hoc assembly is added.\n\nThe full investigation covered **16 large functions / 68,664 retail bytes**. The\nother **15 remain nonmatching**; they add no matching or functional credit. Retain\ntheir useful corrections and reopening conditions in the existing source/index:\n\n- Restore missing collision arguments, software",
+      "mergedAt": "2026-11-02T08:01:52Z"
+     },
+     {
+      "number": 392,
+      "title": "feat(src): match func_L26_003D4590 and repair six copies of one catalogue entry",
+      "author": "Fromnowheree",
+      "untrustedBody": "## What\n\nMatches 7 functions: the two level-26 functions, and the five other copies of one of them, which had the same catalogue defect.\n\n**`func_L26_003D4590`** (928 bytes; USA v1.01 and v2.00, not in PAL)\n- Moves to `L26_003D4590-g8.c` with `-O2 -G8 -ffunction-sections -frac2-zero-ti-por`, the retained draft's profile. The draft was already the right size.\n- What closes it: the two random-range upper bounds, `D_L26_001B0464` and `D_L26_001B045C`, are declared `volatile` `MACRO_ADDR`, as `D_L02_001B00FC` is in the level-2 state machine (`L02_003C43F0-state-g8.c`). Each range reads its upper bound absolutely, before the lower bound, and each is read once. Either declaration alone leaves it unmatched.\n- `D_L26_001B1748` is the `int` frame word that `L26_003D4930-g8.c` and `L26_004070F8.c` declare, tested through its low byte (the draft read it as a byte).\n- Its functional draft and `nonmatching/functional.tsv` row go too, as `tests/check_repository.py` requires.\n\n**`func_L26_003547D8` a",
+      "mergedAt": "2026-11-02T22:34:00Z"
+     },
+     {
+      "number": 394,
+      "title": "feat(src): six Joba functions in C, notes for the near misses",
+      "author": "DrLegitamate",
+      "untrustedBody": "Six Joba (level 11) functions matched from their retained near misses, plus measured notes for the ones that stay assembly.\n\n## Matched\n\n| Function | Bytes | What closed it |\n| --- | --- | --- |\n| `func_L11_00434580` | 1,144 | Two control-flow fixes in the draft: a hit with a true predicate only removes the object (retail skips `func_L00_003294F0`), and a stopped projectile in frames 25-33 returns without expiring. Each arm writes out its own hit tail, which jump2 cross-jumps after allocation (object stays in `$s2`). `func_002C2210`'s last two parameters are declared float-then-int (same `$t2`/`$f14`; other callers already use that interleaving). The distance call is `func_00282E80`, not `func_00282E48`. |\n| `func_L11_00472E10` | 896 | The eight-child loop as a plain index loop over the state words swaps the sentinel and state into retail's `$s4`/`$s3`. |\n| `func_L11_00461308` | 1,236 | The random bounds are one two-float block at `D_L11_001B2388`: the upper is read as `D_L11_001B2388_",
+      "mergedAt": "2026-11-02T22:34:09Z"
+     },
+     {
+      "number": 395,
+      "title": "feat(levels): match family F7 (15 functions) and func_L04_00418BF0, 13 near-miss notes from the #152 reservation",
+      "author": "cadelass",
+      "untrustedBody": "## What\n\nThe second and third batches reserved in my [#152 comment](https://github.com/OpenRAC/rac2-decomp/issues/152#issuecomment-6549035495): 31 functions in total.\n\n- 16 are matched, including all 15 members of family F7.\n- 2 are classified as handwritten (`ASM_FUNC`).\n- 13 are kept as near-miss notes.\n\n### Matched (16)\n\n**Family F7: 15 level trigger updates, 1540 bytes each, the same opcodes in every level.**\n- `func_L06_00455BC0` and its copies: `func_L00_0040EAA0`, `func_L01_00410AD0`, `func_L02_00439CD8`, `func_L05_00414F90`, `func_L10_00415A50`, `func_L11_0046D660`, `func_L12_00417690`, `func_L13_0041CD18`, `func_L14_00421BC0`, `func_L15_0041F2F8`, `func_L17_00417DB0`, `func_L18_00436B80`, `func_L20_00438F98`, `func_L22_0040F1C0`, `func_L23_00415988`.\n- Each copy has the same C in its own unit, `<file>-f7-g8.c`, built with `-O2 -G8 -ffunction-sections -malign-loops=2`.\n- This closes the near miss that `docs/MATCHING-BLOCKERS.md` and the old `func_L06_00455BC0` note left open, \"",
+      "mergedAt": "2026-11-02T22:35:23Z"
+     }
+    ],
+    "opened": [
+     {
+      "number": 390,
+      "title": "fix(nonmatching): repair five large actor and loader reconstructions",
+      "author": "llesieur99",
+      "untrustedBody": "## What\n\nRepair retained C for the five largest available unfinished USA v1.01 routines\n(58,424 retail bytes). **No complete function matches, no matching credit is added,\nand none of these drafts is enabled in the functional manifest.**\n\n- `func_L22_0039D708`: recover three float-to-int conversions, the canonical\n  collision and animation callees, all five collision arguments, complete byte\n  addresses, and real vector/matrix scratch storage. The old draft silently used\n  zero for unsupported operations and split vector fields into unrelated locals.\n- `func_L11_00420C88`: preserve separate projectile paths, the shared hero-state\n  object, strict angle comparisons, and selector/mount transition order.\n- `func_L00_00300618`: use an explicit C loop that preserves the four source-cursor\n  advances. Its complete 24-word record-copy sequence now equals retail at all\n  27 USA placements, without changing the compiler.\n- `func_L00_003AE900`: use normal aligned template assignments with the cu",
+      "mergedAt": "2026-11-02T02:42:51Z"
+     },
+     {
+      "number": 391,
+      "title": "feat(src): match shared steering update and repair retained large functions",
+      "author": "llesieur99",
+      "untrustedBody": "## What\n\nMatch `func_L04_003FA7E0`, the shared steering and impact-effect update: **4,516\ndistinct USA code bytes**, placed in Barlow and Joba in both USA v1.01 and v2.00.\nPAL has no row with this canonical identity.\n\nThe current compiler already produces the normal aligned 0x50-byte template copy.\nRestoring the helpers' real float, integer and pointer return declarations closes\nthe remaining camera-store/call scheduling difference. The return contracts were\nchecked against consuming callers and deliberate return sequences in retail. The\nimplementation uses canonical external names and the existing per-file profile;\nno compiler patch, register pin, synthetic dependency or ad-hoc assembly is added.\n\nThe full investigation covered **16 large functions / 68,664 retail bytes**. The\nother **15 remain nonmatching**; they add no matching or functional credit. Retain\ntheir useful corrections and reopening conditions in the existing source/index:\n\n- Restore missing collision arguments, software",
+      "mergedAt": "2026-11-02T08:01:52Z"
+     },
+     {
+      "number": 392,
+      "title": "feat(src): match func_L26_003D4590 and repair six copies of one catalogue entry",
+      "author": "Fromnowheree",
+      "untrustedBody": "## What\n\nMatches 7 functions: the two level-26 functions, and the five other copies of one of them, which had the same catalogue defect.\n\n**`func_L26_003D4590`** (928 bytes; USA v1.01 and v2.00, not in PAL)\n- Moves to `L26_003D4590-g8.c` with `-O2 -G8 -ffunction-sections -frac2-zero-ti-por`, the retained draft's profile. The draft was already the right size.\n- What closes it: the two random-range upper bounds, `D_L26_001B0464` and `D_L26_001B045C`, are declared `volatile` `MACRO_ADDR`, as `D_L02_001B00FC` is in the level-2 state machine (`L02_003C43F0-state-g8.c`). Each range reads its upper bound absolutely, before the lower bound, and each is read once. Either declaration alone leaves it unmatched.\n- `D_L26_001B1748` is the `int` frame word that `L26_003D4930-g8.c` and `L26_004070F8.c` declare, tested through its low byte (the draft read it as a byte).\n- Its functional draft and `nonmatching/functional.tsv` row go too, as `tests/check_repository.py` requires.\n\n**`func_L26_003547D8` a",
+      "mergedAt": "2026-11-02T22:34:00Z"
+     },
+     {
+      "number": 393,
+      "title": "feat(functional): second backfill round for the native port",
+      "author": "Veradictus",
+      "untrustedBody": "Second round of functional C for the native port (OpenRAC #212), plus the port-only fixes moved upstream. Matched code is untouched apart from byte-neutral spellings.\n\n- **#391 follow-up:** `func_002859C8` keeps the 64-bit TEX0 words of `func_0028E640` and `func_0027C878` (they were truncated to int); `func_0034B2C8` calls sprintf variadically. Both re-gated SAME.\n- **46 new functional rows** (403 in all): boot and level functions the game reaches with no C, each fcheck SAME on retail states with every unrun block read against retail. Includes the two per-level copies that differed (`func_L05_0041EF00`, `func_L15_0042EFE0`).\n- **Port-only rewrites upstreamed:** the master orb word (`D_001B17AC`), hero update names, menu literal addresses, HUD prompt names, SDATA aliases, `func_0027C878`'s width; plus byte-neutral src spellings (`func_0028EA58` returns int, `func_0027EA28`, `func_0027CFD0`, `D_00256368`, `func_002A0F48(u8 *)`).\n\nChecks (box1): US, US2 and PAL each build 28/28 strict; 33",
+      "mergedAt": "2026-11-03T07:12:59Z"
+     },
+     {
+      "number": 394,
+      "title": "feat(src): six Joba functions in C, notes for the near misses",
+      "author": "DrLegitamate",
+      "untrustedBody": "Six Joba (level 11) functions matched from their retained near misses, plus measured notes for the ones that stay assembly.\n\n## Matched\n\n| Function | Bytes | What closed it |\n| --- | --- | --- |\n| `func_L11_00434580` | 1,144 | Two control-flow fixes in the draft: a hit with a true predicate only removes the object (retail skips `func_L00_003294F0`), and a stopped projectile in frames 25-33 returns without expiring. Each arm writes out its own hit tail, which jump2 cross-jumps after allocation (object stays in `$s2`). `func_002C2210`'s last two parameters are declared float-then-int (same `$t2`/`$f14`; other callers already use that interleaving). The distance call is `func_00282E80`, not `func_00282E48`. |\n| `func_L11_00472E10` | 896 | The eight-child loop as a plain index loop over the state words swaps the sentinel and state into retail's `$s4`/`$s3`. |\n| `func_L11_00461308` | 1,236 | The random bounds are one two-float block at `D_L11_001B2388`: the upper is read as `D_L11_001B2388_",
+      "mergedAt": "2026-11-02T22:34:09Z"
+     },
+     {
+      "number": 395,
+      "title": "feat(levels): match family F7 (15 functions) and func_L04_00418BF0, 13 near-miss notes from the #152 reservation",
+      "author": "cadelass",
+      "untrustedBody": "## What\n\nThe second and third batches reserved in my [#152 comment](https://github.com/OpenRAC/rac2-decomp/issues/152#issuecomment-6549035495): 31 functions in total.\n\n- 16 are matched, including all 15 members of family F7.\n- 2 are classified as handwritten (`ASM_FUNC`).\n- 13 are kept as near-miss notes.\n\n### Matched (16)\n\n**Family F7: 15 level trigger updates, 1540 bytes each, the same opcodes in every level.**\n- `func_L06_00455BC0` and its copies: `func_L00_0040EAA0`, `func_L01_00410AD0`, `func_L02_00439CD8`, `func_L05_00414F90`, `func_L10_00415A50`, `func_L11_0046D660`, `func_L12_00417690`, `func_L13_0041CD18`, `func_L14_00421BC0`, `func_L15_0041F2F8`, `func_L17_00417DB0`, `func_L18_00436B80`, `func_L20_00438F98`, `func_L22_0040F1C0`, `func_L23_00415988`.\n- Each copy has the same C in its own unit, `<file>-f7-g8.c`, built with `-O2 -G8 -ffunction-sections -malign-loops=2`.\n- This closes the near miss that `docs/MATCHING-BLOCKERS.md` and the old `func_L06_00455BC0` note left open, \"",
+      "mergedAt": "2026-11-02T22:35:23Z"
+     },
+     {
+      "number": 396,
+      "title": "feat(src): two Oozla functions in C, closer near miss for func_L11_00420C88",
+      "author": "DrLegitamate",
+      "untrustedBody": "Follow-up to #394: two Oozla (level 01) functions matched from their retained near misses, and an improved near miss for Joba's largest remaining function.\n\n## Matched\n\n| Function | Bytes | What closed it |\n| --- | --- | --- |\n| `func_L01_003D1A48` | 1,268 | The RGB mask is a block-local `int rgb = 0xFFFFFF;` at the top of the inner loop body. As an inline constant its lifetime was 1, so loop.c's first pass (threshold already lowered by two float hoists) left it for the rerun, after five pointer preparations; as a local its set is the first movable insn and is hoisted first, giving retail's preheader order. `-O2 -G8 -g` in its own unit. |\n| `func_L01_003D8358` | 1,108 | Two source corrections. `step = speed*step` swapped the `mul.s` operands (expand_binop swaps them when the target is an operand); the height now adds `speed*step` directly. Reusing `scale` for both the constant and the product tied the scale multiply with an argument move in sched2 (equal priority, decided by dependent ",
+      "mergedAt": "2026-11-03T07:38:39Z"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": {
+    "before": {
+     "code": {
+      "done": 4684272,
+      "total": 5527936
+     },
+     "functions": {
+      "done": 7760,
+      "total": 8579
+     },
+     "data": {
+      "done": 0,
+      "total": 383391
+     }
+    },
+    "after": {
+     "code": {
+      "done": 4725508,
+      "total": 5527840
+     },
+     "functions": {
+      "done": 7793,
+      "total": 8580
+     },
+     "data": {
+      "done": 0,
+      "total": 383391
+     }
+    }
+   },
+   "contributors": [
+    "cadelass",
+    "DrLegitamate",
+    "Fromnowheree",
+    "llesieur99",
+    "Veradictus"
+   ]
+  },
+  {
+   "repo": "rac3-decomp",
+   "title": "Up Your Arsenal",
+   "branches": [
+    {
+     "name": "master",
+     "commits": []
+    }
+   ],
+   "commitCount": 0,
+   "pullRequests": {
+    "merged": [],
+    "opened": [
+     {
+      "number": 2,
+      "title": "feat(frontbin): match 29 functions and fix native source selection",
+      "author": "DameNavarro",
+      "untrustedBody": "Add 26 shared PAL/NTSC-U frontbin implementations and three NTSC-U-only\nimplementations, adapted from the NTSC decomp drafts under GPL-3.0.\n\nPreserve existing file compiler flags, required file-scope symbol-size\nhints, and fixed-address global accesses. Fix native C exclusion from\nthe PAL object fallback. Retire integrated drafts, document four\nunfinished attempts, and refresh declarations and progress records.\n\nMerged current master and verified:\n- All three PAL core programs: MATCH with retail hashes.\n- All 54 NTSC-U targets: MATCH.\n- All 37 expected merge-validation functions selected from C.\n- Repository checks passed.\n- All 36 unit tests passed.",
+      "mergedAt": "2026-11-03T15:24:59Z"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": null,
+   "contributors": [
+    "DameNavarro"
+   ]
+  },
+  {
+   "repo": "rac4-decomp",
+   "title": "Ratchet: Deadlocked",
+   "branches": [
+    {
+     "name": "main",
+     "commits": [
+      {
+       "sha": "f5e4c049bd2686ea08585639fef7bbc9324859a0",
+       "title": "chore(progress): regenerate maps and reports after #85 and #55",
+       "author": "Veradictus",
+       "date": "2026-11-02T16:10:41Z"
+      },
+      {
+       "sha": "ca8dc218fe11e9c631b3f089246f9899fad69e05",
+       "title": "Add PAL C for 21 functions (#55)",
+       "author": "chistianh",
+       "date": "2026-11-02T16:10:11Z"
+      },
+      {
+       "sha": "881da40fc924698adfc70e7f59f0b5c44931d935",
+       "title": "Match 54 PAL resident game functions (#85)",
+       "author": "Sumaiter",
+       "date": "2026-11-02T16:10:07Z"
+      },
+      {
+       "sha": "5e3e695b767c0fbdf8ccd7635ce0fad1171b90d2",
+       "title": "Match 57 PAL resident game functions (#84)",
+       "author": "Sumaiter",
+       "date": "2026-11-02T09:39:05Z"
+      },
+      {
+       "sha": "30f74906fa1152fe25eb747949ed2e7420780f3e",
+       "title": "fix(us): merge main into #80 (938 NTSC-U functions) (#83)",
+       "author": "Lynder063",
+       "date": "2026-11-02T08:18:55Z"
+      },
+      {
+       "sha": "1836ce2fb52cb09061b42e501968c382d40951b3",
+       "title": "Match PAL func_L01_00653A20 (#82)",
+       "author": "Lynder063",
+       "date": "2026-11-02T08:13:31Z"
+      },
+      {
+       "sha": "04b5f08997b1828526b51b150fcb2cb6f0960f92",
+       "title": "Match 53 PAL resident game functions (#81)",
+       "author": "Lynder063",
+       "date": "2026-11-02T08:09:33Z"
+      },
+      {
+       "sha": "78b745037fe564edaf33da794cae3897f82d5ea9",
+       "title": "Match six PAL table and state helpers (#77)",
+       "author": "Sumaiter",
+       "date": "2026-11-02T08:02:00Z"
+      }
+     ]
+    }
+   ],
+   "commitCount": 8,
+   "pullRequests": {
+    "merged": [
+     {
+      "number": 55,
+      "title": "Add PAL C for 21 functions",
+      "author": "chistianh",
+      "untrustedBody": "**Title:** Add PAL C for 21 functions\n\n21 PAL-only functions, one commit each, chosen as in #33–#49 (fingerprint in no row of `config/us/functions.tsv`, no `match` or `near` row places them). All of them use float constants, so they build only since the `li.s` step of #49.\n\n| PAL | Where | Size |\n|---|---|---|\n| func_L02_004CBE78 | `src/pal/overlays/shared/` | 184 |\n| func_L41_00446FE8 | `src/pal/overlays/l41_battledome_tower/` | 196 |\n| func_L00_006B52D0 | `src/pal/overlays/shared/` | 208 |\n| func_L01_00640588 | `src/pal/overlays/shared/` | 212 |\n| func_L06_004C97B0 | `src/pal/overlays/shared/` | 240 |\n| func_L01_003DCB10 | `src/pal/overlays/shared/` | 244 |\n| func_004938D0 | `src/pal/game/` | 260 |\n| func_004AAA48 | `src/pal/game/` | 276 |\n| func_L01_004B86D0 | `src/pal/overlays/shared/` | 284 |\n| func_L01_004770E0 | `src/pal/overlays/shared/` | 288 |\n| func_0041E390 | `src/pal/game/` | 300 |\n| func_L05_00492748 | `src/pal/overlays/shared/` | 340 |\n| func_L15_004AF138 | `src/pal/over",
+      "mergedAt": "2026-11-02T16:10:12Z"
+     },
+     {
+      "number": 77,
+      "title": "Match six PAL table and state helpers",
+      "author": "Sumaiter",
+      "untrustedBody": "Adds matching PAL (`SCES_532.85`) C for six table/state helpers, totaling **360 bytes**, on top of main at `60818dd`. The reconstruction preserves the original bounds, signed halfword comparisons, store order and mask behavior.\n\n| Function | Bytes | Reconstructed operation |\n| --- | ---: | --- |\n| `004731E0` | 60 | Search eight signed halfwords, clear the first equal entry, and return whether an entry was cleared. |\n| `00489F50` | 64 | Update three halfword fields only when their associated flag words have bit 15 set. |\n| `004D6AC8` | 64 | Set a one-bit halfword in one of two objects for indices 0?7, clearing the corresponding field in the other object; leave both unchanged outside that range. |\n| `00547F68` | 60 | Check one of the lower 20 bits of a mask at state offset 0x3C; preserve the original default result when the guard pointer is null or the index is out of range. |\n| `0054C0A8` | 56 | Search 189 records with stride 0x30 and return the matching index, or zero when no record ma",
+      "mergedAt": "2026-11-02T08:02:00Z"
+     },
+     {
+      "number": 81,
+      "title": "fix(pal): merge main into #78 (53 PAL functions)",
+      "author": "Lynder063",
+      "untrustedBody": "Replaces #78 with main merged in.\nProgress report and README table rebuilt with tools/progress.py.\n\n---\n_Generated by [Claude Code](https://claude.ai/code/session_01E5SuSUPNJVp9NtcyUkjx6q)_",
+      "mergedAt": "2026-11-02T08:09:34Z"
+     },
+     {
+      "number": 82,
+      "title": "fix(pal): merge main into #79 (1 PAL function)",
+      "author": "Lynder063",
+      "untrustedBody": "Replaces #79 with main merged in.\nProgress report and README table rebuilt with tools/progress.py.\n\n---\n_Generated by [Claude Code](https://claude.ai/code/session_01E5SuSUPNJVp9NtcyUkjx6q)_",
+      "mergedAt": "2026-11-02T08:13:31Z"
+     },
+     {
+      "number": 83,
+      "title": "fix(us): merge main into #80 (938 NTSC-U functions)",
+      "author": "Lynder063",
+      "untrustedBody": "Replaces #80 with main merged in.\nmap.tsv keeps both sides, drops duplicates and rows for files #80 removed, and the report is rebuilt.\n\n---\n_Generated by [Claude Code](https://claude.ai/code/session_01E5SuSUPNJVp9NtcyUkjx6q)_",
+      "mergedAt": "2026-11-02T08:18:56Z"
+     },
+     {
+      "number": 84,
+      "title": "Match 57 PAL resident game functions (5,284 bytes)",
+      "author": "Sumaiter",
+      "untrustedBody": "Adds matching C implementations for 57 previously undecompiled PAL resident game functions (5,284 bytes). The batch covers state transitions, descriptor initialization, selection and label updates, callback lists, resource lookups, and command-buffer writes. Interfaces were reviewed against retail callees and callers, including callback pointers, object pointers, float arguments, 64-bit values, returned strings, and tick arithmetic.\n\nAdds PAL `match` rows and corresponding US `other` rows while preserving every existing map entry. PAL matched code increases from 438,864 to 444,148 bytes (7.549798% to 7.640699%), and matched functions from 5,699 to 5,756. The US progress report is unchanged.\n\nValidation:\n\n- Rebuilt all 57 final translation units through the unchanged `tools/cc.sh` pipeline and compared them at their direct PAL catalogue addresses: 57/57 MATCH.\n- Independently resolved all 282 text relocation entries against PAL retail, including call targets, HI16/LO16 addresses and GP-",
+      "mergedAt": "2026-11-02T09:39:06Z"
+     },
+     {
+      "number": 85,
+      "title": "Match 54 PAL resident game functions",
+      "author": "Sumaiter",
+      "untrustedBody": "Adds matching C implementations for 54 previously undecompiled PAL resident game functions (7,092 bytes). The batch covers state transitions, resource cleanup, selection and inventory updates, callback maps, interpolation, command values, and keyed counters. Interfaces were reviewed against retail callers and callees, including forwarded arguments, callback signatures, object and buffer pointers, floating-point inputs and a 64-bit command value. Candidates with unsupported local layout or array bounds were excluded.\n\nAdds 54 PAL `match` rows and corresponding US `other` rows while preserving all existing entries and their order. PAL matched code increases from 444,148 to 451,240 bytes (7.640699% to 7.762703%), and matched functions from 5,756 to 5,810. The US progress report is unchanged.\n\nValidation:\n\n- Rebuilt all 54 final translation units through the unchanged `tools/cc.sh` pipeline and compared them at their direct PAL catalogue addresses: 54/54 MATCH.\n- Independently resolved all",
+      "mergedAt": "2026-11-02T16:10:08Z"
+     }
+    ],
+    "opened": [
+     {
+      "number": 80,
+      "title": "Match 938 NTSC-U functions from PAL twins and same-game siblings",
+      "author": "Clank700",
+      "untrustedBody": "## Summary\r\n\r\nMatches 938 more NTSC-U functions in plain C (src/), by carrying over code that is already matched elsewhere in this repository: PAL twins (same function, other disc) and same-game sibling functions (same code in a different level overlay or in the main image). It also retires 436 `src/pal/` copies that the new `src/` sources now cover on PAL, following the \"each function lands once, in `src/`\" convention from `docs/levels.md`.\r\n\r\n| | before (60818dd) | after | change |\r\n|---|---|---|---|\r\n| US matched functions | 4,475 | 5,411 | +936 |\r\n| US matched code (bytes) | 350,776 | 408,208 | +57,432 |\r\n| PAL matched functions | 5,247 | 5,639 | +392 |\r\n| PAL matched code (bytes) | 405,644 | 433,052 | +27,408 |\r\n\r\n(938 sources added; the US count rises by 936, so two of them add no new function to the repository's accounting. Five `nonmatching/` near-miss files that are now exact in `src/` are removed, as in earlier match commits. Figures are from the repository's own `progress/re"
+     },
+     {
+      "number": 81,
+      "title": "fix(pal): merge main into #78 (53 PAL functions)",
+      "author": "Lynder063",
+      "untrustedBody": "Replaces #78 with main merged in.\nProgress report and README table rebuilt with tools/progress.py.\n\n---\n_Generated by [Claude Code](https://claude.ai/code/session_01E5SuSUPNJVp9NtcyUkjx6q)_",
+      "mergedAt": "2026-11-02T08:09:34Z"
+     },
+     {
+      "number": 82,
+      "title": "fix(pal): merge main into #79 (1 PAL function)",
+      "author": "Lynder063",
+      "untrustedBody": "Replaces #79 with main merged in.\nProgress report and README table rebuilt with tools/progress.py.\n\n---\n_Generated by [Claude Code](https://claude.ai/code/session_01E5SuSUPNJVp9NtcyUkjx6q)_",
+      "mergedAt": "2026-11-02T08:13:31Z"
+     },
+     {
+      "number": 83,
+      "title": "fix(us): merge main into #80 (938 NTSC-U functions)",
+      "author": "Lynder063",
+      "untrustedBody": "Replaces #80 with main merged in.\nmap.tsv keeps both sides, drops duplicates and rows for files #80 removed, and the report is rebuilt.\n\n---\n_Generated by [Claude Code](https://claude.ai/code/session_01E5SuSUPNJVp9NtcyUkjx6q)_",
+      "mergedAt": "2026-11-02T08:18:56Z"
+     },
+     {
+      "number": 84,
+      "title": "Match 57 PAL resident game functions (5,284 bytes)",
+      "author": "Sumaiter",
+      "untrustedBody": "Adds matching C implementations for 57 previously undecompiled PAL resident game functions (5,284 bytes). The batch covers state transitions, descriptor initialization, selection and label updates, callback lists, resource lookups, and command-buffer writes. Interfaces were reviewed against retail callees and callers, including callback pointers, object pointers, float arguments, 64-bit values, returned strings, and tick arithmetic.\n\nAdds PAL `match` rows and corresponding US `other` rows while preserving every existing map entry. PAL matched code increases from 438,864 to 444,148 bytes (7.549798% to 7.640699%), and matched functions from 5,699 to 5,756. The US progress report is unchanged.\n\nValidation:\n\n- Rebuilt all 57 final translation units through the unchanged `tools/cc.sh` pipeline and compared them at their direct PAL catalogue addresses: 57/57 MATCH.\n- Independently resolved all 282 text relocation entries against PAL retail, including call targets, HI16/LO16 addresses and GP-",
+      "mergedAt": "2026-11-02T09:39:06Z"
+     },
+     {
+      "number": 85,
+      "title": "Match 54 PAL resident game functions",
+      "author": "Sumaiter",
+      "untrustedBody": "Adds matching C implementations for 54 previously undecompiled PAL resident game functions (7,092 bytes). The batch covers state transitions, resource cleanup, selection and inventory updates, callback maps, interpolation, command values, and keyed counters. Interfaces were reviewed against retail callers and callees, including forwarded arguments, callback signatures, object and buffer pointers, floating-point inputs and a 64-bit command value. Candidates with unsupported local layout or array bounds were excluded.\n\nAdds 54 PAL `match` rows and corresponding US `other` rows while preserving all existing entries and their order. PAL matched code increases from 444,148 to 451,240 bytes (7.640699% to 7.762703%), and matched functions from 5,756 to 5,810. The US progress report is unchanged.\n\nValidation:\n\n- Rebuilt all 54 final translation units through the unchanged `tools/cc.sh` pipeline and compared them at their direct PAL catalogue addresses: 54/54 MATCH.\n- Independently resolved all",
+      "mergedAt": "2026-11-02T16:10:08Z"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": {
+    "before": {
+     "code": {
+      "done": 350776,
+      "total": 5782424
+     },
+     "functions": {
+      "done": 4475,
+      "total": 18085
+     }
+    },
+    "after": {
+     "code": {
+      "done": 414340,
+      "total": 5782424
+     },
+     "functions": {
+      "done": 5435,
+      "total": 18085
+     }
+    }
+   },
+   "contributors": [
+    "chistianh",
+    "Clank700",
+    "Lynder063",
+    "Sumaiter",
+    "Veradictus"
+   ]
+  },
+  {
+   "repo": "openrac-mods",
+   "title": "OpenRAC mods",
+   "branches": [
+    {
+     "name": "master",
+     "commits": [
+      {
+       "sha": "ee62e70a14c796ec3536c3ed62901f15909059c2",
+       "title": "fix(submit): say that pictures can stay as GitHub writes them, drop the wizard (#40)",
+       "author": "Lynder063",
+       "date": "2026-11-02T21:54:49Z"
+      },
+      {
+       "sha": "a208d991202aa4ca3e06fbfb16ef9d8f90d1307e",
+       "title": "chore(index): approve rac-board 0.2.0",
+       "author": "openrac-bot[bot]",
+       "date": "2026-11-02T21:26:50Z"
+      },
+      {
+       "sha": "dcc0c1dfd86ed2a9529096db286502f2aa520e0c",
+       "title": "feat(index): List rac-board (#36)",
+       "author": "openrac-bot[bot]",
+       "date": "2026-11-02T21:14:45Z"
+      },
+      {
+       "sha": "a82ef79f9be593603ad2737539c83b19abdd7b7c",
+       "title": "fix(mods): credit each mod's first committer as its author (#38)",
+       "author": "Lynder063",
+       "date": "2026-11-02T21:12:47Z"
+      },
+      {
+       "sha": "d270bf51b026fe844d3d43247223a8212f4817fb",
+       "title": "fix(index): accept GitHub's asset digest without SHA256SUMS (#37)",
+       "author": "Lynder063",
+       "date": "2026-11-02T21:08:43Z"
+      }
+     ]
+    }
+   ],
+   "commitCount": 5,
+   "pullRequests": {
+    "merged": [
+     {
+      "number": 36,
+      "title": "List rac-board",
+      "author": "openrac-bot[bot]",
+      "untrustedBody": "From #35, checked by the listing bot.\n\nCloses #35",
+      "mergedAt": "2026-11-02T21:14:45Z"
+     },
+     {
+      "number": 37,
+      "title": "fix(index): accept GitHub's asset digest without SHA256SUMS",
+      "author": "Lynder063",
+      "untrustedBody": "The index now takes GitHub's digest as an archive's hash, so SHA256SUMS is optional.\nIf both exist they must match; with neither, a native release is still skipped.",
+      "mergedAt": "2026-11-02T21:08:43Z"
+     },
+     {
+      "number": 38,
+      "title": "fix(mods): credit each mod's first committer as its author",
+      "author": "Lynder063",
+      "untrustedBody": "Replaces \"OpenRAC contributors\" in each mod's manifest with whoever made its first commit.\nArchipelago's APWorld credits change too; copyright headers stay.",
+      "mergedAt": "2026-11-02T21:12:48Z"
+     },
+     {
+      "number": 40,
+      "title": "fix(submit): say that pictures can stay as GitHub writes them, drop the wizard",
+      "author": "Lynder063",
+      "untrustedBody": "Mod author feedback on the submission form, with the matching site change in OpenRAC/openrac-site.\n\n**Screenshots.** Pasting a picture makes GitHub write `<img width=… src=\"https://github.com/user-attachments/assets/…\">`, but the placeholder showed `![shot](…) | caption`, so the author rewrote each line by hand. `pictures()` already accepted the `<img>` form, so parsing does not change. This updates the wording in both forms and in the bot's check message, and says that links to pictures hosted elsewhere don't work. New tests cover `<img>` with and without a caption, and a rejected repository `blob/` link.\n\n**Wizard.** `openrac.dev/mods/submit` is being removed, so the form intro, the chooser's contact link and the README no longer mention it. The intro now says what a mod needs first. The old URL will redirect to this form.\n\n**Tests:** `python3 -m unittest discover -s tools/tests` passes (101). All templates parse as YAML. Not tried yet: a real paste through the live form.\n\n🤖 Generate",
+      "mergedAt": "2026-11-02T21:54:50Z"
+     }
+    ],
+    "opened": [
+     {
+      "number": 36,
+      "title": "List rac-board",
+      "author": "openrac-bot[bot]",
+      "untrustedBody": "From #35, checked by the listing bot.\n\nCloses #35",
+      "mergedAt": "2026-11-02T21:14:45Z"
+     },
+     {
+      "number": 37,
+      "title": "fix(index): accept GitHub's asset digest without SHA256SUMS",
+      "author": "Lynder063",
+      "untrustedBody": "The index now takes GitHub's digest as an archive's hash, so SHA256SUMS is optional.\nIf both exist they must match; with neither, a native release is still skipped.",
+      "mergedAt": "2026-11-02T21:08:43Z"
+     },
+     {
+      "number": 38,
+      "title": "fix(mods): credit each mod's first committer as its author",
+      "author": "Lynder063",
+      "untrustedBody": "Replaces \"OpenRAC contributors\" in each mod's manifest with whoever made its first commit.\nArchipelago's APWorld credits change too; copyright headers stay.",
+      "mergedAt": "2026-11-02T21:12:48Z"
+     },
+     {
+      "number": 40,
+      "title": "fix(submit): say that pictures can stay as GitHub writes them, drop the wizard",
+      "author": "Lynder063",
+      "untrustedBody": "Mod author feedback on the submission form, with the matching site change in OpenRAC/openrac-site.\n\n**Screenshots.** Pasting a picture makes GitHub write `<img width=… src=\"https://github.com/user-attachments/assets/…\">`, but the placeholder showed `![shot](…) | caption`, so the author rewrote each line by hand. `pictures()` already accepted the `<img>` form, so parsing does not change. This updates the wording in both forms and in the bot's check message, and says that links to pictures hosted elsewhere don't work. New tests cover `<img>` with and without a caption, and a rejected repository `blob/` link.\n\n**Wizard.** `openrac.dev/mods/submit` is being removed, so the form intro, the chooser's contact link and the README no longer mention it. The intro now says what a mod needs first. The old URL will redirect to this form.\n\n**Tests:** `python3 -m unittest discover -s tools/tests` passes (101). All templates parse as YAML. Not tried yet: a real paste through the live form.\n\n🤖 Generate",
+      "mergedAt": "2026-11-02T21:54:50Z"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [
+     {
+      "number": 35,
+      "title": "Submit mod: rac-board",
+      "author": "nickyyOO"
+     },
+     {
+      "number": 39,
+      "title": "Review rac-board 0.2.0",
+      "author": "openrac-bot[bot]"
+     }
+    ],
+    "closed": [
+     {
+      "number": 35,
+      "title": "Submit mod: rac-board",
+      "author": "nickyyOO"
+     },
+     {
+      "number": 39,
+      "title": "Review rac-board 0.2.0",
+      "author": "openrac-bot[bot]"
+     }
+    ]
+   },
+   "releases": [],
+   "progress": null,
+   "contributors": [
+    "Lynder063"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,1329 @@
+{
+ "format": 1,
+ "date": "2026-11-03",
+ "totals": {
+  "commits": 49,
+  "pullRequestsMerged": 50,
+  "pullRequestsOpened": 53,
+  "contributors": 13
+ },
+ "projects": [
+  {
+   "repo": "OpenRAC",
+   "title": "OpenRAC launcher",
+   "branches": [
+    {
+     "name": "develop",
+     "commits": [
+      {
+       "sha": "df614d18307f04070f0f31b22a53fc6967ddff5e",
+       "title": "feat(port): add gameplay field of view slider (#249)",
+       "author": "pezzadev",
+       "date": "2026-11-03T23:55:58Z"
+      },
+      {
+       "sha": "f023a90e2a0fa79382151244ed70919dea7cbb48",
+       "title": "feat(port): unify enhanced material overrides (#246)",
+       "author": "pezzadev",
+       "date": "2026-11-03T22:24:35Z"
+      },
+      {
+       "sha": "e759c4fd07aa7f51b8dfb263ff58dac6731add39",
+       "title": "fix(interpreter): stop the snd test's crash and test the sound parameter mask (#248)",
+       "author": "Lynder063",
+       "date": "2026-11-03T22:23:31Z"
+      },
+      {
+       "sha": "86b03899ef75d5dc2231da3014a12ac037afd230",
+       "title": "chore(port/rac2): fcheck verdicts for rac2-decomp d5d78af00 (#247)",
+       "author": "Lynder063",
+       "date": "2026-11-03T21:43:42Z"
+      },
+      {
+       "sha": "7f72d9f57ee115e14e71b6fd6f4eb1c0a6debce1",
+       "title": "chore(import): sync rac2/ntsc to rac2-decomp d5d78af00 (#245)",
+       "author": "Lynder063",
+       "date": "2026-11-03T21:37:33Z"
+      },
+      {
+       "sha": "67d58bc6f23fc93c8d3116b8b75838daa200ad88",
+       "title": "fix(rac2): Feltzin retail parity: ship input floats and the interpreter's sound mask (#241)",
+       "author": "Lynder063",
+       "date": "2026-11-03T21:16:45Z"
+      },
+      {
+       "sha": "8758b9ec0beba59f851794aa1aca7d3c12063d6b",
+       "title": "feat(launcher): name Going Commando's arena challenges in the save editor (#244)",
+       "author": "Lynder063",
+       "date": "2026-11-03T21:16:04Z"
+      },
+      {
+       "sha": "6adc55dac271af7f04e3e13bb7c9479b90ed19a7",
+       "title": "fix(port/rac2): Video item in pause Options, ship HUD at the edges, no lines on glyphs (#239)",
+       "author": "Lynder063",
+       "date": "2026-11-03T17:22:38Z"
+      },
+      {
+       "sha": "7ec1dedc64e8a911207d9db4a9380c748fdd4cbe",
+       "title": "fix(launcher): a game's tile is one control for the pad, and the rail is reached sideways (#240)",
+       "author": "nickyyOO",
+       "date": "2026-11-03T16:53:40Z"
+      },
+      {
+       "sha": "eefa0266ee750a43462c834a89ee6d9ff7e7e9fa",
+       "title": "feat(rac2): pin rac2-decomp master with 27 helper rows and catalogue repairs (#238)",
+       "author": "Lynder063",
+       "date": "2026-11-03T16:20:42Z"
+      },
+      {
+       "sha": "6f7d68b2ae33587823c8a134f34f1e5589e49c55",
+       "title": "chore(import): sync rac1/pal to rac1-decomp 1d8228cc0 (#237)",
+       "author": "Lynder063",
+       "date": "2026-11-03T15:56:13Z"
+      },
+      {
+       "sha": "86b9d821565dc18d443e0a8b086a9bc1d419899d",
+       "title": "fix(hostgen): keep an argument the code saves to its frame and reloads (#236)",
+       "author": "Lynder063",
+       "date": "2026-11-03T15:03:07Z"
+      },
+      {
+       "sha": "6f3ada4cdb3ed9e487951497abb52b28b4d9989f",
+       "title": "refactor: human-first cleanup of docs, comments and one duplicated helper (#233)",
+       "author": "nickyyOO",
+       "date": "2026-11-03T13:28:37Z"
+      },
+      {
+       "sha": "3bb77b5777f341832aa9b92f0f565f1e27b492c1",
+       "title": "fix(launcher): smooth controller navigation, one press of A acts (#235)",
+       "author": "nickyyOO",
+       "date": "2026-11-03T13:01:40Z"
+      },
+      {
+       "sha": "498c0440824bb119e4240ae1093a031784ce3bc0",
+       "title": "fix(hostgen): pass the hostgen tests with integer-only calls by kind (#234)",
+       "author": "Veradictus",
+       "date": "2026-11-03T12:29:15Z"
+      },
+      {
+       "sha": "2722f7b9246511ed47f2501ba48a6dcf5b2bc670",
+       "title": "fix(rac2): pass the moby through a void level wrapper that crashed Endako on Windows (#232)",
+       "author": "Veradictus",
+       "date": "2026-11-03T12:01:46Z"
+      },
+      {
+       "sha": "73f725bf54bb1bf6d8b9bb5b1511ed00d551fbde",
+       "title": "fix(launcher): open in the last game's accent without easing in (#231)",
+       "author": "nickyyOO",
+       "date": "2026-11-03T10:42:32Z"
+      },
+      {
+       "sha": "90f3224c71aba14c449385ad825f2464d9f56071",
+       "title": "fix(editor): Going Commando's flights export on Android (#230)",
+       "author": "nickyyOO",
+       "date": "2026-11-03T10:41:36Z"
+      },
+      {
+       "sha": "c947049b67f978b4435c1340c25f91a56fc33f4d",
+       "title": "fix(rac2): Windows x64 crashes from calls typed in another argument order (#228)",
+       "author": "Veradictus",
+       "date": "2026-11-03T10:14:37Z"
+      },
+      {
+       "sha": "45c39b796acee614f4c643c8cabbb059eba09919",
+       "title": "fix(port): the pause Options page takes its pictures again (Quit Game kept its list) (#229)",
+       "author": "nickyyOO",
+       "date": "2026-11-03T09:28:19Z"
+      },
+      {
+       "sha": "797e6aac761f86aa1d61e50875b56330b325f264",
+       "title": "feat(rac2): pin rac2-decomp master with 157 more matched functions (#227)",
+       "author": "Veradictus",
+       "date": "2026-11-03T09:20:35Z"
+      },
+      {
+       "sha": "cb2f2333ded8ddb92c713bae974b1b7730eafb6d",
+       "title": "feat(rac2): second round of port fixes, enhanced graphics and retail parity (#212)",
+       "author": "Veradictus",
+       "date": "2026-11-03T08:03:45Z"
+      },
+      {
+       "sha": "efeaed52c533a350a7e0d1de0187d0db8e85757d",
+       "title": "feat(port): execute Vulkan rendering through a render graph (#225)",
+       "author": "pezzadev",
+       "date": "2026-11-03T06:04:04Z"
+      },
+      {
+       "sha": "dfd4d68aa11a9da0f379eb011da6abdd009ebecf",
+       "title": "fix(port): Vulkan pipeline parts take only their own state; bindings only their own stages (#222)",
+       "author": "Veradictus",
+       "date": "2026-11-03T01:27:03Z"
+      },
+      {
+       "sha": "67f18e173ce2d2a0b0cc0e7921b87b5e83b77147",
+       "title": "perf(port): avoid redundant hostgen and GPU test setup (#223)",
+       "author": "pezzadev",
+       "date": "2026-11-03T01:05:40Z"
+      }
+     ]
+    },
+    {
+     "name": "master",
+     "commits": []
+    }
+   ],
+   "commitCount": 25,
+   "pullRequests": {
+    "merged": [
+     {
+      "number": 212,
+      "title": "feat(rac2): second round of port fixes, enhanced graphics and retail parity",
+      "author": "Veradictus",
+      "untrustedBody": "Second round on Going Commando's native port: player-reported bugs, enhanced graphics, retail parity and the functional C repin. **Levels format goes to 20: re-run \"Get the levels ready\".**\n\n## Player-reported fixes\n\n- **Crash on nanotech level-up:** the level-up sparks' slots (`D_00232760`) were paired through the particle loop's end pointer instead of their own address. In every level they landed on the fade list, so a live fade entry read a spark as a moby and crashed. Pairs now prefer the global's own halves; 767 level-to-level pairs move to their real symbols.\n- **Saves reset on New Game:** a `.DS_Store` (or any extra file) in the save folder made the game see no save data, so New Game wiped all slots. The card listing now hides host files, as retail does. Also fixed a crash on New Game's save page from a mis-aligned call table.\n- **Maktar arena froze on entry:** `func_00132318` (snd_BankLoadByLoc) waited on a sound RPC reply the port never wrote. It is now hosted and loads the ba",
+      "mergedAt": "2026-11-03T08:03:46Z"
+     },
+     {
+      "number": 222,
+      "title": "fix(port): Vulkan pipeline parts take only their own state; bindings only their own stages",
+      "author": "Veradictus",
+      "untrustedBody": "#216's pipeline-library linking built each shared part with the whole state of the first key that needed it. NVIDIA (GTX 1070, 580.178) carried the vertex input given to the shared output part into every pipeline linked from it, so draws with another vertex layout read the wrong vertices. llvmpipe ignores the extra state, which is why CI passed.\n\nSix Vulkan tests failed on NVIDIA from #216 on: render_equivalence_vulkan, render_equivalence_vulkan_remaining, enhanced_rendering_vulkan, sun_shadow_vulkan, sun_shadow_filter_reference_vulkan, probe_gpu_vulkan.\n\n- Each part now gets only its own state (vertex input and assembly; viewport and rasteriser; depth and stencil; blend and samples) and null for the rest. Part sharing, fast linking and the prewarm workers are unchanged, so the speed-up stays.\n- `vulkan_prewarm` gains a test: one program drawn with two vertex layouts, linked against whole pipelines. It fails on NVIDIA without the fix.\n- #216's own linked-parts test now runs with prewar",
+      "mergedAt": "2026-11-03T01:27:04Z"
+     },
+     {
+      "number": 223,
+      "title": "perf(port): avoid redundant hostgen and GPU test setup",
+      "author": "pezzadev",
+      "untrustedBody": "Frontend edits currently invalidate hostgen output for every game, even when generated C is unchanged. Enhanced GPU tests also repeatedly compile identical native programs and repeat non-enhanced baseline preparation.\n\nKeep the hostgen invalidation fix separate from the GPU-test optimisation:\n- Hash translation inputs without native frontend C++ or hostgen test modules. Retain configuration tables, headers, hand C, shared signatures, host wrappers, aliases and catalogues, including configured external inputs.\n- Reuse identical immutable Vulkan objects in shadow and probe matrices through the existing test-only pool. Uniform and descriptor state stay fresh; optional `--fresh-programs` runs preserve the complete cold-object reference matrix.\n- Share verified non-enhanced baselines with scrolling shadows. Keep independent enhanced determinism, synchronous/batched capture and poisoned-discard checks. Reject missing, corrupt and incompatible files.\n\nAll CTest registrations, scenarios, compa",
+      "mergedAt": "2026-11-03T01:05:41Z"
+     },
+     {
+      "number": 225,
+      "title": "feat(port): execute Vulkan rendering through a render graph",
+      "author": "pezzadev",
+      "untrustedBody": "Vulkan pass dependencies were spread across draw callbacks and layout tracking. This change declares and validates them through a fixed-order render graph, then records barriers on the existing queue. The migrated Vulkan passes use the graph exclusively; OpenGL keeps its compatibility path.\n\n- Covers shadows and caches, depth/normals and MSAA resolves, GTAO, tiled probe/light selection, water, atmosphere, world colour/refraction and temporal processing.\n- Joins compatible work into shared plans with retained draw state and owned effect metadata. SDK decisions, history updates, native HUD work and presentation keep explicit boundaries.\n- Adds opt-in frame-graph diagnostics and optional GTAO Hi-Z, which defaults off. Classic graphics remain supported. Existing probe/water bakes need no regeneration, and no dependencies are added.\n\nValidation:\n- Targeted Windows/Radeon Vulkan and desktop OpenGL checks passed, including exact image comparisons, MSAA, water, FSR, graph validation and provid",
+      "mergedAt": "2026-11-03T06:04:05Z"
+     },
+     {
+      "number": 226,
+      "title": "feat(launcher): Going Commando save editor and saves between devices",
+      "author": "Veradictus",
+      "untrustedBody": "Saves for Going Commando in the launcher: an editor, moving saves between devices, and a fix for narrow windows. Based on #212; it retargets to `develop` once #212 is merged.\n\n## Saves between devices (both games)\n\n- **Export:** a game's saves, or one slot, export as one `.zip`. The zip holds a manifest (serial, slots with planet and bolts, and each file's SHA-256) and the card's folders as they are.\n- **Import:** reads and checks the whole file before writing anything.\n  - It refuses another disc's file, a damaged file, a newer format, and unsafe paths.\n  - It previews what each slot would replace and backs up the card first.\n  - It replaces all slots or merges the ticked ones.\n- **Desktop and Android:** desktop uses the system save and open dialogs. Android uses the existing `save_as` and `pick_zip`, but it hasn't been run on a device.\n\n## Going Commando save editor\n\nThe format map is in `launcher/docs/RAC2_SAVE_FORMAT.md`. In short:\n- the container is rac1's;\n- the CRC-16 limit is 7",
+      "mergedAt": "2026-11-03T07:25:36Z"
+     },
+     {
+      "number": 227,
+      "title": "feat(rac2): pin rac2-decomp master with 157 more matched functions",
+      "author": "Veradictus",
+      "untrustedBody": "Pins rac2-decomp `master` (99f35ac2c) in `games/rac2/game.json`, and switches the branch back to `master`. It includes #396 to #399: 157 more functions matched, and 91 functional rows replaced by matched C, which leaves `functional.tsv` with 381 rows. It also includes #397's corrected entry of `func_002CC528`, and the removal of three stray functional files whose functions are now matched (`func_00293F98`, `func_002EC408`, `func_L00_002B30E8`; 99f35ac2c, pushed to master).\n\n## Changes\n- **Pin:** 99f35ac2c on `master`.\n- **Copy tables:** `copycalls.py --twins` reruns, and call_copies, data_copies and level_twins come out unchanged. `docs/SOURCES.md` is refreshed.\n- **`fcheck.tsv`:** drops the 113 verdicts of functions that now have matched C. Rows still left out of the port keep theirs.\n- **`derived_names.json` regenerated** from the pinned decomp's build (3f6e69f4e).\n  - **Cause:** the old table had no addresses for the new matched C's `ref_` globals. Without them, 8 functions became e",
+      "mergedAt": "2026-11-03T09:20:35Z"
+     },
+     {
+      "number": 228,
+      "title": "fix(rac2): Windows x64 crashes from calls typed in another argument order",
+      "author": "Veradictus",
+      "untrustedBody": "Going Commando ran on Linux and macOS but crashed on Windows: first in the title's menus, then in Aranos. Each crash was a call whose declared parameter order differs from the definition it reaches.\n\n**Cause:** System V and AArch64, like the EE, pass integers and floats in separate registers, each kind in order. So `f(float, void *)` reaching `f(void *, float)` works there. On Windows x64 a position decides the register, so the callee reads a pointer from a float's bits. The crash addresses were float and colour bit patterns: `0x70FFFEED`, `0x0FDB0000`, `0x3EAC1242`.\n\nSuch a call can only come from three places. This covers each:\n\n| Where | Crash | Change |\n|---|---|---|\n| The game's host C declaring game functions itself | `host/font.c` called FontPrintScaled (`func_0027F640`) as `(float, float, float, int, …)`: the title's text read through the colour | Declarations fixed; `abicheck --host` now compares them with `game_protos.h` and runs in `<id>_call_abi` |\n| hostgen's call_copies r",
+      "mergedAt": "2026-11-03T10:14:37Z"
+     },
+     {
+      "number": 229,
+      "title": "fix(port): the pause Options page takes its pictures again (Quit Game kept its list)",
+      "author": "nickyyOO",
+      "untrustedBody": "Since the Options items are given before the game enters the page, the picture box had no buffer yet, so its entries were never swapped for the ones with Video's. The items after Video showed the next item's picture and Quit Game read past the table, which hid the list and the buttons. The hints and pictures are now taken once the page is entered too.",
+      "mergedAt": "2026-11-03T09:28:20Z"
+     },
+     {
+      "number": 230,
+      "title": "fix(editor): Going Commando's flights export on Android",
+      "author": "nickyyOO",
+      "untrustedBody": "SubprocessPool (Android's Python has no process pools) runs only the functions in WORKER_FUNCTIONS, and export_port_wad_flight was missing, so the port export stopped after the levels. A test now checks every function given to the pool is in the list.",
+      "mergedAt": "2026-11-03T10:41:37Z"
+     },
+     {
+      "number": 231,
+      "title": "fix(launcher): open in the last game's accent without easing in",
+      "author": "nickyyOO",
+      "untrustedBody": "The accent came with the settings, after the first paint, so a launcher reopened on another game than Ratchet & Clank eased in from its orange. Keep the accent's game in localStorage, as the theme is, put it on in main.ts, and keep the accent's transition off until the settings' one is on.",
+      "mergedAt": "2026-11-03T10:42:32Z"
+     },
+     {
+      "number": 232,
+      "title": "fix(rac2): pass the moby through a void level wrapper that crashed Endako on Windows",
+      "author": "Veradictus",
+      "untrustedBody": "## Summary\n\nFixes a Windows-only Endako crash in Going Commando (`read at game address 0x8CB0CEC8` / `0x7979BD68` in `func_L00_003A6C30`).\n\n- **rac2:** `func_L00_003BAAD0`, a 28-byte level wrapper the moby update loop calls, was decompiled as `(void)` and called `func_003182C0()` with no argument. On the console, a0 still holds the moby when each level's copy jumps to its own target (`func_L00_003A6C30` in Endako). On Linux the host register happened to hold it too; on Windows it held garbage. The wrapper now takes and passes the object, and `games/rac2/game.json` records the rewrite so re-imports from rac2-decomp keep it.\n- **hostgen:** computed calls with only integer arguments now also go through `openrac_guest_call_regs`, as calls with floats already did since #228. Each definition's thunk then reads the EE registers its own parameters use, whatever shape the call site assumed.\n\n## Testing\n\n- `openrac-rac2-ntsc.exe` regenerates, builds and links on Windows (clang).\n- `ctest -R rac2",
+      "mergedAt": "2026-11-03T12:01:46Z"
+     },
+     {
+      "number": 233,
+      "title": "refactor: human-first cleanup of docs, comments and one duplicated helper",
+      "author": "nickyyOO",
+      "untrustedBody": "Before:\r\n- Docs linked to pages that do not exist and named old paths and functions.\r\n- Several docs said the port stops at the boot stage, or that NTSC-U is still being brought up.\r\n- Comments carried restructure history (P1-05, P2-10, ...) and fragile file:line references.\r\n- rac1 and rac2 each had their own copy of the same printf formatter.\r\n- The editor raised an undefined `ParseError` and named an undefined `KIND_NAMES` in an error message.\r\n\r\nAfter:\r\n- Links and paths are fixed. The port README, the document map and the roadmap are shorter and up to date.\r\n- DEBUGGING.md names the file that reads each variable.\r\n- Comments say what the code does. The wide_view.c header is split into short sections.\r\n- One formatter, `port/game/common/lib/guest_format.c`, with the same body as both old copies.\r\n- Both editor error paths work, and unused Python imports are gone. games/ is untouched.\r\n\r\nHow:\r\n- Only two commits change code: the shared formatter, and the editor fixes with the import",
+      "mergedAt": "2026-11-03T13:28:38Z"
+     },
+     {
+      "number": 234,
+      "title": "fix(hostgen): pass the hostgen tests with integer-only calls by kind",
+      "author": "Veradictus",
+      "untrustedBody": "## Summary\n\nFixes the `port` CI job that #232 broke: 5 hostgen tests failed with `no thunk for 00110000`.\n\n- **Test harness:** #232 sends every computed call with arguments through `openrac_guest_call_regs`. The harness's version exited when a function had no thunk, which is every function on POSIX, because the tests leave `OPENRAC_REGS_THUNKS` off. It now falls back to the all-registers cast, as `port/runtime/guest.cpp` does.\n- **hostgen:** a cast of a named function, `((int (*)(int))f)(i)`, reaches a definition hostgen knows. It no longer counts as computed, so it keeps its `GFN` call through the definition's 64-bit result (`test_a_cast_to_an_int_result_keeps_the_64_bits`).\n\n## Testing\n\n- `python3 -m unittest test_hostgen` on Ubuntu (WSL) with clang 18: 177 tests OK, none skipped.\n- `openrac-rac2-ntsc.exe` regenerates and links on Windows; `ctest -R rac2-ntsc_call_abi` passes.\n- Conventions check (clang-format 21.1.8): clean.\n\n🤖 Generated with [Claude Code](https://claude.com/claude-",
+      "mergedAt": "2026-11-03T12:29:16Z"
+     },
+     {
+      "number": 235,
+      "title": "fix(launcher): smooth controller navigation, one press of A acts",
+      "author": "nickyyOO",
+      "untrustedBody": "**Before:** after a press changed the page, opened or closed a dialog or removed a row, the focus was lost and the next A only brought it back (two presses). Other theme radios, tabs and menu items past the first could not be reached by pad. On Android a closed fold (Help, Advanced) stopped the d-pad. Toasts took the d-pad and covered the focus. Desktop `<select>` opened a system menu the pad cannot drive. The focus ring looked like a picked theme's ring, was cut on game tiles and the Android rail, and the mouse hover showed beside the pad focus.\n\n**After:** the focus always stays on something A presses. Every control is reachable, d-pad moves like Android TV's focus search, toasts are reached only past the page's end, lists change with left/right on desktop. A clear, bolder focus ring, no hover while the pad is used, A shows a press (ripple on Android).\n\n**How:** `pad.ts` keeps the focus (MutationObserver + focusout) and moves it to the control in place of the lost one; roving tab/rad",
+      "mergedAt": "2026-11-03T13:01:41Z"
+     },
+     {
+      "number": 236,
+      "title": "fix(hostgen): keep an argument the code saves to its frame and reloads",
+      "author": "Lynder063",
+      "untrustedBody": "The level loader lost its second argument, so Going Commando's resume path never ran.\ntest_hostgen OK; rac2-tour: levels 4, 9, 11, 12, 14, 16 change, 20 same.",
+      "mergedAt": "2026-11-03T15:03:08Z"
+     },
+     {
+      "number": 237,
+      "title": "chore(import): sync rac1/pal to rac1-decomp 1d8228cc0",
+      "author": "Lynder063",
+      "untrustedBody": "Sync the rac1/pal refactor from rac1-decomp and fix hostgen, the host and the editor for its new layout.\nFix the ship glass flying ahead of the hull between ticks; all 19 PAL levels match develop in regress.py.",
+      "mergedAt": "2026-11-03T15:56:13Z"
+     },
+     {
+      "number": 238,
+      "title": "feat(rac2): pin rac2-decomp master with 27 helper rows and catalogue repairs",
+      "author": "Lynder063",
+      "untrustedBody": "Pins rac2-decomp c2f2807f: 27 functional rows return, 13 more matched; derived names, twins and sources regenerated.\nrac2-tour: 26 ok, 26 same as the 27-row build on the old pin; hostgen and tools tests pass.",
+      "mergedAt": "2026-11-03T16:20:43Z"
+     },
+     {
+      "number": 239,
+      "title": "fix(port/rac2): Video item in pause Options, ship HUD at the edges, no lines on glyphs",
+      "author": "Lynder063",
+      "untrustedBody": "Pause Options gets a Video row, \"HUD: Edges\" now moves the ship levels HUD as whole elements, and glyphs no longer pick up a line from the font row above.\nThe glyph and HUD changes are in the shared renderer; Going Commando (26) and RaC1 PAL (19) regression routes match develop.",
+      "mergedAt": "2026-11-03T17:22:38Z"
+     },
+     {
+      "number": 240,
+      "title": "fix(launcher): a game's tile is one control for the pad, and the rail is reached sideways",
+      "author": "nickyyOO",
+      "untrustedBody": "With a controller A on a game's tile takes its step (Play, Set up, Rebuild) and Y opens its page; the tile's own buttons are no longer stops of their own. Up and down no longer jump into Android's rail beside the page: it is entered and left with left and right. Each tile's button wears its own game's accent, and the tile stays on its own layer so its picture's zoom leaves no bar along its foot.",
+      "mergedAt": "2026-11-03T16:53:41Z"
+     },
+     {
+      "number": 241,
+      "title": "fix(rac2): Feltzin retail parity: ship input floats and the interpreter's sound mask",
+      "author": "Lynder063",
+      "untrustedBody": "The interpreter misread the sound parameter mask, which caused the split at field 3328; Feltzin's random state now matches through field 5012, apart from a 1-field pause gap. The ps2_float change fixes separate ulp drift.\ntest_hostgen OK; interpreter ctest 3 of 4 (snd segfaults with or without this); rac2-tour: levels 12, 14, 19, 22, 23, 26 change, not yet compared with retail.",
+      "mergedAt": "2026-11-03T21:16:46Z"
+     },
+     {
+      "number": 244,
+      "title": "feat(launcher): name Going Commando's arena challenges in the save editor",
+      "author": "Lynder063",
+      "untrustedBody": "Names Joba's 13 challenges and adds Maktar's other 13, read from each level's text id switch and win bytes.\nlauncher/core cargo test: 429 passed; names come from the code path, not from loading each flag in the game.",
+      "mergedAt": "2026-11-03T21:16:05Z"
+     },
+     {
+      "number": 245,
+      "title": "chore(import): sync rac2/ntsc to rac2-decomp d5d78af00",
+      "author": "Lynder063",
+      "untrustedBody": "Brings rac2-decomp master into OpenRAC and regenerates the port derived names.\nThe matched log and log10 stay on assembly because hostgen cannot read their file constants yet.",
+      "mergedAt": "2026-11-03T21:37:34Z"
+     },
+     {
+      "number": 246,
+      "title": "feat(port): unify enhanced material overrides",
+      "author": "pezzadev",
+      "untrustedBody": "## Changes\n\n- Share one layered JSON material catalog across level preparation, probe baking, and enhanced rendering.\n- Edit the exact exported model slot through the click picker and save sparse overrides. Keep existing name-based selectors and legacy emission sidecars readable.\n- Restore the original sky in classic graphics and retain authored appearance with enhanced graphics when a probe bake is missing.\n- Fix Vulkan swapchain acquisition and initialize recreated frame targets before presenting. Retire cache files from builds that reproduced device loss.\n\n## Verification\n\n- Rebased on develop. Strict clang-format and layering checks pass.\n- Editor discovery reported 487 tests with 3 skips. PAL/NTSC rendering host-hook parity and 23 bake orchestration tests passed.\n- Windows native suite passed 13 tests, with the desktop OpenGL viewer skipped. It includes Vulkan presentation synchronization, exact-slot persistence, classic sky tint and material rendering without probes.\n- Before reb",
+      "mergedAt": "2026-11-03T22:24:36Z"
+     },
+     {
+      "number": 247,
+      "title": "chore(port/rac2): fcheck verdicts for rac2-decomp d5d78af00",
+      "author": "Lynder063",
+      "untrustedBody": "Refreshes the 18 verdicts the sync made stale; all came back same.\nDrops the 11 rows that left the functional list.",
+      "mergedAt": "2026-11-03T21:43:43Z"
+     },
+     {
+      "number": 248,
+      "title": "fix(interpreter): stop the snd test's crash and test the sound parameter mask",
+      "author": "Lynder063",
+      "untrustedBody": "Sounds were destroyed after the voices they stop, which corrupted the heap; the mask decoding moves into PlayingSound with a test that fails on the old bits.\nctest: 4 of 4 pass, snd also clean under AddressSanitizer; Feltzin's random state unchanged over 1,312 fields.",
+      "mergedAt": "2026-11-03T22:23:31Z"
+     },
+     {
+      "number": 249,
+      "title": "feat(port): add gameplay field of view slider",
+      "author": "pezzadev",
+      "untrustedBody": "## Summary\n\n- Add Field of View under Graphics > Picture, with mouse and D-pad input in five-point steps from 80% to 120%.\n- Default to 100% and save the player preference. Apply the setting only to the gameplay camera.\n\n## Verification\n\n- Built Ratchet & Clank NTSC-U on Windows. Settings, menu catalog and PAL/NTSC host-hook parity tests passed.\n- Compared Novalis gameplay on Vulkan and desktop OpenGL. Four rendered cutscene frames were pixel-identical at 100% and 120%. The author also tested the five-point control with a gamepad.\n- PAL gameplay, Linux, macOS and Android were not tested locally.",
+      "mergedAt": "2026-11-03T23:55:59Z"
+     }
+    ],
+    "opened": [
+     {
+      "number": 223,
+      "title": "perf(port): avoid redundant hostgen and GPU test setup",
+      "author": "pezzadev",
+      "untrustedBody": "Frontend edits currently invalidate hostgen output for every game, even when generated C is unchanged. Enhanced GPU tests also repeatedly compile identical native programs and repeat non-enhanced baseline preparation.\n\nKeep the hostgen invalidation fix separate from the GPU-test optimisation:\n- Hash translation inputs without native frontend C++ or hostgen test modules. Retain configuration tables, headers, hand C, shared signatures, host wrappers, aliases and catalogues, including configured external inputs.\n- Reuse identical immutable Vulkan objects in shadow and probe matrices through the existing test-only pool. Uniform and descriptor state stay fresh; optional `--fresh-programs` runs preserve the complete cold-object reference matrix.\n- Share verified non-enhanced baselines with scrolling shadows. Keep independent enhanced determinism, synchronous/batched capture and poisoned-discard checks. Reject missing, corrupt and incompatible files.\n\nAll CTest registrations, scenarios, compa",
+      "mergedAt": "2026-11-03T01:05:41Z"
+     },
+     {
+      "number": 225,
+      "title": "feat(port): execute Vulkan rendering through a render graph",
+      "author": "pezzadev",
+      "untrustedBody": "Vulkan pass dependencies were spread across draw callbacks and layout tracking. This change declares and validates them through a fixed-order render graph, then records barriers on the existing queue. The migrated Vulkan passes use the graph exclusively; OpenGL keeps its compatibility path.\n\n- Covers shadows and caches, depth/normals and MSAA resolves, GTAO, tiled probe/light selection, water, atmosphere, world colour/refraction and temporal processing.\n- Joins compatible work into shared plans with retained draw state and owned effect metadata. SDK decisions, history updates, native HUD work and presentation keep explicit boundaries.\n- Adds opt-in frame-graph diagnostics and optional GTAO Hi-Z, which defaults off. Classic graphics remain supported. Existing probe/water bakes need no regeneration, and no dependencies are added.\n\nValidation:\n- Targeted Windows/Radeon Vulkan and desktop OpenGL checks passed, including exact image comparisons, MSAA, water, FSR, graph validation and provid",
+      "mergedAt": "2026-11-03T06:04:05Z"
+     },
+     {
+      "number": 226,
+      "title": "feat(launcher): Going Commando save editor and saves between devices",
+      "author": "Veradictus",
+      "untrustedBody": "Saves for Going Commando in the launcher: an editor, moving saves between devices, and a fix for narrow windows. Based on #212; it retargets to `develop` once #212 is merged.\n\n## Saves between devices (both games)\n\n- **Export:** a game's saves, or one slot, export as one `.zip`. The zip holds a manifest (serial, slots with planet and bolts, and each file's SHA-256) and the card's folders as they are.\n- **Import:** reads and checks the whole file before writing anything.\n  - It refuses another disc's file, a damaged file, a newer format, and unsafe paths.\n  - It previews what each slot would replace and backs up the card first.\n  - It replaces all slots or merges the ticked ones.\n- **Desktop and Android:** desktop uses the system save and open dialogs. Android uses the existing `save_as` and `pick_zip`, but it hasn't been run on a device.\n\n## Going Commando save editor\n\nThe format map is in `launcher/docs/RAC2_SAVE_FORMAT.md`. In short:\n- the container is rac1's;\n- the CRC-16 limit is 7",
+      "mergedAt": "2026-11-03T07:25:36Z"
+     },
+     {
+      "number": 227,
+      "title": "feat(rac2): pin rac2-decomp master with 157 more matched functions",
+      "author": "Veradictus",
+      "untrustedBody": "Pins rac2-decomp `master` (99f35ac2c) in `games/rac2/game.json`, and switches the branch back to `master`. It includes #396 to #399: 157 more functions matched, and 91 functional rows replaced by matched C, which leaves `functional.tsv` with 381 rows. It also includes #397's corrected entry of `func_002CC528`, and the removal of three stray functional files whose functions are now matched (`func_00293F98`, `func_002EC408`, `func_L00_002B30E8`; 99f35ac2c, pushed to master).\n\n## Changes\n- **Pin:** 99f35ac2c on `master`.\n- **Copy tables:** `copycalls.py --twins` reruns, and call_copies, data_copies and level_twins come out unchanged. `docs/SOURCES.md` is refreshed.\n- **`fcheck.tsv`:** drops the 113 verdicts of functions that now have matched C. Rows still left out of the port keep theirs.\n- **`derived_names.json` regenerated** from the pinned decomp's build (3f6e69f4e).\n  - **Cause:** the old table had no addresses for the new matched C's `ref_` globals. Without them, 8 functions became e",
+      "mergedAt": "2026-11-03T09:20:35Z"
+     },
+     {
+      "number": 228,
+      "title": "fix(rac2): Windows x64 crashes from calls typed in another argument order",
+      "author": "Veradictus",
+      "untrustedBody": "Going Commando ran on Linux and macOS but crashed on Windows: first in the title's menus, then in Aranos. Each crash was a call whose declared parameter order differs from the definition it reaches.\n\n**Cause:** System V and AArch64, like the EE, pass integers and floats in separate registers, each kind in order. So `f(float, void *)` reaching `f(void *, float)` works there. On Windows x64 a position decides the register, so the callee reads a pointer from a float's bits. The crash addresses were float and colour bit patterns: `0x70FFFEED`, `0x0FDB0000`, `0x3EAC1242`.\n\nSuch a call can only come from three places. This covers each:\n\n| Where | Crash | Change |\n|---|---|---|\n| The game's host C declaring game functions itself | `host/font.c` called FontPrintScaled (`func_0027F640`) as `(float, float, float, int, …)`: the title's text read through the colour | Declarations fixed; `abicheck --host` now compares them with `game_protos.h` and runs in `<id>_call_abi` |\n| hostgen's call_copies r",
+      "mergedAt": "2026-11-03T10:14:37Z"
+     },
+     {
+      "number": 229,
+      "title": "fix(port): the pause Options page takes its pictures again (Quit Game kept its list)",
+      "author": "nickyyOO",
+      "untrustedBody": "Since the Options items are given before the game enters the page, the picture box had no buffer yet, so its entries were never swapped for the ones with Video's. The items after Video showed the next item's picture and Quit Game read past the table, which hid the list and the buttons. The hints and pictures are now taken once the page is entered too.",
+      "mergedAt": "2026-11-03T09:28:20Z"
+     },
+     {
+      "number": 230,
+      "title": "fix(editor): Going Commando's flights export on Android",
+      "author": "nickyyOO",
+      "untrustedBody": "SubprocessPool (Android's Python has no process pools) runs only the functions in WORKER_FUNCTIONS, and export_port_wad_flight was missing, so the port export stopped after the levels. A test now checks every function given to the pool is in the list.",
+      "mergedAt": "2026-11-03T10:41:37Z"
+     },
+     {
+      "number": 231,
+      "title": "fix(launcher): open in the last game's accent without easing in",
+      "author": "nickyyOO",
+      "untrustedBody": "The accent came with the settings, after the first paint, so a launcher reopened on another game than Ratchet & Clank eased in from its orange. Keep the accent's game in localStorage, as the theme is, put it on in main.ts, and keep the accent's transition off until the settings' one is on.",
+      "mergedAt": "2026-11-03T10:42:32Z"
+     },
+     {
+      "number": 232,
+      "title": "fix(rac2): pass the moby through a void level wrapper that crashed Endako on Windows",
+      "author": "Veradictus",
+      "untrustedBody": "## Summary\n\nFixes a Windows-only Endako crash in Going Commando (`read at game address 0x8CB0CEC8` / `0x7979BD68` in `func_L00_003A6C30`).\n\n- **rac2:** `func_L00_003BAAD0`, a 28-byte level wrapper the moby update loop calls, was decompiled as `(void)` and called `func_003182C0()` with no argument. On the console, a0 still holds the moby when each level's copy jumps to its own target (`func_L00_003A6C30` in Endako). On Linux the host register happened to hold it too; on Windows it held garbage. The wrapper now takes and passes the object, and `games/rac2/game.json` records the rewrite so re-imports from rac2-decomp keep it.\n- **hostgen:** computed calls with only integer arguments now also go through `openrac_guest_call_regs`, as calls with floats already did since #228. Each definition's thunk then reads the EE registers its own parameters use, whatever shape the call site assumed.\n\n## Testing\n\n- `openrac-rac2-ntsc.exe` regenerates, builds and links on Windows (clang).\n- `ctest -R rac2",
+      "mergedAt": "2026-11-03T12:01:46Z"
+     },
+     {
+      "number": 233,
+      "title": "refactor: human-first cleanup of docs, comments and one duplicated helper",
+      "author": "nickyyOO",
+      "untrustedBody": "Before:\r\n- Docs linked to pages that do not exist and named old paths and functions.\r\n- Several docs said the port stops at the boot stage, or that NTSC-U is still being brought up.\r\n- Comments carried restructure history (P1-05, P2-10, ...) and fragile file:line references.\r\n- rac1 and rac2 each had their own copy of the same printf formatter.\r\n- The editor raised an undefined `ParseError` and named an undefined `KIND_NAMES` in an error message.\r\n\r\nAfter:\r\n- Links and paths are fixed. The port README, the document map and the roadmap are shorter and up to date.\r\n- DEBUGGING.md names the file that reads each variable.\r\n- Comments say what the code does. The wide_view.c header is split into short sections.\r\n- One formatter, `port/game/common/lib/guest_format.c`, with the same body as both old copies.\r\n- Both editor error paths work, and unused Python imports are gone. games/ is untouched.\r\n\r\nHow:\r\n- Only two commits change code: the shared formatter, and the editor fixes with the import",
+      "mergedAt": "2026-11-03T13:28:38Z"
+     },
+     {
+      "number": 234,
+      "title": "fix(hostgen): pass the hostgen tests with integer-only calls by kind",
+      "author": "Veradictus",
+      "untrustedBody": "## Summary\n\nFixes the `port` CI job that #232 broke: 5 hostgen tests failed with `no thunk for 00110000`.\n\n- **Test harness:** #232 sends every computed call with arguments through `openrac_guest_call_regs`. The harness's version exited when a function had no thunk, which is every function on POSIX, because the tests leave `OPENRAC_REGS_THUNKS` off. It now falls back to the all-registers cast, as `port/runtime/guest.cpp` does.\n- **hostgen:** a cast of a named function, `((int (*)(int))f)(i)`, reaches a definition hostgen knows. It no longer counts as computed, so it keeps its `GFN` call through the definition's 64-bit result (`test_a_cast_to_an_int_result_keeps_the_64_bits`).\n\n## Testing\n\n- `python3 -m unittest test_hostgen` on Ubuntu (WSL) with clang 18: 177 tests OK, none skipped.\n- `openrac-rac2-ntsc.exe` regenerates and links on Windows; `ctest -R rac2-ntsc_call_abi` passes.\n- Conventions check (clang-format 21.1.8): clean.\n\n🤖 Generated with [Claude Code](https://claude.com/claude-",
+      "mergedAt": "2026-11-03T12:29:16Z"
+     },
+     {
+      "number": 235,
+      "title": "fix(launcher): smooth controller navigation, one press of A acts",
+      "author": "nickyyOO",
+      "untrustedBody": "**Before:** after a press changed the page, opened or closed a dialog or removed a row, the focus was lost and the next A only brought it back (two presses). Other theme radios, tabs and menu items past the first could not be reached by pad. On Android a closed fold (Help, Advanced) stopped the d-pad. Toasts took the d-pad and covered the focus. Desktop `<select>` opened a system menu the pad cannot drive. The focus ring looked like a picked theme's ring, was cut on game tiles and the Android rail, and the mouse hover showed beside the pad focus.\n\n**After:** the focus always stays on something A presses. Every control is reachable, d-pad moves like Android TV's focus search, toasts are reached only past the page's end, lists change with left/right on desktop. A clear, bolder focus ring, no hover while the pad is used, A shows a press (ripple on Android).\n\n**How:** `pad.ts` keeps the focus (MutationObserver + focusout) and moves it to the control in place of the lost one; roving tab/rad",
+      "mergedAt": "2026-11-03T13:01:41Z"
+     },
+     {
+      "number": 236,
+      "title": "fix(hostgen): keep an argument the code saves to its frame and reloads",
+      "author": "Lynder063",
+      "untrustedBody": "The level loader lost its second argument, so Going Commando's resume path never ran.\ntest_hostgen OK; rac2-tour: levels 4, 9, 11, 12, 14, 16 change, 20 same.",
+      "mergedAt": "2026-11-03T15:03:08Z"
+     },
+     {
+      "number": 237,
+      "title": "chore(import): sync rac1/pal to rac1-decomp 1d8228cc0",
+      "author": "Lynder063",
+      "untrustedBody": "Sync the rac1/pal refactor from rac1-decomp and fix hostgen, the host and the editor for its new layout.\nFix the ship glass flying ahead of the hull between ticks; all 19 PAL levels match develop in regress.py.",
+      "mergedAt": "2026-11-03T15:56:13Z"
+     },
+     {
+      "number": 238,
+      "title": "feat(rac2): pin rac2-decomp master with 27 helper rows and catalogue repairs",
+      "author": "Lynder063",
+      "untrustedBody": "Pins rac2-decomp c2f2807f: 27 functional rows return, 13 more matched; derived names, twins and sources regenerated.\nrac2-tour: 26 ok, 26 same as the 27-row build on the old pin; hostgen and tools tests pass.",
+      "mergedAt": "2026-11-03T16:20:43Z"
+     },
+     {
+      "number": 239,
+      "title": "fix(port/rac2): Video item in pause Options, ship HUD at the edges, no lines on glyphs",
+      "author": "Lynder063",
+      "untrustedBody": "Pause Options gets a Video row, \"HUD: Edges\" now moves the ship levels HUD as whole elements, and glyphs no longer pick up a line from the font row above.\nThe glyph and HUD changes are in the shared renderer; Going Commando (26) and RaC1 PAL (19) regression routes match develop.",
+      "mergedAt": "2026-11-03T17:22:38Z"
+     },
+     {
+      "number": 240,
+      "title": "fix(launcher): a game's tile is one control for the pad, and the rail is reached sideways",
+      "author": "nickyyOO",
+      "untrustedBody": "With a controller A on a game's tile takes its step (Play, Set up, Rebuild) and Y opens its page; the tile's own buttons are no longer stops of their own. Up and down no longer jump into Android's rail beside the page: it is entered and left with left and right. Each tile's button wears its own game's accent, and the tile stays on its own layer so its picture's zoom leaves no bar along its foot.",
+      "mergedAt": "2026-11-03T16:53:41Z"
+     },
+     {
+      "number": 241,
+      "title": "fix(rac2): Feltzin retail parity: ship input floats and the interpreter's sound mask",
+      "author": "Lynder063",
+      "untrustedBody": "The interpreter misread the sound parameter mask, which caused the split at field 3328; Feltzin's random state now matches through field 5012, apart from a 1-field pause gap. The ps2_float change fixes separate ulp drift.\ntest_hostgen OK; interpreter ctest 3 of 4 (snd segfaults with or without this); rac2-tour: levels 12, 14, 19, 22, 23, 26 change, not yet compared with retail.",
+      "mergedAt": "2026-11-03T21:16:46Z"
+     },
+     {
+      "number": 244,
+      "title": "feat(launcher): name Going Commando's arena challenges in the save editor",
+      "author": "Lynder063",
+      "untrustedBody": "Names Joba's 13 challenges and adds Maktar's other 13, read from each level's text id switch and win bytes.\nlauncher/core cargo test: 429 passed; names come from the code path, not from loading each flag in the game.",
+      "mergedAt": "2026-11-03T21:16:05Z"
+     },
+     {
+      "number": 245,
+      "title": "chore(import): sync rac2/ntsc to rac2-decomp d5d78af00",
+      "author": "Lynder063",
+      "untrustedBody": "Brings rac2-decomp master into OpenRAC and regenerates the port derived names.\nThe matched log and log10 stay on assembly because hostgen cannot read their file constants yet.",
+      "mergedAt": "2026-11-03T21:37:34Z"
+     },
+     {
+      "number": 246,
+      "title": "feat(port): unify enhanced material overrides",
+      "author": "pezzadev",
+      "untrustedBody": "## Changes\n\n- Share one layered JSON material catalog across level preparation, probe baking, and enhanced rendering.\n- Edit the exact exported model slot through the click picker and save sparse overrides. Keep existing name-based selectors and legacy emission sidecars readable.\n- Restore the original sky in classic graphics and retain authored appearance with enhanced graphics when a probe bake is missing.\n- Fix Vulkan swapchain acquisition and initialize recreated frame targets before presenting. Retire cache files from builds that reproduced device loss.\n\n## Verification\n\n- Rebased on develop. Strict clang-format and layering checks pass.\n- Editor discovery reported 487 tests with 3 skips. PAL/NTSC rendering host-hook parity and 23 bake orchestration tests passed.\n- Windows native suite passed 13 tests, with the desktop OpenGL viewer skipped. It includes Vulkan presentation synchronization, exact-slot persistence, classic sky tint and material rendering without probes.\n- Before reb",
+      "mergedAt": "2026-11-03T22:24:36Z"
+     },
+     {
+      "number": 247,
+      "title": "chore(port/rac2): fcheck verdicts for rac2-decomp d5d78af00",
+      "author": "Lynder063",
+      "untrustedBody": "Refreshes the 18 verdicts the sync made stale; all came back same.\nDrops the 11 rows that left the functional list.",
+      "mergedAt": "2026-11-03T21:43:43Z"
+     },
+     {
+      "number": 248,
+      "title": "fix(interpreter): stop the snd test's crash and test the sound parameter mask",
+      "author": "Lynder063",
+      "untrustedBody": "Sounds were destroyed after the voices they stop, which corrupted the heap; the mask decoding moves into PlayingSound with a test that fails on the old bits.\nctest: 4 of 4 pass, snd also clean under AddressSanitizer; Feltzin's random state unchanged over 1,312 fields.",
+      "mergedAt": "2026-11-03T22:23:31Z"
+     },
+     {
+      "number": 249,
+      "title": "feat(port): add gameplay field of view slider",
+      "author": "pezzadev",
+      "untrustedBody": "## Summary\n\n- Add Field of View under Graphics > Picture, with mouse and D-pad input in five-point steps from 80% to 120%.\n- Default to 100% and save the player preference. Apply the setting only to the gameplay camera.\n\n## Verification\n\n- Built Ratchet & Clank NTSC-U on Windows. Settings, menu catalog and PAL/NTSC host-hook parity tests passed.\n- Compared Novalis gameplay on Vulkan and desktop OpenGL. Four rendered cutscene frames were pixel-identical at 100% and 120%. The author also tested the five-point control with a gamepad.\n- PAL gameplay, Linux, macOS and Android were not tested locally.",
+      "mergedAt": "2026-11-03T23:55:59Z"
+     },
+     {
+      "number": 251,
+      "title": "feat(interpreter): add a same-run verdict for C fcheck cannot run",
+      "author": "Lynder063",
+      "untrustedBody": "Adds --swap and --dump-ram, which check C that waits on frames or the disc over a whole run, and a same-run verdict kept apart from fcheck's same; it does not make a row done.\nSix rac2 rows left 0 game words differing at their fields; a broken loader differed by 1 word, and plain runs by 0; tools tests pass, ctest 4 of 4.",
+      "mergedAt": "2026-11-04T07:22:23Z"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [
+     {
+      "number": 224,
+      "title": "Too long to compile and apply graphical enhancements?",
+      "author": "sebastian926"
+     },
+     {
+      "number": 242,
+      "title": "Failed: Prepare the enhanced lighting",
+      "author": "kwfrrb562c-boop"
+     },
+     {
+      "number": 243,
+      "title": "Godot re-targeting",
+      "author": "TheWhiteGuardian"
+     },
+     {
+      "number": 250,
+      "title": "Request: Ability to rebind controller buttons",
+      "author": "aaronjamestodd-ui"
+     }
+    ],
+    "closed": [
+     {
+      "number": 243,
+      "title": "Godot re-targeting",
+      "author": "TheWhiteGuardian"
+     }
+    ]
+   },
+   "releases": [],
+   "progress": null,
+   "contributors": [
+    "Lynder063",
+    "nickyyOO",
+    "pezzadev",
+    "Veradictus"
+   ]
+  },
+  {
+   "repo": "rac1-decomp",
+   "title": "Ratchet & Clank",
+   "branches": [
+    {
+     "name": "main",
+     "commits": [
+      {
+       "sha": "1d8228cc0c81da7bc2bdc3e77479ee050e0ef434",
+       "title": "Merge pull request #237 from OpenRAC/refactor/externs-stage2b",
+       "author": "Lynder063",
+       "date": "2026-11-03T10:50:59Z"
+      },
+      {
+       "sha": "fa34b66c9412cb947115c33279bf8e01b1055b2c",
+       "title": "Merge pull request #236 from OpenRAC/refactor/externs-stage2",
+       "author": "Lynder063",
+       "date": "2026-11-03T09:42:59Z"
+      },
+      {
+       "sha": "4df65fed6ce5121f79660c32fcdf6fe3c1f4f37c",
+       "title": "Merge pull request #235 from OpenRAC/refactor/externs-stage1",
+       "author": "Lynder063",
+       "date": "2026-11-03T04:24:46Z"
+      },
+      {
+       "sha": "868f81145904e021802a7dffa4a3addd33b7c97c",
+       "title": "Merge pull request #234 from OpenRAC/refactor/externs-stage0",
+       "author": "Lynder063",
+       "date": "2026-11-03T01:33:10Z"
+      }
+     ]
+    }
+   ],
+   "commitCount": 4,
+   "pullRequests": {
+    "merged": [
+     {
+      "number": 234,
+      "title": "refactor(overlays): move function declarations into headers, first part",
+      "author": "Lynder063",
+      "untrustedBody": "Moves function declarations out of the C files: extern_lines 31133 -> 25050, all versions unchanged.\nRaises asm_aliases 5837 -> 5913 for file aliases that Stage 2 will lower; address_names_in_code falls 11179 -> 11018.",
+      "mergedAt": "2026-11-03T01:33:11Z"
+     },
+     {
+      "number": 235,
+      "title": "refactor(overlays): move function declarations into headers, second part",
+      "author": "Lynder063",
+      "untrustedBody": "Finishes Stage 1: extern_lines 25050 -> 21937, all versions unchanged.\nRaises asm_aliases 5913 -> 6003 for file aliases that Stage 2 will lower; address_names_in_code falls 11018 -> 10819.",
+      "mergedAt": "2026-11-03T04:24:46Z"
+     },
+     {
+      "number": 236,
+      "title": "refactor(overlays): use real function names where the alias types match",
+      "author": "Lynder063",
+      "untrustedBody": "Stage 2: aliases with the same type become real names and move to headers, all versions unchanged.\nextern_lines 21937 -> 17491, asm_aliases 6003 -> 4225.",
+      "mergedAt": "2026-11-03T09:43:00Z"
+     },
+     {
+      "number": 237,
+      "title": "refactor(overlays): finish moving function declarations and matching aliases",
+      "author": "Lynder063",
+      "untrustedBody": "Second alias pass and last move: all versions unchanged. extern_lines 17491 -> 16906, asm_aliases 4225 -> 3761.\nAliases whose types differ or that fail a check stay; five headers did not settle and stay too.",
+      "mergedAt": "2026-11-03T10:50:59Z"
+     }
+    ],
+    "opened": [
+     {
+      "number": 234,
+      "title": "refactor(overlays): move function declarations into headers, first part",
+      "author": "Lynder063",
+      "untrustedBody": "Moves function declarations out of the C files: extern_lines 31133 -> 25050, all versions unchanged.\nRaises asm_aliases 5837 -> 5913 for file aliases that Stage 2 will lower; address_names_in_code falls 11179 -> 11018.",
+      "mergedAt": "2026-11-03T01:33:11Z"
+     },
+     {
+      "number": 235,
+      "title": "refactor(overlays): move function declarations into headers, second part",
+      "author": "Lynder063",
+      "untrustedBody": "Finishes Stage 1: extern_lines 25050 -> 21937, all versions unchanged.\nRaises asm_aliases 5913 -> 6003 for file aliases that Stage 2 will lower; address_names_in_code falls 11018 -> 10819.",
+      "mergedAt": "2026-11-03T04:24:46Z"
+     },
+     {
+      "number": 236,
+      "title": "refactor(overlays): use real function names where the alias types match",
+      "author": "Lynder063",
+      "untrustedBody": "Stage 2: aliases with the same type become real names and move to headers, all versions unchanged.\nextern_lines 21937 -> 17491, asm_aliases 6003 -> 4225.",
+      "mergedAt": "2026-11-03T09:43:00Z"
+     },
+     {
+      "number": 237,
+      "title": "refactor(overlays): finish moving function declarations and matching aliases",
+      "author": "Lynder063",
+      "untrustedBody": "Second alias pass and last move: all versions unchanged. extern_lines 17491 -> 16906, asm_aliases 4225 -> 3761.\nAliases whose types differ or that fail a check stay; five headers did not settle and stay too.",
+      "mergedAt": "2026-11-03T10:50:59Z"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": {
+    "before": {
+     "code": {
+      "done": 3713096,
+      "total": 3713096
+     },
+     "functions": {
+      "done": 5116,
+      "total": 5116
+     },
+     "data": {
+      "done": 698751,
+      "total": 699072
+     }
+    },
+    "after": {
+     "code": {
+      "done": 3713096,
+      "total": 3713096
+     },
+     "functions": {
+      "done": 5116,
+      "total": 5116
+     },
+     "data": {
+      "done": 698751,
+      "total": 699072
+     }
+    }
+   },
+   "contributors": [
+    "Lynder063"
+   ]
+  },
+  {
+   "repo": "rac2-decomp",
+   "title": "Going Commando",
+   "branches": [
+    {
+     "name": "master",
+     "commits": [
+      {
+       "sha": "0c8ce7455a3e03eec2ad141f7199bdb8cd29d763",
+       "title": "docs(port): record the Feltzin, Gorn and Hrugis findings and the reference's limits (#410)",
+       "author": "Lynder063",
+       "date": "2026-11-03T21:42:26Z"
+      },
+      {
+       "sha": "d5d78af00cf9242b58f01a405a7cda3c4dc77108",
+       "title": "Merge pull request #407: match libm logs and HUD with verified constant pools",
+       "author": "llesieur99",
+       "date": "2026-11-03T19:16:57Z"
+      },
+      {
+       "sha": "1fbe2e9a08b3c937bcc809297e27990419f12e94",
+       "title": "Merge pull request #406 from OpenRAC/match/usa-90-percent",
+       "author": "Lynder063",
+       "date": "2026-11-03T17:34:30Z"
+      },
+      {
+       "sha": "0a95c04d9634f8cf2a7cf3ea0bd06d979493ed90",
+       "title": "Merge pull request #404 from OpenRAC/match/barlow-joba-effects",
+       "author": "Lynder063",
+       "date": "2026-11-03T17:06:48Z"
+      },
+      {
+       "sha": "bb6cddab43bc348278d62a3a5013e5b26fd4f2de",
+       "title": "Merge pull request #405 from OpenRAC/match/usa-v101-functions",
+       "author": "Lynder063",
+       "date": "2026-11-03T17:06:36Z"
+      },
+      {
+       "sha": "58780946cc4bfa144a0b479f95f8a31239917a81",
+       "title": "Merge pull request #403 from OpenRAC/docs/port-handoff-waiting-rows",
+       "author": "Lynder063",
+       "date": "2026-11-03T16:22:38Z"
+      },
+      {
+       "sha": "c2f2807f959d2dca9aa32558cf32a5e0bffd3c79",
+       "title": "Merge pull request #402 from OpenRAC/fix/functional-rows-return",
+       "author": "Lynder063",
+       "date": "2026-11-03T15:51:51Z"
+      },
+      {
+       "sha": "6035cbb6ddf05c5e348106c7a6f3cbc4dbe80e6f",
+       "title": "Merge pull request #401 from OpenRAC/match/catalogue-entries-storeimage",
+       "author": "llesieur99",
+       "date": "2026-11-03T14:54:32Z"
+      },
+      {
+       "sha": "99f35ac2c084fc59cdf3d631f8f960a825e7a49c",
+       "title": "chore(functional): remove three functional files whose functions are now matched",
+       "author": "Veradictus",
+       "date": "2026-11-03T08:04:20Z"
+      },
+      {
+       "sha": "0d5e6477b8173e99be00af9421ca8c91e40e5e9d",
+       "title": "docs(port): handoff state after #396-#399",
+       "author": "Veradictus",
+       "date": "2026-11-03T07:46:25Z"
+      },
+      {
+       "sha": "a647e9c552026a439aa700d4242f18b8cd2048f6",
+       "title": "chore(progress): 7950 of 8580 functions",
+       "author": "Veradictus",
+       "date": "2026-11-03T07:46:25Z"
+      },
+      {
+       "sha": "208f93d557e8e48823b0e81279ee70799dfe8775",
+       "title": "Merge pull request #399 from bigbeno37/match/carry-over-145",
+       "author": "Veradictus",
+       "date": "2026-11-03T07:45:35Z"
+      },
+      {
+       "sha": "d116c91d57a7aa2610a8bef547fb22a2e1c2c990",
+       "title": "Merge pull request #398 from OpenRAC/match/remaining-functions",
+       "author": "Veradictus",
+       "date": "2026-11-03T07:39:33Z"
+      },
+      {
+       "sha": "fbd9576947e8f54280b0e2bdd484e3e7a818bf59",
+       "title": "Merge pull request #397 from DrLegitamate/match/drlegitamate-tiny",
+       "author": "Veradictus",
+       "date": "2026-11-03T07:39:03Z"
+      },
+      {
+       "sha": "86a6d30d9c361fda39702f8ce10a9c1208c0c23a",
+       "title": "Merge pull request #396 from DrLegitamate/match/drlegitamate-joba-oozla",
+       "author": "Veradictus",
+       "date": "2026-11-03T07:38:38Z"
+      },
+      {
+       "sha": "d6e06b2547193e15a6be84d9585a575add684068",
+       "title": "docs: handoff for the native port's functional C, the gate and this round's bugs",
+       "author": "Veradictus",
+       "date": "2026-11-03T07:20:09Z"
+      },
+      {
+       "sha": "93f76357ee5bdf268288b47236398cdf03dbf360",
+       "title": "Merge pull request #393 from OpenRAC/port/backfill-2",
+       "author": "Veradictus",
+       "date": "2026-11-03T07:12:59Z"
+      }
+     ]
+    }
+   ],
+   "commitCount": 17,
+   "pullRequests": {
+    "merged": [
+     {
+      "number": 393,
+      "title": "feat(functional): second backfill round for the native port",
+      "author": "Veradictus",
+      "untrustedBody": "Second round of functional C for the native port (OpenRAC #212), plus the port-only fixes moved upstream. Matched code is untouched apart from byte-neutral spellings.\n\n- **#391 follow-up:** `func_002859C8` keeps the 64-bit TEX0 words of `func_0028E640` and `func_0027C878` (they were truncated to int); `func_0034B2C8` calls sprintf variadically. Both re-gated SAME.\n- **46 new functional rows** (403 in all): boot and level functions the game reaches with no C, each fcheck SAME on retail states with every unrun block read against retail. Includes the two per-level copies that differed (`func_L05_0041EF00`, `func_L15_0042EFE0`).\n- **Port-only rewrites upstreamed:** the master orb word (`D_001B17AC`), hero update names, menu literal addresses, HUD prompt names, SDATA aliases, `func_0027C878`'s width; plus byte-neutral src spellings (`func_0028EA58` returns int, `func_0027EA28`, `func_0027CFD0`, `D_00256368`, `func_002A0F48(u8 *)`).\n\nChecks (box1): US, US2 and PAL each build 28/28 strict; 33",
+      "mergedAt": "2026-11-03T07:12:59Z"
+     },
+     {
+      "number": 396,
+      "title": "feat(src): two Oozla functions in C, closer near miss for func_L11_00420C88",
+      "author": "DrLegitamate",
+      "untrustedBody": "Follow-up to #394: two Oozla (level 01) functions matched from their retained near misses, and an improved near miss for Joba's largest remaining function.\n\n## Matched\n\n| Function | Bytes | What closed it |\n| --- | --- | --- |\n| `func_L01_003D1A48` | 1,268 | The RGB mask is a block-local `int rgb = 0xFFFFFF;` at the top of the inner loop body. As an inline constant its lifetime was 1, so loop.c's first pass (threshold already lowered by two float hoists) left it for the rerun, after five pointer preparations; as a local its set is the first movable insn and is hoisted first, giving retail's preheader order. `-O2 -G8 -g` in its own unit. |\n| `func_L01_003D8358` | 1,108 | Two source corrections. `step = speed*step` swapped the `mul.s` operands (expand_binop swaps them when the target is an operand); the height now adds `speed*step` directly. Reusing `scale` for both the constant and the product tied the scale multiply with an argument move in sched2 (equal priority, decided by dependent ",
+      "mergedAt": "2026-11-03T07:38:39Z"
+     },
+     {
+      "number": 397,
+      "title": "feat(src): func_002CC528 in C after an entry correction; func_002A0488 notes",
+      "author": "DrLegitamate",
+      "untrustedBody": "One boot function matched at all 28 places after a catalogue entry correction, and a closer near miss for a second small boot function.\n\n## Matched: `func_002CC528` (now 32 bytes at 0x002CC530, 28 places)\n\n- **Catalogue entry correction.** The row started 8 bytes early: retail 0x002CC528 is `addiu $sp,$sp,0x60; nop`, the tail of `func_002CC490`'s return. The body starts at 0x002CC530 (`lui $v1,0x1A`). The only pointer to the function in the boot (the word at 0x00260988) targets 0x002CC530; none targets the old start. `tools/levels.py` gains `\"func_002CC528\": (40, 8)` in `FUNCTION_ENTRY_OFFSETS`, as d9e7028d did for `func_0028FF50`; the USA catalogues regenerate byte-identically; `docs/LEVELS.md` records the prefix.\n- **C.** `-O2 -G8 -ffunction-sections -mno-split-addresses` in its own unit: the flag keeps `D_001A7318` (`nosda`) as one macro load that uses its destination as the address temporary, so the selected pointer and condition land in retail's `$a1`/`$v1` for the `movn`/`sw`. Or",
+      "mergedAt": "2026-11-03T07:39:04Z"
+     },
+     {
+      "number": 398,
+      "title": "feat(src): match nine routines and repair retained reconstructions",
+      "author": "llesieur99",
+      "untrustedBody": "## What\n\nMatch **nine functions, 7,452 distinct USA code bytes**, with **300 carrying\nplacements** across the three releases. The same canonical source is used\nwherever the catalogue carries it.\n\n| Function | Purpose | Bytes | Carrying placements |\n| --- | --- | ---: | --- |\n| `func_L11_00472090` | Cubic vector interpolation | 288 | US / US2 / PAL: 3 each |\n| `func_00131424` | Public-newlib square-root wrapper | 268 | Boot in all three releases |\n| `func_0032AE30` | Trail-node creation | 284 | US / US2: 28 each |\n| `func_L04_004135B8` | Route following | 1,152 | US / US2: 2 each |\n| `func_00350190` | Movie interrupt completion | 76 | US / US2 / PAL: 28 each |\n| `func_0034FFC0` | Movie vblank callback | 464 | US: 28 |\n| `func_L00_003B63D8` | Training-object state machine | 1,152 | US / US2: 27 each |\n| `func_L00_0041FC20` | Impact-effect creation | 1,228 | US / US2: 27 each |\n| `func_L03_003E4680` | Museum exhibit controller | 2,540 | US: 8 |\n\nUnlisted release identities are absent from",
+      "mergedAt": "2026-11-03T07:39:34Z"
+     },
+     {
+      "number": 399,
+      "title": "feat(src): match 145 boot and level functions",
+      "author": "bigbeno37",
+      "untrustedBody": "## What\n\n145 functions as C: 39 boot and 106 level functions (48 shared), in 7 commits of 18–24 functions. Includes per-file flags and 43 readable aliases. Four further commits update 76 retained near misses (with 12 aliases), and one reconciles the `docs/MATCHING-BLOCKERS.md` passages that still described the newly matched functions as open.\n\nReserved in my [#152 comment](https://github.com/OpenRAC/rac2-decomp/issues/152#issuecomment-6461180381); other contributors' reservations are excluded. Progress reports and the README table are untouched.\n\n## Checked\n\nOn master `998b247d` with the whole branch applied:\n\n- `python3 tools/build.py all --strict --jobs 8 --version us`: 28 programs OK\n- `python3 tools/build.py all --strict --jobs 8 --version pal`: 28 programs OK\n- `python3 tools/build.py all --strict --jobs 8 --version us2`: 28 programs OK\n- `python3 -m unittest discover -s tests`: 339 tests OK\n- `python3 tests/check_repository.py`: pass\n- `python3 tools/progress.py --check`: 145 C f",
+      "mergedAt": "2026-11-03T07:45:36Z"
+     },
+     {
+      "number": 400,
+      "title": "docs: handoff for work where the decomp meets the native port",
+      "author": "Veradictus",
+      "untrustedBody": "Adds `docs/PORT_HANDOFF.md` for whoever picks up the port-facing work next:\n\n- how this repository feeds OpenRAC's native port (pin, functional rows, host functions, `ps2_float`);\n- the state at #393: reports, 472 rows, and the 40 left out with culprits narrowed to pairs;\n- what an fcheck SAME does and doesn't prove;\n- the player-reported bugs from this round, with which ones traced back here;\n- the debugging methods that worked;\n- lessons for writing functional C, save-format facts from this code, and the open items.\n\nDocs only. Linked from the README.",
+      "mergedAt": "2026-11-03T07:20:22Z"
+     },
+     {
+      "number": 401,
+      "title": "fix(catalogue): repair fourteen entries and match thirteen routines",
+      "author": "llesieur99",
+      "untrustedBody": "## What\n\nMatch **13 additional canonical functions, 3,584 distinct USA code bytes**, across **45 carrying placements** after fixing measured catalogue entry prefixes. The nine matches from #398 are already upstream and are not counted again here.\n\n| Function or family | Functions | Unique USA bytes | Carrying placements |\n| --- | ---: | ---: | --- |\n| Menu initializers, including the boot's copy | 12 | 3,264 | US: 15; US2: 14; PAL: 13 |\n| StoreImage packet constructor (`func_0012646C`) | 1 | 320 | Boot in all three releases |\n\nFourteen named entry repairs retain names, kinds, placement counts and original ends: two core fill prefixes and twelve orphan menu prefixes. The maintained generator changes **40 catalogue rows / 48 placements**. A synthetic collision/replay test preserves distinct canonical names when shortened bodies coincide. Skipped bytes remain in the loaded image; the **200 distinct USA prefix bytes** removed from catalogue accounting are not C progress. The StoreImage exe",
+      "mergedAt": "2026-11-03T14:54:32Z"
+     },
+     {
+      "number": 402,
+      "title": "fix(functional): return 27 helper rows after the loader argument fix",
+      "author": "Lynder063",
+      "untrustedBody": "OpenRAC #236 fixed the drift blamed on these rows, so the 27 with SAME verdicts return; the handoff says what changed.\nbuild.py all --strict: 28 OK; tests, check_repository and progress --check pass; rac2-tour with the 27 rows: 26 same.",
+      "mergedAt": "2026-11-03T15:51:52Z"
+     },
+     {
+      "number": 403,
+      "title": "docs(port): record the retail comparison and the waiting rows",
+      "author": "Lynder063",
+      "untrustedBody": "Level 14 settles at retail's height with OpenRAC #236 and not without it; func_L20_0036AE68 is matched and the level 8 rows need a route.\nDocs only, no build run; tests, check_repository and progress --check pass.",
+      "mergedAt": "2026-11-03T16:22:39Z"
+     },
+     {
+      "number": 404,
+      "title": "fix(nonmatching): repair shared effect storage and phase lifetimes",
+      "author": "Lynder063",
+      "untrustedBody": "What: Correct retained Barlow/Joba vector and UV ownership, unsigned alpha packing and pulse FP lifetimes; document five bounded near misses (0 new C matches). Preserve assembly markers, functional rows and progress reports; save CLAUDE/container instructions in AGENTS.md.\nChecked in the existing rac2-build312 container image: tools/build.py all --strict --jobs 4 for us, pal and us2: 28/28 OK each (84 total); python -m unittest discover -s tests: 340 passed; tests/check_repository.py and tools/progress.py --check passed; LF/diff checks passed. Retained checker APIs rechecked all 34 carrying placements: still unmatched as recorded. Native gameplay was not run.",
+      "mergedAt": "2026-11-03T17:06:49Z"
+     },
+     {
+      "number": 405,
+      "title": "feat(src): match four initialization table functions",
+      "author": "Lynder063",
+      "untrustedBody": "## What\nMatch `func_L01_0034B1C0`, `func_L03_003564C0`, `func_L09_00352150` and `func_L23_0035CE90` using the matched Aranos initialization donor. Repair their measured 16-byte entry residues through the existing generator; preserve catalogue identities and ends. Four new C functions, five USA v1.01 placements. Scope reserved in #152; README and progress report unchanged.\n\n## Checked\nInside the existing 32-bit container: `python3 tools/build.py all --strict --jobs 6` (US), `python3 tools/build.py all --strict --jobs 5 --version pal`, and `python3 tools/build.py all --strict --jobs 5 --version us2`: **28 programs OK each, 84 total, no C fallback**. `tools/check.py`: 5/5 US, 5/5 PAL, 4/4 US2 placements; all 14 intended `placed.json` entries verified. `python3 -m unittest discover -s tests`: **340 tests OK**. `python3 tests/check_repository.py` and `python3 tools/progress.py --check`: **passed**. Staged text is LF. Gameplay was not tested; Wine ran only inside the container.",
+      "mergedAt": "2026-11-03T17:06:36Z"
+     },
+     {
+      "number": 406,
+      "title": "feat(src): qualify 37 RAC1-identical original assembly routines",
+      "author": "Lynder063",
+      "untrustedBody": "## What\nClassify 37 routines longer than 16 bytes using the existing RAC1-identity rule: current RAC1 explicitly marks each donor ASM_FUNC, and each RAC2 marker records its donor. All 2,787 carrying placements agree apart from address fields. Adds 3,136 bytes of original-assembly completion, not new C. Records bounded larger-C scheduling constraints; scope is coordinated in #152. Progress reports are unchanged.\n\n## Checked\nIn the existing container, `python3 tools/build.py all --strict --jobs 6` (US), `python3 tools/build.py all --strict --jobs 5 --version pal`, and `python3 tools/build.py all --strict --jobs 5 --version us2`: **28 programs OK each, 84 total, no C fallback**. `python3 -m unittest discover -s tests`: **340 tests OK**; `python3 tests/check_repository.py` and `python3 tools/progress.py --check`: **passed**. Staged text LF. Donors are current RAC1 commit `1d8228cc0c81da7bc2bdc3e77479ee050e0ef434`; no game bytes, disassembly or proprietary tools committed. Gameplay not test",
+      "mergedAt": "2026-11-03T17:34:31Z"
+     },
+     {
+      "number": 407,
+      "title": "feat(src): match libm logs and HUD with verified constant pools",
+      "author": "llesieur99",
+      "untrustedBody": "## What\n\nMatch **three canonical C functions, 2,460 distinct USA code bytes**, across **90 carrying placements**:\n\n| Function | Purpose | Bytes | Placements |\n| --- | --- | ---: | --- |\n| `func_00117CA0` | Native fdlibm logarithm | 1,556 | Boot in US, US2 and PAL |\n| `func_001182B8` | Native fdlibm base-10 logarithm | 424 | Boot in US, US2 and PAL |\n| `func_0034AA30` | HUD range, position, visibility and colors | 480 | Boot and 27 levels in each release |\n\nThe libm bodies preserve their public newlib/Sun provenance and real word unions. Their complete scalar pools are 96 and 32 bytes, contiguous and disjoint in each release. `log10` uses immediate expressions for `two54` and zero: its initially matching text with an incorrect 48-byte pool was rejected. The HUD source closes its operand-lifetime mismatch with the direct field sum, without a retained intermediate X value.\n\nThe existing per-object assembler profiles gain `-Wa,--r5900-unsigned32-mask=sn`. It reproduces SN's measured seed f",
+      "mergedAt": "2026-11-03T19:16:58Z"
+     },
+     {
+      "number": 410,
+      "title": "docs(port): record the Feltzin, Gorn and Hrugis findings and the reference's limits",
+      "author": "Lynder063",
+      "untrustedBody": "The Feltzin split came from the interpreter's sound mask and Gorn's from frame load, not the leads the handoff gave; adds the methods and open items.\nDocs only, no build run; tests, check_repository and progress --check pass.",
+      "mergedAt": "2026-11-03T21:42:26Z"
+     }
+    ],
+    "opened": [
+     {
+      "number": 397,
+      "title": "feat(src): func_002CC528 in C after an entry correction; func_002A0488 notes",
+      "author": "DrLegitamate",
+      "untrustedBody": "One boot function matched at all 28 places after a catalogue entry correction, and a closer near miss for a second small boot function.\n\n## Matched: `func_002CC528` (now 32 bytes at 0x002CC530, 28 places)\n\n- **Catalogue entry correction.** The row started 8 bytes early: retail 0x002CC528 is `addiu $sp,$sp,0x60; nop`, the tail of `func_002CC490`'s return. The body starts at 0x002CC530 (`lui $v1,0x1A`). The only pointer to the function in the boot (the word at 0x00260988) targets 0x002CC530; none targets the old start. `tools/levels.py` gains `\"func_002CC528\": (40, 8)` in `FUNCTION_ENTRY_OFFSETS`, as d9e7028d did for `func_0028FF50`; the USA catalogues regenerate byte-identically; `docs/LEVELS.md` records the prefix.\n- **C.** `-O2 -G8 -ffunction-sections -mno-split-addresses` in its own unit: the flag keeps `D_001A7318` (`nosda`) as one macro load that uses its destination as the address temporary, so the selected pointer and condition land in retail's `$a1`/`$v1` for the `movn`/`sw`. Or",
+      "mergedAt": "2026-11-03T07:39:04Z"
+     },
+     {
+      "number": 398,
+      "title": "feat(src): match nine routines and repair retained reconstructions",
+      "author": "llesieur99",
+      "untrustedBody": "## What\n\nMatch **nine functions, 7,452 distinct USA code bytes**, with **300 carrying\nplacements** across the three releases. The same canonical source is used\nwherever the catalogue carries it.\n\n| Function | Purpose | Bytes | Carrying placements |\n| --- | --- | ---: | --- |\n| `func_L11_00472090` | Cubic vector interpolation | 288 | US / US2 / PAL: 3 each |\n| `func_00131424` | Public-newlib square-root wrapper | 268 | Boot in all three releases |\n| `func_0032AE30` | Trail-node creation | 284 | US / US2: 28 each |\n| `func_L04_004135B8` | Route following | 1,152 | US / US2: 2 each |\n| `func_00350190` | Movie interrupt completion | 76 | US / US2 / PAL: 28 each |\n| `func_0034FFC0` | Movie vblank callback | 464 | US: 28 |\n| `func_L00_003B63D8` | Training-object state machine | 1,152 | US / US2: 27 each |\n| `func_L00_0041FC20` | Impact-effect creation | 1,228 | US / US2: 27 each |\n| `func_L03_003E4680` | Museum exhibit controller | 2,540 | US: 8 |\n\nUnlisted release identities are absent from",
+      "mergedAt": "2026-11-03T07:39:34Z"
+     },
+     {
+      "number": 399,
+      "title": "feat(src): match 145 boot and level functions",
+      "author": "bigbeno37",
+      "untrustedBody": "## What\n\n145 functions as C: 39 boot and 106 level functions (48 shared), in 7 commits of 18–24 functions. Includes per-file flags and 43 readable aliases. Four further commits update 76 retained near misses (with 12 aliases), and one reconciles the `docs/MATCHING-BLOCKERS.md` passages that still described the newly matched functions as open.\n\nReserved in my [#152 comment](https://github.com/OpenRAC/rac2-decomp/issues/152#issuecomment-6461180381); other contributors' reservations are excluded. Progress reports and the README table are untouched.\n\n## Checked\n\nOn master `998b247d` with the whole branch applied:\n\n- `python3 tools/build.py all --strict --jobs 8 --version us`: 28 programs OK\n- `python3 tools/build.py all --strict --jobs 8 --version pal`: 28 programs OK\n- `python3 tools/build.py all --strict --jobs 8 --version us2`: 28 programs OK\n- `python3 -m unittest discover -s tests`: 339 tests OK\n- `python3 tests/check_repository.py`: pass\n- `python3 tools/progress.py --check`: 145 C f",
+      "mergedAt": "2026-11-03T07:45:36Z"
+     },
+     {
+      "number": 400,
+      "title": "docs: handoff for work where the decomp meets the native port",
+      "author": "Veradictus",
+      "untrustedBody": "Adds `docs/PORT_HANDOFF.md` for whoever picks up the port-facing work next:\n\n- how this repository feeds OpenRAC's native port (pin, functional rows, host functions, `ps2_float`);\n- the state at #393: reports, 472 rows, and the 40 left out with culprits narrowed to pairs;\n- what an fcheck SAME does and doesn't prove;\n- the player-reported bugs from this round, with which ones traced back here;\n- the debugging methods that worked;\n- lessons for writing functional C, save-format facts from this code, and the open items.\n\nDocs only. Linked from the README.",
+      "mergedAt": "2026-11-03T07:20:22Z"
+     },
+     {
+      "number": 401,
+      "title": "fix(catalogue): repair fourteen entries and match thirteen routines",
+      "author": "llesieur99",
+      "untrustedBody": "## What\n\nMatch **13 additional canonical functions, 3,584 distinct USA code bytes**, across **45 carrying placements** after fixing measured catalogue entry prefixes. The nine matches from #398 are already upstream and are not counted again here.\n\n| Function or family | Functions | Unique USA bytes | Carrying placements |\n| --- | ---: | ---: | --- |\n| Menu initializers, including the boot's copy | 12 | 3,264 | US: 15; US2: 14; PAL: 13 |\n| StoreImage packet constructor (`func_0012646C`) | 1 | 320 | Boot in all three releases |\n\nFourteen named entry repairs retain names, kinds, placement counts and original ends: two core fill prefixes and twelve orphan menu prefixes. The maintained generator changes **40 catalogue rows / 48 placements**. A synthetic collision/replay test preserves distinct canonical names when shortened bodies coincide. Skipped bytes remain in the loaded image; the **200 distinct USA prefix bytes** removed from catalogue accounting are not C progress. The StoreImage exe",
+      "mergedAt": "2026-11-03T14:54:32Z"
+     },
+     {
+      "number": 402,
+      "title": "fix(functional): return 27 helper rows after the loader argument fix",
+      "author": "Lynder063",
+      "untrustedBody": "OpenRAC #236 fixed the drift blamed on these rows, so the 27 with SAME verdicts return; the handoff says what changed.\nbuild.py all --strict: 28 OK; tests, check_repository and progress --check pass; rac2-tour with the 27 rows: 26 same.",
+      "mergedAt": "2026-11-03T15:51:52Z"
+     },
+     {
+      "number": 403,
+      "title": "docs(port): record the retail comparison and the waiting rows",
+      "author": "Lynder063",
+      "untrustedBody": "Level 14 settles at retail's height with OpenRAC #236 and not without it; func_L20_0036AE68 is matched and the level 8 rows need a route.\nDocs only, no build run; tests, check_repository and progress --check pass.",
+      "mergedAt": "2026-11-03T16:22:39Z"
+     },
+     {
+      "number": 404,
+      "title": "fix(nonmatching): repair shared effect storage and phase lifetimes",
+      "author": "Lynder063",
+      "untrustedBody": "What: Correct retained Barlow/Joba vector and UV ownership, unsigned alpha packing and pulse FP lifetimes; document five bounded near misses (0 new C matches). Preserve assembly markers, functional rows and progress reports; save CLAUDE/container instructions in AGENTS.md.\nChecked in the existing rac2-build312 container image: tools/build.py all --strict --jobs 4 for us, pal and us2: 28/28 OK each (84 total); python -m unittest discover -s tests: 340 passed; tests/check_repository.py and tools/progress.py --check passed; LF/diff checks passed. Retained checker APIs rechecked all 34 carrying placements: still unmatched as recorded. Native gameplay was not run.",
+      "mergedAt": "2026-11-03T17:06:49Z"
+     },
+     {
+      "number": 405,
+      "title": "feat(src): match four initialization table functions",
+      "author": "Lynder063",
+      "untrustedBody": "## What\nMatch `func_L01_0034B1C0`, `func_L03_003564C0`, `func_L09_00352150` and `func_L23_0035CE90` using the matched Aranos initialization donor. Repair their measured 16-byte entry residues through the existing generator; preserve catalogue identities and ends. Four new C functions, five USA v1.01 placements. Scope reserved in #152; README and progress report unchanged.\n\n## Checked\nInside the existing 32-bit container: `python3 tools/build.py all --strict --jobs 6` (US), `python3 tools/build.py all --strict --jobs 5 --version pal`, and `python3 tools/build.py all --strict --jobs 5 --version us2`: **28 programs OK each, 84 total, no C fallback**. `tools/check.py`: 5/5 US, 5/5 PAL, 4/4 US2 placements; all 14 intended `placed.json` entries verified. `python3 -m unittest discover -s tests`: **340 tests OK**. `python3 tests/check_repository.py` and `python3 tools/progress.py --check`: **passed**. Staged text is LF. Gameplay was not tested; Wine ran only inside the container.",
+      "mergedAt": "2026-11-03T17:06:36Z"
+     },
+     {
+      "number": 406,
+      "title": "feat(src): qualify 37 RAC1-identical original assembly routines",
+      "author": "Lynder063",
+      "untrustedBody": "## What\nClassify 37 routines longer than 16 bytes using the existing RAC1-identity rule: current RAC1 explicitly marks each donor ASM_FUNC, and each RAC2 marker records its donor. All 2,787 carrying placements agree apart from address fields. Adds 3,136 bytes of original-assembly completion, not new C. Records bounded larger-C scheduling constraints; scope is coordinated in #152. Progress reports are unchanged.\n\n## Checked\nIn the existing container, `python3 tools/build.py all --strict --jobs 6` (US), `python3 tools/build.py all --strict --jobs 5 --version pal`, and `python3 tools/build.py all --strict --jobs 5 --version us2`: **28 programs OK each, 84 total, no C fallback**. `python3 -m unittest discover -s tests`: **340 tests OK**; `python3 tests/check_repository.py` and `python3 tools/progress.py --check`: **passed**. Staged text LF. Donors are current RAC1 commit `1d8228cc0c81da7bc2bdc3e77479ee050e0ef434`; no game bytes, disassembly or proprietary tools committed. Gameplay not test",
+      "mergedAt": "2026-11-03T17:34:31Z"
+     },
+     {
+      "number": 407,
+      "title": "feat(src): match libm logs and HUD with verified constant pools",
+      "author": "llesieur99",
+      "untrustedBody": "## What\n\nMatch **three canonical C functions, 2,460 distinct USA code bytes**, across **90 carrying placements**:\n\n| Function | Purpose | Bytes | Placements |\n| --- | --- | ---: | --- |\n| `func_00117CA0` | Native fdlibm logarithm | 1,556 | Boot in US, US2 and PAL |\n| `func_001182B8` | Native fdlibm base-10 logarithm | 424 | Boot in US, US2 and PAL |\n| `func_0034AA30` | HUD range, position, visibility and colors | 480 | Boot and 27 levels in each release |\n\nThe libm bodies preserve their public newlib/Sun provenance and real word unions. Their complete scalar pools are 96 and 32 bytes, contiguous and disjoint in each release. `log10` uses immediate expressions for `two54` and zero: its initially matching text with an incorrect 48-byte pool was rejected. The HUD source closes its operand-lifetime mismatch with the direct field sum, without a retained intermediate X value.\n\nThe existing per-object assembler profiles gain `-Wa,--r5900-unsigned32-mask=sn`. It reproduces SN's measured seed f",
+      "mergedAt": "2026-11-03T19:16:58Z"
+     },
+     {
+      "number": 408,
+      "title": "feat(src): func_L11_00420C88 in C; func_002B60B0 returns nothing",
+      "author": "DrLegitamate",
+      "untrustedBody": "## What\n\n`func_L11_00420C88`, the 15,832-byte Joba NPC state machine, now matches (USA v1.01, 1 of 1 places). It lives in `src/levels/11_joba/L11_00420C88-state-g8.c` (`-O2 -G8 -ffunction-sections -frac2-qcopy -frac2-qcopy-barrier`). This answers the question raised in #396.\n\n**`func_002B60B0` returns nothing.** It had been declared `void *` only because its pointer stays in `$v0` from `func_002B5D28`. The evidence for `void`:\n\n- **The definition matches as `void`.** With the stores grouped by parameter (`x` at 0x20/0x24, `y` 0x28, `z` 0x14/0x18, `w` 0x1C), a `void` definition compiles to `.text` byte-identical to the old form and matches all 23 USA places. 3 of the 720 store orders do this.\n- **No caller reads the result.** A path-aware scan of all 505 retail calls in the 26 USA programs that carry it finds no path that reads `$v0` before overwriting it.\n- **The callers depend on it.** 24 already-matched callers in 11 levels match only with a `void` declaration (with `void *`, the fir",
+      "mergedAt": "2026-11-04T02:28:42Z"
+     },
+     {
+      "number": 409,
+      "title": "feat(src): func_00333048 in C; its hit-packet read is a dead normalize",
+      "author": "DrLegitamate",
+      "untrustedBody": "## What\n\n`func_00333048` (1,128 bytes, in the boot and 27 levels) now matches: USA v1.01, 28 of 28 places. It lives in `src/game/00333048-g8.c` (default `-O2 -G8 -ffunction-sections`).\n\nThe C is PR #361's retained draft. It was held back because retail normalizes the hit packet's vector at `+0x36C`, before that vector's first identified initialization. Retail's own code answers the review question:\n\n- **The slot has no earlier producer.** Nothing writes stack `+0x40..0x4F` before that call: there is no store to it, and its address isn't taken. No other local shares the slot.\n- **The normalize result is dead.** `func_002A8C00` (already matched in `src/game/002A7750.c`) then overwrites the whole vector from its `q` argument (`direction`) without reading the old contents.\n- **The C adds nothing.** It keeps the call where retail has it and invents no initialization.\n- **The declarations agree with the matched definitions.** `func_0032C700`'s two floats keep their bank order, as the EE ABI ",
+      "mergedAt": "2026-11-04T02:28:12Z"
+     },
+     {
+      "number": 410,
+      "title": "docs(port): record the Feltzin, Gorn and Hrugis findings and the reference's limits",
+      "author": "Lynder063",
+      "untrustedBody": "The Feltzin split came from the interpreter's sound mask and Gorn's from frame load, not the leads the handoff gave; adds the methods and open items.\nDocs only, no build run; tests, check_repository and progress --check pass.",
+      "mergedAt": "2026-11-03T21:42:26Z"
+     },
+     {
+      "number": 411,
+      "title": "feat(src): func_L08_002BE8E8 in C, as its merged level 18 twin",
+      "author": "DrLegitamate",
+      "untrustedBody": "## What\n\n`func_L08_002BE8E8`, level 8's hero trigger reset (1,076 bytes), now matches: USA v1.01, 1 of 1 places. It lives in `src/levels/08_tabora/L08_002BE8E8.c` (default profile).\n\nIt is the same routine as `func_L18_002CA350`, which merged on 1 November (3437bfb1) in exactly this form:\n\n- **The pattern.** The two arms on the busy field at `+0x340` (`if (busy) { if (action == -1) return; } else { if (action == -1) return; }`) are merged by jump2's cross-jumping. Retail keeps the resulting dead `lw 0x340` and the end of the extended block, so later blocks rebuild the hero address.\n- **Documented.** `docs/MATCHING-BLOCKERS.md` describes this as the way out that closed two such functions (\"jump2 cross-jumps two arms that end the same\").\n- **Why it was held back.** The retained draft was already exact. It was held back only by a private worker-guide rule against identical arms, which is not part of the repository's rules.\n\nThe near-miss and port-only functional copies are retired.\n\n## Ch",
+      "mergedAt": "2026-11-04T02:28:08Z"
+     },
+     {
+      "number": 412,
+      "title": "fix(functional): return three rows the gate proves and drop a matched file",
+      "author": "Lynder063",
+      "untrustedBody": "func_L00_002EDCF0, func_L03_0038AB30 and func_L04_0032F3C0 are SAME once captured in other levels; drops func_L03_003E4680's stale file; the handoff lists the 7 rows left.\nNo src change, no build run; tests, check_repository and progress --check pass; rac2-tour with the rows: 26 same.",
+      "mergedAt": "2026-11-04T02:24:41Z"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": {
+    "before": {
+     "code": {
+      "done": 4725508,
+      "total": 5527840
+     },
+     "functions": {
+      "done": 7793,
+      "total": 8580
+     },
+     "data": {
+      "done": 0,
+      "total": 383391
+     }
+    },
+    "after": {
+     "code": {
+      "done": 4846916,
+      "total": 5527832
+     },
+     "functions": {
+      "done": 7950,
+      "total": 8580
+     },
+     "data": {
+      "done": 0,
+      "total": 383391
+     }
+    }
+   },
+   "contributors": [
+    "bigbeno37",
+    "DrLegitamate",
+    "llesieur99",
+    "Lynder063",
+    "Veradictus"
+   ]
+  },
+  {
+   "repo": "rac3-decomp",
+   "title": "Up Your Arsenal",
+   "branches": [
+    {
+     "name": "master",
+     "commits": [
+      {
+       "sha": "2ceb5ed22a886a6b87b7f02af6df3195abdfc931",
+       "title": "Merge pull request #2 from DameNavarro/match/frontbin",
+       "author": "Lynder063",
+       "date": "2026-11-03T15:24:58Z"
+      }
+     ]
+    }
+   ],
+   "commitCount": 1,
+   "pullRequests": {
+    "merged": [
+     {
+      "number": 2,
+      "title": "feat(frontbin): match 29 functions and fix native source selection",
+      "author": "DameNavarro",
+      "untrustedBody": "Add 26 shared PAL/NTSC-U frontbin implementations and three NTSC-U-only\nimplementations, adapted from the NTSC decomp drafts under GPL-3.0.\n\nPreserve existing file compiler flags, required file-scope symbol-size\nhints, and fixed-address global accesses. Fix native C exclusion from\nthe PAL object fallback. Retire integrated drafts, document four\nunfinished attempts, and refresh declarations and progress records.\n\nMerged current master and verified:\n- All three PAL core programs: MATCH with retail hashes.\n- All 54 NTSC-U targets: MATCH.\n- All 37 expected merge-validation functions selected from C.\n- Repository checks passed.\n- All 36 unit tests passed.",
+      "mergedAt": "2026-11-03T15:24:59Z"
+     }
+    ],
+    "opened": []
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": {
+    "before": {
+     "code": {
+      "done": 657780,
+      "total": 7546948
+     },
+     "functions": {
+      "done": 5807,
+      "total": 16164
+     }
+    },
+    "after": {
+     "code": {
+      "done": 658400,
+      "total": 7546948
+     },
+     "functions": {
+      "done": 5810,
+      "total": 16164
+     }
+    }
+   },
+   "contributors": [
+    "DameNavarro",
+    "Lynder063"
+   ]
+  },
+  {
+   "repo": "rac4-decomp",
+   "title": "Ratchet: Deadlocked",
+   "branches": [
+    {
+     "name": "main",
+     "commits": [
+      {
+       "sha": "7ab9177ef20c02984874b6991eb27c57381e03ac",
+       "title": "Merge pull request #91 from OpenRAC/claude/rac4-pal-batch-86-89",
+       "author": "Lynder063",
+       "date": "2026-11-03T21:27:29Z"
+      }
+     ]
+    }
+   ],
+   "commitCount": 1,
+   "pullRequests": {
+    "merged": [
+     {
+      "number": 86,
+      "title": "Match 52 PAL resident game functions",
+      "author": "Sumaiter",
+      "untrustedBody": "Adds matching C implementations for 52 previously undecompiled PAL resident game functions (9,408 bytes). The batch covers menu state updates, inventory checks, resource lookup and typed dispatch, callback maps, buffered data ranges, command packets, and grouped flag updates. Interfaces were reviewed against retail callers and callees, including forwarded arguments, callback signatures, output pointers, floating-point inputs and returns, and 64-bit packet values. Hash entries use typed key/value members, and dynamic table indexing avoids unsupported array bounds.\n\nAdds 52 PAL `match` rows and corresponding US `other` rows while preserving all existing entries and their order. PAL matched code increases from 464,252 to 473,660 bytes (7.986549% to 8.148395%), and matched functions from 5,855 to 5,907. The US progress report is unchanged.\n\nValidation:\n\n- Rebuilt all 52 final translation units through the unchanged `tools/cc.sh` pipeline and compared them at their direct PAL catalogue addr",
+      "mergedAt": "2026-11-03T21:27:31Z"
+     },
+     {
+      "number": 87,
+      "title": "Match 15 PAL word-table probes",
+      "author": "Shaar-games",
+      "untrustedBody": "- func_L00_006A3670\n- func_L00_006A36E0\n- func_L00_006A37D0\n- func_L00_006A38C0\n- func_L00_006A3930\n- func_L00_006A39A0\n- func_L00_006A3A10\n- func_L00_006A3A80\n- func_L00_006A3AF0\n- func_L00_006A3B60\n- func_L00_006A3BD0\n- func_L00_006A3CC0\n- func_L00_006A3D30\n- func_L00_006A3DA0\n- func_L00_006A3E10",
+      "mergedAt": "2026-11-03T21:27:31Z"
+     },
+     {
+      "number": 88,
+      "title": "Match 54 PAL game and resource functions",
+      "author": "Sumaiter",
+      "untrustedBody": "Adds matching C implementations for 54 previously undecompiled PAL resident game functions (10,576 bytes). The batch covers resource dispatch and lifetime management, menu state machines and selection transitions, formatted notices, inventory queries, packed-color updates, and typed callback maps. Interfaces were reviewed against retail callers and callees, including output pointers, serialized data, full floating-point forwarding, renderer source pointers and 64-bit color values. Candidates whose local outputs could not be proven initialized were excluded.\n\nAdds 54 PAL `match` rows and corresponding US `other` rows while preserving all existing entries and their order. PAL matched code increases from 464,252 to 474,828 bytes (7.986549% to 8.168488%), and matched functions from 5,855 to 5,909. The US progress report is unchanged.\n\nValidation:\n\n- Rebuilt all 54 final translation units through the unchanged `tools/cc.sh` pipeline and compared them at their direct PAL catalogue addresses:",
+      "mergedAt": "2026-11-03T21:27:32Z"
+     },
+     {
+      "number": 89,
+      "title": "Match 50 PAL resident functions",
+      "author": "Sumaiter",
+      "untrustedBody": "Adds matching C implementations for 50 previously undecompiled PAL resident functions (9,796 bytes). Cross-game comparison identified public RAC1/RAC2/RAC3 implementations useful for 28 of these reconstructions. Immutable donor commits, paths and functions are credited in `config/pal/crossgame_sources.tsv`, source comments and `THIRD_PARTY_NOTICES.md`. Fingerprints were used to find references; acceptance uses this game's PAL retail code.\n\nThe batch covers HUD and text helpers, packet generation, serialization/checksums, interpolation, visibility lookup, resource dispatch, menu callbacks, state updates and two core variadic forwarding wrappers. Interfaces were checked against actual callers and callees, including full 64-bit color forwarding, text and buffer pointers, callback argument types, output initialization and object extents. Candidates needing register pins, assembly barriers, unsupported padding or unproven shift bounds were excluded.\n\nAdds 50 PAL `match` rows and correspondi",
+      "mergedAt": "2026-11-03T21:27:31Z"
+     },
+     {
+      "number": 91,
+      "title": "Merge the PAL batch #86, #87, #88, #89 (171 functions)",
+      "author": "Lynder063",
+      "untrustedBody": "Merges #86, #87, #88 and #89 together. All four were green on their own but conflict with each other in the generated files, because each regenerated `config/*/map.tsv`, `progress/pal/report.json` and the README table. No file under `src/` is touched by more than one of them.\n\nMerge this with a **merge commit**, not a squash: the four PR heads then land on `main`, and GitHub marks those PRs as merged with their authors' commits intact.\n\n### How the generated files were resolved\n- **`config/{us,pal}/map.tsv`:** the union of the rows the four PRs generated (171 added per file, 0 removed), deduplicated and put back in `match_map.py`'s order.\n- **`progress/pal/report.json`, `progress/report.json` and the README tables:** rebuilt with `tools/progress.py --write`.\n\n### Checks\n- `tools/progress.py --check` and `tools/match_map.py --check` pass for both versions.\n- PAL report: 5,855 → 6,026 functions (+171 = 52 + 15 + 54 + 50) and 464,252 → 495,712 bytes, which equals the sum of the four PRs' ",
+      "mergedAt": "2026-11-03T21:27:29Z"
+     }
+    ],
+    "opened": [
+     {
+      "number": 86,
+      "title": "Match 52 PAL resident game functions",
+      "author": "Sumaiter",
+      "untrustedBody": "Adds matching C implementations for 52 previously undecompiled PAL resident game functions (9,408 bytes). The batch covers menu state updates, inventory checks, resource lookup and typed dispatch, callback maps, buffered data ranges, command packets, and grouped flag updates. Interfaces were reviewed against retail callers and callees, including forwarded arguments, callback signatures, output pointers, floating-point inputs and returns, and 64-bit packet values. Hash entries use typed key/value members, and dynamic table indexing avoids unsupported array bounds.\n\nAdds 52 PAL `match` rows and corresponding US `other` rows while preserving all existing entries and their order. PAL matched code increases from 464,252 to 473,660 bytes (7.986549% to 8.148395%), and matched functions from 5,855 to 5,907. The US progress report is unchanged.\n\nValidation:\n\n- Rebuilt all 52 final translation units through the unchanged `tools/cc.sh` pipeline and compared them at their direct PAL catalogue addr",
+      "mergedAt": "2026-11-03T21:27:31Z"
+     },
+     {
+      "number": 87,
+      "title": "Match 15 PAL word-table probes",
+      "author": "Shaar-games",
+      "untrustedBody": "- func_L00_006A3670\n- func_L00_006A36E0\n- func_L00_006A37D0\n- func_L00_006A38C0\n- func_L00_006A3930\n- func_L00_006A39A0\n- func_L00_006A3A10\n- func_L00_006A3A80\n- func_L00_006A3AF0\n- func_L00_006A3B60\n- func_L00_006A3BD0\n- func_L00_006A3CC0\n- func_L00_006A3D30\n- func_L00_006A3DA0\n- func_L00_006A3E10",
+      "mergedAt": "2026-11-03T21:27:31Z"
+     },
+     {
+      "number": 88,
+      "title": "Match 54 PAL game and resource functions",
+      "author": "Sumaiter",
+      "untrustedBody": "Adds matching C implementations for 54 previously undecompiled PAL resident game functions (10,576 bytes). The batch covers resource dispatch and lifetime management, menu state machines and selection transitions, formatted notices, inventory queries, packed-color updates, and typed callback maps. Interfaces were reviewed against retail callers and callees, including output pointers, serialized data, full floating-point forwarding, renderer source pointers and 64-bit color values. Candidates whose local outputs could not be proven initialized were excluded.\n\nAdds 54 PAL `match` rows and corresponding US `other` rows while preserving all existing entries and their order. PAL matched code increases from 464,252 to 474,828 bytes (7.986549% to 8.168488%), and matched functions from 5,855 to 5,909. The US progress report is unchanged.\n\nValidation:\n\n- Rebuilt all 54 final translation units through the unchanged `tools/cc.sh` pipeline and compared them at their direct PAL catalogue addresses:",
+      "mergedAt": "2026-11-03T21:27:32Z"
+     },
+     {
+      "number": 89,
+      "title": "Match 50 PAL resident functions",
+      "author": "Sumaiter",
+      "untrustedBody": "Adds matching C implementations for 50 previously undecompiled PAL resident functions (9,796 bytes). Cross-game comparison identified public RAC1/RAC2/RAC3 implementations useful for 28 of these reconstructions. Immutable donor commits, paths and functions are credited in `config/pal/crossgame_sources.tsv`, source comments and `THIRD_PARTY_NOTICES.md`. Fingerprints were used to find references; acceptance uses this game's PAL retail code.\n\nThe batch covers HUD and text helpers, packet generation, serialization/checksums, interpolation, visibility lookup, resource dispatch, menu callbacks, state updates and two core variadic forwarding wrappers. Interfaces were checked against actual callers and callees, including full 64-bit color forwarding, text and buffer pointers, callback argument types, output initialization and object extents. Candidates needing register pins, assembly barriers, unsupported padding or unproven shift bounds were excluded.\n\nAdds 50 PAL `match` rows and correspondi",
+      "mergedAt": "2026-11-03T21:27:31Z"
+     },
+     {
+      "number": 90,
+      "title": "Add PAL C for 6 functions; 20 catalogue rows that end on a branch",
+      "author": "chistianh",
+      "untrustedBody": "**Title:** Add PAL C for 6 functions; 20 catalogue rows that end on a branch\n\n6 PAL-only functions, one commit each, chosen as in #33–#55 (fingerprint in no row of `config/us/functions.tsv`, no `match` or `near` row places them).\n\n| PAL | Where | Size |\n|---|---|---|\n| func_L05_004F0B20 | `src/pal/overlays/shared/` | 276 |\n| func_L01_004E6AD8 | `src/pal/overlays/l01_dreadzone_station/` | 280 |\n| func_L11_00493CF8 | `src/pal/overlays/l11_tempus_station/` | 288 |\n| func_L05_004F59C8 | `src/pal/overlays/l05_dark_cathedral/` | 320 |\n| func_L13_004BEF98 | `src/pal/overlays/l13_maraxus_prison/` | 360 |\n| func_L00_00718D58 | `src/pal/overlays/l00_multiplayer_menu/` | 380 |\n\nChecks: every file of `src/pal/` MATCHES with `tools/check_func.py --version pal`, checked with `src/pal/` set aside. The branch is based on today's `main`. `config/` and the reports are not regenerated.\n\n### Catalogue notes\n\n1. **20 rows of `config/pal/functions.tsv` end on a branch or jump with no delay slot**: the last ",
+      "mergedAt": "2026-11-04T01:54:33Z"
+     },
+     {
+      "number": 91,
+      "title": "Merge the PAL batch #86, #87, #88, #89 (171 functions)",
+      "author": "Lynder063",
+      "untrustedBody": "Merges #86, #87, #88 and #89 together. All four were green on their own but conflict with each other in the generated files, because each regenerated `config/*/map.tsv`, `progress/pal/report.json` and the README table. No file under `src/` is touched by more than one of them.\n\nMerge this with a **merge commit**, not a squash: the four PR heads then land on `main`, and GitHub marks those PRs as merged with their authors' commits intact.\n\n### How the generated files were resolved\n- **`config/{us,pal}/map.tsv`:** the union of the rows the four PRs generated (171 added per file, 0 removed), deduplicated and put back in `match_map.py`'s order.\n- **`progress/pal/report.json`, `progress/report.json` and the README tables:** rebuilt with `tools/progress.py --write`.\n\n### Checks\n- `tools/progress.py --check` and `tools/match_map.py --check` pass for both versions.\n- PAL report: 5,855 → 6,026 functions (+171 = 52 + 15 + 54 + 50) and 464,252 → 495,712 bytes, which equals the sum of the four PRs' ",
+      "mergedAt": "2026-11-03T21:27:29Z"
+     },
+     {
+      "number": 92,
+      "title": "Match 57 NTSC-U functions",
+      "author": "Clank700",
+      "untrustedBody": "## What\n\n57 NTSC-U (SCUS_974.65) functions move from unmatched to matched, one C file each; one of them (`func_L00_00528810`) replaces its near miss in `nonmatching/`. US matched functions 5,435 → 5,492 (414,340 → 418,508 bytes), PAL 6,032 → 6,083 (497,616 → 501,564 bytes). `config/us/map.tsv`, `config/pal/map.tsv`, both progress reports and the README table are regenerated with the repository tools; only the rows of the new sources changed.\n\nEvery function here is new on both discs: none has a `src/pal/` source on main, so no existing source or its credit moves (compared function by function in `progress/report.json` and `progress/pal/report.json`, per unit: no function name appears in two units with different percentages, and none of the existing functions gets worse or disappears).\n\nThis branch is rebased on current main (c78d917, after #90) and mergeable.\n\n## Compiler: 29 of the 57 files carry their own compiler flags\n\nThe default route (SN GCC 2.95.3, `-O2 -G8 -fopt-stack`) builds",
+      "mergedAt": "2026-11-06T06:11:34Z"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": {
+    "before": {
+     "code": {
+      "done": 414340,
+      "total": 5782424
+     },
+     "functions": {
+      "done": 5435,
+      "total": 18085
+     }
+    },
+    "after": {
+     "code": {
+      "done": 414340,
+      "total": 5782424
+     },
+     "functions": {
+      "done": 5435,
+      "total": 18085
+     }
+    }
+   },
+   "contributors": [
+    "chistianh",
+    "Clank700",
+    "Lynder063",
+    "Shaar-games",
+    "Sumaiter"
+   ]
+  },
+  {
+   "repo": "openrac-mods",
+   "title": "OpenRAC mods",
+   "branches": [
+    {
+     "name": "master",
+     "commits": [
+      {
+       "sha": "a63a9dc4a59e85a1029089c94273b04aafd13562",
+       "title": "chore(index): discussion numbers",
+       "author": "openrac-bot[bot]",
+       "date": "2026-11-03T21:01:40Z"
+      }
+     ]
+    }
+   ],
+   "commitCount": 1,
+   "pullRequests": {
+    "merged": [],
+    "opened": [
+     {
+      "number": 41,
+      "title": "feat(multiplayer): localize UI for all five PAL languages",
+      "author": "momo1212221",
+      "untrustedBody": "The multiplayer pages currently remain English when a PAL player selects another game language. This adds original UI translations for all five PAL languages: English, French, German, Spanish and Italian.\n\n- Select the language from the game's current language word (using verified PAL and NTSC-U addresses), with English fallback, and refresh page content and in-game notices when it changes.\n- Translate the home/browser/lobby/direct-connect/pause pages, local save picker, button hints, confirmations, connection states and known co-op/session notices. Keep protocol messages, logs, player names and remote host descriptions unchanged.\n- Fit dynamic UI fields within the SDK's 47-byte limit without splitting UTF-8 characters, preserve controller glyphs, and explicitly use UTF-8 when compiling with MSVC.\n- Add a `multiplayer_words` CTest for the five-column catalog, supported font characters, language mapping, connection and party states, local save descriptions, dynamic notices and UTF-8 cli"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": null,
+   "contributors": [
+    "momo1212221"
+   ]
+  }
+ ]
+}

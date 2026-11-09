@@ -1,0 +1,2420 @@
+{
+ "format": 1,
+ "date": "2026-11-06",
+ "totals": {
+  "commits": 189,
+  "pullRequestsMerged": 59,
+  "pullRequestsOpened": 45,
+  "contributors": 19
+ },
+ "projects": [
+  {
+   "repo": "OpenRAC",
+   "title": "OpenRAC launcher",
+   "branches": [
+    {
+     "name": "develop",
+     "commits": [
+      {
+       "sha": "93961d425ff990e8997265808ce0b7cfeb0e7bed",
+       "title": "fix(rac2): the race and crane HUD wrappers return nothing on PAL and v2.00 too (#345)",
+       "author": "Veradictus",
+       "date": "2026-11-06T23:59:04Z"
+      },
+      {
+       "sha": "29f8e61423269cae67e47d2342820b0ce2d2d82d",
+       "title": "feat(rac2): support Going Commando's PAL and USA v2.00 discs (#341)",
+       "author": "Veradictus",
+       "date": "2026-11-06T23:01:33Z"
+      },
+      {
+       "sha": "9296e9fd7e52d6bf6c733ae9e0922db96e43a8cf",
+       "title": "fix(rac2): race, crane cam and Thermanator gauge HUD at the edges (#343)",
+       "author": "Lynder063",
+       "date": "2026-11-06T20:21:46Z"
+      },
+      {
+       "sha": "c35c7ac2ff63d64f84628c215965eb74c9c79146",
+       "title": "[WIP] feat(rac1): co-op round 3, crossplay, saves, takeover and mod codes (#166)",
+       "author": "Veradictus",
+       "date": "2026-11-06T15:42:06Z"
+      },
+      {
+       "sha": "7d32b3219680d89237b5783f92123640014a95c8",
+       "title": "test(mods): characterize RAC2 callback-only native mods (#275)",
+       "author": "momo1212221",
+       "date": "2026-11-06T14:37:26Z"
+      },
+      {
+       "sha": "3f8bbc39f6a6b0b1bb4994f4c5b0dec06f3016e7",
+       "title": "fix(launcher): run the browser test files one at a time (#298)",
+       "author": "Veradictus",
+       "date": "2026-11-06T14:35:36Z"
+      },
+      {
+       "sha": "43eafc426f08d8652cfd7d813b23334523e3ada4",
+       "title": "feat(port): touch action buttons that follow the game (#319)",
+       "author": "nickyyOO",
+       "date": "2026-11-06T13:25:40Z"
+      },
+      {
+       "sha": "e71e99bb7a5b8e6099527508d3efd8f9b0bc70d1",
+       "title": "fix: make right stick sensitivity speed up the camera (#338)",
+       "author": "nickyyOO",
+       "date": "2026-11-06T10:56:10Z"
+      },
+      {
+       "sha": "41311dcc9c702b91445c8344145a9ca5b26fda5c",
+       "title": "feat(port): open the menu with Start+Select instead of L3 (#337)",
+       "author": "nickyyOO",
+       "date": "2026-11-06T10:12:31Z"
+      },
+      {
+       "sha": "06ce9e798b6adcdac20aaed3ea916058c6a4e945",
+       "title": "fix(launcher): drop Added from before from Add a mod (#336)",
+       "author": "nickyyOO",
+       "date": "2026-11-06T08:47:16Z"
+      }
+     ]
+    },
+    {
+     "name": "master",
+     "commits": []
+    }
+   ],
+   "commitCount": 10,
+   "pullRequests": {
+    "merged": [
+     {
+      "number": 166,
+      "title": "[WIP] feat(rac1): co-op round 3, crossplay, saves, takeover and mod codes",
+      "author": "Veradictus",
+      "untrustedBody": "Round 3 of the RAC1 co-op. Draft: not ready for review or merge.\n\nAdds PAL and NTSC players in one party, co-op saves that never write a player's own story saves, shared progress, every weapon's shots, name tags, late join with Go to host, death rules and optional revive, kick and bans per co-op save, data pack checks, shared camera scripts, enemy grabs, reconnect and host takeover, and mod sync codes.\n\nReasoning and the settled calls are in `multiplayer/DECISIONS.md`; behaviour and limits are in `multiplayer/README.md`.\n\nMerge together, in this order: this set, then release SDK 1.12, pin `sdk.lock`, tag the mods, deploy the Server (port 7771 is new).\n\nNeeds `develop` merged in first: #160 is in `develop` now, and the diff shows it until then.\n\n## Tested\n\nReal game on a Mac, hidden clients, local server, 20 of 24 scenario runs passed: join, crates, saves, late join, host loss and name tags, on PAL with PAL and on mixed discs. Network sim on the final mod tree: 0 wrong of 6,480 normal r",
+      "mergedAt": "2026-11-06T15:42:06Z"
+     },
+     {
+      "number": 167,
+      "title": "[WIP] feat(sdk/rac1): hook points for the item randomizer",
+      "author": "Veradictus",
+      "untrustedBody": "Three hook points for item randomizer 2.0.0: `rac1.help.request`, `rac1.ship.init_transition` and `rac1.text.msg_string`. Additive; no ABI or existing id changes.\nStacked on the co-op draft (retarget once that merges). A hook's signature check now treats i32 and u32 as one, as PAL and NTSC differ in them.",
+      "mergedAt": "2026-11-06T14:44:59Z"
+     },
+     {
+      "number": 275,
+      "title": "test(mods): characterize RAC2 callback-only native mods",
+      "author": "momo1212221",
+      "untrustedBody": "## Summary\n\n- characterize native callback-only mods on RAC2 with `hook_count = 0` and no script binding\n- verify `on_pad` and `on_tick_boundary` still register and run\n- verify an attempted RAC2 game hook fails cleanly while the callback-only path remains supported\n- cover the manifest planner for a native RAC2 mod with no hooks\n- update mod and speedrun docs to distinguish callback-only native mods from game-hook and script mods\n\nThis does not add RAC2-specific hook points or change game/decompilation data.\n\n## Tests\n\n- `cmake --build --preset release -j2 --target mod_loader_test mod_manifest_test mod_scripts_test`\n- `ctest --preset release -R '^(mod_loader|mod_manifest|mod_scripts)$' --output-on-failure`\n- `git diff --check`\n- `python3 port/tools/conventions/check_conventions.py --since origin/develop --touched --strict-touched`\n\nOn this Mac the port was configured with the existing macOS 15.4 SDK because the locally selected 27.0 SDK has malformed linker metadata; the relevant test",
+      "mergedAt": "2026-11-06T14:37:27Z"
+     },
+     {
+      "number": 298,
+      "title": "fix(launcher): run the browser test files one at a time",
+      "author": "Veradictus",
+      "untrustedBody": "Each e2e file starts its own Vite server, and run in parallel they pre-bundle into the same cache: `ENOTEMPTY: rename .vite/deps_ssr_temp_… -> .vite/deps_ssr`, which broke `launcher-android` at random. The e2e files now run one at a time.\n\n(The other half of this PR, running the enhanced Vulkan tests on pushes, landed separately in #307.)",
+      "mergedAt": "2026-11-06T14:35:37Z"
+     },
+     {
+      "number": 319,
+      "title": "feat(port): touch action buttons that follow the game",
+      "author": "nickyyOO",
+      "untrustedBody": "**Before:** the touch pad was a flat DualShock. Every button showed all the time, with no icons, in menus, cutscenes and vehicles alike.\r\n\r\n**After:**\r\n- With \"Action buttons\" on in the drawer, the pad shows round buttons with icons in the game's accent. They change with what the game is doing: on foot, Clank, Giant Clank, swimming, grinding, hoverboard, ship, jet, turret, cutscene (a big Skip on the right), pause menu, map, dialog, vendor and title.\r\n- \"Press triangle\" prompts put the action in quick select's place: board (ship, jets), buy (vendors), use (lifts, taxis, teleporters, Giant Clank pads).\r\n- The map shows Play Infobot only when the planet has one, plus L1/R1 to switch maps. The pause menu shows L1/R1 only on Quick Select.\r\n- In the layout editor, each button can be moved and given its own size.\r\n- Off, the pad keeps the DualShock buttons, now in the same look.\r\n- Mods (interface 1.13, SDK 1.13.0) can add buttons, icons and contexts with a \"touch\" JSON file or touch_define ",
+      "mergedAt": "2026-11-06T13:25:40Z"
+     },
+     {
+      "number": 336,
+      "title": "fix(launcher): drop Added from before from Add a mod",
+      "author": "nickyyOO",
+      "untrustedBody": "**Before:** Add a mod showed an \"Added from before\" row with a button per link a mod was already added from.\n\n**After:** the row is gone. Add a mod is the link field, File and Folder. Updates for mods from a link still use the saved sources.\n\n**Tested:** `yarn verify`, `yarn test:android`; desktop and Android checked in the preview.",
+      "mergedAt": "2026-11-06T08:47:17Z"
+     },
+     {
+      "number": 337,
+      "title": "feat(port): open the menu with Start+Select instead of L3",
+      "author": "nickyyOO",
+      "untrustedBody": "**Before:** L3 opened the in-game menu by default. But L3 does things in the game: in rac1 it shows the health and bolt counter for a few seconds, and held in the jet fighter (Pokitaru, Gemlik, Drek's Fleet) it turns sharper. Opening the menu also pressed those.\n\n**After:** Start and Select pressed together open and close the menu. The game never sees the pair, so it neither pauses nor opens the map. A lone Start or Select still reaches the game: after at most 100 ms, or at once as a tap when let go sooner. The start-up hint shows \"` or Start + Select\". Android Back and Guide open the drawer as before. An old settings file with the L3 default moves to Start+Select; a button the player picked stays.\n\n**How:** `platform/menu_chord` filters each port's pad in `Input::refresh_pads` and reports the pair; the overlay opens the menu from it, and closes it on the pair from SDL events while open. The setting is now `menu_button` (`start+back` by default); the old `menu_bar_button` is read once.",
+      "mergedAt": "2026-11-06T10:12:32Z"
+     },
+     {
+      "number": 338,
+      "title": "fix: make right stick sensitivity speed up the camera",
+      "author": "nickyyOO",
+      "untrustedBody": "**Before:** Stick sensitivity only scaled the stick reading. A full push is already the largest value the game reads, so at 300% the camera turned at the same speed as at 100% (only small pushes changed).\n\n**After:** Above 100%, the right stick turns the follow camera faster at a full push, up to the set amount (300% = 3x). At 100% nothing changes.\n\n**How:** `tune_stick` returns how far past a full push the sensitivity took the right stick's x (`Pad::camera_speed`). The game hosts multiply the follow camera's yaw target by it when it comes from the stick (rac1 PAL/NTSC, rac2: `camera_latch.c`), and the late camera latch uses the same factor. Vertical look is left alone (the game eases pitch to an angle, not a speed). Locked or scripted camera turns are not touched.\n\n**Tested:** headless build, ctest (143/143, new checks in `bindings_test`). Not tested in game (no disc in the container); please try 100% and 300% in game. rac3/rac4 have no camera hook yet, so there sensitivity still only",
+      "mergedAt": "2026-11-06T10:56:11Z"
+     },
+     {
+      "number": 341,
+      "title": "feat(rac2): support Going Commando's PAL and USA v2.00 discs",
+      "author": "Veradictus",
+      "untrustedBody": "Going Commando's three discs in OpenRAC: USA v1.01 (`SCUS_972.68`), PAL (`SCES_516.07`, *Locked and Loaded*) and USA v2.00 Greatest Hits (`SCUS_972.68`, told apart by hash). Any of them goes through the same setup, build and play; nothing in the UI asks which.\n\nDraft while the build rounds finish; commits get squashed into a granular series before it's ready.\n\n**Game data, extraction, launcher**\n- `games/rac2/game.json`: `pal` and `ntsc2` with disc and boot hashes, ByteMatch ids and progress. Both share ntsc's mirror of rac2-decomp (`\"shared\"`, `decomp_version`).\n- Extractor and disc identification pick the release by serial plus executable SHA-1.\n- Launcher actions for `rac2/pal` and `rac2/ntsc2`, plus saves, bakes and packs.\n- The bundle, Android and Windows CI cover the new programs.\n\n**The port**\n- `openrac-rac2-pal` and `openrac-rac2-ntsc2` are built from the same rac2-decomp C through a release view (`port/tools/hostgen/release.py`). It gives every v1.01 address name the release'",
+      "mergedAt": "2026-11-06T23:01:33Z"
+     },
+     {
+      "number": 343,
+      "title": "fix(rac2): race, crane cam and Thermanator HUD at the edges",
+      "author": "Lynder063",
+      "untrustedBody": "Hoverbike race HUD, crane cam frame and Thermanator gauge now go to the screen edges with HUD: Edges.\nCrane cam frame stretches with a new marker bit; its bottom bar no longer tears.\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)",
+      "mergedAt": "2026-11-06T20:21:47Z"
+     },
+     {
+      "number": 345,
+      "title": "fix(rac2): the race and crane HUD wrappers return nothing on PAL and v2.00 too",
+      "author": "Veradictus",
+      "untrustedBody": "#341 and #343 landed side by side. #343's race and crane HUD wrappers are `void (void)`, and v1.01's interface already says so, but PAL's and v2.00's `asm_interface.json` were written before those functions were wrapped and still read `int`, so the two new programs failed to compile (`conflicting types for 'func_L04_0040C228'` and three more). These four entries per release are what a fresh run from the disc writes, since the host C's signature settles them.",
+      "mergedAt": "2026-11-06T23:59:04Z"
+     }
+    ],
+    "opened": [
+     {
+      "number": 336,
+      "title": "fix(launcher): drop Added from before from Add a mod",
+      "author": "nickyyOO",
+      "untrustedBody": "**Before:** Add a mod showed an \"Added from before\" row with a button per link a mod was already added from.\n\n**After:** the row is gone. Add a mod is the link field, File and Folder. Updates for mods from a link still use the saved sources.\n\n**Tested:** `yarn verify`, `yarn test:android`; desktop and Android checked in the preview.",
+      "mergedAt": "2026-11-06T08:47:17Z"
+     },
+     {
+      "number": 337,
+      "title": "feat(port): open the menu with Start+Select instead of L3",
+      "author": "nickyyOO",
+      "untrustedBody": "**Before:** L3 opened the in-game menu by default. But L3 does things in the game: in rac1 it shows the health and bolt counter for a few seconds, and held in the jet fighter (Pokitaru, Gemlik, Drek's Fleet) it turns sharper. Opening the menu also pressed those.\n\n**After:** Start and Select pressed together open and close the menu. The game never sees the pair, so it neither pauses nor opens the map. A lone Start or Select still reaches the game: after at most 100 ms, or at once as a tap when let go sooner. The start-up hint shows \"` or Start + Select\". Android Back and Guide open the drawer as before. An old settings file with the L3 default moves to Start+Select; a button the player picked stays.\n\n**How:** `platform/menu_chord` filters each port's pad in `Input::refresh_pads` and reports the pair; the overlay opens the menu from it, and closes it on the pair from SDL events while open. The setting is now `menu_button` (`start+back` by default); the old `menu_bar_button` is read once.",
+      "mergedAt": "2026-11-06T10:12:32Z"
+     },
+     {
+      "number": 338,
+      "title": "fix: make right stick sensitivity speed up the camera",
+      "author": "nickyyOO",
+      "untrustedBody": "**Before:** Stick sensitivity only scaled the stick reading. A full push is already the largest value the game reads, so at 300% the camera turned at the same speed as at 100% (only small pushes changed).\n\n**After:** Above 100%, the right stick turns the follow camera faster at a full push, up to the set amount (300% = 3x). At 100% nothing changes.\n\n**How:** `tune_stick` returns how far past a full push the sensitivity took the right stick's x (`Pad::camera_speed`). The game hosts multiply the follow camera's yaw target by it when it comes from the stick (rac1 PAL/NTSC, rac2: `camera_latch.c`), and the late camera latch uses the same factor. Vertical look is left alone (the game eases pitch to an angle, not a speed). Locked or scripted camera turns are not touched.\n\n**Tested:** headless build, ctest (143/143, new checks in `bindings_test`). Not tested in game (no disc in the container); please try 100% and 300% in game. rac3/rac4 have no camera hook yet, so there sensitivity still only",
+      "mergedAt": "2026-11-06T10:56:11Z"
+     },
+     {
+      "number": 339,
+      "title": "style: launcher and in-game menu follow the site's look",
+      "author": "nickyyOO",
+      "untrustedBody": "**Before**\r\nThe launcher and the in-game menu each had their own look: navy fills, gold edges on controls and buttons of different heights. The page was almost pure black, so the text glared, and some games' bright colours (Going Commando's cyan) tired the eyes.\r\n\r\n**After**\r\nBoth follow the site's STYLE.md: one gold accent, flat cards with no borders, and stripes only on the bar's buttons.\r\n- Every game has the same look: the gold bar, gold buttons and warm coal. A game keeps its picture, its card gradient and its title's typeface. The light under the bar is in the game's colour (`--glow`), both in the launcher and along the top of the game's menu window.\r\n- The darks are lighter and warmer: the page is `#1c1a16` and the game list beside it a darker `#161410`. Cards are `#24221e`, controls `#2e2c28` and the text is off-white `#e6e6eb`. Pure black is left to the OLED theme, which has no glow.\r\n- A game's title box uses the launcher's coal and gold, not the site's navy card colours.\r\n- ",
+      "mergedAt": "2026-11-08T03:54:47Z"
+     },
+     {
+      "number": 341,
+      "title": "feat(rac2): support Going Commando's PAL and USA v2.00 discs",
+      "author": "Veradictus",
+      "untrustedBody": "Going Commando's three discs in OpenRAC: USA v1.01 (`SCUS_972.68`), PAL (`SCES_516.07`, *Locked and Loaded*) and USA v2.00 Greatest Hits (`SCUS_972.68`, told apart by hash). Any of them goes through the same setup, build and play; nothing in the UI asks which.\n\nDraft while the build rounds finish; commits get squashed into a granular series before it's ready.\n\n**Game data, extraction, launcher**\n- `games/rac2/game.json`: `pal` and `ntsc2` with disc and boot hashes, ByteMatch ids and progress. Both share ntsc's mirror of rac2-decomp (`\"shared\"`, `decomp_version`).\n- Extractor and disc identification pick the release by serial plus executable SHA-1.\n- Launcher actions for `rac2/pal` and `rac2/ntsc2`, plus saves, bakes and packs.\n- The bundle, Android and Windows CI cover the new programs.\n\n**The port**\n- `openrac-rac2-pal` and `openrac-rac2-ntsc2` are built from the same rac2-decomp C through a release view (`port/tools/hostgen/release.py`). It gives every v1.01 address name the release'",
+      "mergedAt": "2026-11-06T23:01:33Z"
+     },
+     {
+      "number": 343,
+      "title": "fix(rac2): race, crane cam and Thermanator HUD at the edges",
+      "author": "Lynder063",
+      "untrustedBody": "Hoverbike race HUD, crane cam frame and Thermanator gauge now go to the screen edges with HUD: Edges.\nCrane cam frame stretches with a new marker bit; its bottom bar no longer tears.\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)",
+      "mergedAt": "2026-11-06T20:21:47Z"
+     },
+     {
+      "number": 345,
+      "title": "fix(rac2): the race and crane HUD wrappers return nothing on PAL and v2.00 too",
+      "author": "Veradictus",
+      "untrustedBody": "#341 and #343 landed side by side. #343's race and crane HUD wrappers are `void (void)`, and v1.01's interface already says so, but PAL's and v2.00's `asm_interface.json` were written before those functions were wrapped and still read `int`, so the two new programs failed to compile (`conflicting types for 'func_L04_0040C228'` and three more). These four entries per release are what a fresh run from the disc writes, since the host C's signature settles them.",
+      "mergedAt": "2026-11-06T23:59:04Z"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [
+     {
+      "number": 340,
+      "title": "Launcher UI lags heavily with no reason to do so.",
+      "author": "Nikoroq"
+     },
+     {
+      "number": 342,
+      "title": "Enhanced lighting and level edits",
+      "author": "TheWhiteGuardian"
+     },
+     {
+      "number": 344,
+      "title": "SteamOS / ROG Ally X – Going Commando NTSC build update",
+      "author": "kwfrrb562c-boop"
+     }
+    ],
+    "closed": []
+   },
+   "releases": [
+    {
+     "tag": "sdk-v1.14.0",
+     "name": "Mod SDK 1.14.0",
+     "publishedAt": "2026-11-06T15:47:47Z"
+    }
+   ],
+   "progress": null,
+   "contributors": [
+    "Lynder063",
+    "momo1212221",
+    "nickyyOO",
+    "Veradictus"
+   ]
+  },
+  {
+   "repo": "rac1-decomp",
+   "title": "Ratchet & Clank",
+   "branches": [
+    {
+     "name": "main",
+     "commits": []
+    }
+   ],
+   "commitCount": 0,
+   "pullRequests": {
+    "merged": [],
+    "opened": []
+   },
+   "issues": {
+    "opened": [],
+    "closed": [
+     {
+      "number": 162,
+      "title": "[LINUX] Mixed visual bugs/glitches",
+      "author": "StarPepe"
+     },
+     {
+      "number": 163,
+      "title": "Suggestion: Support for HRTF and surround sound",
+      "author": "StarPepe"
+     },
+     {
+      "number": 164,
+      "title": "[LINUX] Launcher freezing",
+      "author": "StarPepe"
+     }
+    ]
+   },
+   "releases": [],
+   "progress": null,
+   "contributors": []
+  },
+  {
+   "repo": "rac2-decomp",
+   "title": "Going Commando",
+   "branches": [
+    {
+     "name": "master",
+     "commits": [
+      {
+       "sha": "71af8fdc60f2f83f80d8a5509d0637cad2591d01",
+       "title": "Merge remote-tracking branch 'origin/master' into match/usa-medium-tier-3",
+       "author": "Lynder063",
+       "date": "2026-11-06T23:33:13Z"
+      },
+      {
+       "sha": "7a0dfd8cc74ef8ee45aa31284c5d5db284cdbe77",
+       "title": "feat(src): match func_00301F18 and func_L00_002EC608 and record round-eleven notes",
+       "author": "Lynder063",
+       "date": "2026-11-06T23:32:06Z"
+      },
+      {
+       "sha": "3822a22fde4c3de31b804072daea4b3017a10ef3",
+       "title": "docs(compiler): record round-nine Lombyte 0060/0061/0065 probe measurements",
+       "author": "Lynder063",
+       "date": "2026-11-06T21:46:33Z"
+      },
+      {
+       "sha": "73361f2ac8cf11f9b086b72bf5daeb1c6d9f05dc",
+       "title": "feat(src): match func_L00_002E2958",
+       "author": "Lynder063",
+       "date": "2026-11-06T20:51:26Z"
+      },
+      {
+       "sha": "803421b54dc5d169a757401b0a95d9d81a6883f0",
+       "title": "build(compiler): exempt the mtc1 hazard nop only after empty assembler history",
+       "author": "Lynder063",
+       "date": "2026-11-06T20:51:26Z"
+      },
+      {
+       "sha": "e60e4ca608aeff1941b08d5dd87a52e2885b90cb",
+       "title": "feat(src): match func_L14_003DFA60 and func_L23_0041CA58 and record round-ten notes",
+       "author": "Lynder063",
+       "date": "2026-11-06T20:22:40Z"
+      },
+      {
+       "sha": "f3cc4dbfb01d52a7fdceb2239140396338c606b8",
+       "title": "chore(progress): 8360 of 8527 functions",
+       "author": "Veradictus",
+       "date": "2026-11-06T19:18:28Z"
+      },
+      {
+       "sha": "8b26d8adeb0b5515a962f83230df4bf909fd0cf5",
+       "title": "Merge pull request #430 from OpenRAC/match/usa-medium-tier-2",
+       "author": "Veradictus",
+       "date": "2026-11-06T18:49:27Z"
+      },
+      {
+       "sha": "93ac3849711fd9777426565604e63995c3bd0217",
+       "title": "Merge pull request #432 from OpenRAC/chore/no-data-measures",
+       "author": "Veradictus",
+       "date": "2026-11-06T18:48:25Z"
+      },
+      {
+       "sha": "eb2976f55df22e6505c99bc1472ed6c04d499553",
+       "title": "chore(progress): refresh the reports after the menu realignment",
+       "author": "bigbeno37",
+       "date": "2026-11-06T18:08:36Z"
+      },
+      {
+       "sha": "e9115b445e9b9f6c1c4d5441f4551c27089eb20f",
+       "title": "fix(catalogue): merge PAL's five duplicate menu rows",
+       "author": "bigbeno37",
+       "date": "2026-11-06T17:44:46Z"
+      },
+      {
+       "sha": "4554232bec7176dd666015805610142189434f9f",
+       "title": "fix(catalogue): realign PAL's menu stretch in the starship levels",
+       "author": "bigbeno37",
+       "date": "2026-11-06T17:42:05Z"
+      },
+      {
+       "sha": "6840434e6afeff3cac19f8b8527a9b3fcabb33d1",
+       "title": "chore(progress): refresh the reports after the row merges",
+       "author": "bigbeno37",
+       "date": "2026-11-06T17:37:14Z"
+      },
+      {
+       "sha": "f39252942ae046f90001e106c6544e946e2f09e5",
+       "title": "docs(catalogue): record RELEASE_ROW_MERGES and why the retired keys stay",
+       "author": "bigbeno37",
+       "date": "2026-11-06T17:13:00Z"
+      },
+      {
+       "sha": "3c7a75f184fc05709c3ec04b31be2a5f85c2344a",
+       "title": "fix(src): give func_L00_00384F28 the object argument its caller passes",
+       "author": "bigbeno37",
+       "date": "2026-11-06T17:09:28Z"
+      },
+      {
+       "sha": "5c9d78a5455728f15d1079d8c567139c9cadbeee",
+       "title": "fix(game): give func_00297218 its five parameters",
+       "author": "bigbeno37",
+       "date": "2026-11-06T17:09:28Z"
+      },
+      {
+       "sha": "bb3417720784c52052fc63d07a1b10400c9fe2fa",
+       "title": "fix(catalogue): fold two PAL rows into the rows of the same function",
+       "author": "bigbeno37",
+       "date": "2026-11-06T17:09:27Z"
+      },
+      {
+       "sha": "1ec67db2c29a30af332158cca427d2b512432f92",
+       "title": "feat(us2): carry 20 functions, 00287140-g8.c to L13_0040BC84-ai.c",
+       "author": "bigbeno37",
+       "date": "2026-11-06T17:09:21Z"
+      },
+      {
+       "sha": "5833be5b716983046be737d85080b96bc9f1435a",
+       "title": "feat(pal): carry 20 functions, 00296870-map-g8.c to L19_003E4048.c",
+       "author": "bigbeno37",
+       "date": "2026-11-06T16:57:52Z"
+      },
+      {
+       "sha": "e9d0c58ec1e14d919069ae451b8d479bdee10a0d",
+       "title": "chore(progress): 8355 of 8527 functions",
+       "author": "bigbeno37",
+       "date": "2026-11-06T16:34:47Z"
+      },
+      {
+       "sha": "5b1a4832118ea02b89a8f938e7538dc74c071c71",
+       "title": "fix(pal): return 3 ordinary-data functions to nonmatching",
+       "author": "bigbeno37",
+       "date": "2026-11-06T16:13:19Z"
+      },
+      {
+       "sha": "a65a86ab78adf3e991a693c2790615a437e043e9",
+       "title": "docs(src): name the second writer on the hardware volatiles",
+       "author": "bigbeno37",
+       "date": "2026-11-06T16:12:56Z"
+      },
+      {
+       "sha": "5f19fe36c87af2d0e7e7f3109ca1887cb3fd0424",
+       "title": "fix(pal): drop volatile and literal addresses from 10 PAL/v2.00 functions",
+       "author": "bigbeno37",
+       "date": "2026-11-06T16:12:56Z"
+      },
+      {
+       "sha": "90c13d4b62f6b779136fc1a482cbb14483744f4b",
+       "title": "docs: limit the volatile and address rules to ordinary program memory",
+       "author": "bigbeno37",
+       "date": "2026-11-06T16:08:11Z"
+      },
+      {
+       "sha": "3388dd7482f1c1b12464fa3beac02ff55e374567",
+       "title": "fix(game): bring func_002E3998 and func_002E3BD8 back to matched C",
+       "author": "bigbeno37",
+       "date": "2026-11-06T16:08:11Z"
+      },
+      {
+       "sha": "5776dcc35045fb2320610edd1d2db4fa7660ef37",
+       "title": "fix(src): drop volatile from 14 functions that match without it",
+       "author": "bigbeno37",
+       "date": "2026-11-06T15:30:31Z"
+      },
+      {
+       "sha": "53e041c82e421735fd3f3ea00f0c23262aedab4a",
+       "title": "refactor(us2): expand the #define aliases in the v2.00 functions",
+       "author": "bigbeno37",
+       "date": "2026-11-06T15:30:31Z"
+      },
+      {
+       "sha": "3e2bdcc13d224d86ba88c45f912c3bf38dc8ad74",
+       "title": "refactor(pal): expand the #define aliases in the PAL functions",
+       "author": "bigbeno37",
+       "date": "2026-11-06T15:30:31Z"
+      },
+      {
+       "sha": "f94bec017ffba6f46832ffced18398193e0d2c96",
+       "title": "refactor(src): expand the #define aliases in the USA functions",
+       "author": "bigbeno37",
+       "date": "2026-11-06T15:30:30Z"
+      },
+      {
+       "sha": "ca1ae4a8af9abba3e54b97b89b8e6f9d03526731",
+       "title": "chore(progress): 8353 of 8527 functions",
+       "author": "bigbeno37",
+       "date": "2026-11-06T15:23:56Z"
+      },
+      {
+       "sha": "9cc107dffee0da2e5509dc530b69171c61914dfc",
+       "title": "fix(catalogue): split four rows that held several functions",
+       "author": "bigbeno37",
+       "date": "2026-11-06T15:23:22Z"
+      },
+      {
+       "sha": "3b31993f1c7a7a27a571cc37c15fe05a90fd2530",
+       "title": "fix(catalogue): repair 17 measured extents and retire 13 residue rows",
+       "author": "bigbeno37",
+       "date": "2026-11-06T15:23:22Z"
+      },
+      {
+       "sha": "4eeff8f6c7505514007150cdbe0f51497c60b7e9",
+       "title": "refactor(levels): expand the HERO alias in func_L00_002A9460",
+       "author": "Veradictus",
+       "date": "2026-11-06T14:39:54Z"
+      },
+      {
+       "sha": "346cc2aee0803f6bd735ddde73e932c76cfa9d58",
+       "title": "Merge pull request #427 from OpenRAC/match/usa-medium-tier",
+       "author": "Veradictus",
+       "date": "2026-11-06T14:38:07Z"
+      },
+      {
+       "sha": "b2a35115e0cf580a1fdab8dd1071b157799e590e",
+       "title": "Merge pull request #429 from OpenRAC/fix/no-volatile-rules",
+       "author": "Veradictus",
+       "date": "2026-11-06T14:37:30Z"
+      },
+      {
+       "sha": "100b1670fccff12a6735afb4bc23d6651c92428e",
+       "title": "feat(pal): carry 20 functions, 002EA0B0-flags.c to L13_0040F08C-ai.c",
+       "author": "bigbeno37",
+       "date": "2026-11-06T14:27:35Z"
+      },
+      {
+       "sha": "eb142dd9f46af6761f3049356cef671e70f40830",
+       "title": "feat(pal): carry 20 functions, 00341208-g8.c to L12_003E6730-g8.c",
+       "author": "bigbeno37",
+       "date": "2026-11-06T14:11:04Z"
+      },
+      {
+       "sha": "6151273e09e97555684f81201d3f678faa01c95b",
+       "title": "feat(pal): carry 20 functions, 003004C8-preview.c to L18_0042DC68-g8.c",
+       "author": "bigbeno37",
+       "date": "2026-11-06T14:04:28Z"
+      },
+      {
+       "sha": "40e6fafd5c9edbab103513fa8046d24275ec3ca5",
+       "title": "chore(progress): refresh the reports, PAL 8250 of 8632 and US2 8313 of 8590",
+       "author": "bigbeno37",
+       "date": "2026-11-06T12:52:44Z"
+      },
+      {
+       "sha": "7c6f71af1e59303834eaa20f6c2b98f9ab395a85",
+       "title": "fix(levels): name level data by its own level's address (#428)",
+       "author": "nickyyOO",
+       "date": "2026-11-06T12:35:48Z"
+      },
+      {
+       "sha": "ab534b2550b9fa415689a865283c98eb07d4bda7",
+       "title": "feat(us2): carry 20 functions, 002D0D04-g8.c to L03_002AD640.c",
+       "author": "bigbeno37",
+       "date": "2026-11-06T12:20:51Z"
+      },
+      {
+       "sha": "f0f860b7754e7bde4d720659e43b313ee4052aaa",
+       "title": "feat(us2): carry 20 functions, 00292928.c to L16_003C404C-g8.c",
+       "author": "bigbeno37",
+       "date": "2026-11-06T12:02:03Z"
+      },
+      {
+       "sha": "2de49ef9c8a66c75e4a24acd1eaa2233ac3ef1c3",
+       "title": "feat(pal): carry 20 functions, 002FA720-g8.c to L09_003FC118-por.c",
+       "author": "bigbeno37",
+       "date": "2026-11-06T11:46:06Z"
+      },
+      {
+       "sha": "f3815d4aff79eb85c217976f87eb346787b5c446",
+       "title": "feat(pal): carry 20 functions, 002DE110-g32.c to L05_00448CA8-g8.c",
+       "author": "bigbeno37",
+       "date": "2026-11-06T11:38:42Z"
+      },
+      {
+       "sha": "22fbd608b277f7b017006123ff3994b7c3519cdc",
+       "title": "feat(us2): carry 20 functions, 0027FCB0.c to L01_0041264C.c",
+       "author": "bigbeno37",
+       "date": "2026-11-06T11:30:09Z"
+      },
+      {
+       "sha": "bc057b065fc55f658fdefc0d5460204386cd335e",
+       "title": "feat(us2): carry 20 functions, 002A7AA8-g8.c to L08_004201E0-g8.c",
+       "author": "bigbeno37",
+       "date": "2026-11-06T11:12:37Z"
+      },
+      {
+       "sha": "6e87b85c6f2ad18ee70066993cfc9b6d02630cc2",
+       "title": "feat(us2): carry 20 functions, 002B1C20.c to L00_00375F40-g8.c",
+       "author": "bigbeno37",
+       "date": "2026-11-06T10:55:50Z"
+      },
+      {
+       "sha": "cb63d202dcb1509a62a7092dde80145554dfffce",
+       "title": "feat(us2): carry 20 functions, 003448C0.c to L22_003A2A00-cc-g8.c",
+       "author": "bigbeno37",
+       "date": "2026-11-06T10:39:45Z"
+      },
+      {
+       "sha": "52fdb3161a6cf8ce8a96fce09e7e3c629fd29c76",
+       "title": "feat(us2): carry 20 functions, L01_003A6FB8-cc-g8.c to L05_0042DB38-cc-g8.c",
+       "author": "bigbeno37",
+       "date": "2026-11-06T10:33:43Z"
+      },
+      {
+       "sha": "ff791d1e9ea2ab150600456b078a764372e35cf8",
+       "title": "feat(us2): carry 20 functions, 00316C20-cc-g8.c to L00_00375270-cc.c",
+       "author": "bigbeno37",
+       "date": "2026-11-06T10:27:33Z"
+      },
+      {
+       "sha": "ff9dcf9b03a3adcc3e7770ec0d67721fc01bdb4f",
+       "title": "feat(us2): carry 20 functions, 00286378.c to L04_0040CF60-g8.c",
+       "author": "bigbeno37",
+       "date": "2026-11-06T10:10:10Z"
+      },
+      {
+       "sha": "634841dda354e3cc8ef2ec4aded33a1743d721a0",
+       "title": "feat(us2): carry 20 functions, 0027FCB0-g8.c to L10_004251D0-g8.c",
+       "author": "bigbeno37",
+       "date": "2026-11-06T09:52:08Z"
+      },
+      {
+       "sha": "ac7e1a2e5edd10d45439114d9a7773c09bedbe72",
+       "title": "feat(us2): carry 20 functions, 0027B858.c to L12_0041A0D0-g8.c",
+       "author": "bigbeno37",
+       "date": "2026-11-06T09:52:08Z"
+      },
+      {
+       "sha": "5e9cfe7cf2ee35aa56152a6d98b5caaa559453fb",
+       "title": "feat(us2): carry 20 functions, 0027D7D0-g8.c to L07_0040A6A0-g8.c",
+       "author": "bigbeno37",
+       "date": "2026-11-06T09:52:08Z"
+      },
+      {
+       "sha": "15b60f2260787e6d2ea14d70a0b7c688f90009be",
+       "title": "feat(pal): carry 20 functions, 002BC6A0-g8.c to L19_0041A8A4-platform-g8.c",
+       "author": "bigbeno37",
+       "date": "2026-11-06T09:52:08Z"
+      },
+      {
+       "sha": "20181f1965e748bea6ad3676d10c7ed0706346b7",
+       "title": "feat(pal): carry 20 functions, 002C84A8-g8.c to L22_003F9B18.c",
+       "author": "bigbeno37",
+       "date": "2026-11-06T09:52:08Z"
+      },
+      {
+       "sha": "a3b46b0d3938c33609be72ed6b5b185ae4ca0f47",
+       "title": "feat(pal): carry 20 functions, 0028D0C0-g8.c to L14_0042C988-g32.c",
+       "author": "bigbeno37",
+       "date": "2026-11-06T09:52:08Z"
+      },
+      {
+       "sha": "4bf036ea560a269c4a731435a6742ecdcfc0512a",
+       "title": "feat(pal): carry 20 functions, 002FBEB4-g8.c to L16_00410D14-g16.c",
+       "author": "bigbeno37",
+       "date": "2026-11-06T09:52:08Z"
+      },
+      {
+       "sha": "ac78924f417fe92993c7762f954bd25cafa065ab",
+       "title": "feat(pal): carry 20 functions, 002D0230-g8.c to L22_003FFAFC-obj-g8.c",
+       "author": "bigbeno37",
+       "date": "2026-11-06T09:52:08Z"
+      },
+      {
+       "sha": "f5809706ad6a786d7eca991ada6b41f4a15d31af",
+       "title": "feat(pal): carry 20 functions, 002D5A04-g8.c to L22_00402258-g8.c",
+       "author": "bigbeno37",
+       "date": "2026-11-06T09:52:08Z"
+      },
+      {
+       "sha": "44bcc84d291472a197887f2d519ffe7a288e5304",
+       "title": "feat(pal): carry 20 functions, 0027FB48.c to L12_003E66F8-g8.c",
+       "author": "bigbeno37",
+       "date": "2026-11-06T09:52:08Z"
+      },
+      {
+       "sha": "663d0a052932636b2b592c55bd69ffb04f30a248",
+       "title": "feat(pal): carry 20 functions, 002D1488-rc2-g8.c to L10_0041AD3C-g8.c",
+       "author": "bigbeno37",
+       "date": "2026-11-06T09:52:08Z"
+      },
+      {
+       "sha": "fb2b51be7694b8840d38092d7dcf154455d6081d",
+       "title": "feat(pal): carry 20 functions, 002A9FA0-g8.c to L22_003CD550-flags.c",
+       "author": "bigbeno37",
+       "date": "2026-11-06T09:52:08Z"
+      },
+      {
+       "sha": "659a6c779bc67612a7804dc049456fa887910f4d",
+       "title": "feat(pal): carry 20 functions, 002D3C20.c to L09_003FE118-g8.c",
+       "author": "bigbeno37",
+       "date": "2026-11-06T09:52:08Z"
+      },
+      {
+       "sha": "3cf135074001646030ca0982e3d3473094b57281",
+       "title": "chore(progress): refresh all three reports, PAL 8010 of 8632 functions",
+       "author": "bigbeno37",
+       "date": "2026-11-06T07:35:54Z"
+      },
+      {
+       "sha": "80b663ab39da4feaa7c02dfcc04e12d7a16dfcaa",
+       "title": "feat(pal): carry func_PAL_L22_00401BA0",
+       "author": "bigbeno37",
+       "date": "2026-11-06T06:38:16Z"
+      },
+      {
+       "sha": "94e9ba9a117f26589cb132249f0700717866683d",
+       "title": "feat(pal): carry 20 functions, L16_003C7820-cc-g8.c to L22_004010B8.c",
+       "author": "bigbeno37",
+       "date": "2026-11-06T06:38:16Z"
+      },
+      {
+       "sha": "14594aefc3e5d2bc1628e20dc4cdf98301e6067d",
+       "title": "feat(pal): carry 20 functions, L05_0042C044.c to L16_003C6A00.c",
+       "author": "bigbeno37",
+       "date": "2026-11-06T06:38:16Z"
+      },
+      {
+       "sha": "284c9015fb98e2a7ae9f3d308fdf85e180cd11d3",
+       "title": "feat(pal): carry 20 functions, L03_0042A1A8-cc-g8.c to L05_0042BA94.c",
+       "author": "bigbeno37",
+       "date": "2026-11-06T06:38:16Z"
+      },
+      {
+       "sha": "c9d0bad791cd7078b6235fd829dcf3c0f5ce909b",
+       "title": "feat(pal): carry 19 functions, L00_003F4A00-cc.c to L03_003E8C80-cc-g8.c",
+       "author": "bigbeno37",
+       "date": "2026-11-06T06:38:16Z"
+      },
+      {
+       "sha": "3f5d48576dba967893b6ca591332d1e478df4d72",
+       "title": "feat(pal): carry 20 functions, L00_003A7A68-cc-g8.c to L00_003F4518.c",
+       "author": "bigbeno37",
+       "date": "2026-11-06T06:38:16Z"
+      },
+      {
+       "sha": "0ffcfa38acfdeb9dfb7c9e4f352290e0d5daa51d",
+       "title": "feat(pal): carry 20 functions, L23_0041F458-cc-g8.c to L00_003A6238.c",
+       "author": "bigbeno37",
+       "date": "2026-11-06T06:38:16Z"
+      },
+      {
+       "sha": "82d625f415ecc16921ce4aae887c55bb728c2685",
+       "title": "feat(pal): carry 20 functions, L19_0041B440-cc-g8.c to L23_0041EDC8.c",
+       "author": "bigbeno37",
+       "date": "2026-11-06T06:38:16Z"
+      },
+      {
+       "sha": "1039ddb7793dfd390108991a64164ba279d75e78",
+       "title": "feat(pal): carry 20 functions, L16_004164B8-cc.c to L19_003ED868.c",
+       "author": "bigbeno37",
+       "date": "2026-11-06T06:38:16Z"
+      },
+      {
+       "sha": "4d81cc78acb96ad92ea7c0fb620f6ce293459a2e",
+       "title": "feat(pal): carry 20 functions, L14_004284F8-g8.c to L16_00416218.c",
+       "author": "bigbeno37",
+       "date": "2026-11-06T06:38:16Z"
+      },
+      {
+       "sha": "b8a69cec23919f1fc675b6035fcfdfa90ccc2b77",
+       "title": "feat(pal): carry 20 functions, L12_00418E80-g8.c to L14_00427E08.c",
+       "author": "bigbeno37",
+       "date": "2026-11-06T06:38:16Z"
+      },
+      {
+       "sha": "f6313f46c4ffd76cd56a519b634d9472889aa330",
+       "title": "feat(pal): carry 20 functions, L11_003E0F10-g8.c to L12_00418BD8-g8.c",
+       "author": "bigbeno37",
+       "date": "2026-11-06T06:38:16Z"
+      },
+      {
+       "sha": "44b1009cdc693ea2aa593e40a3081f33b2d1cac5",
+       "title": "feat(pal): carry 20 functions, L07_003FB840-cc-g8.c to L11_003E0D58.c",
+       "author": "bigbeno37",
+       "date": "2026-11-06T06:38:16Z"
+      },
+      {
+       "sha": "600d783758f1855ac170f0b1d0abce9cdd9e6002",
+       "title": "feat(pal): carry 20 functions, L02_004163B8-cc-g8.c to L07_003F8CB0-ring-g8.c",
+       "author": "bigbeno37",
+       "date": "2026-11-06T06:38:16Z"
+      },
+      {
+       "sha": "ffb9bfeeb1d30eb45d92c2fbdb80668ff3404006",
+       "title": "feat(pal): carry 20 functions, 00348DF8-g8.c to L02_003FF858-g8.c",
+       "author": "bigbeno37",
+       "date": "2026-11-06T06:38:16Z"
+      },
+      {
+       "sha": "4a0b8da01bf4c33883ef5c832118e6cb1fcac1d6",
+       "title": "feat(pal): carry 20 functions, 003292E8-cc-g8.c to 003480C8.c",
+       "author": "bigbeno37",
+       "date": "2026-11-06T06:38:16Z"
+      },
+      {
+       "sha": "139c930419e91596c92447afaef0b85261243a83",
+       "title": "feat(pal): carry 20 functions, 002D5C20-g8.c to 00329208.c",
+       "author": "bigbeno37",
+       "date": "2026-11-06T06:38:16Z"
+      },
+      {
+       "sha": "2d5205851195895470f79dba35951d2acf8ca54b",
+       "title": "feat(pal): carry 20 functions, 00131620.c to 002CECF8.c",
+       "author": "bigbeno37",
+       "date": "2026-11-06T06:38:16Z"
+      },
+      {
+       "sha": "767d52755e3e4e820b9be0e56c603e6fa4f52871",
+       "title": "fix(pal): name func_PAL_L02_00402940's values after its real table",
+       "author": "bigbeno37",
+       "date": "2026-11-06T06:26:09Z"
+      },
+      {
+       "sha": "4c5becb1064d4649cc96963a46bcc88bf017665d",
+       "title": "chore(progress): 8327 of 8528 functions",
+       "author": "Veradictus",
+       "date": "2026-11-06T06:15:18Z"
+      },
+      {
+       "sha": "f05b2703b4ebab94cdc72d52c82d08d55f900771",
+       "title": "Merge pull request #424 from OpenRAC/match/usa-small-tier",
+       "author": "Veradictus",
+       "date": "2026-11-06T06:14:40Z"
+      },
+      {
+       "sha": "6d0fb3c8b0a55438d0f27c35e8ab4cd9399971df",
+       "title": "Merge pull request #426 from cadelass/match/pal-twenty-20261105",
+       "author": "Veradictus",
+       "date": "2026-11-06T05:50:14Z"
+      },
+      {
+       "sha": "d49da9432f6c95e44e180f5e903bb8d659c2822f",
+       "title": "Merge pull request #425 from DrLegitamate/match/drlegitamate-near-misses",
+       "author": "Veradictus",
+       "date": "2026-11-06T05:49:33Z"
+      },
+      {
+       "sha": "49d4f5491aef63308e401321fa1b3f37551ad754",
+       "title": "chore(progress): refresh PAL and USA v2.00 reports after the catalogue repairs",
+       "author": "bigbeno37",
+       "date": "2026-11-06T02:37:12Z"
+      },
+      {
+       "sha": "95039af015b00aefd9ec391dd79bffba050117f5",
+       "title": "fix(catalogue): repair 53 USA v2.00 extents",
+       "author": "bigbeno37",
+       "date": "2026-11-06T01:44:31Z"
+      },
+      {
+       "sha": "795805dc9e4d2863a00c764a7218a9c3ba95486a",
+       "title": "fix(catalogue): end 5 PAL functions at their return's delay slot",
+       "author": "bigbeno37",
+       "date": "2026-11-06T01:44:31Z"
+      },
+      {
+       "sha": "cfd1e79279dcba784793882541263599da9a5b8d",
+       "title": "fix(catalogue): repair 18 more PAL extents",
+       "author": "bigbeno37",
+       "date": "2026-11-06T01:44:31Z"
+      },
+      {
+       "sha": "f789afe9613850d0467b24f297c4b48016355e8b",
+       "title": "fix(catalogue): start 99 PAL functions after their filler nop",
+       "author": "bigbeno37",
+       "date": "2026-11-06T01:44:31Z"
+      },
+      {
+       "sha": "f8c253ffd006d7582f4382f3f4bfb11a1afdb388",
+       "title": "chore(progress): 8233 of 8587 functions",
+       "author": "bigbeno37",
+       "date": "2026-11-06T01:07:16Z"
+      },
+      {
+       "sha": "002bd0a0fea074554c03f76b48132a9b8f199e42",
+       "title": "feat(include): readable names for 16 functions this series matches",
+       "author": "bigbeno37",
+       "date": "2026-11-06T01:03:10Z"
+      },
+      {
+       "sha": "c2b4da180daadb79762e4f0c1ef52ac66185287e",
+       "title": "feat(pal): carry 16 functions, L06_003E8E68-ribbon-g8.c to L22_003A54A0.c",
+       "author": "bigbeno37",
+       "date": "2026-11-06T01:03:10Z"
+      },
+      {
+       "sha": "d7eefa1cec34f446e77fba1ba25fa4153b9d926f",
+       "title": "feat(pal): carry 20 functions, L04_003FD4F8-port.c to L06_003E8A88.c",
+       "author": "bigbeno37",
+       "date": "2026-11-06T01:03:10Z"
+      },
+      {
+       "sha": "e2d5ee1943dad169b67156afaa9a82922c8f02b9",
+       "title": "feat(pal): carry 19 functions, L00_00436E20-port.c to L04_00364B90.c",
+       "author": "bigbeno37",
+       "date": "2026-11-06T01:03:10Z"
+      },
+      {
+       "sha": "a31e5aad2fcacdbc1d0db0e21092651e154fee8d",
+       "title": "feat(pal): carry 20 functions, L00_003FA3D0-por-g8.c to L00_00432FE8.c",
+       "author": "bigbeno37",
+       "date": "2026-11-06T01:03:10Z"
+      },
+      {
+       "sha": "dacb65bbbe9d66c814dac89dcb96372316b8d8cb",
+       "title": "feat(pal): carry 20 functions, L00_0038D7E8-cc-g8.c to L00_003F5068.c",
+       "author": "bigbeno37",
+       "date": "2026-11-06T01:03:10Z"
+      },
+      {
+       "sha": "2f4562d7baf9415b8e2a232f572e2d784550c333",
+       "title": "feat(pal): carry 20 functions, L23_00397268-tether-g8.c to L00_00388038.c",
+       "author": "bigbeno37",
+       "date": "2026-11-06T01:03:10Z"
+      },
+      {
+       "sha": "13025ed1b32848e4c8677f320833508e80ac2e5e",
+       "title": "feat(pal): carry 20 functions, L15_003B2BE8-tether-g8.c to L23_002BBAE8.c",
+       "author": "bigbeno37",
+       "date": "2026-11-06T01:03:10Z"
+      },
+      {
+       "sha": "e5cebc482f72927faf29e01bc0416f5cd05e0824",
+       "title": "feat(pal): carry 20 functions, L08_002CB6E0-deck.c to L14_0039CF70.c",
+       "author": "bigbeno37",
+       "date": "2026-11-06T01:03:10Z"
+      },
+      {
+       "sha": "0e54513ceca23c7899da4a61d5c81d7f6815985a",
+       "title": "feat(pal): carry 20 functions, L02_00405040-cc-g8.c to L07_003873C8.c",
+       "author": "bigbeno37",
+       "date": "2026-11-06T01:03:10Z"
+      },
+      {
+       "sha": "ac8d1c6dddadc62795d9160135502180d983adce",
+       "title": "feat(pal): carry 20 functions, L01_003C45C8-g8.c to L02_00402940.c",
+       "author": "bigbeno37",
+       "date": "2026-11-06T01:03:10Z"
+      },
+      {
+       "sha": "64c447750401746a731cdb999e90e933bd52c63e",
+       "title": "feat(pal): carry 20 functions, 0033F738-cc.c to L01_003C4250.c",
+       "author": "bigbeno37",
+       "date": "2026-11-06T01:03:10Z"
+      },
+      {
+       "sha": "6a37f06d6d9088722a9612470638459316f33fde",
+       "title": "feat(pal): carry 20 functions, 00305348-cc.c to 0033D838.c",
+       "author": "bigbeno37",
+       "date": "2026-11-06T01:03:10Z"
+      },
+      {
+       "sha": "12062b6a563d28b7481bbf4ec81d075a22f4ec48",
+       "title": "feat(pal): carry 20 functions, 002CC950-cc-g8.c to 00303578-cc-g8.c",
+       "author": "bigbeno37",
+       "date": "2026-11-06T01:03:10Z"
+      },
+      {
+       "sha": "9eccde117fb24ca158b2ee7ac9f62635d3bcd7d6",
+       "title": "feat(pal): carry 20 functions, 0027FB48-g8.c to 002CC7B8.c",
+       "author": "bigbeno37",
+       "date": "2026-11-06T01:03:10Z"
+      },
+      {
+       "sha": "4bdf489e34b94299bfd79ec06c6016a7d2c4de68",
+       "title": "feat(src): match 20 level functions, L02_003DB310.c to 0027F790.c",
+       "author": "bigbeno37",
+       "date": "2026-11-06T01:03:10Z"
+      },
+      {
+       "sha": "d53a9877ea1d44a0a4ab1595070368c91a35ded8",
+       "title": "feat(src): match 2 shared level functions, L18_002C4000-hud-g8.c to L18_003FAE50-beam.c",
+       "author": "bigbeno37",
+       "date": "2026-11-06T01:03:10Z"
+      },
+      {
+       "sha": "9ef2eae543471f56aa6d78aa316a23c376e0f82b",
+       "title": "feat(src): match 20 shared level functions, L00_003A0F30.c to L12_003E2460-g8.c",
+       "author": "bigbeno37",
+       "date": "2026-11-06T01:03:10Z"
+      },
+      {
+       "sha": "c24587d20e71741f9a508f247fab39230de6105c",
+       "title": "feat(src): match 3 boot functions, 002FC8D0-start.c to 0032EB28.c",
+       "author": "bigbeno37",
+       "date": "2026-11-06T01:03:10Z"
+      }
+     ]
+    }
+   ],
+   "commitCount": 113,
+   "pullRequests": {
+    "merged": [
+     {
+      "number": 424,
+      "title": "feat(src): match 22 reserved functions and classify the rest of the small tier",
+      "author": "Lynder063",
+      "untrustedBody": "Matches 22 reserved functions in C, marks 67 as original assembly (some need review), fixes catalogue rows, and adds two opt-in compiler flags (-frac2-narrow-saves-below, -frac2-keep-block-zero-copy).\nUS, PAL and US2 build 28/28 OK; 440 tests, check_repository and progress --check (all three) pass.\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nhttps://claude.ai/code/session_01E5SuSTqxSLa9onykvG6rsh",
+      "mergedAt": "2026-11-06T06:14:40Z"
+     },
+     {
+      "number": 425,
+      "title": "feat(src): four functions in C (sky renderers, level-8 emitter, beam), three original assembly routines",
+      "author": "DrLegitamate",
+      "untrustedBody": "## What this changes\n\n**Four functions in C** (USA v1.01: 59 placements):\n\n| Function | Size | Places | File |\n| --- | ---: | ---: | --- |\n| `func_002E3998` | 572 | boot + 27 levels | `src/game/002E10B8-sky-g8.c` (new) |\n| `func_002E3BD8` | 628 | boot + 27 levels | `src/game/002E10B8-sky-g8.c` (new) |\n| `func_L08_0041E790` | 756 | levels 8, 19 | `src/levels/shared/L08_0041E790-g8.c` (new, `-O2 -G8 -ffunction-sections -g`) |\n| `func_00308768` | 1600 | boot | `src/game/00308600-uv-g8.c` (new, default `-G8`) |\n\n- The two sky piece renderers' earlier near misses passed a fourth argument to the handwritten\n  `func_002E3E54`, which takes three: its body never reads `$a3`, as its functional C already said.\n  With the real interface both match. Recorded in `docs/MATCHING-BLOCKERS.md`.\n- `func_L08_0041E790`: the retained draft matches unchanged on the current compiler (the missing\n  division `nop` was fixed in 1e7eac49).\n- `func_00308768`: found by re-measuring every unreserved retained near mi",
+      "mergedAt": "2026-11-06T05:49:34Z"
+     },
+     {
+      "number": 426,
+      "title": "feat(pal): carry 20 more functions from their v1.01 C",
+      "author": "cadelass",
+      "untrustedBody": "## What\n\n20 PAL-only functions (`func_PAL_…`) in C, each matching every place it has on PAL.\n\nEach unit is the C of a matched v1.01 function, changed only where PAL's bytes differ (50 Hz constants, ids, callee `func_PAL_` names). Its header names the v1.01 twin and lists every change.\n\n| PAL function | v1.01 C |\n| --- | --- |\n| `func_PAL_L01_003C00F0` | `func_L01_003BC540` |\n| `func_PAL_L02_00402940` | `func_L02_003F9B70` |\n| `func_PAL_L03_00421E20` | `func_L03_0041CA78` |\n| `func_PAL_L00_002A4788` | `func_L00_002A4928` |\n| `func_PAL_L00_002B1248` | `func_L00_002B1350` |\n| `func_PAL_L00_00362A88` | `func_L00_003603C0` |\n| `func_PAL_L00_00376A18` | `func_L00_00373F48` |\n| `func_PAL_L00_00394148` | `func_L00_00390FF8` |\n| `func_PAL_L00_003E3968` | `func_L00_003DF710` |\n| `func_PAL_L00_0040E9F0` | `func_L00_00409E48` |\n| `func_PAL_L00_004169B0` | `func_L00_00411B30` |\n| `func_PAL_L00_0042B1E8` | `func_L00_00425CD0` |\n| `func_PAL_L01_002AE010` | `func_L01_002AE128` |\n| `func_PAL_L01_0031C9",
+      "mergedAt": "2026-11-06T05:50:14Z"
+     },
+     {
+      "number": 427,
+      "title": "feat(src): match medium-tier functions",
+      "author": "Lynder063",
+      "untrustedBody": "Matches 20 reserved medium-tier functions in C, marks 3 as original assembly, and fixes three catalogue rows.\nUS, PAL and US2 build 28/28 OK; 444 tests, check_repository and progress --check (all three) pass.\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nhttps://claude.ai/code/session_01E5SuSTqxSLa9onykvG6rsh",
+      "mergedAt": "2026-11-06T14:38:07Z"
+     },
+     {
+      "number": 428,
+      "title": "fix(levels): name level data by its own level's address",
+      "author": "nickyyOO",
+      "untrustedBody": "**Before:** some level-only functions were matched next to another level's copy and kept that level's data names. Joba's spark burst `func_L11_00397A30` said `D_L18_001B0730` (Damosel's particle settings), which Joba has at `0x001AECB8`. The build still links right, but anything else reading the C takes the name for that level's address. OpenRAC's port did, read a float as a pointer and crashed in Joba's second arena. 213 names in 45 files had this.\n\n**After:** every file in `src/levels/NN_*/` uses only level NN's names (`D_L11_001AECB8`), unused foreign externs are removed, and `tests/check_repository.py` rejects new ones.\n\n**How:** each new address is what the level's own code forms, read from the retail programs by lining the function up with the other level's copy (checked on about 3,000 known globals with no wrong answer), plus a manual check of the rest against the function's own instructions and the port's pairing.\n\n**Tested:**\n- `tests/check_repository.py` passes (and fails wit",
+      "mergedAt": "2026-11-06T12:35:49Z"
+     },
+     {
+      "number": 429,
+      "title": "fix: rule volatile out of matched C and fix what #424-#426 added",
+      "author": "Veradictus",
+      "untrustedBody": "`volatile` is now out of matched C altogether, measured retail reload sequences and MMIO included. This brings the docs in line and fixes what #424, #425 and #426 added.\n\n## Docs\n\n- AGENTS.md, Rules: a new **No `volatile` in matched C** rule. It also covers inline asm beyond the shared helpers, `#define` aliases and hardcoded addresses. A function that matches only with one of them goes to `nonmatching/` and gets its `INCLUDE_ASM` back. The \"measured volatile fields\" allowance and the RAC1 volatile precedent are gone.\n- docs/COMPILER-NOTES.md: the RAC1 vobuf/hud bullet now says that route is not available here. The func_L02_003D0408 note says that function needs plain C or a move back.\n\n## Functions\n\n| Function | From | Result |\n| --- | --- | --- |\n| func_001325E0 | #424 | still exact without `volatile` (the do-while block keeps the store order on its own) |\n| func_L08_00389B68 | #424 | exact without `volatile` (4/4 in us, pal and us2): the packet cursor is a struct member, so cc1 relo",
+      "mergedAt": "2026-11-06T14:37:31Z"
+     },
+     {
+      "number": 430,
+      "title": "feat(src): match five medium-tier functions",
+      "author": "Lynder063",
+      "untrustedBody": "Match func_L13_0041AB30, func_L03_003C5668, func_L00_002CA4E0, func_L00_003080D0 and func_00302848 in USA v1.01.\nUpdate the medium-tier near-miss notes; us, pal and us2 builds pass.",
+      "mergedAt": "2026-11-06T18:49:28Z"
+     },
+     {
+      "number": 432,
+      "title": "chore(progress): stop reporting data measures",
+      "author": "Veradictus",
+      "untrustedBody": "The reports sent the boot executable's data size with `matched_data` hardcoded to 0 (`tools/build.py` places C functions' code only; all data still comes from retail's dumps), so ByteMatch showed a permanent 0% Data figure. `progress.py` no longer emits data measures, and the three reports drop those fields; nothing else in them changes. Unit tests (96), `progress.py --check` and `check_repository.py` pass.",
+      "mergedAt": "2026-11-06T18:48:25Z"
+     }
+    ],
+    "opened": [
+     {
+      "number": 427,
+      "title": "feat(src): match medium-tier functions",
+      "author": "Lynder063",
+      "untrustedBody": "Matches 20 reserved medium-tier functions in C, marks 3 as original assembly, and fixes three catalogue rows.\nUS, PAL and US2 build 28/28 OK; 444 tests, check_repository and progress --check (all three) pass.\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nhttps://claude.ai/code/session_01E5SuSTqxSLa9onykvG6rsh",
+      "mergedAt": "2026-11-06T14:38:07Z"
+     },
+     {
+      "number": 428,
+      "title": "fix(levels): name level data by its own level's address",
+      "author": "nickyyOO",
+      "untrustedBody": "**Before:** some level-only functions were matched next to another level's copy and kept that level's data names. Joba's spark burst `func_L11_00397A30` said `D_L18_001B0730` (Damosel's particle settings), which Joba has at `0x001AECB8`. The build still links right, but anything else reading the C takes the name for that level's address. OpenRAC's port did, read a float as a pointer and crashed in Joba's second arena. 213 names in 45 files had this.\n\n**After:** every file in `src/levels/NN_*/` uses only level NN's names (`D_L11_001AECB8`), unused foreign externs are removed, and `tests/check_repository.py` rejects new ones.\n\n**How:** each new address is what the level's own code forms, read from the retail programs by lining the function up with the other level's copy (checked on about 3,000 known globals with no wrong answer), plus a manual check of the rest against the function's own instructions and the port's pairing.\n\n**Tested:**\n- `tests/check_repository.py` passes (and fails wit",
+      "mergedAt": "2026-11-06T12:35:49Z"
+     },
+     {
+      "number": 429,
+      "title": "fix: rule volatile out of matched C and fix what #424-#426 added",
+      "author": "Veradictus",
+      "untrustedBody": "`volatile` is now out of matched C altogether, measured retail reload sequences and MMIO included. This brings the docs in line and fixes what #424, #425 and #426 added.\n\n## Docs\n\n- AGENTS.md, Rules: a new **No `volatile` in matched C** rule. It also covers inline asm beyond the shared helpers, `#define` aliases and hardcoded addresses. A function that matches only with one of them goes to `nonmatching/` and gets its `INCLUDE_ASM` back. The \"measured volatile fields\" allowance and the RAC1 volatile precedent are gone.\n- docs/COMPILER-NOTES.md: the RAC1 vobuf/hud bullet now says that route is not available here. The func_L02_003D0408 note says that function needs plain C or a move back.\n\n## Functions\n\n| Function | From | Result |\n| --- | --- | --- |\n| func_001325E0 | #424 | still exact without `volatile` (the do-while block keeps the store order on its own) |\n| func_L08_00389B68 | #424 | exact without `volatile` (4/4 in us, pal and us2): the packet cursor is a struct member, so cc1 relo",
+      "mergedAt": "2026-11-06T14:37:31Z"
+     },
+     {
+      "number": 430,
+      "title": "feat(src): match five medium-tier functions",
+      "author": "Lynder063",
+      "untrustedBody": "Match func_L13_0041AB30, func_L03_003C5668, func_L00_002CA4E0, func_L00_003080D0 and func_00302848 in USA v1.01.\nUpdate the medium-tier near-miss notes; us, pal and us2 builds pass.",
+      "mergedAt": "2026-11-06T18:49:28Z"
+     },
+     {
+      "number": 431,
+      "title": "docs(nonmatching): record the HUD family and call-site measurements",
+      "author": "nominalsan",
+      "untrustedBody": "## What\n\nDocumentation only: no function is matched, and `src/` and `config/` are unchanged.\n\n**HUD family.** `func_L05_00420360`, `func_L10_004239A0` and `func_L15_00430168` are one body, differing in addresses and one text id (`0x11F5`/`0x11FB`/`0x11FF`). The \"invisible boundary\" in the old L10 note is the display-mode helper already matched in `func_0032F3D0` and `func_L08_003DB518`, not a dead-store wrapper. The retained L10 form uses that helper with `-fno-gcse` and is 1064/1064 bytes, 0/1 place, with 18 of 266 relocation-masked lines differing (29 in the old note, by its own count, using the rejected wrappers). Remaining: one sprite argument order, the `strlen` result move and one FP register swap.\n\n**Question for a maintainer.** `func_002B6658` and `func_L00_0032CF60` are the only two sites of `lw v1; beqz; nop; daddu a0; jalr v1; nop`. Both become exact at `tools/check.py` only with this call plus volatile `flags` reads:\n\n```c\n__asm__ volatile(\"move $4,%0\\n\\tjalr %1\" :: \"r\"(t),"
+     },
+     {
+      "number": 432,
+      "title": "chore(progress): stop reporting data measures",
+      "author": "Veradictus",
+      "untrustedBody": "The reports sent the boot executable's data size with `matched_data` hardcoded to 0 (`tools/build.py` places C functions' code only; all data still comes from retail's dumps), so ByteMatch showed a permanent 0% Data figure. `progress.py` no longer emits data measures, and the three reports drop those fields; nothing else in them changes. Unit tests (96), `progress.py --check` and `check_repository.py` pass.",
+      "mergedAt": "2026-11-06T18:48:25Z"
+     },
+     {
+      "number": 433,
+      "title": "docs(nonmatching): measured near-miss results for func_002CA070, F35, func_L10_004227A0 and func_L00_003E5BD8",
+      "author": "DrLegitamate",
+      "untrustedBody": "## What\n\nDocumentation only: no `src/` or `config/` change and no function added. These are measured near-miss results for four bodies (eight canonical functions plus `func_L00_003E5BD8`). Each one updates the draft in `nonmatching/`, its README row and `docs/MATCHING-BLOCKERS.md`.\n\n- **`func_002CA070`**: case 8's five registers. An instrumented local-alloc gives the exact quantity priorities: retail needs page life ≥ 36 and c life ≥ 30 with upd at 28. Only a schedule that loads page's `%hi` first and stores c last gives those lifetimes. `rank_for_schedule`'s register-weight rule always moves page's last store earlier. Measured without a match:\n  - all 15,120 store orders, and about 400,000 random source forms (statement order, locals versus constants, struct pointers, chained stores, call forms, a cross-case `list` variable)\n  - every pair of 48 compiler flags\n  - a direct call, which compiles to `jal` because MIPS defines `NO_FUNCTION_CSE`\n  - a null-guarded call\n- **`func_L05_00421B",
+      "mergedAt": "2026-11-08T04:02:29Z"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": {
+    "before": {
+     "code": {
+      "done": 5074292,
+      "total": 5527556
+     },
+     "functions": {
+      "done": 8173,
+      "total": 8584
+     },
+     "data": {
+      "done": 0,
+      "total": 383391
+     }
+    },
+    "after": {
+     "code": {
+      "done": 5206860,
+      "total": 5524060
+     },
+     "functions": {
+      "done": 8360,
+      "total": 8527
+     }
+    }
+   },
+   "contributors": [
+    "bigbeno37",
+    "cadelass",
+    "DrLegitamate",
+    "Lynder063",
+    "nickyyOO",
+    "nominalsan",
+    "Veradictus"
+   ]
+  },
+  {
+   "repo": "rac3-decomp",
+   "title": "Up Your Arsenal",
+   "branches": [
+    {
+     "name": "master",
+     "commits": [
+      {
+       "sha": "add87edbfce2c6e8b649983fe14bdc48e4c91e3a",
+       "title": "Merge pull request #9 from llesieur99/codex/us-sub200-wave21-20261106",
+       "author": "llesieur99",
+       "date": "2026-11-06T16:24:30Z"
+      },
+      {
+       "sha": "e2e12cab6ba819ed7e916dfb4da75d4146008ba3",
+       "title": "chore(progress): 6499 of 16164 functions",
+       "author": "Veradictus",
+       "date": "2026-11-06T15:27:43Z"
+      },
+      {
+       "sha": "d0d1c318339b650aaec976cdba4b4f13f8e8c293",
+       "title": "Merge pull request #5 from manstie/open-rac-engine",
+       "author": "Veradictus",
+       "date": "2026-11-06T14:44:35Z"
+      },
+      {
+       "sha": "28b45ee34de0b2c53bd25fd58448343f4c900a46",
+       "title": "Merge pull request #8 from llesieur99/codex/us-sub200-after-pr7-20261106",
+       "author": "llesieur99",
+       "date": "2026-11-06T14:43:01Z"
+      },
+      {
+       "sha": "62b9898226192622606da53b5e9c00f289b0104c",
+       "title": "build: make asm and volatile permuter passes opt-in, diagnosis only",
+       "author": "Veradictus",
+       "date": "2026-11-06T14:06:02Z"
+      },
+      {
+       "sha": "a6cbc91aa83f2eaab99343c5902cc7f1cce8b28c",
+       "title": "docs: forbid volatile and inline asm in matched C",
+       "author": "Veradictus",
+       "date": "2026-11-06T14:01:50Z"
+      },
+      {
+       "sha": "1f0e37677072286dfc6d5f299d7fd1a3ecc715f6",
+       "title": "Merge pull request #7 from llesieur99/codex/us-sub200-after-pr6-20261106",
+       "author": "llesieur99",
+       "date": "2026-11-06T13:48:05Z"
+      },
+      {
+       "sha": "af91efbb94b0deaf81e1d41bbc435b5ca1fcb141",
+       "title": "Merge pull request #6 from llesieur99/codex/us-sub200-after135-20261106",
+       "author": "llesieur99",
+       "date": "2026-11-06T13:04:27Z"
+      },
+      {
+       "sha": "d4d56d87cef51237a4266cc0035f6dc970602ec0",
+       "title": "docs(agents): drop the master branch rule",
+       "author": "claude",
+       "date": "2026-11-06T09:25:11Z"
+      },
+      {
+       "sha": "6bcc69b01f2fa5af0c0eec83cd2fd8a5ccf79327",
+       "title": "chore(progress): carry 135 NTSC-U level matches and refresh the reports",
+       "author": "Veradictus",
+       "date": "2026-11-06T06:24:51Z"
+      },
+      {
+       "sha": "8c99b8bd44a83c11f5e740e46f5e90583f492c05",
+       "title": "Merge pull request #4 from llesieur99/codex/us-sub200-levels-20261105",
+       "author": "Veradictus",
+       "date": "2026-11-06T05:58:55Z"
+      }
+     ]
+    }
+   ],
+   "commitCount": 11,
+   "pullRequests": {
+    "merged": [
+     {
+      "number": 4,
+      "title": "feat(us): match 135 small NTSC-U level functions",
+      "author": "llesieur99",
+      "untrustedBody": "## Summary\n\nMatch 135 NTSC-U-only level functions smaller than 200 bytes in plain C. They account for 15,100 distinct function-body bytes and 1,926 placements across the 51 NTSC-U level programs. The latest batch adds 13 functions present in 13 level placements; all 13 were checked before one complete 54-target build. Sources use inherited file flags, external globals and the existing native level naming convention. This is a tranche of the remaining small-function catalogue, not a claim that every function below 200 bytes is finished.\n\nFix `c_objects.compile_one` to pass the actual level target to the stock native checker. Without that target, multiplayer code was compiled under the story program's `$gp`; the new unit test covers this regression.\n\n## Validation\n\n- The stock native checker reports `MATCH` for all 135 sources, with no per-function flag overrides or injected instructions.\n- An independent relocation audit checks each compiler object against all 1,926 retail placements, i",
+      "mergedAt": "2026-11-06T05:58:55Z"
+     },
+     {
+      "number": 5,
+      "title": "feat: names, shared layouts and hero/camera matches from open-rac-engine",
+      "author": "manstie",
+      "untrustedBody": "Names, shared layouts and matches from [open-rac-engine](https://github.com/manstie/open-rac-engine) (GPL-3.0-or-later; facts only, credited in `THIRD_PARTY_NOTICES.md`), a Rust re-implementation of Ratchet's hero, cameras and guns built from reverse-engineering R&C3 PAL and UYA NTSC-U Veldin. Draft: the plan below is to match every function it names.\n\n## Functions\n\nAll plain C, in `src/levels/shared/` (claimed in #3):\n\n- `L01_003E3930.c`: `camera_set_distance`, `camera_set_height`, `camera_no_push_back`, `camera_look_blend_on`, `camera_lock_stick`, `camera_block_look`, `func_L01_003E8D80`, `func_L01_003E8EE8`\n- `L01_004E7338.c`: `hero_strafe_turn`, `hero_walk_target`, `hero_approach_speed`, `hero_velocity_along`, `func_L01_004E9C08`\n- `L01_004EF3A8.c`: `func_L01_004F0558`, `func_L01_004F05F0`, `func_L01_004F4FC0`\n\n## Checks\n\n- [x] `python3 tests/check_repository.py` passes; `python3 tools/pr_check.py --target all` prints `OK` for frontbin, boot_elf and i5bootn\n- [x] Full build: `tools",
+      "mergedAt": "2026-11-06T14:44:35Z"
+     },
+     {
+      "number": 6,
+      "title": "feat(us): match 23 more small NTSC-U level functions",
+      "author": "llesieur99",
+      "untrustedBody": "## Summary\n\nFollow up to merged PR #4 on upstream master `6bcc69b01f2fa5af0c0eec83cd2fd8a5ccf79327`. Match 23 additional NTSC-U-only level functions smaller than 200 bytes in plain C: 1,792 distinct function-body bytes across 242 level placements.\n\nThe latest wave adds three functions (328 body bytes, 18 placements): two multiplayer menu wrappers and a 96-byte table scan present in 16 levels. The table scan keeps the table base separate from its three-word slot offset to reproduce stock compiler output. All 18 placement relocations resolve exactly to retail.\n\nThe earlier 36-byte `func_L39_005A3D9C` starts 4 mod 8 in all 17 multiplayer levels. Its stock compiler output matches retail but has one trailing zero alignment word. After stock `MATCH`, the build verifies one function, one zero padding word, no other allocated data, and no relocation in the padding. It changes only the generated ELF `.text` size/alignment metadata. No C instruction or retail byte is rewritten. A standalone PS2 ",
+      "mergedAt": "2026-11-06T13:04:27Z"
+     },
+     {
+      "number": 7,
+      "title": "feat(us): match four more small NTSC-U level functions",
+      "author": "llesieur99",
+      "untrustedBody": "## Summary\n\nFollow up to merged PR #6. Match four additional NTSC-U-only level functions smaller than 200 bytes in plain C: 452 distinct function-body bytes across 35 retail placements. Two of the functions are shared by 17 and 16 multiplayer levels.\n\n`func_L40_0053CE30` calls a terminal eight-byte function that has five catalogue names across its 16 level copies. The C source names its level-40 callsite; an independent check confirms each linked call targets the same eight-byte retail body in every level.\n\n## Validation\n\n- Stock native checks report `MATCH` for all four sources with inherited file flags. Independent relocation proofs cover all 35 placements.\n- The full NTSC-U build on `e0e771fe7f97263b554764e54ada884d43ca0936` reports `SCUS_973.53: 54 of 54 targets match`.\n- An independent linked-section audit confirms 162 C functions in 2,203 placements and 120,537,627 non-BSS bytes identical to retail across all 54 programs.\n- All 50 unit tests pass with `python -S`; repository chec",
+      "mergedAt": "2026-11-06T13:48:06Z"
+     },
+     {
+      "number": 8,
+      "title": "feat(us): match three small NTSC-U level functions and correct globals",
+      "author": "llesieur99",
+      "untrustedBody": "## Summary\n\nFollow up to merged PR #7. Match three additional NTSC-U-only level functions smaller than 200 bytes in plain C: 400 distinct function-body bytes across 12 retail placements. The new functions are 140, 196, and 64 bytes; the latter two are present in five and six levels.\n\nTwo already matched multiplayer functions now declare their actual scalar globals with the documented `.data` address attribute instead of oversized array views. Their linked bytes remain exact in all 33 existing placements. The 64-byte function uses one truthful file-scope `__asm__(\".extern D_L01_001DF360, 4\")` size hint, allowed by the current matching rules, so Ps2EeAs emits its retail `$gp` load. Its level data address is checked in each copy.\n\n## Validation\n\n- Stock native checks report `MATCH` for all five changed C sources with inherited file flags. Independent relocation proofs cover all 45 affected placements.\n- The full NTSC-U build on `c146d5b90322dab139e6ea0c92996eb4f5224919` reports `SCUS_973.",
+      "mergedAt": "2026-11-06T14:43:01Z"
+     },
+     {
+      "number": 9,
+      "title": "match(us): two short shared level functions across 85 placements",
+      "author": "llesieur99",
+      "untrustedBody": "## NTSC-U matches\n- `func_L01_0034B8A8`: 120 bytes, 51 level placements.\n- `func_L01_0045FD70`: 184 bytes, 34 level placements.\n\nBoth use plain C and the inherited file flags. No flag override, alias, game asset, or private path is added. The independent store order in C reproduces the stock SN compiler's retail scheduling.\n\n## Validation\n- Stock native checks: MATCH for both functions.\n- Resolved relocation proof: all 85 placements exact, with no masked words.\n- Full SCUS_973.53 build: 54 of 54 targets MATCH.\n- Independent linked audit: 167 C functions, 2,300 placements, 54 programs, and 120,537,627 non-BSS bytes equal retail.\n- 50 unit tests pass under WSL; repository checker and NTSC-U progress check pass.\n- Six-file publication diff passed the source-hash, plain-C, and privacy scan.\n\nThe PAL disc is unavailable here, so this PR does not claim a PAL build or a fresh PAL-to-US carry. The committed NTSC-U progress report marks the two functions as exact; the canonical totals sourced f",
+      "mergedAt": "2026-11-06T16:24:30Z"
+     }
+    ],
+    "opened": [
+     {
+      "number": 4,
+      "title": "feat(us): match 135 small NTSC-U level functions",
+      "author": "llesieur99",
+      "untrustedBody": "## Summary\n\nMatch 135 NTSC-U-only level functions smaller than 200 bytes in plain C. They account for 15,100 distinct function-body bytes and 1,926 placements across the 51 NTSC-U level programs. The latest batch adds 13 functions present in 13 level placements; all 13 were checked before one complete 54-target build. Sources use inherited file flags, external globals and the existing native level naming convention. This is a tranche of the remaining small-function catalogue, not a claim that every function below 200 bytes is finished.\n\nFix `c_objects.compile_one` to pass the actual level target to the stock native checker. Without that target, multiplayer code was compiled under the story program's `$gp`; the new unit test covers this regression.\n\n## Validation\n\n- The stock native checker reports `MATCH` for all 135 sources, with no per-function flag overrides or injected instructions.\n- An independent relocation audit checks each compiler object against all 1,926 retail placements, i",
+      "mergedAt": "2026-11-06T05:58:55Z"
+     },
+     {
+      "number": 5,
+      "title": "feat: names, shared layouts and hero/camera matches from open-rac-engine",
+      "author": "manstie",
+      "untrustedBody": "Names, shared layouts and matches from [open-rac-engine](https://github.com/manstie/open-rac-engine) (GPL-3.0-or-later; facts only, credited in `THIRD_PARTY_NOTICES.md`), a Rust re-implementation of Ratchet's hero, cameras and guns built from reverse-engineering R&C3 PAL and UYA NTSC-U Veldin. Draft: the plan below is to match every function it names.\n\n## Functions\n\nAll plain C, in `src/levels/shared/` (claimed in #3):\n\n- `L01_003E3930.c`: `camera_set_distance`, `camera_set_height`, `camera_no_push_back`, `camera_look_blend_on`, `camera_lock_stick`, `camera_block_look`, `func_L01_003E8D80`, `func_L01_003E8EE8`\n- `L01_004E7338.c`: `hero_strafe_turn`, `hero_walk_target`, `hero_approach_speed`, `hero_velocity_along`, `func_L01_004E9C08`\n- `L01_004EF3A8.c`: `func_L01_004F0558`, `func_L01_004F05F0`, `func_L01_004F4FC0`\n\n## Checks\n\n- [x] `python3 tests/check_repository.py` passes; `python3 tools/pr_check.py --target all` prints `OK` for frontbin, boot_elf and i5bootn\n- [x] Full build: `tools",
+      "mergedAt": "2026-11-06T14:44:35Z"
+     },
+     {
+      "number": 6,
+      "title": "feat(us): match 23 more small NTSC-U level functions",
+      "author": "llesieur99",
+      "untrustedBody": "## Summary\n\nFollow up to merged PR #4 on upstream master `6bcc69b01f2fa5af0c0eec83cd2fd8a5ccf79327`. Match 23 additional NTSC-U-only level functions smaller than 200 bytes in plain C: 1,792 distinct function-body bytes across 242 level placements.\n\nThe latest wave adds three functions (328 body bytes, 18 placements): two multiplayer menu wrappers and a 96-byte table scan present in 16 levels. The table scan keeps the table base separate from its three-word slot offset to reproduce stock compiler output. All 18 placement relocations resolve exactly to retail.\n\nThe earlier 36-byte `func_L39_005A3D9C` starts 4 mod 8 in all 17 multiplayer levels. Its stock compiler output matches retail but has one trailing zero alignment word. After stock `MATCH`, the build verifies one function, one zero padding word, no other allocated data, and no relocation in the padding. It changes only the generated ELF `.text` size/alignment metadata. No C instruction or retail byte is rewritten. A standalone PS2 ",
+      "mergedAt": "2026-11-06T13:04:27Z"
+     },
+     {
+      "number": 7,
+      "title": "feat(us): match four more small NTSC-U level functions",
+      "author": "llesieur99",
+      "untrustedBody": "## Summary\n\nFollow up to merged PR #6. Match four additional NTSC-U-only level functions smaller than 200 bytes in plain C: 452 distinct function-body bytes across 35 retail placements. Two of the functions are shared by 17 and 16 multiplayer levels.\n\n`func_L40_0053CE30` calls a terminal eight-byte function that has five catalogue names across its 16 level copies. The C source names its level-40 callsite; an independent check confirms each linked call targets the same eight-byte retail body in every level.\n\n## Validation\n\n- Stock native checks report `MATCH` for all four sources with inherited file flags. Independent relocation proofs cover all 35 placements.\n- The full NTSC-U build on `e0e771fe7f97263b554764e54ada884d43ca0936` reports `SCUS_973.53: 54 of 54 targets match`.\n- An independent linked-section audit confirms 162 C functions in 2,203 placements and 120,537,627 non-BSS bytes identical to retail across all 54 programs.\n- All 50 unit tests pass with `python -S`; repository chec",
+      "mergedAt": "2026-11-06T13:48:06Z"
+     },
+     {
+      "number": 8,
+      "title": "feat(us): match three small NTSC-U level functions and correct globals",
+      "author": "llesieur99",
+      "untrustedBody": "## Summary\n\nFollow up to merged PR #7. Match three additional NTSC-U-only level functions smaller than 200 bytes in plain C: 400 distinct function-body bytes across 12 retail placements. The new functions are 140, 196, and 64 bytes; the latter two are present in five and six levels.\n\nTwo already matched multiplayer functions now declare their actual scalar globals with the documented `.data` address attribute instead of oversized array views. Their linked bytes remain exact in all 33 existing placements. The 64-byte function uses one truthful file-scope `__asm__(\".extern D_L01_001DF360, 4\")` size hint, allowed by the current matching rules, so Ps2EeAs emits its retail `$gp` load. Its level data address is checked in each copy.\n\n## Validation\n\n- Stock native checks report `MATCH` for all five changed C sources with inherited file flags. Independent relocation proofs cover all 45 affected placements.\n- The full NTSC-U build on `c146d5b90322dab139e6ea0c92996eb4f5224919` reports `SCUS_973.",
+      "mergedAt": "2026-11-06T14:43:01Z"
+     },
+     {
+      "number": 9,
+      "title": "match(us): two short shared level functions across 85 placements",
+      "author": "llesieur99",
+      "untrustedBody": "## NTSC-U matches\n- `func_L01_0034B8A8`: 120 bytes, 51 level placements.\n- `func_L01_0045FD70`: 184 bytes, 34 level placements.\n\nBoth use plain C and the inherited file flags. No flag override, alias, game asset, or private path is added. The independent store order in C reproduces the stock SN compiler's retail scheduling.\n\n## Validation\n- Stock native checks: MATCH for both functions.\n- Resolved relocation proof: all 85 placements exact, with no masked words.\n- Full SCUS_973.53 build: 54 of 54 targets MATCH.\n- Independent linked audit: 167 C functions, 2,300 placements, 54 programs, and 120,537,627 non-BSS bytes equal retail.\n- 50 unit tests pass under WSL; repository checker and NTSC-U progress check pass.\n- Six-file publication diff passed the source-hash, plain-C, and privacy scan.\n\nThe PAL disc is unavailable here, so this PR does not claim a PAL build or a fresh PAL-to-US carry. The committed NTSC-U progress report marks the two functions as exact; the canonical totals sourced f",
+      "mergedAt": "2026-11-06T16:24:30Z"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": {
+    "before": {
+     "code": {
+      "done": 784628,
+      "total": 7546948
+     },
+     "functions": {
+      "done": 6485,
+      "total": 16164
+     }
+    },
+    "after": {
+     "code": {
+      "done": 786100,
+      "total": 7546948
+     },
+     "functions": {
+      "done": 6499,
+      "total": 16164
+     }
+    }
+   },
+   "contributors": [
+    "claude",
+    "llesieur99",
+    "manstie",
+    "Veradictus"
+   ]
+  },
+  {
+   "repo": "rac4-decomp",
+   "title": "Ratchet: Deadlocked",
+   "branches": [
+    {
+     "name": "main",
+     "commits": [
+      {
+       "sha": "8e5281941d954de5da8320e77f7447e6b7883301",
+       "title": "chore(progress): US 6,792 of 18,170 functions, PAL 7,166 of 18,134",
+       "author": "Veradictus",
+       "date": "2026-11-06T17:43:59Z"
+      },
+      {
+       "sha": "728369941f34f092d7658bbf4ca54d8ce7dd81f2",
+       "title": "fix(pal): drop 848 src/pal copies of functions src/ already matches on PAL",
+       "author": "Veradictus",
+       "date": "2026-11-06T17:35:40Z"
+      },
+      {
+       "sha": "e0bc4156c3a1b0b8b4c0d9eea5e59ea907c6b7f5",
+       "title": "Merge pull request #110 from llesieur99/codex/rac4-small-us-plain-20261106",
+       "author": "Veradictus",
+       "date": "2026-11-06T17:18:27Z"
+      },
+      {
+       "sha": "033898aac00305c04fd22d7d77ddc75069133a77",
+       "title": "chore(progress): 6,048 of 18,086 US functions, 6,850 of 18,113 PAL",
+       "author": "Veradictus",
+       "date": "2026-11-06T15:10:29Z"
+      },
+      {
+       "sha": "5f1bcb94accc7d2f37bab11323b37a68936066fe",
+       "title": "fix(pal): drop 16 src/pal copies of functions src/ now matches on PAL",
+       "author": "Veradictus",
+       "date": "2026-11-06T15:10:11Z"
+      },
+      {
+       "sha": "a7c6f75606ed243eae2b3dac1d0e290bc16f5e4b",
+       "title": "fix(game): name 18 gp-relative globals by their retail addresses",
+       "author": "Veradictus",
+       "date": "2026-11-06T15:10:11Z"
+      },
+      {
+       "sha": "dea314393532545eab46f9723f03977e92013e3e",
+       "title": "refactor(overlays): drop three #define aliases",
+       "author": "Veradictus",
+       "date": "2026-11-06T14:40:52Z"
+      },
+      {
+       "sha": "92f274681ced034de7e7ebb1773e2a57462d8424",
+       "title": "Merge pull request #108 from Sumaiter/decomp/pal-codex-parallel-08",
+       "author": "Veradictus",
+       "date": "2026-11-06T14:40:38Z"
+      },
+      {
+       "sha": "c25fdef7eca8e221df346108fdb8f64287b3983a",
+       "title": "Merge pull request #107 from LucienTo/matches-batch-3-pr",
+       "author": "Veradictus",
+       "date": "2026-11-06T14:39:55Z"
+      },
+      {
+       "sha": "d94737d570b2ec3afb3baa844df051956858e8ca",
+       "title": "Merge pull request #109 from OpenRAC/fix/plain-c-rules",
+       "author": "Veradictus",
+       "date": "2026-11-06T14:39:38Z"
+      },
+      {
+       "sha": "7e684659b85aa9eae43c6889580573a62458392d",
+       "title": "chore(progress): 5,885 of 18,086 US functions, 6,789 of 18,113 PAL",
+       "author": "Veradictus",
+       "date": "2026-11-06T06:09:49Z"
+      },
+      {
+       "sha": "e824fa3748670eead86b17c57ffd10de6e6c8cf0",
+       "title": "docs(readme): restore the PAL_SIGNATURES link from #99",
+       "author": "Veradictus",
+       "date": "2026-11-06T06:09:35Z"
+      },
+      {
+       "sha": "db183e023f54362607ed8faefd0dd071ddac3955",
+       "title": "fix(pal): drop -Wa,-G0 from two units it never reached",
+       "author": "Veradictus",
+       "date": "2026-11-06T06:07:32Z"
+      },
+      {
+       "sha": "3f7d984a40785129914cb9fd9afdbac0c5676e5d",
+       "title": "fix(cc): expand empty flag arrays safely under bash 3.2",
+       "author": "Veradictus",
+       "date": "2026-11-06T06:07:32Z"
+      },
+      {
+       "sha": "26bf601a1b2e7906e330340f05040ebf87ef703b",
+       "title": "fix(pal): drop func_0049A410, which does not match",
+       "author": "Veradictus",
+       "date": "2026-11-06T05:42:03Z"
+      },
+      {
+       "sha": "f88cac8f06f47bf148dde4c389ad530c4de79788",
+       "title": "Merge pull request #71 from Joebannerlord/codex/deadlocked-ntscu-45-20261101",
+       "author": "Veradictus",
+       "date": "2026-11-06T05:28:26Z"
+      },
+      {
+       "sha": "17240cb0df6a7b072df9d844ae9580365094d0ab",
+       "title": "fix(core): move func_001270C0 to nonmatching",
+       "author": "Veradictus",
+       "date": "2026-11-06T05:27:46Z"
+      },
+      {
+       "sha": "c459790ebdeb025eab5bb6531d6c17f57891ed2c",
+       "title": "fix: reach data through symbols instead of hardcoded addresses",
+       "author": "Veradictus",
+       "date": "2026-11-06T05:27:46Z"
+      },
+      {
+       "sha": "dd8416aa7be909cccea895bb089bad763965145d",
+       "title": "Merge pull request #106 from Sumaiter/decomp/pal-codex-parallel-07",
+       "author": "Veradictus",
+       "date": "2026-11-06T05:21:20Z"
+      },
+      {
+       "sha": "08d99de61720fa6e366660ab7c833a7bb5486805",
+       "title": "Merge pull request #105 from Sumaiter/decomp/pal-codex-parallel-06",
+       "author": "Veradictus",
+       "date": "2026-11-06T05:21:19Z"
+      },
+      {
+       "sha": "492b94e1db2beafd5ab3895407499c2f6bb4a5a1",
+       "title": "Merge pull request #104 from Sumaiter/decomp/pal-codex-parallel-05",
+       "author": "Veradictus",
+       "date": "2026-11-06T05:21:18Z"
+      },
+      {
+       "sha": "75c1bbac09654d28c7dcded562ee65e64f7b524e",
+       "title": "Merge pull request #103 from chistianh/pal-oficial-13",
+       "author": "Veradictus",
+       "date": "2026-11-06T05:21:17Z"
+      },
+      {
+       "sha": "d2fd900fe685d8350698ff3fc9beaccd69f91c76",
+       "title": "Merge pull request #102 from Sumaiter/decomp/pal-codex-parallel-04",
+       "author": "Veradictus",
+       "date": "2026-11-06T05:21:10Z"
+      },
+      {
+       "sha": "925545b767d92ec560360e5ef65abd325823b85c",
+       "title": "Merge pull request #101 from Sumaiter/decomp/pal-codex-parallel-03",
+       "author": "Veradictus",
+       "date": "2026-11-06T05:20:58Z"
+      },
+      {
+       "sha": "58cc42569eb513af3459a9a5ef45be784797bd09",
+       "title": "Merge pull request #100 from Sumaiter/decomp/pal-large-batch-08",
+       "author": "Veradictus",
+       "date": "2026-11-06T05:20:56Z"
+      },
+      {
+       "sha": "8270d433890b981d3f90ba9f77ce8b2e3241e245",
+       "title": "Merge pull request #99 from Sumaiter/decomp/pal-codex-parallel-02",
+       "author": "Veradictus",
+       "date": "2026-11-06T05:20:56Z"
+      },
+      {
+       "sha": "b044f3434455ba1d40ca75a2eef0211f8eb5da9b",
+       "title": "Merge pull request #98 from Clank700/claude/rac4-us-next",
+       "author": "Veradictus",
+       "date": "2026-11-06T05:20:48Z"
+      },
+      {
+       "sha": "aa1ba7b2622f7597c9b4be2d4d84f085d80a892b",
+       "title": "Merge pull request #97 from LucienTo/matches-batch-2",
+       "author": "Veradictus",
+       "date": "2026-11-06T05:20:35Z"
+      },
+      {
+       "sha": "b630dea270eb164e0a7d90a4a19d4f88ce8cc5c5",
+       "title": "Merge pull request #96 from Shaar-games/codex/pal-solver-matches",
+       "author": "Veradictus",
+       "date": "2026-11-06T05:20:27Z"
+      },
+      {
+       "sha": "86b4b9a02376da8074a405ffa1ac34c06f50a9ac",
+       "title": "Merge pull request #95 from Sumaiter/decomp/pal-codex-parallel-01",
+       "author": "Veradictus",
+       "date": "2026-11-06T05:20:16Z"
+      },
+      {
+       "sha": "186a8bd30f53ca3879c443df883f2d717d918638",
+       "title": "Merge pull request #94 from LucienTo/matches-batch-1",
+       "author": "Veradictus",
+       "date": "2026-11-06T05:20:15Z"
+      },
+      {
+       "sha": "792a407cd5516e1d43f3d5e991938d8eb5b91c8c",
+       "title": "Merge pull request #93 from Sumaiter/decomp/pal-large-batch-07",
+       "author": "Veradictus",
+       "date": "2026-11-06T05:20:15Z"
+      },
+      {
+       "sha": "e7982af520d9d87b194bf321e66a3d561ab82d01",
+       "title": "Merge pull request #92 from Clank700/claude/rac4-us-90-matches",
+       "author": "Veradictus",
+       "date": "2026-11-06T05:20:14Z"
+      }
+     ]
+    }
+   ],
+   "commitCount": 33,
+   "pullRequests": {
+    "merged": [
+     {
+      "number": 71,
+      "title": "Match 45 NTSC-U helpers with pinned compiler profiles",
+      "author": "Joebannerlord",
+      "untrustedBody": "Adds **45 independently verified NTSC-U functions / 1,936 retail bytes**, together with the pinned compiler profiles needed to reproduce them. The collection covers five core routines and forty network getters, initializers, predicates and callback/copy/zeroing wrappers. The branch contains one commit based on current upstream main.\n\n**Draft: PAL mapping is still needed before merge.** PAL retail inputs are unavailable locally. The 45 new US sources have no verified PAL map rows, so `tools/progress.py --version pal --check` fails its coverage guard. PAL source, map and report are unchanged; no untested PAL match or mismatch status has been fabricated. A maintainer with PAL inputs can pull this branch and regenerate/review the PAL map.\n\n## Changes\n\n- Preserve the 45 reconstructed source files unchanged from their independently verified local versions. Check actual argument/return ABI, access widths, offsets, call targets and global addresses rather than relying on masked `EXACT` results",
+      "mergedAt": "2026-11-06T06:11:34Z"
+     },
+     {
+      "number": 92,
+      "title": "Match 57 NTSC-U functions",
+      "author": "Clank700",
+      "untrustedBody": "## What\n\n57 NTSC-U (SCUS_974.65) functions move from unmatched to matched, one C file each; one of them (`func_L00_00528810`) replaces its near miss in `nonmatching/`. US matched functions 5,435 → 5,492 (414,340 → 418,508 bytes), PAL 6,032 → 6,083 (497,616 → 501,564 bytes). `config/us/map.tsv`, `config/pal/map.tsv`, both progress reports and the README table are regenerated with the repository tools; only the rows of the new sources changed.\n\nEvery function here is new on both discs: none has a `src/pal/` source on main, so no existing source or its credit moves (compared function by function in `progress/report.json` and `progress/pal/report.json`, per unit: no function name appears in two units with different percentages, and none of the existing functions gets worse or disappears).\n\nThis branch is rebased on current main (c78d917, after #90) and mergeable.\n\n## Compiler: 29 of the 57 files carry their own compiler flags\n\nThe default route (SN GCC 2.95.3, `-O2 -G8 -fopt-stack`) builds",
+      "mergedAt": "2026-11-06T06:11:34Z"
+     },
+     {
+      "number": 93,
+      "title": "Match 48 PAL resident functions and retain one nonmatching reconstruction",
+      "author": "Sumaiter",
+      "untrustedBody": "Adds **48 exact PAL resident C reconstructions (8,608 bytes)** and one explicitly nonmatching C reconstruction. Public engine-family references for two reconstructions remain credited by immutable repository, commit, source path and function in `config/pal/crossgame_sources.tsv` and source comments.\n\n## Review corrections\n\n- Consolidate `0045D258`, `004F3640` and `004F36E8` into `src/pal/game/0045D258.c`. Shared GP-resident objects `D_0021EE54` and `D_00220A00` now have one definition each. Both source maps retain the original function placements while pointing to the shared file. No weak/common workaround is used.\n- Correct pointer/scalar and format-string declarations, the pointer input and unused incoming argument of `004A91A0`, the unused sixth argument of `004A20D8`, and the noncanonical data-symbol name in `0043A660`. The retained exact functions preserve their retail instruction matches.\n- Remove the unsupported RAM `volatile` cast in **0049A410 (184 bytes)**. Its ordinary Ring/",
+      "mergedAt": "2026-11-06T06:11:34Z"
+     },
+     {
+      "number": 94,
+      "title": "Match 26 NTSC-U functions",
+      "author": "LucienTo",
+      "untrustedBody": "Adds matching C for 26 NTSC-U functions that had no US source yet: one libgraph routine in\n`core.text` (`func_001270C0`, sceGsSyncV, built `@ee29 -O2 -G0`) and 25 small resident game\nfunctions in `src/game/`. One commit per function, then one commit regenerating the maps and\nreports.\n\nThe game functions are object and table accessors (five info-block getters that share one shape,\nrange-checked table lookups), flag setters and clears, lazy-init getters, small call sequences, two\nloops over tables, and two helpers that take a pointer as a 64-bit integer. Each file has a short\ncomment describing what the function does. Names stay `func_`/`D_` address names.\n\n19 of these functions were already matched on PAL in `src/pal/` (by #89, #90 and earlier). The US map\nand audit leave `src/pal/` out, so they were still unmatched on NTSC-U. The PAL map now lists them\nunder their US source as well. The PAL report counts each one once: only the 5 that had no PAL\nsource are added there.\n\n`func_00543338`",
+      "mergedAt": "2026-11-06T06:11:34Z"
+     },
+     {
+      "number": 95,
+      "title": "Match 50 PAL engine and menu functions",
+      "author": "Sumaiter",
+      "untrustedBody": "Adds matching C implementations for **50 previously undecompiled PAL resident functions (11,856 bytes)**. Cross-game comparison identified public RAC3 implementations useful for 10 reconstructions. Immutable donor commits, paths and functions remain credited in `config/pal/crossgame_parallel01.tsv`, source comments and `THIRD_PARTY_NOTICES.md`.\n\nThe batch covers packet generation, font metrics, particle setup, cursor parsing, object copying, resource dispatch and menu/list state updates. Acceptance uses RAC4 PAL retail instructions and actual interfaces.\n\n## Review correction\n\nThe added `00502E90` duplicated the GP-resident `D_00220B9C` definition already present in viewport helpers `00502BB8` and `00502D28`. These three functions now share the real translation unit `src/pal/game/00502BB8.c` and a single definition. The two redundant C files are removed, both source maps point to the shared file, and the PAL report is regenerated. All three functions retain their exact instruction byte",
+      "mergedAt": "2026-11-06T06:11:34Z"
+     },
+     {
+      "number": 96,
+      "title": "Match 165 PAL functions",
+      "author": "Shaar-games",
+      "untrustedBody": "Adds 165 matching PAL functions (+26,488 code bytes). Shared source helpers retain one owner for each marker; matching grouped functions use their genuine function sections at their retail addresses.\n\n## Matching functions\n\n- `func_0012C680`\n- `func_0014DE80`\n- `func_004A3180`\n- `func_004A3968`\n- `func_004A3B38`\n- `func_004B0398`\n- `func_004C09B0`\n- `func_004C1E20`\n- `func_004C3010`\n- `func_004CFDB8`\n- `func_004CFE50`\n- `func_004D2D48`\n- `func_004F4BE0`\n- `func_00501A90`\n- `func_00505C28`\n- `func_00505E00`\n- `func_005064A8`\n- `func_00506978`\n- `func_0050AAC8`\n- `func_0050AC20`\n- `func_0050AD58`\n- `func_0050B488`\n- `func_0050BB78`\n- `func_0050C250`\n- `func_0054B628`\n- `func_L00_00520988`\n- `func_L00_00521390`\n- `func_L00_00541ED8`\n- `func_L00_0059A318`\n- `func_L00_005ABA00`\n- `func_L00_00621DEC`\n- `func_L00_0062D8B0`\n- `func_L00_00641BE8`\n- `func_L00_00641C08`\n- `func_L00_0065A198`\n- `func_L00_0065D090`\n- `func_L00_0069F6B8`\n- `func_L00_0069F7B8`\n- `func_L00_0069F870`\n- `func_L00_0069F9",
+      "mergedAt": "2026-11-06T06:11:34Z"
+     },
+     {
+      "number": 97,
+      "title": "Match 198 NTSC-U functions converted from their PAL matches",
+      "author": "LucienTo",
+      "untrustedBody": "Adds US sources for 198 NTSC-U functions that were already matched on PAL in `src/pal/` but had no US source: 1 in `src/core/`, 197 in `src/game/`. The C is the PAL contributors' work (sources added by Shaar, Joshua Nierentz, Sumaiter, chistianh and Kryštof Malinda, in #77, #81, #84 and #85 among others), with every address rewritten to the US one. One commit.\n\n## Converting PAL C to US\n\n`src/` is written against SCUS_974.65, and `tools/match_map.py` finds a US function's PAL twin by its code, so a US source counts on both discs. The reverse does not happen: the US map and audit leave `src/pal/` out, so a function matched only there stays unmatched on NTSC-U. The C cannot simply be reused, because it names addresses (`func_XXXXXXXX`, `D_XXXXXXXX`), which differ between the discs. This batch converts the PAL sources to US. In rac1-decomp, `tools/version_sync.py carry` does the same job, copying one version's C to the versions with the same code:\n\n1. **Pairing.** A PAL function in `src/p",
+      "mergedAt": "2026-11-06T06:11:34Z"
+     },
+     {
+      "number": 98,
+      "title": "Match 99 NTSC-U functions",
+      "author": "Clank700",
+      "untrustedBody": "## What\n\n99 NTSC-U (SCUS_974.65) functions move from unmatched to matched, one C file each; 12 of them replace their near miss in `nonmatching/` (file and README row removed). US matched functions 5,435 → 5,534 (414,340 → 421,364 bytes), PAL 6,032 → 6,084 (497,616 → 501,228 bytes). `config/us/map.tsv`, `config/pal/map.tsv`, both progress reports and the README table are regenerated with the repository tools; only the rows of the new sources changed (our local libm rows, which differ because `build/libm` was not rebuilt, were restored to main's values).\n\nEvery function here is new on both discs: none has a `src/pal/` source, so no existing source or its credit moves (no function name appears in two units with different percentages in `config/us/map.tsv` or `config/pal/map.tsv`, on main or here). Functions already matched on main, in open PRs (#71, #92, #93 to #97), PAL twins of existing `src/pal/` sources and anything that would add an `audit_matches.py` or `audit_relocs.py` entry were ",
+      "mergedAt": "2026-11-06T06:11:34Z"
+     },
+     {
+      "number": 99,
+      "title": "Match 50 PAL interface and loader functions; document call contracts",
+      "author": "Sumaiter",
+      "untrustedBody": "Adds matching C implementations for 50 previously undecompiled PAL resident functions (11,004 bytes), independently reconstructed against this game's PAL retail code.\n\nThe batch covers menu/list state updates, resource dispatch, binary-data loading and player/interface helpers. A ledger of 23 reviewed call contracts in `config/pal/function_signatures.json` records argument widths, stack arguments, pointer contracts and remaining uncertainty; `docs/PAL_SIGNATURES.md` explains its use. Interfaces were checked against actual callers and callees, including text and buffer pointers, callback argument types, completely written output records and forwarded register arguments. The ledger also records the independently reviewed ninth stack argument of `00507270` and full-width packet values for future callers. Candidates needing register pins, assembly barriers, unsupported padding or unproven output initialization were excluded.\n\nAdds 50 PAL `match` rows and corresponding US `other` rows while",
+      "mergedAt": "2026-11-06T06:11:34Z"
+     },
+     {
+      "number": 100,
+      "title": "Add 35 verified PAL functions and checked call contracts",
+      "author": "Sumaiter",
+      "untrustedBody": "## Summary\n\n- Add **35 new PAL main-image matching functions** covering **13,788 code bytes**.\n- Correct the 64-bit call contract in `0044E528` as one additional interface fix (132 bytes, not counted as a new function).\n- Add an evidence-backed PAL signature ledger and a checker for named and unnamed function prototypes, including prototypes without `extern` and pointer return types.\n- Correct pointer and scalar contracts in `0048C2F8`, `004B6B90`, `004CD8A0`, `004CEB68` and `005049B8` without changing their exact instruction matches.\n- Keep the input to `004A15A8` and `004A1720` as a numeric 32-bit UI handle through the existence check and insertion calls. Callers obtain it by handle arithmetic; `00501B58` hashes and compares it as a key, without dereferencing it.\n\n## Verification\n\n- Independently recompiled all **36 final sources / 13,920 bytes** through the unchanged canonical SN GCC pipeline after review.\n- Verified exact PAL instructions and resolved **828 actual text relocations*",
+      "mergedAt": "2026-11-06T06:11:34Z"
+     },
+     {
+      "number": 101,
+      "title": "Decompile 50 PAL resident functions and audit their call contracts",
+      "author": "Sumaiter",
+      "untrustedBody": "Adds matching C implementations for 50 previously undecompiled PAL resident functions (10,860 bytes). The batch covers menu and list state, resource dispatch, record copying, player/interface helpers and callback handling.\n\nRecovered interfaces account for pointer and scalar returns, forwarded arguments, the ninth stack argument of `00507270`, and full-width packet values. The new queue consumer `00544880` shares the existing producer's translation unit and single counter definition in `005448E0.c`; the existing producer was independently re-audited and remains matching. Candidates requiring register pins, assembly barriers, scheduling-only volatile accesses or unproven initialization were excluded.\n\nAdds 50 PAL `match` rows and corresponding US `other` rows, preserving every existing map entry and its order. PAL matched code increases from 497,616 to 508,476 bytes (8.560511% to 8.747336%), and matched functions from 6,032 to 6,082. The US progress report is unchanged.\n\nValidation:\n\n- ",
+      "mergedAt": "2026-11-06T06:11:34Z"
+     },
+     {
+      "number": 102,
+      "title": "Decompile 50 PAL resident functions and preserve shared data owners",
+      "author": "Sumaiter",
+      "untrustedBody": "Adds matching C implementations for 50 new PAL resident functions (17,840 bytes), covering menu/list construction and updates, entity and player helpers, render state, resources and video processing.\n\nShared global definitions stay in their existing translation units for `00445B08`, `004653A0` and `004A2880`. Their three existing companion functions remain matching. Also corrects the existing `00498038` wrapper's return type to `f32`: its caller consumes the value returned by `004760C0`. This interface correction is excluded from the new-function count.\n\nThe acquisition/tile-loop C structure in `004F2F08` is adapted from the public OpenRAC RAC3 `func_003AD288`, pinned to commit `73f725bf54bb1bf6d8b9bb5b1511ed00d551fbde` under GPLv3. The source comment, third-party notice and provenance table identify the adapted parts. RAC4 PAL addresses, interfaces and layout were checked separately.\n\nPAL matched functions increase from 6,032 to 6,082; matched code increases from 497,616 to 515,456 by",
+      "mergedAt": "2026-11-06T06:11:34Z"
+     },
+     {
+      "number": 103,
+      "title": "Add PAL C for 11 functions; inventory: a word right after a jump is its delay slot",
+      "author": "chistianh",
+      "untrustedBody": "**Title:** Add PAL C for 11 functions; inventory: a word right after a jump is its delay slot\n\n11 PAL-only functions, one commit each, chosen as in #33–#90 (fingerprint in no row of `config/us/functions.tsv`, no `match` or `near` row places them), and one fix in `tools/inventory.py`.\n\n| PAL | Where | Size |\n|---|---|---|\n| func_L01_005320C8 | `src/pal/overlays/l01_dreadzone_station/` | 124 |\n| func_L01_004B0068 | `src/pal/overlays/l01_dreadzone_station/` | 128 |\n| func_L01_004B00E8 | `src/pal/overlays/l01_dreadzone_station/` | 128 |\n| func_L00_00582750 | `src/pal/overlays/shared/` | 184 |\n| func_004F6D00 | `src/pal/game/` | 408 |\n| func_00513E98 | `src/pal/game/` | 428 |\n| func_L05_004C34F0 | `src/pal/overlays/l05_dark_cathedral/` | 524 |\n| func_L06_00401610 | `src/pal/overlays/l06_temple_of_shaar/` | 536 |\n| func_L01_004ABE88 | `src/pal/overlays/l01_dreadzone_station/` | 544 |\n| func_L01_00444D98 | `src/pal/overlays/shared/` | 548 |\n| func_L14_003EC990 | `src/pal/overlays/l14_ghost_st",
+      "mergedAt": "2026-11-06T06:11:34Z"
+     },
+     {
+      "number": 104,
+      "title": "Decompile 50 PAL resident functions",
+      "author": "Sumaiter",
+      "untrustedBody": "Adds matching C for 50 new PAL resident functions (11,972 bytes), covering UI construction and state updates, resource/manager helpers, rendering and video streaming.\n\n`004BB6A0` shares the existing `004BBAD8.c` translation unit and its `D_0021F97A` definition. The existing 120-byte `004BBAD8` function remains matching and is excluded from the new-function count.\n\nThe control-flow structure of `004F1B18` and `004F2078` is adapted from the OpenRAC RAC3 contributors' public unified-tree source `games/rac3/ntsc/src/frontbin/3ABA48.c`, commit `73f725bf54bb1bf6d8b9bb5b1511ed00d551fbde`, under GPLv3. Source comments and `THIRD_PARTY_NOTICES.md` identify the donors. PAL addresses, layouts, interfaces and wrapping arithmetic were checked independently against RAC4 retail.\n\nPAL matched functions increase from 6,032 to 6,082; matched code increases from 497,616 to 509,588 bytes (8.560511% to 8.766466%). Adds exactly 50 PAL `match` rows and 50 US `other` rows, retaining existing rows and their or",
+      "mergedAt": "2026-11-06T06:11:34Z"
+     },
+     {
+      "number": 105,
+      "title": "Decompile 50 PAL core, game and network functions",
+      "author": "Sumaiter",
+      "untrustedBody": "Adds matching C implementations for 50 new PAL resident functions (7,668 bytes): 44 engine-core helpers, five game helpers and one network digit predicate. This covers RPC requests and completions, DMA/IPU control, decoding, numerical helpers and resource parsing.\n\nAll functions are independent retail-first reconstructions. Twenty-nine files use the original EE GCC 2.9 profile, supported by their retail/compiler family; 21 use the existing SN GCC profile. Both use the unchanged canonical `tools/cc.sh` pipeline. Previously published functions, catalogue fragments and unresolved candidates are excluded.\n\nPAL matched functions increase from 6,032 to 6,082; matched code increases from 497,616 to 505,284 bytes (8.560511% to 8.692424%). Adds 50 PAL `match` rows and corresponding US `other` rows, preserving existing rows and order. The US progress report is unchanged.\n\nValidation:\n\n- Recompiled all 50 final formatted sources and checked their direct PAL catalogue windows against retail bytes.",
+      "mergedAt": "2026-11-06T06:11:34Z"
+     },
+     {
+      "number": 106,
+      "title": "Match 51 PAL resident and level-overlay functions",
+      "author": "Sumaiter",
+      "untrustedBody": "Adds matching C for 51 new PAL functions (6,476 bytes): 12 resident functions and 39 distinct level-overlay functions. This includes geometry/color queries, animation and Hero state handling, signal-processing helpers, RPC wrappers, record copying and connected overlay helpers.\n\nEach shared overlay function counts once. Its code and call targets are checked at every catalogue placement, including level-specific callee addresses; catalogue fingerprints alone are not treated as proof that callees agree across levels. Existing public sources and compiler tools are unchanged.\n\nPAL matched functions increase from 6,032 to 6,083; matched code increases from 497,616 to 504,092 bytes (8.560511% to 8.671918%). Adds 51 PAL `match` rows and 51 US `other` rows while preserving every existing row and its order. The US progress report is unchanged.\n\nValidation:\n\n- Recompiled all 51 final formatted sources through the unchanged canonical `tools/cc.sh`, preserving each reviewed source's tokens and com",
+      "mergedAt": "2026-11-06T06:11:33Z"
+     },
+     {
+      "number": 107,
+      "title": "Match 212 NTSC-U functions",
+      "author": "LucienTo",
+      "untrustedBody": "Adds US sources for 212 NTSC-U functions, most of them level overlay code shared by 10 or more level programs. One commit.\n\n## What is in it\n\n- **59 converted from matched PAL sources** (`src/pal/`), as in #97: each US function has the same size and fingerprint as its matched PAL twin, and every `func_`/`D_` address of the PAL source is rewritten from the two discs' lined-up instructions. The PAL -> US address map now also comes from every function pair the two images share, and covers `$gp` address arithmetic (`addiu x, $gp, off`), `net.text`, and globals declared in `include/pal/` headers.\n- **113 level copies of functions already matched elsewhere.** Many shared level functions have the same code as a matched function, apart from addresses:\n  - a main-image function: `src/game/0049A938.c` (Stephan Kast) gives 30 copies; sources by BlindFire1200, Clank700 and Jerrod, and the US sources from #97, give the others;\n  - a matched level sibling (sources by Kryštof Malinda and Flavius); fo",
+      "mergedAt": "2026-11-06T14:39:55Z"
+     },
+     {
+      "number": 108,
+      "title": "Match 51 PAL overlay functions",
+      "author": "Sumaiter",
+      "untrustedBody": "Adds matching C for 51 new PAL level-overlay functions (4,924 bytes), covering state and object queries, scalar/FP predicates, callback adapters and angle/vector interpolation. Shared functions count once across all their catalogue placements.\n\nAll final formatted sources were recompiled with the unchanged canonical `tools/cc.sh`. Their complete allocated bytes, flags, alignment and relocation identities remain identical to the independently reviewed candidate objects. Each final function was checked at every actual level placement; direct calls are resolved to their explicit same-program catalogue entries before reconstructing the entire linked byte sequence. Calls through existing main and overlay C owners retain their source symbols, with explicitly checked same-level aliases, complete callee byte identity and existing physical interfaces.\n\nPAL matched functions increase from 6,789 to 6,840; matched code increases from 641,732 to 646,656 bytes (11.039745% to 11.124453%). Adds 51 PAL",
+      "mergedAt": "2026-11-06T14:40:38Z"
+     },
+     {
+      "number": 109,
+      "title": "fix: forbid volatile, inline asm, #define aliases and hardcoded addresses in matched C",
+      "author": "Veradictus",
+      "untrustedBody": "Docs (LEVERS, QUEUE, TOOLCHAIN, CONTRIBUTING, NONMATCHING, AGENT_WORKFLOW, the match-worker agent) no longer recommend `#define` aliases or `volatile`; matched C is plain C, and a function that needs those forms stays in `nonmatching/`. `tools/wave.py land` refuses them.\n\nFrom the last merge (c78d917c..7e684659):\n- 21 functions lose their `#define` aliases and still match (globals indexed where used; the PAL typed-lookup header takes the type's address instead of a macro).\n- 13 functions that only match with `volatile` casts of constant addresses move to `nonmatching/` (retail builds the addresses with lui/ori; a named global gives lui/%lo).\n- src/pal/game/004A0D78.c and 005049B8.c are US func_004A0040 and func_00503920; their PAL names collided with the US functions of the same names. Moved to src/game/ under the US names.\n\nMaps and reports are regenerated in a separate commit on main after the open PRs land.",
+      "mergedAt": "2026-11-06T14:39:38Z"
+     },
+     {
+      "number": 110,
+      "title": "Match 663 additional NTSC-U functions under 200 bytes (plain C)",
+      "author": "llesieur99",
+      "untrustedBody": "## Scope\n\n- Match 663 additional SCUS_974.65 functions strictly under 200 bytes in plain C (58,348 retail code bytes). The US catalogue is at 6,284/11,536; 28 additional map matches are existing libgcc/libm sources, not new code in this PR.\n- Promote 19 byte-identical PAL source files to their verified US paths, preserving their PAL map locations.\n- Correct eight PR #107 relocation symbols and close the inline-assembly landing-gate gap for `__asm__ __volatile__`.\n\n## Verification\n\n- `tools/build.sh`: 8,109/8,109 source objects, exit 0.\n- US `tools/match_map.py --version us --check` and `tools/progress.py --version us --check`: pass.\n- The private SCES_532.85 ISO supplied after the initial draft was unpacked with `tools/levels.py --version pal dump`. `tools/levels.py --version pal check`: 49 dumps checked, 0 differ from the committed PAL hashes.\n- PAL `tools/match_map.py --version pal --write --check` and `tools/progress.py --version pal --check`: pass. The PAL report is now at 7,168/18",
+      "mergedAt": "2026-11-06T17:18:28Z"
+     }
+    ],
+    "opened": [
+     {
+      "number": 106,
+      "title": "Match 51 PAL resident and level-overlay functions",
+      "author": "Sumaiter",
+      "untrustedBody": "Adds matching C for 51 new PAL functions (6,476 bytes): 12 resident functions and 39 distinct level-overlay functions. This includes geometry/color queries, animation and Hero state handling, signal-processing helpers, RPC wrappers, record copying and connected overlay helpers.\n\nEach shared overlay function counts once. Its code and call targets are checked at every catalogue placement, including level-specific callee addresses; catalogue fingerprints alone are not treated as proof that callees agree across levels. Existing public sources and compiler tools are unchanged.\n\nPAL matched functions increase from 6,032 to 6,083; matched code increases from 497,616 to 504,092 bytes (8.560511% to 8.671918%). Adds 51 PAL `match` rows and 51 US `other` rows while preserving every existing row and its order. The US progress report is unchanged.\n\nValidation:\n\n- Recompiled all 51 final formatted sources through the unchanged canonical `tools/cc.sh`, preserving each reviewed source's tokens and com",
+      "mergedAt": "2026-11-06T06:11:33Z"
+     },
+     {
+      "number": 107,
+      "title": "Match 212 NTSC-U functions",
+      "author": "LucienTo",
+      "untrustedBody": "Adds US sources for 212 NTSC-U functions, most of them level overlay code shared by 10 or more level programs. One commit.\n\n## What is in it\n\n- **59 converted from matched PAL sources** (`src/pal/`), as in #97: each US function has the same size and fingerprint as its matched PAL twin, and every `func_`/`D_` address of the PAL source is rewritten from the two discs' lined-up instructions. The PAL -> US address map now also comes from every function pair the two images share, and covers `$gp` address arithmetic (`addiu x, $gp, off`), `net.text`, and globals declared in `include/pal/` headers.\n- **113 level copies of functions already matched elsewhere.** Many shared level functions have the same code as a matched function, apart from addresses:\n  - a main-image function: `src/game/0049A938.c` (Stephan Kast) gives 30 copies; sources by BlindFire1200, Clank700 and Jerrod, and the US sources from #97, give the others;\n  - a matched level sibling (sources by Kryštof Malinda and Flavius); fo",
+      "mergedAt": "2026-11-06T14:39:55Z"
+     },
+     {
+      "number": 108,
+      "title": "Match 51 PAL overlay functions",
+      "author": "Sumaiter",
+      "untrustedBody": "Adds matching C for 51 new PAL level-overlay functions (4,924 bytes), covering state and object queries, scalar/FP predicates, callback adapters and angle/vector interpolation. Shared functions count once across all their catalogue placements.\n\nAll final formatted sources were recompiled with the unchanged canonical `tools/cc.sh`. Their complete allocated bytes, flags, alignment and relocation identities remain identical to the independently reviewed candidate objects. Each final function was checked at every actual level placement; direct calls are resolved to their explicit same-program catalogue entries before reconstructing the entire linked byte sequence. Calls through existing main and overlay C owners retain their source symbols, with explicitly checked same-level aliases, complete callee byte identity and existing physical interfaces.\n\nPAL matched functions increase from 6,789 to 6,840; matched code increases from 641,732 to 646,656 bytes (11.039745% to 11.124453%). Adds 51 PAL",
+      "mergedAt": "2026-11-06T14:40:38Z"
+     },
+     {
+      "number": 109,
+      "title": "fix: forbid volatile, inline asm, #define aliases and hardcoded addresses in matched C",
+      "author": "Veradictus",
+      "untrustedBody": "Docs (LEVERS, QUEUE, TOOLCHAIN, CONTRIBUTING, NONMATCHING, AGENT_WORKFLOW, the match-worker agent) no longer recommend `#define` aliases or `volatile`; matched C is plain C, and a function that needs those forms stays in `nonmatching/`. `tools/wave.py land` refuses them.\n\nFrom the last merge (c78d917c..7e684659):\n- 21 functions lose their `#define` aliases and still match (globals indexed where used; the PAL typed-lookup header takes the type's address instead of a macro).\n- 13 functions that only match with `volatile` casts of constant addresses move to `nonmatching/` (retail builds the addresses with lui/ori; a named global gives lui/%lo).\n- src/pal/game/004A0D78.c and 005049B8.c are US func_004A0040 and func_00503920; their PAL names collided with the US functions of the same names. Moved to src/game/ under the US names.\n\nMaps and reports are regenerated in a separate commit on main after the open PRs land.",
+      "mergedAt": "2026-11-06T14:39:38Z"
+     },
+     {
+      "number": 110,
+      "title": "Match 663 additional NTSC-U functions under 200 bytes (plain C)",
+      "author": "llesieur99",
+      "untrustedBody": "## Scope\n\n- Match 663 additional SCUS_974.65 functions strictly under 200 bytes in plain C (58,348 retail code bytes). The US catalogue is at 6,284/11,536; 28 additional map matches are existing libgcc/libm sources, not new code in this PR.\n- Promote 19 byte-identical PAL source files to their verified US paths, preserving their PAL map locations.\n- Correct eight PR #107 relocation symbols and close the inline-assembly landing-gate gap for `__asm__ __volatile__`.\n\n## Verification\n\n- `tools/build.sh`: 8,109/8,109 source objects, exit 0.\n- US `tools/match_map.py --version us --check` and `tools/progress.py --version us --check`: pass.\n- The private SCES_532.85 ISO supplied after the initial draft was unpacked with `tools/levels.py --version pal dump`. `tools/levels.py --version pal check`: 49 dumps checked, 0 differ from the committed PAL hashes.\n- PAL `tools/match_map.py --version pal --write --check` and `tools/progress.py --version pal --check`: pass. The PAL report is now at 7,168/18",
+      "mergedAt": "2026-11-06T17:18:28Z"
+     },
+     {
+      "number": 111,
+      "title": "Match 42 US functions: level overlays and resident code",
+      "author": "GarfTornion",
+      "untrustedBody": "Adds matching C for 42 US functions that main does not have: 30 level-overlay files and 15 main-image (core/game/net) files, with the corresponding nonmatching sources removed.\r\n\r\nUS matched functions 6,048 -> 6,114 (of 18,086); matched code 484,640 -> 492,476 bytes (8.38% -> 8.52%). PAL matched functions 6,850 -> 6,902 (of 18,113); matched code 652,196 bytes (11.22%).\r\n\r\nThe branch is merged with main, not rebased, so the nine functions main matched independently resolve to main's copy and the final diff contains only the 42 new ones. `tools/gen_overlay_asm.py` now uses `sys.executable` so overlay asm generation works on Windows; no other tool changes.\r\n\r\nNotes for review:\r\n\r\n- Maps and reports were regenerated from a full rebuild (7,523 objects, no errors), after rebuilding `build/libgcc` and `build/libm` with the documented `tools/build_libgcc.sh` and `tools/build_libm.sh`. 24 libgcc/libm functions therefore appear as newly matched here; their rows read \"differs\" on main only becaus",
+      "mergedAt": "2026-11-07T00:37:15Z"
+     },
+     {
+      "number": 113,
+      "title": "Document function reservation workflow",
+      "author": "ReaperOfVeriod",
+      "untrustedBody": "## Summary\n\n- Add repository-level agent guidance for cross-contributor function reservations.\n- Point to issue #112 as the reservation noticeboard and keep `tools/claims.py` for atomic claims within a shared checkout.\n- Link the guidance from the README and agent workflow docs; unignore the root `AGENTS.md` so it is versioned.\n\n## Validation\n\n- `git diff --check` passes.\n- Verified the documented `tools/claims.py` commands against its CLI.\n\nNo tests run; this change updates documentation and ignore configuration only.",
+      "mergedAt": "2026-11-07T00:03:33Z"
+     },
+     {
+      "number": 114,
+      "title": "Match 41 reviewed PAL functions across 253 placements",
+      "author": "Sumaiter",
+      "untrustedBody": "Adds matching C for 41 PAL functions: 12 completed during the latest automatic-search review and 29 previously reviewed, unpublished functions rebuilt against current `main`. These cover 253 physical placements and 4,508 unique bytes. Five previously local candidates are already covered upstream and were excluded; two older candidates that did not rebuild on the current base were also excluded.\n\nThe new functions include handle/callback dispatch wrappers, a guarded state update, a node-queue update, a wrapped floating-point result, and rendering calls. Review preserves actual argument registers, memory access widths, alias-visible reloads, native word wrapping, floating-point branch behavior, and existing data ownership. No compiler or build-pipeline changes are included.\n\nValidation:\n\n- Fresh canonical builds of all 41 translation units; canonical source/object identity verified.\n- Complete function boundaries and byte comparisons at every one of the 253 catalogue placements, includin",
+      "mergedAt": "2026-11-07T00:03:30Z"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [
+     {
+      "number": 112,
+      "title": "Function reservations and contributor coordination",
+      "author": "ReaperOfVeriod"
+     }
+    ],
+    "closed": []
+   },
+   "releases": [],
+   "progress": {
+    "before": {
+     "code": {
+      "done": 414340,
+      "total": 5782424
+     },
+     "functions": {
+      "done": 5435,
+      "total": 18085
+     }
+    },
+    "after": {
+     "code": {
+      "done": 548932,
+      "total": 5781432
+     },
+     "functions": {
+      "done": 6792,
+      "total": 18170
+     }
+    }
+   },
+   "contributors": [
+    "chistianh",
+    "Clank700",
+    "GarfTornion",
+    "Joebannerlord",
+    "llesieur99",
+    "LucienTo",
+    "ReaperOfVeriod",
+    "Shaar-games",
+    "Sumaiter",
+    "Veradictus"
+   ]
+  },
+  {
+   "repo": "openrac-mods",
+   "title": "OpenRAC mods",
+   "branches": [
+    {
+     "name": "master",
+     "commits": [
+      {
+       "sha": "4670148bfdd306339942c8233b30c34bebb08140",
+       "title": "test(multiplayer): raw reads wait for the frames they count",
+       "author": "Veradictus",
+       "date": "2026-11-06T17:04:29Z"
+      },
+      {
+       "sha": "7e2ae1d0c77441d103a76db933463a81d52771e4",
+       "title": "fix(multiplayer): a direct host's END reaches its members",
+       "author": "Veradictus",
+       "date": "2026-11-06T16:47:31Z"
+      },
+      {
+       "sha": "96ff009e548d26d744f4cce1a50624c5948d813d",
+       "title": "test(multiplayer): give the socket tests 15 s to settle",
+       "author": "Veradictus",
+       "date": "2026-11-06T16:29:07Z"
+      },
+      {
+       "sha": "a3a32266ae46ef177e8bd149bc2294506c6dabe6",
+       "title": "test(multiplayer): wait for the first datagrams, not only the binding",
+       "author": "Veradictus",
+       "date": "2026-11-06T16:17:19Z"
+      },
+      {
+       "sha": "24e902463fae9d1f5e02d39f8cd9e2d6a52fa35e",
+       "title": "[WIP] feat(multiplayer): co-op round 3, crossplay, saves, takeover and mod codes (#22)",
+       "author": "Veradictus",
+       "date": "2026-11-06T15:53:26Z"
+      },
+      {
+       "sha": "f03d664c09f14ed20a6d6522083efa92a2d5fd75",
+       "title": "feat(multiplayer): add co-op rescue, host rally points and team tools (#45)",
+       "author": "momo1212221",
+       "date": "2026-11-06T14:37:44Z"
+      },
+      {
+       "sha": "c010f35c592e9d1fe4ea70d6c4d1e472b4f3ee23",
+       "title": "chore(index): discussion numbers",
+       "author": "openrac-bot[bot]",
+       "date": "2026-11-06T08:07:15Z"
+      },
+      {
+       "sha": "bbcc0c6213cbbbf9351c235a8f49d2015eb5a705",
+       "title": "chore(index): approve damage-numbers 0.7.1",
+       "author": "openrac-bot[bot]",
+       "date": "2026-11-06T08:05:23Z"
+      },
+      {
+       "sha": "44869c7e8afa50ada5640dbb14f657560555206e",
+       "title": "chore(index): discussion numbers (#117)",
+       "author": "openrac-bot[bot]",
+       "date": "2026-11-06T08:00:42Z"
+      },
+      {
+       "sha": "308c7bd7d5434d62df837ce9d368ebb4882fb690",
+       "title": "feat(index): List damage-numbers (#88)",
+       "author": "openrac-bot[bot]",
+       "date": "2026-11-06T08:00:37Z"
+      },
+      {
+       "sha": "40538313d46b024dafe4b50820ac7e0a1440b1a1",
+       "title": "fix(keyboard-mouse): Menu: Circle answers the memory card's questions, version 1.2.5 (#118)",
+       "author": "nickyyOO",
+       "date": "2026-11-06T07:53:28Z"
+      },
+      {
+       "sha": "12e1994c6e76282bfe46ce782a477286226a5608",
+       "title": "chore(index): discussion numbers",
+       "author": "openrac-bot[bot]",
+       "date": "2026-11-06T07:51:23Z"
+      },
+      {
+       "sha": "4ee5708a622fecb5d1f9cc080ff5ea86cb791ba6",
+       "title": "chore(index): approve 12 reviewed versions (#115)",
+       "author": "Lynder063",
+       "date": "2026-11-06T07:43:48Z"
+      },
+      {
+       "sha": "d11aaf5be156f2a8be560f387bdee91e0c5e6999",
+       "title": "chore(index): approve debug-menu 1.0.1",
+       "author": "openrac-bot[bot]",
+       "date": "2026-11-06T07:40:23Z"
+      },
+      {
+       "sha": "9705113225043d149b29fa6b92bc7ba4aa12fbc7",
+       "title": "chore(index): approve accessibility-pack 0.2.0",
+       "author": "openrac-bot[bot]",
+       "date": "2026-11-06T07:39:18Z"
+      },
+      {
+       "sha": "2c79567c6d60db58529ebb77a938ed6df1114e71",
+       "title": "feat(index): List weapon-wheel-pause (#90)",
+       "author": "openrac-bot[bot]",
+       "date": "2026-11-06T07:34:44Z"
+      },
+      {
+       "sha": "82549f8a0dd17df945e08907b62c8b3ccd19230c",
+       "title": "feat(index): List fast-travel (#84)",
+       "author": "openrac-bot[bot]",
+       "date": "2026-11-06T07:34:39Z"
+      },
+      {
+       "sha": "7c1391d41ef22a769f1a9d441f3cd374a7fc13d3",
+       "title": "feat(index): List save-manager (#83)",
+       "author": "openrac-bot[bot]",
+       "date": "2026-11-06T07:34:35Z"
+      },
+      {
+       "sha": "222a92f8889fe7ddab37f07e1ec190066e57b13e",
+       "title": "feat(index): List accessibility-pack (#82)",
+       "author": "openrac-bot[bot]",
+       "date": "2026-11-06T07:34:30Z"
+      },
+      {
+       "sha": "82cb1e7a92e774f29bb004d573e3f183e3d2ed95",
+       "title": "feat(index): List cutscene-manager (#81)",
+       "author": "openrac-bot[bot]",
+       "date": "2026-11-06T07:34:25Z"
+      },
+      {
+       "sha": "1875fb3f50f9c727145287a41e4ff9ff849e035e",
+       "title": "feat(index): List better-pause-menu (#76)",
+       "author": "openrac-bot[bot]",
+       "date": "2026-11-06T07:34:20Z"
+      },
+      {
+       "sha": "a98ac988c93c40d22028ea55e5b5a2f31dbd72b3",
+       "title": "fix(index): cut the cool-down for external native mods to 1 h (#91)",
+       "author": "Lynder063",
+       "date": "2026-11-06T07:27:35Z"
+      }
+     ]
+    }
+   ],
+   "commitCount": 22,
+   "pullRequests": {
+    "merged": [
+     {
+      "number": 22,
+      "title": "[WIP] feat(multiplayer): co-op round 3, crossplay, saves, takeover and mod codes",
+      "author": "Veradictus",
+      "untrustedBody": "Round 3 of the RAC1 co-op. Draft: not ready for review or merge.\n\nAdds PAL and NTSC players in one party, co-op saves that never write a player's own story saves, shared progress, every weapon's shots, name tags, late join with Go to host, death rules and optional revive, kick and bans per co-op save, data pack checks, shared camera scripts, enemy grabs, reconnect and host takeover, and mod sync codes.\n\nReasoning and the settled calls are in `multiplayer/DECISIONS.md`; behaviour and limits are in `multiplayer/README.md`.\n\nMerge together, in this order: this set after #160, then release SDK 1.12, pin `sdk.lock`, tag the mods, deploy the Server (port 7771 is new).\n\n## Tested\n\nReal game on a Mac, hidden clients, local server, 20 of 24 scenario runs passed: join, crates, saves, late join, host loss and name tags, on PAL with PAL and on mixed discs. Network sim on the final mod tree: 0 wrong of 6,480 normal runs and 3,780 takeover runs, with one unexplained slow run (12.5 s to converge at 1",
+      "mergedAt": "2026-11-06T15:53:26Z"
+     },
+     {
+      "number": 23,
+      "title": "[WIP] feat(item-randomizer): version 2, rebuilt logic and rewards",
+      "author": "Veradictus",
+      "untrustedBody": "Item randomizer 2.0.0. Draft: not ready for review or merge.\n\nRebuilds the logic from the game's own text and fixes softlocks, wrong banners, lost rewards and Orxon skipping Clank's part. Seed codes move to format 2, so old codes no longer reproduce.\n\nStacked on the multiplayer draft, which it needs for party play. Retarget to `master` once that merges. The two hook points it needs are in the OpenRAC draft of the same branch name.\n\n## Tested\n\n- 5,760,000 placements swept, all beatable. That run predates the banner commits, which did not touch placement.\n- Short real-game runs on both discs: rewards and banners. The vendor purchase, Orxon and lost-reward runs were PAL only.\n\n## Open\n\n- Real NPC scenes played by hand.\n- A real two-player party with the randomizer on.\n- Challenge mode.\n- Archipelago 2.2.0 has the Orxon rule and banners, tested with mocks only; play it for real.\n- CI stays red until OpenRAC #166/#167 merge and `sdk-v1.12.0` is pinned in `sdk.lock`.",
+      "mergedAt": "2026-11-06T14:57:59Z"
+     },
+     {
+      "number": 45,
+      "title": "feat(multiplayer): add co-op rescue, host rally points and team tools",
+      "author": "momo1212221",
+      "untrustedBody": "The existing co-op mod has no teammate rescue or shared gathering marker. This extends Multiplayer to 0.8.0 with a Team tools child page in the existing lobby and Multiplayer pause Options page, without consuming an additional native Options slot.\n\n- Co-op rescue defers a normal lethal on-foot hit at one health when another party member is present. A living teammate on the same level must remain within six game units and hold L3 + R3 continuously for three seconds. The host checks fresh presence and live poses before granting rescue. Controls return at the retained one health, with two seconds of normal-hit protection.\n- The host controls whether rescue is enabled and selects a 10/20/30-second window. Give up or an expired window passes the deferred hit to the original damage handler. Instant-kill hazards retain checkpoint behavior; no health/position memory or downed animation is substituted.\n- Host-position rally markers are shared with distance feedback. Members may request a marker",
+      "mergedAt": "2026-11-06T14:37:45Z"
+     },
+     {
+      "number": 76,
+      "title": "List better-pause-menu",
+      "author": "openrac-bot[bot]",
+      "untrustedBody": "From #75, checked by the listing bot. @OpenRAC/maintainers, please review.\n\nCloses #75",
+      "mergedAt": "2026-11-06T07:34:20Z"
+     },
+     {
+      "number": 81,
+      "title": "List cutscene-manager",
+      "author": "openrac-bot[bot]",
+      "untrustedBody": "From #80, checked by the listing bot. @OpenRAC/maintainers, please review.\n\nCloses #80",
+      "mergedAt": "2026-11-06T07:34:25Z"
+     },
+     {
+      "number": 82,
+      "title": "List accessibility-pack",
+      "author": "openrac-bot[bot]",
+      "untrustedBody": "From #79, checked by the listing bot. @OpenRAC/maintainers, please review.\n\nCloses #79",
+      "mergedAt": "2026-11-06T07:34:30Z"
+     },
+     {
+      "number": 83,
+      "title": "List save-manager",
+      "author": "openrac-bot[bot]",
+      "untrustedBody": "From #78, checked by the listing bot. @OpenRAC/maintainers, please review.\n\nCloses #78",
+      "mergedAt": "2026-11-06T07:34:35Z"
+     },
+     {
+      "number": 84,
+      "title": "List fast-travel",
+      "author": "openrac-bot[bot]",
+      "untrustedBody": "From #77, checked by the listing bot. @OpenRAC/maintainers, please review.\n\nCloses #77",
+      "mergedAt": "2026-11-06T07:34:40Z"
+     },
+     {
+      "number": 88,
+      "title": "List damage-numbers",
+      "author": "openrac-bot[bot]",
+      "untrustedBody": "From #87, checked by the listing bot. @OpenRAC/maintainers, please review.\n\nCloses #87",
+      "mergedAt": "2026-11-06T08:00:38Z"
+     },
+     {
+      "number": 90,
+      "title": "List weapon-wheel-pause",
+      "author": "openrac-bot[bot]",
+      "untrustedBody": "From #89, checked by the listing bot. @OpenRAC/maintainers, please review.\n\nCloses #89",
+      "mergedAt": "2026-11-06T07:34:45Z"
+     },
+     {
+      "number": 91,
+      "title": "fix(index): cut the cool-down to 1 h",
+      "author": "Lynder063",
+      "untrustedBody": "Approved external native mods now wait 1 h after release instead of 24 h.\nRefs #72.\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)",
+      "mergedAt": "2026-11-06T07:27:35Z"
+     },
+     {
+      "number": 115,
+      "title": "chore(index): approve 12 reviewed versions",
+      "author": "Lynder063",
+      "untrustedBody": "Adds the 12 reviewed versions to index/approved.json in one change.\nReplaces bot PRs #103-#114.\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)",
+      "mergedAt": "2026-11-06T07:43:49Z"
+     },
+     {
+      "number": 117,
+      "title": "chore(index): discussion numbers",
+      "author": "openrac-bot[bot]",
+      "untrustedBody": "Opened by the index bot: master did not take a direct push.",
+      "mergedAt": "2026-11-06T08:00:42Z"
+     },
+     {
+      "number": 118,
+      "title": "fix(keyboard-mouse): Menu: Circle answers the memory card's questions",
+      "author": "nickyyOO",
+      "untrustedBody": "**Before:** creating save data (or formatting a card) asks in a freeze dialog (mode 4), where yes is Circle and no is Triangle (`update_mode_freeze`, states 6 and 13). In dialogs the mod gave Circle only to Backspace in the race dialog, so no key could create a save. Players worked around it by breaking the manifest (`menu_Circle`), which makes the mod refuse to load so the port's own E = Circle takes over.\n\n**After:** Menu: Circle (E by default) presses Circle in every dialog too, so E creates the save and Backspace or right click cancels. Version 1.2.5.\n\n**How:** one line in `buttons_for`'s Dialog case. Other keys, saved binds and game logic are unchanged. Manifest description and README table updated.\n\n**Tested:** ctest of the whole repo passes (30/30); the new logic test fails without the fix. Not tested in game (no disc in the container): new game with no save, or Pause > Save on an empty card, then press E.",
+      "mergedAt": "2026-11-06T07:53:28Z"
+     }
+    ],
+    "opened": [
+     {
+      "number": 91,
+      "title": "fix(index): cut the cool-down to 1 h",
+      "author": "Lynder063",
+      "untrustedBody": "Approved external native mods now wait 1 h after release instead of 24 h.\nRefs #72.\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)",
+      "mergedAt": "2026-11-06T07:27:35Z"
+     },
+     {
+      "number": 103,
+      "title": "chore(index): approve fast-travel 0.3.0",
+      "author": "openrac-bot[bot]",
+      "untrustedBody": "Opened by the index bot: master did not take a direct push."
+     },
+     {
+      "number": 104,
+      "title": "chore(index): approve better-pause-menu 0.8.7",
+      "author": "openrac-bot[bot]",
+      "untrustedBody": "Opened by the index bot: master did not take a direct push."
+     },
+     {
+      "number": 105,
+      "title": "chore(index): approve cutscene-manager 0.2.0",
+      "author": "openrac-bot[bot]",
+      "untrustedBody": "Opened by the index bot: master did not take a direct push."
+     },
+     {
+      "number": 106,
+      "title": "chore(index): approve save-manager 0.2.0",
+      "author": "openrac-bot[bot]",
+      "untrustedBody": "Opened by the index bot: master did not take a direct push."
+     },
+     {
+      "number": 107,
+      "title": "chore(index): approve weapon-wheel-pause 0.1.0",
+      "author": "openrac-bot[bot]",
+      "untrustedBody": "Opened by the index bot: master did not take a direct push."
+     },
+     {
+      "number": 108,
+      "title": "chore(index): approve debug-menu 1.0.0",
+      "author": "openrac-bot[bot]",
+      "untrustedBody": "Opened by the index bot: master did not take a direct push."
+     },
+     {
+      "number": 109,
+      "title": "chore(index): approve modern-controls 0.3.3",
+      "author": "openrac-bot[bot]",
+      "untrustedBody": "Opened by the index bot: master did not take a direct push."
+     },
+     {
+      "number": 110,
+      "title": "chore(index): approve better-pause-menu 0.1.0",
+      "author": "openrac-bot[bot]",
+      "untrustedBody": "Opened by the index bot: master did not take a direct push."
+     },
+     {
+      "number": 111,
+      "title": "chore(index): approve accessibility-pack 0.1.0",
+      "author": "openrac-bot[bot]",
+      "untrustedBody": "Opened by the index bot: master did not take a direct push."
+     },
+     {
+      "number": 112,
+      "title": "chore(index): approve cutscene-manager 0.1.0",
+      "author": "openrac-bot[bot]",
+      "untrustedBody": "Opened by the index bot: master did not take a direct push."
+     },
+     {
+      "number": 113,
+      "title": "chore(index): approve fast-travel 0.1.0",
+      "author": "openrac-bot[bot]",
+      "untrustedBody": "Opened by the index bot: master did not take a direct push."
+     },
+     {
+      "number": 114,
+      "title": "chore(index): approve save-manager 0.1.0",
+      "author": "openrac-bot[bot]",
+      "untrustedBody": "Opened by the index bot: master did not take a direct push."
+     },
+     {
+      "number": 115,
+      "title": "chore(index): approve 12 reviewed versions",
+      "author": "Lynder063",
+      "untrustedBody": "Adds the 12 reviewed versions to index/approved.json in one change.\nReplaces bot PRs #103-#114.\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)",
+      "mergedAt": "2026-11-06T07:43:49Z"
+     },
+     {
+      "number": 117,
+      "title": "chore(index): discussion numbers",
+      "author": "openrac-bot[bot]",
+      "untrustedBody": "Opened by the index bot: master did not take a direct push.",
+      "mergedAt": "2026-11-06T08:00:42Z"
+     },
+     {
+      "number": 118,
+      "title": "fix(keyboard-mouse): Menu: Circle answers the memory card's questions",
+      "author": "nickyyOO",
+      "untrustedBody": "**Before:** creating save data (or formatting a card) asks in a freeze dialog (mode 4), where yes is Circle and no is Triangle (`update_mode_freeze`, states 6 and 13). In dialogs the mod gave Circle only to Backspace in the race dialog, so no key could create a save. Players worked around it by breaking the manifest (`menu_Circle`), which makes the mod refuse to load so the port's own E = Circle takes over.\n\n**After:** Menu: Circle (E by default) presses Circle in every dialog too, so E creates the save and Backspace or right click cancels. Version 1.2.5.\n\n**How:** one line in `buttons_for`'s Dialog case. Other keys, saved binds and game logic are unchanged. Manifest description and README table updated.\n\n**Tested:** ctest of the whole repo passes (30/30); the new logic test fails without the fix. Not tested in game (no disc in the container): new game with no save, or Pause > Save on an empty card, then press E.",
+      "mergedAt": "2026-11-06T07:53:28Z"
+     },
+     {
+      "number": 129,
+      "title": "List revolverator",
+      "author": "openrac-bot[bot]",
+      "untrustedBody": "From #128, checked by the listing bot. @OpenRAC/maintainers, please review.\n\nCloses #128",
+      "mergedAt": "2026-11-08T04:32:00Z"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [
+     {
+      "number": 92,
+      "title": "Review better-pause-menu 0.8.7",
+      "author": "openrac-bot[bot]"
+     },
+     {
+      "number": 93,
+      "title": "Review better-pause-menu 0.1.0",
+      "author": "openrac-bot[bot]"
+     },
+     {
+      "number": 94,
+      "title": "Review accessibility-pack 0.2.0",
+      "author": "openrac-bot[bot]"
+     },
+     {
+      "number": 95,
+      "title": "Review accessibility-pack 0.1.0",
+      "author": "openrac-bot[bot]"
+     },
+     {
+      "number": 96,
+      "title": "Review cutscene-manager 0.2.0",
+      "author": "openrac-bot[bot]"
+     },
+     {
+      "number": 97,
+      "title": "Review cutscene-manager 0.1.0",
+      "author": "openrac-bot[bot]"
+     },
+     {
+      "number": 98,
+      "title": "Review fast-travel 0.3.0",
+      "author": "openrac-bot[bot]"
+     },
+     {
+      "number": 99,
+      "title": "Review fast-travel 0.1.0",
+      "author": "openrac-bot[bot]"
+     },
+     {
+      "number": 100,
+      "title": "Review save-manager 0.2.0",
+      "author": "openrac-bot[bot]"
+     },
+     {
+      "number": 101,
+      "title": "Review save-manager 0.1.0",
+      "author": "openrac-bot[bot]"
+     },
+     {
+      "number": 102,
+      "title": "Review weapon-wheel-pause 0.1.0",
+      "author": "openrac-bot[bot]"
+     },
+     {
+      "number": 125,
+      "title": "Review damage-numbers 0.7.1",
+      "author": "openrac-bot[bot]"
+     },
+     {
+      "number": 127,
+      "title": "Review rac-board 0.2.1",
+      "author": "openrac-bot[bot]"
+     },
+     {
+      "number": 128,
+      "title": "Submit: Revolverator",
+      "author": "noire342"
+     },
+     {
+      "number": 130,
+      "title": "Review damage-numbers 0.8.1",
+      "author": "openrac-bot[bot]"
+     },
+     {
+      "number": 131,
+      "title": "Review damage-numbers 0.8.0",
+      "author": "openrac-bot[bot]"
+     }
+    ],
+    "closed": [
+     {
+      "number": 52,
+      "title": "Review steam-deck-pack 0.3.0",
+      "author": "openrac-bot[bot]"
+     },
+     {
+      "number": 67,
+      "title": "Review debug-menu 1.0.1",
+      "author": "openrac-bot[bot]"
+     },
+     {
+      "number": 68,
+      "title": "Review debug-menu 1.0.0",
+      "author": "openrac-bot[bot]"
+     },
+     {
+      "number": 69,
+      "title": "Review modern-controls 0.3.3",
+      "author": "openrac-bot[bot]"
+     },
+     {
+      "number": 72,
+      "title": "Index: approved mods remain unpublished after cooldown because hourly schedule stops running",
+      "author": "momo1212221"
+     },
+     {
+      "number": 75,
+      "title": "Submit: QoL Hub",
+      "author": "momo1212221"
+     },
+     {
+      "number": 77,
+      "title": "Submit: Fast Travel",
+      "author": "momo1212221"
+     },
+     {
+      "number": 78,
+      "title": "Submit: Save Manager",
+      "author": "momo1212221"
+     },
+     {
+      "number": 79,
+      "title": "Submit: Accessibility Pack",
+      "author": "momo1212221"
+     },
+     {
+      "number": 80,
+      "title": "Submit: Cutscene Manager",
+      "author": "momo1212221"
+     },
+     {
+      "number": 87,
+      "title": "Submit: Damage Numbers mod",
+      "author": "LucienTo"
+     },
+     {
+      "number": 89,
+      "title": "Submit: Weapon Wheel Pause",
+      "author": "momo1212221"
+     },
+     {
+      "number": 92,
+      "title": "Review better-pause-menu 0.8.7",
+      "author": "openrac-bot[bot]"
+     },
+     {
+      "number": 93,
+      "title": "Review better-pause-menu 0.1.0",
+      "author": "openrac-bot[bot]"
+     },
+     {
+      "number": 94,
+      "title": "Review accessibility-pack 0.2.0",
+      "author": "openrac-bot[bot]"
+     },
+     {
+      "number": 95,
+      "title": "Review accessibility-pack 0.1.0",
+      "author": "openrac-bot[bot]"
+     },
+     {
+      "number": 96,
+      "title": "Review cutscene-manager 0.2.0",
+      "author": "openrac-bot[bot]"
+     },
+     {
+      "number": 97,
+      "title": "Review cutscene-manager 0.1.0",
+      "author": "openrac-bot[bot]"
+     },
+     {
+      "number": 98,
+      "title": "Review fast-travel 0.3.0",
+      "author": "openrac-bot[bot]"
+     },
+     {
+      "number": 99,
+      "title": "Review fast-travel 0.1.0",
+      "author": "openrac-bot[bot]"
+     },
+     {
+      "number": 100,
+      "title": "Review save-manager 0.2.0",
+      "author": "openrac-bot[bot]"
+     },
+     {
+      "number": 101,
+      "title": "Review save-manager 0.1.0",
+      "author": "openrac-bot[bot]"
+     },
+     {
+      "number": 102,
+      "title": "Review weapon-wheel-pause 0.1.0",
+      "author": "openrac-bot[bot]"
+     },
+     {
+      "number": 125,
+      "title": "Review damage-numbers 0.7.1",
+      "author": "openrac-bot[bot]"
+     }
+    ]
+   },
+   "releases": [
+    {
+     "tag": "ammo-max-v1.0.3",
+     "name": "ammo-max-v1.0.3",
+     "publishedAt": "2026-11-06T17:39:53Z"
+    },
+    {
+     "tag": "archipelago-v2.2.0",
+     "name": "archipelago-v2.2.0",
+     "publishedAt": "2026-11-06T17:57:34Z"
+    },
+    {
+     "tag": "button-swap-v1.0.1",
+     "name": "button-swap-v1.0.1",
+     "publishedAt": "2026-11-06T18:06:03Z"
+    },
+    {
+     "tag": "difficulty-v1.3.0",
+     "name": "difficulty-v1.3.0",
+     "publishedAt": "2026-11-06T17:55:21Z"
+    },
+    {
+     "tag": "dualsense-v1.0.3",
+     "name": "dualsense-v1.0.3",
+     "publishedAt": "2026-11-06T17:43:21Z"
+    },
+    {
+     "tag": "item-randomizer-v2.0.0",
+     "name": "item-randomizer-v2.0.0",
+     "publishedAt": "2026-11-06T17:50:25Z"
+    },
+    {
+     "tag": "keyboard-mouse-v1.2.5",
+     "name": "keyboard-mouse-v1.2.5",
+     "publishedAt": "2026-11-06T18:11:41Z"
+    },
+    {
+     "tag": "live-splits-v1.0.3",
+     "name": "live-splits-v1.0.3",
+     "publishedAt": "2026-11-06T18:02:02Z"
+    },
+    {
+     "tag": "lock-strafe-v1.0.4",
+     "name": "lock-strafe-v1.0.4",
+     "publishedAt": "2026-11-06T17:59:25Z"
+    },
+    {
+     "tag": "multiplayer-v0.10.0",
+     "name": "multiplayer-v0.10.0",
+     "publishedAt": "2026-11-06T18:02:29Z"
+    },
+    {
+     "tag": "multiplayer-v0.8.0",
+     "name": "multiplayer-v0.8.0",
+     "publishedAt": "2026-11-06T14:56:35Z"
+    },
+    {
+     "tag": "xbox-icons-v1.0.2",
+     "name": "xbox-icons-v1.0.2",
+     "publishedAt": "2026-11-06T18:08:51Z"
+    }
+   ],
+   "progress": null,
+   "contributors": [
+    "Lynder063",
+    "momo1212221",
+    "nickyyOO",
+    "Veradictus"
+   ]
+  }
+ ]
+}

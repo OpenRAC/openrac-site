@@ -1,0 +1,1431 @@
+{
+ "format": 1,
+ "date": "2026-11-05",
+ "totals": {
+  "commits": 46,
+  "pullRequestsMerged": 41,
+  "pullRequestsOpened": 59,
+  "contributors": 11
+ },
+ "projects": [
+  {
+   "repo": "OpenRAC",
+   "title": "OpenRAC launcher",
+   "branches": [
+    {
+     "name": "develop",
+     "commits": [
+      {
+       "sha": "608e422a73fb24807d249d682f2f6d99c5967260",
+       "title": "fix(port): keep the freecam chord from the game (#330)",
+       "author": "nickyyOO",
+       "date": "2026-11-05T20:17:36Z"
+      },
+      {
+       "sha": "a29bb1b37f7cce69dd45d023927e7ce37f50546e",
+       "title": "fix(launcher): clickable Get mods banner, and an always-on switch for tools (#329)",
+       "author": "nickyyOO",
+       "date": "2026-11-05T20:14:57Z"
+      },
+      {
+       "sha": "2a16cb454f32f6899988f732952e064559f88dbf",
+       "title": "feat(launcher): build Going Commando on Windows with a carried compiler (#326)",
+       "author": "Lynder063",
+       "date": "2026-11-05T17:12:39Z"
+      },
+      {
+       "sha": "0a63577f00d765fe7a49bfc46704761e1fbbe222",
+       "title": "fix(launcher): build a game on Linux with fewer system parts (#325)",
+       "author": "Lynder063",
+       "date": "2026-11-05T16:28:25Z"
+      },
+      {
+       "sha": "8fa54f80692413cac3c83b35e49781c1b7c14f58",
+       "title": "feat(launcher): start a game from a shortcut or its own Steam entry (--play) (#324)",
+       "author": "Lynder063",
+       "date": "2026-11-05T16:28:20Z"
+      },
+      {
+       "sha": "62c64982285062e806c3f98ec89900314c47fb37",
+       "title": "fix(launcher): no OpenRAC folder in home when another install folder is chosen (#323)",
+       "author": "Lynder063",
+       "date": "2026-11-05T16:28:15Z"
+      },
+      {
+       "sha": "8ef59f577915f319278121cad50b36f0c6e1de06",
+       "title": "feat(launcher): drop Browse for a Get mods banner (#321)",
+       "author": "nickyyOO",
+       "date": "2026-11-05T14:59:18Z"
+      },
+      {
+       "sha": "6a1037eca2c14366f4aaba5a7ef240c1d882050a",
+       "title": "fix(android): keep Going Commando's Android part across launcher updates",
+       "author": "nickyyOO",
+       "date": "2026-11-05T14:39:53Z"
+      },
+      {
+       "sha": "6fbae29bd313ca1444545961670ec051dbc220a6",
+       "title": "feat: per-game accent for the FPS counter and menu fixes, teal Going Commando (#317)",
+       "author": "nickyyOO",
+       "date": "2026-11-05T14:24:09Z"
+      },
+      {
+       "sha": "e881d4c898a11975a6a5842a6f8aa072e581a629",
+       "title": "feat(launcher): one place in My mods for everything the game loads (#314)",
+       "author": "nickyyOO",
+       "date": "2026-11-05T13:32:37Z"
+      },
+      {
+       "sha": "ac4cd12f026a9b36a23c42385a66f30a731a46cd",
+       "title": "fix(launcher): show the pad's ring on Android game tiles right after the launcher opens (#312)",
+       "author": "nickyyOO",
+       "date": "2026-11-05T12:38:38Z"
+      },
+      {
+       "sha": "c9afaf2e0610d554caf2924bce8878e0570059c8",
+       "title": "fix(launcher): open Mods browse on All when nothing is compatible (#311)",
+       "author": "nickyyOO",
+       "date": "2026-11-05T11:43:41Z"
+      },
+      {
+       "sha": "d03a9030026b963db4e920a2b8f916af9325b7f5",
+       "title": "Fix Android disc build of Going Commando and show why a task failed (#310)",
+       "author": "nickyyOO",
+       "date": "2026-11-05T11:42:35Z"
+      },
+      {
+       "sha": "d0eb021f29ee9ce4db6a7f138982c366ee226fcc",
+       "title": "fix(hdr): make the HDR setting just Off and On (#308)",
+       "author": "nickyyOO",
+       "date": "2026-11-05T11:40:32Z"
+      },
+      {
+       "sha": "e950483c5bcc64743951bc001d0a8eb430da10d1",
+       "title": "fix(launcher): open the game's page from an Android tile by pad, one ring at a time (#309)",
+       "author": "nickyyOO",
+       "date": "2026-11-05T11:39:50Z"
+      },
+      {
+       "sha": "9f9721925296cc7f39b7834040abab61ce13ed5a",
+       "title": "fix(ci): run the Vulkan test groups on a push too (#307)",
+       "author": "nickyyOO",
+       "date": "2026-11-05T11:27:28Z"
+      },
+      {
+       "sha": "814dd8c0bc0e9a49153ed4562ebd3c91f5cdfa2b",
+       "title": "feat(launcher): a mod's own page in the launcher (#304)",
+       "author": "nickyyOO",
+       "date": "2026-11-05T11:24:56Z"
+      },
+      {
+       "sha": "4649fa739944a3e9c0dad1b9c5f8469d86671133",
+       "title": "ci(android): carry Zig's prebuilt Clang and lld instead of building LLVM (#306)",
+       "author": "nickyyOO",
+       "date": "2026-11-05T10:36:08Z"
+      },
+      {
+       "sha": "9a6c9baeca5b0d7e6fcb09fcfc3360ce6543028c",
+       "title": "fix(launcher): open the game's page from an Android tile by pad, keep Play for a finger (#305)",
+       "author": "nickyyOO",
+       "date": "2026-11-05T10:18:49Z"
+      },
+      {
+       "sha": "e3f83b581e206bdbe61de7ca209258745de75ae9",
+       "title": "fix(launcher): update Android from Stable to Development in place (#302)",
+       "author": "nickyyOO",
+       "date": "2026-11-05T09:17:19Z"
+      },
+      {
+       "sha": "ab962a075928a9cea8f812d5ee97504291449043",
+       "title": "fix(port): show Drek's Fleet backdrop and fleet in the fighter mission (#301)",
+       "author": "nickyyOO",
+       "date": "2026-11-05T08:23:51Z"
+      },
+      {
+       "sha": "97aa17cab7dffeacff31e3885c1bbb3f883c7353",
+       "title": "feat(android): play Going Commando from the launcher, its assembly built from the disc on the device (#300)",
+       "author": "nickyyOO",
+       "date": "2026-11-05T08:19:05Z"
+      },
+      {
+       "sha": "d94bd7971d7fed06524b323905b57739640bb3a8",
+       "title": "feat(port): hide the Frame cap row in the Android drawer (#297)",
+       "author": "nickyyOO",
+       "date": "2026-11-05T05:58:47Z"
+      },
+      {
+       "sha": "27a350117640b4bb832df91bca8267ca69f265c9",
+       "title": "chore(launcher): release 1.0.2 (#295)",
+       "author": "Veradictus",
+       "date": "2026-11-05T05:46:50Z"
+      },
+      {
+       "sha": "891aed7aa5d760103961be96f47e5a26f026b3f7",
+       "title": "fix(launcher): start the bundled Python without the Windows \\\\?\\ prefix (#294)",
+       "author": "Veradictus",
+       "date": "2026-11-05T05:23:41Z"
+      },
+      {
+       "sha": "1af8e74042421a0362b217c5de02f6971efe8a98",
+       "title": "fix(ci): work out a branch build's launcher version once for its builds and rolling release (#293)",
+       "author": "Veradictus",
+       "date": "2026-11-05T05:09:43Z"
+      },
+      {
+       "sha": "cfb107f66f6a2090ef289c534f31789024ed4354",
+       "title": "fix(launcher): build long Windows installations in a short temporary path (#291)",
+       "author": "llesieur99",
+       "date": "2026-11-05T04:55:57Z"
+      },
+      {
+       "sha": "7ae49f85be1e13435b5a0ab01c2e907551d424c5",
+       "title": "Share the enhanced port build across CI test jobs (#290)",
+       "author": "pezzadev",
+       "date": "2026-11-05T03:33:41Z"
+      },
+      {
+       "sha": "e3e65093822d9f79940f398369e93ff6109f76ea",
+       "title": "chore(release): 1.0.1 (#285)",
+       "author": "Veradictus",
+       "date": "2026-11-05T02:15:16Z"
+      },
+      {
+       "sha": "0bf8effb581274ed44f8cd7481a52abcdf4c70ff",
+       "title": "Reuse compiled caches in Vulkan CI (#288)",
+       "author": "pezzadev",
+       "date": "2026-11-05T01:34:33Z"
+      },
+      {
+       "sha": "0553f7a395ce693ebb921f68ecfc1d24d197da82",
+       "title": "perf(port): harden and speed up render graph planning (#284)",
+       "author": "pezzadev",
+       "date": "2026-11-05T01:33:02Z"
+      },
+      {
+       "sha": "0f72e5def6e4b2e0c82569076582fedd40005e99",
+       "title": "Speed up Vulkan and documentation-only CI (#286)",
+       "author": "pezzadev",
+       "date": "2026-11-05T00:59:45Z"
+      },
+      {
+       "sha": "c42a81583d4802cfeb191ea95fd6e290cbef0106",
+       "title": "fix(launcher): build Going Commando on a Windows PC without long paths (#287)",
+       "author": "Lynder063",
+       "date": "2026-11-05T00:55:04Z"
+      }
+     ]
+    },
+    {
+     "name": "master",
+     "commits": [
+      {
+       "sha": "9fc860d5ce34b6524e928ca1b6ed2a94ff03e5f2",
+       "title": "Merge pull request #296 from OpenRAC/release/master-1.0.2",
+       "author": "Veradictus",
+       "date": "2026-11-05T06:02:54Z"
+      },
+      {
+       "sha": "8d5b2670617a1faf17c5b3d0817ef18f706d2d19",
+       "title": "Merge pull request #289 from OpenRAC/release/1.0.1",
+       "author": "Veradictus",
+       "date": "2026-11-05T02:41:56Z"
+      }
+     ]
+    }
+   ],
+   "commitCount": 35,
+   "pullRequests": {
+    "merged": [
+     {
+      "number": 284,
+      "title": "perf(port): harden and speed up render graph planning",
+      "author": "pezzadev",
+      "untrustedBody": "Reject depth reads without a depth-test scope and reject presentation of depth or stencil images. The planner now updates touched intervals in place and checks overlapping accesses in range order. Barriers retain visibility for later readers while tracking the stages that actually accessed each range.\n\nWindows MSVC: `frame_graph_test` and `frame_context_test` passed. Port conventions, layering, and changed-line formatting checks passed. A synthetic 32-pass, 64-layer graph compiled in about 61 µs versus 1.8 ms before. This measures CPU planning only. Vulkan runtime and in-game frame time were not tested locally.",
+      "mergedAt": "2026-11-05T01:33:02Z"
+     },
+     {
+      "number": 285,
+      "title": "chore(release): 1.0.1",
+      "author": "Veradictus",
+      "untrustedBody": "Launcher 1.0.1: the version bump and release notes (launcher/release-notes/1.0.1.md).\n\nIts main change: Going Commando can now be built and played from an installed launcher (#276). Before this, an installed launcher had no Going Commando program and kept asking for a rebuild. It also includes the Rebuild guards (#283, #278) and the port changes since 1.0.0 (#272, #273, #277, #281, #282).\n\nChecked locally: `yarn verify` (283 tests), `cargo fmt --check`, `cargo test -p openrac-launcher-core` (431) and the editor tests. In the tools tests, `test_ci_cache` fails only on macOS, because the temp folder sits behind a `/private` symlink; it passes on CI's Linux.",
+      "mergedAt": "2026-11-05T02:15:17Z"
+     },
+     {
+      "number": 286,
+      "title": "Speed up Vulkan and documentation-only CI",
+      "author": "pezzadev",
+      "untrustedBody": "## Summary\n\n- Use system SDL3 and LLD in Ubuntu Vulkan CI and reuse pinned dependency sources across workflow edits.\n- Run the complete render-equivalence matrix in four shards on a smaller synthetic scene. Keep a required million-triangle smoke test with a mid-run reupload.\n- Skip build jobs for verified documentation-only pull requests. Keep documentation checks and run full CI when a native test reads the changed Markdown.\n\n## Verification\n\n- Windows Vulkan passed all 16 targeted checks and ran all 546 equivalence comparisons exactly once.\n- GPU scheduling, CI scope, cache policy and generated documentation checks passed locally. Hosted software Vulkan timings still need measurement.",
+      "mergedAt": "2026-11-05T00:59:45Z"
+     },
+     {
+      "number": 287,
+      "title": "fix(launcher): build Going Commando on a Windows PC without long paths",
+      "author": "Lynder063",
+      "untrustedBody": "A path was over the Windows limit, so the build stopped, and the source stayed behind after a build.\nAlso fixes two tests #283 left failing on Windows and Android pages.",
+      "mergedAt": "2026-11-05T00:55:05Z"
+     },
+     {
+      "number": 288,
+      "title": "Reuse compiled caches in Vulkan CI",
+      "author": "pezzadev",
+      "untrustedBody": "## Summary\n\n- Seed each Vulkan equivalence shard with a private copy of the baseline's compiled caches. Keep prewarming in its dedicated pixel and counter test.\n- Reuse compatible immutable Vulkan objects while still checking that disabling the SPIR-V disk cache forces compilation.\n- Use the standard enhanced build flags so PRs can reuse compiler cache objects from develop.\n\n## Verification\n\nAll 20 targeted Windows Vulkan checks passed. The four shards took 7–14 seconds locally. Hosted software Vulkan timing and compiler cache reuse are pending.",
+      "mergedAt": "2026-11-05T01:34:34Z"
+     },
+     {
+      "number": 289,
+      "title": "chore(release): 1.0.1",
+      "author": "Veradictus",
+      "untrustedBody": "Everything on develop since 1.0.0, released as launcher 1.0.1 (notes in launcher/release-notes/1.0.1.md).\n\nMain change: Going Commando can be built and played from an installed launcher (#276). Before this, an installed launcher had no Going Commando program and kept asking for a rebuild. Also the Rebuild guards (#278, #283, with the CI fixes in #285), the Windows build fixes (#287), and the port changes since 1.0.0.\n\nThe merge commit keeps develop's tree, as in 1.0.0, because squash merges made master and develop conflict.",
+      "mergedAt": "2026-11-05T02:41:57Z"
+     },
+     {
+      "number": 290,
+      "title": "Share the enhanced port build across CI test jobs",
+      "author": "pezzadev",
+      "untrustedBody": "## Summary\n\n- Build enhanced Ubuntu once and run the Vulkan, CPU and baker test groups from the same workflow artifact. Run two equivalence shards on each Vulkan runner with local reference setup, and retain the existing required check.\n- Seed selected rendering tests with private Vulkan caches. Keep cold-start tests isolated. Verify dynamic raster state in a focused pixel test and reuse compatible native programs across shader variants.\n- Add the manual time-vulkan-shards input to compare one, two and four concurrent shards.\n\n## Verification\n\nAll 20 targeted Windows Vulkan checks passed, including the four equivalence shards. A synthetic Linux CTest build passed the archive handoff and timing sweep. The full hosted artifact run and software Vulkan performance are pending.",
+      "mergedAt": "2026-11-05T03:33:42Z"
+     },
+     {
+      "number": 291,
+      "title": "fix(launcher): build long Windows installations in a short temporary path",
+      "author": "llesieur99",
+      "untrustedBody": "Long Windows installation paths still fail to build Going Commando after #287: the ASR shader header can exceed MAX_PATH. The same upstream header failed to compile at 283 characters and compiled successfully at 227 characters with MSVC on Windows.\n\nWhen the installation path exceeds the existing build path budget, build_game.py now downloads and builds in a short per-install folder under the user's temporary directory, then copies the program back to its original destination. Failed builds remain reusable on retry. No installation move, registry change or administrator access is required. An unusually long temporary directory is rejected before downloading, with instructions to select a shorter TEMP/TMP location.\n\nValidated on Windows:\n- 15 build_game tests pass, including real local archive download/extraction, a child build failure, retry, copy-back, and preservation of the previous program and disc fixture.\n- 32 build_port tests pass; git diff --check passes.\n- Full tools suite: 30",
+      "mergedAt": "2026-11-05T04:55:57Z"
+     },
+     {
+      "number": 293,
+      "title": "fix(ci): one version for a branch build and its rolling release",
+      "author": "Veradictus",
+      "untrustedBody": "**What happened:** after 1.0.1, launchers on the development channel kept offering the same update.\n\n- Develop's run 767 started before the `launcher-v1.0.1` tag existed, so `scripts/dev_version.sh` gave 1.0.1 and the installers were built as 1.0.1.\n- The tag was pushed while that run was going. Its `dev-release` job then asked `dev_version.sh` again, got 1.0.2, and published `latest.json` as **1.0.2-dev.767**.\n- A launcher that installed it still reported itself as older than 1.0.2-dev, so it was offered it again.\n\n**The fix:** a small `version` job works the base version out once. `build` and `dev-release` both take it from that job's output, so a tag pushed mid-run can't split them.\n\n**Recovering:** the bad `launcher-dev-develop` feed is replaced by the next develop build, which this PR's merge triggers. Tag builds are unchanged: they still read the version from `tauri.conf.json`.",
+      "mergedAt": "2026-11-05T05:09:44Z"
+     },
+     {
+      "number": 294,
+      "title": "fix(launcher): start the bundled Python without the Windows \\\\?\\ prefix",
+      "author": "Veradictus",
+      "untrustedBody": "Going Commando still doesn't build on Windows with launcher 1.0.1. Tauri hands us the resource folder as a verbatim path, so the bundled Python reaches CMake as `\\\\?\\D:\\...\\python.exe`. CMake bakes that into the hostgen step, Ninja runs it through `cmd /C`, and cmd can't start a program named that way:\n\n```\n\"\\\\?\\D:\\claude code\\OpenRac\\Install\\openrac\\python\\python.exe\" ... hostgen ...\nDas System kann den angegebenen Pfad nicht finden.\nninja: build stopped: subcommand failed.\n```\n\n- `detect::bundled_python` and the `{python}` (and other tool) placeholders now give the path through `detect::plain`.\n- `build_port.py` names its own interpreter without the prefix too, so a saved setting that still holds the prefixed path doesn't matter.\n- A build folder that 1.0.1 already configured keeps `Python3_EXECUTABLE=//?/...` in its CMake cache, and the cache wins over a new `-D`. Such a folder is now reconfigured with the plain Python, so a retry works without deleting anything.\n- A separate commit",
+      "mergedAt": "2026-11-05T05:23:42Z"
+     },
+     {
+      "number": 295,
+      "title": "chore(launcher): release 1.0.2",
+      "author": "Veradictus",
+      "untrustedBody": "Launcher 1.0.2: Going Commando builds on Windows again (#294, #291), and dev builds stop offering the same update after a release (#293). Version bump and release notes only.",
+      "mergedAt": "2026-11-05T05:46:50Z"
+     },
+     {
+      "number": 296,
+      "title": "Release launcher 1.0.2",
+      "author": "Veradictus",
+      "untrustedBody": "Launcher 1.0.2 from develop: Going Commando builds on Windows again (#294, #291); dev builds stop offering the same update after a release (#293). See launcher/release-notes/1.0.2.md.",
+      "mergedAt": "2026-11-05T06:02:55Z"
+     },
+     {
+      "number": 297,
+      "title": "feat(port): hide the Frame cap row in the Android drawer",
+      "author": "nickyyOO",
+      "untrustedBody": "**Before:** the Android drawer showed both Frame rate and Frame cap. Android sets the display's refresh itself, so the fine 5 fps Frame cap row was just noise there.\n\n**After:** the drawer on Android shows only Frame rate (Original, Display, the cap list, Unlimited). Desktop keeps both rows.\n\n**How:** the Frame cap entry in menu_catalog.cpp is desktop-only now.\n\n**Tested:** port ctest (headless) passes. Not tested on a device; check the drawer's Graphics tab on Android.",
+      "mergedAt": "2026-11-05T05:58:48Z"
+     },
+     {
+      "number": 300,
+      "title": "feat(android): play Going Commando from the launcher, its assembly built from the disc on the device",
+      "author": "nickyyOO",
+      "untrustedBody": "Before: Going Commando could not be played from an Android launcher. Its build needs the disc (about 15% of its functions are still assembly), and CI has no disc, so the APK had no game to play.\n\nAfter: the APK carries rac2-ntsc built without the disc. The functions still in assembly are called through slots. The player sets the game up from the disc as they do for rac1. Then Build and play translates those functions from the disc and compiles them on the phone into a part the game loads. The APK carries the Clang and lld for that. Nothing of the disc goes into the APK.\n\nHow:\n- hostgen: asm_interface.json lets a build without the disc give the same C. asmdev.py and asm_part.py build the part. The game loads it (program/asm_part.cpp).\n- build_android.py builds LLVM 19 for Android, cached in CI, and puts the kit in the APK. The launcher has a port-part step, and Play waits for it.\n- Fixes along the way: the rac2 print core is now the port's, as rac1's is (ARM64 va_list). build_game.py fe",
+      "mergedAt": "2026-11-05T08:19:06Z"
+     },
+     {
+      "number": 301,
+      "title": "fix(port): show Drek's Fleet backdrop and fleet in the fighter mission",
+      "author": "nickyyOO",
+      "untrustedBody": "**Before:** in the Drek's Fleet fighter mission (level 17) the purple nebula over the planet was missing and most of the fleet on the right was invisible.\n\n**After:** both show as on PS2.\n\n**How:**\n- Effect quads are drawn with depth clamp, so the backdrop ~7000 units away is no longer cut at the far plane.\n- Outside the baked PVS grid the scene uses rac1's own occlusion mask for the frame. The fighter picks the octant fallback there; the port kept the hangar's mask. Inside the grid nothing changes.\n\n**Tested:** regress route on level 17 vs PCSX2 (NTSC), ctest.",
+      "mergedAt": "2026-11-05T08:23:51Z"
+     },
+     {
+      "number": 302,
+      "title": "fix(launcher): update Android from Stable to Development in place",
+      "author": "nickyyOO",
+      "untrustedBody": "**Before:** On Android, switching from Stable to Development offered any development build, also one older than the installed release (the build made just before the release's tag, `1.0.2-dev.777` < `1.0.2`). It then said \"Android cannot install an older version\" and sent the player to GitHub.\r\n\r\n**After:** From Stable, only a newer development build is offered, and it installs as a normal in-app update. Going back from Development to Stable still goes through GitHub (uninstall, keep data, install).\r\n\r\n**How:** `update_check` allows an older build only when the target is Stable. A newer development version is always a later CI run, so its APK has a higher version code and Android installs it (`scripts/dev_version.sh` takes the next patch once a release is tagged). Works for any repository that built the APK.\r\n\r\n**Tested:** `cargo clippy --workspace --all-targets -D warnings`, `cargo fmt --check`, `yarn verify`. Not tested: on a device; the Android-only Rust was not compiled here (no ND",
+      "mergedAt": "2026-11-05T09:17:20Z"
+     },
+     {
+      "number": 304,
+      "title": "feat(launcher): a mod's own page in the launcher",
+      "author": "nickyyOO",
+      "untrustedBody": "**Before:** a mod could only add code to the game. A mod that is only a launcher tool (like a texture upscaler) could not install or show anything. CI ran the same launcher page checks on Linux and Windows, and the check names were hard to read.\r\n\r\n**After:** a mod can name a `tool` page in its manifest. The Mods tab shows an **Open** button and the page runs in a frame. A mod with only a page installs and is never switched on in the game. Checks that give the same result everywhere run once, and the checks have plain names (`Launcher / Windows`, `Port / Fedora`, ...).\r\n\r\n**How:**\r\n- The page is served from the mod's folder on its own address (`openrac-mod://`, `http://openrac-mod.localhost` on Windows and Android). A strict content policy lets it load only its own files, with no network.\r\n- The page talks to the launcher by `postMessage`. Every call is checked: `info`, `list`, `read` (also part of a file), `storeGet`/`storeSet`, `save` (also in parts for large files), `open`, `close`.",
+      "mergedAt": "2026-11-05T11:24:57Z"
+     },
+     {
+      "number": 305,
+      "title": "fix(launcher): open the game's page from an Android tile by pad, keep Play for a finger",
+      "author": "nickyyOO",
+      "untrustedBody": "**Before:** On Android's Games tab, A on the pad started the game (or its setup) straight from the list. The tile picture zoomed in on hover and focus, and the last picked game kept an amber ring, so two rings could show at once (the focus and the old pick).\n\n**After:** A on the pad opens the game's page; Play is pressed there. The tile's Play / Set up button stays for a tap, but the pad never lands on it. The picture stays still, and only the focus is ringed.\n\n**How:** GameTile drops the pad A/Y handler, the art zoom and the `selected` ring. The button keeps `data-pad-skip`. `aria-current` stays, so pad focus still starts on the last picked game. GameTile is only used on Android, so desktop is unchanged.\n\n**Tested:** `yarn verify`, `yarn test:android` (updated tile test, new tap and one-ring tests). Not tested on a device.",
+      "mergedAt": "2026-11-05T10:18:50Z"
+     },
+     {
+      "number": 306,
+      "title": "ci(android): carry Zig's prebuilt Clang and lld instead of building LLVM",
+      "author": "nickyyOO",
+      "untrustedBody": "Before: the Android job built LLVM 19.1.7 from source for the APK's on-device compiler (Going Commando's part). That was about 50 of the job's 95 minutes on any branch with a cold cache.\n\nAfter: the APK carries Zig 0.14.1's static AArch64 Linux release as libopenrac-zig.so. It is one program with Clang and lld of the same LLVM 19.1.7 (`zig clang`, `zig ld.lld`), downloaded at a fixed version and checked against its SHA-256. Nothing is compiled for it.\n\nHow:\n- build_android.py downloads Zig (cached in CI) and copies it into the APK with Zig's and LLVM's licenses. Clang's headers come from the same release.\n- asm_part.py runs Zig's Clang and lld. A new `check` command builds a probe with the kit, and the APK's build runs it with the host's Zig of the same release.\n- Android's Embree build is cached too (about 2 minutes a run).\n\nTested: tools tests pass. A part built through the new code from the ISO is byte-identical to the old one (desktop clang). CI run on the fork. Not yet run on a ph",
+      "mergedAt": "2026-11-05T10:36:09Z"
+     },
+     {
+      "number": 307,
+      "title": "fix(ci): run the Vulkan test groups on a push too",
+      "author": "nickyyOO",
+      "untrustedBody": "Before: on a push to develop, port-vulkan-enhanced failed (TEST_RESULT skipped). scope runs only for pull requests, so on a push it is skipped, and port-vulkan-enhanced-tests, which had no condition of its own, was skipped with it.\n\nAfter: the test groups run whenever the build succeeded, as the build and the final check already do.\n\nHow: port-vulkan-enhanced-tests gets `if: !cancelled() && needs.port-vulkan-enhanced-build.result == 'success'`. It is the only job under scope without its own condition.\n\nTested: the workflow parses; checked every job that depends on scope. The fix shows on the next push.",
+      "mergedAt": "2026-11-05T11:27:29Z"
+     },
+     {
+      "number": 308,
+      "title": "fix(hdr): make the HDR setting just Off and On",
+      "author": "nickyyOO",
+      "untrustedBody": "**Before:** the launcher's Settings > HDR had Game, Off, Auto and On, and the game's own setting Off, Auto and On.\n\n**After:** both are just Off and On. On shows HDR while the system has the display in HDR mode (what Auto did); where the system can't tell (X11), it tries HDR as On did.\n\n**How:** `hdr::Mode` loses Auto. An old `auto` (settings file, OPENRAC_HDR, launcher.json) reads as On; the launcher's old \"\" (Game) reads as Off, the game's default. The launcher now always passes OPENRAC_HDR. Docs updated.\n\n**Tested:** cargo test + clippy, yarn verify, headless build + ctest (hdr and settings tests updated). Not tested: an HDR screen, and the drawer files (menu_items.cpp) are not in the headless build.",
+      "mergedAt": "2026-11-05T11:40:32Z"
+     },
+     {
+      "number": 309,
+      "title": "fix(launcher): open the game's page from an Android tile by pad, one ring at a time",
+      "author": "nickyyOO",
+      "untrustedBody": "**Before:** Since #305 the last played game on Android's Games tab has no ring. With a finger you can't see which game you played last.\r\n\r\n**After:** The last played game has its ring again. When you move with the pad, the ring moves to the game you are on, and the old ring hides, so there is only ever one. Pad navigation is the same as before: the highlighted game opens its page with A, and Play is on that page.\r\n\r\n**How:** `GameTile` gets back the `selected` ring and hides it while any tile has the pad focus ring (`.tiles:has(...)`). Only Android uses tiles, so desktop does not change.\r\n\r\n**Tested:** `yarn verify` and `yarn test:android` (the ring test checks both cases). Not tested on a device.",
+      "mergedAt": "2026-11-05T11:39:50Z"
+     },
+     {
+      "number": 310,
+      "title": "Fix Android disc build of Going Commando and show why a task failed",
+      "author": "nickyyOO",
+      "untrustedBody": "**Before:** On Android, \"Build the game from your disc\" failed at once with only \"... failed\". The copied actions ran it in the data folder, where tools/asm_part.py is not.\n\n**After:** It runs in the app's copy and finds the tool. Any failed task's toast shows its last output lines (Error details) and a View details button to Activity.\n\n**How:** bundle_standalone.py keeps cwd \".\" for port-part. The toast gets toolFailure(job.lines).details. asm_part.py names the step that stopped.\n\n**Tested:** test_bundle_standalone, test_asm_part, vitest, svelte-check. Ran the tool from a bundled copy: reaches the disc check; from the data folder it fails as on the phone.",
+      "mergedAt": "2026-11-05T11:42:35Z"
+     },
+     {
+      "number": 311,
+      "title": "fix(launcher): open Mods browse on All when nothing is compatible",
+      "author": "nickyyOO",
+      "untrustedBody": "**Before:** Browse opened on the Compatible preset. When no mod installs here (for example native-only mods on Android), the list was empty and said `No mods match \"\"` until you pressed Clear filters.\n\n**After:** Browse opens on All when nothing is compatible, and an empty list without a search names the preset (`No mods in Installed.`) instead of quoting an empty search. A preset the player picks is kept.\n\n**How:** `startPreset()` in `modBrowse.ts` picks the opening preset from the rows; `nothingShown()` in `modsText.ts` writes the empty-list line.\n\n**Tested:** `yarn verify`, `yarn test:android` (new unit tests for both). Not tested on a device.",
+      "mergedAt": "2026-11-05T11:43:42Z"
+     },
+     {
+      "number": 312,
+      "title": "fix(launcher): show the pad's ring on Android game tiles right after the launcher opens",
+      "author": "nickyyOO",
+      "untrustedBody": "**Before:** Right after the launcher opened on Android, the pad's ring did not show on the game tiles. You could tell the focus moved, but not where it was. After tapping a game and coming back, the ring worked. Android's WebView did not apply the `:has()` rules until the tiles were drawn again.\n\n**After:** The pad's ring shows on the game you are on from the start.\n\n**How:** `GameTile` draws the pad's ring with `:focus-within` instead of `:has()` (the pad reaches only the tile's main button), and hides the last played game's ring whenever the pad is in use. Only Android uses tiles, so desktop does not change.\n\n**Tested:** `yarn verify` and `yarn test:android`. The WebView bug does not show in desktop Chromium, so the fix is not tested on a device.",
+      "mergedAt": "2026-11-05T12:38:38Z"
+     },
+     {
+      "number": 314,
+      "title": "feat(launcher): one place in My mods for everything the game loads",
+      "author": "nickyyOO",
+      "untrustedBody": "**Before:** texture packs lived on the game page, apart from the other mods. My mods had no search, filter or sorting, so a long list was hard to handle.\n\n**After:** My mods holds everything the game loads: gameplay mods, graphics and sound packs, and the texture pack, which is now one row among the packs. Making textures stays on the Assets tab (desktop) or in a fold (Android). With many mods there is a search, kinds (Gameplay, Graphics and sound, Tools), a Load order or A to Z sort, and drag or menu moves. The texture pack is off with `--no-mods` like the other mods.\n\n**How:** a shared view state (modsView), pure list helpers (modsList), a pointer-based drag action (dragSort), a .zip dropped on Add a mod goes to the texture pack when it is one, and a mod zip with pictures is no longer read as a texture pack.\n\n**Tested:** `yarn verify`, `yarn test:android` (new tests for the texture pack, search, kinds, drag and the Mods-off notice), `cargo test`/`clippy`/`fmt` for the core, port conv",
+      "mergedAt": "2026-11-05T13:32:38Z"
+     },
+     {
+      "number": 317,
+      "title": "feat: per-game accent for the FPS counter and menu fixes, teal Going Commando",
+      "author": "nickyyOO",
+      "untrustedBody": "**Before:** the FPS counter (F2) was always yellow-green. Going Commando's accent was a pale blue. The in-game menu's small labels (01 / 07, TAB / SECTION) used the dark brand colour, Resume was a white chip, and key cap text sat up to a pixel off centre.\n\n**After:** the counter uses the game's accent over the theme's darkest ink, like the menu and the launcher. Going Commando is teal around #0e5e7c (bar a lighter shade so the dark logo stays readable). Menu labels use the light accent, Resume is dark with white text like Quit, and key cap text is centred.\n\n**How:** `fps_counter::draw` takes ink and paper colours from `ui_colors::launcher()` (OPENRAC_UI_COLORS). The rac2 accent changes only in `launcher/src/lib/palettes.json`. Dear ImGui truncates text positions, so `centred_text` rounds and key caps sit on whole pixels.\n\n**Tested:** port ctest (284, 0 failed), port conventions check, `yarn verify`, `cargo test` (theme), clippy. rac1 NTSC in the container (software GL) with each game's",
+      "mergedAt": "2026-11-05T14:24:10Z"
+     },
+     {
+      "number": 320,
+      "title": "fix(android): keep Going Commando's Android part across launcher updates",
+      "author": "nickyyOO",
+      "untrustedBody": "**Before:** After every launcher update, Going Commando on Android showed Build and play again, even when the game code had not changed. The part folder is named by a digest of the kit, and hostgen pickled the program's sets in hash-seed order, so each APK build gave the kit different bytes.\n\n**After:** The same program gives the same pickle, so the part folder only changes when the kit really does.\n\n**How:** hostgen writes --program-out with a Python pickler that saves sets sorted (the C pickler gives no hook for sets). About 10 s more per rac2 build without the disc.\n\n**Tested:** Ran hostgen for rac2-ntsc twice with PYTHONHASHSEED=1 and 2: before, the pickles differed; after, identical SHA-256. The pickle loads back with the same sets.",
+      "mergedAt": "2026-11-05T14:39:54Z"
+     },
+     {
+      "number": 321,
+      "title": "feat(launcher): drop Browse for a Get mods banner",
+      "author": "nickyyOO",
+      "untrustedBody": "**Before:** the launcher had its own Browse list of the hub's mods, and the folded Make a texture pack had no sign that it opens.\n\n**After:** Browse is gone. A Get mods banner at the top of My mods opens openrac.dev/mods, or says a GitHub page, .zip or folder works. The texture fold has a turning arrow. Mods tab docs are shorter.\n\n**How:** Browse's components, search and texts are removed. Revoked versions were only turned off when Browse read the index; the update check now does it and Mod updates says so. Links from openrac.dev, Share and updates still read the index.\n\n**Tested:** `yarn verify`, `yarn test:android` (Get mods with no index read, fold arrow), `cargo test`/`clippy` for the core, `cargo clippy` of src-tauri for Android. Not run: a device.",
+      "mergedAt": "2026-11-05T14:59:19Z"
+     },
+     {
+      "number": 323,
+      "title": "fix(launcher): no OpenRAC folder in home when another install folder is chosen",
+      "author": "Lynder063",
+      "untrustedBody": "The launcher made ~/OpenRAC at every start, even with another install folder set. Now it makes it only when it is used.\nFixes #315.",
+      "mergedAt": "2026-11-05T16:28:16Z"
+     },
+     {
+      "number": 324,
+      "title": "feat(launcher): start a game from a shortcut or its own Steam entry",
+      "author": "Lynder063",
+      "untrustedBody": "Adds --play <id>, Add to Steam for one game, and a Linux desktop shortcut. Unit tested only, not yet on a real Steam or Steam Deck.\nFixes #318.",
+      "mergedAt": "2026-11-05T16:28:21Z"
+     },
+     {
+      "number": 325,
+      "title": "fix(launcher): build a game on Linux with fewer system parts",
+      "author": "Lynder063",
+      "untrustedBody": "The build no longer needs curl or tar, drops Steam's libraries, and skips X11 extensions with no headers.\nRefs #316.",
+      "mergedAt": "2026-11-05T16:28:25Z"
+     },
+     {
+      "number": 326,
+      "title": "feat(launcher): build Going Commando on Windows with a carried compiler",
+      "author": "Lynder063",
+      "untrustedBody": "Windows players should need only the launcher and their disc. Today Going Commando asks them for Visual Studio's C++ tools, Clang and git (#313), and RaC1's games need Microsoft's C++ runtime, which the installer doesn't carry.\n\n## What changes\n\n**Going Commando on Windows works the way it does on Android.** The installer carries the game built without the disc, a kit, and Zig's Clang and lld. Build and play runs `tools/asm_part.py`, which translates the functions still in assembly from the player's disc and compiles them into `libopenrac-rac2-ntsc-part.dll`. Nothing is installed or downloaded, and nothing from the disc is in the installer. Linux and macOS keep `tools/build_game.py`.\n\nThe Windows-specific parts:\n- A Windows program exports only what it names, so `openrac-rac2-ntsc.exe` exports the 2,201 symbols in `asm_part_exports.def` (806 slots, 7 runtime variables, the rest functions).\n- `asm_part.py exports` writes that list. The part reads the program's data through `dllimport`.\n",
+      "mergedAt": "2026-11-05T17:12:40Z"
+     },
+     {
+      "number": 329,
+      "title": "fix(launcher): clickable Get mods banner, and an always-on switch for tools",
+      "author": "nickyyOO",
+      "untrustedBody": "**Before:** only the banner's button opened the hub, and a tool's row had an empty gap where the switch goes.\n\n**After:** a click or tap anywhere on the Get mods banner opens openrac.dev/mods. A tool shows its switch on and greyed, with why (\"Always on\"); its page says Always on too.\n\n**How:** the banner's click opens the hub unless it was on one of its buttons; a keyboard or pad still uses the button (a cover element breaks with Android's ripple, which makes the button relative).\n\n**Tested:** `yarn verify`, `yarn test:android` (banner click opens the hub, Publish doesn't; the tool's switch is checked and disabled).",
+      "mergedAt": "2026-11-05T20:14:58Z"
+     },
+     {
+      "number": 330,
+      "title": "fix: keep the freecam chord from the game",
+      "author": "nickyyOO",
+      "untrustedBody": "**Before:** L3+R3 turned freecam on (developer mode) or off, but the game saw the press too: its R3 opened the map. With L3 as the menu button, L3 opened the menu and blocked the chord.\n\n**After:** the chord no longer reaches the game, so no map on toggle. A menu opened by its L3 button closes on the chord. R3 alone opens the map as before, with no added wait.\n\n**How:** the chord is checked right before the game reads pad 0 (and where the window samples freecam). On a toggle, held buttons are held back until let go and the pads are read again. Players outside developer mode with freecam off skip the check. R3 pressed a frame before L3 still opens the map (avoiding that would need a delay on R3).\n\n**Tested:** clang-format. Not built or run in the container (dependency download blocked), not tested on a gamepad.",
+      "mergedAt": "2026-11-05T20:17:37Z"
+     }
+    ],
+    "opened": [
+     {
+      "number": 285,
+      "title": "chore(release): 1.0.1",
+      "author": "Veradictus",
+      "untrustedBody": "Launcher 1.0.1: the version bump and release notes (launcher/release-notes/1.0.1.md).\n\nIts main change: Going Commando can now be built and played from an installed launcher (#276). Before this, an installed launcher had no Going Commando program and kept asking for a rebuild. It also includes the Rebuild guards (#283, #278) and the port changes since 1.0.0 (#272, #273, #277, #281, #282).\n\nChecked locally: `yarn verify` (283 tests), `cargo fmt --check`, `cargo test -p openrac-launcher-core` (431) and the editor tests. In the tools tests, `test_ci_cache` fails only on macOS, because the temp folder sits behind a `/private` symlink; it passes on CI's Linux.",
+      "mergedAt": "2026-11-05T02:15:17Z"
+     },
+     {
+      "number": 286,
+      "title": "Speed up Vulkan and documentation-only CI",
+      "author": "pezzadev",
+      "untrustedBody": "## Summary\n\n- Use system SDL3 and LLD in Ubuntu Vulkan CI and reuse pinned dependency sources across workflow edits.\n- Run the complete render-equivalence matrix in four shards on a smaller synthetic scene. Keep a required million-triangle smoke test with a mid-run reupload.\n- Skip build jobs for verified documentation-only pull requests. Keep documentation checks and run full CI when a native test reads the changed Markdown.\n\n## Verification\n\n- Windows Vulkan passed all 16 targeted checks and ran all 546 equivalence comparisons exactly once.\n- GPU scheduling, CI scope, cache policy and generated documentation checks passed locally. Hosted software Vulkan timings still need measurement.",
+      "mergedAt": "2026-11-05T00:59:45Z"
+     },
+     {
+      "number": 287,
+      "title": "fix(launcher): build Going Commando on a Windows PC without long paths",
+      "author": "Lynder063",
+      "untrustedBody": "A path was over the Windows limit, so the build stopped, and the source stayed behind after a build.\nAlso fixes two tests #283 left failing on Windows and Android pages.",
+      "mergedAt": "2026-11-05T00:55:05Z"
+     },
+     {
+      "number": 288,
+      "title": "Reuse compiled caches in Vulkan CI",
+      "author": "pezzadev",
+      "untrustedBody": "## Summary\n\n- Seed each Vulkan equivalence shard with a private copy of the baseline's compiled caches. Keep prewarming in its dedicated pixel and counter test.\n- Reuse compatible immutable Vulkan objects while still checking that disabling the SPIR-V disk cache forces compilation.\n- Use the standard enhanced build flags so PRs can reuse compiler cache objects from develop.\n\n## Verification\n\nAll 20 targeted Windows Vulkan checks passed. The four shards took 7–14 seconds locally. Hosted software Vulkan timing and compiler cache reuse are pending.",
+      "mergedAt": "2026-11-05T01:34:34Z"
+     },
+     {
+      "number": 289,
+      "title": "chore(release): 1.0.1",
+      "author": "Veradictus",
+      "untrustedBody": "Everything on develop since 1.0.0, released as launcher 1.0.1 (notes in launcher/release-notes/1.0.1.md).\n\nMain change: Going Commando can be built and played from an installed launcher (#276). Before this, an installed launcher had no Going Commando program and kept asking for a rebuild. Also the Rebuild guards (#278, #283, with the CI fixes in #285), the Windows build fixes (#287), and the port changes since 1.0.0.\n\nThe merge commit keeps develop's tree, as in 1.0.0, because squash merges made master and develop conflict.",
+      "mergedAt": "2026-11-05T02:41:57Z"
+     },
+     {
+      "number": 290,
+      "title": "Share the enhanced port build across CI test jobs",
+      "author": "pezzadev",
+      "untrustedBody": "## Summary\n\n- Build enhanced Ubuntu once and run the Vulkan, CPU and baker test groups from the same workflow artifact. Run two equivalence shards on each Vulkan runner with local reference setup, and retain the existing required check.\n- Seed selected rendering tests with private Vulkan caches. Keep cold-start tests isolated. Verify dynamic raster state in a focused pixel test and reuse compatible native programs across shader variants.\n- Add the manual time-vulkan-shards input to compare one, two and four concurrent shards.\n\n## Verification\n\nAll 20 targeted Windows Vulkan checks passed, including the four equivalence shards. A synthetic Linux CTest build passed the archive handoff and timing sweep. The full hosted artifact run and software Vulkan performance are pending.",
+      "mergedAt": "2026-11-05T03:33:42Z"
+     },
+     {
+      "number": 291,
+      "title": "fix(launcher): build long Windows installations in a short temporary path",
+      "author": "llesieur99",
+      "untrustedBody": "Long Windows installation paths still fail to build Going Commando after #287: the ASR shader header can exceed MAX_PATH. The same upstream header failed to compile at 283 characters and compiled successfully at 227 characters with MSVC on Windows.\n\nWhen the installation path exceeds the existing build path budget, build_game.py now downloads and builds in a short per-install folder under the user's temporary directory, then copies the program back to its original destination. Failed builds remain reusable on retry. No installation move, registry change or administrator access is required. An unusually long temporary directory is rejected before downloading, with instructions to select a shorter TEMP/TMP location.\n\nValidated on Windows:\n- 15 build_game tests pass, including real local archive download/extraction, a child build failure, retry, copy-back, and preservation of the previous program and disc fixture.\n- 32 build_port tests pass; git diff --check passes.\n- Full tools suite: 30",
+      "mergedAt": "2026-11-05T04:55:57Z"
+     },
+     {
+      "number": 293,
+      "title": "fix(ci): one version for a branch build and its rolling release",
+      "author": "Veradictus",
+      "untrustedBody": "**What happened:** after 1.0.1, launchers on the development channel kept offering the same update.\n\n- Develop's run 767 started before the `launcher-v1.0.1` tag existed, so `scripts/dev_version.sh` gave 1.0.1 and the installers were built as 1.0.1.\n- The tag was pushed while that run was going. Its `dev-release` job then asked `dev_version.sh` again, got 1.0.2, and published `latest.json` as **1.0.2-dev.767**.\n- A launcher that installed it still reported itself as older than 1.0.2-dev, so it was offered it again.\n\n**The fix:** a small `version` job works the base version out once. `build` and `dev-release` both take it from that job's output, so a tag pushed mid-run can't split them.\n\n**Recovering:** the bad `launcher-dev-develop` feed is replaced by the next develop build, which this PR's merge triggers. Tag builds are unchanged: they still read the version from `tauri.conf.json`.",
+      "mergedAt": "2026-11-05T05:09:44Z"
+     },
+     {
+      "number": 294,
+      "title": "fix(launcher): start the bundled Python without the Windows \\\\?\\ prefix",
+      "author": "Veradictus",
+      "untrustedBody": "Going Commando still doesn't build on Windows with launcher 1.0.1. Tauri hands us the resource folder as a verbatim path, so the bundled Python reaches CMake as `\\\\?\\D:\\...\\python.exe`. CMake bakes that into the hostgen step, Ninja runs it through `cmd /C`, and cmd can't start a program named that way:\n\n```\n\"\\\\?\\D:\\claude code\\OpenRac\\Install\\openrac\\python\\python.exe\" ... hostgen ...\nDas System kann den angegebenen Pfad nicht finden.\nninja: build stopped: subcommand failed.\n```\n\n- `detect::bundled_python` and the `{python}` (and other tool) placeholders now give the path through `detect::plain`.\n- `build_port.py` names its own interpreter without the prefix too, so a saved setting that still holds the prefixed path doesn't matter.\n- A build folder that 1.0.1 already configured keeps `Python3_EXECUTABLE=//?/...` in its CMake cache, and the cache wins over a new `-D`. Such a folder is now reconfigured with the plain Python, so a retry works without deleting anything.\n- A separate commit",
+      "mergedAt": "2026-11-05T05:23:42Z"
+     },
+     {
+      "number": 295,
+      "title": "chore(launcher): release 1.0.2",
+      "author": "Veradictus",
+      "untrustedBody": "Launcher 1.0.2: Going Commando builds on Windows again (#294, #291), and dev builds stop offering the same update after a release (#293). Version bump and release notes only.",
+      "mergedAt": "2026-11-05T05:46:50Z"
+     },
+     {
+      "number": 296,
+      "title": "Release launcher 1.0.2",
+      "author": "Veradictus",
+      "untrustedBody": "Launcher 1.0.2 from develop: Going Commando builds on Windows again (#294, #291); dev builds stop offering the same update after a release (#293). See launcher/release-notes/1.0.2.md.",
+      "mergedAt": "2026-11-05T06:02:55Z"
+     },
+     {
+      "number": 297,
+      "title": "feat(port): hide the Frame cap row in the Android drawer",
+      "author": "nickyyOO",
+      "untrustedBody": "**Before:** the Android drawer showed both Frame rate and Frame cap. Android sets the display's refresh itself, so the fine 5 fps Frame cap row was just noise there.\n\n**After:** the drawer on Android shows only Frame rate (Original, Display, the cap list, Unlimited). Desktop keeps both rows.\n\n**How:** the Frame cap entry in menu_catalog.cpp is desktop-only now.\n\n**Tested:** port ctest (headless) passes. Not tested on a device; check the drawer's Graphics tab on Android.",
+      "mergedAt": "2026-11-05T05:58:48Z"
+     },
+     {
+      "number": 298,
+      "title": "fix(launcher): run the browser test files one at a time",
+      "author": "Veradictus",
+      "untrustedBody": "Each e2e file starts its own Vite server, and run in parallel they pre-bundle into the same cache: `ENOTEMPTY: rename .vite/deps_ssr_temp_… -> .vite/deps_ssr`, which broke `launcher-android` at random. The e2e files now run one at a time.\n\n(The other half of this PR, running the enhanced Vulkan tests on pushes, landed separately in #307.)",
+      "mergedAt": "2026-11-06T14:35:37Z"
+     },
+     {
+      "number": 300,
+      "title": "feat(android): play Going Commando from the launcher, its assembly built from the disc on the device",
+      "author": "nickyyOO",
+      "untrustedBody": "Before: Going Commando could not be played from an Android launcher. Its build needs the disc (about 15% of its functions are still assembly), and CI has no disc, so the APK had no game to play.\n\nAfter: the APK carries rac2-ntsc built without the disc. The functions still in assembly are called through slots. The player sets the game up from the disc as they do for rac1. Then Build and play translates those functions from the disc and compiles them on the phone into a part the game loads. The APK carries the Clang and lld for that. Nothing of the disc goes into the APK.\n\nHow:\n- hostgen: asm_interface.json lets a build without the disc give the same C. asmdev.py and asm_part.py build the part. The game loads it (program/asm_part.cpp).\n- build_android.py builds LLVM 19 for Android, cached in CI, and puts the kit in the APK. The launcher has a port-part step, and Play waits for it.\n- Fixes along the way: the rac2 print core is now the port's, as rac1's is (ARM64 va_list). build_game.py fe",
+      "mergedAt": "2026-11-05T08:19:06Z"
+     },
+     {
+      "number": 301,
+      "title": "fix(port): show Drek's Fleet backdrop and fleet in the fighter mission",
+      "author": "nickyyOO",
+      "untrustedBody": "**Before:** in the Drek's Fleet fighter mission (level 17) the purple nebula over the planet was missing and most of the fleet on the right was invisible.\n\n**After:** both show as on PS2.\n\n**How:**\n- Effect quads are drawn with depth clamp, so the backdrop ~7000 units away is no longer cut at the far plane.\n- Outside the baked PVS grid the scene uses rac1's own occlusion mask for the frame. The fighter picks the octant fallback there; the port kept the hangar's mask. Inside the grid nothing changes.\n\n**Tested:** regress route on level 17 vs PCSX2 (NTSC), ctest.",
+      "mergedAt": "2026-11-05T08:23:51Z"
+     },
+     {
+      "number": 302,
+      "title": "fix(launcher): update Android from Stable to Development in place",
+      "author": "nickyyOO",
+      "untrustedBody": "**Before:** On Android, switching from Stable to Development offered any development build, also one older than the installed release (the build made just before the release's tag, `1.0.2-dev.777` < `1.0.2`). It then said \"Android cannot install an older version\" and sent the player to GitHub.\r\n\r\n**After:** From Stable, only a newer development build is offered, and it installs as a normal in-app update. Going back from Development to Stable still goes through GitHub (uninstall, keep data, install).\r\n\r\n**How:** `update_check` allows an older build only when the target is Stable. A newer development version is always a later CI run, so its APK has a higher version code and Android installs it (`scripts/dev_version.sh` takes the next patch once a release is tagged). Works for any repository that built the APK.\r\n\r\n**Tested:** `cargo clippy --workspace --all-targets -D warnings`, `cargo fmt --check`, `yarn verify`. Not tested: on a device; the Android-only Rust was not compiled here (no ND",
+      "mergedAt": "2026-11-05T09:17:20Z"
+     },
+     {
+      "number": 303,
+      "title": "fix(port): build the port with llvm-mingw",
+      "author": "Lynder063",
+      "untrustedBody": "Adds two missing includes so the port builds with llvm-mingw, without Visual Studio.\nTested as a cross-build under Wine on 5 levels; needs a test on real Windows."
+     },
+     {
+      "number": 304,
+      "title": "feat(launcher): a mod's own page in the launcher",
+      "author": "nickyyOO",
+      "untrustedBody": "**Before:** a mod could only add code to the game. A mod that is only a launcher tool (like a texture upscaler) could not install or show anything. CI ran the same launcher page checks on Linux and Windows, and the check names were hard to read.\r\n\r\n**After:** a mod can name a `tool` page in its manifest. The Mods tab shows an **Open** button and the page runs in a frame. A mod with only a page installs and is never switched on in the game. Checks that give the same result everywhere run once, and the checks have plain names (`Launcher / Windows`, `Port / Fedora`, ...).\r\n\r\n**How:**\r\n- The page is served from the mod's folder on its own address (`openrac-mod://`, `http://openrac-mod.localhost` on Windows and Android). A strict content policy lets it load only its own files, with no network.\r\n- The page talks to the launcher by `postMessage`. Every call is checked: `info`, `list`, `read` (also part of a file), `storeGet`/`storeSet`, `save` (also in parts for large files), `open`, `close`.",
+      "mergedAt": "2026-11-05T11:24:57Z"
+     },
+     {
+      "number": 305,
+      "title": "fix(launcher): open the game's page from an Android tile by pad, keep Play for a finger",
+      "author": "nickyyOO",
+      "untrustedBody": "**Before:** On Android's Games tab, A on the pad started the game (or its setup) straight from the list. The tile picture zoomed in on hover and focus, and the last picked game kept an amber ring, so two rings could show at once (the focus and the old pick).\n\n**After:** A on the pad opens the game's page; Play is pressed there. The tile's Play / Set up button stays for a tap, but the pad never lands on it. The picture stays still, and only the focus is ringed.\n\n**How:** GameTile drops the pad A/Y handler, the art zoom and the `selected` ring. The button keeps `data-pad-skip`. `aria-current` stays, so pad focus still starts on the last picked game. GameTile is only used on Android, so desktop is unchanged.\n\n**Tested:** `yarn verify`, `yarn test:android` (updated tile test, new tap and one-ring tests). Not tested on a device.",
+      "mergedAt": "2026-11-05T10:18:50Z"
+     },
+     {
+      "number": 306,
+      "title": "ci(android): carry Zig's prebuilt Clang and lld instead of building LLVM",
+      "author": "nickyyOO",
+      "untrustedBody": "Before: the Android job built LLVM 19.1.7 from source for the APK's on-device compiler (Going Commando's part). That was about 50 of the job's 95 minutes on any branch with a cold cache.\n\nAfter: the APK carries Zig 0.14.1's static AArch64 Linux release as libopenrac-zig.so. It is one program with Clang and lld of the same LLVM 19.1.7 (`zig clang`, `zig ld.lld`), downloaded at a fixed version and checked against its SHA-256. Nothing is compiled for it.\n\nHow:\n- build_android.py downloads Zig (cached in CI) and copies it into the APK with Zig's and LLVM's licenses. Clang's headers come from the same release.\n- asm_part.py runs Zig's Clang and lld. A new `check` command builds a probe with the kit, and the APK's build runs it with the host's Zig of the same release.\n- Android's Embree build is cached too (about 2 minutes a run).\n\nTested: tools tests pass. A part built through the new code from the ISO is byte-identical to the old one (desktop clang). CI run on the fork. Not yet run on a ph",
+      "mergedAt": "2026-11-05T10:36:09Z"
+     },
+     {
+      "number": 307,
+      "title": "fix(ci): run the Vulkan test groups on a push too",
+      "author": "nickyyOO",
+      "untrustedBody": "Before: on a push to develop, port-vulkan-enhanced failed (TEST_RESULT skipped). scope runs only for pull requests, so on a push it is skipped, and port-vulkan-enhanced-tests, which had no condition of its own, was skipped with it.\n\nAfter: the test groups run whenever the build succeeded, as the build and the final check already do.\n\nHow: port-vulkan-enhanced-tests gets `if: !cancelled() && needs.port-vulkan-enhanced-build.result == 'success'`. It is the only job under scope without its own condition.\n\nTested: the workflow parses; checked every job that depends on scope. The fix shows on the next push.",
+      "mergedAt": "2026-11-05T11:27:29Z"
+     },
+     {
+      "number": 308,
+      "title": "fix(hdr): make the HDR setting just Off and On",
+      "author": "nickyyOO",
+      "untrustedBody": "**Before:** the launcher's Settings > HDR had Game, Off, Auto and On, and the game's own setting Off, Auto and On.\n\n**After:** both are just Off and On. On shows HDR while the system has the display in HDR mode (what Auto did); where the system can't tell (X11), it tries HDR as On did.\n\n**How:** `hdr::Mode` loses Auto. An old `auto` (settings file, OPENRAC_HDR, launcher.json) reads as On; the launcher's old \"\" (Game) reads as Off, the game's default. The launcher now always passes OPENRAC_HDR. Docs updated.\n\n**Tested:** cargo test + clippy, yarn verify, headless build + ctest (hdr and settings tests updated). Not tested: an HDR screen, and the drawer files (menu_items.cpp) are not in the headless build.",
+      "mergedAt": "2026-11-05T11:40:32Z"
+     },
+     {
+      "number": 309,
+      "title": "fix(launcher): open the game's page from an Android tile by pad, one ring at a time",
+      "author": "nickyyOO",
+      "untrustedBody": "**Before:** Since #305 the last played game on Android's Games tab has no ring. With a finger you can't see which game you played last.\r\n\r\n**After:** The last played game has its ring again. When you move with the pad, the ring moves to the game you are on, and the old ring hides, so there is only ever one. Pad navigation is the same as before: the highlighted game opens its page with A, and Play is on that page.\r\n\r\n**How:** `GameTile` gets back the `selected` ring and hides it while any tile has the pad focus ring (`.tiles:has(...)`). Only Android uses tiles, so desktop does not change.\r\n\r\n**Tested:** `yarn verify` and `yarn test:android` (the ring test checks both cases). Not tested on a device.",
+      "mergedAt": "2026-11-05T11:39:50Z"
+     },
+     {
+      "number": 310,
+      "title": "Fix Android disc build of Going Commando and show why a task failed",
+      "author": "nickyyOO",
+      "untrustedBody": "**Before:** On Android, \"Build the game from your disc\" failed at once with only \"... failed\". The copied actions ran it in the data folder, where tools/asm_part.py is not.\n\n**After:** It runs in the app's copy and finds the tool. Any failed task's toast shows its last output lines (Error details) and a View details button to Activity.\n\n**How:** bundle_standalone.py keeps cwd \".\" for port-part. The toast gets toolFailure(job.lines).details. asm_part.py names the step that stopped.\n\n**Tested:** test_bundle_standalone, test_asm_part, vitest, svelte-check. Ran the tool from a bundled copy: reaches the disc check; from the data folder it fails as on the phone.",
+      "mergedAt": "2026-11-05T11:42:35Z"
+     },
+     {
+      "number": 311,
+      "title": "fix(launcher): open Mods browse on All when nothing is compatible",
+      "author": "nickyyOO",
+      "untrustedBody": "**Before:** Browse opened on the Compatible preset. When no mod installs here (for example native-only mods on Android), the list was empty and said `No mods match \"\"` until you pressed Clear filters.\n\n**After:** Browse opens on All when nothing is compatible, and an empty list without a search names the preset (`No mods in Installed.`) instead of quoting an empty search. A preset the player picks is kept.\n\n**How:** `startPreset()` in `modBrowse.ts` picks the opening preset from the rows; `nothingShown()` in `modsText.ts` writes the empty-list line.\n\n**Tested:** `yarn verify`, `yarn test:android` (new unit tests for both). Not tested on a device.",
+      "mergedAt": "2026-11-05T11:43:42Z"
+     },
+     {
+      "number": 312,
+      "title": "fix(launcher): show the pad's ring on Android game tiles right after the launcher opens",
+      "author": "nickyyOO",
+      "untrustedBody": "**Before:** Right after the launcher opened on Android, the pad's ring did not show on the game tiles. You could tell the focus moved, but not where it was. After tapping a game and coming back, the ring worked. Android's WebView did not apply the `:has()` rules until the tiles were drawn again.\n\n**After:** The pad's ring shows on the game you are on from the start.\n\n**How:** `GameTile` draws the pad's ring with `:focus-within` instead of `:has()` (the pad reaches only the tile's main button), and hides the last played game's ring whenever the pad is in use. Only Android uses tiles, so desktop does not change.\n\n**Tested:** `yarn verify` and `yarn test:android`. The WebView bug does not show in desktop Chromium, so the fix is not tested on a device.",
+      "mergedAt": "2026-11-05T12:38:38Z"
+     },
+     {
+      "number": 314,
+      "title": "feat(launcher): one place in My mods for everything the game loads",
+      "author": "nickyyOO",
+      "untrustedBody": "**Before:** texture packs lived on the game page, apart from the other mods. My mods had no search, filter or sorting, so a long list was hard to handle.\n\n**After:** My mods holds everything the game loads: gameplay mods, graphics and sound packs, and the texture pack, which is now one row among the packs. Making textures stays on the Assets tab (desktop) or in a fold (Android). With many mods there is a search, kinds (Gameplay, Graphics and sound, Tools), a Load order or A to Z sort, and drag or menu moves. The texture pack is off with `--no-mods` like the other mods.\n\n**How:** a shared view state (modsView), pure list helpers (modsList), a pointer-based drag action (dragSort), a .zip dropped on Add a mod goes to the texture pack when it is one, and a mod zip with pictures is no longer read as a texture pack.\n\n**Tested:** `yarn verify`, `yarn test:android` (new tests for the texture pack, search, kinds, drag and the Mods-off notice), `cargo test`/`clippy`/`fmt` for the core, port conv",
+      "mergedAt": "2026-11-05T13:32:38Z"
+     },
+     {
+      "number": 317,
+      "title": "feat: per-game accent for the FPS counter and menu fixes, teal Going Commando",
+      "author": "nickyyOO",
+      "untrustedBody": "**Before:** the FPS counter (F2) was always yellow-green. Going Commando's accent was a pale blue. The in-game menu's small labels (01 / 07, TAB / SECTION) used the dark brand colour, Resume was a white chip, and key cap text sat up to a pixel off centre.\n\n**After:** the counter uses the game's accent over the theme's darkest ink, like the menu and the launcher. Going Commando is teal around #0e5e7c (bar a lighter shade so the dark logo stays readable). Menu labels use the light accent, Resume is dark with white text like Quit, and key cap text is centred.\n\n**How:** `fps_counter::draw` takes ink and paper colours from `ui_colors::launcher()` (OPENRAC_UI_COLORS). The rac2 accent changes only in `launcher/src/lib/palettes.json`. Dear ImGui truncates text positions, so `centred_text` rounds and key caps sit on whole pixels.\n\n**Tested:** port ctest (284, 0 failed), port conventions check, `yarn verify`, `cargo test` (theme), clippy. rac1 NTSC in the container (software GL) with each game's",
+      "mergedAt": "2026-11-05T14:24:10Z"
+     },
+     {
+      "number": 319,
+      "title": "feat(port): touch action buttons that follow the game",
+      "author": "nickyyOO",
+      "untrustedBody": "**Before:** the touch pad was a flat DualShock. Every button showed all the time, with no icons, in menus, cutscenes and vehicles alike.\r\n\r\n**After:**\r\n- With \"Action buttons\" on in the drawer, the pad shows round buttons with icons in the game's accent. They change with what the game is doing: on foot, Clank, Giant Clank, swimming, grinding, hoverboard, ship, jet, turret, cutscene (a big Skip on the right), pause menu, map, dialog, vendor and title.\r\n- \"Press triangle\" prompts put the action in quick select's place: board (ship, jets), buy (vendors), use (lifts, taxis, teleporters, Giant Clank pads).\r\n- The map shows Play Infobot only when the planet has one, plus L1/R1 to switch maps. The pause menu shows L1/R1 only on Quick Select.\r\n- In the layout editor, each button can be moved and given its own size.\r\n- Off, the pad keeps the DualShock buttons, now in the same look.\r\n- Mods (interface 1.13, SDK 1.13.0) can add buttons, icons and contexts with a \"touch\" JSON file or touch_define ",
+      "mergedAt": "2026-11-06T13:25:40Z"
+     },
+     {
+      "number": 320,
+      "title": "fix(android): keep Going Commando's Android part across launcher updates",
+      "author": "nickyyOO",
+      "untrustedBody": "**Before:** After every launcher update, Going Commando on Android showed Build and play again, even when the game code had not changed. The part folder is named by a digest of the kit, and hostgen pickled the program's sets in hash-seed order, so each APK build gave the kit different bytes.\n\n**After:** The same program gives the same pickle, so the part folder only changes when the kit really does.\n\n**How:** hostgen writes --program-out with a Python pickler that saves sets sorted (the C pickler gives no hook for sets). About 10 s more per rac2 build without the disc.\n\n**Tested:** Ran hostgen for rac2-ntsc twice with PYTHONHASHSEED=1 and 2: before, the pickles differed; after, identical SHA-256. The pickle loads back with the same sets.",
+      "mergedAt": "2026-11-05T14:39:54Z"
+     },
+     {
+      "number": 321,
+      "title": "feat(launcher): drop Browse for a Get mods banner",
+      "author": "nickyyOO",
+      "untrustedBody": "**Before:** the launcher had its own Browse list of the hub's mods, and the folded Make a texture pack had no sign that it opens.\n\n**After:** Browse is gone. A Get mods banner at the top of My mods opens openrac.dev/mods, or says a GitHub page, .zip or folder works. The texture fold has a turning arrow. Mods tab docs are shorter.\n\n**How:** Browse's components, search and texts are removed. Revoked versions were only turned off when Browse read the index; the update check now does it and Mod updates says so. Links from openrac.dev, Share and updates still read the index.\n\n**Tested:** `yarn verify`, `yarn test:android` (Get mods with no index read, fold arrow), `cargo test`/`clippy` for the core, `cargo clippy` of src-tauri for Android. Not run: a device.",
+      "mergedAt": "2026-11-05T14:59:19Z"
+     },
+     {
+      "number": 322,
+      "title": "feat(launcher): explain and install missing Windows build prerequisites",
+      "author": "llesieur99",
+      "untrustedBody": "Players building Going Commando on Windows currently download source before discovering that Clang or the C++ build tools are missing. Check first, name the missing packages, explain their purpose and manual removal, and ask before installing anything. After consent, request the official packages through winget, recheck, then continue the build. Playing an already built game does not require compilers.\n\nThe check reuses build_port.py's detection. LLVM supplies Clang. Visual Studio 2022 Build Tools requests three explicit components, without the full C++ workload or --includeRecommended:\n- Microsoft.VisualStudio.Component.VC.Tools.x86.x64 (MSVC v143 tools and libraries)\n- Microsoft.VisualStudio.Component.Windows11SDK.26100 (Windows SDK 10.0.26100)\n- Microsoft.VisualStudio.Component.VC.CMake.Project (CMake and Ninja)\n\nMicrosoft still installs the components' required dependencies. No installer size reduction is claimed as measured. The confirmation and README name these components and ex"
+     },
+     {
+      "number": 323,
+      "title": "fix(launcher): no OpenRAC folder in home when another install folder is chosen",
+      "author": "Lynder063",
+      "untrustedBody": "The launcher made ~/OpenRAC at every start, even with another install folder set. Now it makes it only when it is used.\nFixes #315.",
+      "mergedAt": "2026-11-05T16:28:16Z"
+     },
+     {
+      "number": 324,
+      "title": "feat(launcher): start a game from a shortcut or its own Steam entry",
+      "author": "Lynder063",
+      "untrustedBody": "Adds --play <id>, Add to Steam for one game, and a Linux desktop shortcut. Unit tested only, not yet on a real Steam or Steam Deck.\nFixes #318.",
+      "mergedAt": "2026-11-05T16:28:21Z"
+     },
+     {
+      "number": 325,
+      "title": "fix(launcher): build a game on Linux with fewer system parts",
+      "author": "Lynder063",
+      "untrustedBody": "The build no longer needs curl or tar, drops Steam's libraries, and skips X11 extensions with no headers.\nRefs #316.",
+      "mergedAt": "2026-11-05T16:28:25Z"
+     },
+     {
+      "number": 326,
+      "title": "feat(launcher): build Going Commando on Windows with a carried compiler",
+      "author": "Lynder063",
+      "untrustedBody": "Windows players should need only the launcher and their disc. Today Going Commando asks them for Visual Studio's C++ tools, Clang and git (#313), and RaC1's games need Microsoft's C++ runtime, which the installer doesn't carry.\n\n## What changes\n\n**Going Commando on Windows works the way it does on Android.** The installer carries the game built without the disc, a kit, and Zig's Clang and lld. Build and play runs `tools/asm_part.py`, which translates the functions still in assembly from the player's disc and compiles them into `libopenrac-rac2-ntsc-part.dll`. Nothing is installed or downloaded, and nothing from the disc is in the installer. Linux and macOS keep `tools/build_game.py`.\n\nThe Windows-specific parts:\n- A Windows program exports only what it names, so `openrac-rac2-ntsc.exe` exports the 2,201 symbols in `asm_part_exports.def` (806 slots, 7 runtime variables, the rest functions).\n- `asm_part.py exports` writes that list. The part reads the program's data through `dllimport`.\n",
+      "mergedAt": "2026-11-05T17:12:40Z"
+     },
+     {
+      "number": 328,
+      "title": "fix: keep the freecam chord from the game",
+      "author": "nickyyOO",
+      "untrustedBody": "**Before:** L3+R3 turned freecam on (developer mode) or off, but the game saw the press too: its R3 opened the map. With L3 as the menu button, L3 opened the menu and blocked the chord.\r\n\r\n**After:** the chord no longer reaches the game, so no map on toggle. A menu opened by its L3 button closes on the chord. R3 alone opens the map as before, with no added wait.\r\n\r\n**How:** the chord is checked right before the game reads pad 0 (and where the window samples freecam). On a toggle, held buttons are held back until let go and the pads are read again. Players outside developer mode with freecam off skip the check. R3 pressed a frame before L3 still opens the map (avoiding that would need a delay on R3).\r\n\r\n**Tested:** clang-format. Not built or run in the container (dependency download blocked), not tested on a gamepad."
+     },
+     {
+      "number": 329,
+      "title": "fix(launcher): clickable Get mods banner, and an always-on switch for tools",
+      "author": "nickyyOO",
+      "untrustedBody": "**Before:** only the banner's button opened the hub, and a tool's row had an empty gap where the switch goes.\n\n**After:** a click or tap anywhere on the Get mods banner opens openrac.dev/mods. A tool shows its switch on and greyed, with why (\"Always on\"); its page says Always on too.\n\n**How:** the banner's click opens the hub unless it was on one of its buttons; a keyboard or pad still uses the button (a cover element breaks with Android's ripple, which makes the button relative).\n\n**Tested:** `yarn verify`, `yarn test:android` (banner click opens the hub, Publish doesn't; the tool's switch is checked and disabled).",
+      "mergedAt": "2026-11-05T20:14:58Z"
+     },
+     {
+      "number": 330,
+      "title": "fix: keep the freecam chord from the game",
+      "author": "nickyyOO",
+      "untrustedBody": "**Before:** L3+R3 turned freecam on (developer mode) or off, but the game saw the press too: its R3 opened the map. With L3 as the menu button, L3 opened the menu and blocked the chord.\n\n**After:** the chord no longer reaches the game, so no map on toggle. A menu opened by its L3 button closes on the chord. R3 alone opens the map as before, with no added wait.\n\n**How:** the chord is checked right before the game reads pad 0 (and where the window samples freecam). On a toggle, held buttons are held back until let go and the pads are read again. Players outside developer mode with freecam off skip the check. R3 pressed a frame before L3 still opens the map (avoiding that would need a delay on R3).\n\n**Tested:** clang-format. Not built or run in the container (dependency download blocked), not tested on a gamepad.",
+      "mergedAt": "2026-11-05T20:17:37Z"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [
+     {
+      "number": 292,
+      "title": "Going Commando won't fully build itself during setup",
+      "author": "Zyndall"
+     },
+     {
+      "number": 299,
+      "title": "crashed on rilgar",
+      "author": "zoojeff100"
+     },
+     {
+      "number": 313,
+      "title": "Still having Ratchet 2 Build issues on v1.0.2",
+      "author": "Reecetafarian"
+     },
+     {
+      "number": 315,
+      "title": "[Linux] This folder keeps appearing in my Home",
+      "author": "babn4231"
+     },
+     {
+      "number": 316,
+      "title": "[Linux] Can't run Rac2",
+      "author": "babn4231"
+     },
+     {
+      "number": 318,
+      "title": "[Feature] Ability to create short cuts to open each game directly!",
+      "author": "babn4231"
+     },
+     {
+      "number": 327,
+      "title": "[Linux] Unable to create save data using M&K Mod",
+      "author": "stepsy"
+     },
+     {
+      "number": 331,
+      "title": "Got RAC2 working, RAC1 will no longer run",
+      "author": "xeokara"
+     },
+     {
+      "number": 332,
+      "title": "[Feature Request] Choose custom save folder location",
+      "author": "ecameracci"
+     },
+     {
+      "number": 333,
+      "title": "[Feature Request] Adding Individual Games to Steam",
+      "author": "ecameracci"
+     },
+     {
+      "number": 334,
+      "title": "RAC 2 ISSUE",
+      "author": "realitygen5-gif"
+     },
+     {
+      "number": 335,
+      "title": "Load screen planet text isn't affected by the HUD center or edge setting.",
+      "author": "Riflewarrior02"
+     }
+    ],
+    "closed": [
+     {
+      "number": 315,
+      "title": "[Linux] This folder keeps appearing in my Home",
+      "author": "babn4231"
+     },
+     {
+      "number": 318,
+      "title": "[Feature] Ability to create short cuts to open each game directly!",
+      "author": "babn4231"
+     },
+     {
+      "number": 331,
+      "title": "Got RAC2 working, RAC1 will no longer run",
+      "author": "xeokara"
+     }
+    ]
+   },
+   "releases": [
+    {
+     "tag": "launcher-v1.0.1",
+     "name": "v1.0.1",
+     "publishedAt": "2026-11-05T03:17:34Z"
+    },
+    {
+     "tag": "launcher-v1.0.2",
+     "name": "v1.0.2",
+     "publishedAt": "2026-11-05T07:50:33Z"
+    }
+   ],
+   "progress": null,
+   "contributors": [
+    "llesieur99",
+    "Lynder063",
+    "nickyyOO",
+    "pezzadev",
+    "Veradictus"
+   ]
+  },
+  {
+   "repo": "rac1-decomp",
+   "title": "Ratchet & Clank",
+   "branches": [
+    {
+     "name": "main",
+     "commits": [
+      {
+       "sha": "b4a462a5325759dd466bebe8cc06747e00d665d2",
+       "title": "Merge pull request #239 from OpenRAC/feat/pal-v1-finish",
+       "author": "Lynder063",
+       "date": "2026-11-05T18:26:36Z"
+      },
+      {
+       "sha": "aae01b97f7ba821ed7ada5e63900c1d9b09c0eb9",
+       "title": "Merge pull request #238 from OpenRAC/feat/jp-finish",
+       "author": "Lynder063",
+       "date": "2026-11-05T18:26:05Z"
+      }
+     ]
+    }
+   ],
+   "commitCount": 2,
+   "pullRequests": {
+    "merged": [
+     {
+      "number": 238,
+      "title": "feat(jp): take NTSC-J to 99.93% and follow the NTSC decomp",
+      "author": "Lynder063",
+      "untrustedBody": "JP code goes from 89.57% to 99.93%; three functions are still open. Follows the NTSC decomp to 6513252ca6.\nRatchets rise (address names +173, comments +12, long lines +3): new names keep address-named declarations, as include/names.h says.",
+      "mergedAt": "2026-11-05T18:26:05Z"
+     },
+     {
+      "number": 239,
+      "title": "feat(versions): finish NTSC-J and PAL v1.00 at 100%",
+      "author": "Lynder063",
+      "untrustedBody": "NTSC-J and PAL v1.00 reach 100%; two PAL v1 functions match only with guessed code tagged FAKEMATCH. NTSC-U reaches 95.1% from carried C.\nStacked on #238; remnants.txt and prebuilt_asm.txt mark functions finished with no C, and merge.tsv and jtbl.tsv are new tool tables.",
+      "mergedAt": "2026-11-05T18:26:37Z"
+     }
+    ],
+    "opened": [
+     {
+      "number": 238,
+      "title": "feat(jp): take NTSC-J to 99.93% and follow the NTSC decomp",
+      "author": "Lynder063",
+      "untrustedBody": "JP code goes from 89.57% to 99.93%; three functions are still open. Follows the NTSC decomp to 6513252ca6.\nRatchets rise (address names +173, comments +12, long lines +3): new names keep address-named declarations, as include/names.h says.",
+      "mergedAt": "2026-11-05T18:26:05Z"
+     },
+     {
+      "number": 239,
+      "title": "feat(versions): finish NTSC-J and PAL v1.00 at 100%",
+      "author": "Lynder063",
+      "untrustedBody": "NTSC-J and PAL v1.00 reach 100%; two PAL v1 functions match only with guessed code tagged FAKEMATCH. NTSC-U reaches 95.1% from carried C.\nStacked on #238; remnants.txt and prebuilt_asm.txt mark functions finished with no C, and merge.tsv and jtbl.tsv are new tool tables.",
+      "mergedAt": "2026-11-05T18:26:37Z"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": {
+    "before": {
+     "code": {
+      "done": 3713096,
+      "total": 3713096
+     },
+     "functions": {
+      "done": 5116,
+      "total": 5116
+     },
+     "data": {
+      "done": 698751,
+      "total": 699072
+     }
+    },
+    "after": {
+     "code": {
+      "done": 3713584,
+      "total": 3713584
+     },
+     "functions": {
+      "done": 5118,
+      "total": 5118
+     },
+     "data": {
+      "done": 698751,
+      "total": 699072
+     }
+    }
+   },
+   "contributors": [
+    "Lynder063"
+   ]
+  },
+  {
+   "repo": "rac2-decomp",
+   "title": "Going Commando",
+   "branches": [
+    {
+     "name": "master",
+     "commits": [
+      {
+       "sha": "e3bf37c268c1882fa60c84993bdc30d0b16db19d",
+       "title": "Merge pull request #419: match the Joba sentry and shared boss bar",
+       "author": "llesieur99",
+       "date": "2026-11-05T15:55:39Z"
+      },
+      {
+       "sha": "cfc68309f6d428922dceff1eb23ed8408f6714a4",
+       "title": "Merge pull request #423 from OpenRAC/match/usa-twenty-20261105",
+       "author": "llesieur99",
+       "date": "2026-11-05T15:11:46Z"
+      },
+      {
+       "sha": "673ce0bfb7e8fb56d40f608acc8343eed0d96be6",
+       "title": "Merge pull request #422 from cadelass/match/usa-pal-twenty",
+       "author": "llesieur99",
+       "date": "2026-11-05T03:06:49Z"
+      },
+      {
+       "sha": "60952ae3586d2cdceaf73fccc87ea1cf3619a40f",
+       "title": "chore(progress): 8173 of 8584 functions",
+       "author": "bigbeno37",
+       "date": "2026-11-05T02:42:21Z"
+      },
+      {
+       "sha": "236cfdfa3fa94900f6205e86c91178c9a2a43a0f",
+       "title": "feat(src): match 20 functions, L23_0041D398-g8.c to L03_002AB5C8-region.c",
+       "author": "bigbeno37",
+       "date": "2026-11-05T01:42:38Z"
+      },
+      {
+       "sha": "4d6e47bb51483e1925d8cbf06b274f4e21318bc8",
+       "title": "feat(src): match 20 functions, 002D5E98-map-g8.c to L10_0037D200-ribbon.c",
+       "author": "bigbeno37",
+       "date": "2026-11-05T01:42:38Z"
+      },
+      {
+       "sha": "4b786ab9ef427de2a381835ce56bdf9cbc6a9547",
+       "title": "feat(src): match 20 functions, 00345358.c to L22_003A5018-g8.c",
+       "author": "bigbeno37",
+       "date": "2026-11-05T01:42:38Z"
+      }
+     ]
+    }
+   ],
+   "commitCount": 7,
+   "pullRequests": {
+    "merged": [
+     {
+      "number": 419,
+      "title": "feat(src): func_L11_00451178 and func_L02_003FE768 in C; Joba state-machine findings",
+      "author": "DrLegitamate",
+      "untrustedBody": "## What\n\nTwo functions in matching C, plus retained Joba state-machine findings:\n\n- **`func_L11_00451178`**: the 4,824-byte Joba sentry, in its own `-G8 -frac2-gcse-unsplit-edges` unit. Particle-template lifetime, the case-12 pointer order and an inline movement helper recover the spill/scheduling layout. Review also restores `func_002B1C20`'s actual unsigned 64-bit return; an equivalent early exit in case 11 preserves the call order and avoids the compound condition's redundant 32-bit normalization.\n- **`func_L02_003FE768`**: the 332-byte shared boss bar. Nonempty one-pass groups contain its real rounded-coordinate conversions, following the documented RAC1 source method.\n- **`func_L11_00453358` remains in `nonmatching/`**. Its four ignored helper returns now follow the matched definitions. The retained diagnostic is locally exact in both USA releases, but its case-9 dead store still prevents promotion. It adds no matching credit.\n- Retain the `func_L11_00444400` investigation and com",
+      "mergedAt": "2026-11-05T15:55:40Z"
+     },
+     {
+      "number": 422,
+      "title": "feat(src): match 2 USA v1.01 functions and carry 18 PAL ones",
+      "author": "cadelass",
+      "untrustedBody": "## What\n\n20 functions in C, all matching every place:\n- 2 in USA v1.01;\n- 18 PAL-only functions (`func_PAL_…`), 24,728 distinct bytes over 52 places.\n\n### USA v1.01\n\n- **`func_L15_004307E0`** (Gorn cutscene controller, 848 bytes). `func_0029B3E0` returns `int`, as its matched definition in `src/game/0029AE78-save-g8.c` does. With the value-returning call, local-alloc gives retail's registers after it; a `void` declaration swaps `$v0`/`$v1`.\n- **`func_L23_0041A3B8`** (Damosel effect trigger, 652 bytes).\n  - Its kind 0xF arm groups its real effect (two calls and a store) in a nonempty one-pass statement. That is the RAC1 source method recorded in `docs/COMPILER-NOTES.md` (#417).\n  - The group's loop notes keep the `la` of `D_L23_001B3850` ahead of the two frame-address arguments.\n  - `func_L00_0035F5A0` returns `int`, as its matched definition does.\n\nBoth near-miss notes and their functional copies are removed.\n\n### PAL\n\nEach unit is the C of a matched v1.01 function, changed only where ",
+      "mergedAt": "2026-11-05T03:06:50Z"
+     },
+     {
+      "number": 423,
+      "title": "Match 16 USA functions and repair reload/padding accounting",
+      "author": "llesieur99",
+      "untrustedBody": "## What\n\nMatch **16 functions present in USA v1.01: 10,000 distinct code bytes and 849 verified C placements** across their carrying releases.\n\n| Function | USA bytes | USA places | US2 places | PAL places |\n| --- | ---: | ---: | ---: | ---: |\n| `func_00115E28` | 16 | 1 | 1 | 1 |\n| `func_00115E38` | 48 | 1 | 1 | 1 |\n| `func_001185E8` | 1,496 | 1 | 1 | 1 |\n| `func_00294420` | 456 | 28 | 28 | 28 |\n| `func_002E7338` | 568 | 28 | 28 | 28 |\n| `func_002EEBC8` | 320 | 1 | 1 | 28 |\n| `func_002F0FA0` | 108 | 28 | 28 | 28 |\n| `func_00316E08` | 1,220 | 28 | 28 | 28 |\n| `func_00337210` | 2,500 | 28 | 28 | 28 |\n| `func_L00_00418230` | 1,276 | 27 | 27 | 27 |\n| `func_L00_00424F98` | 380 | 27 | 27 | absent |\n| `func_L00_0042A4E8` | 8 | 27 | 27 | 27 |\n| `func_L00_0042A4F0` | 8 | 27 | 27 | 27 |\n| `func_L00_0042A4F8` | 8 | 27 | 27 | 27 |\n| `func_L03_002ECF08` | 1,008 | 2 | 2 | absent |\n| `func_L05_00419CC8` | 580 | 4 | 4 | absent |\n\nThe maintained generator separates the abort/assertion entries and the t",
+      "mergedAt": "2026-11-05T15:11:46Z"
+     }
+    ],
+    "opened": [
+     {
+      "number": 423,
+      "title": "Match 16 USA functions and repair reload/padding accounting",
+      "author": "llesieur99",
+      "untrustedBody": "## What\n\nMatch **16 functions present in USA v1.01: 10,000 distinct code bytes and 849 verified C placements** across their carrying releases.\n\n| Function | USA bytes | USA places | US2 places | PAL places |\n| --- | ---: | ---: | ---: | ---: |\n| `func_00115E28` | 16 | 1 | 1 | 1 |\n| `func_00115E38` | 48 | 1 | 1 | 1 |\n| `func_001185E8` | 1,496 | 1 | 1 | 1 |\n| `func_00294420` | 456 | 28 | 28 | 28 |\n| `func_002E7338` | 568 | 28 | 28 | 28 |\n| `func_002EEBC8` | 320 | 1 | 1 | 28 |\n| `func_002F0FA0` | 108 | 28 | 28 | 28 |\n| `func_00316E08` | 1,220 | 28 | 28 | 28 |\n| `func_00337210` | 2,500 | 28 | 28 | 28 |\n| `func_L00_00418230` | 1,276 | 27 | 27 | 27 |\n| `func_L00_00424F98` | 380 | 27 | 27 | absent |\n| `func_L00_0042A4E8` | 8 | 27 | 27 | 27 |\n| `func_L00_0042A4F0` | 8 | 27 | 27 | 27 |\n| `func_L00_0042A4F8` | 8 | 27 | 27 | 27 |\n| `func_L03_002ECF08` | 1,008 | 2 | 2 | absent |\n| `func_L05_00419CC8` | 580 | 4 | 4 | absent |\n\nThe maintained generator separates the abort/assertion entries and the t",
+      "mergedAt": "2026-11-05T15:11:46Z"
+     },
+     {
+      "number": 424,
+      "title": "feat(src): match 22 reserved functions and classify the rest of the small tier",
+      "author": "Lynder063",
+      "untrustedBody": "Matches 22 reserved functions in C, marks 67 as original assembly (some need review), fixes catalogue rows, and adds two opt-in compiler flags (-frac2-narrow-saves-below, -frac2-keep-block-zero-copy).\nUS, PAL and US2 build 28/28 OK; 440 tests, check_repository and progress --check (all three) pass.\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nhttps://claude.ai/code/session_01E5SuSTqxSLa9onykvG6rsh",
+      "mergedAt": "2026-11-06T06:14:40Z"
+     },
+     {
+      "number": 425,
+      "title": "feat(src): four functions in C (sky renderers, level-8 emitter, beam), three original assembly routines",
+      "author": "DrLegitamate",
+      "untrustedBody": "## What this changes\n\n**Four functions in C** (USA v1.01: 59 placements):\n\n| Function | Size | Places | File |\n| --- | ---: | ---: | --- |\n| `func_002E3998` | 572 | boot + 27 levels | `src/game/002E10B8-sky-g8.c` (new) |\n| `func_002E3BD8` | 628 | boot + 27 levels | `src/game/002E10B8-sky-g8.c` (new) |\n| `func_L08_0041E790` | 756 | levels 8, 19 | `src/levels/shared/L08_0041E790-g8.c` (new, `-O2 -G8 -ffunction-sections -g`) |\n| `func_00308768` | 1600 | boot | `src/game/00308600-uv-g8.c` (new, default `-G8`) |\n\n- The two sky piece renderers' earlier near misses passed a fourth argument to the handwritten\n  `func_002E3E54`, which takes three: its body never reads `$a3`, as its functional C already said.\n  With the real interface both match. Recorded in `docs/MATCHING-BLOCKERS.md`.\n- `func_L08_0041E790`: the retained draft matches unchanged on the current compiler (the missing\n  division `nop` was fixed in 1e7eac49).\n- `func_00308768`: found by re-measuring every unreserved retained near mi",
+      "mergedAt": "2026-11-06T05:49:34Z"
+     },
+     {
+      "number": 426,
+      "title": "feat(pal): carry 20 more functions from their v1.01 C",
+      "author": "cadelass",
+      "untrustedBody": "## What\n\n20 PAL-only functions (`func_PAL_…`) in C, each matching every place it has on PAL.\n\nEach unit is the C of a matched v1.01 function, changed only where PAL's bytes differ (50 Hz constants, ids, callee `func_PAL_` names). Its header names the v1.01 twin and lists every change.\n\n| PAL function | v1.01 C |\n| --- | --- |\n| `func_PAL_L01_003C00F0` | `func_L01_003BC540` |\n| `func_PAL_L02_00402940` | `func_L02_003F9B70` |\n| `func_PAL_L03_00421E20` | `func_L03_0041CA78` |\n| `func_PAL_L00_002A4788` | `func_L00_002A4928` |\n| `func_PAL_L00_002B1248` | `func_L00_002B1350` |\n| `func_PAL_L00_00362A88` | `func_L00_003603C0` |\n| `func_PAL_L00_00376A18` | `func_L00_00373F48` |\n| `func_PAL_L00_00394148` | `func_L00_00390FF8` |\n| `func_PAL_L00_003E3968` | `func_L00_003DF710` |\n| `func_PAL_L00_0040E9F0` | `func_L00_00409E48` |\n| `func_PAL_L00_004169B0` | `func_L00_00411B30` |\n| `func_PAL_L00_0042B1E8` | `func_L00_00425CD0` |\n| `func_PAL_L01_002AE010` | `func_L01_002AE128` |\n| `func_PAL_L01_0031C9",
+      "mergedAt": "2026-11-06T05:50:14Z"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": {
+    "before": {
+     "code": {
+      "done": 4992200,
+      "total": 5527556
+     },
+     "functions": {
+      "done": 8096,
+      "total": 8578
+     },
+     "data": {
+      "done": 0,
+      "total": 383391
+     }
+    },
+    "after": {
+     "code": {
+      "done": 5074292,
+      "total": 5527556
+     },
+     "functions": {
+      "done": 8173,
+      "total": 8584
+     },
+     "data": {
+      "done": 0,
+      "total": 383391
+     }
+    }
+   },
+   "contributors": [
+    "bigbeno37",
+    "cadelass",
+    "DrLegitamate",
+    "llesieur99",
+    "Lynder063"
+   ]
+  },
+  {
+   "repo": "rac3-decomp",
+   "title": "Up Your Arsenal",
+   "branches": [
+    {
+     "name": "master",
+     "commits": []
+    }
+   ],
+   "commitCount": 0,
+   "pullRequests": {
+    "merged": [],
+    "opened": []
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": null,
+   "contributors": []
+  },
+  {
+   "repo": "rac4-decomp",
+   "title": "Ratchet: Deadlocked",
+   "branches": [
+    {
+     "name": "main",
+     "commits": []
+    }
+   ],
+   "commitCount": 0,
+   "pullRequests": {
+    "merged": [],
+    "opened": [
+     {
+      "number": 100,
+      "title": "Add 35 verified PAL functions and checked call contracts",
+      "author": "Sumaiter",
+      "untrustedBody": "## Summary\n\n- Add **35 new PAL main-image matching functions** covering **13,788 code bytes**.\n- Correct the 64-bit call contract in `0044E528` as one additional interface fix (132 bytes, not counted as a new function).\n- Add an evidence-backed PAL signature ledger and a checker for named and unnamed function prototypes, including prototypes without `extern` and pointer return types.\n- Correct pointer and scalar contracts in `0048C2F8`, `004B6B90`, `004CD8A0`, `004CEB68` and `005049B8` without changing their exact instruction matches.\n- Keep the input to `004A15A8` and `004A1720` as a numeric 32-bit UI handle through the existence check and insertion calls. Callers obtain it by handle arithmetic; `00501B58` hashes and compares it as a key, without dereferencing it.\n\n## Verification\n\n- Independently recompiled all **36 final sources / 13,920 bytes** through the unchanged canonical SN GCC pipeline after review.\n- Verified exact PAL instructions and resolved **828 actual text relocations*",
+      "mergedAt": "2026-11-06T06:11:34Z"
+     },
+     {
+      "number": 101,
+      "title": "Decompile 50 PAL resident functions and audit their call contracts",
+      "author": "Sumaiter",
+      "untrustedBody": "Adds matching C implementations for 50 previously undecompiled PAL resident functions (10,860 bytes). The batch covers menu and list state, resource dispatch, record copying, player/interface helpers and callback handling.\n\nRecovered interfaces account for pointer and scalar returns, forwarded arguments, the ninth stack argument of `00507270`, and full-width packet values. The new queue consumer `00544880` shares the existing producer's translation unit and single counter definition in `005448E0.c`; the existing producer was independently re-audited and remains matching. Candidates requiring register pins, assembly barriers, scheduling-only volatile accesses or unproven initialization were excluded.\n\nAdds 50 PAL `match` rows and corresponding US `other` rows, preserving every existing map entry and its order. PAL matched code increases from 497,616 to 508,476 bytes (8.560511% to 8.747336%), and matched functions from 6,032 to 6,082. The US progress report is unchanged.\n\nValidation:\n\n- ",
+      "mergedAt": "2026-11-06T06:11:34Z"
+     },
+     {
+      "number": 102,
+      "title": "Decompile 50 PAL resident functions and preserve shared data owners",
+      "author": "Sumaiter",
+      "untrustedBody": "Adds matching C implementations for 50 new PAL resident functions (17,840 bytes), covering menu/list construction and updates, entity and player helpers, render state, resources and video processing.\n\nShared global definitions stay in their existing translation units for `00445B08`, `004653A0` and `004A2880`. Their three existing companion functions remain matching. Also corrects the existing `00498038` wrapper's return type to `f32`: its caller consumes the value returned by `004760C0`. This interface correction is excluded from the new-function count.\n\nThe acquisition/tile-loop C structure in `004F2F08` is adapted from the public OpenRAC RAC3 `func_003AD288`, pinned to commit `73f725bf54bb1bf6d8b9bb5b1511ed00d551fbde` under GPLv3. The source comment, third-party notice and provenance table identify the adapted parts. RAC4 PAL addresses, interfaces and layout were checked separately.\n\nPAL matched functions increase from 6,032 to 6,082; matched code increases from 497,616 to 515,456 by",
+      "mergedAt": "2026-11-06T06:11:34Z"
+     },
+     {
+      "number": 103,
+      "title": "Add PAL C for 11 functions; inventory: a word right after a jump is its delay slot",
+      "author": "chistianh",
+      "untrustedBody": "**Title:** Add PAL C for 11 functions; inventory: a word right after a jump is its delay slot\n\n11 PAL-only functions, one commit each, chosen as in #33–#90 (fingerprint in no row of `config/us/functions.tsv`, no `match` or `near` row places them), and one fix in `tools/inventory.py`.\n\n| PAL | Where | Size |\n|---|---|---|\n| func_L01_005320C8 | `src/pal/overlays/l01_dreadzone_station/` | 124 |\n| func_L01_004B0068 | `src/pal/overlays/l01_dreadzone_station/` | 128 |\n| func_L01_004B00E8 | `src/pal/overlays/l01_dreadzone_station/` | 128 |\n| func_L00_00582750 | `src/pal/overlays/shared/` | 184 |\n| func_004F6D00 | `src/pal/game/` | 408 |\n| func_00513E98 | `src/pal/game/` | 428 |\n| func_L05_004C34F0 | `src/pal/overlays/l05_dark_cathedral/` | 524 |\n| func_L06_00401610 | `src/pal/overlays/l06_temple_of_shaar/` | 536 |\n| func_L01_004ABE88 | `src/pal/overlays/l01_dreadzone_station/` | 544 |\n| func_L01_00444D98 | `src/pal/overlays/shared/` | 548 |\n| func_L14_003EC990 | `src/pal/overlays/l14_ghost_st",
+      "mergedAt": "2026-11-06T06:11:34Z"
+     },
+     {
+      "number": 104,
+      "title": "Decompile 50 PAL resident functions",
+      "author": "Sumaiter",
+      "untrustedBody": "Adds matching C for 50 new PAL resident functions (11,972 bytes), covering UI construction and state updates, resource/manager helpers, rendering and video streaming.\n\n`004BB6A0` shares the existing `004BBAD8.c` translation unit and its `D_0021F97A` definition. The existing 120-byte `004BBAD8` function remains matching and is excluded from the new-function count.\n\nThe control-flow structure of `004F1B18` and `004F2078` is adapted from the OpenRAC RAC3 contributors' public unified-tree source `games/rac3/ntsc/src/frontbin/3ABA48.c`, commit `73f725bf54bb1bf6d8b9bb5b1511ed00d551fbde`, under GPLv3. Source comments and `THIRD_PARTY_NOTICES.md` identify the donors. PAL addresses, layouts, interfaces and wrapping arithmetic were checked independently against RAC4 retail.\n\nPAL matched functions increase from 6,032 to 6,082; matched code increases from 497,616 to 509,588 bytes (8.560511% to 8.766466%). Adds exactly 50 PAL `match` rows and 50 US `other` rows, retaining existing rows and their or",
+      "mergedAt": "2026-11-06T06:11:34Z"
+     },
+     {
+      "number": 105,
+      "title": "Decompile 50 PAL core, game and network functions",
+      "author": "Sumaiter",
+      "untrustedBody": "Adds matching C implementations for 50 new PAL resident functions (7,668 bytes): 44 engine-core helpers, five game helpers and one network digit predicate. This covers RPC requests and completions, DMA/IPU control, decoding, numerical helpers and resource parsing.\n\nAll functions are independent retail-first reconstructions. Twenty-nine files use the original EE GCC 2.9 profile, supported by their retail/compiler family; 21 use the existing SN GCC profile. Both use the unchanged canonical `tools/cc.sh` pipeline. Previously published functions, catalogue fragments and unresolved candidates are excluded.\n\nPAL matched functions increase from 6,032 to 6,082; matched code increases from 497,616 to 505,284 bytes (8.560511% to 8.692424%). Adds 50 PAL `match` rows and corresponding US `other` rows, preserving existing rows and order. The US progress report is unchanged.\n\nValidation:\n\n- Recompiled all 50 final formatted sources and checked their direct PAL catalogue windows against retail bytes.",
+      "mergedAt": "2026-11-06T06:11:34Z"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": null,
+   "contributors": [
+    "chistianh",
+    "Sumaiter"
+   ]
+  },
+  {
+   "repo": "openrac-mods",
+   "title": "OpenRAC mods",
+   "branches": [
+    {
+     "name": "master",
+     "commits": [
+      {
+       "sha": "c29204d09e8446f570419c3415553f300593a24e",
+       "title": "chore(index): discussion numbers",
+       "author": "openrac-bot[bot]",
+       "date": "2026-11-05T20:42:37Z"
+      },
+      {
+       "sha": "2d4f5c0273e380a03e85f5cbe4eb79efafddb883",
+       "title": "feat(index): List debug-menu (#64)",
+       "author": "openrac-bot[bot]",
+       "date": "2026-11-05T10:08:18Z"
+      }
+     ]
+    }
+   ],
+   "commitCount": 2,
+   "pullRequests": {
+    "merged": [
+     {
+      "number": 64,
+      "title": "List debug-menu",
+      "author": "openrac-bot[bot]",
+      "untrustedBody": "From #63, checked by the listing bot. @OpenRAC/maintainers, please review.\n\nCloses #63",
+      "mergedAt": "2026-11-05T10:08:18Z"
+     }
+    ],
+    "opened": [
+     {
+      "number": 71,
+      "title": "feat(revolverator): list Revolverator 0.3.3",
+      "author": "noire342",
+      "untrustedBody": "Adds the external Revolverator listing from `noire342/openrac-mods/revolverator`.\n\nThe weapon uses the native inventory, ammunition HUD and save flow. Version 0.3.3 adds drill-contact sparks while holding a spinning enemy, automatic local asset preparation, and support for mod interface 1.12 or compatible later minor interfaces. PAL Europe v2.00 is the native reference; NTSC-U keeps its separate binding profile.\n\nThe listing declares AI assistance. The distributed ammunition model and texture are original AI-assisted art; the 0.3.3 public mod/source archives contain no copied game models, textures or HUD artwork. Native drill models and icon variants are prepared on the player's machine from their own installation. The entry adds no media files.\n\nRelease: https://github.com/noire342/openrac-mods/releases/tag/revolverator-v0.3.3\n\nDocumentation and bug links are included in the entry. The release provides corresponding source, its native validation receipt and SHA256SUMS. The external-na"
+     },
+     {
+      "number": 76,
+      "title": "List better-pause-menu",
+      "author": "openrac-bot[bot]",
+      "untrustedBody": "From #75, checked by the listing bot. @OpenRAC/maintainers, please review.\n\nCloses #75",
+      "mergedAt": "2026-11-06T07:34:20Z"
+     },
+     {
+      "number": 81,
+      "title": "List cutscene-manager",
+      "author": "openrac-bot[bot]",
+      "untrustedBody": "From #80, checked by the listing bot. @OpenRAC/maintainers, please review.\n\nCloses #80",
+      "mergedAt": "2026-11-06T07:34:25Z"
+     },
+     {
+      "number": 82,
+      "title": "List accessibility-pack",
+      "author": "openrac-bot[bot]",
+      "untrustedBody": "From #79, checked by the listing bot. @OpenRAC/maintainers, please review.\n\nCloses #79",
+      "mergedAt": "2026-11-06T07:34:30Z"
+     },
+     {
+      "number": 83,
+      "title": "List save-manager",
+      "author": "openrac-bot[bot]",
+      "untrustedBody": "From #78, checked by the listing bot. @OpenRAC/maintainers, please review.\n\nCloses #78",
+      "mergedAt": "2026-11-06T07:34:35Z"
+     },
+     {
+      "number": 84,
+      "title": "List fast-travel",
+      "author": "openrac-bot[bot]",
+      "untrustedBody": "From #77, checked by the listing bot. @OpenRAC/maintainers, please review.\n\nCloses #77",
+      "mergedAt": "2026-11-06T07:34:40Z"
+     },
+     {
+      "number": 88,
+      "title": "List damage-numbers",
+      "author": "openrac-bot[bot]",
+      "untrustedBody": "From #87, checked by the listing bot. @OpenRAC/maintainers, please review.\n\nCloses #87",
+      "mergedAt": "2026-11-06T08:00:38Z"
+     },
+     {
+      "number": 90,
+      "title": "List weapon-wheel-pause",
+      "author": "openrac-bot[bot]",
+      "untrustedBody": "From #89, checked by the listing bot. @OpenRAC/maintainers, please review.\n\nCloses #89",
+      "mergedAt": "2026-11-06T07:34:45Z"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [
+     {
+      "number": 65,
+      "title": "Submit:",
+      "author": "ReaperOfVeriod"
+     },
+     {
+      "number": 66,
+      "title": "Submit: Weapon Wheel Pause",
+      "author": "momo1212221"
+     },
+     {
+      "number": 67,
+      "title": "Review debug-menu 1.0.1",
+      "author": "openrac-bot[bot]"
+     },
+     {
+      "number": 68,
+      "title": "Review debug-menu 1.0.0",
+      "author": "openrac-bot[bot]"
+     },
+     {
+      "number": 69,
+      "title": "Review modern-controls 0.3.3",
+      "author": "openrac-bot[bot]"
+     },
+     {
+      "number": 70,
+      "title": "Multiplayer: non-host cannot reliably damage enemies or take enemy damage",
+      "author": "momo1212221"
+     },
+     {
+      "number": 72,
+      "title": "Index: approved mods remain unpublished after cooldown because hourly schedule stops running",
+      "author": "momo1212221"
+     },
+     {
+      "number": 73,
+      "title": "Submit: QoL Hub",
+      "author": "momo1212221"
+     },
+     {
+      "number": 74,
+      "title": "Submit: QoL Hub",
+      "author": "momo1212221"
+     },
+     {
+      "number": 75,
+      "title": "Submit: QoL Hub",
+      "author": "momo1212221"
+     },
+     {
+      "number": 77,
+      "title": "Submit: Fast Travel",
+      "author": "momo1212221"
+     },
+     {
+      "number": 78,
+      "title": "Submit: Save Manager",
+      "author": "momo1212221"
+     },
+     {
+      "number": 79,
+      "title": "Submit: Accessibility Pack",
+      "author": "momo1212221"
+     },
+     {
+      "number": 80,
+      "title": "Submit: Cutscene Manager",
+      "author": "momo1212221"
+     },
+     {
+      "number": 87,
+      "title": "Submit: Damage Numbers mod",
+      "author": "LucienTo"
+     },
+     {
+      "number": 89,
+      "title": "Submit: Weapon Wheel Pause",
+      "author": "momo1212221"
+     }
+    ],
+    "closed": [
+     {
+      "number": 58,
+      "title": "Submit: QoL Hub",
+      "author": "momo1212221"
+     },
+     {
+      "number": 59,
+      "title": "Submit: Fast Travel",
+      "author": "momo1212221"
+     },
+     {
+      "number": 60,
+      "title": "Submit: Save Manager",
+      "author": "momo1212221"
+     },
+     {
+      "number": 61,
+      "title": "Submit: Accessibility Pack",
+      "author": "momo1212221"
+     },
+     {
+      "number": 62,
+      "title": "Submit: Cutscene Manager",
+      "author": "momo1212221"
+     },
+     {
+      "number": 63,
+      "title": "Submit: Restored Debug Menu",
+      "author": "ParadoxEpoch"
+     },
+     {
+      "number": 65,
+      "title": "Submit:",
+      "author": "ReaperOfVeriod"
+     },
+     {
+      "number": 66,
+      "title": "Submit: Weapon Wheel Pause",
+      "author": "momo1212221"
+     },
+     {
+      "number": 73,
+      "title": "Submit: QoL Hub",
+      "author": "momo1212221"
+     },
+     {
+      "number": 74,
+      "title": "Submit: QoL Hub",
+      "author": "momo1212221"
+     }
+    ]
+   },
+   "releases": [],
+   "progress": null,
+   "contributors": [
+    "noire342"
+   ]
+  }
+ ]
+}

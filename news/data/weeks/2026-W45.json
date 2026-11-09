@@ -1,0 +1,5418 @@
+{
+ "format": 1,
+ "week": "2026-W45",
+ "start": "2026-11-02",
+ "end": "2026-11-08",
+ "days": [
+  "2026-11-02",
+  "2026-11-03",
+  "2026-11-04",
+  "2026-11-05",
+  "2026-11-06",
+  "2026-11-07",
+  "2026-11-08"
+ ],
+ "totals": {
+  "commits": 705,
+  "pullRequestsMerged": 337,
+  "pullRequestsOpened": 365,
+  "contributors": 28
+ },
+ "projects": [
+  {
+   "repo": "OpenRAC",
+   "title": "OpenRAC launcher",
+   "commitCount": 167,
+   "activeDays": [
+    "2026-11-02",
+    "2026-11-03",
+    "2026-11-04",
+    "2026-11-05",
+    "2026-11-06",
+    "2026-11-07",
+    "2026-11-08"
+   ],
+   "pullRequests": {
+    "merged": [
+     {
+      "number": 164,
+      "title": "feat(launcher): add an Audio tab to replace the game's sounds, music and speech",
+      "author": "bigbeno37",
+      "mergedAt": "2026-11-02T08:02:14Z"
+     },
+     {
+      "number": 166,
+      "title": "[WIP] feat(rac1): co-op round 3, crossplay, saves, takeover and mod codes",
+      "author": "Veradictus",
+      "mergedAt": "2026-11-06T15:42:06Z"
+     },
+     {
+      "number": 167,
+      "title": "[WIP] feat(sdk/rac1): hook points for the item randomizer",
+      "author": "Veradictus",
+      "mergedAt": "2026-11-06T14:44:59Z"
+     },
+     {
+      "number": 199,
+      "title": "perf(port): reduce Vulkan equivalence test overhead",
+      "author": "pezzadev",
+      "mergedAt": "2026-11-02T02:32:41Z"
+     },
+     {
+      "number": 200,
+      "title": "Track the RAC5 USA ByteMatch version in the launcher",
+      "author": "llesieur99",
+      "mergedAt": "2026-11-02T08:02:04Z"
+     },
+     {
+      "number": 201,
+      "title": "perf(port): reuse native programs in GTAO rendering tests",
+      "author": "pezzadev",
+      "mergedAt": "2026-11-02T03:44:36Z"
+     },
+     {
+      "number": 202,
+      "title": "ci(port): reuse build preparation across checks",
+      "author": "pezzadev",
+      "mergedAt": "2026-11-02T04:46:42Z"
+     },
+     {
+      "number": 203,
+      "title": "feat(sdk): mod interface 1.12 (hero driven by a mod, collision, props, sounds, camera, heat haze)",
+      "author": "nickyyOO",
+      "mergedAt": "2026-11-02T19:47:56Z"
+     },
+     {
+      "number": 204,
+      "title": "feat(port): HDR output on the Vulkan renderer",
+      "author": "nickyyOO",
+      "mergedAt": "2026-11-02T08:02:25Z"
+     },
+     {
+      "number": 206,
+      "title": "feat(rac2): native port of Going Commando (#191 with develop merged)",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-02T09:15:18Z"
+     },
+     {
+      "number": 207,
+      "title": "fix(rac1): weapon HUD background spans the panel with HUD at the edges",
+      "author": "nickyyOO",
+      "mergedAt": "2026-11-02T08:45:08Z"
+     },
+     {
+      "number": 208,
+      "title": "fix(port): keep white moby glow colours on Vulkan",
+      "author": "nickyyOO",
+      "mergedAt": "2026-11-02T09:10:01Z"
+     },
+     {
+      "number": 209,
+      "title": "fix(launcher): show a mod file's copy and install while it is added",
+      "author": "nickyyOO",
+      "mergedAt": "2026-11-02T11:40:52Z"
+     },
+     {
+      "number": 210,
+      "title": "fix(port): fade distant mobys and shrubs the way the PS2 does",
+      "author": "nickyyOO",
+      "mergedAt": "2026-11-02T14:38:09Z"
+     },
+     {
+      "number": 211,
+      "title": "feat(port): one shared in-game menu for desktop and Android, in the launcher's look",
+      "author": "nickyyOO",
+      "mergedAt": "2026-11-02T22:44:20Z"
+     },
+     {
+      "number": 212,
+      "title": "feat(rac2): second round of port fixes, enhanced graphics and retail parity",
+      "author": "Veradictus",
+      "mergedAt": "2026-11-03T08:03:46Z"
+     },
+     {
+      "number": 213,
+      "title": "ci(port): reduce cache churn and reuse validated hostgen output",
+      "author": "pezzadev",
+      "mergedAt": "2026-11-02T19:24:25Z"
+     },
+     {
+      "number": 214,
+      "title": "fix(port): the pause Options list has Video from its first frame",
+      "author": "nickyyOO",
+      "mergedAt": "2026-11-02T18:49:24Z"
+     },
+     {
+      "number": 215,
+      "title": "feat(enhanced): pack probe depth as RG16 UNORM",
+      "author": "pezzadev",
+      "mergedAt": "2026-11-02T20:18:48Z"
+     },
+     {
+      "number": 216,
+      "title": "perf(port): build shaders behind the loading screen on Vulkan and OpenGL",
+      "author": "nickyyOO",
+      "mergedAt": "2026-11-02T19:09:27Z"
+     },
+     {
+      "number": 217,
+      "title": "fix(port): cast playable Clank shadow volumes",
+      "author": "pezzadev",
+      "mergedAt": "2026-11-02T21:31:41Z"
+     },
+     {
+      "number": 219,
+      "title": "fix(launcher): accept GitHub's asset digest without SHA256SUMS",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-02T21:15:50Z"
+     },
+     {
+      "number": 220,
+      "title": "fix(ci): publish compiler caches only after successful jobs",
+      "author": "pezzadev",
+      "mergedAt": "2026-11-02T22:23:46Z"
+     },
+     {
+      "number": 221,
+      "title": "fix(port): allow freecam rotation while developer paused",
+      "author": "pezzadev",
+      "mergedAt": "2026-11-02T23:32:16Z"
+     },
+     {
+      "number": 222,
+      "title": "fix(port): Vulkan pipeline parts take only their own state; bindings only their own stages",
+      "author": "Veradictus",
+      "mergedAt": "2026-11-03T01:27:04Z"
+     },
+     {
+      "number": 223,
+      "title": "perf(port): avoid redundant hostgen and GPU test setup",
+      "author": "pezzadev",
+      "mergedAt": "2026-11-03T01:05:41Z"
+     },
+     {
+      "number": 225,
+      "title": "feat(port): execute Vulkan rendering through a render graph",
+      "author": "pezzadev",
+      "mergedAt": "2026-11-03T06:04:05Z"
+     },
+     {
+      "number": 226,
+      "title": "feat(launcher): Going Commando save editor and saves between devices",
+      "author": "Veradictus",
+      "mergedAt": "2026-11-03T07:25:36Z"
+     },
+     {
+      "number": 227,
+      "title": "feat(rac2): pin rac2-decomp master with 157 more matched functions",
+      "author": "Veradictus",
+      "mergedAt": "2026-11-03T09:20:35Z"
+     },
+     {
+      "number": 228,
+      "title": "fix(rac2): Windows x64 crashes from calls typed in another argument order",
+      "author": "Veradictus",
+      "mergedAt": "2026-11-03T10:14:37Z"
+     },
+     {
+      "number": 229,
+      "title": "fix(port): the pause Options page takes its pictures again (Quit Game kept its list)",
+      "author": "nickyyOO",
+      "mergedAt": "2026-11-03T09:28:20Z"
+     },
+     {
+      "number": 230,
+      "title": "fix(editor): Going Commando's flights export on Android",
+      "author": "nickyyOO",
+      "mergedAt": "2026-11-03T10:41:37Z"
+     },
+     {
+      "number": 231,
+      "title": "fix(launcher): open in the last game's accent without easing in",
+      "author": "nickyyOO",
+      "mergedAt": "2026-11-03T10:42:32Z"
+     },
+     {
+      "number": 232,
+      "title": "fix(rac2): pass the moby through a void level wrapper that crashed Endako on Windows",
+      "author": "Veradictus",
+      "mergedAt": "2026-11-03T12:01:46Z"
+     },
+     {
+      "number": 233,
+      "title": "refactor: human-first cleanup of docs, comments and one duplicated helper",
+      "author": "nickyyOO",
+      "mergedAt": "2026-11-03T13:28:38Z"
+     },
+     {
+      "number": 234,
+      "title": "fix(hostgen): pass the hostgen tests with integer-only calls by kind",
+      "author": "Veradictus",
+      "mergedAt": "2026-11-03T12:29:16Z"
+     },
+     {
+      "number": 235,
+      "title": "fix(launcher): smooth controller navigation, one press of A acts",
+      "author": "nickyyOO",
+      "mergedAt": "2026-11-03T13:01:41Z"
+     },
+     {
+      "number": 236,
+      "title": "fix(hostgen): keep an argument the code saves to its frame and reloads",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-03T15:03:08Z"
+     },
+     {
+      "number": 237,
+      "title": "chore(import): sync rac1/pal to rac1-decomp 1d8228cc0",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-03T15:56:13Z"
+     },
+     {
+      "number": 238,
+      "title": "feat(rac2): pin rac2-decomp master with 27 helper rows and catalogue repairs",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-03T16:20:43Z"
+     },
+     {
+      "number": 239,
+      "title": "fix(port/rac2): Video item in pause Options, ship HUD at the edges, no lines on glyphs",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-03T17:22:38Z"
+     },
+     {
+      "number": 240,
+      "title": "fix(launcher): a game's tile is one control for the pad, and the rail is reached sideways",
+      "author": "nickyyOO",
+      "mergedAt": "2026-11-03T16:53:41Z"
+     },
+     {
+      "number": 241,
+      "title": "fix(rac2): Feltzin retail parity: ship input floats and the interpreter's sound mask",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-03T21:16:46Z"
+     },
+     {
+      "number": 244,
+      "title": "feat(launcher): name Going Commando's arena challenges in the save editor",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-03T21:16:05Z"
+     },
+     {
+      "number": 245,
+      "title": "chore(import): sync rac2/ntsc to rac2-decomp d5d78af00",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-03T21:37:34Z"
+     },
+     {
+      "number": 246,
+      "title": "feat(port): unify enhanced material overrides",
+      "author": "pezzadev",
+      "mergedAt": "2026-11-03T22:24:36Z"
+     },
+     {
+      "number": 247,
+      "title": "chore(port/rac2): fcheck verdicts for rac2-decomp d5d78af00",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-03T21:43:43Z"
+     },
+     {
+      "number": 248,
+      "title": "fix(interpreter): stop the snd test's crash and test the sound parameter mask",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-03T22:23:31Z"
+     },
+     {
+      "number": 249,
+      "title": "feat(port): add gameplay field of view slider",
+      "author": "pezzadev",
+      "mergedAt": "2026-11-03T23:55:59Z"
+     },
+     {
+      "number": 251,
+      "title": "feat(interpreter): add a same-run verdict for C fcheck cannot run",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-04T07:22:23Z"
+     },
+     {
+      "number": 253,
+      "title": "feat(port): jitter atmosphere shadow samples within froxels",
+      "author": "pezzadev",
+      "mergedAt": "2026-11-04T02:43:28Z"
+     },
+     {
+      "number": 254,
+      "title": "feat(port): add configurable FFT ocean and optional fur shells",
+      "author": "pezzadev",
+      "mergedAt": "2026-11-04T05:30:52Z"
+     },
+     {
+      "number": 255,
+      "title": "Optimise Vulkan water and draw uploads",
+      "author": "pezzadev",
+      "mergedAt": "2026-11-04T09:12:39Z"
+     },
+     {
+      "number": 256,
+      "title": "fix(port): preserve register banks in level-copy calls",
+      "author": "llesieur99",
+      "mergedAt": "2026-11-04T06:20:49Z"
+     },
+     {
+      "number": 258,
+      "title": "feat(port): borderless fullscreen instead of exclusive",
+      "author": "nickyyOO",
+      "mergedAt": "2026-11-04T06:58:01Z"
+     },
+     {
+      "number": 259,
+      "title": "feat(port): fly the freecam with a gamepad",
+      "author": "nickyyOO",
+      "mergedAt": "2026-11-04T07:29:00Z"
+     },
+     {
+      "number": 260,
+      "title": "docs(fcheck): add all-level same-run results",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-04T08:35:30Z"
+     },
+     {
+      "number": 261,
+      "title": "chore(import): sync rac2/ntsc to rac2-decomp 7bb800886",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-04T09:42:36Z"
+     },
+     {
+      "number": 263,
+      "title": "fix(vulkan): stop Mali GPUs crashing at the title screen",
+      "author": "nickyyOO",
+      "mergedAt": "2026-11-04T09:38:36Z"
+     },
+     {
+      "number": 264,
+      "title": "fix(port): the Android performance hint as in 0.9.0 and 0.10.0",
+      "author": "nickyyOO",
+      "mergedAt": "2026-11-04T11:03:55Z"
+     },
+     {
+      "number": 265,
+      "title": "chore(rac2): sync rac2-decomp f9e8de4b and fix Joba taxi rides",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-04T13:07:07Z"
+     },
+     {
+      "number": 266,
+      "title": "chore(release): 1.0.0",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-04T17:28:49Z"
+     },
+     {
+      "number": 267,
+      "title": "fix(vulkan): keep the world in one render pass under the render graph",
+      "author": "nickyyOO",
+      "mergedAt": "2026-11-04T14:07:04Z"
+     },
+     {
+      "number": 268,
+      "title": "revert(port): the Android performance hint before #264",
+      "author": "nickyyOO",
+      "mergedAt": "2026-11-04T17:15:38Z"
+     },
+     {
+      "number": 269,
+      "title": "feat(launcher): join a party from a mod code's link",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-04T17:37:17Z"
+     },
+     {
+      "number": 270,
+      "title": "chore(release): 1.0.0",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-04T18:44:25Z"
+     },
+     {
+      "number": 271,
+      "title": "style(port): lay out a fur.h comment as clang-format does",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-04T20:48:43Z"
+     },
+     {
+      "number": 272,
+      "title": "fix(port): easier Field of View slider, keep it in the pause menu",
+      "author": "nickyyOO",
+      "mergedAt": "2026-11-04T20:14:38Z"
+     },
+     {
+      "number": 273,
+      "title": "perf(port): streamline Vulkan rendering and add GPU crash diagnostics",
+      "author": "pezzadev",
+      "mergedAt": "2026-11-04T21:20:34Z"
+     },
+     {
+      "number": 275,
+      "title": "test(mods): characterize RAC2 callback-only native mods",
+      "author": "momo1212221",
+      "mergedAt": "2026-11-06T14:37:27Z"
+     },
+     {
+      "number": 276,
+      "title": "feat(launcher): build Going Commando from the player's disc",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-04T21:09:50Z"
+     },
+     {
+      "number": 277,
+      "title": "fix(port): open the game's view tests up and down with a wider Field of View",
+      "author": "nickyyOO",
+      "mergedAt": "2026-11-04T22:06:43Z"
+     },
+     {
+      "number": 278,
+      "title": "fix(launcher): rebuild Going Commando when the launcher's commit changes",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-04T23:27:49Z"
+     },
+     {
+      "number": 280,
+      "title": "style(port): lay out profile.cpp as clang-format does",
+      "author": "nickyyOO",
+      "mergedAt": "2026-11-04T22:52:22Z"
+     },
+     {
+      "number": 281,
+      "title": "feat(port): author interior lighting environments",
+      "author": "pezzadev",
+      "mergedAt": "2026-11-04T23:24:25Z"
+     },
+     {
+      "number": 282,
+      "title": "feat(port): raise the HDR brightness limits",
+      "author": "nickyyOO",
+      "mergedAt": "2026-11-04T22:54:35Z"
+     },
+     {
+      "number": 283,
+      "title": "fix(launcher): never offer a Rebuild that cannot make a missing game program",
+      "author": "Veradictus",
+      "mergedAt": "2026-11-04T23:27:25Z"
+     },
+     {
+      "number": 284,
+      "title": "perf(port): harden and speed up render graph planning",
+      "author": "pezzadev",
+      "mergedAt": "2026-11-05T01:33:02Z"
+     },
+     {
+      "number": 285,
+      "title": "chore(release): 1.0.1",
+      "author": "Veradictus",
+      "mergedAt": "2026-11-05T02:15:17Z"
+     },
+     {
+      "number": 286,
+      "title": "Speed up Vulkan and documentation-only CI",
+      "author": "pezzadev",
+      "mergedAt": "2026-11-05T00:59:45Z"
+     },
+     {
+      "number": 287,
+      "title": "fix(launcher): build Going Commando on a Windows PC without long paths",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-05T00:55:05Z"
+     },
+     {
+      "number": 288,
+      "title": "Reuse compiled caches in Vulkan CI",
+      "author": "pezzadev",
+      "mergedAt": "2026-11-05T01:34:34Z"
+     },
+     {
+      "number": 289,
+      "title": "chore(release): 1.0.1",
+      "author": "Veradictus",
+      "mergedAt": "2026-11-05T02:41:57Z"
+     },
+     {
+      "number": 290,
+      "title": "Share the enhanced port build across CI test jobs",
+      "author": "pezzadev",
+      "mergedAt": "2026-11-05T03:33:42Z"
+     },
+     {
+      "number": 291,
+      "title": "fix(launcher): build long Windows installations in a short temporary path",
+      "author": "llesieur99",
+      "mergedAt": "2026-11-05T04:55:57Z"
+     },
+     {
+      "number": 293,
+      "title": "fix(ci): one version for a branch build and its rolling release",
+      "author": "Veradictus",
+      "mergedAt": "2026-11-05T05:09:44Z"
+     },
+     {
+      "number": 294,
+      "title": "fix(launcher): start the bundled Python without the Windows \\\\?\\ prefix",
+      "author": "Veradictus",
+      "mergedAt": "2026-11-05T05:23:42Z"
+     },
+     {
+      "number": 295,
+      "title": "chore(launcher): release 1.0.2",
+      "author": "Veradictus",
+      "mergedAt": "2026-11-05T05:46:50Z"
+     },
+     {
+      "number": 296,
+      "title": "Release launcher 1.0.2",
+      "author": "Veradictus",
+      "mergedAt": "2026-11-05T06:02:55Z"
+     },
+     {
+      "number": 297,
+      "title": "feat(port): hide the Frame cap row in the Android drawer",
+      "author": "nickyyOO",
+      "mergedAt": "2026-11-05T05:58:48Z"
+     },
+     {
+      "number": 298,
+      "title": "fix(launcher): run the browser test files one at a time",
+      "author": "Veradictus",
+      "mergedAt": "2026-11-06T14:35:37Z"
+     },
+     {
+      "number": 300,
+      "title": "feat(android): play Going Commando from the launcher, its assembly built from the disc on the device",
+      "author": "nickyyOO",
+      "mergedAt": "2026-11-05T08:19:06Z"
+     },
+     {
+      "number": 301,
+      "title": "fix(port): show Drek's Fleet backdrop and fleet in the fighter mission",
+      "author": "nickyyOO",
+      "mergedAt": "2026-11-05T08:23:51Z"
+     },
+     {
+      "number": 302,
+      "title": "fix(launcher): update Android from Stable to Development in place",
+      "author": "nickyyOO",
+      "mergedAt": "2026-11-05T09:17:20Z"
+     },
+     {
+      "number": 304,
+      "title": "feat(launcher): a mod's own page in the launcher",
+      "author": "nickyyOO",
+      "mergedAt": "2026-11-05T11:24:57Z"
+     },
+     {
+      "number": 305,
+      "title": "fix(launcher): open the game's page from an Android tile by pad, keep Play for a finger",
+      "author": "nickyyOO",
+      "mergedAt": "2026-11-05T10:18:50Z"
+     },
+     {
+      "number": 306,
+      "title": "ci(android): carry Zig's prebuilt Clang and lld instead of building LLVM",
+      "author": "nickyyOO",
+      "mergedAt": "2026-11-05T10:36:09Z"
+     },
+     {
+      "number": 307,
+      "title": "fix(ci): run the Vulkan test groups on a push too",
+      "author": "nickyyOO",
+      "mergedAt": "2026-11-05T11:27:29Z"
+     },
+     {
+      "number": 308,
+      "title": "fix(hdr): make the HDR setting just Off and On",
+      "author": "nickyyOO",
+      "mergedAt": "2026-11-05T11:40:32Z"
+     },
+     {
+      "number": 309,
+      "title": "fix(launcher): open the game's page from an Android tile by pad, one ring at a time",
+      "author": "nickyyOO",
+      "mergedAt": "2026-11-05T11:39:50Z"
+     },
+     {
+      "number": 310,
+      "title": "Fix Android disc build of Going Commando and show why a task failed",
+      "author": "nickyyOO",
+      "mergedAt": "2026-11-05T11:42:35Z"
+     },
+     {
+      "number": 311,
+      "title": "fix(launcher): open Mods browse on All when nothing is compatible",
+      "author": "nickyyOO",
+      "mergedAt": "2026-11-05T11:43:42Z"
+     },
+     {
+      "number": 312,
+      "title": "fix(launcher): show the pad's ring on Android game tiles right after the launcher opens",
+      "author": "nickyyOO",
+      "mergedAt": "2026-11-05T12:38:38Z"
+     },
+     {
+      "number": 314,
+      "title": "feat(launcher): one place in My mods for everything the game loads",
+      "author": "nickyyOO",
+      "mergedAt": "2026-11-05T13:32:38Z"
+     },
+     {
+      "number": 317,
+      "title": "feat: per-game accent for the FPS counter and menu fixes, teal Going Commando",
+      "author": "nickyyOO",
+      "mergedAt": "2026-11-05T14:24:10Z"
+     },
+     {
+      "number": 319,
+      "title": "feat(port): touch action buttons that follow the game",
+      "author": "nickyyOO",
+      "mergedAt": "2026-11-06T13:25:40Z"
+     },
+     {
+      "number": 320,
+      "title": "fix(android): keep Going Commando's Android part across launcher updates",
+      "author": "nickyyOO",
+      "mergedAt": "2026-11-05T14:39:54Z"
+     },
+     {
+      "number": 321,
+      "title": "feat(launcher): drop Browse for a Get mods banner",
+      "author": "nickyyOO",
+      "mergedAt": "2026-11-05T14:59:19Z"
+     },
+     {
+      "number": 323,
+      "title": "fix(launcher): no OpenRAC folder in home when another install folder is chosen",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-05T16:28:16Z"
+     },
+     {
+      "number": 324,
+      "title": "feat(launcher): start a game from a shortcut or its own Steam entry",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-05T16:28:21Z"
+     },
+     {
+      "number": 325,
+      "title": "fix(launcher): build a game on Linux with fewer system parts",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-05T16:28:25Z"
+     },
+     {
+      "number": 326,
+      "title": "feat(launcher): build Going Commando on Windows with a carried compiler",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-05T17:12:40Z"
+     },
+     {
+      "number": 329,
+      "title": "fix(launcher): clickable Get mods banner, and an always-on switch for tools",
+      "author": "nickyyOO",
+      "mergedAt": "2026-11-05T20:14:58Z"
+     },
+     {
+      "number": 330,
+      "title": "fix: keep the freecam chord from the game",
+      "author": "nickyyOO",
+      "mergedAt": "2026-11-05T20:17:37Z"
+     },
+     {
+      "number": 336,
+      "title": "fix(launcher): drop Added from before from Add a mod",
+      "author": "nickyyOO",
+      "mergedAt": "2026-11-06T08:47:17Z"
+     },
+     {
+      "number": 337,
+      "title": "feat(port): open the menu with Start+Select instead of L3",
+      "author": "nickyyOO",
+      "mergedAt": "2026-11-06T10:12:32Z"
+     },
+     {
+      "number": 338,
+      "title": "fix: make right stick sensitivity speed up the camera",
+      "author": "nickyyOO",
+      "mergedAt": "2026-11-06T10:56:11Z"
+     },
+     {
+      "number": 339,
+      "title": "style: launcher and in-game menu follow the site's look",
+      "author": "nickyyOO",
+      "mergedAt": "2026-11-08T03:54:47Z"
+     },
+     {
+      "number": 341,
+      "title": "feat(rac2): support Going Commando's PAL and USA v2.00 discs",
+      "author": "Veradictus",
+      "mergedAt": "2026-11-06T23:01:33Z"
+     },
+     {
+      "number": 343,
+      "title": "fix(rac2): race, crane cam and Thermanator HUD at the edges",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-06T20:21:47Z"
+     },
+     {
+      "number": 345,
+      "title": "fix(rac2): the race and crane HUD wrappers return nothing on PAL and v2.00 too",
+      "author": "Veradictus",
+      "mergedAt": "2026-11-06T23:59:04Z"
+     },
+     {
+      "number": 346,
+      "title": "docs: add the star history chart to the README",
+      "author": "Veradictus",
+      "mergedAt": "2026-11-07T00:01:34Z"
+     },
+     {
+      "number": 347,
+      "title": "fix(launcher): stop mod updates running into GitHub's API limit",
+      "author": "Veradictus",
+      "mergedAt": "2026-11-07T01:12:42Z"
+     },
+     {
+      "number": 348,
+      "title": "ci: build and test the Linux port in one job per game",
+      "author": "Veradictus",
+      "mergedAt": "2026-11-07T02:47:34Z"
+     },
+     {
+      "number": 349,
+      "title": "feat(launcher): offer the developer disc switch for every disc the launcher knows",
+      "author": "Veradictus",
+      "mergedAt": "2026-11-07T03:28:06Z"
+     },
+     {
+      "number": 350,
+      "title": "feat(rac1): recognise Ratchet & Clank's PAL v1.00 and Japanese discs",
+      "author": "Veradictus",
+      "mergedAt": "2026-11-07T04:09:41Z"
+     },
+     {
+      "number": 351,
+      "title": "fix(launcher): count a developer's checkout baserom discs for the disc switch",
+      "author": "Veradictus",
+      "mergedAt": "2026-11-07T05:45:14Z"
+     },
+     {
+      "number": 352,
+      "title": "fix(hostgen): resolve a level global's $gp view so rac2's right stick turns the camera",
+      "author": "Veradictus",
+      "mergedAt": "2026-11-07T06:13:15Z"
+     },
+     {
+      "number": 353,
+      "title": "ci(launcher): let develop and master builds finish instead of cancelling",
+      "author": "Veradictus",
+      "mergedAt": "2026-11-07T06:45:17Z"
+     },
+     {
+      "number": 354,
+      "title": "fix(rac2): play-through fixes, rac2-decomp sync and a Draw distance setting",
+      "author": "Veradictus",
+      "mergedAt": "2026-11-07T15:50:05Z"
+     },
+     {
+      "number": 357,
+      "title": "fix: touch swim controls and fixed button places",
+      "author": "nickyyOO",
+      "mergedAt": "2026-11-07T11:32:17Z"
+     },
+     {
+      "number": 358,
+      "title": "Refine RAC1 NTSC enhanced lighting and review tools",
+      "author": "pezzadev",
+      "mergedAt": "2026-11-07T14:44:29Z"
+     },
+     {
+      "number": 362,
+      "title": "feat: rumble from the game's own motor commands",
+      "author": "nickyyOO",
+      "mergedAt": "2026-11-07T13:55:08Z"
+     },
+     {
+      "number": 363,
+      "title": "fix(rac1): co-op hits and damage reach both games",
+      "author": "nickyyOO",
+      "mergedAt": "2026-11-07T14:08:33Z"
+     },
+     {
+      "number": 364,
+      "title": "chore: merge develop into fix/rac2-continue-points-and-draw-distance",
+      "author": "nickyyOO",
+      "mergedAt": "2026-11-07T15:49:38Z"
+     },
+     {
+      "number": 365,
+      "title": "style(port): clang-format the rumble lines in the pad libraries",
+      "author": "nickyyOO",
+      "mergedAt": "2026-11-07T16:37:28Z"
+     },
+     {
+      "number": 368,
+      "title": "chore(port): macOS test fixes, the water derivatives, CI on Node 26 and dependency updates",
+      "author": "xsyetopz",
+      "mergedAt": "2026-11-08T03:56:56Z"
+     },
+     {
+      "number": 369,
+      "title": "fix(port): leave hero fur's discard out of the solid mesh shader, as shader-variants' does",
+      "author": "xsyetopz",
+      "mergedAt": "2026-11-08T03:55:07Z"
+     },
+     {
+      "number": 370,
+      "title": "feat(metal): a Metal renderer for macOS behind OPENRAC_GL_API=metal",
+      "author": "xsyetopz",
+      "mergedAt": "2026-11-08T03:55:11Z"
+     },
+     {
+      "number": 371,
+      "title": "build(sources): decomps as git submodules with readable patches",
+      "author": "nickyyOO",
+      "mergedAt": "2026-11-08T03:54:40Z"
+     },
+     {
+      "number": 373,
+      "title": "ci: run only what a pull request's files can affect",
+      "author": "nickyyOO",
+      "mergedAt": "2026-11-07T17:45:25Z"
+     },
+     {
+      "number": 375,
+      "title": "fix(launcher): keep WebKit text stable during animated game selection",
+      "author": "llesieur99",
+      "mergedAt": "2026-11-08T03:54:52Z"
+     },
+     {
+      "number": 376,
+      "title": "feat(port): add iOS memory, window and suspension support",
+      "author": "llesieur99",
+      "mergedAt": "2026-11-08T03:54:57Z"
+     },
+     {
+      "number": 377,
+      "title": "feat(ios): integrate shared launcher and local disc import on iPhone and iPad",
+      "author": "llesieur99",
+      "mergedAt": "2026-11-08T03:56:39Z"
+     },
+     {
+      "number": 381,
+      "title": "feat(rac3): recognise and build the PAL disc",
+      "author": "Veradictus",
+      "mergedAt": "2026-11-08T04:40:29Z"
+     },
+     {
+      "number": 382,
+      "title": "feat(launcher): offer the Metal renderer in Settings on macOS",
+      "author": "Veradictus",
+      "mergedAt": "2026-11-08T04:40:24Z"
+     },
+     {
+      "number": 383,
+      "title": "ci(launcher): replace the Windows image's own yarn shim when installing Corepack",
+      "author": "Veradictus",
+      "mergedAt": "2026-11-08T05:51:54Z"
+     },
+     {
+      "number": 384,
+      "title": "feat(sdk): let any mod turn the hero's joints, each mod's offsets composed",
+      "author": "Veradictus",
+      "mergedAt": "2026-11-08T05:52:00Z"
+     },
+     {
+      "number": 385,
+      "title": "feat(mods): one mod for several games, and Going Commando's first hook points",
+      "author": "Veradictus",
+      "mergedAt": "2026-11-08T05:52:05Z"
+     },
+     {
+      "number": 386,
+      "title": "feat(rac2): play calls for the multiplayer mod",
+      "author": "Veradictus",
+      "mergedAt": "2026-11-08T05:52:10Z"
+     },
+     {
+      "number": 387,
+      "title": "feat(sdk): Going Commando's item grants and givers as hook points",
+      "author": "Veradictus",
+      "mergedAt": "2026-11-08T06:45:45Z"
+     },
+     {
+      "number": 388,
+      "title": "feat(launcher): choose a custom save folder",
+      "author": "ecameracci",
+      "mergedAt": "2026-11-08T17:49:05Z"
+     },
+     {
+      "number": 389,
+      "title": "feat(launcher): each game's own Steam art, and --rac1-style launch options",
+      "author": "ecameracci",
+      "mergedAt": "2026-11-08T17:58:19Z"
+     },
+     {
+      "number": 390,
+      "title": "feat(sdk): Going Commando's item givers as hook points on PAL and USA v2.00",
+      "author": "Veradictus",
+      "mergedAt": "2026-11-08T07:12:17Z"
+     },
+     {
+      "number": 391,
+      "title": "perf(baker): bake Enhanced lighting faster",
+      "author": "nickyyOO",
+      "mergedAt": "2026-11-08T09:13:56Z"
+     },
+     {
+      "number": 392,
+      "title": "fix(port): test a moby's unbuilt sphere as MobyProc does, not draw it whole",
+      "author": "Veradictus",
+      "mergedAt": "2026-11-08T07:37:43Z"
+     },
+     {
+      "number": 393,
+      "title": "feat(launcher): optional game colours, and the light on OLED too",
+      "author": "nickyyOO",
+      "mergedAt": "2026-11-08T08:14:55Z"
+     },
+     {
+      "number": 394,
+      "title": "fix(rac2): read the table func_L00_002D5E30 forms as the table plus 2",
+      "author": "Veradictus",
+      "mergedAt": "2026-11-08T08:44:33Z"
+     },
+     {
+      "number": 395,
+      "title": "fix(rac2): touch pad contexts like rac1's",
+      "author": "nickyyOO",
+      "mergedAt": "2026-11-08T09:26:48Z"
+     },
+     {
+      "number": 396,
+      "title": "refactor(launcher): drop the Gruvbox theme",
+      "author": "nickyyOO",
+      "mergedAt": "2026-11-08T08:55:52Z"
+     },
+     {
+      "number": 397,
+      "title": "fix(ci): retry and cache the LLVM download for Windows",
+      "author": "nickyyOO",
+      "mergedAt": "2026-11-08T09:13:41Z"
+     },
+     {
+      "number": 398,
+      "title": "fix(launcher): show the Multiplayer name only while a mod that uses it is on",
+      "author": "nickyyOO",
+      "mergedAt": "2026-11-08T09:26:31Z"
+     },
+     {
+      "number": 399,
+      "title": "ci(ios): name the jobs like the others and run only what changes need",
+      "author": "nickyyOO",
+      "mergedAt": "2026-11-08T12:30:12Z"
+     },
+     {
+      "number": 400,
+      "title": "fix(ci): stop the launcher build when the probe baker cannot be built",
+      "author": "nickyyOO",
+      "mergedAt": "2026-11-08T12:39:56Z"
+     },
+     {
+      "number": 401,
+      "title": "fix(port): bring Going Commando PAL and USA v2.00 into their levels",
+      "author": "Veradictus",
+      "mergedAt": "2026-11-08T13:38:59Z"
+     },
+     {
+      "number": 402,
+      "title": "fix(touch): a yes button for O in menus and dialogs",
+      "author": "nickyyOO",
+      "mergedAt": "2026-11-08T13:58:08Z"
+     },
+     {
+      "number": 403,
+      "title": "fix(launcher): light under the page, no frame on the actions menu",
+      "author": "nickyyOO",
+      "mergedAt": "2026-11-08T14:15:43Z"
+     },
+     {
+      "number": 404,
+      "title": "fix(touch): a large skip button while a movie plays",
+      "author": "nickyyOO",
+      "mergedAt": "2026-11-08T14:40:05Z"
+     },
+     {
+      "number": 405,
+      "title": "fix(port): start USA v2.00's level openings and pair Going Commando's level hooks",
+      "author": "Veradictus",
+      "mergedAt": "2026-11-08T17:05:51Z"
+     },
+     {
+      "number": 406,
+      "title": "fix(ci): Windows launcher build, and shorter build logs",
+      "author": "nickyyOO",
+      "mergedAt": "2026-11-08T18:08:37Z"
+     },
+     {
+      "number": 408,
+      "title": "chore(import): every decomp at its branch tip, OpenRAC's patches upstream",
+      "author": "Veradictus",
+      "mergedAt": "2026-11-08T23:26:14Z"
+     }
+    ],
+    "opened": [
+     {
+      "number": 199,
+      "title": "perf(port): reduce Vulkan equivalence test overhead",
+      "author": "pezzadev",
+      "mergedAt": "2026-11-02T02:32:41Z"
+     },
+     {
+      "number": 200,
+      "title": "Track the RAC5 USA ByteMatch version in the launcher",
+      "author": "llesieur99",
+      "mergedAt": "2026-11-02T08:02:04Z"
+     },
+     {
+      "number": 201,
+      "title": "perf(port): reuse native programs in GTAO rendering tests",
+      "author": "pezzadev",
+      "mergedAt": "2026-11-02T03:44:36Z"
+     },
+     {
+      "number": 202,
+      "title": "ci(port): reuse build preparation across checks",
+      "author": "pezzadev",
+      "mergedAt": "2026-11-02T04:46:42Z"
+     },
+     {
+      "number": 203,
+      "title": "feat(sdk): mod interface 1.12 (hero driven by a mod, collision, props, sounds, camera, heat haze)",
+      "author": "nickyyOO",
+      "mergedAt": "2026-11-02T19:47:56Z"
+     },
+     {
+      "number": 204,
+      "title": "feat(port): HDR output on the Vulkan renderer",
+      "author": "nickyyOO",
+      "mergedAt": "2026-11-02T08:02:25Z"
+     },
+     {
+      "number": 205,
+      "title": "feat(sdk): mod interface 1.12 (#203 with develop merged)",
+      "author": "Lynder063"
+     },
+     {
+      "number": 206,
+      "title": "feat(rac2): native port of Going Commando (#191 with develop merged)",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-02T09:15:18Z"
+     },
+     {
+      "number": 207,
+      "title": "fix(rac1): weapon HUD background spans the panel with HUD at the edges",
+      "author": "nickyyOO",
+      "mergedAt": "2026-11-02T08:45:08Z"
+     },
+     {
+      "number": 208,
+      "title": "fix(port): keep white moby glow colours on Vulkan",
+      "author": "nickyyOO",
+      "mergedAt": "2026-11-02T09:10:01Z"
+     },
+     {
+      "number": 209,
+      "title": "fix(launcher): show a mod file's copy and install while it is added",
+      "author": "nickyyOO",
+      "mergedAt": "2026-11-02T11:40:52Z"
+     },
+     {
+      "number": 210,
+      "title": "fix(port): fade distant mobys and shrubs the way the PS2 does",
+      "author": "nickyyOO",
+      "mergedAt": "2026-11-02T14:38:09Z"
+     },
+     {
+      "number": 211,
+      "title": "feat(port): one shared in-game menu for desktop and Android, in the launcher's look",
+      "author": "nickyyOO",
+      "mergedAt": "2026-11-02T22:44:20Z"
+     },
+     {
+      "number": 212,
+      "title": "feat(rac2): second round of port fixes, enhanced graphics and retail parity",
+      "author": "Veradictus",
+      "mergedAt": "2026-11-03T08:03:46Z"
+     },
+     {
+      "number": 213,
+      "title": "ci(port): reduce cache churn and reuse validated hostgen output",
+      "author": "pezzadev",
+      "mergedAt": "2026-11-02T19:24:25Z"
+     },
+     {
+      "number": 214,
+      "title": "fix(port): the pause Options list has Video from its first frame",
+      "author": "nickyyOO",
+      "mergedAt": "2026-11-02T18:49:24Z"
+     },
+     {
+      "number": 215,
+      "title": "feat(enhanced): pack probe depth as RG16 UNORM",
+      "author": "pezzadev",
+      "mergedAt": "2026-11-02T20:18:48Z"
+     },
+     {
+      "number": 216,
+      "title": "perf(port): build shaders behind the loading screen on Vulkan and OpenGL",
+      "author": "nickyyOO",
+      "mergedAt": "2026-11-02T19:09:27Z"
+     },
+     {
+      "number": 217,
+      "title": "fix(port): cast playable Clank shadow volumes",
+      "author": "pezzadev",
+      "mergedAt": "2026-11-02T21:31:41Z"
+     },
+     {
+      "number": 219,
+      "title": "fix(launcher): accept GitHub's asset digest without SHA256SUMS",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-02T21:15:50Z"
+     },
+     {
+      "number": 220,
+      "title": "fix(ci): publish compiler caches only after successful jobs",
+      "author": "pezzadev",
+      "mergedAt": "2026-11-02T22:23:46Z"
+     },
+     {
+      "number": 221,
+      "title": "fix(port): allow freecam rotation while developer paused",
+      "author": "pezzadev",
+      "mergedAt": "2026-11-02T23:32:16Z"
+     },
+     {
+      "number": 222,
+      "title": "fix(port): Vulkan pipeline parts take only their own state; bindings only their own stages",
+      "author": "Veradictus",
+      "mergedAt": "2026-11-03T01:27:04Z"
+     },
+     {
+      "number": 223,
+      "title": "perf(port): avoid redundant hostgen and GPU test setup",
+      "author": "pezzadev",
+      "mergedAt": "2026-11-03T01:05:41Z"
+     },
+     {
+      "number": 225,
+      "title": "feat(port): execute Vulkan rendering through a render graph",
+      "author": "pezzadev",
+      "mergedAt": "2026-11-03T06:04:05Z"
+     },
+     {
+      "number": 226,
+      "title": "feat(launcher): Going Commando save editor and saves between devices",
+      "author": "Veradictus",
+      "mergedAt": "2026-11-03T07:25:36Z"
+     },
+     {
+      "number": 227,
+      "title": "feat(rac2): pin rac2-decomp master with 157 more matched functions",
+      "author": "Veradictus",
+      "mergedAt": "2026-11-03T09:20:35Z"
+     },
+     {
+      "number": 228,
+      "title": "fix(rac2): Windows x64 crashes from calls typed in another argument order",
+      "author": "Veradictus",
+      "mergedAt": "2026-11-03T10:14:37Z"
+     },
+     {
+      "number": 229,
+      "title": "fix(port): the pause Options page takes its pictures again (Quit Game kept its list)",
+      "author": "nickyyOO",
+      "mergedAt": "2026-11-03T09:28:20Z"
+     },
+     {
+      "number": 230,
+      "title": "fix(editor): Going Commando's flights export on Android",
+      "author": "nickyyOO",
+      "mergedAt": "2026-11-03T10:41:37Z"
+     },
+     {
+      "number": 231,
+      "title": "fix(launcher): open in the last game's accent without easing in",
+      "author": "nickyyOO",
+      "mergedAt": "2026-11-03T10:42:32Z"
+     },
+     {
+      "number": 232,
+      "title": "fix(rac2): pass the moby through a void level wrapper that crashed Endako on Windows",
+      "author": "Veradictus",
+      "mergedAt": "2026-11-03T12:01:46Z"
+     },
+     {
+      "number": 233,
+      "title": "refactor: human-first cleanup of docs, comments and one duplicated helper",
+      "author": "nickyyOO",
+      "mergedAt": "2026-11-03T13:28:38Z"
+     },
+     {
+      "number": 234,
+      "title": "fix(hostgen): pass the hostgen tests with integer-only calls by kind",
+      "author": "Veradictus",
+      "mergedAt": "2026-11-03T12:29:16Z"
+     },
+     {
+      "number": 235,
+      "title": "fix(launcher): smooth controller navigation, one press of A acts",
+      "author": "nickyyOO",
+      "mergedAt": "2026-11-03T13:01:41Z"
+     },
+     {
+      "number": 236,
+      "title": "fix(hostgen): keep an argument the code saves to its frame and reloads",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-03T15:03:08Z"
+     },
+     {
+      "number": 237,
+      "title": "chore(import): sync rac1/pal to rac1-decomp 1d8228cc0",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-03T15:56:13Z"
+     },
+     {
+      "number": 238,
+      "title": "feat(rac2): pin rac2-decomp master with 27 helper rows and catalogue repairs",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-03T16:20:43Z"
+     },
+     {
+      "number": 239,
+      "title": "fix(port/rac2): Video item in pause Options, ship HUD at the edges, no lines on glyphs",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-03T17:22:38Z"
+     },
+     {
+      "number": 240,
+      "title": "fix(launcher): a game's tile is one control for the pad, and the rail is reached sideways",
+      "author": "nickyyOO",
+      "mergedAt": "2026-11-03T16:53:41Z"
+     },
+     {
+      "number": 241,
+      "title": "fix(rac2): Feltzin retail parity: ship input floats and the interpreter's sound mask",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-03T21:16:46Z"
+     },
+     {
+      "number": 244,
+      "title": "feat(launcher): name Going Commando's arena challenges in the save editor",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-03T21:16:05Z"
+     },
+     {
+      "number": 245,
+      "title": "chore(import): sync rac2/ntsc to rac2-decomp d5d78af00",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-03T21:37:34Z"
+     },
+     {
+      "number": 246,
+      "title": "feat(port): unify enhanced material overrides",
+      "author": "pezzadev",
+      "mergedAt": "2026-11-03T22:24:36Z"
+     },
+     {
+      "number": 247,
+      "title": "chore(port/rac2): fcheck verdicts for rac2-decomp d5d78af00",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-03T21:43:43Z"
+     },
+     {
+      "number": 248,
+      "title": "fix(interpreter): stop the snd test's crash and test the sound parameter mask",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-03T22:23:31Z"
+     },
+     {
+      "number": 249,
+      "title": "feat(port): add gameplay field of view slider",
+      "author": "pezzadev",
+      "mergedAt": "2026-11-03T23:55:59Z"
+     },
+     {
+      "number": 251,
+      "title": "feat(interpreter): add a same-run verdict for C fcheck cannot run",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-04T07:22:23Z"
+     },
+     {
+      "number": 253,
+      "title": "feat(port): jitter atmosphere shadow samples within froxels",
+      "author": "pezzadev",
+      "mergedAt": "2026-11-04T02:43:28Z"
+     },
+     {
+      "number": 254,
+      "title": "feat(port): add configurable FFT ocean and optional fur shells",
+      "author": "pezzadev",
+      "mergedAt": "2026-11-04T05:30:52Z"
+     },
+     {
+      "number": 255,
+      "title": "Optimise Vulkan water and draw uploads",
+      "author": "pezzadev",
+      "mergedAt": "2026-11-04T09:12:39Z"
+     },
+     {
+      "number": 256,
+      "title": "fix(port): preserve register banks in level-copy calls",
+      "author": "llesieur99",
+      "mergedAt": "2026-11-04T06:20:49Z"
+     },
+     {
+      "number": 258,
+      "title": "feat(port): borderless fullscreen instead of exclusive",
+      "author": "nickyyOO",
+      "mergedAt": "2026-11-04T06:58:01Z"
+     },
+     {
+      "number": 259,
+      "title": "feat(port): fly the freecam with a gamepad",
+      "author": "nickyyOO",
+      "mergedAt": "2026-11-04T07:29:00Z"
+     },
+     {
+      "number": 260,
+      "title": "docs(fcheck): add all-level same-run results",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-04T08:35:30Z"
+     },
+     {
+      "number": 261,
+      "title": "chore(import): sync rac2/ntsc to rac2-decomp 7bb800886",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-04T09:42:36Z"
+     },
+     {
+      "number": 263,
+      "title": "fix(vulkan): stop Mali GPUs crashing at the title screen",
+      "author": "nickyyOO",
+      "mergedAt": "2026-11-04T09:38:36Z"
+     },
+     {
+      "number": 264,
+      "title": "fix(port): the Android performance hint as in 0.9.0 and 0.10.0",
+      "author": "nickyyOO",
+      "mergedAt": "2026-11-04T11:03:55Z"
+     },
+     {
+      "number": 265,
+      "title": "chore(rac2): sync rac2-decomp f9e8de4b and fix Joba taxi rides",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-04T13:07:07Z"
+     },
+     {
+      "number": 266,
+      "title": "chore(release): 1.0.0",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-04T17:28:49Z"
+     },
+     {
+      "number": 267,
+      "title": "fix(vulkan): keep the world in one render pass under the render graph",
+      "author": "nickyyOO",
+      "mergedAt": "2026-11-04T14:07:04Z"
+     },
+     {
+      "number": 268,
+      "title": "revert(port): the Android performance hint before #264",
+      "author": "nickyyOO",
+      "mergedAt": "2026-11-04T17:15:38Z"
+     },
+     {
+      "number": 269,
+      "title": "feat(launcher): join a party from a mod code's link",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-04T17:37:17Z"
+     },
+     {
+      "number": 270,
+      "title": "chore(release): 1.0.0",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-04T18:44:25Z"
+     },
+     {
+      "number": 271,
+      "title": "style(port): lay out a fur.h comment as clang-format does",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-04T20:48:43Z"
+     },
+     {
+      "number": 272,
+      "title": "fix(port): easier Field of View slider, keep it in the pause menu",
+      "author": "nickyyOO",
+      "mergedAt": "2026-11-04T20:14:38Z"
+     },
+     {
+      "number": 273,
+      "title": "perf(port): streamline Vulkan rendering and add GPU crash diagnostics",
+      "author": "pezzadev",
+      "mergedAt": "2026-11-04T21:20:34Z"
+     },
+     {
+      "number": 275,
+      "title": "test(mods): characterize RAC2 callback-only native mods",
+      "author": "momo1212221",
+      "mergedAt": "2026-11-06T14:37:27Z"
+     },
+     {
+      "number": 276,
+      "title": "feat(launcher): build Going Commando from the player's disc",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-04T21:09:50Z"
+     },
+     {
+      "number": 277,
+      "title": "fix(port): open the game's view tests up and down with a wider Field of View",
+      "author": "nickyyOO",
+      "mergedAt": "2026-11-04T22:06:43Z"
+     },
+     {
+      "number": 278,
+      "title": "fix(launcher): rebuild Going Commando when the launcher's commit changes",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-04T23:27:49Z"
+     },
+     {
+      "number": 280,
+      "title": "style(port): lay out profile.cpp as clang-format does",
+      "author": "nickyyOO",
+      "mergedAt": "2026-11-04T22:52:22Z"
+     },
+     {
+      "number": 281,
+      "title": "feat(port): author interior lighting environments",
+      "author": "pezzadev",
+      "mergedAt": "2026-11-04T23:24:25Z"
+     },
+     {
+      "number": 282,
+      "title": "feat(port): raise the HDR brightness limits",
+      "author": "nickyyOO",
+      "mergedAt": "2026-11-04T22:54:35Z"
+     },
+     {
+      "number": 283,
+      "title": "fix(launcher): never offer a Rebuild that cannot make a missing game program",
+      "author": "Veradictus",
+      "mergedAt": "2026-11-04T23:27:25Z"
+     },
+     {
+      "number": 284,
+      "title": "perf(port): harden and speed up render graph planning",
+      "author": "pezzadev",
+      "mergedAt": "2026-11-05T01:33:02Z"
+     },
+     {
+      "number": 285,
+      "title": "chore(release): 1.0.1",
+      "author": "Veradictus",
+      "mergedAt": "2026-11-05T02:15:17Z"
+     },
+     {
+      "number": 286,
+      "title": "Speed up Vulkan and documentation-only CI",
+      "author": "pezzadev",
+      "mergedAt": "2026-11-05T00:59:45Z"
+     },
+     {
+      "number": 287,
+      "title": "fix(launcher): build Going Commando on a Windows PC without long paths",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-05T00:55:05Z"
+     },
+     {
+      "number": 288,
+      "title": "Reuse compiled caches in Vulkan CI",
+      "author": "pezzadev",
+      "mergedAt": "2026-11-05T01:34:34Z"
+     },
+     {
+      "number": 289,
+      "title": "chore(release): 1.0.1",
+      "author": "Veradictus",
+      "mergedAt": "2026-11-05T02:41:57Z"
+     },
+     {
+      "number": 290,
+      "title": "Share the enhanced port build across CI test jobs",
+      "author": "pezzadev",
+      "mergedAt": "2026-11-05T03:33:42Z"
+     },
+     {
+      "number": 291,
+      "title": "fix(launcher): build long Windows installations in a short temporary path",
+      "author": "llesieur99",
+      "mergedAt": "2026-11-05T04:55:57Z"
+     },
+     {
+      "number": 293,
+      "title": "fix(ci): one version for a branch build and its rolling release",
+      "author": "Veradictus",
+      "mergedAt": "2026-11-05T05:09:44Z"
+     },
+     {
+      "number": 294,
+      "title": "fix(launcher): start the bundled Python without the Windows \\\\?\\ prefix",
+      "author": "Veradictus",
+      "mergedAt": "2026-11-05T05:23:42Z"
+     },
+     {
+      "number": 295,
+      "title": "chore(launcher): release 1.0.2",
+      "author": "Veradictus",
+      "mergedAt": "2026-11-05T05:46:50Z"
+     },
+     {
+      "number": 296,
+      "title": "Release launcher 1.0.2",
+      "author": "Veradictus",
+      "mergedAt": "2026-11-05T06:02:55Z"
+     },
+     {
+      "number": 297,
+      "title": "feat(port): hide the Frame cap row in the Android drawer",
+      "author": "nickyyOO",
+      "mergedAt": "2026-11-05T05:58:48Z"
+     },
+     {
+      "number": 298,
+      "title": "fix(launcher): run the browser test files one at a time",
+      "author": "Veradictus",
+      "mergedAt": "2026-11-06T14:35:37Z"
+     },
+     {
+      "number": 300,
+      "title": "feat(android): play Going Commando from the launcher, its assembly built from the disc on the device",
+      "author": "nickyyOO",
+      "mergedAt": "2026-11-05T08:19:06Z"
+     },
+     {
+      "number": 301,
+      "title": "fix(port): show Drek's Fleet backdrop and fleet in the fighter mission",
+      "author": "nickyyOO",
+      "mergedAt": "2026-11-05T08:23:51Z"
+     },
+     {
+      "number": 302,
+      "title": "fix(launcher): update Android from Stable to Development in place",
+      "author": "nickyyOO",
+      "mergedAt": "2026-11-05T09:17:20Z"
+     },
+     {
+      "number": 303,
+      "title": "fix(port): build the port with llvm-mingw",
+      "author": "Lynder063"
+     },
+     {
+      "number": 304,
+      "title": "feat(launcher): a mod's own page in the launcher",
+      "author": "nickyyOO",
+      "mergedAt": "2026-11-05T11:24:57Z"
+     },
+     {
+      "number": 305,
+      "title": "fix(launcher): open the game's page from an Android tile by pad, keep Play for a finger",
+      "author": "nickyyOO",
+      "mergedAt": "2026-11-05T10:18:50Z"
+     },
+     {
+      "number": 306,
+      "title": "ci(android): carry Zig's prebuilt Clang and lld instead of building LLVM",
+      "author": "nickyyOO",
+      "mergedAt": "2026-11-05T10:36:09Z"
+     },
+     {
+      "number": 307,
+      "title": "fix(ci): run the Vulkan test groups on a push too",
+      "author": "nickyyOO",
+      "mergedAt": "2026-11-05T11:27:29Z"
+     },
+     {
+      "number": 308,
+      "title": "fix(hdr): make the HDR setting just Off and On",
+      "author": "nickyyOO",
+      "mergedAt": "2026-11-05T11:40:32Z"
+     },
+     {
+      "number": 309,
+      "title": "fix(launcher): open the game's page from an Android tile by pad, one ring at a time",
+      "author": "nickyyOO",
+      "mergedAt": "2026-11-05T11:39:50Z"
+     },
+     {
+      "number": 310,
+      "title": "Fix Android disc build of Going Commando and show why a task failed",
+      "author": "nickyyOO",
+      "mergedAt": "2026-11-05T11:42:35Z"
+     },
+     {
+      "number": 311,
+      "title": "fix(launcher): open Mods browse on All when nothing is compatible",
+      "author": "nickyyOO",
+      "mergedAt": "2026-11-05T11:43:42Z"
+     },
+     {
+      "number": 312,
+      "title": "fix(launcher): show the pad's ring on Android game tiles right after the launcher opens",
+      "author": "nickyyOO",
+      "mergedAt": "2026-11-05T12:38:38Z"
+     },
+     {
+      "number": 314,
+      "title": "feat(launcher): one place in My mods for everything the game loads",
+      "author": "nickyyOO",
+      "mergedAt": "2026-11-05T13:32:38Z"
+     },
+     {
+      "number": 317,
+      "title": "feat: per-game accent for the FPS counter and menu fixes, teal Going Commando",
+      "author": "nickyyOO",
+      "mergedAt": "2026-11-05T14:24:10Z"
+     },
+     {
+      "number": 319,
+      "title": "feat(port): touch action buttons that follow the game",
+      "author": "nickyyOO",
+      "mergedAt": "2026-11-06T13:25:40Z"
+     },
+     {
+      "number": 320,
+      "title": "fix(android): keep Going Commando's Android part across launcher updates",
+      "author": "nickyyOO",
+      "mergedAt": "2026-11-05T14:39:54Z"
+     },
+     {
+      "number": 321,
+      "title": "feat(launcher): drop Browse for a Get mods banner",
+      "author": "nickyyOO",
+      "mergedAt": "2026-11-05T14:59:19Z"
+     },
+     {
+      "number": 322,
+      "title": "feat(launcher): explain and install missing Windows build prerequisites",
+      "author": "llesieur99"
+     },
+     {
+      "number": 323,
+      "title": "fix(launcher): no OpenRAC folder in home when another install folder is chosen",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-05T16:28:16Z"
+     },
+     {
+      "number": 324,
+      "title": "feat(launcher): start a game from a shortcut or its own Steam entry",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-05T16:28:21Z"
+     },
+     {
+      "number": 325,
+      "title": "fix(launcher): build a game on Linux with fewer system parts",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-05T16:28:25Z"
+     },
+     {
+      "number": 326,
+      "title": "feat(launcher): build Going Commando on Windows with a carried compiler",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-05T17:12:40Z"
+     },
+     {
+      "number": 328,
+      "title": "fix: keep the freecam chord from the game",
+      "author": "nickyyOO"
+     },
+     {
+      "number": 329,
+      "title": "fix(launcher): clickable Get mods banner, and an always-on switch for tools",
+      "author": "nickyyOO",
+      "mergedAt": "2026-11-05T20:14:58Z"
+     },
+     {
+      "number": 330,
+      "title": "fix: keep the freecam chord from the game",
+      "author": "nickyyOO",
+      "mergedAt": "2026-11-05T20:17:37Z"
+     },
+     {
+      "number": 336,
+      "title": "fix(launcher): drop Added from before from Add a mod",
+      "author": "nickyyOO",
+      "mergedAt": "2026-11-06T08:47:17Z"
+     },
+     {
+      "number": 337,
+      "title": "feat(port): open the menu with Start+Select instead of L3",
+      "author": "nickyyOO",
+      "mergedAt": "2026-11-06T10:12:32Z"
+     },
+     {
+      "number": 338,
+      "title": "fix: make right stick sensitivity speed up the camera",
+      "author": "nickyyOO",
+      "mergedAt": "2026-11-06T10:56:11Z"
+     },
+     {
+      "number": 339,
+      "title": "style: launcher and in-game menu follow the site's look",
+      "author": "nickyyOO",
+      "mergedAt": "2026-11-08T03:54:47Z"
+     },
+     {
+      "number": 341,
+      "title": "feat(rac2): support Going Commando's PAL and USA v2.00 discs",
+      "author": "Veradictus",
+      "mergedAt": "2026-11-06T23:01:33Z"
+     },
+     {
+      "number": 343,
+      "title": "fix(rac2): race, crane cam and Thermanator HUD at the edges",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-06T20:21:47Z"
+     },
+     {
+      "number": 345,
+      "title": "fix(rac2): the race and crane HUD wrappers return nothing on PAL and v2.00 too",
+      "author": "Veradictus",
+      "mergedAt": "2026-11-06T23:59:04Z"
+     },
+     {
+      "number": 346,
+      "title": "docs: add the star history chart to the README",
+      "author": "Veradictus",
+      "mergedAt": "2026-11-07T00:01:34Z"
+     },
+     {
+      "number": 347,
+      "title": "fix(launcher): stop mod updates running into GitHub's API limit",
+      "author": "Veradictus",
+      "mergedAt": "2026-11-07T01:12:42Z"
+     },
+     {
+      "number": 348,
+      "title": "ci: build and test the Linux port in one job per game",
+      "author": "Veradictus",
+      "mergedAt": "2026-11-07T02:47:34Z"
+     },
+     {
+      "number": 349,
+      "title": "feat(launcher): offer the developer disc switch for every disc the launcher knows",
+      "author": "Veradictus",
+      "mergedAt": "2026-11-07T03:28:06Z"
+     },
+     {
+      "number": 350,
+      "title": "feat(rac1): recognise Ratchet & Clank's PAL v1.00 and Japanese discs",
+      "author": "Veradictus",
+      "mergedAt": "2026-11-07T04:09:41Z"
+     },
+     {
+      "number": 351,
+      "title": "fix(launcher): count a developer's checkout baserom discs for the disc switch",
+      "author": "Veradictus",
+      "mergedAt": "2026-11-07T05:45:14Z"
+     },
+     {
+      "number": 352,
+      "title": "fix(hostgen): resolve a level global's $gp view so rac2's right stick turns the camera",
+      "author": "Veradictus",
+      "mergedAt": "2026-11-07T06:13:15Z"
+     },
+     {
+      "number": 353,
+      "title": "ci(launcher): let develop and master builds finish instead of cancelling",
+      "author": "Veradictus",
+      "mergedAt": "2026-11-07T06:45:17Z"
+     },
+     {
+      "number": 354,
+      "title": "fix(rac2): play-through fixes, rac2-decomp sync and a Draw distance setting",
+      "author": "Veradictus",
+      "mergedAt": "2026-11-07T15:50:05Z"
+     },
+     {
+      "number": 357,
+      "title": "fix: touch swim controls and fixed button places",
+      "author": "nickyyOO",
+      "mergedAt": "2026-11-07T11:32:17Z"
+     },
+     {
+      "number": 358,
+      "title": "Refine RAC1 NTSC enhanced lighting and review tools",
+      "author": "pezzadev",
+      "mergedAt": "2026-11-07T14:44:29Z"
+     },
+     {
+      "number": 359,
+      "title": "fix(rac4): correct 18 functions the masked audit counted as matched",
+      "author": "farfeduc"
+     },
+     {
+      "number": 360,
+      "title": "feat(rac4): match 289 functions",
+      "author": "farfeduc"
+     },
+     {
+      "number": 361,
+      "title": "feat(rac4): add a relocation-based check stricter than the audit",
+      "author": "farfeduc"
+     },
+     {
+      "number": 362,
+      "title": "feat: rumble from the game's own motor commands",
+      "author": "nickyyOO",
+      "mergedAt": "2026-11-07T13:55:08Z"
+     },
+     {
+      "number": 363,
+      "title": "fix(rac1): co-op hits and damage reach both games",
+      "author": "nickyyOO",
+      "mergedAt": "2026-11-07T14:08:33Z"
+     },
+     {
+      "number": 364,
+      "title": "chore: merge develop into fix/rac2-continue-points-and-draw-distance",
+      "author": "nickyyOO",
+      "mergedAt": "2026-11-07T15:49:38Z"
+     },
+     {
+      "number": 365,
+      "title": "style(port): clang-format the rumble lines in the pad libraries",
+      "author": "nickyyOO",
+      "mergedAt": "2026-11-07T16:37:28Z"
+     },
+     {
+      "number": 368,
+      "title": "chore(port): macOS test fixes, the water derivatives, CI on Node 26 and dependency updates",
+      "author": "xsyetopz",
+      "mergedAt": "2026-11-08T03:56:56Z"
+     },
+     {
+      "number": 369,
+      "title": "fix(port): leave hero fur's discard out of the solid mesh shader, as shader-variants' does",
+      "author": "xsyetopz",
+      "mergedAt": "2026-11-08T03:55:07Z"
+     },
+     {
+      "number": 370,
+      "title": "feat(metal): a Metal renderer for macOS behind OPENRAC_GL_API=metal",
+      "author": "xsyetopz",
+      "mergedAt": "2026-11-08T03:55:11Z"
+     },
+     {
+      "number": 371,
+      "title": "build(sources): decomps as git submodules with readable patches",
+      "author": "nickyyOO",
+      "mergedAt": "2026-11-08T03:54:40Z"
+     },
+     {
+      "number": 373,
+      "title": "ci: run only what a pull request's files can affect",
+      "author": "nickyyOO",
+      "mergedAt": "2026-11-07T17:45:25Z"
+     },
+     {
+      "number": 374,
+      "title": "feat(rac4): match 616 more functions",
+      "author": "farfeduc"
+     },
+     {
+      "number": 375,
+      "title": "fix(launcher): keep WebKit text stable during animated game selection",
+      "author": "llesieur99",
+      "mergedAt": "2026-11-08T03:54:52Z"
+     },
+     {
+      "number": 376,
+      "title": "feat(port): add iOS memory, window and suspension support",
+      "author": "llesieur99",
+      "mergedAt": "2026-11-08T03:54:57Z"
+     },
+     {
+      "number": 377,
+      "title": "feat(ios): integrate shared launcher and local disc import on iPhone and iPad",
+      "author": "llesieur99",
+      "mergedAt": "2026-11-08T03:56:39Z"
+     },
+     {
+      "number": 381,
+      "title": "feat(rac3): recognise and build the PAL disc",
+      "author": "Veradictus",
+      "mergedAt": "2026-11-08T04:40:29Z"
+     },
+     {
+      "number": 382,
+      "title": "feat(launcher): offer the Metal renderer in Settings on macOS",
+      "author": "Veradictus",
+      "mergedAt": "2026-11-08T04:40:24Z"
+     },
+     {
+      "number": 383,
+      "title": "ci(launcher): replace the Windows image's own yarn shim when installing Corepack",
+      "author": "Veradictus",
+      "mergedAt": "2026-11-08T05:51:54Z"
+     },
+     {
+      "number": 384,
+      "title": "feat(sdk): let any mod turn the hero's joints, each mod's offsets composed",
+      "author": "Veradictus",
+      "mergedAt": "2026-11-08T05:52:00Z"
+     },
+     {
+      "number": 385,
+      "title": "feat(mods): one mod for several games, and Going Commando's first hook points",
+      "author": "Veradictus",
+      "mergedAt": "2026-11-08T05:52:05Z"
+     },
+     {
+      "number": 386,
+      "title": "feat(rac2): play calls for the multiplayer mod",
+      "author": "Veradictus",
+      "mergedAt": "2026-11-08T05:52:10Z"
+     },
+     {
+      "number": 387,
+      "title": "feat(sdk): Going Commando's item grants and givers as hook points",
+      "author": "Veradictus",
+      "mergedAt": "2026-11-08T06:45:45Z"
+     },
+     {
+      "number": 388,
+      "title": "feat(launcher): choose a custom save folder",
+      "author": "ecameracci",
+      "mergedAt": "2026-11-08T17:49:05Z"
+     },
+     {
+      "number": 389,
+      "title": "feat(launcher): each game's own Steam art, and --rac1-style launch options",
+      "author": "ecameracci",
+      "mergedAt": "2026-11-08T17:58:19Z"
+     },
+     {
+      "number": 390,
+      "title": "feat(sdk): Going Commando's item givers as hook points on PAL and USA v2.00",
+      "author": "Veradictus",
+      "mergedAt": "2026-11-08T07:12:17Z"
+     },
+     {
+      "number": 391,
+      "title": "perf(baker): bake Enhanced lighting faster",
+      "author": "nickyyOO",
+      "mergedAt": "2026-11-08T09:13:56Z"
+     },
+     {
+      "number": 392,
+      "title": "fix(port): test a moby's unbuilt sphere as MobyProc does, not draw it whole",
+      "author": "Veradictus",
+      "mergedAt": "2026-11-08T07:37:43Z"
+     },
+     {
+      "number": 393,
+      "title": "feat(launcher): optional game colours, and the light on OLED too",
+      "author": "nickyyOO",
+      "mergedAt": "2026-11-08T08:14:55Z"
+     },
+     {
+      "number": 394,
+      "title": "fix(rac2): read the table func_L00_002D5E30 forms as the table plus 2",
+      "author": "Veradictus",
+      "mergedAt": "2026-11-08T08:44:33Z"
+     },
+     {
+      "number": 395,
+      "title": "fix(rac2): touch pad contexts like rac1's",
+      "author": "nickyyOO",
+      "mergedAt": "2026-11-08T09:26:48Z"
+     },
+     {
+      "number": 396,
+      "title": "refactor(launcher): drop the Gruvbox theme",
+      "author": "nickyyOO",
+      "mergedAt": "2026-11-08T08:55:52Z"
+     },
+     {
+      "number": 397,
+      "title": "fix(ci): retry and cache the LLVM download for Windows",
+      "author": "nickyyOO",
+      "mergedAt": "2026-11-08T09:13:41Z"
+     },
+     {
+      "number": 398,
+      "title": "fix(launcher): show the Multiplayer name only while a mod that uses it is on",
+      "author": "nickyyOO",
+      "mergedAt": "2026-11-08T09:26:31Z"
+     },
+     {
+      "number": 399,
+      "title": "ci(ios): name the jobs like the others and run only what changes need",
+      "author": "nickyyOO",
+      "mergedAt": "2026-11-08T12:30:12Z"
+     },
+     {
+      "number": 400,
+      "title": "fix(ci): stop the launcher build when the probe baker cannot be built",
+      "author": "nickyyOO",
+      "mergedAt": "2026-11-08T12:39:56Z"
+     },
+     {
+      "number": 401,
+      "title": "fix(port): bring Going Commando PAL and USA v2.00 into their levels",
+      "author": "Veradictus",
+      "mergedAt": "2026-11-08T13:38:59Z"
+     },
+     {
+      "number": 402,
+      "title": "fix(touch): a yes button for O in menus and dialogs",
+      "author": "nickyyOO",
+      "mergedAt": "2026-11-08T13:58:08Z"
+     },
+     {
+      "number": 403,
+      "title": "fix(launcher): light under the page, no frame on the actions menu",
+      "author": "nickyyOO",
+      "mergedAt": "2026-11-08T14:15:43Z"
+     },
+     {
+      "number": 404,
+      "title": "fix(touch): a large skip button while a movie plays",
+      "author": "nickyyOO",
+      "mergedAt": "2026-11-08T14:40:05Z"
+     },
+     {
+      "number": 405,
+      "title": "fix(port): start USA v2.00's level openings and pair Going Commando's level hooks",
+      "author": "Veradictus",
+      "mergedAt": "2026-11-08T17:05:51Z"
+     },
+     {
+      "number": 406,
+      "title": "fix(ci): Windows launcher build, and shorter build logs",
+      "author": "nickyyOO",
+      "mergedAt": "2026-11-08T18:08:37Z"
+     },
+     {
+      "number": 407,
+      "title": "feat(enhanced): add subtle multi-resolution bloom",
+      "author": "momo1212221"
+     },
+     {
+      "number": 408,
+      "title": "chore(import): every decomp at its branch tip, OpenRAC's patches upstream",
+      "author": "Veradictus",
+      "mergedAt": "2026-11-08T23:26:14Z"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [
+     {
+      "number": 218,
+      "title": "[Feature request] Resident-world support and mod API for seamless inter-level portals",
+      "author": "noire342"
+     },
+     {
+      "number": 224,
+      "title": "Too long to compile and apply graphical enhancements?",
+      "author": "sebastian926"
+     },
+     {
+      "number": 242,
+      "title": "Failed: Prepare the enhanced lighting",
+      "author": "kwfrrb562c-boop"
+     },
+     {
+      "number": 243,
+      "title": "Godot re-targeting",
+      "author": "TheWhiteGuardian"
+     },
+     {
+      "number": 250,
+      "title": "Request: Ability to rebind controller buttons",
+      "author": "aaronjamestodd-ui"
+     },
+     {
+      "number": 252,
+      "title": "won't let me  reinstall",
+      "author": "baczyk47"
+     },
+     {
+      "number": 257,
+      "title": "Will there be support for a HD texture  pack? E.g the one that can be used in PCSX2?",
+      "author": "kwfrrb562c-boop"
+     },
+     {
+      "number": 262,
+      "title": "Crash when changing menu",
+      "author": "Ratchet2277"
+     },
+     {
+      "number": 274,
+      "title": "feat(mods): support callback-only native mods before game hook points",
+      "author": "momo1212221"
+     },
+     {
+      "number": 279,
+      "title": "Stick sensitivity doesn't seem to work?",
+      "author": "Billabong1985"
+     },
+     {
+      "number": 292,
+      "title": "Going Commando won't fully build itself during setup",
+      "author": "Zyndall"
+     },
+     {
+      "number": 299,
+      "title": "crashed on rilgar",
+      "author": "zoojeff100"
+     },
+     {
+      "number": 313,
+      "title": "Still having Ratchet 2 Build issues on v1.0.2",
+      "author": "Reecetafarian"
+     },
+     {
+      "number": 315,
+      "title": "[Linux] This folder keeps appearing in my Home",
+      "author": "babn4231"
+     },
+     {
+      "number": 316,
+      "title": "[Linux] Can't run Rac2",
+      "author": "babn4231"
+     },
+     {
+      "number": 318,
+      "title": "[Feature] Ability to create short cuts to open each game directly!",
+      "author": "babn4231"
+     },
+     {
+      "number": 327,
+      "title": "[Linux] Unable to create save data using M&K Mod",
+      "author": "stepsy"
+     },
+     {
+      "number": 331,
+      "title": "Got RAC2 working, RAC1 will no longer run",
+      "author": "xeokara"
+     },
+     {
+      "number": 332,
+      "title": "[Feature Request] Choose custom save folder location",
+      "author": "ecameracci"
+     },
+     {
+      "number": 333,
+      "title": "[Feature Request] Adding Individual Games to Steam",
+      "author": "ecameracci"
+     },
+     {
+      "number": 334,
+      "title": "RAC 2 ISSUE",
+      "author": "realitygen5-gif"
+     },
+     {
+      "number": 335,
+      "title": "Load screen planet text isn't affected by the HUD center or edge setting.",
+      "author": "Riflewarrior02"
+     },
+     {
+      "number": 340,
+      "title": "Launcher UI lags heavily with no reason to do so.",
+      "author": "Nikoroq"
+     },
+     {
+      "number": 342,
+      "title": "Enhanced lighting and level edits",
+      "author": "TheWhiteGuardian"
+     },
+     {
+      "number": 344,
+      "title": "SteamOS / ROG Ally X – Going Commando NTSC build update",
+      "author": "kwfrrb562c-boop"
+     },
+     {
+      "number": 355,
+      "title": "Going Commando PAL: HUD aliases call no-C stubs and crash at startup",
+      "author": "Sumaiter"
+     },
+     {
+      "number": 356,
+      "title": "Compatiblity with PAL V. 1.0 (Ratchet and Clank)",
+      "author": "MaxMobile-ru"
+     },
+     {
+      "number": 366,
+      "title": "Sometimes mobies are not rendered when using freecam",
+      "author": "stentines"
+     },
+     {
+      "number": 367,
+      "title": "[Missing Assets] Windows Installer Missing",
+      "author": "redchronowraith"
+     },
+     {
+      "number": 372,
+      "title": "Going Commando PAL: main menu never drawn (func_V1_002CA070 is a no-C stub), plus more HUD aliases to map",
+      "author": "JuanjoAvila"
+     },
+     {
+      "number": 378,
+      "title": "Mod SDK support for temporary gameplay scenes and ship transitions",
+      "author": "noire342"
+     },
+     {
+      "number": 379,
+      "title": "Suggestion: Support for HRTF and surround sound",
+      "author": "StarPepe"
+     },
+     {
+      "number": 380,
+      "title": "[LINUX] Mixed visual bugs/glitches",
+      "author": "StarPepe"
+     }
+    ],
+    "closed": [
+     {
+      "number": 218,
+      "title": "[Feature request] Resident-world support and mod API for seamless inter-level portals",
+      "author": "noire342"
+     },
+     {
+      "number": 224,
+      "title": "Too long to compile and apply graphical enhancements?",
+      "author": "sebastian926"
+     },
+     {
+      "number": 242,
+      "title": "Failed: Prepare the enhanced lighting",
+      "author": "kwfrrb562c-boop"
+     },
+     {
+      "number": 243,
+      "title": "Godot re-targeting",
+      "author": "TheWhiteGuardian"
+     },
+     {
+      "number": 250,
+      "title": "Request: Ability to rebind controller buttons",
+      "author": "aaronjamestodd-ui"
+     },
+     {
+      "number": 252,
+      "title": "won't let me  reinstall",
+      "author": "baczyk47"
+     },
+     {
+      "number": 262,
+      "title": "Crash when changing menu",
+      "author": "Ratchet2277"
+     },
+     {
+      "number": 274,
+      "title": "feat(mods): support callback-only native mods before game hook points",
+      "author": "momo1212221"
+     },
+     {
+      "number": 292,
+      "title": "Going Commando won't fully build itself during setup",
+      "author": "Zyndall"
+     },
+     {
+      "number": 313,
+      "title": "Still having Ratchet 2 Build issues on v1.0.2",
+      "author": "Reecetafarian"
+     },
+     {
+      "number": 315,
+      "title": "[Linux] This folder keeps appearing in my Home",
+      "author": "babn4231"
+     },
+     {
+      "number": 316,
+      "title": "[Linux] Can't run Rac2",
+      "author": "babn4231"
+     },
+     {
+      "number": 318,
+      "title": "[Feature] Ability to create short cuts to open each game directly!",
+      "author": "babn4231"
+     },
+     {
+      "number": 327,
+      "title": "[Linux] Unable to create save data using M&K Mod",
+      "author": "stepsy"
+     },
+     {
+      "number": 331,
+      "title": "Got RAC2 working, RAC1 will no longer run",
+      "author": "xeokara"
+     },
+     {
+      "number": 332,
+      "title": "[Feature Request] Choose custom save folder location",
+      "author": "ecameracci"
+     },
+     {
+      "number": 333,
+      "title": "[Feature Request] Adding Individual Games to Steam",
+      "author": "ecameracci"
+     },
+     {
+      "number": 334,
+      "title": "RAC 2 ISSUE",
+      "author": "realitygen5-gif"
+     },
+     {
+      "number": 335,
+      "title": "Load screen planet text isn't affected by the HUD center or edge setting.",
+      "author": "Riflewarrior02"
+     },
+     {
+      "number": 344,
+      "title": "SteamOS / ROG Ally X – Going Commando NTSC build update",
+      "author": "kwfrrb562c-boop"
+     },
+     {
+      "number": 356,
+      "title": "Compatiblity with PAL V. 1.0 (Ratchet and Clank)",
+      "author": "MaxMobile-ru"
+     },
+     {
+      "number": 367,
+      "title": "[Missing Assets] Windows Installer Missing",
+      "author": "redchronowraith"
+     },
+     {
+      "number": 378,
+      "title": "Mod SDK support for temporary gameplay scenes and ship transitions",
+      "author": "noire342"
+     }
+    ]
+   },
+   "releases": [
+    {
+     "tag": "launcher-v1.0.0",
+     "name": "v1.0.0",
+     "publishedAt": "2026-11-04T20:23:54Z"
+    },
+    {
+     "tag": "launcher-v1.0.1",
+     "name": "v1.0.1",
+     "publishedAt": "2026-11-05T03:17:34Z"
+    },
+    {
+     "tag": "launcher-v1.0.2",
+     "name": "v1.0.2",
+     "publishedAt": "2026-11-05T07:50:33Z"
+    },
+    {
+     "tag": "sdk-v1.14.0",
+     "name": "Mod SDK 1.14.0",
+     "publishedAt": "2026-11-06T15:47:47Z"
+    },
+    {
+     "tag": "sdk-v1.14.1",
+     "name": "Mod SDK 1.14.1",
+     "publishedAt": "2026-11-08T05:55:03Z"
+    },
+    {
+     "tag": "sdk-v1.14.2",
+     "name": "Mod SDK 1.14.2",
+     "publishedAt": "2026-11-08T06:49:02Z"
+    }
+   ],
+   "progress": null,
+   "contributors": [
+    "bigbeno37",
+    "ecameracci",
+    "farfeduc",
+    "llesieur99",
+    "Lynder063",
+    "momo1212221",
+    "nickyyOO",
+    "pezzadev",
+    "Veradictus",
+    "xsyetopz"
+   ]
+  },
+  {
+   "repo": "rac1-decomp",
+   "title": "Ratchet & Clank",
+   "commitCount": 30,
+   "activeDays": [
+    "2026-11-02",
+    "2026-11-03",
+    "2026-11-05",
+    "2026-11-08"
+   ],
+   "pullRequests": {
+    "merged": [
+     {
+      "number": 211,
+      "title": "refactor(overlays): give byte pointers that are certainly mobys their Moby fields",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-02T07:20:36Z"
+     },
+     {
+      "number": 212,
+      "title": "refactor(overlays): give moby fields to files that lacked the Moby header",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-02T07:34:09Z"
+     },
+     {
+      "number": 213,
+      "title": "refactor(overlays): convert raw offsets to fields in bulk",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-02T08:22:29Z"
+     },
+     {
+      "number": 214,
+      "title": "refactor(overlays): replace fake base addresses with the real globals",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-02T08:43:49Z"
+     },
+     {
+      "number": 215,
+      "title": "refactor(overlays): finish fake bases in fragments and give globals their real types",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-02T09:20:21Z"
+     },
+     {
+      "number": 216,
+      "title": "refactor(overlays): give small-data globals their real types with SDATA",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-02T09:34:08Z"
+     },
+     {
+      "number": 217,
+      "title": "feat(data): write out zero blocks and pointer tables, and give data real types",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-02T09:56:48Z"
+     },
+     {
+      "number": 218,
+      "title": "feat(data): put all of .data in C and give blocks their local struct types",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-02T10:22:31Z"
+     },
+     {
+      "number": 219,
+      "title": "feat(data): put .lit, core rdata and level tables in C",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-02T10:37:08Z"
+     },
+     {
+      "number": 220,
+      "title": "style(repo): mark case fall-throughs and use one number base per switch",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-02T10:52:11Z"
+     },
+     {
+      "number": 221,
+      "title": "feat(data): give blocks the types the code reads them as, and add setup_compilers",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-02T11:22:09Z"
+     },
+     {
+      "number": 222,
+      "title": "feat(data): split blocks at the addresses the code uses inside them",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-02T12:05:09Z"
+     },
+     {
+      "number": 223,
+      "title": "refactor(data): readable names in SDATA, and move 465 blocks to the files that use them",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-02T12:47:29Z"
+     },
+     {
+      "number": 224,
+      "title": "docs(repo): record what each fakematch does, measured by removing it",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-02T13:39:58Z"
+     },
+     {
+      "number": 225,
+      "title": "docs(repo): list the ISOs and dump commands in the README setup",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-02T16:42:00Z"
+     },
+     {
+      "number": 226,
+      "title": "refactor(game): give small-data globals their real types",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-02T17:40:28Z"
+     },
+     {
+      "number": 227,
+      "title": "refactor(hero): name the control modes the code proves",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-02T17:54:29Z"
+     },
+     {
+      "number": 228,
+      "title": "refactor(audio): replace 50 local voice slot views with one shared type",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-02T18:11:54Z"
+     },
+     {
+      "number": 229,
+      "title": "refactor(hero): give local hero pointers their real type",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-02T18:26:57Z"
+     },
+     {
+      "number": 230,
+      "title": "refactor(hero): read the hero directly, and merge HS and T_8 into shared records",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-02T19:02:30Z"
+     },
+     {
+      "number": 231,
+      "title": "refactor(game): remove two if (0) hacks and three gp views with SDATA",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-02T19:26:34Z"
+     },
+     {
+      "number": 232,
+      "title": "docs(repo): write down the backlog after the refactor plan",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-02T19:46:12Z"
+     },
+     {
+      "number": 233,
+      "title": "refactor(overlays): replace fake base aliases and type more extern short globals",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-02T21:00:30Z"
+     },
+     {
+      "number": 234,
+      "title": "refactor(overlays): move function declarations into headers, first part",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-03T01:33:11Z"
+     },
+     {
+      "number": 235,
+      "title": "refactor(overlays): move function declarations into headers, second part",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-03T04:24:46Z"
+     },
+     {
+      "number": 236,
+      "title": "refactor(overlays): use real function names where the alias types match",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-03T09:43:00Z"
+     },
+     {
+      "number": 237,
+      "title": "refactor(overlays): finish moving function declarations and matching aliases",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-03T10:50:59Z"
+     },
+     {
+      "number": 238,
+      "title": "feat(jp): take NTSC-J to 99.93% and follow the NTSC decomp",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-05T18:26:05Z"
+     },
+     {
+      "number": 239,
+      "title": "feat(versions): finish NTSC-J and PAL v1.00 at 100%",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-05T18:26:37Z"
+     },
+     {
+      "number": 240,
+      "title": "feat: upstream OpenRAC's local changes",
+      "author": "Veradictus",
+      "mergedAt": "2026-11-08T17:50:15Z"
+     }
+    ],
+    "opened": [
+     {
+      "number": 211,
+      "title": "refactor(overlays): give byte pointers that are certainly mobys their Moby fields",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-02T07:20:36Z"
+     },
+     {
+      "number": 212,
+      "title": "refactor(overlays): give moby fields to files that lacked the Moby header",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-02T07:34:09Z"
+     },
+     {
+      "number": 213,
+      "title": "refactor(overlays): convert raw offsets to fields in bulk",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-02T08:22:29Z"
+     },
+     {
+      "number": 214,
+      "title": "refactor(overlays): replace fake base addresses with the real globals",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-02T08:43:49Z"
+     },
+     {
+      "number": 215,
+      "title": "refactor(overlays): finish fake bases in fragments and give globals their real types",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-02T09:20:21Z"
+     },
+     {
+      "number": 216,
+      "title": "refactor(overlays): give small-data globals their real types with SDATA",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-02T09:34:08Z"
+     },
+     {
+      "number": 217,
+      "title": "feat(data): write out zero blocks and pointer tables, and give data real types",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-02T09:56:48Z"
+     },
+     {
+      "number": 218,
+      "title": "feat(data): put all of .data in C and give blocks their local struct types",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-02T10:22:31Z"
+     },
+     {
+      "number": 219,
+      "title": "feat(data): put .lit, core rdata and level tables in C",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-02T10:37:08Z"
+     },
+     {
+      "number": 220,
+      "title": "style(repo): mark case fall-throughs and use one number base per switch",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-02T10:52:11Z"
+     },
+     {
+      "number": 221,
+      "title": "feat(data): give blocks the types the code reads them as, and add setup_compilers",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-02T11:22:09Z"
+     },
+     {
+      "number": 222,
+      "title": "feat(data): split blocks at the addresses the code uses inside them",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-02T12:05:09Z"
+     },
+     {
+      "number": 223,
+      "title": "refactor(data): readable names in SDATA, and move 465 blocks to the files that use them",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-02T12:47:29Z"
+     },
+     {
+      "number": 224,
+      "title": "docs(repo): record what each fakematch does, measured by removing it",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-02T13:39:58Z"
+     },
+     {
+      "number": 225,
+      "title": "docs(repo): list the ISOs and dump commands in the README setup",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-02T16:42:00Z"
+     },
+     {
+      "number": 226,
+      "title": "refactor(game): give small-data globals their real types",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-02T17:40:28Z"
+     },
+     {
+      "number": 227,
+      "title": "refactor(hero): name the control modes the code proves",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-02T17:54:29Z"
+     },
+     {
+      "number": 228,
+      "title": "refactor(audio): replace 50 local voice slot views with one shared type",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-02T18:11:54Z"
+     },
+     {
+      "number": 229,
+      "title": "refactor(hero): give local hero pointers their real type",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-02T18:26:57Z"
+     },
+     {
+      "number": 230,
+      "title": "refactor(hero): read the hero directly, and merge HS and T_8 into shared records",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-02T19:02:30Z"
+     },
+     {
+      "number": 231,
+      "title": "refactor(game): remove two if (0) hacks and three gp views with SDATA",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-02T19:26:34Z"
+     },
+     {
+      "number": 232,
+      "title": "docs(repo): write down the backlog after the refactor plan",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-02T19:46:12Z"
+     },
+     {
+      "number": 233,
+      "title": "refactor(overlays): replace fake base aliases and type more extern short globals",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-02T21:00:30Z"
+     },
+     {
+      "number": 234,
+      "title": "refactor(overlays): move function declarations into headers, first part",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-03T01:33:11Z"
+     },
+     {
+      "number": 235,
+      "title": "refactor(overlays): move function declarations into headers, second part",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-03T04:24:46Z"
+     },
+     {
+      "number": 236,
+      "title": "refactor(overlays): use real function names where the alias types match",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-03T09:43:00Z"
+     },
+     {
+      "number": 237,
+      "title": "refactor(overlays): finish moving function declarations and matching aliases",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-03T10:50:59Z"
+     },
+     {
+      "number": 238,
+      "title": "feat(jp): take NTSC-J to 99.93% and follow the NTSC decomp",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-05T18:26:05Z"
+     },
+     {
+      "number": 239,
+      "title": "feat(versions): finish NTSC-J and PAL v1.00 at 100%",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-05T18:26:37Z"
+     },
+     {
+      "number": 240,
+      "title": "feat: upstream OpenRAC's local changes",
+      "author": "Veradictus",
+      "mergedAt": "2026-11-08T17:50:15Z"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [],
+    "closed": [
+     {
+      "number": 162,
+      "title": "[LINUX] Mixed visual bugs/glitches",
+      "author": "StarPepe"
+     },
+     {
+      "number": 163,
+      "title": "Suggestion: Support for HRTF and surround sound",
+      "author": "StarPepe"
+     },
+     {
+      "number": 164,
+      "title": "[LINUX] Launcher freezing",
+      "author": "StarPepe"
+     }
+    ]
+   },
+   "releases": [],
+   "progress": {
+    "before": {
+     "code": {
+      "done": 3713096,
+      "total": 3713096
+     },
+     "functions": {
+      "done": 5116,
+      "total": 5116
+     },
+     "data": {
+      "done": 516916,
+      "total": 699072
+     }
+    },
+    "after": {
+     "code": {
+      "done": 3713584,
+      "total": 3713584
+     },
+     "functions": {
+      "done": 5118,
+      "total": 5118
+     },
+     "data": {
+      "done": 698751,
+      "total": 699072
+     }
+    }
+   },
+   "contributors": [
+    "Lynder063",
+    "Veradictus"
+   ]
+  },
+  {
+   "repo": "rac2-decomp",
+   "title": "Going Commando",
+   "commitCount": 230,
+   "activeDays": [
+    "2026-11-02",
+    "2026-11-03",
+    "2026-11-04",
+    "2026-11-05",
+    "2026-11-06",
+    "2026-11-07",
+    "2026-11-08"
+   ],
+   "pullRequests": {
+    "merged": [
+     {
+      "number": 389,
+      "title": "feat(functional): backfill for the native port",
+      "author": "Veradictus",
+      "mergedAt": "2026-11-02T07:56:33Z"
+     },
+     {
+      "number": 390,
+      "title": "fix(nonmatching): repair five large actor and loader reconstructions",
+      "author": "llesieur99",
+      "mergedAt": "2026-11-02T02:42:51Z"
+     },
+     {
+      "number": 391,
+      "title": "feat(src): match shared steering update and repair retained large functions",
+      "author": "llesieur99",
+      "mergedAt": "2026-11-02T08:01:52Z"
+     },
+     {
+      "number": 392,
+      "title": "feat(src): match func_L26_003D4590 and repair six copies of one catalogue entry",
+      "author": "Fromnowheree",
+      "mergedAt": "2026-11-02T22:34:00Z"
+     },
+     {
+      "number": 393,
+      "title": "feat(functional): second backfill round for the native port",
+      "author": "Veradictus",
+      "mergedAt": "2026-11-03T07:12:59Z"
+     },
+     {
+      "number": 394,
+      "title": "feat(src): six Joba functions in C, notes for the near misses",
+      "author": "DrLegitamate",
+      "mergedAt": "2026-11-02T22:34:09Z"
+     },
+     {
+      "number": 395,
+      "title": "feat(levels): match family F7 (15 functions) and func_L04_00418BF0, 13 near-miss notes from the #152 reservation",
+      "author": "cadelass",
+      "mergedAt": "2026-11-02T22:35:23Z"
+     },
+     {
+      "number": 396,
+      "title": "feat(src): two Oozla functions in C, closer near miss for func_L11_00420C88",
+      "author": "DrLegitamate",
+      "mergedAt": "2026-11-03T07:38:39Z"
+     },
+     {
+      "number": 397,
+      "title": "feat(src): func_002CC528 in C after an entry correction; func_002A0488 notes",
+      "author": "DrLegitamate",
+      "mergedAt": "2026-11-03T07:39:04Z"
+     },
+     {
+      "number": 398,
+      "title": "feat(src): match nine routines and repair retained reconstructions",
+      "author": "llesieur99",
+      "mergedAt": "2026-11-03T07:39:34Z"
+     },
+     {
+      "number": 399,
+      "title": "feat(src): match 145 boot and level functions",
+      "author": "bigbeno37",
+      "mergedAt": "2026-11-03T07:45:36Z"
+     },
+     {
+      "number": 400,
+      "title": "docs: handoff for work where the decomp meets the native port",
+      "author": "Veradictus",
+      "mergedAt": "2026-11-03T07:20:22Z"
+     },
+     {
+      "number": 401,
+      "title": "fix(catalogue): repair fourteen entries and match thirteen routines",
+      "author": "llesieur99",
+      "mergedAt": "2026-11-03T14:54:32Z"
+     },
+     {
+      "number": 402,
+      "title": "fix(functional): return 27 helper rows after the loader argument fix",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-03T15:51:52Z"
+     },
+     {
+      "number": 403,
+      "title": "docs(port): record the retail comparison and the waiting rows",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-03T16:22:39Z"
+     },
+     {
+      "number": 404,
+      "title": "fix(nonmatching): repair shared effect storage and phase lifetimes",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-03T17:06:49Z"
+     },
+     {
+      "number": 405,
+      "title": "feat(src): match four initialization table functions",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-03T17:06:36Z"
+     },
+     {
+      "number": 406,
+      "title": "feat(src): qualify 37 RAC1-identical original assembly routines",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-03T17:34:31Z"
+     },
+     {
+      "number": 407,
+      "title": "feat(src): match libm logs and HUD with verified constant pools",
+      "author": "llesieur99",
+      "mergedAt": "2026-11-03T19:16:58Z"
+     },
+     {
+      "number": 408,
+      "title": "feat(src): func_L11_00420C88 in C; func_002B60B0 returns nothing",
+      "author": "DrLegitamate",
+      "mergedAt": "2026-11-04T02:28:42Z"
+     },
+     {
+      "number": 409,
+      "title": "feat(src): func_00333048 in C; its hit-packet read is a dead normalize",
+      "author": "DrLegitamate",
+      "mergedAt": "2026-11-04T02:28:12Z"
+     },
+     {
+      "number": 410,
+      "title": "docs(port): record the Feltzin, Gorn and Hrugis findings and the reference's limits",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-03T21:42:26Z"
+     },
+     {
+      "number": 411,
+      "title": "feat(src): func_L08_002BE8E8 in C, as its merged level 18 twin",
+      "author": "DrLegitamate",
+      "mergedAt": "2026-11-04T02:28:08Z"
+     },
+     {
+      "number": 412,
+      "title": "fix(functional): return three rows the gate proves and drop a matched file",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-04T02:24:41Z"
+     },
+     {
+      "number": 413,
+      "title": "feat(tools): compare C over a whole run with fcheck.py swap",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-04T02:24:37Z"
+     },
+     {
+      "number": 414,
+      "title": "Match caption rendering, Maktar combat and the boot loop (4,328 bytes)",
+      "author": "llesieur99",
+      "mergedAt": "2026-11-04T09:31:37Z"
+     },
+     {
+      "number": 415,
+      "title": "feat(functional): return five rows checked by whole runs",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-04T08:40:37Z"
+     },
+     {
+      "number": 416,
+      "title": "Split four merged extents and match ten C functions (240 bytes)",
+      "author": "llesieur99",
+      "mergedAt": "2026-11-04T15:58:01Z"
+     },
+     {
+      "number": 417,
+      "title": "Match five HUD and level initialization functions",
+      "author": "llesieur99",
+      "mergedAt": "2026-11-04T19:59:50Z"
+     },
+     {
+      "number": 418,
+      "title": "feat(pal): carry 59 functions from their v1.01 C",
+      "author": "cadelass",
+      "mergedAt": "2026-11-04T20:00:22Z"
+     },
+     {
+      "number": 419,
+      "title": "feat(src): func_L11_00451178 and func_L02_003FE768 in C; Joba state-machine findings",
+      "author": "DrLegitamate",
+      "mergedAt": "2026-11-05T15:55:40Z"
+     },
+     {
+      "number": 420,
+      "title": "Match shared triggers and UI setup; preserve renderer FP arguments",
+      "author": "llesieur99",
+      "mergedAt": "2026-11-04T22:10:05Z"
+     },
+     {
+      "number": 422,
+      "title": "feat(src): match 2 USA v1.01 functions and carry 18 PAL ones",
+      "author": "cadelass",
+      "mergedAt": "2026-11-05T03:06:50Z"
+     },
+     {
+      "number": 423,
+      "title": "Match 16 USA functions and repair reload/padding accounting",
+      "author": "llesieur99",
+      "mergedAt": "2026-11-05T15:11:46Z"
+     },
+     {
+      "number": 424,
+      "title": "feat(src): match 22 reserved functions and classify the rest of the small tier",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-06T06:14:40Z"
+     },
+     {
+      "number": 425,
+      "title": "feat(src): four functions in C (sky renderers, level-8 emitter, beam), three original assembly routines",
+      "author": "DrLegitamate",
+      "mergedAt": "2026-11-06T05:49:34Z"
+     },
+     {
+      "number": 426,
+      "title": "feat(pal): carry 20 more functions from their v1.01 C",
+      "author": "cadelass",
+      "mergedAt": "2026-11-06T05:50:14Z"
+     },
+     {
+      "number": 427,
+      "title": "feat(src): match medium-tier functions",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-06T14:38:07Z"
+     },
+     {
+      "number": 428,
+      "title": "fix(levels): name level data by its own level's address",
+      "author": "nickyyOO",
+      "mergedAt": "2026-11-06T12:35:49Z"
+     },
+     {
+      "number": 429,
+      "title": "fix: rule volatile out of matched C and fix what #424-#426 added",
+      "author": "Veradictus",
+      "mergedAt": "2026-11-06T14:37:31Z"
+     },
+     {
+      "number": 430,
+      "title": "feat(src): match five medium-tier functions",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-06T18:49:28Z"
+     },
+     {
+      "number": 432,
+      "title": "chore(progress): stop reporting data measures",
+      "author": "Veradictus",
+      "mergedAt": "2026-11-06T18:48:25Z"
+     },
+     {
+      "number": 433,
+      "title": "docs(nonmatching): measured near-miss results for func_002CA070, F35, func_L10_004227A0 and func_L00_003E5BD8",
+      "author": "DrLegitamate",
+      "mergedAt": "2026-11-08T04:02:29Z"
+     },
+     {
+      "number": 434,
+      "title": "docs(nonmatching): record the func_L00_003C48D0 strand-base measurements",
+      "author": "nominalsan",
+      "mergedAt": "2026-11-08T04:02:28Z"
+     },
+     {
+      "number": 435,
+      "title": "fix: upstream OpenRAC's local changes",
+      "author": "Veradictus",
+      "mergedAt": "2026-11-08T04:00:46Z"
+     },
+     {
+      "number": 436,
+      "title": "docs(nonmatching): retain func_L00_003769C0 one instruction short of retail",
+      "author": "nominalsan",
+      "mergedAt": "2026-11-08T17:42:16Z"
+     }
+    ],
+    "opened": [
+     {
+      "number": 390,
+      "title": "fix(nonmatching): repair five large actor and loader reconstructions",
+      "author": "llesieur99",
+      "mergedAt": "2026-11-02T02:42:51Z"
+     },
+     {
+      "number": 391,
+      "title": "feat(src): match shared steering update and repair retained large functions",
+      "author": "llesieur99",
+      "mergedAt": "2026-11-02T08:01:52Z"
+     },
+     {
+      "number": 392,
+      "title": "feat(src): match func_L26_003D4590 and repair six copies of one catalogue entry",
+      "author": "Fromnowheree",
+      "mergedAt": "2026-11-02T22:34:00Z"
+     },
+     {
+      "number": 393,
+      "title": "feat(functional): second backfill round for the native port",
+      "author": "Veradictus",
+      "mergedAt": "2026-11-03T07:12:59Z"
+     },
+     {
+      "number": 394,
+      "title": "feat(src): six Joba functions in C, notes for the near misses",
+      "author": "DrLegitamate",
+      "mergedAt": "2026-11-02T22:34:09Z"
+     },
+     {
+      "number": 395,
+      "title": "feat(levels): match family F7 (15 functions) and func_L04_00418BF0, 13 near-miss notes from the #152 reservation",
+      "author": "cadelass",
+      "mergedAt": "2026-11-02T22:35:23Z"
+     },
+     {
+      "number": 396,
+      "title": "feat(src): two Oozla functions in C, closer near miss for func_L11_00420C88",
+      "author": "DrLegitamate",
+      "mergedAt": "2026-11-03T07:38:39Z"
+     },
+     {
+      "number": 397,
+      "title": "feat(src): func_002CC528 in C after an entry correction; func_002A0488 notes",
+      "author": "DrLegitamate",
+      "mergedAt": "2026-11-03T07:39:04Z"
+     },
+     {
+      "number": 398,
+      "title": "feat(src): match nine routines and repair retained reconstructions",
+      "author": "llesieur99",
+      "mergedAt": "2026-11-03T07:39:34Z"
+     },
+     {
+      "number": 399,
+      "title": "feat(src): match 145 boot and level functions",
+      "author": "bigbeno37",
+      "mergedAt": "2026-11-03T07:45:36Z"
+     },
+     {
+      "number": 400,
+      "title": "docs: handoff for work where the decomp meets the native port",
+      "author": "Veradictus",
+      "mergedAt": "2026-11-03T07:20:22Z"
+     },
+     {
+      "number": 401,
+      "title": "fix(catalogue): repair fourteen entries and match thirteen routines",
+      "author": "llesieur99",
+      "mergedAt": "2026-11-03T14:54:32Z"
+     },
+     {
+      "number": 402,
+      "title": "fix(functional): return 27 helper rows after the loader argument fix",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-03T15:51:52Z"
+     },
+     {
+      "number": 403,
+      "title": "docs(port): record the retail comparison and the waiting rows",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-03T16:22:39Z"
+     },
+     {
+      "number": 404,
+      "title": "fix(nonmatching): repair shared effect storage and phase lifetimes",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-03T17:06:49Z"
+     },
+     {
+      "number": 405,
+      "title": "feat(src): match four initialization table functions",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-03T17:06:36Z"
+     },
+     {
+      "number": 406,
+      "title": "feat(src): qualify 37 RAC1-identical original assembly routines",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-03T17:34:31Z"
+     },
+     {
+      "number": 407,
+      "title": "feat(src): match libm logs and HUD with verified constant pools",
+      "author": "llesieur99",
+      "mergedAt": "2026-11-03T19:16:58Z"
+     },
+     {
+      "number": 408,
+      "title": "feat(src): func_L11_00420C88 in C; func_002B60B0 returns nothing",
+      "author": "DrLegitamate",
+      "mergedAt": "2026-11-04T02:28:42Z"
+     },
+     {
+      "number": 409,
+      "title": "feat(src): func_00333048 in C; its hit-packet read is a dead normalize",
+      "author": "DrLegitamate",
+      "mergedAt": "2026-11-04T02:28:12Z"
+     },
+     {
+      "number": 410,
+      "title": "docs(port): record the Feltzin, Gorn and Hrugis findings and the reference's limits",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-03T21:42:26Z"
+     },
+     {
+      "number": 411,
+      "title": "feat(src): func_L08_002BE8E8 in C, as its merged level 18 twin",
+      "author": "DrLegitamate",
+      "mergedAt": "2026-11-04T02:28:08Z"
+     },
+     {
+      "number": 412,
+      "title": "fix(functional): return three rows the gate proves and drop a matched file",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-04T02:24:41Z"
+     },
+     {
+      "number": 413,
+      "title": "feat(tools): compare C over a whole run with fcheck.py swap",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-04T02:24:37Z"
+     },
+     {
+      "number": 414,
+      "title": "Match caption rendering, Maktar combat and the boot loop (4,328 bytes)",
+      "author": "llesieur99",
+      "mergedAt": "2026-11-04T09:31:37Z"
+     },
+     {
+      "number": 415,
+      "title": "feat(functional): return five rows checked by whole runs",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-04T08:40:37Z"
+     },
+     {
+      "number": 416,
+      "title": "Split four merged extents and match ten C functions (240 bytes)",
+      "author": "llesieur99",
+      "mergedAt": "2026-11-04T15:58:01Z"
+     },
+     {
+      "number": 417,
+      "title": "Match five HUD and level initialization functions",
+      "author": "llesieur99",
+      "mergedAt": "2026-11-04T19:59:50Z"
+     },
+     {
+      "number": 418,
+      "title": "feat(pal): carry 59 functions from their v1.01 C",
+      "author": "cadelass",
+      "mergedAt": "2026-11-04T20:00:22Z"
+     },
+     {
+      "number": 419,
+      "title": "feat(src): func_L11_00451178 and func_L02_003FE768 in C; Joba state-machine findings",
+      "author": "DrLegitamate",
+      "mergedAt": "2026-11-05T15:55:40Z"
+     },
+     {
+      "number": 420,
+      "title": "Match shared triggers and UI setup; preserve renderer FP arguments",
+      "author": "llesieur99",
+      "mergedAt": "2026-11-04T22:10:05Z"
+     },
+     {
+      "number": 422,
+      "title": "feat(src): match 2 USA v1.01 functions and carry 18 PAL ones",
+      "author": "cadelass",
+      "mergedAt": "2026-11-05T03:06:50Z"
+     },
+     {
+      "number": 423,
+      "title": "Match 16 USA functions and repair reload/padding accounting",
+      "author": "llesieur99",
+      "mergedAt": "2026-11-05T15:11:46Z"
+     },
+     {
+      "number": 424,
+      "title": "feat(src): match 22 reserved functions and classify the rest of the small tier",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-06T06:14:40Z"
+     },
+     {
+      "number": 425,
+      "title": "feat(src): four functions in C (sky renderers, level-8 emitter, beam), three original assembly routines",
+      "author": "DrLegitamate",
+      "mergedAt": "2026-11-06T05:49:34Z"
+     },
+     {
+      "number": 426,
+      "title": "feat(pal): carry 20 more functions from their v1.01 C",
+      "author": "cadelass",
+      "mergedAt": "2026-11-06T05:50:14Z"
+     },
+     {
+      "number": 427,
+      "title": "feat(src): match medium-tier functions",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-06T14:38:07Z"
+     },
+     {
+      "number": 428,
+      "title": "fix(levels): name level data by its own level's address",
+      "author": "nickyyOO",
+      "mergedAt": "2026-11-06T12:35:49Z"
+     },
+     {
+      "number": 429,
+      "title": "fix: rule volatile out of matched C and fix what #424-#426 added",
+      "author": "Veradictus",
+      "mergedAt": "2026-11-06T14:37:31Z"
+     },
+     {
+      "number": 430,
+      "title": "feat(src): match five medium-tier functions",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-06T18:49:28Z"
+     },
+     {
+      "number": 431,
+      "title": "docs(nonmatching): record the HUD family and call-site measurements",
+      "author": "nominalsan"
+     },
+     {
+      "number": 432,
+      "title": "chore(progress): stop reporting data measures",
+      "author": "Veradictus",
+      "mergedAt": "2026-11-06T18:48:25Z"
+     },
+     {
+      "number": 433,
+      "title": "docs(nonmatching): measured near-miss results for func_002CA070, F35, func_L10_004227A0 and func_L00_003E5BD8",
+      "author": "DrLegitamate",
+      "mergedAt": "2026-11-08T04:02:29Z"
+     },
+     {
+      "number": 434,
+      "title": "docs(nonmatching): record the func_L00_003C48D0 strand-base measurements",
+      "author": "nominalsan",
+      "mergedAt": "2026-11-08T04:02:28Z"
+     },
+     {
+      "number": 435,
+      "title": "fix: upstream OpenRAC's local changes",
+      "author": "Veradictus",
+      "mergedAt": "2026-11-08T04:00:46Z"
+     },
+     {
+      "number": 436,
+      "title": "docs(nonmatching): retain func_L00_003769C0 one instruction short of retail",
+      "author": "nominalsan",
+      "mergedAt": "2026-11-08T17:42:16Z"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [
+     {
+      "number": 421,
+      "title": "PAL catalogue: menu accessor places shifted by one in levels 05, 10, 15 and 25",
+      "author": "cadelass"
+     }
+    ],
+    "closed": []
+   },
+   "releases": [],
+   "progress": {
+    "before": {
+     "code": {
+      "done": 4684272,
+      "total": 5527936
+     },
+     "functions": {
+      "done": 7760,
+      "total": 8579
+     },
+     "data": {
+      "done": 0,
+      "total": 383391
+     }
+    },
+    "after": {
+     "code": {
+      "done": 5379232,
+      "total": 5524060
+     },
+     "functions": {
+      "done": 8452,
+      "total": 8527
+     }
+    }
+   },
+   "contributors": [
+    "bigbeno37",
+    "cadelass",
+    "DrLegitamate",
+    "Fromnowheree",
+    "llesieur99",
+    "Lynder063",
+    "nickyyOO",
+    "nominalsan",
+    "Veradictus"
+   ]
+  },
+  {
+   "repo": "rac3-decomp",
+   "title": "Up Your Arsenal",
+   "commitCount": 148,
+   "activeDays": [
+    "2026-11-03",
+    "2026-11-04",
+    "2026-11-06",
+    "2026-11-08"
+   ],
+   "pullRequests": {
+    "merged": [
+     {
+      "number": 2,
+      "title": "feat(frontbin): match 29 functions and fix native source selection",
+      "author": "DameNavarro",
+      "mergedAt": "2026-11-03T15:24:59Z"
+     },
+     {
+      "number": 4,
+      "title": "feat(us): match 135 small NTSC-U level functions",
+      "author": "llesieur99",
+      "mergedAt": "2026-11-06T05:58:55Z"
+     },
+     {
+      "number": 5,
+      "title": "feat: names, shared layouts and hero/camera matches from open-rac-engine",
+      "author": "manstie",
+      "mergedAt": "2026-11-06T14:44:35Z"
+     },
+     {
+      "number": 6,
+      "title": "feat(us): match 23 more small NTSC-U level functions",
+      "author": "llesieur99",
+      "mergedAt": "2026-11-06T13:04:27Z"
+     },
+     {
+      "number": 7,
+      "title": "feat(us): match four more small NTSC-U level functions",
+      "author": "llesieur99",
+      "mergedAt": "2026-11-06T13:48:06Z"
+     },
+     {
+      "number": 8,
+      "title": "feat(us): match three small NTSC-U level functions and correct globals",
+      "author": "llesieur99",
+      "mergedAt": "2026-11-06T14:43:01Z"
+     },
+     {
+      "number": 9,
+      "title": "match(us): two short shared level functions across 85 placements",
+      "author": "llesieur99",
+      "mergedAt": "2026-11-06T16:24:30Z"
+     },
+     {
+      "number": 10,
+      "title": "match: 8 frontbin and 12 level functions; near misses to nonmatching",
+      "author": "cadelass",
+      "mergedAt": "2026-11-08T05:33:54Z"
+     },
+     {
+      "number": 11,
+      "title": "match: 20 level 1 (Veldin) functions; near misses to nonmatching",
+      "author": "cadelass",
+      "mergedAt": "2026-11-08T05:33:55Z"
+     },
+     {
+      "number": 12,
+      "title": "match: 24 level 2 (Florana) functions; near misses and patterns",
+      "author": "cadelass",
+      "mergedAt": "2026-11-08T05:33:54Z"
+     },
+     {
+      "number": 13,
+      "title": "match: rac3's largest functions (28 matched) plus the held swarm matches",
+      "author": "Veradictus",
+      "mergedAt": "2026-11-08T18:37:50Z"
+     },
+     {
+      "number": 14,
+      "title": "match: 73 level 3 (Starship Phoenix) functions; near misses and patterns",
+      "author": "cadelass",
+      "mergedAt": "2026-11-08T13:17:14Z"
+     }
+    ],
+    "opened": [
+     {
+      "number": 2,
+      "title": "feat(frontbin): match 29 functions and fix native source selection",
+      "author": "DameNavarro",
+      "mergedAt": "2026-11-03T15:24:59Z"
+     },
+     {
+      "number": 4,
+      "title": "feat(us): match 135 small NTSC-U level functions",
+      "author": "llesieur99",
+      "mergedAt": "2026-11-06T05:58:55Z"
+     },
+     {
+      "number": 5,
+      "title": "feat: names, shared layouts and hero/camera matches from open-rac-engine",
+      "author": "manstie",
+      "mergedAt": "2026-11-06T14:44:35Z"
+     },
+     {
+      "number": 6,
+      "title": "feat(us): match 23 more small NTSC-U level functions",
+      "author": "llesieur99",
+      "mergedAt": "2026-11-06T13:04:27Z"
+     },
+     {
+      "number": 7,
+      "title": "feat(us): match four more small NTSC-U level functions",
+      "author": "llesieur99",
+      "mergedAt": "2026-11-06T13:48:06Z"
+     },
+     {
+      "number": 8,
+      "title": "feat(us): match three small NTSC-U level functions and correct globals",
+      "author": "llesieur99",
+      "mergedAt": "2026-11-06T14:43:01Z"
+     },
+     {
+      "number": 9,
+      "title": "match(us): two short shared level functions across 85 placements",
+      "author": "llesieur99",
+      "mergedAt": "2026-11-06T16:24:30Z"
+     },
+     {
+      "number": 10,
+      "title": "match: 8 frontbin and 12 level functions; near misses to nonmatching",
+      "author": "cadelass",
+      "mergedAt": "2026-11-08T05:33:54Z"
+     },
+     {
+      "number": 11,
+      "title": "match: 20 level 1 (Veldin) functions; near misses to nonmatching",
+      "author": "cadelass",
+      "mergedAt": "2026-11-08T05:33:55Z"
+     },
+     {
+      "number": 12,
+      "title": "match: 24 level 2 (Florana) functions; near misses and patterns",
+      "author": "cadelass",
+      "mergedAt": "2026-11-08T05:33:54Z"
+     },
+     {
+      "number": 13,
+      "title": "match: rac3's largest functions (28 matched) plus the held swarm matches",
+      "author": "Veradictus",
+      "mergedAt": "2026-11-08T18:37:50Z"
+     },
+     {
+      "number": 14,
+      "title": "match: 73 level 3 (Starship Phoenix) functions; near misses and patterns",
+      "author": "cadelass",
+      "mergedAt": "2026-11-08T13:17:14Z"
+     },
+     {
+      "number": 15,
+      "title": "match: 23 level 5 (Daxx) functions and 9 ports from rac2-decomp; near misses and patterns",
+      "author": "cadelass"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [
+     {
+      "number": 3,
+      "title": "Contributor coordination",
+      "author": "Veradictus"
+     }
+    ],
+    "closed": []
+   },
+   "releases": [],
+   "progress": {
+    "before": {
+     "code": {
+      "done": 657780,
+      "total": 7546948
+     },
+     "functions": {
+      "done": 5807,
+      "total": 16164
+     }
+    },
+    "after": {
+     "code": {
+      "done": 1486952,
+      "total": 7546948
+     },
+     "functions": {
+      "done": 7132,
+      "total": 16164
+     }
+    }
+   },
+   "contributors": [
+    "cadelass",
+    "claude",
+    "DameNavarro",
+    "llesieur99",
+    "Lynder063",
+    "manstie",
+    "Veradictus"
+   ]
+  },
+  {
+   "repo": "rac4-decomp",
+   "title": "Ratchet: Deadlocked",
+   "commitCount": 64,
+   "activeDays": [
+    "2026-11-02",
+    "2026-11-03",
+    "2026-11-04",
+    "2026-11-06",
+    "2026-11-07",
+    "2026-11-08"
+   ],
+   "pullRequests": {
+    "merged": [
+     {
+      "number": 55,
+      "title": "Add PAL C for 21 functions",
+      "author": "chistianh",
+      "mergedAt": "2026-11-02T16:10:12Z"
+     },
+     {
+      "number": 71,
+      "title": "Match 45 NTSC-U helpers with pinned compiler profiles",
+      "author": "Joebannerlord",
+      "mergedAt": "2026-11-06T06:11:34Z"
+     },
+     {
+      "number": 77,
+      "title": "Match six PAL table and state helpers",
+      "author": "Sumaiter",
+      "mergedAt": "2026-11-02T08:02:00Z"
+     },
+     {
+      "number": 81,
+      "title": "fix(pal): merge main into #78 (53 PAL functions)",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-02T08:09:34Z"
+     },
+     {
+      "number": 82,
+      "title": "fix(pal): merge main into #79 (1 PAL function)",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-02T08:13:31Z"
+     },
+     {
+      "number": 83,
+      "title": "fix(us): merge main into #80 (938 NTSC-U functions)",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-02T08:18:56Z"
+     },
+     {
+      "number": 84,
+      "title": "Match 57 PAL resident game functions (5,284 bytes)",
+      "author": "Sumaiter",
+      "mergedAt": "2026-11-02T09:39:06Z"
+     },
+     {
+      "number": 85,
+      "title": "Match 54 PAL resident game functions",
+      "author": "Sumaiter",
+      "mergedAt": "2026-11-02T16:10:08Z"
+     },
+     {
+      "number": 86,
+      "title": "Match 52 PAL resident game functions",
+      "author": "Sumaiter",
+      "mergedAt": "2026-11-03T21:27:31Z"
+     },
+     {
+      "number": 87,
+      "title": "Match 15 PAL word-table probes",
+      "author": "Shaar-games",
+      "mergedAt": "2026-11-03T21:27:31Z"
+     },
+     {
+      "number": 88,
+      "title": "Match 54 PAL game and resource functions",
+      "author": "Sumaiter",
+      "mergedAt": "2026-11-03T21:27:32Z"
+     },
+     {
+      "number": 89,
+      "title": "Match 50 PAL resident functions",
+      "author": "Sumaiter",
+      "mergedAt": "2026-11-03T21:27:31Z"
+     },
+     {
+      "number": 90,
+      "title": "Add PAL C for 6 functions; 20 catalogue rows that end on a branch",
+      "author": "chistianh",
+      "mergedAt": "2026-11-04T01:54:33Z"
+     },
+     {
+      "number": 91,
+      "title": "Merge the PAL batch #86, #87, #88, #89 (171 functions)",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-03T21:27:29Z"
+     },
+     {
+      "number": 92,
+      "title": "Match 57 NTSC-U functions",
+      "author": "Clank700",
+      "mergedAt": "2026-11-06T06:11:34Z"
+     },
+     {
+      "number": 93,
+      "title": "Match 48 PAL resident functions and retain one nonmatching reconstruction",
+      "author": "Sumaiter",
+      "mergedAt": "2026-11-06T06:11:34Z"
+     },
+     {
+      "number": 94,
+      "title": "Match 26 NTSC-U functions",
+      "author": "LucienTo",
+      "mergedAt": "2026-11-06T06:11:34Z"
+     },
+     {
+      "number": 95,
+      "title": "Match 50 PAL engine and menu functions",
+      "author": "Sumaiter",
+      "mergedAt": "2026-11-06T06:11:34Z"
+     },
+     {
+      "number": 96,
+      "title": "Match 165 PAL functions",
+      "author": "Shaar-games",
+      "mergedAt": "2026-11-06T06:11:34Z"
+     },
+     {
+      "number": 97,
+      "title": "Match 198 NTSC-U functions converted from their PAL matches",
+      "author": "LucienTo",
+      "mergedAt": "2026-11-06T06:11:34Z"
+     },
+     {
+      "number": 98,
+      "title": "Match 99 NTSC-U functions",
+      "author": "Clank700",
+      "mergedAt": "2026-11-06T06:11:34Z"
+     },
+     {
+      "number": 99,
+      "title": "Match 50 PAL interface and loader functions; document call contracts",
+      "author": "Sumaiter",
+      "mergedAt": "2026-11-06T06:11:34Z"
+     },
+     {
+      "number": 100,
+      "title": "Add 35 verified PAL functions and checked call contracts",
+      "author": "Sumaiter",
+      "mergedAt": "2026-11-06T06:11:34Z"
+     },
+     {
+      "number": 101,
+      "title": "Decompile 50 PAL resident functions and audit their call contracts",
+      "author": "Sumaiter",
+      "mergedAt": "2026-11-06T06:11:34Z"
+     },
+     {
+      "number": 102,
+      "title": "Decompile 50 PAL resident functions and preserve shared data owners",
+      "author": "Sumaiter",
+      "mergedAt": "2026-11-06T06:11:34Z"
+     },
+     {
+      "number": 103,
+      "title": "Add PAL C for 11 functions; inventory: a word right after a jump is its delay slot",
+      "author": "chistianh",
+      "mergedAt": "2026-11-06T06:11:34Z"
+     },
+     {
+      "number": 104,
+      "title": "Decompile 50 PAL resident functions",
+      "author": "Sumaiter",
+      "mergedAt": "2026-11-06T06:11:34Z"
+     },
+     {
+      "number": 105,
+      "title": "Decompile 50 PAL core, game and network functions",
+      "author": "Sumaiter",
+      "mergedAt": "2026-11-06T06:11:34Z"
+     },
+     {
+      "number": 106,
+      "title": "Match 51 PAL resident and level-overlay functions",
+      "author": "Sumaiter",
+      "mergedAt": "2026-11-06T06:11:33Z"
+     },
+     {
+      "number": 107,
+      "title": "Match 212 NTSC-U functions",
+      "author": "LucienTo",
+      "mergedAt": "2026-11-06T14:39:55Z"
+     },
+     {
+      "number": 108,
+      "title": "Match 51 PAL overlay functions",
+      "author": "Sumaiter",
+      "mergedAt": "2026-11-06T14:40:38Z"
+     },
+     {
+      "number": 109,
+      "title": "fix: forbid volatile, inline asm, #define aliases and hardcoded addresses in matched C",
+      "author": "Veradictus",
+      "mergedAt": "2026-11-06T14:39:38Z"
+     },
+     {
+      "number": 110,
+      "title": "Match 663 additional NTSC-U functions under 200 bytes (plain C)",
+      "author": "llesieur99",
+      "mergedAt": "2026-11-06T17:18:28Z"
+     },
+     {
+      "number": 111,
+      "title": "Match 42 US functions: level overlays and resident code",
+      "author": "GarfTornion",
+      "mergedAt": "2026-11-07T00:37:15Z"
+     },
+     {
+      "number": 113,
+      "title": "Document function reservation workflow",
+      "author": "ReaperOfVeriod",
+      "mergedAt": "2026-11-07T00:03:33Z"
+     },
+     {
+      "number": 114,
+      "title": "Match 41 reviewed PAL functions across 253 placements",
+      "author": "Sumaiter",
+      "mergedAt": "2026-11-07T00:03:30Z"
+     },
+     {
+      "number": 115,
+      "title": "Match 33 PAL functions",
+      "author": "Shaar-games",
+      "mergedAt": "2026-11-08T04:19:59Z"
+     },
+     {
+      "number": 117,
+      "title": "Add PAL C for 7 PAL-only functions of 500+ bytes",
+      "author": "chistianh",
+      "mergedAt": "2026-11-08T04:19:59Z"
+     },
+     {
+      "number": 118,
+      "title": "Match 24 US functions (net / game / L00 overlays) + refine near misses",
+      "author": "GarfTornion",
+      "mergedAt": "2026-11-08T04:19:59Z"
+     },
+     {
+      "number": 119,
+      "title": "Match 138 small US functions",
+      "author": "farfeduc",
+      "mergedAt": "2026-11-08T04:19:59Z"
+     },
+     {
+      "number": 120,
+      "title": "decomp(pal): match 19 reviewed overlay functions",
+      "author": "Sumaiter",
+      "mergedAt": "2026-11-08T04:19:59Z"
+     },
+     {
+      "number": 122,
+      "title": "Port 70 functions from rac2-decomp and rac3-decomp twins",
+      "author": "Veradictus",
+      "mergedAt": "2026-11-08T05:22:40Z"
+     },
+     {
+      "number": 123,
+      "title": "chore(progress): regenerate both maps from a full build",
+      "author": "Veradictus",
+      "mergedAt": "2026-11-08T06:24:34Z"
+     },
+     {
+      "number": 124,
+      "title": "Match 85 US near misses (71 net, 1 game, 2 core, 11 overlay)",
+      "author": "farfeduc",
+      "mergedAt": "2026-11-08T17:42:58Z"
+     },
+     {
+      "number": 125,
+      "title": "Match 118 cross-game near pairs (74 US, 44 PAL)",
+      "author": "Veradictus",
+      "mergedAt": "2026-11-08T11:28:11Z"
+     },
+     {
+      "number": 126,
+      "title": "Add PAL C for 7 more PAL-only moby setup functions",
+      "author": "chistianh",
+      "mergedAt": "2026-11-08T17:43:28Z"
+     },
+     {
+      "number": 127,
+      "title": "chore: upstream OpenRAC's local changes",
+      "author": "Veradictus",
+      "mergedAt": "2026-11-08T19:03:40Z"
+     }
+    ],
+    "opened": [
+     {
+      "number": 80,
+      "title": "Match 938 NTSC-U functions from PAL twins and same-game siblings",
+      "author": "Clank700"
+     },
+     {
+      "number": 81,
+      "title": "fix(pal): merge main into #78 (53 PAL functions)",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-02T08:09:34Z"
+     },
+     {
+      "number": 82,
+      "title": "fix(pal): merge main into #79 (1 PAL function)",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-02T08:13:31Z"
+     },
+     {
+      "number": 83,
+      "title": "fix(us): merge main into #80 (938 NTSC-U functions)",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-02T08:18:56Z"
+     },
+     {
+      "number": 84,
+      "title": "Match 57 PAL resident game functions (5,284 bytes)",
+      "author": "Sumaiter",
+      "mergedAt": "2026-11-02T09:39:06Z"
+     },
+     {
+      "number": 85,
+      "title": "Match 54 PAL resident game functions",
+      "author": "Sumaiter",
+      "mergedAt": "2026-11-02T16:10:08Z"
+     },
+     {
+      "number": 86,
+      "title": "Match 52 PAL resident game functions",
+      "author": "Sumaiter",
+      "mergedAt": "2026-11-03T21:27:31Z"
+     },
+     {
+      "number": 87,
+      "title": "Match 15 PAL word-table probes",
+      "author": "Shaar-games",
+      "mergedAt": "2026-11-03T21:27:31Z"
+     },
+     {
+      "number": 88,
+      "title": "Match 54 PAL game and resource functions",
+      "author": "Sumaiter",
+      "mergedAt": "2026-11-03T21:27:32Z"
+     },
+     {
+      "number": 89,
+      "title": "Match 50 PAL resident functions",
+      "author": "Sumaiter",
+      "mergedAt": "2026-11-03T21:27:31Z"
+     },
+     {
+      "number": 90,
+      "title": "Add PAL C for 6 functions; 20 catalogue rows that end on a branch",
+      "author": "chistianh",
+      "mergedAt": "2026-11-04T01:54:33Z"
+     },
+     {
+      "number": 91,
+      "title": "Merge the PAL batch #86, #87, #88, #89 (171 functions)",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-03T21:27:29Z"
+     },
+     {
+      "number": 92,
+      "title": "Match 57 NTSC-U functions",
+      "author": "Clank700",
+      "mergedAt": "2026-11-06T06:11:34Z"
+     },
+     {
+      "number": 93,
+      "title": "Match 48 PAL resident functions and retain one nonmatching reconstruction",
+      "author": "Sumaiter",
+      "mergedAt": "2026-11-06T06:11:34Z"
+     },
+     {
+      "number": 94,
+      "title": "Match 26 NTSC-U functions",
+      "author": "LucienTo",
+      "mergedAt": "2026-11-06T06:11:34Z"
+     },
+     {
+      "number": 95,
+      "title": "Match 50 PAL engine and menu functions",
+      "author": "Sumaiter",
+      "mergedAt": "2026-11-06T06:11:34Z"
+     },
+     {
+      "number": 96,
+      "title": "Match 165 PAL functions",
+      "author": "Shaar-games",
+      "mergedAt": "2026-11-06T06:11:34Z"
+     },
+     {
+      "number": 97,
+      "title": "Match 198 NTSC-U functions converted from their PAL matches",
+      "author": "LucienTo",
+      "mergedAt": "2026-11-06T06:11:34Z"
+     },
+     {
+      "number": 98,
+      "title": "Match 99 NTSC-U functions",
+      "author": "Clank700",
+      "mergedAt": "2026-11-06T06:11:34Z"
+     },
+     {
+      "number": 99,
+      "title": "Match 50 PAL interface and loader functions; document call contracts",
+      "author": "Sumaiter",
+      "mergedAt": "2026-11-06T06:11:34Z"
+     },
+     {
+      "number": 100,
+      "title": "Add 35 verified PAL functions and checked call contracts",
+      "author": "Sumaiter",
+      "mergedAt": "2026-11-06T06:11:34Z"
+     },
+     {
+      "number": 101,
+      "title": "Decompile 50 PAL resident functions and audit their call contracts",
+      "author": "Sumaiter",
+      "mergedAt": "2026-11-06T06:11:34Z"
+     },
+     {
+      "number": 102,
+      "title": "Decompile 50 PAL resident functions and preserve shared data owners",
+      "author": "Sumaiter",
+      "mergedAt": "2026-11-06T06:11:34Z"
+     },
+     {
+      "number": 103,
+      "title": "Add PAL C for 11 functions; inventory: a word right after a jump is its delay slot",
+      "author": "chistianh",
+      "mergedAt": "2026-11-06T06:11:34Z"
+     },
+     {
+      "number": 104,
+      "title": "Decompile 50 PAL resident functions",
+      "author": "Sumaiter",
+      "mergedAt": "2026-11-06T06:11:34Z"
+     },
+     {
+      "number": 105,
+      "title": "Decompile 50 PAL core, game and network functions",
+      "author": "Sumaiter",
+      "mergedAt": "2026-11-06T06:11:34Z"
+     },
+     {
+      "number": 106,
+      "title": "Match 51 PAL resident and level-overlay functions",
+      "author": "Sumaiter",
+      "mergedAt": "2026-11-06T06:11:33Z"
+     },
+     {
+      "number": 107,
+      "title": "Match 212 NTSC-U functions",
+      "author": "LucienTo",
+      "mergedAt": "2026-11-06T14:39:55Z"
+     },
+     {
+      "number": 108,
+      "title": "Match 51 PAL overlay functions",
+      "author": "Sumaiter",
+      "mergedAt": "2026-11-06T14:40:38Z"
+     },
+     {
+      "number": 109,
+      "title": "fix: forbid volatile, inline asm, #define aliases and hardcoded addresses in matched C",
+      "author": "Veradictus",
+      "mergedAt": "2026-11-06T14:39:38Z"
+     },
+     {
+      "number": 110,
+      "title": "Match 663 additional NTSC-U functions under 200 bytes (plain C)",
+      "author": "llesieur99",
+      "mergedAt": "2026-11-06T17:18:28Z"
+     },
+     {
+      "number": 111,
+      "title": "Match 42 US functions: level overlays and resident code",
+      "author": "GarfTornion",
+      "mergedAt": "2026-11-07T00:37:15Z"
+     },
+     {
+      "number": 113,
+      "title": "Document function reservation workflow",
+      "author": "ReaperOfVeriod",
+      "mergedAt": "2026-11-07T00:03:33Z"
+     },
+     {
+      "number": 114,
+      "title": "Match 41 reviewed PAL functions across 253 placements",
+      "author": "Sumaiter",
+      "mergedAt": "2026-11-07T00:03:30Z"
+     },
+     {
+      "number": 115,
+      "title": "Match 33 PAL functions",
+      "author": "Shaar-games",
+      "mergedAt": "2026-11-08T04:19:59Z"
+     },
+     {
+      "number": 117,
+      "title": "Add PAL C for 7 PAL-only functions of 500+ bytes",
+      "author": "chistianh",
+      "mergedAt": "2026-11-08T04:19:59Z"
+     },
+     {
+      "number": 118,
+      "title": "Match 24 US functions (net / game / L00 overlays) + refine near misses",
+      "author": "GarfTornion",
+      "mergedAt": "2026-11-08T04:19:59Z"
+     },
+     {
+      "number": 119,
+      "title": "Match 138 small US functions",
+      "author": "farfeduc",
+      "mergedAt": "2026-11-08T04:19:59Z"
+     },
+     {
+      "number": 120,
+      "title": "decomp(pal): match 19 reviewed overlay functions",
+      "author": "Sumaiter",
+      "mergedAt": "2026-11-08T04:19:59Z"
+     },
+     {
+      "number": 121,
+      "title": "feat(rac4/ntsc): add 40 US matches and align allocator interfaces",
+      "author": "Joebannerlord"
+     },
+     {
+      "number": 122,
+      "title": "Port 70 functions from rac2-decomp and rac3-decomp twins",
+      "author": "Veradictus",
+      "mergedAt": "2026-11-08T05:22:40Z"
+     },
+     {
+      "number": 123,
+      "title": "chore(progress): regenerate both maps from a full build",
+      "author": "Veradictus",
+      "mergedAt": "2026-11-08T06:24:34Z"
+     },
+     {
+      "number": 124,
+      "title": "Match 85 US near misses (71 net, 1 game, 2 core, 11 overlay)",
+      "author": "farfeduc",
+      "mergedAt": "2026-11-08T17:42:58Z"
+     },
+     {
+      "number": 125,
+      "title": "Match 118 cross-game near pairs (74 US, 44 PAL)",
+      "author": "Veradictus",
+      "mergedAt": "2026-11-08T11:28:11Z"
+     },
+     {
+      "number": 126,
+      "title": "Add PAL C for 7 more PAL-only moby setup functions",
+      "author": "chistianh",
+      "mergedAt": "2026-11-08T17:43:28Z"
+     },
+     {
+      "number": 127,
+      "title": "chore: upstream OpenRAC's local changes",
+      "author": "Veradictus",
+      "mergedAt": "2026-11-08T19:03:40Z"
+     },
+     {
+      "number": 128,
+      "title": "Match 9 nonmatching drafts (1 net, 2 core, 6 overlay)",
+      "author": "farfeduc"
+     },
+     {
+      "number": 129,
+      "title": "Add PAL C for 9 PAL-only functions",
+      "author": "chistianh"
+     },
+     {
+      "number": 130,
+      "title": "Match 26 small US functions with no C yet (3 net, 23 overlay)",
+      "author": "farfeduc"
+     },
+     {
+      "number": 131,
+      "title": "Aut 45 decomp round",
+      "author": "skast96"
+     },
+     {
+      "number": 132,
+      "title": "Match 24 small US functions with no C yet (7 net, 1 game, 16 overlay)",
+      "author": "farfeduc"
+     },
+     {
+      "number": 133,
+      "title": "match(pal): add twenty-four strictly verified overlay routines",
+      "author": "Shaar-games"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [
+     {
+      "number": 112,
+      "title": "Function reservations and contributor coordination",
+      "author": "ReaperOfVeriod"
+     },
+     {
+      "number": 116,
+      "title": "RESERVE WORK",
+      "author": "chistianh"
+     },
+     {
+      "number": 134,
+      "title": "Fill word in function sizes, and PAL objects in the US relocation audit",
+      "author": "farfeduc"
+     }
+    ],
+    "closed": [
+     {
+      "number": 73,
+      "title": "PAL Gladiator: 5 matching C functions, reconstruction drafts and PS2Recomp findings",
+      "author": "Sumaiter"
+     },
+     {
+      "number": 116,
+      "title": "RESERVE WORK",
+      "author": "chistianh"
+     }
+    ]
+   },
+   "releases": [],
+   "progress": {
+    "before": {
+     "code": {
+      "done": 350776,
+      "total": 5782424
+     },
+     "functions": {
+      "done": 4475,
+      "total": 18085
+     }
+    },
+    "after": {
+     "code": {
+      "done": 590020,
+      "total": 5781432
+     },
+     "functions": {
+      "done": 7163,
+      "total": 18170
+     }
+    }
+   },
+   "contributors": [
+    "chistianh",
+    "Clank700",
+    "farfeduc",
+    "GarfTornion",
+    "Joebannerlord",
+    "llesieur99",
+    "LucienTo",
+    "Lynder063",
+    "ReaperOfVeriod",
+    "Shaar-games",
+    "skast96",
+    "Sumaiter",
+    "Veradictus"
+   ]
+  },
+  {
+   "repo": "openrac-mods",
+   "title": "OpenRAC mods",
+   "commitCount": 66,
+   "activeDays": [
+    "2026-11-02",
+    "2026-11-03",
+    "2026-11-04",
+    "2026-11-05",
+    "2026-11-06",
+    "2026-11-07",
+    "2026-11-08"
+   ],
+   "pullRequests": {
+    "merged": [
+     {
+      "number": 22,
+      "title": "[WIP] feat(multiplayer): co-op round 3, crossplay, saves, takeover and mod codes",
+      "author": "Veradictus",
+      "mergedAt": "2026-11-06T15:53:26Z"
+     },
+     {
+      "number": 23,
+      "title": "[WIP] feat(item-randomizer): version 2, rebuilt logic and rewards",
+      "author": "Veradictus",
+      "mergedAt": "2026-11-06T14:57:59Z"
+     },
+     {
+      "number": 36,
+      "title": "List rac-board",
+      "author": "openrac-bot[bot]",
+      "mergedAt": "2026-11-02T21:14:45Z"
+     },
+     {
+      "number": 37,
+      "title": "fix(index): accept GitHub's asset digest without SHA256SUMS",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-02T21:08:43Z"
+     },
+     {
+      "number": 38,
+      "title": "fix(mods): credit each mod's first committer as its author",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-02T21:12:48Z"
+     },
+     {
+      "number": 40,
+      "title": "fix(submit): say that pictures can stay as GitHub writes them, drop the wizard",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-02T21:54:50Z"
+     },
+     {
+      "number": 45,
+      "title": "feat(multiplayer): add co-op rescue, host rally points and team tools",
+      "author": "momo1212221",
+      "mergedAt": "2026-11-06T14:37:45Z"
+     },
+     {
+      "number": 48,
+      "title": "List modern-controls",
+      "author": "openrac-bot[bot]",
+      "mergedAt": "2026-11-04T13:41:25Z"
+     },
+     {
+      "number": 49,
+      "title": "List steam-deck-pack",
+      "author": "openrac-bot[bot]",
+      "mergedAt": "2026-11-04T13:41:29Z"
+     },
+     {
+      "number": 50,
+      "title": "fix(bot): ping maintainers when approval is needed",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-04T13:37:14Z"
+     },
+     {
+      "number": 53,
+      "title": "chore(index): approve steam-deck-pack 0.3.0",
+      "author": "openrac-bot[bot]",
+      "mergedAt": "2026-11-04T17:41:13Z"
+     },
+     {
+      "number": 54,
+      "title": "feat(multiplayer): check a member's HIT and a host's DAMAGE",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-04T17:37:22Z"
+     },
+     {
+      "number": 55,
+      "title": "feat(multiplayer): Hold the party",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-04T17:49:51Z"
+     },
+     {
+      "number": 56,
+      "title": "feat(multiplayer): a member's own ship take-off",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-04T18:02:53Z"
+     },
+     {
+      "number": 57,
+      "title": "feat(multiplayer): auto-join after a mod code",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-04T18:08:22Z"
+     },
+     {
+      "number": 64,
+      "title": "List debug-menu",
+      "author": "openrac-bot[bot]",
+      "mergedAt": "2026-11-05T10:08:18Z"
+     },
+     {
+      "number": 76,
+      "title": "List better-pause-menu",
+      "author": "openrac-bot[bot]",
+      "mergedAt": "2026-11-06T07:34:20Z"
+     },
+     {
+      "number": 81,
+      "title": "List cutscene-manager",
+      "author": "openrac-bot[bot]",
+      "mergedAt": "2026-11-06T07:34:25Z"
+     },
+     {
+      "number": 82,
+      "title": "List accessibility-pack",
+      "author": "openrac-bot[bot]",
+      "mergedAt": "2026-11-06T07:34:30Z"
+     },
+     {
+      "number": 83,
+      "title": "List save-manager",
+      "author": "openrac-bot[bot]",
+      "mergedAt": "2026-11-06T07:34:35Z"
+     },
+     {
+      "number": 84,
+      "title": "List fast-travel",
+      "author": "openrac-bot[bot]",
+      "mergedAt": "2026-11-06T07:34:40Z"
+     },
+     {
+      "number": 88,
+      "title": "List damage-numbers",
+      "author": "openrac-bot[bot]",
+      "mergedAt": "2026-11-06T08:00:38Z"
+     },
+     {
+      "number": 90,
+      "title": "List weapon-wheel-pause",
+      "author": "openrac-bot[bot]",
+      "mergedAt": "2026-11-06T07:34:45Z"
+     },
+     {
+      "number": 91,
+      "title": "fix(index): cut the cool-down to 1 h",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-06T07:27:35Z"
+     },
+     {
+      "number": 115,
+      "title": "chore(index): approve 12 reviewed versions",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-06T07:43:49Z"
+     },
+     {
+      "number": 117,
+      "title": "chore(index): discussion numbers",
+      "author": "openrac-bot[bot]",
+      "mergedAt": "2026-11-06T08:00:42Z"
+     },
+     {
+      "number": 118,
+      "title": "fix(keyboard-mouse): Menu: Circle answers the memory card's questions",
+      "author": "nickyyOO",
+      "mergedAt": "2026-11-06T07:53:28Z"
+     },
+     {
+      "number": 129,
+      "title": "List revolverator",
+      "author": "openrac-bot[bot]",
+      "mergedAt": "2026-11-08T04:32:00Z"
+     },
+     {
+      "number": 132,
+      "title": "chore(index): approve damage-numbers 0.8.1",
+      "author": "openrac-bot[bot]",
+      "mergedAt": "2026-11-08T04:32:35Z"
+     },
+     {
+      "number": 137,
+      "title": "chore(index): approve revolverator 0.3.3",
+      "author": "openrac-bot[bot]",
+      "mergedAt": "2026-11-08T17:50:06Z"
+     },
+     {
+      "number": 138,
+      "title": "Fix Archipelago RAC1 empty vendor handling for NTSC and PAL",
+      "author": "SavedbyBlood9",
+      "mergedAt": "2026-11-08T17:50:09Z"
+     }
+    ],
+    "opened": [
+     {
+      "number": 36,
+      "title": "List rac-board",
+      "author": "openrac-bot[bot]",
+      "mergedAt": "2026-11-02T21:14:45Z"
+     },
+     {
+      "number": 37,
+      "title": "fix(index): accept GitHub's asset digest without SHA256SUMS",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-02T21:08:43Z"
+     },
+     {
+      "number": 38,
+      "title": "fix(mods): credit each mod's first committer as its author",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-02T21:12:48Z"
+     },
+     {
+      "number": 40,
+      "title": "fix(submit): say that pictures can stay as GitHub writes them, drop the wizard",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-02T21:54:50Z"
+     },
+     {
+      "number": 41,
+      "title": "feat(multiplayer): localize UI for all five PAL languages",
+      "author": "momo1212221"
+     },
+     {
+      "number": 43,
+      "title": "feat(steam-deck-pack): add handheld controls with built-in Deck button icons",
+      "author": "momo1212221"
+     },
+     {
+      "number": 44,
+      "title": "feat(modern-controls): add live 1–100 camera slider and adjustable controller movement",
+      "author": "momo1212221"
+     },
+     {
+      "number": 45,
+      "title": "feat(multiplayer): add co-op rescue, host rally points and team tools",
+      "author": "momo1212221",
+      "mergedAt": "2026-11-06T14:37:45Z"
+     },
+     {
+      "number": 48,
+      "title": "List modern-controls",
+      "author": "openrac-bot[bot]",
+      "mergedAt": "2026-11-04T13:41:25Z"
+     },
+     {
+      "number": 49,
+      "title": "List steam-deck-pack",
+      "author": "openrac-bot[bot]",
+      "mergedAt": "2026-11-04T13:41:29Z"
+     },
+     {
+      "number": 50,
+      "title": "fix(bot): ping maintainers when approval is needed",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-04T13:37:14Z"
+     },
+     {
+      "number": 53,
+      "title": "chore(index): approve steam-deck-pack 0.3.0",
+      "author": "openrac-bot[bot]",
+      "mergedAt": "2026-11-04T17:41:13Z"
+     },
+     {
+      "number": 54,
+      "title": "feat(multiplayer): check a member's HIT and a host's DAMAGE",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-04T17:37:22Z"
+     },
+     {
+      "number": 55,
+      "title": "feat(multiplayer): Hold the party",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-04T17:49:51Z"
+     },
+     {
+      "number": 56,
+      "title": "feat(multiplayer): a member's own ship take-off",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-04T18:02:53Z"
+     },
+     {
+      "number": 57,
+      "title": "feat(multiplayer): auto-join after a mod code",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-04T18:08:22Z"
+     },
+     {
+      "number": 64,
+      "title": "List debug-menu",
+      "author": "openrac-bot[bot]",
+      "mergedAt": "2026-11-05T10:08:18Z"
+     },
+     {
+      "number": 71,
+      "title": "feat(revolverator): list Revolverator 0.3.3",
+      "author": "noire342"
+     },
+     {
+      "number": 76,
+      "title": "List better-pause-menu",
+      "author": "openrac-bot[bot]",
+      "mergedAt": "2026-11-06T07:34:20Z"
+     },
+     {
+      "number": 81,
+      "title": "List cutscene-manager",
+      "author": "openrac-bot[bot]",
+      "mergedAt": "2026-11-06T07:34:25Z"
+     },
+     {
+      "number": 82,
+      "title": "List accessibility-pack",
+      "author": "openrac-bot[bot]",
+      "mergedAt": "2026-11-06T07:34:30Z"
+     },
+     {
+      "number": 83,
+      "title": "List save-manager",
+      "author": "openrac-bot[bot]",
+      "mergedAt": "2026-11-06T07:34:35Z"
+     },
+     {
+      "number": 84,
+      "title": "List fast-travel",
+      "author": "openrac-bot[bot]",
+      "mergedAt": "2026-11-06T07:34:40Z"
+     },
+     {
+      "number": 88,
+      "title": "List damage-numbers",
+      "author": "openrac-bot[bot]",
+      "mergedAt": "2026-11-06T08:00:38Z"
+     },
+     {
+      "number": 90,
+      "title": "List weapon-wheel-pause",
+      "author": "openrac-bot[bot]",
+      "mergedAt": "2026-11-06T07:34:45Z"
+     },
+     {
+      "number": 91,
+      "title": "fix(index): cut the cool-down to 1 h",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-06T07:27:35Z"
+     },
+     {
+      "number": 103,
+      "title": "chore(index): approve fast-travel 0.3.0",
+      "author": "openrac-bot[bot]"
+     },
+     {
+      "number": 104,
+      "title": "chore(index): approve better-pause-menu 0.8.7",
+      "author": "openrac-bot[bot]"
+     },
+     {
+      "number": 105,
+      "title": "chore(index): approve cutscene-manager 0.2.0",
+      "author": "openrac-bot[bot]"
+     },
+     {
+      "number": 106,
+      "title": "chore(index): approve save-manager 0.2.0",
+      "author": "openrac-bot[bot]"
+     },
+     {
+      "number": 107,
+      "title": "chore(index): approve weapon-wheel-pause 0.1.0",
+      "author": "openrac-bot[bot]"
+     },
+     {
+      "number": 108,
+      "title": "chore(index): approve debug-menu 1.0.0",
+      "author": "openrac-bot[bot]"
+     },
+     {
+      "number": 109,
+      "title": "chore(index): approve modern-controls 0.3.3",
+      "author": "openrac-bot[bot]"
+     },
+     {
+      "number": 110,
+      "title": "chore(index): approve better-pause-menu 0.1.0",
+      "author": "openrac-bot[bot]"
+     },
+     {
+      "number": 111,
+      "title": "chore(index): approve accessibility-pack 0.1.0",
+      "author": "openrac-bot[bot]"
+     },
+     {
+      "number": 112,
+      "title": "chore(index): approve cutscene-manager 0.1.0",
+      "author": "openrac-bot[bot]"
+     },
+     {
+      "number": 113,
+      "title": "chore(index): approve fast-travel 0.1.0",
+      "author": "openrac-bot[bot]"
+     },
+     {
+      "number": 114,
+      "title": "chore(index): approve save-manager 0.1.0",
+      "author": "openrac-bot[bot]"
+     },
+     {
+      "number": 115,
+      "title": "chore(index): approve 12 reviewed versions",
+      "author": "Lynder063",
+      "mergedAt": "2026-11-06T07:43:49Z"
+     },
+     {
+      "number": 117,
+      "title": "chore(index): discussion numbers",
+      "author": "openrac-bot[bot]",
+      "mergedAt": "2026-11-06T08:00:42Z"
+     },
+     {
+      "number": 118,
+      "title": "fix(keyboard-mouse): Menu: Circle answers the memory card's questions",
+      "author": "nickyyOO",
+      "mergedAt": "2026-11-06T07:53:28Z"
+     },
+     {
+      "number": 129,
+      "title": "List revolverator",
+      "author": "openrac-bot[bot]",
+      "mergedAt": "2026-11-08T04:32:00Z"
+     },
+     {
+      "number": 132,
+      "title": "chore(index): approve damage-numbers 0.8.1",
+      "author": "openrac-bot[bot]",
+      "mergedAt": "2026-11-08T04:32:35Z"
+     },
+     {
+      "number": 136,
+      "title": "chore(index): approve revolverator 0.3.2",
+      "author": "openrac-bot[bot]"
+     },
+     {
+      "number": 137,
+      "title": "chore(index): approve revolverator 0.3.3",
+      "author": "openrac-bot[bot]",
+      "mergedAt": "2026-11-08T17:50:06Z"
+     },
+     {
+      "number": 138,
+      "title": "Fix Archipelago RAC1 empty vendor handling for NTSC and PAL",
+      "author": "SavedbyBlood9",
+      "mergedAt": "2026-11-08T17:50:09Z"
+     },
+     {
+      "number": 140,
+      "title": "[WITHDRAWN] Port Arsenal Mastery core progression from RAC-RS",
+      "author": "momo1212221"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [
+     {
+      "number": 35,
+      "title": "Submit mod: rac-board",
+      "author": "nickyyOO"
+     },
+     {
+      "number": 39,
+      "title": "Review rac-board 0.2.0",
+      "author": "openrac-bot[bot]"
+     },
+     {
+      "number": 46,
+      "title": "Submit: Modern Controls",
+      "author": "momo1212221"
+     },
+     {
+      "number": 47,
+      "title": "Submit: Steam Deck Pack",
+      "author": "momo1212221"
+     },
+     {
+      "number": 51,
+      "title": "Review modern-controls 0.3.0",
+      "author": "openrac-bot[bot]"
+     },
+     {
+      "number": 52,
+      "title": "Review steam-deck-pack 0.3.0",
+      "author": "openrac-bot[bot]"
+     },
+     {
+      "number": 58,
+      "title": "Submit: QoL Hub",
+      "author": "momo1212221"
+     },
+     {
+      "number": 59,
+      "title": "Submit: Fast Travel",
+      "author": "momo1212221"
+     },
+     {
+      "number": 60,
+      "title": "Submit: Save Manager",
+      "author": "momo1212221"
+     },
+     {
+      "number": 61,
+      "title": "Submit: Accessibility Pack",
+      "author": "momo1212221"
+     },
+     {
+      "number": 62,
+      "title": "Submit: Cutscene Manager",
+      "author": "momo1212221"
+     },
+     {
+      "number": 63,
+      "title": "Submit: Restored Debug Menu",
+      "author": "ParadoxEpoch"
+     },
+     {
+      "number": 65,
+      "title": "Submit:",
+      "author": "ReaperOfVeriod"
+     },
+     {
+      "number": 66,
+      "title": "Submit: Weapon Wheel Pause",
+      "author": "momo1212221"
+     },
+     {
+      "number": 67,
+      "title": "Review debug-menu 1.0.1",
+      "author": "openrac-bot[bot]"
+     },
+     {
+      "number": 68,
+      "title": "Review debug-menu 1.0.0",
+      "author": "openrac-bot[bot]"
+     },
+     {
+      "number": 69,
+      "title": "Review modern-controls 0.3.3",
+      "author": "openrac-bot[bot]"
+     },
+     {
+      "number": 70,
+      "title": "Multiplayer: non-host cannot reliably damage enemies or take enemy damage",
+      "author": "momo1212221"
+     },
+     {
+      "number": 72,
+      "title": "Index: approved mods remain unpublished after cooldown because hourly schedule stops running",
+      "author": "momo1212221"
+     },
+     {
+      "number": 73,
+      "title": "Submit: QoL Hub",
+      "author": "momo1212221"
+     },
+     {
+      "number": 74,
+      "title": "Submit: QoL Hub",
+      "author": "momo1212221"
+     },
+     {
+      "number": 75,
+      "title": "Submit: QoL Hub",
+      "author": "momo1212221"
+     },
+     {
+      "number": 77,
+      "title": "Submit: Fast Travel",
+      "author": "momo1212221"
+     },
+     {
+      "number": 78,
+      "title": "Submit: Save Manager",
+      "author": "momo1212221"
+     },
+     {
+      "number": 79,
+      "title": "Submit: Accessibility Pack",
+      "author": "momo1212221"
+     },
+     {
+      "number": 80,
+      "title": "Submit: Cutscene Manager",
+      "author": "momo1212221"
+     },
+     {
+      "number": 87,
+      "title": "Submit: Damage Numbers mod",
+      "author": "LucienTo"
+     },
+     {
+      "number": 89,
+      "title": "Submit: Weapon Wheel Pause",
+      "author": "momo1212221"
+     },
+     {
+      "number": 92,
+      "title": "Review better-pause-menu 0.8.7",
+      "author": "openrac-bot[bot]"
+     },
+     {
+      "number": 93,
+      "title": "Review better-pause-menu 0.1.0",
+      "author": "openrac-bot[bot]"
+     },
+     {
+      "number": 94,
+      "title": "Review accessibility-pack 0.2.0",
+      "author": "openrac-bot[bot]"
+     },
+     {
+      "number": 95,
+      "title": "Review accessibility-pack 0.1.0",
+      "author": "openrac-bot[bot]"
+     },
+     {
+      "number": 96,
+      "title": "Review cutscene-manager 0.2.0",
+      "author": "openrac-bot[bot]"
+     },
+     {
+      "number": 97,
+      "title": "Review cutscene-manager 0.1.0",
+      "author": "openrac-bot[bot]"
+     },
+     {
+      "number": 98,
+      "title": "Review fast-travel 0.3.0",
+      "author": "openrac-bot[bot]"
+     },
+     {
+      "number": 99,
+      "title": "Review fast-travel 0.1.0",
+      "author": "openrac-bot[bot]"
+     },
+     {
+      "number": 100,
+      "title": "Review save-manager 0.2.0",
+      "author": "openrac-bot[bot]"
+     },
+     {
+      "number": 101,
+      "title": "Review save-manager 0.1.0",
+      "author": "openrac-bot[bot]"
+     },
+     {
+      "number": 102,
+      "title": "Review weapon-wheel-pause 0.1.0",
+      "author": "openrac-bot[bot]"
+     },
+     {
+      "number": 125,
+      "title": "Review damage-numbers 0.7.1",
+      "author": "openrac-bot[bot]"
+     },
+     {
+      "number": 127,
+      "title": "Review rac-board 0.2.1",
+      "author": "openrac-bot[bot]"
+     },
+     {
+      "number": 128,
+      "title": "Submit: Revolverator",
+      "author": "noire342"
+     },
+     {
+      "number": 130,
+      "title": "Review damage-numbers 0.8.1",
+      "author": "openrac-bot[bot]"
+     },
+     {
+      "number": 131,
+      "title": "Review damage-numbers 0.8.0",
+      "author": "openrac-bot[bot]"
+     },
+     {
+      "number": 133,
+      "title": "Review revolverator 0.3.3",
+      "author": "openrac-bot[bot]"
+     },
+     {
+      "number": 134,
+      "title": "Review revolverator 0.3.2",
+      "author": "openrac-bot[bot]"
+     },
+     {
+      "number": 135,
+      "title": "Review revolverator 0.3.1",
+      "author": "openrac-bot[bot]"
+     }
+    ],
+    "closed": [
+     {
+      "number": 35,
+      "title": "Submit mod: rac-board",
+      "author": "nickyyOO"
+     },
+     {
+      "number": 39,
+      "title": "Review rac-board 0.2.0",
+      "author": "openrac-bot[bot]"
+     },
+     {
+      "number": 46,
+      "title": "Submit: Modern Controls",
+      "author": "momo1212221"
+     },
+     {
+      "number": 47,
+      "title": "Submit: Steam Deck Pack",
+      "author": "momo1212221"
+     },
+     {
+      "number": 51,
+      "title": "Review modern-controls 0.3.0",
+      "author": "openrac-bot[bot]"
+     },
+     {
+      "number": 52,
+      "title": "Review steam-deck-pack 0.3.0",
+      "author": "openrac-bot[bot]"
+     },
+     {
+      "number": 58,
+      "title": "Submit: QoL Hub",
+      "author": "momo1212221"
+     },
+     {
+      "number": 59,
+      "title": "Submit: Fast Travel",
+      "author": "momo1212221"
+     },
+     {
+      "number": 60,
+      "title": "Submit: Save Manager",
+      "author": "momo1212221"
+     },
+     {
+      "number": 61,
+      "title": "Submit: Accessibility Pack",
+      "author": "momo1212221"
+     },
+     {
+      "number": 62,
+      "title": "Submit: Cutscene Manager",
+      "author": "momo1212221"
+     },
+     {
+      "number": 63,
+      "title": "Submit: Restored Debug Menu",
+      "author": "ParadoxEpoch"
+     },
+     {
+      "number": 65,
+      "title": "Submit:",
+      "author": "ReaperOfVeriod"
+     },
+     {
+      "number": 66,
+      "title": "Submit: Weapon Wheel Pause",
+      "author": "momo1212221"
+     },
+     {
+      "number": 67,
+      "title": "Review debug-menu 1.0.1",
+      "author": "openrac-bot[bot]"
+     },
+     {
+      "number": 68,
+      "title": "Review debug-menu 1.0.0",
+      "author": "openrac-bot[bot]"
+     },
+     {
+      "number": 69,
+      "title": "Review modern-controls 0.3.3",
+      "author": "openrac-bot[bot]"
+     },
+     {
+      "number": 72,
+      "title": "Index: approved mods remain unpublished after cooldown because hourly schedule stops running",
+      "author": "momo1212221"
+     },
+     {
+      "number": 73,
+      "title": "Submit: QoL Hub",
+      "author": "momo1212221"
+     },
+     {
+      "number": 74,
+      "title": "Submit: QoL Hub",
+      "author": "momo1212221"
+     },
+     {
+      "number": 75,
+      "title": "Submit: QoL Hub",
+      "author": "momo1212221"
+     },
+     {
+      "number": 77,
+      "title": "Submit: Fast Travel",
+      "author": "momo1212221"
+     },
+     {
+      "number": 78,
+      "title": "Submit: Save Manager",
+      "author": "momo1212221"
+     },
+     {
+      "number": 79,
+      "title": "Submit: Accessibility Pack",
+      "author": "momo1212221"
+     },
+     {
+      "number": 80,
+      "title": "Submit: Cutscene Manager",
+      "author": "momo1212221"
+     },
+     {
+      "number": 87,
+      "title": "Submit: Damage Numbers mod",
+      "author": "LucienTo"
+     },
+     {
+      "number": 89,
+      "title": "Submit: Weapon Wheel Pause",
+      "author": "momo1212221"
+     },
+     {
+      "number": 92,
+      "title": "Review better-pause-menu 0.8.7",
+      "author": "openrac-bot[bot]"
+     },
+     {
+      "number": 93,
+      "title": "Review better-pause-menu 0.1.0",
+      "author": "openrac-bot[bot]"
+     },
+     {
+      "number": 94,
+      "title": "Review accessibility-pack 0.2.0",
+      "author": "openrac-bot[bot]"
+     },
+     {
+      "number": 95,
+      "title": "Review accessibility-pack 0.1.0",
+      "author": "openrac-bot[bot]"
+     },
+     {
+      "number": 96,
+      "title": "Review cutscene-manager 0.2.0",
+      "author": "openrac-bot[bot]"
+     },
+     {
+      "number": 97,
+      "title": "Review cutscene-manager 0.1.0",
+      "author": "openrac-bot[bot]"
+     },
+     {
+      "number": 98,
+      "title": "Review fast-travel 0.3.0",
+      "author": "openrac-bot[bot]"
+     },
+     {
+      "number": 99,
+      "title": "Review fast-travel 0.1.0",
+      "author": "openrac-bot[bot]"
+     },
+     {
+      "number": 100,
+      "title": "Review save-manager 0.2.0",
+      "author": "openrac-bot[bot]"
+     },
+     {
+      "number": 101,
+      "title": "Review save-manager 0.1.0",
+      "author": "openrac-bot[bot]"
+     },
+     {
+      "number": 102,
+      "title": "Review weapon-wheel-pause 0.1.0",
+      "author": "openrac-bot[bot]"
+     },
+     {
+      "number": 125,
+      "title": "Review damage-numbers 0.7.1",
+      "author": "openrac-bot[bot]"
+     },
+     {
+      "number": 127,
+      "title": "Review rac-board 0.2.1",
+      "author": "openrac-bot[bot]"
+     },
+     {
+      "number": 128,
+      "title": "Submit: Revolverator",
+      "author": "noire342"
+     },
+     {
+      "number": 131,
+      "title": "Review damage-numbers 0.8.0",
+      "author": "openrac-bot[bot]"
+     },
+     {
+      "number": 135,
+      "title": "Review revolverator 0.3.1",
+      "author": "openrac-bot[bot]"
+     }
+    ]
+   },
+   "releases": [
+    {
+     "tag": "ammo-max-v1.0.3",
+     "name": "ammo-max-v1.0.3",
+     "publishedAt": "2026-11-06T17:39:53Z"
+    },
+    {
+     "tag": "archipelago-v2.2.0",
+     "name": "archipelago-v2.2.0",
+     "publishedAt": "2026-11-06T17:57:34Z"
+    },
+    {
+     "tag": "button-swap-v1.0.1",
+     "name": "button-swap-v1.0.1",
+     "publishedAt": "2026-11-06T18:06:03Z"
+    },
+    {
+     "tag": "difficulty-v1.3.0",
+     "name": "difficulty-v1.3.0",
+     "publishedAt": "2026-11-06T17:55:21Z"
+    },
+    {
+     "tag": "dualsense-v1.0.3",
+     "name": "dualsense-v1.0.3",
+     "publishedAt": "2026-11-06T17:43:21Z"
+    },
+    {
+     "tag": "item-randomizer-v2.0.0",
+     "name": "item-randomizer-v2.0.0",
+     "publishedAt": "2026-11-06T17:50:25Z"
+    },
+    {
+     "tag": "keyboard-mouse-v1.2.5",
+     "name": "keyboard-mouse-v1.2.5",
+     "publishedAt": "2026-11-06T18:11:41Z"
+    },
+    {
+     "tag": "live-splits-v1.0.3",
+     "name": "live-splits-v1.0.3",
+     "publishedAt": "2026-11-06T18:02:02Z"
+    },
+    {
+     "tag": "lock-strafe-v1.0.4",
+     "name": "lock-strafe-v1.0.4",
+     "publishedAt": "2026-11-06T17:59:25Z"
+    },
+    {
+     "tag": "multiplayer-v0.10.0",
+     "name": "multiplayer-v0.10.0",
+     "publishedAt": "2026-11-06T18:02:29Z"
+    },
+    {
+     "tag": "multiplayer-v0.8.0",
+     "name": "multiplayer-v0.8.0",
+     "publishedAt": "2026-11-06T14:56:35Z"
+    },
+    {
+     "tag": "xbox-icons-v1.0.2",
+     "name": "xbox-icons-v1.0.2",
+     "publishedAt": "2026-11-06T18:08:51Z"
+    },
+    {
+     "tag": "difficulty-v1.4.0",
+     "name": "difficulty-v1.4.0",
+     "publishedAt": "2026-11-08T06:20:48Z"
+    },
+    {
+     "tag": "item-randomizer-v2.1.0",
+     "name": "item-randomizer-v2.1.0",
+     "publishedAt": "2026-11-08T06:41:20Z"
+    },
+    {
+     "tag": "item-randomizer-v2.2.0",
+     "name": "item-randomizer-v2.2.0",
+     "publishedAt": "2026-11-08T07:52:25Z"
+    },
+    {
+     "tag": "lock-strafe-v1.1.0",
+     "name": "lock-strafe-v1.1.0",
+     "publishedAt": "2026-11-08T05:28:12Z"
+    },
+    {
+     "tag": "lock-strafe-v1.1.1",
+     "name": "lock-strafe-v1.1.1",
+     "publishedAt": "2026-11-08T22:18:59Z"
+    },
+    {
+     "tag": "multiplayer-v0.11.0",
+     "name": "multiplayer-v0.11.0",
+     "publishedAt": "2026-11-08T06:41:33Z"
+    },
+    {
+     "tag": "xbox-icons-v1.1.0",
+     "name": "xbox-icons-v1.1.0",
+     "publishedAt": "2026-11-08T05:28:43Z"
+    }
+   ],
+   "progress": null,
+   "contributors": [
+    "Lynder063",
+    "momo1212221",
+    "nickyyOO",
+    "noire342",
+    "SavedbyBlood9",
+    "Veradictus"
+   ]
+  }
+ ]
+}
