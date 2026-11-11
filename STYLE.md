@@ -39,15 +39,13 @@ the `d-*` classes for the mod docs). Use them before writing new classes.
 
 ### Controls
 
-- Controls (`.btn`, `.field`, `.chip`, `.seg`, the `d-*` controls, anything `bg-coal`) are filled with `coal` #1c1c1c (`coal-hi` #262626 on hover) and have a 1 px gold
-  edge: `--color-edge`, amber at 35 % (half strength; full gold is too loud).
-- No edge on: the gold main button (`.btn-primary`), ghost buttons, the header's buttons and search, the hero's "See progress" button and "Launcher … is out" pill, Discord buttons (user), the two search dialogs, and the corner dock with the News, GitHub and
-  Discord icons.
-- Contrast rule (also for the launcher and the game's menu, where themes change the background): on a
-  the page or a navy background a control is `coal` #1c1c1c; on a coal background it is navy `navy` #252333
-  (`navy-hi` #312d43 on hover). So controls inside a coal dialog or sheet turn navy; the edge stays.
+- Controls (`.btn`, `.field`, `.chip`, `.seg`, the `d-*` controls, anything `bg-coal`) are filled with `coal`
+  #272727 (`coal-hi` #313131 on hover), lighter than the cards (#1e1e1e) and mod cards (#171717), so they
+  never blend in. No edge anywhere (user): `--color-edge` is transparent, kept so borders stay 1 px.
+- Contrast rule: on the page or a card a control is `coal`; on a coal background (a dialog or sheet) it is
+  navy `navy` #302d42 (`navy-hi` #3a3650 on hover).
 - On or picked: a gold tint on the page's grey (`color-mix(amber 22 %, ink)`) with gold text
-  (`aria-pressed="true"`, `aria-checked="true"` or `data-on` on `.btn`/`.chip`). The edge stays.
+  (`aria-pressed="true"`, `aria-checked="true"` or `data-on` on `.btn`/`.chip`).
   A picked row in a list (search results, docs menu, hook explorer) is `bg-amber/12`.
 - Hover on a list row, menu line, calendar day or icon button is `hover:bg-coal` (no edge).
 - The "/" key hint is a small navy cap (`bg-navy`).
@@ -65,8 +63,8 @@ the `d-*` classes for the mod docs). Use them before writing new classes.
 - Badges, tags (platform, region, "research"), progress-bar tracks and small icon tiles sit on `ink-deep`,
   never a white mix. Badges have no border.
 - Inline code sits on `ink-deep` with gold text.
-- Dialogs and sheets (site search, docs search, the mods sheet) are `coal`. The two search dialogs have no
-  edge; the mods sheet keeps it. Their field is navy.
+- Dialogs and sheets (site search, docs search, the mods sheet) are `coal`. No dialog has an edge.
+  Their field is navy.
 - Focus on a field: a 2 px gold ring inside it (`.field` does it). Other elements use the browser's focus
   outline.
 - A thin 1 px line (`border-line`) is fine only to split things: table rows, a list, a bar from the page,
@@ -78,7 +76,7 @@ the `d-*` classes for the mod docs). Use them before writing new classes.
 ## Buttons
 
 - Main action (one per view): `.btn btn-primary`, a flat gold fill with dark text, no edge.
-- Other actions: `.btn`, coal with the gold edge and light text. `.btn-ghost` has no fill until hovered
+- Other actions: `.btn`, coal and light text, no edge. `.btn-ghost` has no fill until hovered
   (then coal).
 - `.btn-sm` for buttons inside cards and rows.
 - On hover a button lifts 2 px and gets a little lighter. No colour changes besides that.

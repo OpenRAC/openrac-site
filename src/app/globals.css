@@ -18,16 +18,16 @@
   --color-panel: #1e1e1e;
   --color-panel-hi: #242424;
   /* Warm mid brown, light enough to stand beside the gold: the fill of every plain control (buttons, fields, chips). Never grey. */
-  --color-coal: #1c1c1c;
-  --color-coal-hi: #262626;
+  --color-coal: #272727;
+  --color-coal-hi: #313131;
   /* Controls sitting on a coal surface (a dialog) are navy, so they still stand out. */
-  --color-navy: #252333;
-  --color-navy-hi: #312d43;
+  --color-navy: #302d42;
+  --color-navy-hi: #3a3650;
   /* The flat fill of every card and panel, and its hover (see STYLE.md). No stripes. */
   --stripes: linear-gradient(#1e1e1e, #1e1e1e);
   --stripes-hi: linear-gradient(#252525, #252525);
-  /* The 1 px gold edge round everything filled with coal. */
-  --color-edge: rgb(245 192 64 / 0.35);
+  /* Controls have no edge (user): kept as a token so every border stays 1 px and nothing shifts. */
+  --color-edge: transparent;
   --color-brand: #d6a020;
   --color-amber: #f5c040;
   --color-gold: #ffe08f;
@@ -73,7 +73,7 @@
   background: #c99222;
 }
 
-/* Anything filled with coal wears the gold edge (the header's buttons drop it with border-0). */
+/* Anything filled with coal keeps a 1 px border in the (clear) edge colour. */
 @layer components {
   .bg-coal { border: 1px solid var(--color-edge); }
 }
@@ -84,7 +84,7 @@
   [class*="hover:bg-panel-hi"]:hover, [class*="open:bg-panel-hi"][open] { background-image: var(--stripes-hi); }
 }
 
-/* On a coal surface (a dialog, a sheet) controls turn navy so they still stand out; the edge stays. */
+/* On a coal surface (a dialog, a sheet) controls turn navy so they still stand out. */
 @layer components {
   .bg-coal :is(.field, .chip, .seg, .btn:not(.btn-primary, .btn-ghost)) { background-color: var(--color-navy); }
   .bg-coal :is(.btn:not(.btn-primary, .btn-ghost), .chip):hover { background-color: var(--color-navy-hi); }
