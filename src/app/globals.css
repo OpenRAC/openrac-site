@@ -10,22 +10,22 @@
 }
 
 @theme {
-  /* Neutral darks: the page (#191919 as the launcher, never black), raised panels, the footer. */
-  --color-ink: #191919;
-  --color-ink-deep: #121212;
+  /* Neutral darks: the page (#131313, never black), raised panels, the footer. */
+  --color-ink: #131313;
+  --color-ink-deep: #0e0e0e;
   /* Every second home section: a band a little lighter than the page. */
-  --color-band: #202020;
-  --color-panel: #252525;
-  --color-panel-hi: #2b2b2b;
+  --color-band: #191919;
+  --color-panel: #1e1e1e;
+  --color-panel-hi: #242424;
   /* Warm mid brown, light enough to stand beside the gold: the fill of every plain control (buttons, fields, chips). Never grey. */
-  --color-coal: #212121;
-  --color-coal-hi: #2d2d2d;
+  --color-coal: #1c1c1c;
+  --color-coal-hi: #262626;
   /* Controls sitting on a coal surface (a dialog) are navy, so they still stand out. */
-  --color-navy: #2a2838;
-  --color-navy-hi: #36324a;
-  /* The coal stripes every card and panel wears, the same as the bar's search field (see STYLE.md). */
-  --stripes: repeating-linear-gradient(35deg, #242424 0 20px, #212121 20px 40px);
-  --stripes-hi: repeating-linear-gradient(35deg, #2b2b2b 0 20px, #282828 20px 40px);
+  --color-navy: #252333;
+  --color-navy-hi: #312d43;
+  /* The flat fill of every card and panel, and its hover (see STYLE.md). No stripes. */
+  --stripes: linear-gradient(#1e1e1e, #1e1e1e);
+  --stripes-hi: linear-gradient(#252525, #252525);
   /* The 1 px gold edge round everything filled with coal. */
   --color-edge: rgb(245 192 64 / 0.35);
   --color-brand: #d6a020;
@@ -68,9 +68,9 @@
   }
 }
 
-/* Gold stripes of two close golds, as the launcher's: the thin gold strip on top of a sheet or panel. */
+/* The thin flat gold strip on top of a sheet or panel. */
 @utility bar-stripes {
-  background: repeating-linear-gradient(35deg, #c99222 0 20px, #bd8619 20px 40px);
+  background: #c99222;
 }
 
 /* Anything filled with coal wears the gold edge (the header's buttons drop it with border-0). */
@@ -78,7 +78,7 @@
   .bg-coal { border: 1px solid var(--color-edge); }
 }
 
-/* Panels drawn with bg-panel wear the same stripes; their hover and open states the lighter ones. */
+/* Panels drawn with bg-panel get the same flat fill; their hover and open states the lighter one. */
 @layer components {
   .bg-panel { background-image: var(--stripes); }
   [class*="hover:bg-panel-hi"]:hover, [class*="open:bg-panel-hi"][open] { background-image: var(--stripes-hi); }
@@ -220,7 +220,7 @@
   /* A raised panel: info cards, resources, mod panels. */
   .surface {
     border-radius: 0.75rem;
-    /* no border: coal stripes like the bar's search field; opaque, so the hero's embers pass under it */
+    /* no border: a flat fill; opaque, so the hero's embers pass under it */
     background: var(--color-coal) var(--stripes);
     transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
   }
@@ -454,8 +454,8 @@ body:has([data-install-bar]:not([inert])) .site-dock {
   position: relative;
   isolation: isolate;
   /* On the lighter band, cards turn darker than it, so they still stand out. */
-  --stripes: repeating-linear-gradient(35deg, #191919 0 20px, #161616 20px 40px);
-  --stripes-hi: repeating-linear-gradient(35deg, #252525 0 20px, #222222 20px 40px);
+  --stripes: linear-gradient(#131313, #131313);
+  --stripes-hi: linear-gradient(#1e1e1e, #1e1e1e);
 }
 .bands > section:nth-of-type(odd):not(:first-of-type)::before {
   content: "";

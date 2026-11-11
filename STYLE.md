@@ -19,34 +19,33 @@ the `d-*` classes for the mod docs). Use them before writing new classes.
 
 ### The page
 
-- The page is neutral grey #191919, as the launcher's, never black and never navy: `ink` #191919,
-  `ink-deep` #121212 for the darkest parts (code blocks, inline code, badges, the footer). Every shade made
-  from the page colour (the hero's gradients, halos) uses the same grey.
+- The page is dark neutral grey, never black and never navy: `ink` #131313, `ink-deep` #0e0e0e for the
+  darkest parts (code blocks, inline code, badges, the footer). Every shade made from the page colour
+  (the hero's gradients, halos) uses the same grey.
 - Home sections alternate so they read apart. The hero melts into a dark Progress; after it every second
   section (Get involved, Recent activity, Resources, Our view on AI…) sits on a full-width band a little
-  lighter than the page: `--color-band` #202020, drawn by `main.bands > section:nth-of-type(odd):not(:first-of-type)`.
+  lighter than the page: `--color-band` #191919, drawn by `main.bands > section:nth-of-type(odd):not(:first-of-type)`.
   The band has hard edges, no gradient.
 
 ### Cards and panels
 
 - Every card and panel (`.surface`, `.d-card`, `bg-panel`: FAQ, Resources, How it works, Legal, Get involved,
-  news, mods, docs, the day calendar) wears faint dark diagonal stripes, the same pattern as the bar's search
-  field: `--stripes` = 35deg, 20 px bands, #242424 on #212121. Hover or open: `--stripes-hi` (#2b2b2b on
-  #282828). They are a light background, never loud. No flat lighter panels, no border.
-- On a lighter home band the card stripes turn darker than the band, so cards still stand out:
-  #191919 on #161616 (hover #252525 on #222222). The band section sets `--stripes` itself.
-- Card stripes scroll with the card (no `fixed`).
+  news, mods, docs, the day calendar) has a flat fill, no stripes (user): `--stripes` #1e1e1e, hover or
+  open `--stripes-hi` #252525. No border.
+- On a lighter home band the cards turn darker than the band, so they still stand out: #131313 (hover
+  #1e1e1e). The band section sets `--stripes` itself.
+- No diagonal stripes anywhere on the page; the thin strip on top of a sheet is flat gold.
 
 ### Controls
 
 - Controls (`.btn`, `.field`, `.chip`, `.seg`, the `d-*` controls, anything `bg-coal`, the hero's
-  "Launcher … is out" pill) are filled with `coal` #212121 (`coal-hi` #2d2d2d on hover) and have a 1 px gold
+  "Launcher … is out" pill) are filled with `coal` #1c1c1c (`coal-hi` #262626 on hover) and have a 1 px gold
   edge: `--color-edge`, amber at 35 % (half strength; full gold is too loud).
 - No edge on: the gold main button (`.btn-primary`), ghost buttons, the header's buttons and search, the two search dialogs, and the corner dock with the News, GitHub and
   Discord icons.
 - Contrast rule (also for the launcher and the game's menu, where themes change the background): on a
-  the page or a navy background a control is `coal` #212121; on a coal background it is navy `navy` #2a2838
-  (`navy-hi` #36324a on hover). So controls inside a coal dialog or sheet turn navy; the edge stays.
+  the page or a navy background a control is `coal` #1c1c1c; on a coal background it is navy `navy` #252333
+  (`navy-hi` #312d43 on hover). So controls inside a coal dialog or sheet turn navy; the edge stays.
 - On or picked: a gold tint on the page's grey (`color-mix(amber 22 %, ink)`) with gold text
   (`aria-pressed="true"`, `aria-checked="true"` or `data-on` on `.btn`/`.chip`). The edge stays.
   A picked row in a list (search results, docs menu, hook explorer) is `bg-amber/12`.
@@ -153,7 +152,7 @@ the `d-*` classes for the mod docs). Use them before writing new classes.
 - A full-bleed video or picture melts into the page at the bottom (an eased mask), never a hard edge.
 - Everything that moves on its own respects `prefers-reduced-motion`.
 - A link to another page opens it at the top; Back and Forward return to where the page was left
-  (`ScrollReset`). On phones the bar's stripes scroll with the bar (no `fixed`), so they never slide.
+  (`ScrollReset`).
 
 ## Writing on the page
 
