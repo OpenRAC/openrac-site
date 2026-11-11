@@ -30,21 +30,28 @@ export default function Particles() {
         r: Math.random() * 1.8 + 0.6, v: Math.random() * 0.25 + 0.08, a: Math.random() * 0.5 + 0.2,
       }));
     };
-    const loop = () => {
+    // 30 frames a second, moved by the time that passed: the embers drift well under a pixel a frame,
+    // so this looks the same as 60 and halves the drawing (and the header's blur over it).
+    let last = 0;
+    const loop = (now: number) => {
+      raf = requestAnimationFrame(loop);
+      if (last && now - last < 30) return;
+      const k = last ? Math.min((now - last) / (1000 / 60), 4) : 1;
+      last = now;
       ctx.clearRect(0, 0, w, h);
       for (const d of dots) {
-        d.y -= d.v;
-        d.x += Math.sin(d.y / 60) * 0.15;
+        d.y -= d.v * k;
+        d.x += Math.sin(d.y / 60) * 0.15 * k;
         if (d.y < -4) { d.y = h + 4; d.x = Math.random() * w; }
         ctx.globalAlpha = d.a;
         ctx.beginPath();
         ctx.arc(d.x, d.y, d.r, 0, 7);
         ctx.fill();
       }
-      raf = requestAnimationFrame(loop);
     };
     const update = () => {
       cancelAnimationFrame(raf);
+      last = 0;
       if (visible && !document.hidden) raf = requestAnimationFrame(loop);
     };
     const io = new IntersectionObserver(([e]) => { visible = e.isIntersecting; update(); });

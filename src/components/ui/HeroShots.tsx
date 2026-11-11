@@ -15,9 +15,9 @@ const stillOnly = () =>
 const AV1 = 'video/webm; codecs="av01.0.08M.08"';
 
 /**
- * Whether to play the AV1 files: only where they decode smoothly, and on a phone or tablet only in
- * hardware (a phone decoding AV1 in software drops frames and drains the battery); else the H.264
- * ones, which every device decodes in hardware. null until the browser has answered.
+ * Whether to play the AV1 files: only where the GPU decodes them (powerEfficient). AV1 in software
+ * keeps a laptop's CPU busy and hot for as long as the clip plays, and drains a phone; the H.264 files
+ * look the same and every device decodes them in hardware. null until the browser has answered.
  */
 function useAv1() {
   const [av1, setAv1] = useState<boolean | null>(null);
@@ -26,8 +26,8 @@ function useAv1() {
     const answer = navigator.mediaCapabilities
       ? navigator.mediaCapabilities
           .decodingInfo({ type: "file", video: { contentType: AV1, width: 1920, height: 1080, bitrate: 2_500_000, framerate: 60 } })
-          .then((r) => r.supported && r.smooth && (r.powerEfficient || !matchMedia("(pointer: coarse)").matches))
-      : Promise.resolve(document.createElement("video").canPlayType(AV1) === "probably");
+          .then((r) => r.supported && r.smooth && r.powerEfficient)
+      : Promise.resolve(false);
     answer.then((ok) => live && setAv1(ok), () => live && setAv1(false));
     return () => {
       live = false;

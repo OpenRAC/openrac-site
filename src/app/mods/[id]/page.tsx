@@ -208,6 +208,8 @@ export default async function ModPage(props: PageProps<"/mods/[id]">) {
           </div>
         </ViewTransition>
         <div aria-hidden className="absolute inset-0 -z-10 bg-gradient-to-t from-ink via-ink/75 to-ink/20" />
+        {/* A darker shade at the very top, so the header's buttons never blend into a bright banner. */}
+        <div aria-hidden className="absolute inset-x-0 top-0 -z-10 h-44 bg-[linear-gradient(180deg,rgb(19_19_19/.8)_0%,rgb(19_19_19/.55)_35%,rgb(19_19_19/.2)_70%,transparent_100%)]" />
         <div className="mx-auto max-w-[1080px] px-4 pb-8 pt-[clamp(170px,calc(22vw+50px),290px)]">
           <nav aria-label="Breadcrumb" className="mb-3 text-[13px] text-dim">
             <ol className="flex flex-wrap gap-1.5">
