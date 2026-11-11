@@ -10,22 +10,22 @@
 }
 
 @theme {
-  /* Neutral darks with a hair of violet: the page, raised panels, the footer. */
-  --color-ink: #0a0a0a;
-  --color-ink-deep: #050505;
+  /* Neutral darks: the page (#191919 as the launcher, never black), raised panels, the footer. */
+  --color-ink: #191919;
+  --color-ink-deep: #121212;
   /* Every second home section: a band a little lighter than the page. */
-  --color-band: #111111;
-  --color-panel: #161616;
-  --color-panel-hi: #1c1c1c;
+  --color-band: #202020;
+  --color-panel: #252525;
+  --color-panel-hi: #2b2b2b;
   /* Warm mid brown, light enough to stand beside the gold: the fill of every plain control (buttons, fields, chips). Never grey. */
-  --color-coal: #121212;
-  --color-coal-hi: #1e1e1e;
+  --color-coal: #212121;
+  --color-coal-hi: #2d2d2d;
   /* Controls sitting on a coal surface (a dialog) are navy, so they still stand out. */
-  --color-navy: #1d1b2a;
-  --color-navy-hi: #29253b;
+  --color-navy: #2a2838;
+  --color-navy-hi: #36324a;
   /* The coal stripes every card and panel wears, the same as the bar's search field (see STYLE.md). */
-  --stripes: repeating-linear-gradient(35deg, #151515 0 20px, #121212 20px 40px);
-  --stripes-hi: repeating-linear-gradient(35deg, #1c1c1c 0 20px, #191919 20px 40px);
+  --stripes: repeating-linear-gradient(35deg, #242424 0 20px, #212121 20px 40px);
+  --stripes-hi: repeating-linear-gradient(35deg, #2b2b2b 0 20px, #282828 20px 40px);
   /* The 1 px gold edge round everything filled with coal. */
   --color-edge: rgb(245 192 64 / 0.35);
   --color-brand: #d6a020;
@@ -68,21 +68,12 @@
   }
 }
 
-/* The header bar: wide stripes of two close golds, as the launcher draws it. */
-/* The bar's stripes are laid on the window, not the bar, so the stripes in its buttons continue them exactly. */
+/* Gold stripes of two close golds, as the launcher's: the thin gold strip on top of a sheet or panel. */
 @utility bar-stripes {
   background: repeating-linear-gradient(35deg, #c99222 0 20px, #bd8619 20px 40px);
-  /* Laid on the window only where the bar's striped buttons show; phones move fixed backgrounds as the page scrolls. */
-  @media (min-width: 821px) { background-attachment: fixed; }
-}
-@utility coal-stripes {
-  background: repeating-linear-gradient(35deg, #181818 0 20px, #121212 20px 40px) fixed;
-}
-@utility coal-stripes-hi {
-  background: repeating-linear-gradient(35deg, #252525 0 20px, #1f1f1f 20px 40px) fixed;
 }
 
-/* Anything filled with coal wears the gold edge, the bar's striped buttons excepted (they sit in the gold). */
+/* Anything filled with coal wears the gold edge (the header's buttons drop it with border-0). */
 @layer components {
   .bg-coal { border: 1px solid var(--color-edge); }
 }
@@ -428,6 +419,31 @@ body:has([data-install-bar]) footer { padding-bottom: calc(96px + env(safe-area-
 /* Docs: a one-column grid never grows past its column for a long name or line of code. */
 :where(#content) .grid:not([class*="grid-cols"]) { grid-template-columns: minmax(0, 1fr); }
 
+/* The header has no bar of its own, as the launcher's: it lies over the page. Once the page scrolls
+   under it, a haze fades in behind it: blurred, barely darkened, fading out below, so neither an edge
+   nor a shadow shows. */
+.site-haze {
+  position: fixed;
+  inset: 0 0 auto;
+  height: 70px;
+  z-index: 29;
+  pointer-events: none;
+  background: color-mix(in srgb, var(--color-ink) 30%, transparent);
+  -webkit-backdrop-filter: blur(18px);
+  backdrop-filter: blur(18px);
+  -webkit-mask-image: linear-gradient(black 65%, transparent);
+  mask-image: linear-gradient(black 65%, transparent);
+  /* Hidden, not only clear, at the top: WebKit can still draw a clear backdrop's filter. */
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.25s ease, visibility 0.25s;
+}
+.site-haze[data-under] { visibility: visible; opacity: 1; }
+/* Without a blur, a darker haze keeps the header readable. */
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .site-haze { background: color-mix(in srgb, var(--color-ink) 90%, transparent); }
+}
+
 /* The corner dock (News, GitHub, Discord) rises above a page's install bar while that bar is up. */
 body:has([data-install-bar]:not([inert])) .site-dock {
   translate: 0 calc(-1 * var(--install-bar-h, 64px));
@@ -438,8 +454,8 @@ body:has([data-install-bar]:not([inert])) .site-dock {
   position: relative;
   isolation: isolate;
   /* On the lighter band, cards turn darker than it, so they still stand out. */
-  --stripes: repeating-linear-gradient(35deg, #0a0a0a 0 20px, #070707 20px 40px);
-  --stripes-hi: repeating-linear-gradient(35deg, #161616 0 20px, #131313 20px 40px);
+  --stripes: repeating-linear-gradient(35deg, #191919 0 20px, #161616 20px 40px);
+  --stripes-hi: repeating-linear-gradient(35deg, #252525 0 20px, #222222 20px 40px);
 }
 .bands > section:nth-of-type(odd):not(:first-of-type)::before {
   content: "";

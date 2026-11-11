@@ -8,7 +8,7 @@
 export default function GlobalError({ error, reset }: { error: Error & { digest?: string }; reset: () => void }) {
   return (
     <html lang="en">
-      <body style={{ margin: 0, minHeight: "100vh", display: "grid", placeItems: "center", background: "#0a0a0a", color: "#efeff3", font: "16px/1.5 system-ui, sans-serif" }}>
+      <body style={{ margin: 0, minHeight: "100vh", display: "grid", placeItems: "center", background: "#191919", color: "#efeff3", font: "16px/1.5 system-ui, sans-serif" }}>
         <main style={{ maxWidth: 480, padding: 24, textAlign: "center" }}>
           <div style={{ height: 6, marginBottom: 24, borderRadius: 3, background: "repeating-linear-gradient(-55deg,#c99222 0 10px,#bd8619 10px 20px)" }} />
           <h1 style={{ fontSize: 26, margin: "0 0 8px" }}>OpenRAC hit a snag</h1>

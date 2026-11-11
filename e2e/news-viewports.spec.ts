@@ -41,7 +41,7 @@ function problems(scope: string): string[] {
   for (const el of document.querySelectorAll(`${scope} h1, ${scope} h2, ${scope} h3, ${scope} h4, ${scope} p, ${scope} li, ${scope} figcaption`)) {
     if (el.scrollWidth > el.clientWidth + 1 && getComputedStyle(el).display !== "inline") out.push(`text wider than its box: ${name(el)}`);
   }
-  const bar = document.querySelector("header.bar-stripes")!.getBoundingClientRect();
+  const bar = document.querySelector("header.site-header")!.getBoundingClientRect();
   if (bar.height > 52) out.push(`header wrapped to ${Math.round(bar.height)}px`);
   // WCAG 2.5.8: a control on its own is at least 24 px each way. Links in a line of text are exempt.
   for (const el of document.querySelectorAll(`${scope} a, ${scope} button, ${scope} summary`)) {

@@ -101,7 +101,7 @@ function HeroShotLayers({ at, off, idle, hidden, missing, lost }: { at: number; 
   }, [hidden]);
 
   return (
-    <div aria-hidden style={{ transitionDuration: `${FADE_MS}ms` }} className={`absolute inset-0 overflow-hidden bg-ink-deep transition-opacity ${FADE_OUT} ${off ? "opacity-0" : ""}`}>
+    <div aria-hidden style={{ transitionDuration: `${FADE_MS}ms` }} className={`absolute inset-0 overflow-hidden bg-ink transition-opacity ${FADE_OUT} ${off ? "opacity-0" : ""}`}>
       {HERO_SHOTS.map((shot, i) =>
         wanted.has(i) && !missing.has(i) ? (
           <video
@@ -309,7 +309,7 @@ export default function HeroStage({ hud, children }: { hud: ReactNode; children:
           <HeroGalaxies />
         </div>
       )}
-      <div aria-hidden className={`absolute inset-0 transition-opacity duration-[1600ms] ${sky ? "opacity-60" : ""} bg-[linear-gradient(0deg,var(--color-ink)_0%,rgb(10_10_10/.6)_14%,rgb(10_10_10/.25)_30%,transparent_45%),linear-gradient(90deg,rgb(5_5_5/.92)_0%,rgb(5_5_5/.55)_45%,transparent_75%)] max-[700px]:bg-[linear-gradient(0deg,var(--color-ink)_8%,rgb(5_5_5/.82)_55%,rgb(5_5_5/.35)_100%)]`} />
+      <div aria-hidden className={`absolute inset-0 transition-opacity duration-[1600ms] ${sky ? "opacity-60" : ""} bg-[linear-gradient(0deg,var(--color-ink)_0%,rgb(25_25_25/.6)_14%,rgb(25_25_25/.25)_30%,transparent_45%),linear-gradient(90deg,rgb(25_25_25/.92)_0%,rgb(25_25_25/.55)_45%,transparent_75%)] max-[700px]:bg-[linear-gradient(0deg,var(--color-ink)_8%,rgb(25_25_25/.82)_55%,rgb(25_25_25/.35)_100%)]`} />
       {hud}
       {/* Phones: centred, with wider side margins; wider screens: bottom left. */}
       <div className="relative mx-auto w-full max-w-[1080px] px-4 pb-14 pt-40 max-[700px]:px-7 max-[700px]:pb-24 max-[700px]:text-center max-[700px]:[&>*]:mx-auto">

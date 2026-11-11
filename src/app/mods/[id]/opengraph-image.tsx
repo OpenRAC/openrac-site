@@ -17,7 +17,7 @@ export default async function Image(props: { params: Promise<{ id: string }> }) 
   );
   return new ImageResponse(
     (
-      <div style={{ width: "100%", height: "100%", display: "flex", flexDirection: "column", justifyContent: "flex-end", padding: 80, background: "radial-gradient(circle at 85% 10%, rgba(214,160,32,0.35), #0a0a0a 55%)", color: "#efeff3", position: "relative" }}>
+      <div style={{ width: "100%", height: "100%", display: "flex", flexDirection: "column", justifyContent: "flex-end", padding: 80, background: "radial-gradient(circle at 85% 10%, rgba(214,160,32,0.35), #191919 55%)", color: "#efeff3", position: "relative" }}>
         <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: 18, background: "repeating-linear-gradient(-55deg, #c99222 0 22px, #bd8619 22px 44px)" }} />
         {corner({ top: 50, left: 50 }, "6px 0 0 6px")}
         {corner({ bottom: 50, right: 50 }, "0 6px 6px 0")}

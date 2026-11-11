@@ -25,9 +25,9 @@ test("the header still fits with News at its tightest widths", async ({ page }) 
     await page.setViewportSize({ width, height: 700 });
     await page.goto(`/news/${WEEK}`);
     expect(await page.evaluate(() => document.documentElement.scrollWidth - innerWidth), `sideways scroll at ${width}`).toBeLessThanOrEqual(0);
-    const overflow = await page.locator("header.bar-stripes nav").evaluate((nav) => nav.scrollWidth - nav.clientWidth);
+    const overflow = await page.locator("header.site-header nav").evaluate((nav) => nav.scrollWidth - nav.clientWidth);
     expect(overflow, `nav overflow at ${width}`).toBeLessThanOrEqual(0);
-    const bar = await page.locator("header.bar-stripes").boundingBox();
+    const bar = await page.locator("header.site-header").boundingBox();
     expect(bar!.height, `one line at ${width}`).toBeLessThanOrEqual(52);
   }
 });
