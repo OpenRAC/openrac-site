@@ -128,7 +128,14 @@ export default function Header() {
     <>
       <div ref={top} aria-hidden className="pointer-events-none absolute inset-x-0 top-0 h-0.5" />
       {/* The blur sits outside the header: an element with a view-transition-name blurs only what is inside it. */}
-      <div aria-hidden data-under={atTop && !open ? undefined : ""} className="site-haze" />
+      <div aria-hidden data-under={atTop && !open ? undefined : ""} className="site-haze">
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+      </div>
       <header
         style={{ viewTransitionName: "site-header" }}
         data-floating={atTop && !open ? "" : undefined}

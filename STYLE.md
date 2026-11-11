@@ -88,11 +88,14 @@ the `d-*` classes for the mod docs). Use them before writing new classes.
   At the very top of a page it sits 12 px lower and slides up to the edge once the page scrolls (300 ms
   ease-out, none for "reduce motion").
   The logo is light (`text`) with its mark in gold.
-- Once the page scrolls under it, a haze fades in behind it (`.site-haze`): `blur(18px)` over the page
-  colour at 30 %, fading out 20 px below the header, so neither an edge nor a shadow shows. At the very top
-  there is nothing behind it (an IntersectionObserver on a 2 px strip at the top, no scroll handler).
-  Without `backdrop-filter` the haze is the page colour at 90 %. The haze is a sibling of the header: an
-  element with a `view-transition-name` only blurs what is inside it.
+- Once the page scrolls under it, a haze fades in behind it (`.site-haze`): the launcher's `blur(18px)`
+  under the bar, then five weaker, taller layers (11, 6, 3, 1.5 px, each fading out over 16 px) so the
+  blur thins out step by step to 96 px, and a tint of the page colour at 30 % easing out. Neither an edge
+  nor a shadow shows, even where a browser drops the masks. At the very top there is nothing behind it
+  (an IntersectionObserver on a 2 px strip at the top, no scroll handler). Without `backdrop-filter` the
+  tint is the page colour at 90 %. The haze is a sibling of the header: an element with a
+  `view-transition-name` only blurs what is inside it. Its layers fade themselves, since an opacity on
+  their parent would cut off what they blur.
 - Its buttons (Mods, Download) and the search field are plain `coal` with gold text and no edge,
   `rounded-md`, `h-8.5` (34 px tall). The open page is filled gold with dark text, as the launcher's open tab.
 - Phone bar icons (search, menu) are bare light marks.

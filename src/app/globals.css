@@ -421,27 +421,55 @@ body:has([data-install-bar]) footer { padding-bottom: calc(96px + env(safe-area-
 
 /* The header has no bar of its own, as the launcher's: it lies over the page. Once the page scrolls
    under it, a haze fades in behind it: blurred, barely darkened, fading out below, so neither an edge
-   nor a shadow shows. */
+   nor a shadow shows. The blur is six layers, each weaker and a little taller than the one before, so it
+   thins out step by step and ends in a 1 px blur: no hard line, even where a browser drops the masks. */
 .site-haze {
   position: fixed;
   inset: 0 0 auto;
-  height: 70px;
+  height: 96px;
   z-index: 29;
   pointer-events: none;
-  background: color-mix(in srgb, var(--color-ink) 30%, transparent);
-  -webkit-backdrop-filter: blur(18px);
-  backdrop-filter: blur(18px);
-  -webkit-mask-image: linear-gradient(black 65%, transparent);
-  mask-image: linear-gradient(black 65%, transparent);
   /* Hidden, not only clear, at the top: WebKit can still draw a clear backdrop's filter. */
   visibility: hidden;
-  opacity: 0;
-  transition: opacity 0.28s cubic-bezier(0.2, 0.8, 0.2, 1), visibility 0.28s;
+  transition: visibility 0.28s;
 }
-.site-haze[data-under] { visibility: visible; opacity: 1; }
+.site-haze[data-under] { visibility: visible; }
+/* The layers fade themselves: an opacity on their parent would cut off what they blur. */
+.site-haze > * {
+  position: absolute;
+  inset: 0 0 auto;
+  height: var(--h);
+  -webkit-backdrop-filter: blur(var(--b));
+  backdrop-filter: blur(var(--b));
+  -webkit-mask-image: linear-gradient(black calc(100% - 16px), transparent);
+  mask-image: linear-gradient(black calc(100% - 16px), transparent);
+  opacity: 0;
+  transition: opacity 0.28s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.site-haze[data-under] > * { opacity: 1; }
+.site-haze > :nth-child(1) { --h: 46px; --b: 18px; }
+.site-haze > :nth-child(2) { --h: 56px; --b: 11px; }
+.site-haze > :nth-child(3) { --h: 66px; --b: 6px; }
+.site-haze > :nth-child(4) { --h: 76px; --b: 3px; }
+.site-haze > :nth-child(5) { --h: 86px; --b: 1.5px; }
+/* The tint: the page colour at 30 % under the bar, easing out to nothing. */
+.site-haze > :nth-child(6) {
+  --h: 96px;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+  -webkit-mask-image: none;
+  mask-image: none;
+  background: linear-gradient(
+    color-mix(in srgb, var(--color-ink) 30%, transparent) 50%,
+    color-mix(in srgb, var(--color-ink) 12%, transparent) 72%,
+    transparent
+  );
+}
 /* Without a blur, a darker haze keeps the header readable. */
 @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
-  .site-haze { background: color-mix(in srgb, var(--color-ink) 90%, transparent); }
+  .site-haze > :nth-child(6) {
+    background: linear-gradient(color-mix(in srgb, var(--color-ink) 90%, transparent) 55%, transparent);
+  }
 }
 
 /* The corner dock (News, GitHub, Discord) rises above a page's install bar while that bar is up. */
