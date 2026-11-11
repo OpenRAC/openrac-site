@@ -41,7 +41,7 @@ the `d-*` classes for the mod docs). Use them before writing new classes.
 
 - Controls (`.btn`, `.field`, `.chip`, `.seg`, the `d-*` controls, anything `bg-coal`) are filled with `coal` #1c1c1c (`coal-hi` #262626 on hover) and have a 1 px gold
   edge: `--color-edge`, amber at 35 % (half strength; full gold is too loud).
-- No edge on: the gold main button (`.btn-primary`), ghost buttons, the header's buttons and search, the hero's "See progress" button and "Launcher … is out" pill (user), the two search dialogs, and the corner dock with the News, GitHub and
+- No edge on: the gold main button (`.btn-primary`), ghost buttons, the header's buttons and search, the hero's "See progress" button and "Launcher … is out" pill, Discord buttons (user), the two search dialogs, and the corner dock with the News, GitHub and
   Discord icons.
 - Contrast rule (also for the launcher and the game's menu, where themes change the background): on a
   the page or a navy background a control is `coal` #1c1c1c; on a coal background it is navy `navy` #252333

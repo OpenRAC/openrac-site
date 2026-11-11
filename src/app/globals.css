@@ -132,7 +132,7 @@
     font-size: 0.875rem;
   }
   /* A plain button whose text and mark are Discord's blue. */
-  .btn-discord { color: var(--color-discord); }
+  .btn-discord { color: var(--color-discord); border-color: transparent; }
   @media (hover: hover) and (pointer: fine) {
     .btn:hover { transform: translateY(-2px); background-color: var(--color-coal-hi); box-shadow: 0 8px 24px rgb(0 0 0 / 0.4); }
     .btn-ghost:hover { transform: none; box-shadow: none; background-color: var(--color-coal); }

@@ -1,17 +1,8 @@
 /** The three points of the notice, each a short title and its sentence. */
 const POINTS = [
-  {
-    title: "Unofficial",
-    text: "OpenRAC is an independent fan project. It is not affiliated with, endorsed by or sponsored by the owners of the games or their publishers.",
-  },
-  {
-    title: "No game files here",
-    text: "This website and the decompilation repositories it links to hold no copyrighted game assets, no game code and no game binaries.",
-  },
-  {
-    title: "Your own copy",
-    text: "Every tool from these projects needs a legally obtained copy of the game. Nothing here replaces it.",
-  },
+  { title: "Unofficial", text: "A fan project. Not made or backed by the games' owners." },
+  { title: "No game files", text: "No game code, art or files here or in the linked projects." },
+  { title: "Your own copy", text: "You need your own copy of the game to play." },
 ];
 
 /** A small gold shield: the mark of the notice. */
@@ -42,7 +33,7 @@ export default function Legal() {
           ))}
         </ul>
         <p className="mt-6 text-[13px] text-dim">
-          &quot;Ratchet &amp; Clank&quot; and related names, characters and logos are trademarks of their respective owners, used here only to name the games these projects study.
+          &quot;Ratchet &amp; Clank&quot; is a trademark of its owners. We use the name only to say which games this is about.
         </p>
       </div>
     </section>
