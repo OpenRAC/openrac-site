@@ -419,22 +419,16 @@ body:has([data-install-bar]) footer { padding-bottom: calc(96px + env(safe-area-
 /* Docs: a one-column grid never grows past its column for a long name or line of code. */
 :where(#content) .grid:not([class*="grid-cols"]) { grid-template-columns: minmax(0, 1fr); }
 
-/* The header has no bar of its own, as the launcher's: it lies over the page. Once the page scrolls
-   under it, a haze fades in behind it: blurred, barely darkened, fading out below, so neither an edge
-   nor a shadow shows. The blur is six layers, each weaker and a little taller than the one before, so it
+/* The header has no bar of its own, as the launcher's: it lies over the page. A haze is always behind
+   it: blurred, barely darkened, fading out below, so neither an edge nor a shadow shows. The blur is six layers, each weaker and a little taller than the one before, so it
    thins out step by step and ends in a 1 px blur: no hard line, even where a browser drops the masks. */
 .site-haze {
   position: fixed;
   inset: 0 0 auto;
-  height: 96px;
+  height: 108px;
   z-index: 29;
   pointer-events: none;
-  /* Hidden, not only clear, at the top: WebKit can still draw a clear backdrop's filter. */
-  visibility: hidden;
-  transition: visibility 0.28s;
 }
-.site-haze[data-under] { visibility: visible; }
-/* The layers fade themselves: an opacity on their parent would cut off what they blur. */
 .site-haze > * {
   position: absolute;
   inset: 0 0 auto;
@@ -443,10 +437,11 @@ body:has([data-install-bar]) footer { padding-bottom: calc(96px + env(safe-area-
   backdrop-filter: blur(var(--b));
   -webkit-mask-image: linear-gradient(black calc(100% - 16px), transparent);
   mask-image: linear-gradient(black calc(100% - 16px), transparent);
-  opacity: 0;
-  transition: opacity 0.28s cubic-bezier(0.2, 0.8, 0.2, 1);
+  transition: height 0.3s ease-out;
 }
-.site-haze[data-under] > * { opacity: 1; }
+/* At the very top the header sits 12 px lower: the haze reaches 12 px further with it. */
+.site-haze[data-floating] > * { height: calc(var(--h) + 12px); }
+@media (prefers-reduced-motion: reduce) { .site-haze > * { transition: none; } }
 .site-haze > :nth-child(1) { --h: 46px; --b: 18px; }
 .site-haze > :nth-child(2) { --h: 56px; --b: 11px; }
 .site-haze > :nth-child(3) { --h: 66px; --b: 6px; }

@@ -75,7 +75,7 @@ function MarkButton({ site, onClick, className = "" }: { site: "github" | "disco
 
 /**
  * The header fixed to the top. Like the launcher's it has no bar of its own: it lies over the page, and
- * once the page scrolls under it a soft blur fades in behind it (.site-haze in globals.css).
+ * a soft blur is always behind it (.site-haze in globals.css).
  * Client-side for the phone menu.
  */
 export default function Header() {
@@ -100,8 +100,7 @@ export default function Header() {
 
   const close = () => setOpen(false);
 
-  // At the very top the header is bare and sits 12 px lower; once the page moves it slides up to the edge
-  // and the blur fades in behind it.
+  // At the very top the header sits 12 px lower; once the page moves it slides up to the edge.
   // One observer on a 2 px strip (the launcher shows it once scrollTop > 1) at the top of the document: no scroll handler, no work while scrolling.
   // The SDK docs drop the bar and its strip, so the observer starts again when the bar comes back.
   const [atTop, setAtTop] = useState(true);
@@ -129,7 +128,7 @@ export default function Header() {
     <>
       <div ref={top} aria-hidden className="pointer-events-none absolute inset-x-0 top-0 h-0.5" />
       {/* The blur sits outside the header: an element with a view-transition-name blurs only what is inside it. */}
-      <div aria-hidden data-under={atTop && !open ? undefined : ""} className="site-haze">
+      <div aria-hidden data-floating={atTop && !open ? "" : undefined} className="site-haze">
         <span />
         <span />
         <span />
