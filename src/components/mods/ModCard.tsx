@@ -112,7 +112,7 @@ export default function ModCard({
 }) {
   return (
     <article
-      className="group/card surface surface-link relative isolate flex flex-col overflow-hidden [contain-intrinsic-size:auto_380px] [content-visibility:auto]"
+      className="group/card surface surface-link [--stripes:linear-gradient(#171717,#171717)] [--stripes-hi:linear-gradient(#1c1c1c,#1c1c1c)] relative isolate flex flex-col overflow-hidden [contain-intrinsic-size:auto_380px] [content-visibility:auto]"
     >
       <CardPicture mod={mod} sizes={sizes} priority={priority} morph={morph}>
         {/* One line of badges on the picture's dark bottom edge: a long one shortens with "…" rather than wrapping. */}

@@ -42,7 +42,7 @@ export default function Hero({ progress, mods, release }: { progress: Partial<Re
     <HeroStage hud={hud}>
       {/* What is new: the launcher's latest release and its notes. */}
       {release && (
-        <a href={release.url} className="mb-6 max-[700px]:mb-8 inline-flex max-w-full flex-wrap gap-x-1.5 rounded-full bg-coal px-4 py-2 text-[13px] leading-snug text-soft no-underline backdrop-blur-sm transition-colors hover:bg-coal-hi sm:text-[14px]">
+        <a href={release.url} className="mb-6 max-[700px]:mb-8 inline-flex max-w-full flex-wrap gap-x-1.5 rounded-full border-0 bg-coal px-4 py-2 text-[13px] leading-snug text-soft no-underline backdrop-blur-sm transition-colors hover:bg-coal-hi sm:text-[14px]">
           <b className="font-semibold text-text">Launcher v{release.version} is out.</b>
           <span>
             See <span className="text-amber underline decoration-amber/40 underline-offset-2">what&apos;s new</span>

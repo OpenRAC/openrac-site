@@ -15,16 +15,17 @@ const linkOn = "bg-coal text-amber";
 const linkOff = "text-hi hover:bg-coal";
 const pill = "flex min-h-11 items-center justify-center rounded-md px-4 text-sm font-semibold no-underline transition-colors min-[821px]:min-h-8 min-[821px]:whitespace-nowrap min-[821px]:max-[1023px]:px-3";
 
-/** On a phone the bar's buttons are bare dark marks on the stripes: no discs or rings, a light shade under a finger. */
-const barIcon = "flex size-10 flex-none items-center justify-center rounded-md text-[#1b1206] transition-colors hover:bg-black/10 active:bg-black/15 min-[821px]:hidden";
+/** On a phone the bar's buttons are bare light marks over the page: no discs or rings, a light shade under a finger. */
+const barIcon = "flex size-10 flex-none items-center justify-center rounded-md text-text transition-colors hover:bg-coal active:bg-coal-hi min-[821px]:hidden";
 
-/** A wide bar button: the bar's own stripes in coal, lined up with the bar's, and gold text; the same as the search field. */
-const shade = "min-[821px]:h-8.5 min-[821px]:coal-stripes";
+/** A wide bar button: plain coal and gold text, the same as the search field (the launcher's header buttons). */
+const shade = "min-[821px]:h-8.5 min-[821px]:bg-coal min-[821px]:border-0";
 /** A hairline between the buttons of the dark dock. */
 const divider = "h-4 w-px flex-none bg-white/15";
 /** A bar button, and Mods while on its pages: the same fill with gold text. */
-const off = `${shade} text-text min-[821px]:text-amber min-[821px]:hover:coal-stripes-hi`;
-const on = "min-[821px]:h-8.5 bg-coal min-[821px]:border-0 min-[821px]:coal-stripes-hi text-gold";
+const off = `${shade} text-text min-[821px]:text-amber min-[821px]:hover:bg-coal-hi`;
+/** The open page: filled gold with dark text, as the launcher's open tab. */
+const on = "min-[821px]:h-8.5 min-[821px]:bg-amber min-[821px]:text-[#1b1206] text-amber";
 /** The same for a site's mark, in white. */
 const offMark = "text-text hover:bg-coal-hi";
 
@@ -73,7 +74,8 @@ function MarkButton({ site, onClick, className = "" }: { site: "github" | "disco
 }
 
 /**
- * Orange bar fixed to the top, striped like the launcher's, one height at every scroll position.
+ * The header fixed to the top. Like the launcher's it has no bar of its own: it lies over the page, and
+ * once the page scrolls under it a soft blur fades in behind it (.site-haze in globals.css).
  * Client-side for the phone menu.
  */
 export default function Header() {
@@ -98,15 +100,16 @@ export default function Header() {
 
   const close = () => setOpen(false);
 
-  // At the very top the bar floats, inset with rounded corners; once the page moves it docks to the edge.
-  // One observer on a 12 px strip at the top of the document: no scroll handler, no work while scrolling.
+  // At the very top the header is bare and sits 12 px lower; once the page moves it slides up to the edge
+  // and the blur fades in behind it.
+  // One observer on a 2 px strip (the launcher shows it once scrollTop > 1) at the top of the document: no scroll handler, no work while scrolling.
   // The SDK docs drop the bar and its strip, so the observer starts again when the bar comes back.
-  const [floating, setFloating] = useState(true);
+  const [atTop, setAtTop] = useState(true);
   const top = useRef<HTMLDivElement>(null);
   useEffect(() => {
     const strip = top.current;
     if (!strip) return;
-    const io = new IntersectionObserver(([e]) => setFloating(e.isIntersecting));
+    const io = new IntersectionObserver(([e]) => setAtTop(e.isIntersecting));
     io.observe(strip);
     return () => io.disconnect();
   }, [inDocs]);
@@ -124,19 +127,28 @@ export default function Header() {
   if (inDocs) return null;
   return (
     <>
-      <div ref={top} aria-hidden className="pointer-events-none absolute inset-x-0 top-0 h-3" />
+      <div ref={top} aria-hidden className="pointer-events-none absolute inset-x-0 top-0 h-0.5" />
+      {/* The blur sits outside the header: an element with a view-transition-name blurs only what is inside it. */}
+      <div aria-hidden data-under={atTop && !open ? undefined : ""} className="site-haze">
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+      </div>
       <header
         style={{ viewTransitionName: "site-header" }}
-        data-floating={floating && !open ? "" : undefined}
-        className="bar-stripes fixed left-0 right-0 top-0 z-30 border-b border-black/30 text-black shadow-[inset_0_1px_0_rgb(255_255_255/0.35),0_4px_24px_rgb(0_0_0/0.45)] transition-[top,left,right,border-radius] duration-300 ease-out motion-reduce:transition-none data-[floating]:left-[max(12px,calc(50%-556px))] data-[floating]:right-[max(12px,calc(50%-556px))] data-[floating]:top-3 data-[floating]:rounded-xl data-[floating]:border-b-0 data-[floating]:shadow-[inset_0_1px_0_rgb(255_255_255/0.35),0_10px_30px_rgb(0_0_0/0.5)]"
+        data-floating={atTop && !open ? "" : undefined}
+        className="site-header fixed left-0 right-0 top-0 z-30 text-text transition-[top] duration-300 ease-out motion-reduce:transition-none data-[floating]:top-3"
       >
         <div className="mx-auto flex h-[50px] max-w-[1080px] items-center gap-6 px-4 min-[821px]:gap-4 min-[821px]:max-[900px]:gap-2">
-          <Link href="/" transitionTypes={PAGE_TRANSITION} onClick={toTop} className="group flex items-center text-[#1b1206] no-underline" aria-label="OpenRAC home">
-            <Logo height={34} label="" className="transition-opacity group-hover:opacity-85" />
+          <Link href="/" transitionTypes={PAGE_TRANSITION} onClick={toTop} className="group flex items-center text-text no-underline" aria-label="OpenRAC home">
+            <Logo height={34} label="" accent className="transition-opacity group-hover:opacity-85" />
           </Link>
 
           {/* The site's search: a field on the wide bar, a mark on phones. */}
-          <SiteSearch className="hidden h-8.5 flex-none items-center gap-2 rounded-md coal-stripes px-3 text-[14px] font-semibold text-amber transition-colors hover:coal-stripes-hi min-[821px]:flex min-[821px]:w-64" />
+          <SiteSearch className="hidden h-8.5 flex-none items-center gap-2 rounded-md bg-coal border-0 px-3 text-[14px] font-semibold text-amber transition-colors hover:bg-coal-hi min-[821px]:flex min-[821px]:w-64" />
           <SiteSearch compact className={`${barIcon} ml-auto`} />
           <button
             type="button"
@@ -148,7 +160,7 @@ export default function Header() {
           >
             <span
               aria-hidden
-              className={`absolute left-[11px] top-[19px] h-0.5 w-[18px] rounded bg-[#1b1206] transition before:absolute before:left-0 before:top-[-6px] before:h-0.5 before:w-[18px] before:rounded before:bg-[#1b1206] before:transition before:content-[''] after:absolute after:left-0 after:top-[6px] after:h-0.5 after:w-[18px] after:rounded after:bg-[#1b1206] after:transition after:content-[''] ${open ? "bg-transparent before:translate-y-[6px] before:rotate-45 after:-translate-y-[6px] after:-rotate-45" : ""}`}
+              className={`absolute left-[11px] top-[19px] h-0.5 w-[18px] rounded bg-current transition before:absolute before:left-0 before:top-[-6px] before:h-0.5 before:w-[18px] before:rounded before:bg-current before:transition before:content-[''] after:absolute after:left-0 after:top-[6px] after:h-0.5 after:w-[18px] after:rounded after:bg-current after:transition after:content-[''] ${open ? "bg-transparent before:translate-y-[6px] before:rotate-45 after:-translate-y-[6px] after:-rotate-45" : ""}`}
             />
           </button>
 
@@ -172,7 +184,7 @@ export default function Header() {
                   Mods
                 </Link>
                 {/* The install page: the launcher for every system. */}
-                <Link href="/install" transitionTypes={PAGE_TRANSITION} onClick={close} aria-current={pathname === "/install" ? "page" : undefined} className={`${pill} border border-amber bg-amber text-[#1a0d00] hover:brightness-110 min-[821px]:border-0 min-[821px]:h-8.5 min-[821px]:coal-stripes min-[821px]:text-amber min-[821px]:hover:coal-stripes-hi min-[821px]:hover:brightness-100`}>
+                <Link href="/install" transitionTypes={PAGE_TRANSITION} onClick={close} aria-current={pathname === "/install" ? "page" : undefined} className={`${pill} border border-amber bg-amber text-[#1a0d00] hover:brightness-110 min-[821px]:border-0 min-[821px]:h-8.5 min-[821px]:bg-coal min-[821px]:text-amber min-[821px]:hover:bg-coal-hi min-[821px]:hover:brightness-100`}>
                   Download
                 </Link>
               </div>
