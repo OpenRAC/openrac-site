@@ -338,6 +338,8 @@ summary::-webkit-details-marker { display: none; }
 }
 .splash svg { animation: splash-logo 0.9s ease-in-out infinite alternate; }
 .ready .splash { opacity: 0; visibility: hidden; }
+/* Once lifted, the logo stops pulsing: a hidden endless animation still costs a frame each tick. */
+.ready .splash svg { animation-play-state: paused; }
 @media (scripting: none) { .splash { display: none; } }
 /* The home page shot bar: the showing shot's bar fills over its time. */
 /* The Konami code's galaxies fading in over the clips. */
@@ -460,6 +462,8 @@ body:has([data-install-bar]) footer { padding-bottom: calc(96px + env(safe-area-
     transparent
   );
 }
+/* A mod page's contents bar, once stuck, fills the header's strip itself: no haze, which would blur the bar's words. */
+body:has(nav[data-stuck]) .site-haze { display: none; }
 /* Without a blur, a darker haze keeps the header readable. */
 @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
   .site-haze > :nth-child(6) {
