@@ -422,7 +422,7 @@ body:has([data-install-bar]) footer { padding-bottom: calc(96px + env(safe-area-
 :where(#content) .grid:not([class*="grid-cols"]) { grid-template-columns: minmax(0, 1fr); }
 
 /* The header has no bar of its own, as the launcher's: it lies over the page. A haze is always behind
-   it: blurred, barely darkened, fading out below, so neither an edge nor a shadow shows. The blur is six layers, each weaker and a little taller than the one before, so it
+   it once the page scrolls (none at the very top, user): blurred, barely darkened, fading out below, so neither an edge nor a shadow shows. The blur is six layers, each weaker and a little taller than the one before, so it
    thins out step by step and ends in a 1 px blur: no hard line, even where a browser drops the masks. */
 .site-haze {
   position: fixed;
@@ -439,10 +439,11 @@ body:has([data-install-bar]) footer { padding-bottom: calc(96px + env(safe-area-
   backdrop-filter: blur(var(--b));
   -webkit-mask-image: linear-gradient(black calc(100% - 16px), transparent);
   mask-image: linear-gradient(black calc(100% - 16px), transparent);
-  transition: height 0.3s ease-out;
+  transition: opacity 0.3s ease-out;
 }
-/* At the very top the header sits 12 px lower: the haze reaches 12 px further with it. */
-.site-haze[data-floating] > * { height: calc(var(--h) + 12px); }
+/* At the very top there is no haze; it fades in as the page scrolls. Each layer fades itself: an
+   opacity on the parent would stop the layers' blur. */
+.site-haze[data-floating] > * { opacity: 0; }
 @media (prefers-reduced-motion: reduce) { .site-haze > * { transition: none; } }
 .site-haze > :nth-child(1) { --h: 46px; --b: 18px; }
 .site-haze > :nth-child(2) { --h: 56px; --b: 11px; }

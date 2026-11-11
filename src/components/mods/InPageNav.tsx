@@ -38,7 +38,7 @@ export default function InPageNav({ sections }: { sections: { id: string; label:
     <nav
       aria-label="On this page"
       data-stuck={stuck ? "" : undefined}
-      className="sticky top-[50px] z-10 -mx-4 -mt-px border-b border-line bg-ink/90 px-4 backdrop-blur-md before:pointer-events-none before:absolute before:inset-x-[calc(50%-50vw)] before:-top-[62px] before:bottom-0 before:-z-10 before:hidden before:border-b before:border-line before:bg-ink/90 before:content-[''] data-[stuck]:border-transparent data-[stuck]:bg-transparent data-[stuck]:backdrop-blur-none data-[stuck]:before:block"
+      className="sticky top-[50px] z-10 -mx-4 -mt-px border-b border-line bg-ink px-4 before:pointer-events-none before:absolute before:inset-x-[calc(50%-50vw)] before:-top-[62px] before:bottom-0 before:-z-10 before:hidden before:border-b before:border-line before:bg-ink before:content-[''] data-[stuck]:border-transparent data-[stuck]:bg-transparent data-[stuck]:before:block"
     >
       <ul className="flex gap-1 overflow-x-auto py-1.5 [scrollbar-width:none]">
         {sections.map((s) => (
