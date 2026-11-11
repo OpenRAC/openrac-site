@@ -103,6 +103,7 @@ export default function Header() {
   // At the very top the header is bare and sits 12 px lower; once the page moves it slides up to the edge
   // and the blur fades in behind it.
   // One observer on a 2 px strip (the launcher shows it once scrollTop > 1) at the top of the document: no scroll handler, no work while scrolling.
+  // The SDK docs drop the bar and its strip, so the observer starts again when the bar comes back.
   const [atTop, setAtTop] = useState(true);
   const top = useRef<HTMLDivElement>(null);
   useEffect(() => {
@@ -111,7 +112,7 @@ export default function Header() {
     const io = new IntersectionObserver(([e]) => setAtTop(e.isIntersecting));
     io.observe(strip);
     return () => io.disconnect();
-  }, []);
+  }, [inDocs]);
 
   // On the home page the router has nowhere to go, so the logo would do nothing: scroll to the top
   // ourselves, and drop a #section from the address.

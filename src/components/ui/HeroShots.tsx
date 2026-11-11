@@ -56,6 +56,26 @@ function HeroShotLayers({ at, off, idle, hidden, missing, lost }: { at: number; 
   const still = useSyncExternalStore(noChange, stillOnly, () => true);
   const av1 = useAv1();
   const videos = useRef<(HTMLVideoElement | null)[]>([]);
+  // One stable ref per clip, so React calls it only when the clip mounts and unmounts.
+  const [clipRefs] = useState(() =>
+    HERO_SHOTS.map((_, i) => (v: HTMLVideoElement | null) => {
+      videos.current[i] = v;
+      if (!v) return;
+      // React sets muted only as a property on a clip it creates itself (coming back to the home page
+      // without a reload), and iOS Safari then refuses to autoplay it: give it the real attribute too.
+      if (!v.hasAttribute("muted")) {
+        v.defaultMuted = true;
+        v.muted = true;
+        v.setAttribute("muted", "");
+      }
+      // Leaving the home page frees the clip's player at once (React 19 ref cleanup), not when the
+      // browser collects it: phones have few video decoders, and coming back needs them again.
+      return () => {
+        videos.current[i] = null;
+        release(v);
+      };
+    }),
+  );
   // Whether the showing clip should be running now, read by the clips' own load events.
   const live = useRef({ at, run: false });
   useEffect(() => {
@@ -94,7 +114,12 @@ function HeroShotLayers({ at, off, idle, hidden, missing, lost }: { at: number; 
   }, [at, still, off, idle, av1]);
 
   // A hidden tab holds the clip where it is (the clock waits too); back on the tab it plays on from there.
+  // Only on a real change: on mount (coming back to the home page) the clip has no files yet, and a
+  // play() then is the one iOS Safari drops, unlike the first visit where it never ran.
+  const wasHidden = useRef(hidden);
   useEffect(() => {
+    if (wasHidden.current === hidden) return;
+    wasHidden.current = hidden;
     const video = videos.current[live.current.at];
     if (hidden) video?.pause();
     else if (live.current.run && video?.paused) video.play().catch(() => {});
@@ -106,16 +131,7 @@ function HeroShotLayers({ at, off, idle, hidden, missing, lost }: { at: number; 
         wanted.has(i) && !missing.has(i) ? (
           <video
             key={shot.file}
-            ref={(v) => {
-              videos.current[i] = v;
-              // React sets muted only as a property on a clip it creates itself (coming back to the home page
-              // without a reload), and iOS Safari then refuses to autoplay it: give it the real attribute too.
-              if (v && !v.hasAttribute("muted")) {
-                v.defaultMuted = true;
-                v.muted = true;
-                v.setAttribute("muted", "");
-              }
-            }}
+            ref={clipRefs[i]}
             poster={heroSrc(shot, ".webp")}
             muted
             playsInline
@@ -139,6 +155,14 @@ function HeroShotLayers({ at, off, idle, hidden, missing, lost }: { at: number; 
       )}
     </div>
   );
+}
+
+/** Stops a clip and lets go of its file and decoder: no source left, then load() resets it. */
+function release(v: HTMLVideoElement) {
+  v.pause();
+  v.querySelectorAll("source").forEach((s) => s.remove());
+  v.removeAttribute("src");
+  v.load();
 }
 
 /** The clip after I, passing over the ones not uploaded (I itself when no other is there). */
