@@ -99,6 +99,8 @@ the `d-*` classes for the mod docs). Use them before writing new classes.
 - Its buttons (Mods, Download) and the search field are plain `coal` with gold text and no edge,
   `rounded-md`, `h-8.5` (34 px tall). The open page is filled gold with dark text, as the launcher's open tab.
 - Phone bar icons (search, menu) are bare light marks.
+- On the home page the top of the clip has a soft dark shade (160 px, page colour from 55 % to nothing), so
+  the header's buttons never blend into a bright clip. It belongs to the clip and scrolls away with it.
 - The corner dock (News, GitHub, Discord) sits bottom right, coal, with no edge. It rises over a mod
   page's install bar.
 

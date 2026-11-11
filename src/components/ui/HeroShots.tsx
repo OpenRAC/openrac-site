@@ -310,6 +310,8 @@ export default function HeroStage({ hud, children }: { hud: ReactNode; children:
         </div>
       )}
       <div aria-hidden className={`absolute inset-0 transition-opacity duration-[1600ms] ${sky ? "opacity-60" : ""} bg-[linear-gradient(0deg,var(--color-ink)_0%,rgb(19_19_19/.6)_14%,rgb(19_19_19/.25)_30%,transparent_45%),linear-gradient(90deg,rgb(19_19_19/.92)_0%,rgb(19_19_19/.55)_45%,transparent_75%)] max-[700px]:bg-[linear-gradient(0deg,var(--color-ink)_8%,rgb(19_19_19/.82)_55%,rgb(19_19_19/.35)_100%)]`} />
+      {/* A soft shade at the very top, so the header's buttons stand out on a bright clip; it scrolls away with the clip. */}
+      <div aria-hidden className="pointer-events-none absolute inset-x-0 top-0 h-40 bg-[linear-gradient(180deg,rgb(19_19_19/.55)_0%,rgb(19_19_19/.3)_40%,rgb(19_19_19/.1)_70%,transparent_100%)]" />
       {hud}
       {/* Phones: centred, with wider side margins; wider screens: bottom left. */}
       <div className="relative mx-auto w-full max-w-[1080px] px-4 pb-14 pt-40 max-[700px]:px-7 max-[700px]:pb-24 max-[700px]:text-center max-[700px]:[&>*]:mx-auto">
