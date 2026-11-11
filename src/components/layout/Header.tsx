@@ -100,7 +100,8 @@ export default function Header() {
 
   const close = () => setOpen(false);
 
-  // At the very top the header is bare; once the page moves under it the blur fades in.
+  // At the very top the header is bare and sits 12 px lower; once the page moves it slides up to the edge
+  // and the blur fades in behind it.
   // One observer on a 2 px strip (the launcher shows it once scrollTop > 1) at the top of the document: no scroll handler, no work while scrolling.
   const [atTop, setAtTop] = useState(true);
   const top = useRef<HTMLDivElement>(null);
@@ -128,7 +129,11 @@ export default function Header() {
       <div ref={top} aria-hidden className="pointer-events-none absolute inset-x-0 top-0 h-0.5" />
       {/* The blur sits outside the header: an element with a view-transition-name blurs only what is inside it. */}
       <div aria-hidden data-under={atTop && !open ? undefined : ""} className="site-haze" />
-      <header style={{ viewTransitionName: "site-header" }} className="site-header fixed left-0 right-0 top-0 z-30 text-text">
+      <header
+        style={{ viewTransitionName: "site-header" }}
+        data-floating={atTop && !open ? "" : undefined}
+        className="site-header fixed left-0 right-0 top-0 z-30 text-text transition-[top] duration-300 ease-out motion-reduce:transition-none data-[floating]:top-3"
+      >
         <div className="mx-auto flex h-[50px] max-w-[1080px] items-center gap-6 px-4 min-[821px]:gap-4 min-[821px]:max-[900px]:gap-2">
           <Link href="/" transitionTypes={PAGE_TRANSITION} onClick={toTop} className="group flex items-center text-text no-underline" aria-label="OpenRAC home">
             <Logo height={34} label="" accent className="transition-opacity group-hover:opacity-85" />

@@ -85,6 +85,8 @@ the `d-*` classes for the mod docs). Use them before writing new classes.
 ## Header bar
 
 - The header has no bar of its own, as the launcher's: it lies over the page, fixed at the top, 50 px tall.
+  At the very top of a page it sits 12 px lower and slides up to the edge once the page scrolls (300 ms
+  ease-out, none for "reduce motion").
   The logo is light (`text`) with its mark in gold.
 - Once the page scrolls under it, a haze fades in behind it (`.site-haze`): `blur(18px)` over the page
   colour at 30 %, fading out 20 px below the header, so neither an edge nor a shadow shows. At the very top
