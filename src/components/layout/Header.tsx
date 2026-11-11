@@ -101,7 +101,7 @@ export default function Header() {
   const close = () => setOpen(false);
 
   // At the very top the header is bare; once the page moves under it the blur fades in.
-  // One observer on a 12 px strip at the top of the document: no scroll handler, no work while scrolling.
+  // One observer on a 2 px strip (the launcher shows it once scrollTop > 1) at the top of the document: no scroll handler, no work while scrolling.
   const [atTop, setAtTop] = useState(true);
   const top = useRef<HTMLDivElement>(null);
   useEffect(() => {
@@ -125,7 +125,7 @@ export default function Header() {
   if (inDocs) return null;
   return (
     <>
-      <div ref={top} aria-hidden className="pointer-events-none absolute inset-x-0 top-0 h-3" />
+      <div ref={top} aria-hidden className="pointer-events-none absolute inset-x-0 top-0 h-0.5" />
       {/* The blur sits outside the header: an element with a view-transition-name blurs only what is inside it. */}
       <div aria-hidden data-under={atTop && !open ? undefined : ""} className="site-haze" />
       <header style={{ viewTransitionName: "site-header" }} className="site-header fixed left-0 right-0 top-0 z-30 text-text">

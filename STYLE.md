@@ -35,14 +35,13 @@ the `d-*` classes for the mod docs). Use them before writing new classes.
 - On a lighter home band the cards turn darker than the band, so they still stand out: #131313 (hover
   #1e1e1e). The band section sets `--stripes` itself.
 - No diagonal stripes anywhere on the page; the thin strip on top of a sheet is flat gold.
-- The Legal notice at the bottom of the home page is plain text, no panel (user).
+- The Legal notice at the bottom of the home page has no panel (user): a gold shield by its title, three short points in columns with a faint gold rule, then the trademark line in small text.
 
 ### Controls
 
-- Controls (`.btn`, `.field`, `.chip`, `.seg`, the `d-*` controls, anything `bg-coal`, the hero's
-  "Launcher … is out" pill) are filled with `coal` #1c1c1c (`coal-hi` #262626 on hover) and have a 1 px gold
+- Controls (`.btn`, `.field`, `.chip`, `.seg`, the `d-*` controls, anything `bg-coal`) are filled with `coal` #1c1c1c (`coal-hi` #262626 on hover) and have a 1 px gold
   edge: `--color-edge`, amber at 35 % (half strength; full gold is too loud).
-- No edge on: the gold main button (`.btn-primary`), ghost buttons, the header's buttons and search, the two search dialogs, and the corner dock with the News, GitHub and
+- No edge on: the gold main button (`.btn-primary`), ghost buttons, the header's buttons and search, the hero's "See progress" button and "Launcher … is out" pill (user), the two search dialogs, and the corner dock with the News, GitHub and
   Discord icons.
 - Contrast rule (also for the launcher and the game's menu, where themes change the background): on a
   the page or a navy background a control is `coal` #1c1c1c; on a coal background it is navy `navy` #252333
@@ -91,7 +90,7 @@ the `d-*` classes for the mod docs). Use them before writing new classes.
   The logo is light (`text`) with its mark in gold.
 - Once the page scrolls under it, a haze fades in behind it (`.site-haze`): `blur(18px)` over the page
   colour at 30 %, fading out 20 px below the header, so neither an edge nor a shadow shows. At the very top
-  there is nothing behind it (an IntersectionObserver on a 12 px strip at the top, no scroll handler).
+  there is nothing behind it (an IntersectionObserver on a 2 px strip at the top, no scroll handler).
   Without `backdrop-filter` the haze is the page colour at 90 %. The haze is a sibling of the header: an
   element with a `view-transition-name` only blurs what is inside it.
 - Its buttons (Mods, Download) and the search field are plain `coal` with gold text and no edge,

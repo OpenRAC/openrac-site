@@ -39,7 +39,7 @@ export default function HeroDownload({ version, date, ready }: { version: string
         {direct ? `Download for ${direct.name}` : "Download the launcher"}
       </a>
       {/* The second action: down to the progress of every game. */}
-      <a href="#progress" onClick={toProgress} className="btn gap-2 no-underline">
+      <a href="#progress" onClick={toProgress} className="btn gap-2 border-transparent no-underline">
         See progress
         <svg viewBox="0 0 16 16" aria-hidden="true" className="size-4 flex-none fill-none stroke-current stroke-2">
           <path d="M8 3v10m-4-4 4 4 4-4" strokeLinecap="round" strokeLinejoin="round" />
