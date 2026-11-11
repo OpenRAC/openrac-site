@@ -29,12 +29,13 @@ the `d-*` classes for the mod docs). Use them before writing new classes.
 
 ### Cards and panels
 
-- Every card and panel (`.surface`, `.d-card`, `bg-panel`: FAQ, Resources, How it works, Legal, Get involved,
+- Every card and panel (`.surface`, `.d-card`, `bg-panel`: FAQ, Resources, How it works, Get involved,
   news, mods, docs, the day calendar) has a flat fill, no stripes (user): `--stripes` #1e1e1e, hover or
-  open `--stripes-hi` #252525. No border.
+  open `--stripes-hi` #252525. No border. Mod cards are darker (#171717, hover #1c1c1c, user).
 - On a lighter home band the cards turn darker than the band, so they still stand out: #131313 (hover
   #1e1e1e). The band section sets `--stripes` itself.
 - No diagonal stripes anywhere on the page; the thin strip on top of a sheet is flat gold.
+- The Legal notice at the bottom of the home page is plain text, no panel (user).
 
 ### Controls
 
