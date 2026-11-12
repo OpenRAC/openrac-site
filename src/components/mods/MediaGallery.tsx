@@ -68,7 +68,7 @@ export default function MediaGallery({ items, name }: { items: GalleryItem[]; na
                     <Image src={youtubeThumb(x.youtube)} alt="" fill sizes="118px" className="object-cover" />
                     <span aria-hidden className="absolute inset-0 flex items-center justify-center bg-black/30">
                       <svg viewBox="0 0 24 24" className="size-6 fill-amber">
-                        <path d="M8 5v14l11-7z" />
+                        <path d="M7.5 5v14l11-7z" />
                       </svg>
                     </span>
                   </>

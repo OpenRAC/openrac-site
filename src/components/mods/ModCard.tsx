@@ -69,8 +69,8 @@ function CardPicture({ mod, sizes, priority, morph, children }: { mod: SlimMod; 
         {children}
         {mod.hasVideo && (
           <span role="img" aria-label="Has a video" className="absolute right-3 top-3 flex size-8 items-center justify-center rounded-full bg-ink/80 text-amber ring-1 ring-white/15">
-            <svg viewBox="0 0 24 24" aria-hidden className="ml-0.5 size-4 fill-current">
-              <path d="M8 5v14l11-7z" />
+            <svg viewBox="0 0 24 24" aria-hidden className="size-4 fill-current">
+              <path d="M7.5 5v14l11-7z" />
             </svg>
           </span>
         )}
