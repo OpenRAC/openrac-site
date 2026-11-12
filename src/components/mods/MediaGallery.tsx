@@ -52,8 +52,9 @@ export default function MediaGallery({ items, name }: { items: GalleryItem[]; na
       </div>
       {caption && item.kind === "image" && <p className="mt-2 text-[14px] text-dim">{caption}</p>}
 
+      {/* Padding keeps the selected outline inside the scroll box, which clips. */}
       {items.length > 1 && (
-        <ul className="mt-3 flex gap-2 overflow-x-auto pb-1 [scrollbar-width:thin]" aria-label="Pictures and videos">
+        <ul className="-mx-1 mt-2 flex gap-2 overflow-x-auto px-1 pb-2 pt-1 [scrollbar-width:thin]" aria-label="Pictures and videos">
           {items.map((x, i) => (
             <li key={i} className="flex-none">
               <button
