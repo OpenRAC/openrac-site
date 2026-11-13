@@ -80,7 +80,44 @@ test("install: opens the launcher link, then offers help if nothing took it", as
   // The test browser has no launcher, so the openrac:// link goes nowhere, as for a visitor without one.
   await page.locator("main").getByRole("button", { name: "Install", exact: true }).first().click();
   await expect(page.getByRole("dialog", { name: "Didn't open?" })).toBeVisible({ timeout: 5000 });
-  await expect(page.getByRole("dialog")).toContainText("Mods → Add from a link");
+  await expect(page.getByRole("dialog")).toContainText("Mods → Add a mod");
+  await expect(page.getByRole("dialog")).toContainText("openrac.dev/mods/lock-strafe");
+});
+
+test.describe("in Steam's built-in browser", () => {
+  // The Steam overlay / Steam Deck browser user agent: Chromium plus "Valve Steam ...".
+  test.use({ userAgent: "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.6478.183 Safari/537.36 Valve Steam GameOverlay/1731716808" });
+
+  test("install: shows the short page address to type, without trying openrac://", async ({ page }) => {
+    const tried: string[] = [];
+    page.on("framenavigated", (f) => tried.push(f.url()));
+    await page.goto("/mods/lock-strafe");
+    await page.locator("main").getByRole("button", { name: "Install", exact: true }).first().click();
+    const dialog = page.getByRole("dialog", { name: "Didn't open?" });
+    await expect(dialog).toBeVisible({ timeout: 1000 });
+    await expect(dialog).toContainText("openrac.dev/mods/lock-strafe");
+    expect(tried.some((u) => u.startsWith("openrac:"))).toBe(false);
+    // No clipboard permission here, as in Steam: the fallback copy still works.
+    await dialog.getByRole("button", { name: "Copy" }).click();
+    await expect(dialog.getByRole("button", { name: "Copied" })).toBeVisible();
+    // Steam's desktop client may still pass the link on, so Try again sends it.
+    await dialog.getByRole("button", { name: "Try again" }).click();
+    await expect(page.getByRole("dialog", { name: "Didn't open?" })).toBeVisible({ timeout: 5000 });
+  });
+
+  test("install: Copy works without the clipboard API, as in older embedded browsers", async ({ page }) => {
+    await page.addInitScript(() => Object.defineProperty(Navigator.prototype, "clipboard", { get: () => undefined, configurable: true }));
+    await page.goto("/mods/lock-strafe");
+    await page.locator("main").getByRole("button", { name: "Install", exact: true }).first().click();
+    const dialog = page.getByRole("dialog", { name: "Didn't open?" });
+    await dialog.getByRole("button", { name: "Copy" }).click();
+    await expect(dialog.getByRole("button", { name: "Copied" })).toBeVisible();
+    // Paste it back, inside the dialog, to see what was copied.
+    await dialog.evaluate((d) => d.querySelector("div")?.append(Object.assign(document.createElement("textarea"), { id: "pasted" })));
+    await page.locator("#pasted").focus();
+    await page.keyboard.press("ControlOrMeta+V");
+    await expect(page.locator("#pasted")).toHaveValue("openrac.dev/mods/lock-strafe");
+  });
 });
 
 test("mod page: showcase, lightbox by keyboard, relationships, versions", async ({ page }) => {
