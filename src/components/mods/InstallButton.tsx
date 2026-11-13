@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useRef, useState, type MouseEvent } from "react";
 import { installUrl, intentUrl, type Wanted } from "@/lib/mods/logic";
 import Sheet from "./Sheet";
 
@@ -21,8 +21,12 @@ const isAndroidChrome = () => /android/i.test(navigator.userAgent) && /chrome\//
  */
 const isSteamBrowser = () => /valve (steam|client)/i.test(navigator.userAgent);
 
-/** Copies text. Falls back to a hidden text area for browsers without the clipboard API (or with it blocked). */
-async function copyText(text: string): Promise<boolean> {
+/**
+ * Copies text, from a click. The clipboard API first; where it is missing or blocked (older embedded
+ * browsers, Steam's), the old way: select a hidden text area and copy. The text area goes next to the
+ * button, inside the dialog, since the page behind a modal dialog is inert and can't be selected.
+ */
+async function copyText(text: string, near: HTMLElement): Promise<boolean> {
   try {
     await navigator.clipboard.writeText(text);
     return true;
@@ -30,15 +34,18 @@ async function copyText(text: string): Promise<boolean> {
     const area = document.createElement("textarea");
     area.value = text;
     area.setAttribute("readonly", "");
-    area.style.position = "fixed";
-    area.style.opacity = "0";
-    document.body.append(area);
+    // 16px so iOS does not zoom; on screen but unseen, as some browsers won't select what is off it.
+    area.style.cssText = "position:fixed;top:0;left:0;width:1px;height:1px;opacity:0;font-size:16px;";
+    near.after(area);
+    area.focus();
     area.select();
+    area.setSelectionRange(0, text.length); // iOS ignores select()
     let ok = false;
     try {
       ok = document.execCommand("copy");
     } catch {}
     area.remove();
+    near.focus();
     return ok;
   }
 }
@@ -95,7 +102,7 @@ export default function InstallButton({
     onInstalled?.();
   };
 
-  const copy = async () => setCopied((await copyText(typed)) ? "ok" : "no");
+  const copy = async (e: MouseEvent<HTMLButtonElement>) => setCopied((await copyText(typed, e.currentTarget)) ? "ok" : "no");
 
   return (
     <>

@@ -104,6 +104,20 @@ test.describe("in Steam's built-in browser", () => {
     await dialog.getByRole("button", { name: "Try again" }).click();
     await expect(page.getByRole("dialog", { name: "Didn't open?" })).toBeVisible({ timeout: 5000 });
   });
+
+  test("install: Copy works without the clipboard API, as in older embedded browsers", async ({ page }) => {
+    await page.addInitScript(() => Object.defineProperty(Navigator.prototype, "clipboard", { get: () => undefined, configurable: true }));
+    await page.goto("/mods/lock-strafe");
+    await page.locator("main").getByRole("button", { name: "Install", exact: true }).first().click();
+    const dialog = page.getByRole("dialog", { name: "Didn't open?" });
+    await dialog.getByRole("button", { name: "Copy" }).click();
+    await expect(dialog.getByRole("button", { name: "Copied" })).toBeVisible();
+    // Paste it back, inside the dialog, to see what was copied.
+    await dialog.evaluate((d) => d.querySelector("div")?.append(Object.assign(document.createElement("textarea"), { id: "pasted" })));
+    await page.locator("#pasted").focus();
+    await page.keyboard.press("ControlOrMeta+V");
+    await expect(page.locator("#pasted")).toHaveValue("openrac.dev/mods/lock-strafe");
+  });
 });
 
 test("mod page: showcase, lightbox by keyboard, relationships, versions", async ({ page }) => {
