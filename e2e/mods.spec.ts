@@ -83,6 +83,23 @@ test("install: opens the launcher link, then offers help if nothing took it", as
   await expect(page.getByRole("dialog")).toContainText("Mods → Add from a link");
 });
 
+test.describe("in Steam's built-in browser", () => {
+  // The Steam overlay / Steam Deck browser user agent: Chromium plus "Valve Steam ...".
+  test.use({ userAgent: "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.6478.183 Safari/537.36 Valve Steam GameOverlay/1731716808" });
+
+  test("install: shows the link to copy without trying openrac://", async ({ page }) => {
+    const tried: string[] = [];
+    page.on("framenavigated", (f) => tried.push(f.url()));
+    await page.goto("/mods/lock-strafe");
+    await page.locator("main").getByRole("button", { name: "Install", exact: true }).first().click();
+    const dialog = page.getByRole("dialog", { name: "Steam's browser can't open apps" });
+    await expect(dialog).toBeVisible({ timeout: 1000 });
+    await expect(dialog).toContainText("openrac://install/lock-strafe");
+    await expect(dialog.getByRole("button", { name: "Try again" })).toHaveCount(0);
+    expect(tried.some((u) => u.startsWith("openrac:"))).toBe(false);
+  });
+});
+
 test("mod page: showcase, lightbox by keyboard, relationships, versions", async ({ page }) => {
   await page.goto("/mods/lock-strafe");
   await expect(page.getByRole("heading", { level: 1 })).toHaveText("Lock-strafe");
