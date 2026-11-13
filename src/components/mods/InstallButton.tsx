@@ -70,10 +70,13 @@ export default function InstallButton({
   const [copied, setCopied] = useState<"" | "ok" | "no">("");
   const timer = useRef<number | undefined>(undefined);
   const url = installUrl(mods);
+  // One mod at its latest: the launcher also takes the page address, which is short enough to type
+  // on a Steam Deck's on-screen keyboard. Else the install link.
+  const typed = mods.length === 1 && !mods[0].version ? `openrac.dev/mods/${mods[0].id}` : url;
 
-  const open = () => {
-    // In Steam's browser the link would go nowhere (or to an error page), so show the other ways right away.
-    if (isSteamBrowser()) {
+  const open = (anyway = false) => {
+    // In Steam's browser the link usually goes nowhere, so show the other ways first. "Try anyway" still sends it.
+    if (!anyway && isSteamBrowser()) {
       setSteam(true);
       setHelp(true);
       return;
@@ -94,11 +97,11 @@ export default function InstallButton({
     onInstalled?.();
   };
 
-  const copy = async () => setCopied((await copyText(url)) ? "ok" : "no");
+  const copy = async () => setCopied((await copyText(steam ? typed : url)) ? "ok" : "no");
 
   return (
     <>
-      <button type="button" onClick={open} className={`btn ${primary ? "btn-primary" : ""} ${small ? "btn-sm" : ""} ${className}`}>
+      <button type="button" onClick={() => open()} className={`btn ${primary ? "btn-primary" : ""} ${small ? "btn-sm" : ""} ${className}`}>
         {arrow}
         {label}
       </button>
@@ -108,7 +111,7 @@ export default function InstallButton({
           setHelp(false);
           setCopied("");
         }}
-        title={steam ? "Steam's browser can't open apps" : "Didn't open?"}
+        title={steam ? "Add it in the launcher" : "Didn't open?"}
         actions={
           <a href={DOWNLOAD} className="btn btn-primary" onClick={() => setHelp(false)}>
             {arrow}
@@ -118,9 +121,12 @@ export default function InstallButton({
       >
         <div className="grid gap-3 text-soft">
           {steam ? (
-            <p>
-              Install opens the <b className="font-semibold text-hi">OpenRAC launcher</b>, but Steam&apos;s built-in browser cannot start other apps. Copy the link below and paste it in the launcher under Mods → Add from a link, or open this page in a normal browser.
-            </p>
+            <>
+              <p>
+                Steam&apos;s built-in browser can&apos;t open the <b className="font-semibold text-hi">OpenRAC launcher</b>. In the launcher, go to <b className="font-semibold text-hi">Mods → Add a mod</b> and type or paste:
+              </p>
+              <code className="select-all break-all rounded-xl bg-ink-deep px-4 py-3 text-[17px] text-gold">{typed}</code>
+            </>
           ) : (
             <p>
               Install opens the <b className="font-semibold text-hi">OpenRAC launcher</b>, which installs the mod and everything it needs. If nothing happened, the launcher is probably not installed yet.
@@ -133,18 +139,16 @@ export default function InstallButton({
           )}
           {!steam && <p className="text-[15px]">Already have it? Try again, or copy the link and paste it in the launcher under Mods → Add from a link.</p>}
           <div className="flex flex-wrap gap-2">
-            {!steam && (
-              <button type="button" className="btn btn-sm" onClick={() => (setHelp(false), open())}>
-                Try again
-              </button>
-            )}
+            <button type="button" className="btn btn-sm" onClick={() => (setHelp(false), open(steam))}>
+              {steam ? "Try anyway" : "Try again"}
+            </button>
             <button type="button" className="btn btn-sm" onClick={copy}>
               {copied === "ok" ? "Copied" : "Copy link"}
             </button>
           </div>
-          {(steam || copied === "no") && (
+          {copied === "no" && (
             <p className="text-[14px]">
-              {copied === "no" ? "Your browser blocked copying. " : ""}The link is: <code className="select-all break-all rounded bg-ink-deep px-1.5 py-0.5 text-gold">{url}</code>
+              Your browser blocked copying.{steam ? " Type the text above instead." : <> The link is: <code className="select-all break-all rounded bg-ink-deep px-1.5 py-0.5 text-gold">{url}</code></>}
             </p>
           )}
         </div>

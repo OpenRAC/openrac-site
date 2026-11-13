@@ -87,16 +87,21 @@ test.describe("in Steam's built-in browser", () => {
   // The Steam overlay / Steam Deck browser user agent: Chromium plus "Valve Steam ...".
   test.use({ userAgent: "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.6478.183 Safari/537.36 Valve Steam GameOverlay/1731716808" });
 
-  test("install: shows the link to copy without trying openrac://", async ({ page }) => {
+  test("install: shows the short page address to type, without trying openrac://", async ({ page }) => {
     const tried: string[] = [];
     page.on("framenavigated", (f) => tried.push(f.url()));
     await page.goto("/mods/lock-strafe");
     await page.locator("main").getByRole("button", { name: "Install", exact: true }).first().click();
-    const dialog = page.getByRole("dialog", { name: "Steam's browser can't open apps" });
+    const dialog = page.getByRole("dialog", { name: "Add it in the launcher" });
     await expect(dialog).toBeVisible({ timeout: 1000 });
-    await expect(dialog).toContainText("openrac://install/lock-strafe");
-    await expect(dialog.getByRole("button", { name: "Try again" })).toHaveCount(0);
+    await expect(dialog).toContainText("openrac.dev/mods/lock-strafe");
     expect(tried.some((u) => u.startsWith("openrac:"))).toBe(false);
+    // No clipboard permission here, as in Steam: the fallback copy still works.
+    await dialog.getByRole("button", { name: "Copy link" }).click();
+    await expect(dialog.getByRole("button", { name: "Copied" })).toBeVisible();
+    // Steam's desktop client may still pass the link on, so the link can be sent by hand.
+    await dialog.getByRole("button", { name: "Try anyway" }).click();
+    await expect(page.getByRole("dialog", { name: "Add it in the launcher" })).toBeVisible({ timeout: 5000 });
   });
 });
 
