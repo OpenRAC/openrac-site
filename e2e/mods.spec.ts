@@ -80,7 +80,8 @@ test("install: opens the launcher link, then offers help if nothing took it", as
   // The test browser has no launcher, so the openrac:// link goes nowhere, as for a visitor without one.
   await page.locator("main").getByRole("button", { name: "Install", exact: true }).first().click();
   await expect(page.getByRole("dialog", { name: "Didn't open?" })).toBeVisible({ timeout: 5000 });
-  await expect(page.getByRole("dialog")).toContainText("Mods → Add from a link");
+  await expect(page.getByRole("dialog")).toContainText("Mods → Add a mod");
+  await expect(page.getByRole("dialog")).toContainText("openrac.dev/mods/lock-strafe");
 });
 
 test.describe("in Steam's built-in browser", () => {
@@ -92,16 +93,16 @@ test.describe("in Steam's built-in browser", () => {
     page.on("framenavigated", (f) => tried.push(f.url()));
     await page.goto("/mods/lock-strafe");
     await page.locator("main").getByRole("button", { name: "Install", exact: true }).first().click();
-    const dialog = page.getByRole("dialog", { name: "Add it in the launcher" });
+    const dialog = page.getByRole("dialog", { name: "Didn't open?" });
     await expect(dialog).toBeVisible({ timeout: 1000 });
     await expect(dialog).toContainText("openrac.dev/mods/lock-strafe");
     expect(tried.some((u) => u.startsWith("openrac:"))).toBe(false);
     // No clipboard permission here, as in Steam: the fallback copy still works.
-    await dialog.getByRole("button", { name: "Copy link" }).click();
+    await dialog.getByRole("button", { name: "Copy" }).click();
     await expect(dialog.getByRole("button", { name: "Copied" })).toBeVisible();
-    // Steam's desktop client may still pass the link on, so the link can be sent by hand.
-    await dialog.getByRole("button", { name: "Try anyway" }).click();
-    await expect(page.getByRole("dialog", { name: "Add it in the launcher" })).toBeVisible({ timeout: 5000 });
+    // Steam's desktop client may still pass the link on, so Try again sends it.
+    await dialog.getByRole("button", { name: "Try again" }).click();
+    await expect(page.getByRole("dialog", { name: "Didn't open?" })).toBeVisible({ timeout: 5000 });
   });
 });
 

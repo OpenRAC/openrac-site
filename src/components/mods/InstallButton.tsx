@@ -45,8 +45,8 @@ async function copyText(text: string): Promise<boolean> {
 
 /**
  * Opens the launcher on its install screen through the openrac:// link. A browser cannot tell whether
- * an app took the link, so if the page still has focus shortly after, it offers what to do instead:
- * get the launcher, or copy the link for Mods → Add from a link.
+ * an app took the link, so if the page still has focus shortly after, it shows what to type in the
+ * launcher's Mods → Add a mod, or where to get the launcher. Steam's browser gets this at once.
  */
 export default function InstallButton({
   mods,
@@ -66,18 +66,16 @@ export default function InstallButton({
   onInstalled?: () => void;
 }) {
   const [help, setHelp] = useState(false);
-  const [steam, setSteam] = useState(false);
   const [copied, setCopied] = useState<"" | "ok" | "no">("");
   const timer = useRef<number | undefined>(undefined);
   const url = installUrl(mods);
   // One mod at its latest: the launcher also takes the page address, which is short enough to type
-  // on a Steam Deck's on-screen keyboard. Else the install link.
+  // on a Steam Deck's on-screen keyboard. Else the install link, to paste.
   const typed = mods.length === 1 && !mods[0].version ? `openrac.dev/mods/${mods[0].id}` : url;
 
   const open = (anyway = false) => {
-    // In Steam's browser the link usually goes nowhere, so show the other ways first. "Try anyway" still sends it.
+    // In Steam's browser the link usually goes nowhere, so show the way by hand first. "Try again" still sends it.
     if (!anyway && isSteamBrowser()) {
-      setSteam(true);
       setHelp(true);
       return;
     }
@@ -97,7 +95,7 @@ export default function InstallButton({
     onInstalled?.();
   };
 
-  const copy = async () => setCopied((await copyText(steam ? typed : url)) ? "ok" : "no");
+  const copy = async () => setCopied((await copyText(typed)) ? "ok" : "no");
 
   return (
     <>
@@ -111,7 +109,7 @@ export default function InstallButton({
           setHelp(false);
           setCopied("");
         }}
-        title={steam ? "Add it in the launcher" : "Didn't open?"}
+        title="Didn't open?"
         actions={
           <a href={DOWNLOAD} className="btn btn-primary" onClick={() => setHelp(false)}>
             {arrow}
@@ -120,35 +118,27 @@ export default function InstallButton({
         }
       >
         <div className="grid gap-3 text-soft">
-          {steam ? (
-            <>
-              <p>
-                Steam&apos;s built-in browser can&apos;t open the <b className="font-semibold text-hi">OpenRAC launcher</b>. In the launcher, go to <b className="font-semibold text-hi">Mods → Add a mod</b> and type or paste:
-              </p>
-              <code className="select-all break-all rounded-xl bg-ink-deep px-4 py-3 text-[17px] text-gold">{typed}</code>
-            </>
-          ) : (
-            <p>
-              Install opens the <b className="font-semibold text-hi">OpenRAC launcher</b>, which installs the mod and everything it needs. If nothing happened, the launcher is probably not installed yet.
-            </p>
-          )}
+          <p>
+            Install opens the <b className="font-semibold text-hi">OpenRAC launcher</b>, but some browsers can&apos;t open apps. You can add the mod by hand: in the launcher, go to <b className="font-semibold text-hi">Mods → Add a mod</b> and type or paste:
+          </p>
+          <code className="select-all break-all rounded-xl bg-ink-deep px-4 py-3 text-[17px] text-gold">{typed}</code>
+          <p className="text-[15px]">No launcher yet? Get it first.</p>
           {devOnly && (
             <p className="rounded-xl bg-amber/10 px-4 py-3 text-[15px]">
               This mod needs the <b className="text-gold">dev build</b> of the launcher. Each system in the download panel has a <b className="text-gold">DEV</b> link for it.
             </p>
           )}
-          {!steam && <p className="text-[15px]">Already have it? Try again, or copy the link and paste it in the launcher under Mods → Add from a link.</p>}
           <div className="flex flex-wrap gap-2">
-            <button type="button" className="btn btn-sm" onClick={() => (setHelp(false), open(steam))}>
-              {steam ? "Try anyway" : "Try again"}
+            <button type="button" className="btn btn-sm" onClick={() => (setHelp(false), open(true))}>
+              Try again
             </button>
             <button type="button" className="btn btn-sm" onClick={copy}>
-              {copied === "ok" ? "Copied" : "Copy link"}
+              {copied === "ok" ? "Copied" : "Copy"}
             </button>
           </div>
           {copied === "no" && (
             <p className="text-[14px]">
-              Your browser blocked copying.{steam ? " Type the text above instead." : <> The link is: <code className="select-all break-all rounded bg-ink-deep px-1.5 py-0.5 text-gold">{url}</code></>}
+              Your browser blocked copying. Type the text above instead.
             </p>
           )}
         </div>
