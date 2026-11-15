@@ -191,6 +191,12 @@ export interface Wanted {
 
 const list = (mods: Wanted[]) => mods.map((m) => (m.version ? `${m.id}@${m.version}` : m.id)).join(",");
 
+/** The one game every mod here is for, as the link's `game` hint; none when they differ or span games. */
+export function gameOf(...games: (Record<string, string[]> | undefined)[]): string | undefined {
+  const ids = new Set(games.flatMap((g) => Object.keys(g ?? {})));
+  return ids.size === 1 ? [...ids][0] : undefined;
+}
+
 /** The launcher's URL scheme (the contract's "Deep link"). One mod gets the short form. */
 export function installUrl(mods: Wanted[], hints: { game?: string; disc?: string } = {}): string {
   const extra = [hints.game && `game=${hints.game}`, hints.disc && `disc=${hints.disc}`].filter(Boolean).join("&");

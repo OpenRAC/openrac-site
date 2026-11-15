@@ -35,6 +35,7 @@ import {
   mediaSrc,
   widthFor,
   worksWith,
+  gameOf,
 } from "@/lib/mods/logic";
 import { slim, slimImageOf, thumbDataUrl, type SlimMod } from "@/lib/mods/slim";
 import type { ListedMod, ModCatalog } from "@/lib/mods/types";
@@ -181,7 +182,7 @@ export default async function ModPage(props: PageProps<"/mods/[id]">) {
   // Relative links in the README and changelogs point into the mod's own folder, at the release shown.
   const readmeBase = `${mod.repo.replace(/\/$/, "")}/blob/${v?.tag || "HEAD"}/${mod.path ? `${mod.path.replace(/^\/|\/$/g, "")}/` : ""}`;
   const install = !revokedAll && v && (
-    <InstallButton mods={[{ id: mod.id }]} label={mod.type === "pack" ? "Install modpack" : "Install"} devOnly={works !== "release"} />
+    <InstallButton mods={[{ id: mod.id }]} game={gameOf(mod.games)} label={mod.type === "pack" ? "Install modpack" : "Install"} devOnly={works !== "release"} />
   );
 
   const ld = modLd(site, {
@@ -392,7 +393,7 @@ export default async function ModPage(props: PageProps<"/mods/[id]">) {
                           {ver.changelog.trim() ? <Markdown base={readmeBase}>{ver.changelog}</Markdown> : <p className="text-dim">No notes for this version.</p>}
                           {!gone && i > 0 && (
                             <div className="mt-3">
-                              <InstallButton mods={[{ id: mod.id, version: ver.version }]} label={`Install v${ver.version}`} small primary={false} devOnly={!apiFits(ver.api, catalog.ports.stable.api)} />
+                              <InstallButton mods={[{ id: mod.id, version: ver.version }]} game={gameOf(ver.games)} label={`Install v${ver.version}`} small primary={false} devOnly={!apiFits(ver.api, catalog.ports.stable.api)} />
                             </div>
                           )}
                         </div>

@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 import { slimChangeSet, type SlimMod } from "@/lib/mods/slim";
+import { gameOf } from "@/lib/mods/logic";
 import InstallButton from "./InstallButton";
 import Sheet from "./Sheet";
 
@@ -31,7 +32,7 @@ export default function ChangeSetDialog({ mods, picked, open, onClose, onDone }:
       title={blocked ? "Can't install this set yet" : `Install ${total} mod${total === 1 ? "" : "s"}`}
       actions={
         !blocked && (
-          <InstallButton mods={[...picked, ...chosenExtras].map((id) => ({ id }))} label={`Install ${total} mod${total === 1 ? "" : "s"}`} devOnly={devOnly} onInstalled={onDone} />
+          <InstallButton mods={[...picked, ...chosenExtras].map((id) => ({ id }))} game={gameOf(...cs.install.map(({ mod }) => mod.games))} label={`Install ${total} mod${total === 1 ? "" : "s"}`} devOnly={devOnly} onInstalled={onDone} />
         )
       }
     >
