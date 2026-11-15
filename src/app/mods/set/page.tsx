@@ -5,7 +5,7 @@ import { TypeBadge } from "@/components/mods/Badges";
 import InstallButton from "@/components/mods/InstallButton";
 import ModImage from "@/components/mods/ModImage";
 import { getModCatalog } from "@/lib/mods";
-import { DISC_LABEL, GAME_LABEL, isRevoked, parseSetup } from "@/lib/mods/logic";
+import { DISC_LABEL, GAME_LABEL, gameOf, isRevoked, parseSetup } from "@/lib/mods/logic";
 import { slim } from "@/lib/mods/slim";
 
 export const metadata: Metadata = {
@@ -67,7 +67,7 @@ export default async function SetupPage(props: PageProps<"/mods/set">) {
           </ul>
         )}
         <div className="flex flex-wrap items-center gap-3">
-          {installable.length > 0 && <InstallButton mods={installable.map((r) => ({ id: r.id, version: r.version }))} label={`Install ${installable.length === entries.length ? "all" : installable.length} at these versions`} devOnly={installable.some((r) => r.mod?.works !== "release")} />}
+          {installable.length > 0 && <InstallButton mods={installable.map((r) => ({ id: r.id, version: r.version }))} game={gameOf(...installable.map((r) => r.mod?.games))} label={`Install ${installable.length === entries.length ? "all" : installable.length} at these versions`} devOnly={installable.some((r) => r.mod?.works !== "release")} />}
           <Link href="/mods" className="btn">
             Browse mods
           </Link>

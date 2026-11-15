@@ -3,7 +3,7 @@
 import dynamic from "next/dynamic";
 import { usePathname, useSearchParams } from "next/navigation";
 import { useDeferredValue, useEffect, useMemo, useRef, useState, type ReactNode } from "react";
-import { GAME_LABEL, IMPACT_LABEL, SORTS, TYPE_LABEL, sortMods, type Sort } from "@/lib/mods/logic";
+import { GAME_LABEL, IMPACT_LABEL, gameOf, SORTS, TYPE_LABEL, sortMods, type Sort } from "@/lib/mods/logic";
 import { closest, prepare, search } from "@/lib/mods/search";
 import type { SlimMod } from "@/lib/mods/slim";
 import type { Impact, ModType } from "@/lib/mods/types";
@@ -316,7 +316,7 @@ export default function ModBrowser({ mods, tags, now }: { mods: SlimMod[]; tags:
                 query={query}
                 actions={
                   <>
-                    <InstallButton mods={[{ id: m.id }]} small primary={false} devOnly={m.works !== "release"} />
+                    <InstallButton mods={[{ id: m.id }]} game={gameOf(m.games)} small primary={false} devOnly={m.works !== "release"} />
                     <button type="button" aria-pressed={picked.includes(m.id)} onClick={() => pick(m.id)} className="btn btn-sm">
                       {picked.includes(m.id) ? "In set ✓" : "Add to set"}
                     </button>

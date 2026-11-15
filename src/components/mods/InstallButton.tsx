@@ -57,6 +57,7 @@ async function copyText(text: string, near: HTMLElement): Promise<boolean> {
  */
 export default function InstallButton({
   mods,
+  game,
   label = "Install",
   small = false,
   primary = true,
@@ -65,6 +66,8 @@ export default function InstallButton({
   onInstalled,
 }: {
   mods: Wanted[];
+  /** The game the mods are for; without it the launcher picks the last game opened. */
+  game?: string;
   label?: string;
   small?: boolean;
   primary?: boolean;
@@ -75,7 +78,7 @@ export default function InstallButton({
   const [help, setHelp] = useState(false);
   const [copied, setCopied] = useState<"" | "ok" | "no">("");
   const timer = useRef<number | undefined>(undefined);
-  const url = installUrl(mods);
+  const url = installUrl(mods, { game });
   // One mod at its latest: the launcher also takes the page address, which is short enough to type
   // on a Steam Deck's on-screen keyboard. Else the install link, to paste.
   const typed = mods.length === 1 && !mods[0].version ? `openrac.dev/mods/${mods[0].id}` : url;

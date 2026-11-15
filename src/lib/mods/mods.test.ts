@@ -4,6 +4,7 @@ import { readFileSync } from "node:fs";
 import { createHash } from "node:crypto";
 import { checkIndex, indexUrls, loadCatalog, merge, withRetry, type Fetcher } from "./index.ts";
 import {
+  gameOf,
   ago,
   apiFits,
   changeSet,
@@ -298,4 +299,12 @@ test("media folder: written once, read back, names outside the pattern never tou
 test("Next's own render signals pass through; only real failures fall back", async () => {
   const signal = Object.assign(new Error("Dynamic server usage"), { digest: "DYNAMIC_SERVER_USAGE" });
   await assert.rejects(loadCatalog(["u"], async () => { throw signal; }, NOW, new Map()), (e) => e === signal);
+});
+
+test("gameOf names the game only when every mod shares one", () => {
+  assert.equal(gameOf({ rac1: ["pal"] }), "rac1");
+  assert.equal(gameOf({ rac1: ["pal"] }, { rac1: ["ntsc"] }), "rac1");
+  assert.equal(gameOf({ rac1: ["pal"], rac2: ["pal"] }), undefined);
+  assert.equal(gameOf({ rac1: [] }, { rac2: [] }), undefined);
+  assert.equal(gameOf(), undefined);
 });

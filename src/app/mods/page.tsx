@@ -10,7 +10,7 @@ import ModBrowser from "@/components/mods/ModBrowser";
 import ModCard from "@/components/mods/ModCard";
 import { SHARE_IMAGE, ldJson, modsIndexLd, siteUrl } from "@/lib/machine";
 import { getModCatalog } from "@/lib/mods";
-import { isFresh, isWithdrawn, renderedAt, sortMods } from "@/lib/mods/logic";
+import { gameOf, isFresh, isWithdrawn, renderedAt, sortMods } from "@/lib/mods/logic";
 import { CONTENT_RULES, LIST_YOUR_MOD, SDK_DOCS } from "@/lib/mods/links";
 import { slim } from "@/lib/mods/slim";
 
@@ -81,7 +81,7 @@ export default async function ModsPage() {
         <Section id="featured" title="Featured" sub="Picked by the community: a good place to start.">
           <div className="grid gap-4 min-[480px]:grid-cols-2 min-[821px]:grid-cols-3">
             {featured.map((m, i) => (
-              <ModCard key={m.id} mod={m} now={now} priority={i === 0} morph={false} actions={<InstallButton mods={[{ id: m.id }]} small primary={false} devOnly={m.works !== "release"} />} />
+              <ModCard key={m.id} mod={m} now={now} priority={i === 0} morph={false} actions={<InstallButton mods={[{ id: m.id }]} game={gameOf(m.games)} small primary={false} devOnly={m.works !== "release"} />} />
             ))}
           </div>
         </Section>
