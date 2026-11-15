@@ -40,15 +40,14 @@ the `d-*` classes for the mod docs). Use them before writing new classes.
 ### Controls
 
 - Controls (`.btn`, `.field`, `.chip`, `.seg`, the `d-*` controls, anything `bg-coal`) are filled with `coal`
-  #272727 (`coal-hi` #313131 on hover), lighter than the cards (#1e1e1e) and mod cards (#171717), so they
-  never blend in. No edge anywhere (user): `--color-edge` is transparent, kept so borders stay 1 px.
+  #212121 (`coal-hi` #2b2b2b on hover). No edge anywhere (user): `--color-edge` is transparent, kept so borders stay 1 px.
 - Contrast rule: on the page or a card a control is `coal`; on a coal background (a dialog or sheet) it is
-  navy `navy` #302d42 (`navy-hi` #3a3650 on hover).
+  `raised` #262626 (`raised-hi` #303030 on hover). No navy anywhere (user).
 - On or picked: a gold tint on the page's grey (`color-mix(amber 22 %, ink)`) with gold text
   (`aria-pressed="true"`, `aria-checked="true"` or `data-on` on `.btn`/`.chip`).
   A picked row in a list (search results, docs menu, hook explorer) is `bg-amber/12`.
 - Hover on a list row, menu line, calendar day or icon button is `hover:bg-coal` (no edge).
-- The "/" key hint is a small navy cap (`bg-navy`).
+- The "/" key hint is a small `bg-raised` cap.
 
 ## Corners
 
@@ -64,7 +63,7 @@ the `d-*` classes for the mod docs). Use them before writing new classes.
   never a white mix. Badges have no border.
 - Inline code sits on `ink-deep` with gold text.
 - Dialogs and sheets (site search, docs search, the mods sheet) are `coal`. No dialog has an edge.
-  Their field is navy.
+  Their field is `raised`.
 - Focus on a field: a 2 px gold ring inside it (`.field` does it). Other elements use the browser's focus
   outline.
 - A thin 1 px line (`border-line`) is fine only to split things: table rows, a list, a bar from the page,

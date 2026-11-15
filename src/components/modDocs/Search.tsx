@@ -68,7 +68,7 @@ export default function Search({ version, label = "Search the docs" }: { version
           <path d="m10.5 10.5 3.5 3.5" strokeLinecap="round" />
         </svg>
         <span className="min-w-0 flex-1 truncate">{label}</span>
-        <kbd className="hidden rounded bg-navy px-1.5 text-[11px] text-dim sm:inline">/</kbd>
+        <kbd className="hidden rounded bg-raised px-1.5 text-[11px] text-dim sm:inline">/</kbd>
       </button>
       <dialog
         ref={dialog}

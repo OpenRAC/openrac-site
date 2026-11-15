@@ -11,7 +11,7 @@ export default function Image() {
   );
   return new ImageResponse(
     (
-      <div style={{ width: "100%", height: "100%", display: "flex", flexDirection: "column", justifyContent: "flex-end", padding: 80, background: "linear-gradient(135deg, #1a1a24, #0d0d14)", color: "#f4f4f8" }}>
+      <div style={{ width: "100%", height: "100%", display: "flex", flexDirection: "column", justifyContent: "flex-end", padding: 80, background: "linear-gradient(135deg, #1a1a1a, #0d0d0d)", color: "#efeff3" }}>
         <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: 18, background: "repeating-linear-gradient(-55deg, #d6a020, #d6a020 18px, #b98a1a 18px, #b98a1a 36px)" }} />
         {corner({ top: 50, left: 50 }, "6px 0 0 6px")}
         {corner({ bottom: 50, right: 50 }, "0 6px 6px 0")}
