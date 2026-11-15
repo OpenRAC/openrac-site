@@ -47,14 +47,14 @@ export interface SlimMod {
 
 /** A ThumbHash's average colour as CSS; the panel colour when there is none or it cannot be read. */
 export function averageColor(thumbhash?: string): string {
-  if (!thumbhash) return "#1d1d27";
+  if (!thumbhash) return "#1e1e1e";
   try {
     const bin = Uint8Array.from(atob(thumbhash), (c) => c.charCodeAt(0));
     const { r, g, b } = thumbHashToAverageRGBA(bin);
     const c = (x: number) => Math.round(Math.max(0, Math.min(1, x)) * 255);
     return `rgb(${c(r)} ${c(g)} ${c(b)})`;
   } catch {
-    return "#1d1d27";
+    return "#1e1e1e";
   }
 }
 

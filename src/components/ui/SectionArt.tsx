@@ -10,8 +10,8 @@ const INK = "#050505";
 const GOLD = "#f5c040";
 const GOLD_DARK = "#d6a020";
 const GOLD_LIGHT = "#ffe08f";
-const PANEL = "#2a2a38";
-const PANEL_LIGHT = "#3d3d50";
+const PANEL = "#2a2a2a";
+const PANEL_LIGHT = "#3d3d3d";
 const WHITE = "#efeff3";
 const BLUE = "#6f7af5";
 

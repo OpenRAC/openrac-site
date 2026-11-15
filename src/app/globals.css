@@ -17,12 +17,12 @@
   --color-band: #191919;
   --color-panel: #1e1e1e;
   --color-panel-hi: #242424;
-  /* Warm mid brown, light enough to stand beside the gold: the fill of every plain control (buttons, fields, chips). Never grey. */
-  --color-coal: #272727;
-  --color-coal-hi: #313131;
-  /* Controls sitting on a coal surface (a dialog) are navy, so they still stand out. */
-  --color-navy: #302d42;
-  --color-navy-hi: #3a3650;
+  /* The fill of every plain control (buttons, fields, chips) and of dialogs. */
+  --color-coal: #1a1a1a;
+  --color-coal-hi: #242424;
+  /* Controls on a coal surface (a dialog) are a step lighter, so they still stand out. */
+  --color-raised: #262626;
+  --color-raised-hi: #303030;
   /* The flat fill of every card and panel, and its hover (see STYLE.md). No stripes. */
   --stripes: linear-gradient(#1e1e1e, #1e1e1e);
   --stripes-hi: linear-gradient(#252525, #252525);
@@ -84,13 +84,13 @@
   [class*="hover:bg-panel-hi"]:hover, [class*="open:bg-panel-hi"][open] { background-image: var(--stripes-hi); }
 }
 
-/* On a coal surface (a dialog, a sheet) controls turn navy so they still stand out. */
+/* On a coal surface (a dialog, a sheet) controls turn a step lighter so they still stand out. */
 @layer components {
-  .bg-coal :is(.field, .chip, .seg, .btn:not(.btn-primary, .btn-ghost)) { background-color: var(--color-navy); }
-  .bg-coal :is(.btn:not(.btn-primary, .btn-ghost), .chip):hover { background-color: var(--color-navy-hi); }
+  .bg-coal :is(.field, .chip, .seg, .btn:not(.btn-primary, .btn-ghost)) { background-color: var(--color-raised); }
+  .bg-coal :is(.btn:not(.btn-primary, .btn-ghost), .chip):hover { background-color: var(--color-raised-hi); }
 }
-.bg-coal :is(.d-field, .d-btn:not(.d-btn-primary), .d-seg) { background-color: var(--color-navy); }
-.bg-coal .d-btn:not(.d-btn-primary):hover { background-color: var(--color-navy-hi); }
+.bg-coal :is(.d-field, .d-btn:not(.d-btn-primary), .d-seg) { background-color: var(--color-raised); }
+.bg-coal .d-btn:not(.d-btn-primary):hover { background-color: var(--color-raised-hi); }
 
 /* The shared pieces every section is built from, so buttons and panels look the same everywhere. */
 @layer components {

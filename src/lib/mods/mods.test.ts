@@ -234,7 +234,7 @@ test("slim: small per mod, no versions, files or README", async () => {
     assert.ok(JSON.stringify(m).length < 1600, `${m.id} is ${JSON.stringify(m).length} bytes`);
   }
   assert.match(averageColor("3OcRJYB4d3h/iIeHeEh3eIhw+j3A"), /^rgb\(\d+ \d+ \d+\)$/);
-  assert.equal(averageColor("!!"), "#1d1d27");
+  assert.equal(averageColor("!!"), "#1e1e1e");
   const cs = slimChangeSet(s, ["lock-strafe", "classic-controls"]);
   assert.equal(cs.conflicts.length, 1);
   assert.deepEqual(cs.native.map((m) => m.id), ["lock-strafe"]);
