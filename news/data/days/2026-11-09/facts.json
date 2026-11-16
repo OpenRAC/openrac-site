@@ -1,0 +1,1447 @@
+{
+ "format": 1,
+ "date": "2026-11-09",
+ "totals": {
+  "commits": 94,
+  "pullRequestsMerged": 36,
+  "pullRequestsOpened": 40,
+  "contributors": 16
+ },
+ "projects": [
+  {
+   "repo": "OpenRAC",
+   "title": "OpenRAC launcher",
+   "branches": [
+    {
+     "name": "develop",
+     "commits": [
+      {
+       "sha": "91b67c67b787af1cb8042d2e27ec54b6f2d60ccd",
+       "title": "test(launcher): keep Game colours off in the Android theme test (#431)",
+       "author": "nickyyOO",
+       "date": "2026-11-09T11:05:11Z"
+      },
+      {
+       "sha": "a75a74e512edd8d4ad7f4e28f7e75b5908e14071",
+       "title": "feat(launcher): turn Game colours on by default (#430)",
+       "author": "nickyyOO",
+       "date": "2026-11-09T10:28:20Z"
+      },
+      {
+       "sha": "7a7a7b1ff1a743f262de4f179a17b614416e76a4",
+       "title": "fix(port): stop eating pad presses while a notification is shown (#428)",
+       "author": "nickyyOO",
+       "date": "2026-11-09T09:48:18Z"
+      },
+      {
+       "sha": "65ee2bdc9bf80d0e2f6e4cccb0c830d6ea8bef30",
+       "title": "feat(android): show mods' data folder in the Files app (#427)",
+       "author": "nickyyOO",
+       "date": "2026-11-09T09:39:34Z"
+      },
+      {
+       "sha": "12e46b4a92073a47c03a07c618974086eed474d6",
+       "title": "feat(launcher): allow Going Commando Mega weapon versions outside challenge mode (#425)",
+       "author": "Veradictus",
+       "date": "2026-11-09T08:11:12Z"
+      },
+      {
+       "sha": "41d136d410b93642f3b502079b1a5ea7eeb517b9",
+       "title": "feat(launcher): choose Going Commando weapon versions, Mega included (#423)",
+       "author": "Veradictus",
+       "date": "2026-11-09T07:39:28Z"
+      },
+      {
+       "sha": "95de4099a080a9d84fc3206e27628aabc63cf5dd",
+       "title": "feat(rac2): the mods' pages in Going Commando's menus (#420)",
+       "author": "Veradictus",
+       "date": "2026-11-09T06:12:26Z"
+      },
+      {
+       "sha": "2f4895a879025d16eea65e3d11cfc3eb879ccafa",
+       "title": "docs(credits): credit Keros (#419)",
+       "author": "Veradictus",
+       "date": "2026-11-09T05:54:37Z"
+      },
+      {
+       "sha": "0f73b5cdc66ebe00b7285963363c5c30aa231fc6",
+       "title": "fix(launcher): check the mod list again when \"Check for updates\" is pressed (#421)",
+       "author": "Veradictus",
+       "date": "2026-11-09T05:54:28Z"
+      },
+      {
+       "sha": "2673a4ce4ef64145f5106f029e6dfe1aa5e40a19",
+       "title": "feat(sdk): Going Commando's item equip as a hook point (#415)",
+       "author": "Veradictus",
+       "date": "2026-11-09T04:53:16Z"
+      },
+      {
+       "sha": "03b9757d9b91c8692efb594617422d043c9999ca",
+       "title": "fix(hostgen): no silent stubs from a stale derived table; rac2-decomp a29cca2b (#418)",
+       "author": "Veradictus",
+       "date": "2026-11-09T04:38:18Z"
+      },
+      {
+       "sha": "401a02ac6604ac9b3a1466ee0c386521ff889ecd",
+       "title": "fix(port): keep water vertex data in a single fetch (#417)",
+       "author": "pezzadev",
+       "date": "2026-11-09T04:34:05Z"
+      },
+      {
+       "sha": "6719b215177214f13908fe8ca08d43a2900ff829",
+       "title": "fix(rac2): the mods' play calls before the mods load (#416)",
+       "author": "Veradictus",
+       "date": "2026-11-09T04:27:24Z"
+      },
+      {
+       "sha": "7e73489568892a1726c6619125c5d125f0016b8a",
+       "title": "feat(sdk): Going Commando's nanotech orb update as a hook point (SDK 1.14.3) (#414)",
+       "author": "Veradictus",
+       "date": "2026-11-09T04:18:08Z"
+      },
+      {
+       "sha": "8cb4d9683a67de755d249a2268f26f7a9d504dc8",
+       "title": "feat(port): light Ratchet & Clank nanotech orbs (#413)",
+       "author": "pezzadev",
+       "date": "2026-11-09T03:46:51Z"
+      },
+      {
+       "sha": "63582ff58fbc4fb0fdcf458e2991f9b9db20098c",
+       "title": "feat(baker): add mesh emission calculator (#412)",
+       "author": "pezzadev",
+       "date": "2026-11-09T03:18:52Z"
+      },
+      {
+       "sha": "2ab44c586168ec754b93fcdfe60f37a066311eaa",
+       "title": "feat(baker): improve adaptive probe baking and emission (#411)",
+       "author": "pezzadev",
+       "date": "2026-11-09T02:41:51Z"
+      },
+      {
+       "sha": "38950b3d98db09757be6db59e6fb21c18ff70c77",
+       "title": "fix(hostgen): run the hook call matched C writes as inline assembly (#410)",
+       "author": "Veradictus",
+       "date": "2026-11-09T00:56:26Z"
+      },
+      {
+       "sha": "60cc602d7a302ee7818fa4349a506037e001d003",
+       "title": "fix(launcher): read a repository's mods at its newest release (#409)",
+       "author": "Veradictus",
+       "date": "2026-11-09T00:06:52Z"
+      }
+     ]
+    },
+    {
+     "name": "master",
+     "commits": []
+    }
+   ],
+   "commitCount": 19,
+   "pullRequests": {
+    "merged": [
+     {
+      "number": 409,
+      "title": "fix(launcher): read a repository's mods at its newest release",
+      "author": "Veradictus",
+      "untrustedBody": "Add from a link with `https://github.com/OpenRAC/openrac-mods` offered only xbox-icons for Going Commando. Difficulty, item-randomizer and multiplayer came back as \"Not for this game's disc (rac2, ntsc)\".\n\n**Why:** `remote::read_github` reads every manifest at `eligible.first()`, the first release in GitHub's list, on the assumption that this is the newest. GitHub doesn't list releases by date. For openrac-mods the first entry was `xbox-icons-v1.1.0` (commit f343f2f, 2026-11-08 04:52 UTC). At that commit the three gameplay mods were still rac1-only: difficulty 1.3.0, item-randomizer 2.0.0 and multiplayer 0.10.0. The newest release is `lock-strafe-v1.1.1`.\n\n**Fix:**\n- The eligible releases are sorted newest first, by `created_at` (the release commit's date), falling back to `published_at`, before the manifests are read.\n- A native mod whose version at that release has no release of its own yet is now described from its own newest release, the one that would actually be installed, instea",
+      "mergedAt": "2026-11-09T00:06:53Z"
+     },
+     {
+      "number": 410,
+      "title": "fix(hostgen): run the hook call matched C writes as inline assembly",
+      "author": "Veradictus",
+      "untrustedBody": "Hrugis Cloud (Going Commando v1.01) has been broken since #408: the ship never spawns, the HUD never draws, and the camera stays on the hangar.\n\n**Cause.** The rac2-decomp bump in #408 (11876eec → d29456d6) brought in matched C for both moby update loops, `func_002B6658` and `func_L00_0032CF60`. They call each object's update hook through `call_hook` (rac2-decomp `include/common.h`), which is inline asm: `beq %1,$0,1f; move $4,%2; jal $31,%1`. hostgen turned that statement into a barrier, so no update hook ran. Before the bump both loops were translated from their assembly, which makes the call. The report listed it under \"Inline assembly the host does not run\" (`call_hook | beq, move, jal, 1:`).\n\n**Fix.** An asm statement that calls through a register with a0 set (with or without the null check, `beq`/`beqz`, `jal`/`jalr`, `$4`/`$a0`) is now lowered to that call, through `openrac_guest_call_a0` (guest.h, built on `openrac_guest_call_regs` as asmc.py's jalr is). rac1's moby update loop",
+      "mergedAt": "2026-11-09T00:56:27Z"
+     },
+     {
+      "number": 411,
+      "title": "feat(baker): improve adaptive probe baking and emission",
+      "author": "pezzadev",
+      "untrustedBody": "## Summary\n\n- Default to adaptive 64–512 ray sampling with progressive Sobol directions, separate lighting and visibility convergence, and nearby mesh-light sampling.\n- Reuse an Embree HIGH scene between room planning and probe tracing.\n- Support texture and mesh emission with per-material cutout control, and migrate the reviewed RAC1 and RAC2 material profiles to area-weighted mesh emission. Provide a migration command for prepared exports.\n- Keep Vulkan GPU baking opt-in with a fixed ray budget.\n\n## Validation\n\n- Windows enhanced baker build and targeted native tests, including Vulkan probe sampling, early lighting, and the automatic baker pipeline. The pipeline passed on rerun after a Windows fixture-directory rename error.\n- Editor and bake-planning test suites, PAL/NTSC host-hook parity checks, strict changed-line conventions, and dependency layering checks.\n- Fresh Aridia bake verified all 188 grids. The cache reused the verified bake on update, and the final adaptive-loop cleanu",
+      "mergedAt": "2026-11-09T02:41:52Z"
+     },
+     {
+      "number": 412,
+      "title": "feat(baker): add mesh emission calculator",
+      "author": "pezzadev",
+      "untrustedBody": "## Summary\n\nAdd `openrac-enhanced-baker --calculate-mesh-emission LEVEL_DIR` to print an override catalog with area-weighted linear `bake_mesh_rgb` per static model and material slot. The command uses the existing migration integrator and reads the original emission inputs even when the export has already been migrated. It leaves the export files untouched.\n\n## Verification\n\n- Built the enhanced baker on Windows and passed `enhanced_baker_cli`, including a regression test with a deliberately different stored RGB value.\n- Original and migrated Aridia exports produced identical JSON for 16 material slots. The results matched a fresh migration and differed from the checked-in values by at most 4.83e-9 per channel.\n- Changed-line clang-format and layering checks passed locally.\n\nMigrated exports need their original geometry, textures and source emission settings. Local testing used Windows and the Aridia NTSC export.",
+      "mergedAt": "2026-11-09T03:18:53Z"
+     },
+     {
+      "number": 413,
+      "title": "feat(port): light Ratchet & Clank nanotech orbs",
+      "author": "pezzadev",
+      "untrustedBody": "## Summary\n\n- Give each active Ratchet & Clank nanotech cluster one runtime point light that follows its vertical bob.\n- Add live controls under Enhanced Settings → Lighting & shadows. The default brightness is 1.20 and the range is 2.22 game units.\n- Keep the lights separate from the probe bake. Moving emitters update their own records in the Enhanced Vulkan light table.\n\n## Verification\n\n- Windows settings, moby capture and Vulkan local-light tests passed on this commit. The capture fixture uses both PAL and NTSC level addresses.\n- PAL/NTSC host-hook parity, changed-line conventions and include layering passed.\n- Earlier Windows NTSC-U gameplay checks covered Veldin and Novalis. Gameplay verification is limited to that release and platform.",
+      "mergedAt": "2026-11-09T03:46:51Z"
+     },
+     {
+      "number": 414,
+      "title": "feat(sdk): Going Commando's nanotech orb update as a hook point (SDK 1.14.3)",
+      "author": "Veradictus",
+      "untrustedBody": "rac2.moby.nanotech_ball.update (Moby_NanotechBall_Update), on NTSC-U v1.01, PAL and USA v2.00: the nanotech orb's update, which gives Ratchet his health as its pieces land. It is the job of rac1.moby.nanotech_ball.update, and the difficulty mod's Health pickups slider needs it in Going Commando.\n\n- Each disc's libraries.tsv gets a hook row beside the existing wrap row (func_003136D0, func_00314B5C, func_003144C8). rac2-decomp has matched C for all three at the pin (src/game/0030F7B0-ball-sw-g8.c, src/pal/game/00314B5C.c, src/us2/game/003144C8.c).\n- The hook sits under the port's wide-view wrap (host/wide_view.c), which now calls func_003136D0__hooked. A mod's update therefore keeps the orbs' wide-screen fix. The PAL and v2.00 name tables carry the __hooked name.\n- The bindings, the ids lock, hook_ids.json, the generated headers and Luau types, and the reference are regenerated (gen_binding.py, gen_reference.py).\n- The SDK goes to 1.14.3, and the templates pin it.\n\nChecked: on box2, hos",
+      "mergedAt": "2026-11-09T04:18:09Z"
+     },
+     {
+      "number": 415,
+      "title": "feat(sdk): Going Commando's item equip as a hook point",
+      "author": "Veradictus",
+      "untrustedBody": "Going Commando's EquipItem (`func_002AD860`; PAL `func_002AE3C0`, USA v2.00 `func_002AE6C8`) as the hook point `rac2.item.equip`, `i32(i32)`.\n\nMost givers call it right after GiveInventoryItem with the same id: Todano's Sheepinator pickup (`func_L12_00402DF8`), the Tractor Beam, the Thermanator, the Swingshot, the Mapper, the Hypnomatic, the Charge Boots, and the vendor after a purchase. A mod that hooks `rac2.item.give` to hand out something else (the item randomizer) had no way to stop the equip that follows, so the hero ended up holding an item he does not own. That is a player's report: the Sheepinator was in his hand, never in the weapon lists, and gone once put away. The randomizer's side is in openrac-mods.\n\n- `sdk/bindings/rac2.json`, and a hook row in each disc's `libraries.tsv`. The PAL and v2.00 names come from the release views, as `Item_Give`'s do.\n- Regenerated with `gen_binding.py` and `gen_reference.py`; `rac2.h` by hand.\n- `RAC2_IDENTIFIED.tsv` records EquipItem.\n- SDK",
+      "mergedAt": "2026-11-09T04:53:17Z"
+     },
+     {
+      "number": 416,
+      "title": "fix(rac2): the mods' play calls before the mods load",
+      "author": "Veradictus",
+      "untrustedBody": "Going Commando installed its tools and its play table (tools.c, play.c) from crt0 (entry.c, func_00131AE8). main.cpp loads the mods before the game runs, and each mod keeps the play table it finds at load (mods.cpp, fill_play_api). So in Going Commando every mod got a null table:\n\n- play_status failed. The item randomizer's per-tick work never ran: the vendor's stock, Endako's own items, and a level start's rewards.\n- The multiplayer mod refused to load (\"this OpenRAC has no play calls for Going Commando\").\n\nThe fix is a constructor in entry.c that installs them first, as Ratchet & Clank's boot.c already does. The link keeps entry.c because the entry point is named. crt0 installs them again, which is harmless.\n\nChecked on box2 with the NTSC-U build. Before the fix, the item randomizer's play_status returned -1 at every tick. After it, play_status answers (level 4, phase 2, ...). The PAL and USA v2.00 builds compile and link.",
+      "mergedAt": "2026-11-09T04:27:24Z"
+     },
+     {
+      "number": 417,
+      "title": "fix(port): keep water vertex data in a single fetch",
+      "author": "pezzadev",
+      "untrustedBody": "## Summary\n\nFix a stretched triangle in Novalis enhanced water on Radeon Vulkan. The baked water strip and live CPU vertices agreed, but the rendered face picked up mismatched triangle data. Fetch each vertex's barycentric weights and coarse triangle index as one integer attribute and decode the original float bits in the shader.\n\nThe fix applies to the shared enhanced-water draw path and works with existing water bakes.\n\n## Verification\n\n- Reproduced and verified the fix at the same Novalis camera position on Windows, RAC1 NTSC-U, Radeon 780M and Vulkan using the same bake.\n- Rebuilt and passed the focused `water_mesh`, `water_gpu`, and `effect_material` tests.\n- Changed-line clang-format and layering checks passed. clang-tidy reported no diagnostics in the changed source.\n\nThe in-game reproduction was verified on NTSC-U. PAL gameplay was not tested locally.",
+      "mergedAt": "2026-11-09T04:34:06Z"
+     },
+     {
+      "number": 418,
+      "title": "fix(hostgen): no silent stubs from a stale derived table; rac2-decomp a29cca2b",
+      "author": "Veradictus",
+      "untrustedBody": "When the decomp is ahead of the port's derived-address table, newly matched C that uses a `ref_` name used to turn into a silent stub. On Todano that stopped the Fizzwidget robot guide at his last phase: rac2-decomp ab5fdb3 matched `func_L00_003ABEC0` with `ref_L00_003ABEC0_00`, and derived_names.json was written at d29456d6.\n\nhostgen\n- A definition whose C calls, takes the address of or reads a derived name with no address (including through its unit's static helpers) now runs its retail assembly, the same way `unprototyped_callers` does. The report lists these functions as `unresolved_derived`, and one warning names each one: \"derived_names.json is behind the decomp; regenerate it\". A global with no address used to stub its whole function; it is covered by the same check.\n- Functions the program has no place for (another release's `func_V1_` names) are left alone.\n\nPin bump: rac2-decomp a29cca2b\n- rac2-ntsc: derived_names.json gives the ref its address (level 0 0x002E6EF8, called thr",
+      "mergedAt": "2026-11-09T04:38:19Z"
+     },
+     {
+      "number": 419,
+      "title": "docs(credits): credit Keros",
+      "author": "Veradictus",
+      "untrustedBody": "Credits Keros (Veradictus) where CREDITS.md said Flavius.",
+      "mergedAt": "2026-11-09T05:54:38Z"
+     },
+     {
+      "number": 420,
+      "title": "feat(rac2): the mods' pages in Going Commando's menus",
+      "author": "Veradictus",
+      "untrustedBody": "Going Commando showed none of the mods' pages (`ui_main_item`, `ui_page`, `ui_pause_item`): the port only knew how to draw them with Ratchet & Clank's front-end widgets. So the multiplayer mod had no Multiplayer item in rac2, and fell back to a settings-only party.\n\nThis draws them in rac2's own menus, on all three discs:\n\n- **Title**: the main menu's enter (`func_002D5748`; PAL `func_002D6320`, USA v2.00 `func_002D63B0`) gives its list a copy of the game's items with each mod's item after the one it names. Each opens a copy of the 16:9 options page, whose panel shows the mod's page: the title, its rows (all 12 fit: the menus' first font up to 8, closer in the second past that), and the footer in the hint box, whose own lines are emptied while it shows. A question takes the rows' place.\n- **Pause menu**: the Options list gets a row per mod item after the port's Video row. The panel is drawn in one more part per extra row. Each row opens a copy of the Camera page, shown the same way. Th",
+      "mergedAt": "2026-11-09T06:12:27Z"
+     },
+     {
+      "number": 421,
+      "title": "fix(launcher): check the mod list again when \"Check for updates\" is pressed",
+      "author": "Veradictus",
+      "untrustedBody": "The Mods tab's \"Check for updates\" never showed new versions of mods that are in the mod index.\n\n**Why.** The button calls `plugins_check_updates`, the per-repository look. That look drops every mod the index lists (`updates.retain(|u| !listed.contains(&u.id))`), because those are left to `mods_auto_update`. But `mods_auto_update` only runs at launcher start, every 6 hours and before Play, so pressing the button never looked at the index again. A version published after the session's last index fetch stayed hidden until one of those timers or Play ran, and meanwhile the button said \"Every mod from a link is up to date\". On 2026-11-09 the launcher started at 05:03:07, 16 s after the index went up at 05:02:51 with difficulty 1.5.0, xbox-icons 1.2.0 and item-randomizer 2.3.0. The new versions only showed after the before-Play look at 05:09.\n\n**Fix.**\n- `mods_updates` takes `fresh`.\n- \"Check for updates\" first runs `checkIndex`, which fetches the index again. With updates on by themselves ",
+      "mergedAt": "2026-11-09T05:54:29Z"
+     },
+     {
+      "number": 423,
+      "title": "feat(launcher): choose Going Commando weapon versions, Mega included",
+      "author": "Veradictus",
+      "untrustedBody": "The Going Commando save editor showed a weapon's version but never let you change it, so there was no way to turn on the challenge-mode Mega versions the way rac1's editor turns on golden weapons. Now there is.\n\n## How the game does it (from the retail code)\n\n- A weapon's version is its record, chunk 30 (`D_00139568`). Records are 0xE0-byte rows of `D_00239BA0`: +0x04 is the version (0..3), +0x4A/+0x4C link the chain, +0x6C is the experience step, +0x8E the full ammo, +0x80 the price.\n- **V1 → V2** by experience (`func_L00_002D5EB8` → `func_00287EB0`): record moves on, experience raised to the step, ammo set to the new full ammo.\n- **V3, the Mega upgrade**: the vendor's list (`func_002F6608`) offers it only in challenge mode (`func_00288D58`: progress +0x12 non-zero) for an owned weapon on a record with no step left (V2). The purchase (0x002F8F78) gives V3's full ammo, then `func_002887B0` moves the record two rows down and sets experience to 0.\n- **V4** is V3's experience step, in cha",
+      "mergedAt": "2026-11-09T07:39:29Z"
+     },
+     {
+      "number": 425,
+      "title": "feat(launcher): allow Going Commando Mega weapon versions outside challenge mode",
+      "author": "Veradictus",
+      "untrustedBody": "The save editor offers V3 and V4 (and the two-row weapons' second version) on every save, not only after challenge mode started. A version is a row of the weapon table, so owning one loads fine; outside challenge mode the game only gates earning them.\n\nA V3 there still earns experience (`func_002A6C58` adds it with no mode test) but never upgrades to V4: the tick `func_L00_002D5EB8` skips the row while `func_00288D58` is 0. The editor says so; V4 can be picked directly. Other rules unchanged (owned weapons, not the one in hand, experience and ammo within the version's range).\n\nChecked on box2 in the port (hidden, no challenge mode): a Chopper at V3 with experience exactly at V4's step stayed V3 800 frames later; a Pulse Rifle set to V4 ran without a crash.",
+      "mergedAt": "2026-11-09T08:11:13Z"
+     },
+     {
+      "number": 427,
+      "title": "feat(android): show mods' data folder in the Files app",
+      "author": "nickyyOO",
+      "untrustedBody": "**Before:** a mod's own files (the SDK's `data_dir`, `files/share/openrac/mod-data/<id>`) had no place of their own in the Files app. Mods that worked out their own folder, like the item randomizer, wrote where the player could not reach at all, so its spoiler log could not be opened on Android.\n\n**After:** OpenRAC in the Files app has a **Mod files** folder next to Saves and settings, Games, Disc images and GPU drivers. Every mod's files show there, one folder per mod id. The SDK docs now say to use `data_dir` for every file a mod keeps.\n\n**How:** one more place in `FilesProvider.kt` (`share/openrac/mod-data`). It sits inside Saves and settings, so `documentId` now picks the deepest place and Open Files on a mod's folder lands in Mod files. Docs: `sdk/docs/where-mods-live.md`, `docs/port/ANDROID.md`.\n\n**Tested:** `sdk/tools/test_gen_reference.py`. Not built or run on a device (no Android SDK or phone in the container). Manual check: open Files > OpenRAC, see Mod files, start a game wi",
+      "mergedAt": "2026-11-09T09:39:34Z"
+     },
+     {
+      "number": 428,
+      "title": "fix(port): stop eating pad presses while a notification is shown",
+      "author": "nickyyOO",
+      "untrustedBody": "**Before:** while a notification card was on screen (the Start+Select hint at start, \"Screenshot saved\", freecam), the drawer and the desktop menu ran `menu_closed()` every frame, even with the menu already shut. That called `hold_back_held()` each frame, so every held button was held back until let go and taps were dropped. The game saw a press for one window frame at most: many presses were missed (worse at 120 Hz) and holds (run, high jump) did not work. It also reset the Start+Select chord.\n\n**After:** `menu_closed()` runs once, on the frame the menu finishes shutting. Presses and holds reach the game while a card is up.\n\n**How:** `drawer()` and `menu_window()` remember whether the menu was out before the slide and call `menu_closed()` only on that change.\n\n**Tested:** both files compile (rac1-ntsc, release). Not run in game in the container (no disc there). Manual test on a device: start the game and, while the menu hint is up, tap and hold Cross (every tap jumps, a hold jumps hig",
+      "mergedAt": "2026-11-09T09:48:18Z"
+     },
+     {
+      "number": 430,
+      "title": "feat(launcher): turn Game colours on by default",
+      "author": "nickyyOO",
+      "untrustedBody": "Closes #426\n\n**Before:** Game colours (Settings > General) was off by default, so every game wore the launcher's gold.\n\n**After:** Game colours is on by default: each game wears its own bar, gold and coal in the launcher and in the game's menu. Turning it off still gives the gold to every game.\n\n**How:** `gameColors` defaults to true in the core config (a settings file without the key gets it on); the page's fallbacks and the first-paint value kept in localStorage follow (it now keeps \"0\" when off, so nothing kept means on). STYLE.md and comments updated, Config.ts regenerated. The mock's `?gameColors` flag became `?gold` (colours off).\n\n**Tested:** `cargo test` (config, theme, generated_types), `yarn verify` (typecheck, lint, format, 325 tests). Not tested on a device. A launcher.json saved by a dev build since #393 already holds `\"gameColors\": false`, so such a launcher stays off until the switch is turned on once.",
+      "mergedAt": "2026-11-09T10:28:21Z"
+     },
+     {
+      "number": 431,
+      "title": "test(launcher): keep Game colours off in the Android theme test",
+      "author": "nickyyOO",
+      "untrustedBody": "Game colours are on by default now (#430), so the theme test's rac3 got its own gold. Open it with ?gold to check the launcher's gold again.",
+      "mergedAt": "2026-11-09T11:05:12Z"
+     }
+    ],
+    "opened": [
+     {
+      "number": 409,
+      "title": "fix(launcher): read a repository's mods at its newest release",
+      "author": "Veradictus",
+      "untrustedBody": "Add from a link with `https://github.com/OpenRAC/openrac-mods` offered only xbox-icons for Going Commando. Difficulty, item-randomizer and multiplayer came back as \"Not for this game's disc (rac2, ntsc)\".\n\n**Why:** `remote::read_github` reads every manifest at `eligible.first()`, the first release in GitHub's list, on the assumption that this is the newest. GitHub doesn't list releases by date. For openrac-mods the first entry was `xbox-icons-v1.1.0` (commit f343f2f, 2026-11-08 04:52 UTC). At that commit the three gameplay mods were still rac1-only: difficulty 1.3.0, item-randomizer 2.0.0 and multiplayer 0.10.0. The newest release is `lock-strafe-v1.1.1`.\n\n**Fix:**\n- The eligible releases are sorted newest first, by `created_at` (the release commit's date), falling back to `published_at`, before the manifests are read.\n- A native mod whose version at that release has no release of its own yet is now described from its own newest release, the one that would actually be installed, instea",
+      "mergedAt": "2026-11-09T00:06:53Z"
+     },
+     {
+      "number": 410,
+      "title": "fix(hostgen): run the hook call matched C writes as inline assembly",
+      "author": "Veradictus",
+      "untrustedBody": "Hrugis Cloud (Going Commando v1.01) has been broken since #408: the ship never spawns, the HUD never draws, and the camera stays on the hangar.\n\n**Cause.** The rac2-decomp bump in #408 (11876eec → d29456d6) brought in matched C for both moby update loops, `func_002B6658` and `func_L00_0032CF60`. They call each object's update hook through `call_hook` (rac2-decomp `include/common.h`), which is inline asm: `beq %1,$0,1f; move $4,%2; jal $31,%1`. hostgen turned that statement into a barrier, so no update hook ran. Before the bump both loops were translated from their assembly, which makes the call. The report listed it under \"Inline assembly the host does not run\" (`call_hook | beq, move, jal, 1:`).\n\n**Fix.** An asm statement that calls through a register with a0 set (with or without the null check, `beq`/`beqz`, `jal`/`jalr`, `$4`/`$a0`) is now lowered to that call, through `openrac_guest_call_a0` (guest.h, built on `openrac_guest_call_regs` as asmc.py's jalr is). rac1's moby update loop",
+      "mergedAt": "2026-11-09T00:56:27Z"
+     },
+     {
+      "number": 411,
+      "title": "feat(baker): improve adaptive probe baking and emission",
+      "author": "pezzadev",
+      "untrustedBody": "## Summary\n\n- Default to adaptive 64–512 ray sampling with progressive Sobol directions, separate lighting and visibility convergence, and nearby mesh-light sampling.\n- Reuse an Embree HIGH scene between room planning and probe tracing.\n- Support texture and mesh emission with per-material cutout control, and migrate the reviewed RAC1 and RAC2 material profiles to area-weighted mesh emission. Provide a migration command for prepared exports.\n- Keep Vulkan GPU baking opt-in with a fixed ray budget.\n\n## Validation\n\n- Windows enhanced baker build and targeted native tests, including Vulkan probe sampling, early lighting, and the automatic baker pipeline. The pipeline passed on rerun after a Windows fixture-directory rename error.\n- Editor and bake-planning test suites, PAL/NTSC host-hook parity checks, strict changed-line conventions, and dependency layering checks.\n- Fresh Aridia bake verified all 188 grids. The cache reused the verified bake on update, and the final adaptive-loop cleanu",
+      "mergedAt": "2026-11-09T02:41:52Z"
+     },
+     {
+      "number": 412,
+      "title": "feat(baker): add mesh emission calculator",
+      "author": "pezzadev",
+      "untrustedBody": "## Summary\n\nAdd `openrac-enhanced-baker --calculate-mesh-emission LEVEL_DIR` to print an override catalog with area-weighted linear `bake_mesh_rgb` per static model and material slot. The command uses the existing migration integrator and reads the original emission inputs even when the export has already been migrated. It leaves the export files untouched.\n\n## Verification\n\n- Built the enhanced baker on Windows and passed `enhanced_baker_cli`, including a regression test with a deliberately different stored RGB value.\n- Original and migrated Aridia exports produced identical JSON for 16 material slots. The results matched a fresh migration and differed from the checked-in values by at most 4.83e-9 per channel.\n- Changed-line clang-format and layering checks passed locally.\n\nMigrated exports need their original geometry, textures and source emission settings. Local testing used Windows and the Aridia NTSC export.",
+      "mergedAt": "2026-11-09T03:18:53Z"
+     },
+     {
+      "number": 413,
+      "title": "feat(port): light Ratchet & Clank nanotech orbs",
+      "author": "pezzadev",
+      "untrustedBody": "## Summary\n\n- Give each active Ratchet & Clank nanotech cluster one runtime point light that follows its vertical bob.\n- Add live controls under Enhanced Settings → Lighting & shadows. The default brightness is 1.20 and the range is 2.22 game units.\n- Keep the lights separate from the probe bake. Moving emitters update their own records in the Enhanced Vulkan light table.\n\n## Verification\n\n- Windows settings, moby capture and Vulkan local-light tests passed on this commit. The capture fixture uses both PAL and NTSC level addresses.\n- PAL/NTSC host-hook parity, changed-line conventions and include layering passed.\n- Earlier Windows NTSC-U gameplay checks covered Veldin and Novalis. Gameplay verification is limited to that release and platform.",
+      "mergedAt": "2026-11-09T03:46:51Z"
+     },
+     {
+      "number": 414,
+      "title": "feat(sdk): Going Commando's nanotech orb update as a hook point (SDK 1.14.3)",
+      "author": "Veradictus",
+      "untrustedBody": "rac2.moby.nanotech_ball.update (Moby_NanotechBall_Update), on NTSC-U v1.01, PAL and USA v2.00: the nanotech orb's update, which gives Ratchet his health as its pieces land. It is the job of rac1.moby.nanotech_ball.update, and the difficulty mod's Health pickups slider needs it in Going Commando.\n\n- Each disc's libraries.tsv gets a hook row beside the existing wrap row (func_003136D0, func_00314B5C, func_003144C8). rac2-decomp has matched C for all three at the pin (src/game/0030F7B0-ball-sw-g8.c, src/pal/game/00314B5C.c, src/us2/game/003144C8.c).\n- The hook sits under the port's wide-view wrap (host/wide_view.c), which now calls func_003136D0__hooked. A mod's update therefore keeps the orbs' wide-screen fix. The PAL and v2.00 name tables carry the __hooked name.\n- The bindings, the ids lock, hook_ids.json, the generated headers and Luau types, and the reference are regenerated (gen_binding.py, gen_reference.py).\n- The SDK goes to 1.14.3, and the templates pin it.\n\nChecked: on box2, hos",
+      "mergedAt": "2026-11-09T04:18:09Z"
+     },
+     {
+      "number": 415,
+      "title": "feat(sdk): Going Commando's item equip as a hook point",
+      "author": "Veradictus",
+      "untrustedBody": "Going Commando's EquipItem (`func_002AD860`; PAL `func_002AE3C0`, USA v2.00 `func_002AE6C8`) as the hook point `rac2.item.equip`, `i32(i32)`.\n\nMost givers call it right after GiveInventoryItem with the same id: Todano's Sheepinator pickup (`func_L12_00402DF8`), the Tractor Beam, the Thermanator, the Swingshot, the Mapper, the Hypnomatic, the Charge Boots, and the vendor after a purchase. A mod that hooks `rac2.item.give` to hand out something else (the item randomizer) had no way to stop the equip that follows, so the hero ended up holding an item he does not own. That is a player's report: the Sheepinator was in his hand, never in the weapon lists, and gone once put away. The randomizer's side is in openrac-mods.\n\n- `sdk/bindings/rac2.json`, and a hook row in each disc's `libraries.tsv`. The PAL and v2.00 names come from the release views, as `Item_Give`'s do.\n- Regenerated with `gen_binding.py` and `gen_reference.py`; `rac2.h` by hand.\n- `RAC2_IDENTIFIED.tsv` records EquipItem.\n- SDK",
+      "mergedAt": "2026-11-09T04:53:17Z"
+     },
+     {
+      "number": 416,
+      "title": "fix(rac2): the mods' play calls before the mods load",
+      "author": "Veradictus",
+      "untrustedBody": "Going Commando installed its tools and its play table (tools.c, play.c) from crt0 (entry.c, func_00131AE8). main.cpp loads the mods before the game runs, and each mod keeps the play table it finds at load (mods.cpp, fill_play_api). So in Going Commando every mod got a null table:\n\n- play_status failed. The item randomizer's per-tick work never ran: the vendor's stock, Endako's own items, and a level start's rewards.\n- The multiplayer mod refused to load (\"this OpenRAC has no play calls for Going Commando\").\n\nThe fix is a constructor in entry.c that installs them first, as Ratchet & Clank's boot.c already does. The link keeps entry.c because the entry point is named. crt0 installs them again, which is harmless.\n\nChecked on box2 with the NTSC-U build. Before the fix, the item randomizer's play_status returned -1 at every tick. After it, play_status answers (level 4, phase 2, ...). The PAL and USA v2.00 builds compile and link.",
+      "mergedAt": "2026-11-09T04:27:24Z"
+     },
+     {
+      "number": 417,
+      "title": "fix(port): keep water vertex data in a single fetch",
+      "author": "pezzadev",
+      "untrustedBody": "## Summary\n\nFix a stretched triangle in Novalis enhanced water on Radeon Vulkan. The baked water strip and live CPU vertices agreed, but the rendered face picked up mismatched triangle data. Fetch each vertex's barycentric weights and coarse triangle index as one integer attribute and decode the original float bits in the shader.\n\nThe fix applies to the shared enhanced-water draw path and works with existing water bakes.\n\n## Verification\n\n- Reproduced and verified the fix at the same Novalis camera position on Windows, RAC1 NTSC-U, Radeon 780M and Vulkan using the same bake.\n- Rebuilt and passed the focused `water_mesh`, `water_gpu`, and `effect_material` tests.\n- Changed-line clang-format and layering checks passed. clang-tidy reported no diagnostics in the changed source.\n\nThe in-game reproduction was verified on NTSC-U. PAL gameplay was not tested locally.",
+      "mergedAt": "2026-11-09T04:34:06Z"
+     },
+     {
+      "number": 418,
+      "title": "fix(hostgen): no silent stubs from a stale derived table; rac2-decomp a29cca2b",
+      "author": "Veradictus",
+      "untrustedBody": "When the decomp is ahead of the port's derived-address table, newly matched C that uses a `ref_` name used to turn into a silent stub. On Todano that stopped the Fizzwidget robot guide at his last phase: rac2-decomp ab5fdb3 matched `func_L00_003ABEC0` with `ref_L00_003ABEC0_00`, and derived_names.json was written at d29456d6.\n\nhostgen\n- A definition whose C calls, takes the address of or reads a derived name with no address (including through its unit's static helpers) now runs its retail assembly, the same way `unprototyped_callers` does. The report lists these functions as `unresolved_derived`, and one warning names each one: \"derived_names.json is behind the decomp; regenerate it\". A global with no address used to stub its whole function; it is covered by the same check.\n- Functions the program has no place for (another release's `func_V1_` names) are left alone.\n\nPin bump: rac2-decomp a29cca2b\n- rac2-ntsc: derived_names.json gives the ref its address (level 0 0x002E6EF8, called thr",
+      "mergedAt": "2026-11-09T04:38:19Z"
+     },
+     {
+      "number": 419,
+      "title": "docs(credits): credit Keros",
+      "author": "Veradictus",
+      "untrustedBody": "Credits Keros (Veradictus) where CREDITS.md said Flavius.",
+      "mergedAt": "2026-11-09T05:54:38Z"
+     },
+     {
+      "number": 420,
+      "title": "feat(rac2): the mods' pages in Going Commando's menus",
+      "author": "Veradictus",
+      "untrustedBody": "Going Commando showed none of the mods' pages (`ui_main_item`, `ui_page`, `ui_pause_item`): the port only knew how to draw them with Ratchet & Clank's front-end widgets. So the multiplayer mod had no Multiplayer item in rac2, and fell back to a settings-only party.\n\nThis draws them in rac2's own menus, on all three discs:\n\n- **Title**: the main menu's enter (`func_002D5748`; PAL `func_002D6320`, USA v2.00 `func_002D63B0`) gives its list a copy of the game's items with each mod's item after the one it names. Each opens a copy of the 16:9 options page, whose panel shows the mod's page: the title, its rows (all 12 fit: the menus' first font up to 8, closer in the second past that), and the footer in the hint box, whose own lines are emptied while it shows. A question takes the rows' place.\n- **Pause menu**: the Options list gets a row per mod item after the port's Video row. The panel is drawn in one more part per extra row. Each row opens a copy of the Camera page, shown the same way. Th",
+      "mergedAt": "2026-11-09T06:12:27Z"
+     },
+     {
+      "number": 421,
+      "title": "fix(launcher): check the mod list again when \"Check for updates\" is pressed",
+      "author": "Veradictus",
+      "untrustedBody": "The Mods tab's \"Check for updates\" never showed new versions of mods that are in the mod index.\n\n**Why.** The button calls `plugins_check_updates`, the per-repository look. That look drops every mod the index lists (`updates.retain(|u| !listed.contains(&u.id))`), because those are left to `mods_auto_update`. But `mods_auto_update` only runs at launcher start, every 6 hours and before Play, so pressing the button never looked at the index again. A version published after the session's last index fetch stayed hidden until one of those timers or Play ran, and meanwhile the button said \"Every mod from a link is up to date\". On 2026-11-09 the launcher started at 05:03:07, 16 s after the index went up at 05:02:51 with difficulty 1.5.0, xbox-icons 1.2.0 and item-randomizer 2.3.0. The new versions only showed after the before-Play look at 05:09.\n\n**Fix.**\n- `mods_updates` takes `fresh`.\n- \"Check for updates\" first runs `checkIndex`, which fetches the index again. With updates on by themselves ",
+      "mergedAt": "2026-11-09T05:54:29Z"
+     },
+     {
+      "number": 422,
+      "title": "Add RAC1 Vendor_OpenMenu hook for Gadgetron PDA handling",
+      "author": "SavedbyBlood9",
+      "untrustedBody": "## Summary\n\nAdds a `Vendor_OpenMenu` hook for Ratchet & Clank 1 (NTSC-U and PAL v2.00), allowing mods to intercept vendor menu opening, including the Gadgetron PDA remote vendor.\n\n## Motivation\n\nThe Archipelago mod can remove all purchasable vendor items. Opening the Gadgetron PDA with no available menu rows can cause a crash.\n\nExisting vendor interaction hooks can handle physical vendors but do not intercept the PDA's remote menu opening.\n\nThis new hook allows mods to prevent the PDA from opening when no valid purchase rows are available.\n\n## Changes\n\n- Add `Vendor_OpenMenu` hook mappings for NTSC-U and PAL v2.00.\n- Register `rac1.vendor.open_menu` with signature `void(u32)`.\n- Add generated C, C++, and Luau bindings.\n- Update launcher hook IDs and SDK reference documentation.\n- Support `after_catalogue` ordering to preserve existing hook indices.\n\n## Testing\n\n- OpenRAC debug build compiled successfully.\n- SDK binding and reference generation checks passed.\n- Tested the Archipelago Ga",
+      "mergedAt": "2026-11-10T12:23:54Z"
+     },
+     {
+      "number": 423,
+      "title": "feat(launcher): choose Going Commando weapon versions, Mega included",
+      "author": "Veradictus",
+      "untrustedBody": "The Going Commando save editor showed a weapon's version but never let you change it, so there was no way to turn on the challenge-mode Mega versions the way rac1's editor turns on golden weapons. Now there is.\n\n## How the game does it (from the retail code)\n\n- A weapon's version is its record, chunk 30 (`D_00139568`). Records are 0xE0-byte rows of `D_00239BA0`: +0x04 is the version (0..3), +0x4A/+0x4C link the chain, +0x6C is the experience step, +0x8E the full ammo, +0x80 the price.\n- **V1 → V2** by experience (`func_L00_002D5EB8` → `func_00287EB0`): record moves on, experience raised to the step, ammo set to the new full ammo.\n- **V3, the Mega upgrade**: the vendor's list (`func_002F6608`) offers it only in challenge mode (`func_00288D58`: progress +0x12 non-zero) for an owned weapon on a record with no step left (V2). The purchase (0x002F8F78) gives V3's full ammo, then `func_002887B0` moves the record two rows down and sets experience to 0.\n- **V4** is V3's experience step, in cha",
+      "mergedAt": "2026-11-09T07:39:29Z"
+     },
+     {
+      "number": 424,
+      "title": "ci: bump actions/setup-java from 6.1.0 to 6.2.0 in the actions group across 1 directory",
+      "author": "dependabot[bot]",
+      "untrustedBody": "Bumps the actions group with 1 update in the / directory: [actions/setup-java](https://github.com/actions/setup-java).\n\nUpdates `actions/setup-java` from 6.1.0 to 6.2.0\n<details>\n<summary>Release notes</summary>\n<p><em>Sourced from <a href=\"https://github.com/actions/setup-java/releases\">actions/setup-java's releases</a>.</em></p>\n<blockquote>\n<h2>v6.2.0</h2>\n<h2>What's Changed</h2>\n<ul>\n<li>Fix Liberica SDKMAN patch release resolution by <a href=\"https://github.com/brunoborges\"><code>@​brunoborges</code></a> in <a href=\"https://redirect.github.com/actions/setup-java/pull/1291\">actions/setup-java#1291</a></li>\n<li>Update Undici to 6.29.1 by <a href=\"https://github.com/brunoborges\"><code>@​brunoborges</code></a> in <a href=\"https://redirect.github.com/actions/setup-java/pull/1308\">actions/setup-java#1308</a></li>\n<li>chore(deps): bump the monthly-npm-updates group with 12 updates by <a href=\"https://github.com/dependabot\"><code>@​dependabot</code></a>[bot] in <a href=\"https://redirect.g",
+      "mergedAt": "2026-11-10T13:09:01Z"
+     },
+     {
+      "number": 425,
+      "title": "feat(launcher): allow Going Commando Mega weapon versions outside challenge mode",
+      "author": "Veradictus",
+      "untrustedBody": "The save editor offers V3 and V4 (and the two-row weapons' second version) on every save, not only after challenge mode started. A version is a row of the weapon table, so owning one loads fine; outside challenge mode the game only gates earning them.\n\nA V3 there still earns experience (`func_002A6C58` adds it with no mode test) but never upgrades to V4: the tick `func_L00_002D5EB8` skips the row while `func_00288D58` is 0. The editor says so; V4 can be picked directly. Other rules unchanged (owned weapons, not the one in hand, experience and ammo within the version's range).\n\nChecked on box2 in the port (hidden, no challenge mode): a Chopper at V3 with experience exactly at V4's step stayed V3 800 frames later; a Pulse Rifle set to V4 ran without a crash.",
+      "mergedAt": "2026-11-09T08:11:13Z"
+     },
+     {
+      "number": 427,
+      "title": "feat(android): show mods' data folder in the Files app",
+      "author": "nickyyOO",
+      "untrustedBody": "**Before:** a mod's own files (the SDK's `data_dir`, `files/share/openrac/mod-data/<id>`) had no place of their own in the Files app. Mods that worked out their own folder, like the item randomizer, wrote where the player could not reach at all, so its spoiler log could not be opened on Android.\n\n**After:** OpenRAC in the Files app has a **Mod files** folder next to Saves and settings, Games, Disc images and GPU drivers. Every mod's files show there, one folder per mod id. The SDK docs now say to use `data_dir` for every file a mod keeps.\n\n**How:** one more place in `FilesProvider.kt` (`share/openrac/mod-data`). It sits inside Saves and settings, so `documentId` now picks the deepest place and Open Files on a mod's folder lands in Mod files. Docs: `sdk/docs/where-mods-live.md`, `docs/port/ANDROID.md`.\n\n**Tested:** `sdk/tools/test_gen_reference.py`. Not built or run on a device (no Android SDK or phone in the container). Manual check: open Files > OpenRAC, see Mod files, start a game wi",
+      "mergedAt": "2026-11-09T09:39:34Z"
+     },
+     {
+      "number": 428,
+      "title": "fix(port): stop eating pad presses while a notification is shown",
+      "author": "nickyyOO",
+      "untrustedBody": "**Before:** while a notification card was on screen (the Start+Select hint at start, \"Screenshot saved\", freecam), the drawer and the desktop menu ran `menu_closed()` every frame, even with the menu already shut. That called `hold_back_held()` each frame, so every held button was held back until let go and taps were dropped. The game saw a press for one window frame at most: many presses were missed (worse at 120 Hz) and holds (run, high jump) did not work. It also reset the Start+Select chord.\n\n**After:** `menu_closed()` runs once, on the frame the menu finishes shutting. Presses and holds reach the game while a card is up.\n\n**How:** `drawer()` and `menu_window()` remember whether the menu was out before the slide and call `menu_closed()` only on that change.\n\n**Tested:** both files compile (rac1-ntsc, release). Not run in game in the container (no disc there). Manual test on a device: start the game and, while the menu hint is up, tap and hold Cross (every tap jumps, a hold jumps hig",
+      "mergedAt": "2026-11-09T09:48:18Z"
+     },
+     {
+      "number": 429,
+      "title": "chore(import): Lombyte 5497cf43, OpenRAC's patches rebased",
+      "author": "nickyyOO",
+      "untrustedBody": "**Before:** the NTSC decomp (Lombyte) was pinned at d2980748. Its 6 patches no longer applied to Lombyte's main (10 newer commits: new folder layout, one prototype header per folder, many renames), so #408 left it out.\n\n**After:** Lombyte is at 5497cf43 (main tip) with the same 6 patches rebased.\n\n**How:**\n- 11 conflicts in 10 files, each a line Lombyte renamed and a patch changed: kept Lombyte's names, kept the patch's arguments and types.\n- 0001 also widens the two Hoven anklebiter Suck Cannon hooks in their new header (Clang saw conflicting types and hostgen dropped both) and makes video_dec_begin_put pass its four buffer arguments on (hostgen now gave zeros).\n- files/: confirm_prompt_input.c uses the renamed `mode_freeze_flags`; the README copy follows Lombyte's.\n- hostgen.json: the level function catalogue moved to `config/us/levels/functions.tsv`. With the old path hostgen ran without it and about 100 level copies of shared helpers became stubs that return 0.\n\n**Tested:**\n- hostg",
+      "mergedAt": "2026-11-11T08:03:40Z"
+     },
+     {
+      "number": 430,
+      "title": "feat(launcher): turn Game colours on by default",
+      "author": "nickyyOO",
+      "untrustedBody": "Closes #426\n\n**Before:** Game colours (Settings > General) was off by default, so every game wore the launcher's gold.\n\n**After:** Game colours is on by default: each game wears its own bar, gold and coal in the launcher and in the game's menu. Turning it off still gives the gold to every game.\n\n**How:** `gameColors` defaults to true in the core config (a settings file without the key gets it on); the page's fallbacks and the first-paint value kept in localStorage follow (it now keeps \"0\" when off, so nothing kept means on). STYLE.md and comments updated, Config.ts regenerated. The mock's `?gameColors` flag became `?gold` (colours off).\n\n**Tested:** `cargo test` (config, theme, generated_types), `yarn verify` (typecheck, lint, format, 325 tests). Not tested on a device. A launcher.json saved by a dev build since #393 already holds `\"gameColors\": false`, so such a launcher stays off until the switch is turned on once.",
+      "mergedAt": "2026-11-09T10:28:21Z"
+     },
+     {
+      "number": 431,
+      "title": "test(launcher): keep Game colours off in the Android theme test",
+      "author": "nickyyOO",
+      "untrustedBody": "Game colours are on by default now (#430), so the theme test's rac3 got its own gold. Open it with ?gold to check the launcher's gold again.",
+      "mergedAt": "2026-11-09T11:05:12Z"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [
+     {
+      "number": 426,
+      "title": "Make \"Game colours\" option, on by default in the Launcher settings",
+      "author": "nickyyOO"
+     }
+    ],
+    "closed": [
+     {
+      "number": 426,
+      "title": "Make \"Game colours\" option, on by default in the Launcher settings",
+      "author": "nickyyOO"
+     }
+    ]
+   },
+   "releases": [
+    {
+     "tag": "sdk-v1.14.3",
+     "name": "Mod SDK 1.14.3",
+     "publishedAt": "2026-11-09T04:26:52Z"
+    },
+    {
+     "tag": "sdk-v1.14.4",
+     "name": "Mod SDK 1.14.4",
+     "publishedAt": "2026-11-09T05:13:31Z"
+    }
+   ],
+   "progress": null,
+   "contributors": [
+    "nickyyOO",
+    "pezzadev",
+    "SavedbyBlood9",
+    "Veradictus"
+   ]
+  },
+  {
+   "repo": "rac1-decomp",
+   "title": "Ratchet & Clank",
+   "branches": [
+    {
+     "name": "main",
+     "commits": []
+    }
+   ],
+   "commitCount": 0,
+   "pullRequests": {
+    "merged": [],
+    "opened": []
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": null,
+   "contributors": []
+  },
+  {
+   "repo": "rac2-decomp",
+   "title": "Going Commando",
+   "branches": [
+    {
+     "name": "master",
+     "commits": [
+      {
+       "sha": "aea0031a05c1e518f9b598e679c5e8ddf8a81242",
+       "title": "Merge pull request #438 from xx255q/feat/names-from-rac1",
+       "author": "Lynder063",
+       "date": "2026-11-09T21:24:19Z"
+      },
+      {
+       "sha": "aefbbf8730c816a3b4d6286358bfb6577a2d4cd2",
+       "title": "Merge pull request #437 from nominalsan/match/pal-small",
+       "author": "Lynder063",
+       "date": "2026-11-09T21:20:40Z"
+      },
+      {
+       "sha": "d5a5955a4a9fdd638159744385701bd4f7f9f5ae",
+       "title": "chore(progress): refresh the reports after the 11-08 and 11-09 matches",
+       "author": "bigbeno37",
+       "date": "2026-11-09T20:57:23Z"
+      },
+      {
+       "sha": "fbb19ef09ae178caa9aa912edfb487f400c628a1",
+       "title": "docs(nonmatching): record evening round notes",
+       "author": "Lynder063",
+       "date": "2026-11-09T20:22:46Z"
+      },
+      {
+       "sha": "f2fcb91821a1280f58bd2af113cbf1d59fe55d44",
+       "title": "docs(nonmatching): record Codex round notes for small near misses",
+       "author": "Lynder063",
+       "date": "2026-11-09T20:01:43Z"
+      },
+      {
+       "sha": "674fcc9ef26904ad6c34f6ece86d70866920b33a",
+       "title": "docs(nonmatching): record L04_00417308 and small near-miss round notes",
+       "author": "Lynder063",
+       "date": "2026-11-09T18:59:04Z"
+      },
+      {
+       "sha": "6fb354534f7edaff6aaf5e6f7c1f844f0be92771",
+       "title": "docs(nonmatching): record spill-slot and size-gap round notes",
+       "author": "Lynder063",
+       "date": "2026-11-09T17:52:29Z"
+      },
+      {
+       "sha": "7053722b5e948171914a11bb0284cb20a520f117",
+       "title": "feat(src): match func_L00_0038E880",
+       "author": "Lynder063",
+       "date": "2026-11-09T17:41:26Z"
+      },
+      {
+       "sha": "967ff32126dbe0e6ccb19dc053c1d65d4b8ce0a5",
+       "title": "feat(src): match func_L00_003769C0",
+       "author": "Lynder063",
+       "date": "2026-11-09T17:41:22Z"
+      },
+      {
+       "sha": "d057fef00adf1819711beb7feb032383602b47cc",
+       "title": "feat(src): match func_L13_0041AD00",
+       "author": "Lynder063",
+       "date": "2026-11-09T17:30:30Z"
+      },
+      {
+       "sha": "f7b67487af7a0f9ca82fbc0723f3385f313d7331",
+       "title": "docs(nonmatching): record dump-driven round notes",
+       "author": "Lynder063",
+       "date": "2026-11-09T17:22:47Z"
+      },
+      {
+       "sha": "8f4183d2d20be91e7f64d995f1d60acc19326b39",
+       "title": "docs(nonmatching): record round notes for L04, L22 and L02 near misses",
+       "author": "Lynder063",
+       "date": "2026-11-09T15:46:41Z"
+      },
+      {
+       "sha": "47f58b22ef4b70ed5c3a8fad7995dc40e132725d",
+       "title": "feat(src): match func_L02_003FDDE8 and func_L11_00443940",
+       "author": "Lynder063",
+       "date": "2026-11-09T15:36:04Z"
+      },
+      {
+       "sha": "73ca094349a73b33c712f9944c346ac419e95a39",
+       "title": "docs(nonmatching): record L04_00417308 round note",
+       "author": "Lynder063",
+       "date": "2026-11-09T15:24:23Z"
+      },
+      {
+       "sha": "0bc2f250954cfff85cf8bf9698714ed6c3951a4e",
+       "title": "feat(src): match func_L02_003FE8B8",
+       "author": "Lynder063",
+       "date": "2026-11-09T15:13:40Z"
+      },
+      {
+       "sha": "f816ff0ac00df8d9141b26e3a7154e748ba97837",
+       "title": "docs(nonmatching): record constant-local sweep notes",
+       "author": "Lynder063",
+       "date": "2026-11-09T15:08:08Z"
+      },
+      {
+       "sha": "9882e17a5ab7b1fad7e8590a4b8964db1c197cc0",
+       "title": "feat(src): match func_L11_00444400",
+       "author": "Lynder063",
+       "date": "2026-11-09T14:54:17Z"
+      },
+      {
+       "sha": "1b37816986f8e998a9e110140959b3a717cb1ba9",
+       "title": "docs(nonmatching): record the Codex round notes",
+       "author": "Lynder063",
+       "date": "2026-11-09T13:39:32Z"
+      },
+      {
+       "sha": "2b9495405a6e49eddf1ba3dfe5ed70d19c77826e",
+       "title": "docs(nonmatching): record set-once constant sweep notes",
+       "author": "Lynder063",
+       "date": "2026-11-09T13:20:13Z"
+      },
+      {
+       "sha": "709c870d08d4692ec13fa0f0a29b9e68340a412d",
+       "title": "feat(src): match func_L06_00382608",
+       "author": "Lynder063",
+       "date": "2026-11-09T12:57:36Z"
+      },
+      {
+       "sha": "715332021898071a86a118213110d27e4b5cb404",
+       "title": "docs(nonmatching): record return-type audit and round notes",
+       "author": "Lynder063",
+       "date": "2026-11-09T12:48:57Z"
+      },
+      {
+       "sha": "102725165adb7419b73cc5f261363400feb6bf03",
+       "title": "feat(src): match func_L05_0041DF58 and func_00294F10",
+       "author": "Lynder063",
+       "date": "2026-11-09T12:38:12Z"
+      },
+      {
+       "sha": "8c44db385bffae1e07944aaf3074569dbae413bd",
+       "title": "feat(src): match func_L10_004227A0 and func_L06_003E5D30",
+       "author": "Lynder063",
+       "date": "2026-11-09T12:27:09Z"
+      },
+      {
+       "sha": "d200e581f9408a8f0c62c34dc3dc8124062da408",
+       "title": "Merge origin/master into match/usa-final-2",
+       "author": "Lynder063",
+       "date": "2026-11-09T12:14:06Z"
+      },
+      {
+       "sha": "16ded8296f372ef15d715bac5b20660fcfcb445e",
+       "title": "docs(nonmatching): record HUD-idiom and helper round notes",
+       "author": "Lynder063",
+       "date": "2026-11-09T12:11:55Z"
+      },
+      {
+       "sha": "369363cc2363eacfbee54510915ab1d5e1a81507",
+       "title": "docs(nonmatching): record dump-driven round notes for twelve near misses",
+       "author": "Lynder063",
+       "date": "2026-11-09T10:45:45Z"
+      },
+      {
+       "sha": "41bc21822ddcd73937e2c9b8053df0a0a442aceb",
+       "title": "docs(nonmatching): record the dump-driven round notes",
+       "author": "Lynder063",
+       "date": "2026-11-09T10:24:53Z"
+      },
+      {
+       "sha": "fcd7ac2c1e6ba8a7ef1b825639f111c4bb83472d",
+       "title": "feat(src): match the 3420-byte HUD panels func_L05_0041EF00 and func_L15_0042EFE0",
+       "author": "Lynder063",
+       "date": "2026-11-09T10:14:13Z"
+      },
+      {
+       "sha": "c4a0e884e4b2fb436775cfb82ebb508de2cdfd68",
+       "title": "feat(src): match func_L02_003FE250 and its twin func_L11_00443D78",
+       "author": "Lynder063",
+       "date": "2026-11-09T09:54:21Z"
+      },
+      {
+       "sha": "71ba2e00716b420ef186bf774d8f206f9743566e",
+       "title": "feat(src): match func_L01_003BCEC8 and func_L00_003ADCD8 under the new owner rulings",
+       "author": "Lynder063",
+       "date": "2026-11-09T09:36:35Z"
+      },
+      {
+       "sha": "5c1ffd4bf06cc02a9f31c06de68b2decb33f906f",
+       "title": "docs(nonmatching): record the dump-driven analysis notes",
+       "author": "Lynder063",
+       "date": "2026-11-09T09:30:09Z"
+      },
+      {
+       "sha": "ce26cd9710a5e169a6cebaa4213ff5dc98afdeca",
+       "title": "docs(nonmatching): record round-twenty-three measurements",
+       "author": "Lynder063",
+       "date": "2026-11-09T09:06:28Z"
+      },
+      {
+       "sha": "fcb1a6adf7e73d6c8801843ed81f5c0c00955df6",
+       "title": "docs(nonmatching): record the Codex round notes for eleven small near misses",
+       "author": "Lynder063",
+       "date": "2026-11-09T08:44:56Z"
+      },
+      {
+       "sha": "2d1e7dc837e16b3995af49f04e098f9ae7e16056",
+       "title": "docs(nonmatching): record round-twenty-two measurements",
+       "author": "Lynder063",
+       "date": "2026-11-09T08:21:22Z"
+      },
+      {
+       "sha": "8db9cb2b87ad07770ff5540831c37e65aeba1fe5",
+       "title": "feat(src): match func_L04_00411298 and record round-twenty-one notes",
+       "author": "Lynder063",
+       "date": "2026-11-09T08:02:39Z"
+      },
+      {
+       "sha": "68def21c3e3b14d18d3089af6cd2bb5d230e3e91",
+       "title": "docs(nonmatching): record the label_y2/label_y3 sweeps and round-twenty notes",
+       "author": "Lynder063",
+       "date": "2026-11-09T07:38:01Z"
+      },
+      {
+       "sha": "9ae96aa8df4c81e57384f42c7bc0a7aa82e8296b",
+       "title": "docs(nonmatching): record round-nineteen measurements",
+       "author": "Lynder063",
+       "date": "2026-11-09T05:42:18Z"
+      },
+      {
+       "sha": "575848f0e957c0bb6495632c113cf755aca657ba",
+       "title": "docs(nonmatching): record the do-while group sweep over twelve near misses",
+       "author": "Lynder063",
+       "date": "2026-11-09T05:03:16Z"
+      },
+      {
+       "sha": "2790ac72beabc8db61f059d0bf67d87f24aaf36d",
+       "title": "docs(nonmatching): record round-eighteen measurements for func_L02_003FE8B8 and func_L05_0042B2C0",
+       "author": "Lynder063",
+       "date": "2026-11-09T04:57:22Z"
+      },
+      {
+       "sha": "52cbd515cef02ec068bc358e5a54fa48ea48bded",
+       "title": "docs(nonmatching): record round-seventeen measurements and switch sweep",
+       "author": "Lynder063",
+       "date": "2026-11-09T03:52:58Z"
+      },
+      {
+       "sha": "a244aebbcee2ebfb3c2d00f9548a7546daaeb720",
+       "title": "feat(src): match func_L22_0039D708 and record round-sixteen notes",
+       "author": "Lynder063",
+       "date": "2026-11-09T03:13:52Z"
+      },
+      {
+       "sha": "a29cca2b47916353c29ea4b97f517a54045f3fd2",
+       "title": "docs(nonmatching): record the PRE-hash spill-slot findings and round-fifteen notes",
+       "author": "Lynder063",
+       "date": "2026-11-09T00:11:16Z"
+      }
+     ]
+    }
+   ],
+   "commitCount": 42,
+   "pullRequests": {
+    "merged": [
+     {
+      "number": 437,
+      "title": "feat(pal): match four PAL functions, retain three near misses",
+      "author": "nominalsan",
+      "untrustedBody": "## What\n\nFour PAL (SCES_516.07) functions matched, each from its matched USA v1.01 counterpart, and three PAL near misses retained in `nonmatching/`.\n\n| Function | Bytes | Places | From |\n| --- | ---: | --- | --- |\n| `func_PAL_002D5FF0` | 104 | boot + 27 levels | `func_002D53F0`: the integer-y variant (text 0xB60, y from a `$gp` word), in the existing `002D5FF0-g8.c` |\n| `func_PAL_002D30C0` | 592 | boot + 27 levels | `func_002D2188` with PAL's coordinates (306/308) and text id; the three bar draws go through an inline helper, so each call reloads its `1.0f` as retail does. New `002D30C0-g8.c` |\n| `func_PAL_0034B088` | 644 | boot + 27 levels | `func_00348EC0` with 88-byte list rows, pad 0x4A4 and `func_PAL_002A9FA0`. New `0034A7F8-g8.c` |\n| `func_PAL_L02_00403FF0` | 716 | level 02 | `func_L02_003FF6E8` with PAL text ids and data, the first x per language from an `int[2]` table. In `L02_00403FF0-g8.c` beside `func_PAL_L02_004042C0` |\n\n`func_PAL_L02_00403FF0`'s data is named `D_PAL_L02_<P",
+      "mergedAt": "2026-11-09T21:21:35Z"
+     },
+     {
+      "number": 438,
+      "title": "feat(include): readable names for 105 functions from their RAC1 count…",
+      "author": "xx255q",
+      "untrustedBody": "…erparts\n\nEach function has the same catalogue fingerprint as RAC1 functions that carry one name in rac1-decomp's config/names.tsv (f911d6e4b971): the same code apart from addresses. A name was taken only with one more support: no address fields in the body, neighbours in the same link order, or 100 bytes or more. 35 go under recovered and 70 under descriptive, following rac1-decomp's tier. docs/RAC1-DECOMP-FINDINGS.md section 5 has the method, what was left out and the table.\n\nAliases only: no function is renamed and no bytes change.\n\n## What\n\n<!-- The functions matched or the change made, and why. -->\n\n## Checked\n\n<!-- The commands you ran and what they printed, e.g. `tools/build.py all`: 28 programs OK;\nhow many functions this adds (leave `progress/report.json` and the README table out: they are regenerated on master). Say what you did not run. -->",
+      "mergedAt": "2026-11-09T21:24:20Z"
+     }
+    ],
+    "opened": [
+     {
+      "number": 437,
+      "title": "feat(pal): match four PAL functions, retain three near misses",
+      "author": "nominalsan",
+      "untrustedBody": "## What\n\nFour PAL (SCES_516.07) functions matched, each from its matched USA v1.01 counterpart, and three PAL near misses retained in `nonmatching/`.\n\n| Function | Bytes | Places | From |\n| --- | ---: | --- | --- |\n| `func_PAL_002D5FF0` | 104 | boot + 27 levels | `func_002D53F0`: the integer-y variant (text 0xB60, y from a `$gp` word), in the existing `002D5FF0-g8.c` |\n| `func_PAL_002D30C0` | 592 | boot + 27 levels | `func_002D2188` with PAL's coordinates (306/308) and text id; the three bar draws go through an inline helper, so each call reloads its `1.0f` as retail does. New `002D30C0-g8.c` |\n| `func_PAL_0034B088` | 644 | boot + 27 levels | `func_00348EC0` with 88-byte list rows, pad 0x4A4 and `func_PAL_002A9FA0`. New `0034A7F8-g8.c` |\n| `func_PAL_L02_00403FF0` | 716 | level 02 | `func_L02_003FF6E8` with PAL text ids and data, the first x per language from an `int[2]` table. In `L02_00403FF0-g8.c` beside `func_PAL_L02_004042C0` |\n\n`func_PAL_L02_00403FF0`'s data is named `D_PAL_L02_<P",
+      "mergedAt": "2026-11-09T21:21:35Z"
+     },
+     {
+      "number": 438,
+      "title": "feat(include): readable names for 105 functions from their RAC1 count…",
+      "author": "xx255q",
+      "untrustedBody": "…erparts\n\nEach function has the same catalogue fingerprint as RAC1 functions that carry one name in rac1-decomp's config/names.tsv (f911d6e4b971): the same code apart from addresses. A name was taken only with one more support: no address fields in the body, neighbours in the same link order, or 100 bytes or more. 35 go under recovered and 70 under descriptive, following rac1-decomp's tier. docs/RAC1-DECOMP-FINDINGS.md section 5 has the method, what was left out and the table.\n\nAliases only: no function is renamed and no bytes change.\n\n## What\n\n<!-- The functions matched or the change made, and why. -->\n\n## Checked\n\n<!-- The commands you ran and what they printed, e.g. `tools/build.py all`: 28 programs OK;\nhow many functions this adds (leave `progress/report.json` and the README table out: they are regenerated on master). Say what you did not run. -->",
+      "mergedAt": "2026-11-09T21:24:20Z"
+     },
+     {
+      "number": 439,
+      "title": "feat(src): match seven functions, func_0031A098 to func_L11_00453358",
+      "author": "Lynder063",
+      "untrustedBody": "## What\n\nSeven USA v1.01 functions matched on `match/usa-small-tier` (one commit, f6e2a1e8, on a base 282 commits behind master):\n\n`func_0031A098`, `func_003136D0`, `func_00308768`, `func_L11_00453358`, `func_L01_003A6638`, `func_L08_0041E790`, `func_L00_003ADCD8`.\n\n**All seven are already C on master, in master's own units.** A trial merge onto master (aefbbf87) conflicts in about 20 files (`config/cflags.txt`, the marker files, and the units themselves: e.g. this branch's `0030F7B0-update-g8.c` against master's `0030F7B0-ball-sw-g8.c`). Resolving every conflict in master's favour leaves nothing to merge, so this PR adds no function. It is here for the record and for comparing wordings, not for merging as is.\n\n## Checked\n\nOn the branch, USA v1.01, host build:\n\n- `tools/build.py all --strict`: 27 levels OK; boot fails strict on `func_00117278` (%hi at +0x50) and `func_00132498` (instruction at +0xb0), neither touched here. The seven functions are present in their programs' `placed.json"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": {
+    "before": {
+     "code": {
+      "done": 5379232,
+      "total": 5524060
+     },
+     "functions": {
+      "done": 8452,
+      "total": 8527
+     }
+    },
+    "after": {
+     "code": {
+      "done": 5459260,
+      "total": 5524060
+     },
+     "functions": {
+      "done": 8491,
+      "total": 8527
+     }
+    }
+   },
+   "contributors": [
+    "bigbeno37",
+    "Lynder063",
+    "nominalsan",
+    "xx255q"
+   ]
+  },
+  {
+   "repo": "rac3-decomp",
+   "title": "Up Your Arsenal",
+   "branches": [
+    {
+     "name": "master",
+     "commits": [
+      {
+       "sha": "83aa5ed2389cec2a1af211d1a45b3246c04a6975",
+       "title": "chore(progress): regenerate the NTSC-U map, built list and reports after #15",
+       "author": "Veradictus",
+       "date": "2026-11-09T08:07:25Z"
+      },
+      {
+       "sha": "29faf79738cf3d3c00e34bc924324e05dc8d4f41",
+       "title": "Merge pull request #15 from cadelass/match/rac2-ports",
+       "author": "Veradictus",
+       "date": "2026-11-09T07:06:44Z"
+      }
+     ]
+    }
+   ],
+   "commitCount": 2,
+   "pullRequests": {
+    "merged": [
+     {
+      "number": 15,
+      "title": "match: 23 level 5 (Daxx) functions and 9 ports from rac2-decomp; near misses and patterns",
+      "author": "cadelass",
+      "untrustedBody": "## What\n\nTwo pieces of work on one branch, on top of `origin/master` (68377e3, after #13):\n\n1. **9 level functions ported from rac2-decomp.** Each one's retail code has the same instructions as matched C in rac2-decomp (rac2's `cross_identity()`: only linker-filled fields masked). The C was copied with every relocated name renamed to this game's from retail's bytes. Where only immediates differed, the literal was changed and the note says \"constants adapted\". All of them are in files nobody listed in #3 at the time.\n   - `func_L39_005AB330`, `func_L03_0044DC88`, `func_L01_0042AF50`, `func_L01_004AC840`, `func_L01_004126C8`, `func_L03_003FFB18`, `func_L01_00432AB8`, `func_L13_003AE678`, `func_L24_00358D10`.\n2. **Level 5 (Daxx): 23 functions matched and 4 near misses staged.** `INCLUDE_ASM` in `src/levels/05_daxx/` went from 68 to 45.\n   - First pass, one agent per function over every eligible function (no real VU0, not handwritten, at most 400 instructions). 17 matched: `func_L05_003602",
+      "mergedAt": "2026-11-09T07:06:45Z"
+     }
+    ],
+    "opened": []
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": {
+    "before": {
+     "code": {
+      "done": 1486952,
+      "total": 7546948
+     },
+     "functions": {
+      "done": 7132,
+      "total": 16164
+     }
+    },
+    "after": {
+     "code": {
+      "done": 1496972,
+      "total": 7546948
+     },
+     "functions": {
+      "done": 7164,
+      "total": 16164
+     }
+    }
+   },
+   "contributors": [
+    "cadelass",
+    "Veradictus"
+   ]
+  },
+  {
+   "repo": "rac4-decomp",
+   "title": "Ratchet: Deadlocked",
+   "branches": [
+    {
+     "name": "main",
+     "commits": [
+      {
+       "sha": "0bddadfd0832b633c69c2ee14e3c54ea41afa72d",
+       "title": "chore(progress): regenerate both maps and reports after merging #128-#136",
+       "author": "Veradictus",
+       "date": "2026-11-09T07:31:00Z"
+      },
+      {
+       "sha": "3a3ce58667f41452da08766a6a50adb0807b7604",
+       "title": "fix(tools): audit_relocs skips PAL objects, like audit_matches",
+       "author": "Veradictus",
+       "date": "2026-11-09T07:27:36Z"
+      },
+      {
+       "sha": "80f4edd1aef5a54b0ff5a64689ec472116699265",
+       "title": "Merge pull request #131 (duplicate func_L00_004F72C0 kept from #135/#136; generated files regenerated after the merges)",
+       "author": "Veradictus",
+       "date": "2026-11-09T07:05:34Z"
+      },
+      {
+       "sha": "a8c900601cf629526449d5e51da2259fcef954ac",
+       "title": "Merge pull request #129",
+       "author": "Veradictus",
+       "date": "2026-11-09T07:05:25Z"
+      },
+      {
+       "sha": "5e5de22236b190de7b568245c0d32419616ef1f2",
+       "title": "Merge pull request #133 (generated files regenerated after the merges)",
+       "author": "Veradictus",
+       "date": "2026-11-09T07:05:25Z"
+      },
+      {
+       "sha": "ba4373628740a6d1900178f7f50eacc3e6626a8f",
+       "title": "Merge pull request #136 (generated files regenerated after the merges)",
+       "author": "Veradictus",
+       "date": "2026-11-09T07:05:25Z"
+      },
+      {
+       "sha": "f17e771ada810b20475938882e12e647681d665c",
+       "title": "Merge pull request #135 (generated files regenerated after the merges)",
+       "author": "Veradictus",
+       "date": "2026-11-09T07:05:24Z"
+      },
+      {
+       "sha": "4090c128d52206c5480dc43f16219b47466700e2",
+       "title": "Merge pull request #132 (generated files regenerated after the merges)",
+       "author": "Veradictus",
+       "date": "2026-11-09T07:05:24Z"
+      },
+      {
+       "sha": "932e51ecf6c189e46f5f406f4d26212c4db2ef6a",
+       "title": "Merge pull request #130 (generated files regenerated after the merges)",
+       "author": "Veradictus",
+       "date": "2026-11-09T07:05:15Z"
+      },
+      {
+       "sha": "cfb009bd1335ca77dac3c684dcafd98b4af82dd0",
+       "title": "Merge pull request #128 from farfeduc/decomp/nm-drafts-2",
+       "author": "Veradictus",
+       "date": "2026-11-09T07:04:39Z"
+      }
+     ]
+    }
+   ],
+   "commitCount": 10,
+   "pullRequests": {
+    "merged": [
+     {
+      "number": 128,
+      "title": "Match 9 nonmatching drafts (1 net, 2 core, 6 overlay)",
+      "author": "farfeduc",
+      "untrustedBody": "Matches 9 US functions that had drafts in `nonmatching/` (1 in `net.text`, 2 in `core`, 6 in level overlays). Their draft files and `nonmatching/README.md` rows are removed. This is the follow-up to #124: the commit arrived after #124 was merged, so it comes here, on top of the current `main`.\n\n## How they were matched\n\n- `func_00162698`: store order, found by inverting the scheduler's permutation (compile, see where each store lands, solve for the source order).\n- `func_0014D058`: the operands of two additions swapped (`index + base`), with `-Os -G8 -mno-split-addresses -mips3 -mcpu=r4000`, the profile of `src/net/01EF0550.c`.\n- `func_01F0C19C`: the draft as is, with `@ee296 -O2 -G0 -mno-split-addresses -fno-optimize-sibling-calls` (retail calls with `jal` instead of tail-calling).\n- `func_L00_004F72C0`: an early `return 0`, with `@ee29`, like its neighbours in `l00_multiplayer_menu`.\n- `func_L00_0065B218`: the globals declared `extern s32 D_x[]`, except `D_0021DDB4`, a plain scalar u",
+      "mergedAt": "2026-11-09T07:04:40Z"
+     },
+     {
+      "number": 129,
+      "title": "Add PAL C for 9 PAL-only functions",
+      "author": "chistianh",
+      "untrustedBody": "9 PAL-only functions, one commit each, all reserved in #112 (my comment there). Four of them are versions of one function in different levels, with different addresses and constants.\n\n| PAL | Where | Size |\n|---|---|---|\n| func_L00_005FCB88 | `src/pal/overlays/shared/` | 200 |\n| func_L01_0048C5D0 | `src/pal/overlays/shared/` | 404 |\n| func_L01_004B5BB8 | `src/pal/overlays/shared/` | 520 |\n| func_L06_0049C508 | `src/pal/overlays/shared/` | 604 |\n| func_L00_006B0A90 | `src/pal/overlays/shared/` | 604 |\n| func_L06_004DFE80 | `src/pal/overlays/l06_temple_of_shaar/` | 616 |\n| func_L01_005359F0 | `src/pal/overlays/l01_dreadzone_station/` | 624 |\n| func_L02_004E82A8 | `src/pal/overlays/shared/` | 624 |\n| func_L05_0050C5C0 | `src/pal/overlays/l05_dark_cathedral/` | 624 |\n\nChecks: every file in `src/pal/` MATCHES with `tools/check_func.py --version pal`, checked with `src/pal/` set aside. The branch is based on `main` (4a7372f5). `config/` and the reports are not regenerated. The C is plain C (",
+      "mergedAt": "2026-11-09T07:31:05Z"
+     },
+     {
+      "number": 130,
+      "title": "Match 26 small US functions with no C yet (3 net, 23 overlay)",
+      "author": "farfeduc",
+      "untrustedBody": "Matches 26 small US functions (all under 80 bytes) with no matching C yet: 3 in `net.text`, 23 in level overlays. 11 came straight out of the automatic m2c pass; 15 needed hand fixes. Two of them (`func_01EA8F98`, `func_01EB2EE0`) had drafts in `nonmatching/net/`; the drafts and their README rows are removed.\n\n## How they were matched\n\n- **11 from the automatic pass** (m2c draft, the usual clean-ups, then the compiler profiles): `func_01EB2EE0`, `func_L00_004F3F50`, `func_L00_00516E90`, `func_L00_00537430`, `func_L00_00566910`, `func_L00_00566BA0`, `func_L00_00710CB8`, `func_L00_0071AC10`, `func_L00_00733B68`, `func_L00_0074A3C8`, `func_L01_005129B0`. Four build with `@ee296 -O2 -G0 -falign-jumps=1` (one with `-mno-split-addresses`), three with `@ee29 -O2 -G0`, one with `-mno-split-addresses`, the rest with no cflags line. For `func_L00_00710CB8` the automatic pass gave two candidates; the one without a cflags line is not exact in the full build, so the `@ee296` one is kept.\n- **15 fix",
+      "mergedAt": "2026-11-09T07:31:05Z"
+     },
+     {
+      "number": 131,
+      "title": "Aut 45 decomp round",
+      "author": "skast96",
+      "untrustedBody": "Big round of decomp agents.",
+      "mergedAt": "2026-11-09T07:31:05Z"
+     },
+     {
+      "number": 132,
+      "title": "Match 24 small US functions with no C yet (7 net, 1 game, 16 overlay)",
+      "author": "farfeduc",
+      "untrustedBody": "Matches 24 small US functions (under 140 bytes) with no matching C yet: 7 in `net.text`, 1 in `game`, 16 in level overlays. 16 came straight out of the automatic m2c pass; 8 needed hand fixes. Two of them (`func_01EC9060`, `func_01EC92E8`) had drafts in `nonmatching/net/`; the drafts and their README rows are removed.\n\nThe batch was picked from functions nobody had tried, keeping only those m2c decompiles without errors (no `syscall`, VU0 or other instructions C cannot express here).\n\n## How they were matched\n\n- **16 from the automatic pass** (m2c draft, the usual clean-ups, then the compiler profiles): `func_004B54D8`, `func_01EA76E8`, `func_01EC9060`, `func_01EC92E8`, `func_01EC94C0`, `func_01EC96C0`, `func_01EF03CC`, `func_01EF9844`, `func_L00_00513308`, `func_L00_005195A8`, `func_L00_0052FA40`, `func_L00_005463F8`, `func_L00_00547500`, `func_L00_00552380`, `func_L00_00714A80`, `func_L00_00717DF0`. The net ones and `func_L00_00513308` build with `@ee296 -O2 -G0 -falign-jumps=1` (fou",
+      "mergedAt": "2026-11-09T07:31:05Z"
+     },
+     {
+      "number": 133,
+      "title": "match(pal): add twenty-four strictly verified overlay routines",
+      "author": "Shaar-games",
+      "untrustedBody": "Decodes 24 RAC4 PAL (SCES_532.85) functions, each strictly verified (byte-identical compiled code) and registered in the maps.\n\nOriginal 14:\n\n- func_L00_005522A0\n- func_L00_005669A8\n- func_L00_0070D078\n- func_L00_0070D768\n- func_L00_0070D788\n- func_L00_0070D7B0\n- func_L00_007292C0\n- func_L00_00738128\n- func_L00_0074EFF8\n- func_L00_00757590\n- func_L01_004AF6E0\n- func_L01_004B5B18\n- func_L01_004BAAE0\n- func_L01_004C9B70\n\nNew in this PR:\n\n- func_L00_00605448\n- func_L00_00605530\n- func_L00_00605700\n- func_L00_006057E8\n- func_L00_006058B8\n- func_L00_00605988\n- func_L04_004991A8\n- func_L08_004B9BA8\n- func_L08_004B9C08\n- func_L11_003FF4B8\n\nAll are exact matches in the regenerated maps; both progress reports and the README table are updated.",
+      "mergedAt": "2026-11-09T07:31:05Z"
+     },
+     {
+      "number": 135,
+      "title": "Match 69 US near misses and drafts (50 net, 4 game, 3 core, 12 overlay)",
+      "author": "farfeduc",
+      "untrustedBody": "Matches 69 US functions (50 in `net.text`, 4 in `game`, 3 in `core`, 12 in level overlays): near misses from my earlier batches and drafts that are now exact, plus a few from a fresh batch.\n\n## How they were matched\n\nMost were a few instructions off. What closed them:\n\n- **Comparison operand order**: retail loads the right-hand field first in `a->x < a->y`; written `a->y > a->x` it matches. This closed a family of `net.text` assert getters at once (`func_01F056C8`, `func_01F0574C`, `func_01F060F4`, `func_01F06248`, `func_01F0B0EC`, `func_01F0B150`, `func_01F0B478`, `func_01F0B6D8`, `func_01F0B778`, ...).\n- **`-fno-optimize-sibling-calls`** where retail calls with `jal` and returns instead of tail-calling (several `net.text` functions, under `@ee296`).\n- **Field and argument types**: `u8`/`s8`/`s16`/`u16`/`f32` fields where retail uses `lbu`/`lb`/`lh`/`lhu`/`lwc1`; callees with the argument count retail sets up (an assert taking two arguments, a fifth argument in `$t0`, `memset(arg0, 0,",
+      "mergedAt": "2026-11-09T07:31:05Z"
+     },
+     {
+      "number": 136,
+      "title": "Match 27 more US near misses and drafts (15 net, 1 game, 3 core, 8 overlay)",
+      "author": "farfeduc",
+      "untrustedBody": "Matches 27 more US functions (15 in `net.text`, 1 in `game`, 3 in `core`, 8 in level overlays): near misses from my earlier batches and m2c drafts, fixed by hand. Same kind of fixes as #135 (field and argument types, callee argument counts, a global reloaded into a local before each use, pointer steps, profiles). Two of them had drafts in `nonmatching/`; the drafts and their README rows are removed.\n\nNo `#define` aliases, `volatile`, inline asm or hard-coded addresses.\n\n<details><summary>Functions</summary>\n\n`func_0012DC00`, `func_0012DC20`, `func_0013A148`, `func_0040A0E8`, `func_01EA57B8`, `func_01EA9550`, `func_01EB3F10`, `func_01EC98E8`, `func_01ED68A0`, `func_01EDB438`, `func_01EDF6C0`, `func_01EE5268`, `func_01EEE4BC`, `func_01EEFB08`, `func_01EF0764`, `func_01EF7DAC`, `func_01EFA5C8`, `func_01EFCB48`, `func_01EFD48C`, `func_L00_0051C7E0`, `func_L01_005487C0`, `func_L01_005E5BC0`, `func_L01_005F6C60`, `func_L01_00627218`, `func_L01_00633070`, `func_L01_006B4FC0`, `func_L41_00625C",
+      "mergedAt": "2026-11-09T07:31:05Z"
+     }
+    ],
+    "opened": [
+     {
+      "number": 135,
+      "title": "Match 69 US near misses and drafts (50 net, 4 game, 3 core, 12 overlay)",
+      "author": "farfeduc",
+      "untrustedBody": "Matches 69 US functions (50 in `net.text`, 4 in `game`, 3 in `core`, 12 in level overlays): near misses from my earlier batches and drafts that are now exact, plus a few from a fresh batch.\n\n## How they were matched\n\nMost were a few instructions off. What closed them:\n\n- **Comparison operand order**: retail loads the right-hand field first in `a->x < a->y`; written `a->y > a->x` it matches. This closed a family of `net.text` assert getters at once (`func_01F056C8`, `func_01F0574C`, `func_01F060F4`, `func_01F06248`, `func_01F0B0EC`, `func_01F0B150`, `func_01F0B478`, `func_01F0B6D8`, `func_01F0B778`, ...).\n- **`-fno-optimize-sibling-calls`** where retail calls with `jal` and returns instead of tail-calling (several `net.text` functions, under `@ee296`).\n- **Field and argument types**: `u8`/`s8`/`s16`/`u16`/`f32` fields where retail uses `lbu`/`lb`/`lh`/`lhu`/`lwc1`; callees with the argument count retail sets up (an assert taking two arguments, a fifth argument in `$t0`, `memset(arg0, 0,",
+      "mergedAt": "2026-11-09T07:31:05Z"
+     },
+     {
+      "number": 136,
+      "title": "Match 27 more US near misses and drafts (15 net, 1 game, 3 core, 8 overlay)",
+      "author": "farfeduc",
+      "untrustedBody": "Matches 27 more US functions (15 in `net.text`, 1 in `game`, 3 in `core`, 8 in level overlays): near misses from my earlier batches and m2c drafts, fixed by hand. Same kind of fixes as #135 (field and argument types, callee argument counts, a global reloaded into a local before each use, pointer steps, profiles). Two of them had drafts in `nonmatching/`; the drafts and their README rows are removed.\n\nNo `#define` aliases, `volatile`, inline asm or hard-coded addresses.\n\n<details><summary>Functions</summary>\n\n`func_0012DC00`, `func_0012DC20`, `func_0013A148`, `func_0040A0E8`, `func_01EA57B8`, `func_01EA9550`, `func_01EB3F10`, `func_01EC98E8`, `func_01ED68A0`, `func_01EDB438`, `func_01EDF6C0`, `func_01EE5268`, `func_01EEE4BC`, `func_01EEFB08`, `func_01EF0764`, `func_01EF7DAC`, `func_01EFA5C8`, `func_01EFCB48`, `func_01EFD48C`, `func_L00_0051C7E0`, `func_L01_005487C0`, `func_L01_005E5BC0`, `func_L01_005F6C60`, `func_L01_00627218`, `func_L01_00633070`, `func_L01_006B4FC0`, `func_L41_00625C",
+      "mergedAt": "2026-11-09T07:31:05Z"
+     },
+     {
+      "number": 137,
+      "title": "match(pal): add twenty-three strictly verified overlay routines",
+      "author": "Shaar-games",
+      "untrustedBody": "## Summary\n\nAdds twenty-three PAL overlay routines for SCES_532.85, each strictly verified with `pal-solver verify` (byte-identical linked code plus verified data/BSS) against the PAL catalogue.\n\n## New matches\n\n| Function | Program | Section | Size |\n| --- | --- | --- | --- |\n| func_00484F88 | main | .text | 200 |\n| func_01EEE13C | main | net.text | 96 |\n| func_L00_005300C8 | level_00 | .text | 196 |\n| func_L00_00530410 | level_00 | .text | 196 |\n| func_L00_00567138 | level_00 | .text | 68 |\n| func_L00_00605A70 | level_00 | .text | 228 |\n| func_L00_00605B58 | level_00 | .text | 228 |\n| func_L00_006A09B8 | level_00 | .text | 276 |\n| func_L00_006A0F88 | level_00 | .text | 276 |\n| func_L02_004CF080 | level_02 | .text | 100 |\n| func_L05_003E47B8 | level_05 | .text | 68 |\n| func_L05_004EF810 | level_05 | .text | 108 |\n| func_L05_004F0FD8 | level_05 | .text | 108 |\n| func_L05_004F4E68 | level_05 | .text | 68 |\n| func_L06_004C5DF0 | level_06 | .text | 220 |\n| func_L08_004B9CC0 | level_08 | .",
+      "mergedAt": "2026-11-11T18:05:46Z"
+     },
+     {
+      "number": 138,
+      "title": "Match 26 small US functions (4 net, 6 game, 2 core, 14 overlay)",
+      "author": "GarfTornion",
+      "untrustedBody": "Matches 26 US functions of reservation batch 52: 4 in `net.text`, 6 in `game`, 2 in `core`, and 14 in overlays (7 `l00_multiplayer_menu`, 7 shared/L11/L15). All are small (16-128 bytes). The first commit also stages 24 near misses in `nonmatching/` with their measured verdicts; three are updated by later commits.\n\n`func_01EACEF0`, `func_01EB4DD0`, `func_01EA8BD0`, `func_01EDA958` (net); `func_00547DC8`, `func_00547E00`, `func_00548040`, `func_00548078`, `func_00548DA0`, `func_00501988` (game); `func_00154010`, `func_0012E8C8` (core); `func_L00_00519CF0`, `func_L00_00709290`, `func_L00_00709980`, `func_L00_00710750`, `func_L00_00753158`, `func_L00_007099A0`, `func_L00_0077A2F8` (l00 overlay); `func_L01_003C90CC`, `func_L01_0043C180`, `func_L01_0048AD68`, `func_L01_004BDD78`, `func_L01_00573B60`, `func_L11_003C5088`, `func_L15_004E38C4` (shared overlays).\n\n## How they were matched\n\n- **9 from m2c plus flag/compiler sweeps**: `func_01EACEF0` (`@ee296 -O2 -G0`), `func_L11_003C5088` (`-fno-",
+      "mergedAt": "2026-11-11T18:05:20Z"
+     },
+     {
+      "number": 139,
+      "title": "Add PAL C for 11 PAL-only functions",
+      "author": "chistianh",
+      "untrustedBody": "11 PAL-only functions, one commit each, all reserved in #112 (my comment there).\n\n| PAL | Where | Size |\n|---|---|---|\n| func_0045E478 | `src/pal/game/` | 412 |\n| func_004E0218 | `src/pal/game/` | 432 |\n| func_L02_004CDB98 | `src/pal/overlays/shared/` | 436 |\n| func_L15_004D8F88 | `src/pal/overlays/l15_control_level/` | 456 |\n| func_L00_00691168 | `src/pal/overlays/shared/` | 456 |\n| func_00448DC8 | `src/pal/game/` | 468 |\n| func_L01_00589AE8 | `src/pal/overlays/shared/` | 468 |\n| func_00466458 | `src/pal/game/` | 488 |\n| func_L01_004FDE98 | `src/pal/overlays/shared/` | 524 |\n| func_L01_0046D5B8 | `src/pal/overlays/shared/` | 772 |\n| func_0046C320 | `src/pal/game/` | 908 |\n\nChecks: every file in `src/pal/` MATCHES with `tools/check_func.py --version pal`, checked with `src/pal/` set aside. The only failures are four files that fail in my checker only, as before: `L15_004D8550.c`, `L01_00496500.c`, `L01_004AC708.c` and `core/0012C680.c`. The branch is based on `main` (0bddadfd). `config",
+      "mergedAt": "2026-11-11T18:02:49Z"
+     },
+     {
+      "number": 140,
+      "title": "feat(rac4/ntsc): add 42 US matches and align 20 interfaces",
+      "author": "Joebannerlord",
+      "untrustedBody": "Adds 42 NTSC-U matches (3,552 bytes, 93 actual relocation checks) and reconciles 20 existing formatter/scanner/helper interfaces without changing their retail instructions. Seven plain-C near misses are retained and deferred.\n\nThe reserved batch had 43 verified local functions. `func_0011D5D8` was independently integrated in #131, so it appears here as an interface correction rather than another matching addition. Three newly integrated callers also receive compatible variadic declarations and pointer forwarding. The scanner's two unsigned-word output arguments were checked against owned format metadata.\n\nThis is an independent continuation on current main `0bddadfd`. It does not include #121's 40 matching additions or allocator header. The optional private native scratch-storage transport prerequisite is the same small fix proposed in #121; it preserves default retention, compiler inputs, flags and emitted instructions.\n\n### Validation\n\n- Isolated build: 7,510 reused objects after com",
+      "mergedAt": "2026-11-11T18:38:53Z"
+     },
+     {
+      "number": 141,
+      "title": "decomp: add 13 exact US overlay functions",
+      "author": "xAlcatraZx",
+      "untrustedBody": "## Summary\n- Add 13 byte-exact US overlay functions.\n- Increase exact-matched code by 1,264 bytes.\n- Update the US matching map, progress report, and README.\n\n## Validation\n- 13/13 functions verified as EXACT.\n- All 13 functions compiled successfully.\n- US matching map and progress checks passed.\n- No new relocation mismatches observed.\n\n## Outstanding checks\n- PAL validation is incomplete because `baserom/pal/main.elf` is unavailable locally.\n- The relocation audit reports 27 previously observed mismatches in unrelated functions.\n- A full integrated rebuild was not repeated for this batch; targeted compilation and matching checks were performed.",
+      "mergedAt": "2026-11-11T18:04:56Z"
+     },
+     {
+      "number": 142,
+      "title": "Match 298 US and 24 PAL functions, mostly shape twins of matched code",
+      "author": "farfeduc",
+      "untrustedBody": "Matches 298 US functions and 24 PAL functions. US goes from 7,673 to 7,967 functions (12.88% → 14.18% of the code), PAL from 8,044 to 8,103 (14.62% → 14.89%).\n\n## How\n\nMost are **shape twins**: functions whose instructions are those of a function already matched in C, with other constants and addresses (OpenRAC's `tools/mips.py` shape fingerprint over the US and PAL catalogues). For each one, the twin's C was copied and then:\n\n- every constant that differs was set to retail's (from the compiled diff), floats included: the PAL twins of US functions often change 60 Hz values for 50 Hz ones (`60.0f` → `50.0f`, `0.2f` → `0.24f`);\n- callees and globals were renamed to what the disc reaches, from the relocations of our object against the retail words (for PAL, the PAL addresses, as `src/pal/` files do);\n- comments were dropped, since they described the twin.\n\nFourteen are mid-size functions decompiled by hand.\n\nPAL functions go to `src/pal/` with PAL names and addresses; US ones to `src/` as",
+      "mergedAt": "2026-11-11T18:04:35Z"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": {
+    "before": {
+     "code": {
+      "done": 590020,
+      "total": 5781432
+     },
+     "functions": {
+      "done": 7163,
+      "total": 18170
+     }
+    },
+    "after": {
+     "code": {
+      "done": 744880,
+      "total": 5781432
+     },
+     "functions": {
+      "done": 7673,
+      "total": 18170
+     }
+    }
+   },
+   "contributors": [
+    "chistianh",
+    "farfeduc",
+    "GarfTornion",
+    "Joebannerlord",
+    "Shaar-games",
+    "skast96",
+    "Veradictus",
+    "xAlcatraZx"
+   ]
+  },
+  {
+   "repo": "openrac-mods",
+   "title": "OpenRAC mods",
+   "branches": [
+    {
+     "name": "master",
+     "commits": [
+      {
+       "sha": "458f2f79795e409a711549947ec6854893a34118",
+       "title": "chore(index): discussion numbers (#151)",
+       "author": "openrac-bot[bot]",
+       "date": "2026-11-09T14:43:22Z"
+      },
+      {
+       "sha": "c024a857be59ff4cd4e203d4e760d855dd3e7e8a",
+       "title": "Merge pull request #153 from nickyyOO/feature/lock-strafe-button",
+       "author": "nickyyOO",
+       "date": "2026-11-09T12:47:10Z"
+      },
+      {
+       "sha": "233b6761624ffe473aea732a7038916f0b303f78",
+       "title": "chore(index): discussion numbers",
+       "author": "openrac-bot[bot]",
+       "date": "2026-11-09T10:42:16Z"
+      },
+      {
+       "sha": "567fd646508af3e875887464fe4fc02ec1f0254e",
+       "title": "fix: keep mods' files in the port's mod folder (item-randomizer 2.4.1, multiplayer 0.12.3) (#148)",
+       "author": "nickyyOO",
+       "date": "2026-11-09T10:36:00Z"
+      },
+      {
+       "sha": "d84b2105c25ab1d758e52c156b2b600d13686eaa",
+       "title": "chore(index): approve pause-weapon-wheel 1.0.1 (#149)",
+       "author": "openrac-bot[bot]",
+       "date": "2026-11-09T10:34:10Z"
+      },
+      {
+       "sha": "6f36890a53dc672b8489dc8abee8467a9b516d53",
+       "title": "chore(index): approve wrench-throw 1.0.0",
+       "author": "openrac-bot[bot]",
+       "date": "2026-11-09T10:32:19Z"
+      },
+      {
+       "sha": "e2794139ebc1b777e67313830e2712190091c6d6",
+       "title": "feat(multiplayer): keep parties to the game's family, 0.12.2",
+       "author": "Veradictus",
+       "date": "2026-11-09T07:39:05Z"
+      },
+      {
+       "sha": "25fc2b7051799cdda88314ce062c4b73d9099bcf",
+       "title": "fix(multiplayer): shorten the pages' texts so nothing overflows, 0.12.1",
+       "author": "Veradictus",
+       "date": "2026-11-09T07:36:35Z"
+      },
+      {
+       "sha": "d70999227a9919043bf4fcb38b89d3fcc49f484a",
+       "title": "feat(multiplayer): the Multiplayer pages in Going Commando",
+       "author": "Veradictus",
+       "date": "2026-11-09T05:53:06Z"
+      },
+      {
+       "sha": "8369294bc271b40e8aaceac23142179fd19c5cb0",
+       "title": "fix(tools): retry the SDK download on GitHub's server errors",
+       "author": "Veradictus",
+       "date": "2026-11-09T05:51:15Z"
+      },
+      {
+       "sha": "1b6c940e640c6bcb3dd3bebcc08f8631e907dccf",
+       "title": "feat(item-randomizer): randomize only a game started with it, 2.4.0",
+       "author": "Veradictus",
+       "date": "2026-11-09T05:38:58Z"
+      },
+      {
+       "sha": "f892578f378ffda116d78132341774fecf7d3d59",
+       "title": "build: build against the mod SDK 1.14.4",
+       "author": "Veradictus",
+       "date": "2026-11-09T05:38:58Z"
+      },
+      {
+       "sha": "18ebea239267233e577e4bdde38482f410b8c7be",
+       "title": "chore(mods): credit Keros as the author",
+       "author": "Veradictus",
+       "date": "2026-11-09T05:34:05Z"
+      },
+      {
+       "sha": "7ae42864bec8485cf9763d047f00aec0acf8fd33",
+       "title": "feat(index): List pause-weapon-wheel (#144)",
+       "author": "openrac-bot[bot]",
+       "date": "2026-11-09T05:28:23Z"
+      },
+      {
+       "sha": "43e14ab5ca8ce784eb4c37ce5ab3f58e486f2b0e",
+       "title": "feat(index): List wrench-throw (#143)",
+       "author": "openrac-bot[bot]",
+       "date": "2026-11-09T05:28:20Z"
+      },
+      {
+       "sha": "4e685783afa803bd53ced40a26a5c4ed1bcabb72",
+       "title": "fix(item-randomizer): a Going Commando giver's equip takes the reward, 2.3.1",
+       "author": "Veradictus",
+       "date": "2026-11-09T04:54:11Z"
+      },
+      {
+       "sha": "22b2fae7c79e3268a2bf82a71f29a9c61950e6f6",
+       "title": "build: build against OpenRAC's SDK with Going Commando's item equip until SDK 1.14.4 is released",
+       "author": "Veradictus",
+       "date": "2026-11-09T04:54:11Z"
+      },
+      {
+       "sha": "34396e39248e610f7f4952c15acf0c6348db692a",
+       "title": "fix(item-randomizer): Going Commando's vendor on every level, and a party's seed, 2.3.0",
+       "author": "Veradictus",
+       "date": "2026-11-09T04:27:39Z"
+      },
+      {
+       "sha": "5dc121b94c4043b1ad6e8f1cf1f7a119f94eaf8c",
+       "title": "fix(xbox-icons): Going Commando's title menus, 1.2.0",
+       "author": "Veradictus",
+       "date": "2026-11-09T04:27:39Z"
+      },
+      {
+       "sha": "7531c66e7888e53aae9f07a515b29851fa693ae4",
+       "title": "feat(difficulty): Going Commando's health pickups, 1.5.0",
+       "author": "Veradictus",
+       "date": "2026-11-09T04:27:39Z"
+      },
+      {
+       "sha": "46c98128679b8d1c02cde7ff5bf7573fada19dcb",
+       "title": "build: build against the mod SDK 1.14.3",
+       "author": "Veradictus",
+       "date": "2026-11-09T04:27:39Z"
+      }
+     ]
+    }
+   ],
+   "commitCount": 21,
+   "pullRequests": {
+    "merged": [
+     {
+      "number": 143,
+      "title": "List wrench-throw",
+      "author": "openrac-bot[bot]",
+      "untrustedBody": "From #141, checked by the listing bot. @OpenRAC/maintainers, please review.\n\nCloses #141",
+      "mergedAt": "2026-11-09T05:28:20Z"
+     },
+     {
+      "number": 144,
+      "title": "List pause-weapon-wheel",
+      "author": "openrac-bot[bot]",
+      "untrustedBody": "From #142, checked by the listing bot. @OpenRAC/maintainers, please review.\n\nCloses #142",
+      "mergedAt": "2026-11-09T05:28:24Z"
+     },
+     {
+      "number": 148,
+      "title": "fix: keep mods' files in the port's mod folder (item-randomizer 2.4.1, multiplayer 0.12.3)",
+      "author": "nickyyOO",
+      "untrustedBody": "**Before:** the item randomizer worked out its own folder (`dev.openrac.launcher/mods/item-randomizer`), and multiplayer wrote `mp-trace.log` to the game's working directory. On Android both are hidden in the app's storage, so the spoiler log, `seed.txt` and the verbose log could not be opened.\n\n**After:** both mods use the folder the port gives them (`data_dir`, interface 1.11): `mod-data/<id>` beside the memory cards. On Android that is OpenRAC > Mod files > <id> in the Files app. The randomizer copies a seed remembered in the old folder once, so a blank seed keeps the same game; old spoiler logs stay where they were. A port without `data_dir` keeps the old places. Archipelago already used `data_dir`; no other mod writes files.\n\n**How:** item-randomizer: `mod.c` passes `api->data_dir(mod)` to `rando_set_port_dir`; `paths.c` picks `OPENRAC_MOD_DATA_DIR`, then the port's folder, then the old one. Multiplayer: `mod.data_dir()` for `mp-trace.log`, else the working directory. Versions 2.4",
+      "mergedAt": "2026-11-09T10:36:01Z"
+     },
+     {
+      "number": 149,
+      "title": "chore(index): approve pause-weapon-wheel 1.0.1",
+      "author": "openrac-bot[bot]",
+      "untrustedBody": "Opened by the index bot: master did not take a direct push.",
+      "mergedAt": "2026-11-09T10:34:11Z"
+     },
+     {
+      "number": 151,
+      "title": "chore(index): discussion numbers",
+      "author": "openrac-bot[bot]",
+      "untrustedBody": "Opened by the index bot: master did not take a direct push.",
+      "mergedAt": "2026-11-09T14:43:23Z"
+     },
+     {
+      "number": 153,
+      "title": "feat(lock-strafe): choose L2, R2 or both as the strafe button, 1.2.0",
+      "author": "nickyyOO",
+      "untrustedBody": "**Before:** on foot the lock-strafe took both L2 and R2 from the game, so it could not run beside a mod that uses one of them (wrench-throw raises the wrench on R2).\n\n**After:** a new setting, Strafe button: L2 or R2 (default, same as before), L2 only or R2 only. With one picked, the other reaches the game (L2 looks, R2 crouches) and other mods untouched.\n\n**How:** the pad hook takes out and latches Hold only on the chosen bit (`s_strafe_buttons`, from `rac1_strafe_button_bits` in strafe.h). Version 1.2.0, README and listing updated.\n\n**Tested:** `hero_strafe` and `lock_strafe_load` pass (new checks: R2 only leaves L2 to the game and latches on R2 alone; L2 only leaves R2). Not tested in game (no disc in the container) and not tried together with wrench-throw.",
+      "mergedAt": "2026-11-09T12:47:11Z"
+     }
+    ],
+    "opened": [
+     {
+      "number": 143,
+      "title": "List wrench-throw",
+      "author": "openrac-bot[bot]",
+      "untrustedBody": "From #141, checked by the listing bot. @OpenRAC/maintainers, please review.\n\nCloses #141",
+      "mergedAt": "2026-11-09T05:28:20Z"
+     },
+     {
+      "number": 144,
+      "title": "List pause-weapon-wheel",
+      "author": "openrac-bot[bot]",
+      "untrustedBody": "From #142, checked by the listing bot. @OpenRAC/maintainers, please review.\n\nCloses #142",
+      "mergedAt": "2026-11-09T05:28:24Z"
+     },
+     {
+      "number": 145,
+      "title": "Fix RAC1 Gadgetron PDA crash with empty vendor stock",
+      "author": "SavedbyBlood9",
+      "untrustedBody": "Prevents the RAC1 Gadgetron PDA from opening an empty vendor menu. Ammunition availability includes explicit stock and ammunition generated for owned weapons. Covers NTSC-U and PAL v2.00.\n\nReview corrections:\n- Adds `Vendor_OpenMenu` to the Archipelago manifest.\n- Bounds-checks stock item IDs against the 37-entry price table before reading it.\n- Integrates current master (SDK 1.14.6). The released SDK's `rac1.hpp` declares `Vendor_OpenMenu`, but `rac1.h` does not: removing the C compatibility block fails compilation. The block is retained with this explanation until the SDK C header is corrected.\n\nValidation: Windows x64/MSVC and released SDK 1.14.6; all 13 native CTest tests passed, including the solver sweep. `git diff --check` passed. Previous NTSC-U in-game PDA validation remains applicable; no new in-game validation performed.\n\nMerge #145 before #156 and #157. Their branches already incorporate these corrections and have their overlapping changes reconciled. #170 and #171 extract ",
+      "mergedAt": "2026-11-12T20:29:34Z"
+     },
+     {
+      "number": 148,
+      "title": "fix: keep mods' files in the port's mod folder (item-randomizer 2.4.1, multiplayer 0.12.3)",
+      "author": "nickyyOO",
+      "untrustedBody": "**Before:** the item randomizer worked out its own folder (`dev.openrac.launcher/mods/item-randomizer`), and multiplayer wrote `mp-trace.log` to the game's working directory. On Android both are hidden in the app's storage, so the spoiler log, `seed.txt` and the verbose log could not be opened.\n\n**After:** both mods use the folder the port gives them (`data_dir`, interface 1.11): `mod-data/<id>` beside the memory cards. On Android that is OpenRAC > Mod files > <id> in the Files app. The randomizer copies a seed remembered in the old folder once, so a blank seed keeps the same game; old spoiler logs stay where they were. A port without `data_dir` keeps the old places. Archipelago already used `data_dir`; no other mod writes files.\n\n**How:** item-randomizer: `mod.c` passes `api->data_dir(mod)` to `rando_set_port_dir`; `paths.c` picks `OPENRAC_MOD_DATA_DIR`, then the port's folder, then the old one. Multiplayer: `mod.data_dir()` for `mp-trace.log`, else the working directory. Versions 2.4",
+      "mergedAt": "2026-11-09T10:36:01Z"
+     },
+     {
+      "number": 149,
+      "title": "chore(index): approve pause-weapon-wheel 1.0.1",
+      "author": "openrac-bot[bot]",
+      "untrustedBody": "Opened by the index bot: master did not take a direct push.",
+      "mergedAt": "2026-11-09T10:34:11Z"
+     },
+     {
+      "number": 151,
+      "title": "chore(index): discussion numbers",
+      "author": "openrac-bot[bot]",
+      "untrustedBody": "Opened by the index bot: master did not take a direct push.",
+      "mergedAt": "2026-11-09T14:43:23Z"
+     },
+     {
+      "number": 153,
+      "title": "feat(lock-strafe): choose L2, R2 or both as the strafe button, 1.2.0",
+      "author": "nickyyOO",
+      "untrustedBody": "**Before:** on foot the lock-strafe took both L2 and R2 from the game, so it could not run beside a mod that uses one of them (wrench-throw raises the wrench on R2).\n\n**After:** a new setting, Strafe button: L2 or R2 (default, same as before), L2 only or R2 only. With one picked, the other reaches the game (L2 looks, R2 crouches) and other mods untouched.\n\n**How:** the pad hook takes out and latches Hold only on the chosen bit (`s_strafe_buttons`, from `rac1_strafe_button_bits` in strafe.h). Version 1.2.0, README and listing updated.\n\n**Tested:** `hero_strafe` and `lock_strafe_load` pass (new checks: R2 only leaves L2 to the game and latches on R2 alone; L2 only leaves R2). Not tested in game (no disc in the container) and not tried together with wrench-throw.",
+      "mergedAt": "2026-11-09T12:47:11Z"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [
+     {
+      "number": 141,
+      "title": "Submit: Wrench Throw",
+      "author": "chistianh"
+     },
+     {
+      "number": 142,
+      "title": "Submit: Pause-Weapon-Wheel",
+      "author": "glawks"
+     },
+     {
+      "number": 146,
+      "title": "Review pause-weapon-wheel 1.0.1",
+      "author": "openrac-bot[bot]"
+     },
+     {
+      "number": 147,
+      "title": "Review wrench-throw 1.0.0",
+      "author": "openrac-bot[bot]"
+     }
+    ],
+    "closed": [
+     {
+      "number": 141,
+      "title": "Submit: Wrench Throw",
+      "author": "chistianh"
+     },
+     {
+      "number": 142,
+      "title": "Submit: Pause-Weapon-Wheel",
+      "author": "glawks"
+     },
+     {
+      "number": 147,
+      "title": "Review wrench-throw 1.0.0",
+      "author": "openrac-bot[bot]"
+     }
+    ]
+   },
+   "releases": [
+    {
+     "tag": "difficulty-v1.5.0",
+     "name": "difficulty-v1.5.0",
+     "publishedAt": "2026-11-09T04:59:36Z"
+    },
+    {
+     "tag": "item-randomizer-v2.3.0",
+     "name": "item-randomizer-v2.3.0",
+     "publishedAt": "2026-11-09T05:01:55Z"
+    },
+    {
+     "tag": "item-randomizer-v2.4.0",
+     "name": "item-randomizer-v2.4.0",
+     "publishedAt": "2026-11-09T06:50:41Z"
+    },
+    {
+     "tag": "item-randomizer-v2.4.1",
+     "name": "item-randomizer-v2.4.1",
+     "publishedAt": "2026-11-09T13:19:53Z"
+    },
+    {
+     "tag": "lock-strafe-v1.2.0",
+     "name": "lock-strafe-v1.2.0",
+     "publishedAt": "2026-11-09T13:20:48Z"
+    },
+    {
+     "tag": "multiplayer-v0.12.0",
+     "name": "multiplayer-v0.12.0",
+     "publishedAt": "2026-11-09T06:50:29Z"
+    },
+    {
+     "tag": "multiplayer-v0.12.2",
+     "name": "multiplayer-v0.12.2",
+     "publishedAt": "2026-11-09T08:38:28Z"
+    },
+    {
+     "tag": "xbox-icons-v1.2.0",
+     "name": "xbox-icons-v1.2.0",
+     "publishedAt": "2026-11-09T05:01:26Z"
+    }
+   ],
+   "progress": null,
+   "contributors": [
+    "nickyyOO",
+    "SavedbyBlood9",
+    "Veradictus"
+   ]
+  }
+ ]
+}

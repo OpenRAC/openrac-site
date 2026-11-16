@@ -1,0 +1,1138 @@
+{
+ "format": 1,
+ "date": "2026-11-13",
+ "totals": {
+  "commits": 54,
+  "pullRequestsMerged": 44,
+  "pullRequestsOpened": 39,
+  "contributors": 14
+ },
+ "projects": [
+  {
+   "repo": "OpenRAC",
+   "title": "OpenRAC launcher",
+   "branches": [
+    {
+     "name": "develop",
+     "commits": [
+      {
+       "sha": "03c8edf7ee14b8f576670e03a8044fcab29eda66",
+       "title": "fix(port): ignore faults other modules catch on Windows (#502)",
+       "author": "nickyyOO",
+       "date": "2026-11-13T22:43:58Z"
+      },
+      {
+       "sha": "9d53a70d52d0e96fd5d94d02b27c95a838959165",
+       "title": "fix(rac1): run each level's own sky routine (#500)",
+       "author": "nickyyOO",
+       "date": "2026-11-13T21:56:26Z"
+      },
+      {
+       "sha": "45b9d7574703f3f507b22b47f125654b5fdaea64",
+       "title": "fix(debug): draw the overlay without the default depth image (#501)",
+       "author": "nickyyOO",
+       "date": "2026-11-13T21:56:16Z"
+      },
+      {
+       "sha": "28368a769f4860a1dfe75638644ddf3aaa6853bc",
+       "title": "fix(launcher): smooth tab slides and less background work (#499)",
+       "author": "nickyyOO",
+       "date": "2026-11-13T21:56:01Z"
+      },
+      {
+       "sha": "e22b8e7c023e4f913689f84494b82df61e316fb9",
+       "title": "fix(hdr): keep SDR hue where SDR shows a flame white (#498)",
+       "author": "nickyyOO",
+       "date": "2026-11-13T16:47:11Z"
+      },
+      {
+       "sha": "ac0169fd36f613f0ab8d28c170b3eaab1a3a7f74",
+       "title": "fix: keep the drawer's faint stripes inside its header (#497)",
+       "author": "nickyyOO",
+       "date": "2026-11-13T16:25:21Z"
+      },
+      {
+       "sha": "c20b6426602e741846114189f7a9eb43f37f3561",
+       "title": "fix(launcher): draw the full dashed edge on an empty key cap (#496)",
+       "author": "nickyyOO",
+       "date": "2026-11-13T14:54:48Z"
+      },
+      {
+       "sha": "ba690018762ec836d78c3acc5adc92da633f8795",
+       "title": "fix(rac1): keep pool water past the 4:3 edge in a wide picture (#495)",
+       "author": "nickyyOO",
+       "date": "2026-11-13T11:13:42Z"
+      },
+      {
+       "sha": "2122774194f56c962711f2e206289d87dc0ad690",
+       "title": "fix(launcher): stop Android tab switch flicker and Games tap lag (#494)",
+       "author": "nickyyOO",
+       "date": "2026-11-13T09:45:08Z"
+      },
+      {
+       "sha": "3f3e7688532e59c98a0fd59340e8f3727bcfcc81",
+       "title": "fix(mods): close your own world-writable mod folders instead of refusing (#493)",
+       "author": "nickyyOO",
+       "date": "2026-11-13T09:39:33Z"
+      },
+      {
+       "sha": "bc93254d18be5526ce698177a4413d6bb18f1047",
+       "title": "fix(hdr): make On send HDR wherever the screen offers it; drop the launcher's HDR setting (#492)",
+       "author": "nickyyOO",
+       "date": "2026-11-13T09:39:10Z"
+      },
+      {
+       "sha": "3450118c8582f5978a8beb039a411061e96aaf70",
+       "title": "fix(port): avoid MSVC STL vectorized binding comparisons (#490)",
+       "author": "llesieur99",
+       "date": "2026-11-13T08:38:22Z"
+      },
+      {
+       "sha": "5a76541426240bd5c5537ae7f0427f7dae3c3999",
+       "title": "feat(rac1): add a switchable connected nanotech HUD panel (#486)",
+       "author": "llesieur99",
+       "date": "2026-11-13T08:37:54Z"
+      },
+      {
+       "sha": "5a8b560dc42330d2fbf2c159e20d49f3835d11da",
+       "title": "fix(port): draw the mobys behind the game's camera in freecam (#484)",
+       "author": "Lynder063",
+       "date": "2026-11-13T08:37:30Z"
+      },
+      {
+       "sha": "43c0dd2bc38aec2fae2be6efd348172ab7bc1127",
+       "title": "feat(sdk): a mod sets its own settings and hears the launcher's, interface 1.15 (#460)",
+       "author": "farfeduc",
+       "date": "2026-11-13T08:37:04Z"
+      },
+      {
+       "sha": "4b5b98b356e47b6cb26ebd79e5bc8bf445b4a8ec",
+       "title": "feat(port): route GPU work through the render graph (#491)",
+       "author": "pezzadev",
+       "date": "2026-11-13T06:26:01Z"
+      }
+     ]
+    },
+    {
+     "name": "master",
+     "commits": []
+    }
+   ],
+   "commitCount": 16,
+   "pullRequests": {
+    "merged": [
+     {
+      "number": 460,
+      "title": "feat(sdk): a mod sets its own settings and hears the launcher's, interface 1.15",
+      "author": "farfeduc",
+      "untrustedBody": "MODS.md section 12 proposes \"settings in the game … written back to `plugins.json`\". Mods already have their own pages (`ui_pause_item`, `menu_entry`), but what a player chooses there is lost at the next start, and the launcher never shows it. Mods work around it by editing `plugins.json` themselves (the cheats mod in openrac-mods, OpenRAC/openrac-mods#163, does). This gives them a supported way.\n\n## Interface 1.15\n\n| Call | |\n|---|---|\n| `setting_set_bool(mod, key, value)`, `setting_set_int`, `setting_set_float`, `setting_set_string` | Sets one of the mod's settings. The value is checked as the launcher checks the list (`setting_value`, the manifest's `value_of`: type, range, choices, length, binds; a choice, string or keybind goes through `_string`). Read back at once, and written into `plugins.json`. `OPENRAC_HOOK_UNKNOWN` for a key the manifest does not declare, another type, a value it refuses, or a setting not for this game. |\n| `on_settings(mod, fn, user)` | During load: `fn(use",
+      "mergedAt": "2026-11-13T08:37:05Z"
+     },
+     {
+      "number": 484,
+      "title": "fix(port): draw the mobys behind the game's camera in freecam",
+      "author": "Lynder063",
+      "untrustedBody": "Fixes #366: in freecam a moby is kept by its draw distance in any direction, not by the game camera's view.\nNormal play is unchanged; a unit test covers the check.\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)",
+      "mergedAt": "2026-11-13T08:37:30Z"
+     },
+     {
+      "number": 486,
+      "title": "feat(rac1): add a switchable connected nanotech HUD panel",
+      "author": "llesieur99",
+      "untrustedBody": "The NTSC-U nanotech HUD can now use one connected rounded backplate sized for the four-, five- and eight-orb layouts. Fixed-height texture slices keep the corners rounded without stretching them or leaving square joins, with a small vertical margin around the orbs.\n\n**Nanotech HUD panel** is exposed through the existing launcher/game-fixes switch and is enabled by default. It is independent of Enhanced Graphics. Turning it off calls the original PS2 drawing routine unchanged. Health values, orb placement, animation and fading remain controlled by the game.\n\nThis is an optional visual change for the nanotech portion of T-17. Aridia's counters are handled separately in #481. This PR is scoped to NTSC-U; other disc versions are unchanged.\n\nValidation:\n- Native Windows x64 NTSC-U build with clang-cl 23.1.5 and manual Pokitaru previews at capacities 4, 5 and 8.\n- `rac1_hud_panels` and `game_fixes`: 2/2 pass in the native test build.\n- The real HUD wrapper, compiled again from this PR's exac",
+      "mergedAt": "2026-11-13T08:37:54Z"
+     },
+     {
+      "number": 490,
+      "title": "fix(port): avoid MSVC STL vectorized binding comparisons",
+      "author": "llesieur99",
+      "untrustedBody": "Windows native builds using Clang with MSVC STL 14.51/14.52 fail in `std::find` with `static assertion failed: unexpected size` when searching input bindings or pad chords. The STL incorrectly selects a vectorized search for these larger types with defaulted equality (microsoft/STL#6294).\n\nGive `Binding` an explicit `constexpr noexcept` comparison of the same three fields. `PadChord` continues to use its defaulted comparison, which delegates to `Binding`; both types then avoid the broken optimization. Input identity and object layout stay unchanged. Add contiguous-search regression cases to the existing bindings suite, including distinct fields, chord modifiers, missing results and the constant-expression/noexcept contract.\n\nValidation:\n\n- Clang 23.1.5, official Microsoft STL September 2026 headers at `cde2f43b42e079cfb8a1b3f9d0b4676b01367e74` (`_MSVC_STL_UPDATE=202609L`), SDL release-3.4.18: the unmodified `bindings.cpp` and `input.cpp` fail with the reported assertion; both compile a",
+      "mergedAt": "2026-11-13T08:38:23Z"
+     },
+     {
+      "number": 491,
+      "title": "feat(port): route GPU work through the render graph",
+      "author": "pezzadev",
+      "untrustedBody": "## Summary\n\n- Route Vulkan draws, dispatches, transfers and submission through declared graph work. Validate resource ownership, image subresources, buffer ranges and pipeline bindings before recording work.\n- Reuse graph storage and validated plans, batch compatible scopes and barriers, cull unused passes, and reuse transient transfer images with disjoint lifetimes.\n- Share the pre-particle colour snapshot with water when possible, disable MSAA with temporal reconstruction, and add Tracy scopes and crash breadcrumbs.\n- Preserve the Vulkan optimizations from develop. Defer optional pipeline upgrades during gameplay and retain their keys for prewarming at a later load.\n\n## Verification\n\n- Windows RAC1 NTSC release build.\n- 22 Vulkan render equivalence and render graph checks with synchronization validation enabled. Both image comparison shards passed.\n- Pinned clang-format conventions, layering, native command and queue boundaries, and PAL/NTSC render host-hook parity.\n- Synthetic baker",
+      "mergedAt": "2026-11-13T06:26:02Z"
+     },
+     {
+      "number": 492,
+      "title": "fix(hdr): make On send HDR wherever the screen offers it; drop the launcher's HDR setting",
+      "author": "nickyyOO",
+      "untrustedBody": "## Before\n\nA Steam Deck player on the dev channel could not get HDR any more, even with HDR set to On in the game. Two changes caused it:\n\n- The launcher sent `OPENRAC_HDR=off` on every start unless its own HDR setting was On. That replaced the game's own On.\n- On only sent HDR when the system said the display was in HDR mode. Steam Deck's gamescope can say \"no HDR\" while it shows HDR fine. The stable release tried HDR anyway.\n\n## After\n\n- HDR is set only in the game (menu or settings file). The launcher's HDR setting is gone and it no longer sends `OPENRAC_HDR`. An old launcher file with `hdr` still loads.\n- On sends HDR whenever the screen offers an HDR format, like the stable release. Android still follows the system, because its Vulkan offers HDR10 on every display.\n- When the system says \"no HDR\", its SDR white and 1x peak are not used. Paper white is 203 and the peak 1000 unless the player sets them.\n- On starts the Vulkan renderer when OpenGL or Metal was picked, since only Vulk",
+      "mergedAt": "2026-11-13T09:39:11Z"
+     },
+     {
+      "number": 493,
+      "title": "fix(mods): close your own world-writable mod folders instead of refusing",
+      "author": "nickyyOO",
+      "untrustedBody": "**Before:** on a Steam Deck the plugins folder was writable by all (a program started from Steam may run with umask 0), so the port refused every native mod.\n\n**After:** a file or folder of your own that all may write in is closed to others (`chmod o-w`) and the mod loads. Only a library or folder owned by another user than you and root is refused.\n\n**How:** `open_to_others` in `mod_library.cpp` checks the owner first, then closes your own world-writable items. `docs/port/MODS.md` updated.\n\n**Tested:** `mod_loader_test`: own world-writable file and folder get closed and load, another owner's file or folder is refused, a link is followed; `ctest -R mod_loader` passes.",
+      "mergedAt": "2026-11-13T09:39:33Z"
+     },
+     {
+      "number": 494,
+      "title": "fix(launcher): stop Android tab switch flicker and Games tap lag",
+      "author": "nickyyOO",
+      "untrustedBody": "## Before\nSwitching between Games and Mods on Android made buttons flicker for a few frames. Mods came in empty and its lists, notice, toolbar and buttons popped in during the slide; on Games the last save line and Play's \"Continue\" came a moment after the shelf. Tapping Games also lagged: the wave behind the shelf built a new WebGL context and compiled its shader on every visit (35 ms of an 85 ms task, CPU slowed 4x).\n\n## After\nEach page shows its final layout from the first frame of the slide. The Games tap task is 47 ms, with no GPU context work.\n\n## How\n- `WaveBackdrop` keeps one canvas and WebGL context for the launcher's life and moves it into the page on each visit.\n- `lib/lastRead.ts` keeps what Mods (gameplay mods, packs, texture pack, saved mod sets) and Games (last save) read last. A page shows it at once and reads it again in the background.\n\n## Tested\n- `yarn verify`, `yarn test:android` (52/52), new unit test for `lastRead`.\n- Frame-by-frame screencast and Chrome traces o",
+      "mergedAt": "2026-11-13T09:45:08Z"
+     },
+     {
+      "number": 495,
+      "title": "fix(rac1): keep pool water past the 4:3 edge in a wide picture",
+      "author": "nickyyOO",
+      "untrustedBody": "**Before:** the water grids on Rilgar, Umbris, Pokitaru, Hoven and Gemlik hid all their tiles when their sphere test failed against the 4:3 view. In a wide picture the pool water ended at the 4:3 edge, even at max FOV.\n\n**After:** the water reaches the picture's edge.\n\n**How:** the five water grid updates are wrapped (libraries.tsv `wrap` rows for all four versions) and run their sphere test against the view opened to the picture's width, under `fix_wide_liquids`, like the nanotech orbs and air traffic. The test only decides which tiles are drawn, so game logic is unchanged. The JP and PAL1 `rac1_names.tsv` rows were added by hand in the generator's format.\n\n**Tested:** `wide_view`, `moby_view`, `water_host`, rac1 `call_abi` and `host_table` tests pass. PAL build OK. Checked the Umbris pool in the container at FOV 100 and 120.",
+      "mergedAt": "2026-11-13T11:13:42Z"
+     },
+     {
+      "number": 496,
+      "title": "fix(launcher): draw the full dashed edge on an empty key cap",
+      "author": "nickyyOO",
+      "untrustedBody": "**Before:** In mod settings, the empty \"Add\" key cap showed only a dashed line on its bottom edge, with a small curl at the corner.\n\n**After:** It has a full, even dashed edge, the same size as the key cap next to it. The pad focus ring goes round all of it.\n\n**How:** Buttons have no border in `app.css`, so `.cap.empty` only set the style and a 1 px bottom edge. It now sets the whole border: `1px dashed var(--line-field)`. Two dead `border-bottom-width: 3px` rules are gone.\n\n**Tested:** Browser preview at 1920x1080, mouse and pad focus. `yarn verify` passes. Not tested on an Android device.",
+      "mergedAt": "2026-11-13T14:54:49Z"
+     },
+     {
+      "number": 497,
+      "title": "fix: keep the drawer's faint stripes inside its header",
+      "author": "nickyyOO",
+      "untrustedBody": "**Before:** the drawer's faint stripes ran 170 dp down, past the header. When the rows scrolled, the hairline under the header showed and the stripes stuck out below it.\n\n**After:** the stripes fade out to none at the header's foot. Nothing of them lies under the rows, so scrolling never cuts them.\n\n**How:** `stripes_end` ends at the header's height; the second stripe layer under the rows is gone.",
+      "mergedAt": "2026-11-13T16:25:22Z"
+     },
+     {
+      "number": 498,
+      "title": "fix(hdr): keep SDR hue where SDR shows a flame white",
+      "author": "nickyyOO",
+      "untrustedBody": "## Before\n\nWith SDR Hue at 100%, a flame's core turned red inside a yellow flame (thruster pack, ship engines). Where every channel is past white, SDR shows white, which has no hue, so those pixels fell back to HDR's red.\n\n## After\n\nSDR Hue keeps the hue SDR gave the pixel just before it turned white, so the flame stays yellow to its core with no cut-off. SDR Chrominance still uses the real SDR pixel. With default settings nothing changes.\n\n## How\n\n- `hdr::sdr_hue_of`: the pixel scaled down until its lowest channel is at 0.8, then clipped at white. `apply_look` takes its hue from that.\n- Same in `hdr_encode.comp`.\n\n## Tested\n\n- `hdr` (new test: a flame added up from orange to white, the hue moves smoothly and stays yellow) and `vulkan_hdr` (GPU against CPU) pass; conventions pass.\n- Not checked on a real HDR screen.",
+      "mergedAt": "2026-11-13T16:47:12Z"
+     },
+     {
+      "number": 499,
+      "title": "fix(launcher): smooth tab slides and less background work",
+      "author": "nickyyOO",
+      "untrustedBody": "**Before:** on Android the Games wave vanished and popped back during tab slides, buttons flickered, a tap on Games waited ~170 ms before sliding, and fast tab switching kept the CPU busy (fans). Every tab switch re-hashed the Enhanced bake files (up to 200 ms per call, also on desktop).\n\n**After:**\n- A still 2D copy of the wave shows while a page slides; the wave's clock waits too, so it goes on from the same picture.\n- The slide waits only for pending images to load (max 120 ms), not decode.\n- Bake file hashes are cached by size + mtime; `sha2` is optimized in debug builds (the APK).\n- Idle Games: wave drops to 30 fps; far discs are hidden and their animations paused.\n\n**Tested:** `yarn verify`, headless frame diffs, and on an Ayn Odin 3: Games tap to slide 169 -> 49 ms, longest frame gap 175 -> 50 ms, no wave jump (6/6 slides), Rust threads 208% -> 23% at 4 switches/s. Desktop (Windows, 1.0.2): hashing was the only shared issue and is fixed by the cache.",
+      "mergedAt": "2026-11-13T21:56:02Z"
+     },
+     {
+      "number": 500,
+      "title": "fix(rac1): run each level's own sky routine",
+      "author": "nickyyOO",
+      "untrustedBody": "**Before:** on a level, the frame draw's C called the executable's sky routine (the title's stars). On the PS2, each level's copy of the frame draw calls the level's own sky routine. So the port reseeded `rand()` once, called it about 250 more times a frame (the same `rand()` the Decoy and Morph-o-Ray use), wrote 256 stars to address 0, and Novalis's clouds stood still.\n\n**After:** on a level, `Transition_DrawSky` calls where the level's copy of the frame draw calls. The title still runs the executable's C.\n\n**How:** a wrap of `Transition_DrawSky` (`rac1/host/sky.c`, NTSC and PAL rows in libraries.tsv) and `openrac_level_call` in the runtime: it reads the level copy's own `jal` at the place of the executable's. NTSC-J and PAL v1 leave it out (RAC1_OMIT) until checked. No decomp C changed.\n\n**Tested (NTSC, container):**\n- Novalis: `rand()` calls a frame 466 -> 227; the sky record matches PCSX2 byte for byte (star count 0); bytes written at 0..0x2400: 7367 -> 0; clouds drift as on PCSX2.",
+      "mergedAt": "2026-11-13T21:56:27Z"
+     },
+     {
+      "number": 501,
+      "title": "fix(debug): draw the overlay without the default depth image",
+      "author": "nickyyOO",
+      "untrustedBody": "Before: on Adreno (Odin 3) with 2x MSAA at 75-100% scale, the debug overlay lost text, headers turned into a checkerboard and stray triangles showed up, in a 32x32 tile pattern. The game picture was fine.\n\nAfter: the overlay is clean at every MSAA and scale.\n\nHow: the overlay's pass no longer has the unused default depth image attached (new `vkgl::default_framebuffer_depth(false)` around the ImGui render). Other default-framebuffer passes keep it. Also adds a \"Render optimisations\" list with a checkbox each to the overlay's Renderer section.\n\nTested: on the Odin 3, 90/90 screenshots clean (2x at 75% and 100%, 1x, 4x), broken 20/20 before. Container: full build, Vulkan tests pass, validation clean, conventions and layering checks pass.",
+      "mergedAt": "2026-11-13T21:56:17Z"
+     },
+     {
+      "number": 502,
+      "title": "fix(port): ignore faults other modules catch on Windows",
+      "author": "nickyyOO",
+      "untrustedBody": "Fixes T-19: rac1 crashes on Windows when a Discord screen share starts.\n\n**Before:** The crash handler is a vectored handler, so it sees every first-chance fault in the process. RivaTuner (RTSSHooks64.dll, woken by the screen share) probes a pointer with `IsBadReadPtr(0xFFFF...)` and catches the fault itself. Our handler saw it first and ended the game (\"read at host address 0xFFFFFFFFFFFFFFFF\").\n\n**After:** The game keeps running. Real crashes are still reported.\n\n**How:**\n- The vectored handler reports a fault at once only in our own code: the .exe, the disc part and native mods (they never catch a fault). `mods::library::open/close` register and drop the library.\n- A fault in any other library (overlay, driver) goes on to its own handler. If nobody catches it, the unhandled filter reports it with the same read/write/execute details.\n\n**Tested:**\n- Small Windows test under Wine (mingw build of `crash.cpp`): the old code dies on a foreign `IsBadReadPtr(-1)`, the new code goes on. Faul",
+      "mergedAt": "2026-11-13T22:43:59Z"
+     }
+    ],
+    "opened": [
+     {
+      "number": 490,
+      "title": "fix(port): avoid MSVC STL vectorized binding comparisons",
+      "author": "llesieur99",
+      "untrustedBody": "Windows native builds using Clang with MSVC STL 14.51/14.52 fail in `std::find` with `static assertion failed: unexpected size` when searching input bindings or pad chords. The STL incorrectly selects a vectorized search for these larger types with defaulted equality (microsoft/STL#6294).\n\nGive `Binding` an explicit `constexpr noexcept` comparison of the same three fields. `PadChord` continues to use its defaulted comparison, which delegates to `Binding`; both types then avoid the broken optimization. Input identity and object layout stay unchanged. Add contiguous-search regression cases to the existing bindings suite, including distinct fields, chord modifiers, missing results and the constant-expression/noexcept contract.\n\nValidation:\n\n- Clang 23.1.5, official Microsoft STL September 2026 headers at `cde2f43b42e079cfb8a1b3f9d0b4676b01367e74` (`_MSVC_STL_UPDATE=202609L`), SDL release-3.4.18: the unmodified `bindings.cpp` and `input.cpp` fail with the reported assertion; both compile a",
+      "mergedAt": "2026-11-13T08:38:23Z"
+     },
+     {
+      "number": 491,
+      "title": "feat(port): route GPU work through the render graph",
+      "author": "pezzadev",
+      "untrustedBody": "## Summary\n\n- Route Vulkan draws, dispatches, transfers and submission through declared graph work. Validate resource ownership, image subresources, buffer ranges and pipeline bindings before recording work.\n- Reuse graph storage and validated plans, batch compatible scopes and barriers, cull unused passes, and reuse transient transfer images with disjoint lifetimes.\n- Share the pre-particle colour snapshot with water when possible, disable MSAA with temporal reconstruction, and add Tracy scopes and crash breadcrumbs.\n- Preserve the Vulkan optimizations from develop. Defer optional pipeline upgrades during gameplay and retain their keys for prewarming at a later load.\n\n## Verification\n\n- Windows RAC1 NTSC release build.\n- 22 Vulkan render equivalence and render graph checks with synchronization validation enabled. Both image comparison shards passed.\n- Pinned clang-format conventions, layering, native command and queue boundaries, and PAL/NTSC render host-hook parity.\n- Synthetic baker",
+      "mergedAt": "2026-11-13T06:26:02Z"
+     },
+     {
+      "number": 492,
+      "title": "fix(hdr): make On send HDR wherever the screen offers it; drop the launcher's HDR setting",
+      "author": "nickyyOO",
+      "untrustedBody": "## Before\n\nA Steam Deck player on the dev channel could not get HDR any more, even with HDR set to On in the game. Two changes caused it:\n\n- The launcher sent `OPENRAC_HDR=off` on every start unless its own HDR setting was On. That replaced the game's own On.\n- On only sent HDR when the system said the display was in HDR mode. Steam Deck's gamescope can say \"no HDR\" while it shows HDR fine. The stable release tried HDR anyway.\n\n## After\n\n- HDR is set only in the game (menu or settings file). The launcher's HDR setting is gone and it no longer sends `OPENRAC_HDR`. An old launcher file with `hdr` still loads.\n- On sends HDR whenever the screen offers an HDR format, like the stable release. Android still follows the system, because its Vulkan offers HDR10 on every display.\n- When the system says \"no HDR\", its SDR white and 1x peak are not used. Paper white is 203 and the peak 1000 unless the player sets them.\n- On starts the Vulkan renderer when OpenGL or Metal was picked, since only Vulk",
+      "mergedAt": "2026-11-13T09:39:11Z"
+     },
+     {
+      "number": 493,
+      "title": "fix(mods): close your own world-writable mod folders instead of refusing",
+      "author": "nickyyOO",
+      "untrustedBody": "**Before:** on a Steam Deck the plugins folder was writable by all (a program started from Steam may run with umask 0), so the port refused every native mod.\n\n**After:** a file or folder of your own that all may write in is closed to others (`chmod o-w`) and the mod loads. Only a library or folder owned by another user than you and root is refused.\n\n**How:** `open_to_others` in `mod_library.cpp` checks the owner first, then closes your own world-writable items. `docs/port/MODS.md` updated.\n\n**Tested:** `mod_loader_test`: own world-writable file and folder get closed and load, another owner's file or folder is refused, a link is followed; `ctest -R mod_loader` passes.",
+      "mergedAt": "2026-11-13T09:39:33Z"
+     },
+     {
+      "number": 494,
+      "title": "fix(launcher): stop Android tab switch flicker and Games tap lag",
+      "author": "nickyyOO",
+      "untrustedBody": "## Before\nSwitching between Games and Mods on Android made buttons flicker for a few frames. Mods came in empty and its lists, notice, toolbar and buttons popped in during the slide; on Games the last save line and Play's \"Continue\" came a moment after the shelf. Tapping Games also lagged: the wave behind the shelf built a new WebGL context and compiled its shader on every visit (35 ms of an 85 ms task, CPU slowed 4x).\n\n## After\nEach page shows its final layout from the first frame of the slide. The Games tap task is 47 ms, with no GPU context work.\n\n## How\n- `WaveBackdrop` keeps one canvas and WebGL context for the launcher's life and moves it into the page on each visit.\n- `lib/lastRead.ts` keeps what Mods (gameplay mods, packs, texture pack, saved mod sets) and Games (last save) read last. A page shows it at once and reads it again in the background.\n\n## Tested\n- `yarn verify`, `yarn test:android` (52/52), new unit test for `lastRead`.\n- Frame-by-frame screencast and Chrome traces o",
+      "mergedAt": "2026-11-13T09:45:08Z"
+     },
+     {
+      "number": 495,
+      "title": "fix(rac1): keep pool water past the 4:3 edge in a wide picture",
+      "author": "nickyyOO",
+      "untrustedBody": "**Before:** the water grids on Rilgar, Umbris, Pokitaru, Hoven and Gemlik hid all their tiles when their sphere test failed against the 4:3 view. In a wide picture the pool water ended at the 4:3 edge, even at max FOV.\n\n**After:** the water reaches the picture's edge.\n\n**How:** the five water grid updates are wrapped (libraries.tsv `wrap` rows for all four versions) and run their sphere test against the view opened to the picture's width, under `fix_wide_liquids`, like the nanotech orbs and air traffic. The test only decides which tiles are drawn, so game logic is unchanged. The JP and PAL1 `rac1_names.tsv` rows were added by hand in the generator's format.\n\n**Tested:** `wide_view`, `moby_view`, `water_host`, rac1 `call_abi` and `host_table` tests pass. PAL build OK. Checked the Umbris pool in the container at FOV 100 and 120.",
+      "mergedAt": "2026-11-13T11:13:42Z"
+     },
+     {
+      "number": 496,
+      "title": "fix(launcher): draw the full dashed edge on an empty key cap",
+      "author": "nickyyOO",
+      "untrustedBody": "**Before:** In mod settings, the empty \"Add\" key cap showed only a dashed line on its bottom edge, with a small curl at the corner.\n\n**After:** It has a full, even dashed edge, the same size as the key cap next to it. The pad focus ring goes round all of it.\n\n**How:** Buttons have no border in `app.css`, so `.cap.empty` only set the style and a 1 px bottom edge. It now sets the whole border: `1px dashed var(--line-field)`. Two dead `border-bottom-width: 3px` rules are gone.\n\n**Tested:** Browser preview at 1920x1080, mouse and pad focus. `yarn verify` passes. Not tested on an Android device.",
+      "mergedAt": "2026-11-13T14:54:49Z"
+     },
+     {
+      "number": 497,
+      "title": "fix: keep the drawer's faint stripes inside its header",
+      "author": "nickyyOO",
+      "untrustedBody": "**Before:** the drawer's faint stripes ran 170 dp down, past the header. When the rows scrolled, the hairline under the header showed and the stripes stuck out below it.\n\n**After:** the stripes fade out to none at the header's foot. Nothing of them lies under the rows, so scrolling never cuts them.\n\n**How:** `stripes_end` ends at the header's height; the second stripe layer under the rows is gone.",
+      "mergedAt": "2026-11-13T16:25:22Z"
+     },
+     {
+      "number": 498,
+      "title": "fix(hdr): keep SDR hue where SDR shows a flame white",
+      "author": "nickyyOO",
+      "untrustedBody": "## Before\n\nWith SDR Hue at 100%, a flame's core turned red inside a yellow flame (thruster pack, ship engines). Where every channel is past white, SDR shows white, which has no hue, so those pixels fell back to HDR's red.\n\n## After\n\nSDR Hue keeps the hue SDR gave the pixel just before it turned white, so the flame stays yellow to its core with no cut-off. SDR Chrominance still uses the real SDR pixel. With default settings nothing changes.\n\n## How\n\n- `hdr::sdr_hue_of`: the pixel scaled down until its lowest channel is at 0.8, then clipped at white. `apply_look` takes its hue from that.\n- Same in `hdr_encode.comp`.\n\n## Tested\n\n- `hdr` (new test: a flame added up from orange to white, the hue moves smoothly and stays yellow) and `vulkan_hdr` (GPU against CPU) pass; conventions pass.\n- Not checked on a real HDR screen.",
+      "mergedAt": "2026-11-13T16:47:12Z"
+     },
+     {
+      "number": 499,
+      "title": "fix(launcher): smooth tab slides and less background work",
+      "author": "nickyyOO",
+      "untrustedBody": "**Before:** on Android the Games wave vanished and popped back during tab slides, buttons flickered, a tap on Games waited ~170 ms before sliding, and fast tab switching kept the CPU busy (fans). Every tab switch re-hashed the Enhanced bake files (up to 200 ms per call, also on desktop).\n\n**After:**\n- A still 2D copy of the wave shows while a page slides; the wave's clock waits too, so it goes on from the same picture.\n- The slide waits only for pending images to load (max 120 ms), not decode.\n- Bake file hashes are cached by size + mtime; `sha2` is optimized in debug builds (the APK).\n- Idle Games: wave drops to 30 fps; far discs are hidden and their animations paused.\n\n**Tested:** `yarn verify`, headless frame diffs, and on an Ayn Odin 3: Games tap to slide 169 -> 49 ms, longest frame gap 175 -> 50 ms, no wave jump (6/6 slides), Rust threads 208% -> 23% at 4 switches/s. Desktop (Windows, 1.0.2): hashing was the only shared issue and is fixed by the cache.",
+      "mergedAt": "2026-11-13T21:56:02Z"
+     },
+     {
+      "number": 500,
+      "title": "fix(rac1): run each level's own sky routine",
+      "author": "nickyyOO",
+      "untrustedBody": "**Before:** on a level, the frame draw's C called the executable's sky routine (the title's stars). On the PS2, each level's copy of the frame draw calls the level's own sky routine. So the port reseeded `rand()` once, called it about 250 more times a frame (the same `rand()` the Decoy and Morph-o-Ray use), wrote 256 stars to address 0, and Novalis's clouds stood still.\n\n**After:** on a level, `Transition_DrawSky` calls where the level's copy of the frame draw calls. The title still runs the executable's C.\n\n**How:** a wrap of `Transition_DrawSky` (`rac1/host/sky.c`, NTSC and PAL rows in libraries.tsv) and `openrac_level_call` in the runtime: it reads the level copy's own `jal` at the place of the executable's. NTSC-J and PAL v1 leave it out (RAC1_OMIT) until checked. No decomp C changed.\n\n**Tested (NTSC, container):**\n- Novalis: `rand()` calls a frame 466 -> 227; the sky record matches PCSX2 byte for byte (star count 0); bytes written at 0..0x2400: 7367 -> 0; clouds drift as on PCSX2.",
+      "mergedAt": "2026-11-13T21:56:27Z"
+     },
+     {
+      "number": 501,
+      "title": "fix(debug): draw the overlay without the default depth image",
+      "author": "nickyyOO",
+      "untrustedBody": "Before: on Adreno (Odin 3) with 2x MSAA at 75-100% scale, the debug overlay lost text, headers turned into a checkerboard and stray triangles showed up, in a 32x32 tile pattern. The game picture was fine.\n\nAfter: the overlay is clean at every MSAA and scale.\n\nHow: the overlay's pass no longer has the unused default depth image attached (new `vkgl::default_framebuffer_depth(false)` around the ImGui render). Other default-framebuffer passes keep it. Also adds a \"Render optimisations\" list with a checkbox each to the overlay's Renderer section.\n\nTested: on the Odin 3, 90/90 screenshots clean (2x at 75% and 100%, 1x, 4x), broken 20/20 before. Container: full build, Vulkan tests pass, validation clean, conventions and layering checks pass.",
+      "mergedAt": "2026-11-13T21:56:17Z"
+     },
+     {
+      "number": 502,
+      "title": "fix(port): ignore faults other modules catch on Windows",
+      "author": "nickyyOO",
+      "untrustedBody": "Fixes T-19: rac1 crashes on Windows when a Discord screen share starts.\n\n**Before:** The crash handler is a vectored handler, so it sees every first-chance fault in the process. RivaTuner (RTSSHooks64.dll, woken by the screen share) probes a pointer with `IsBadReadPtr(0xFFFF...)` and catches the fault itself. Our handler saw it first and ended the game (\"read at host address 0xFFFFFFFFFFFFFFFF\").\n\n**After:** The game keeps running. Real crashes are still reported.\n\n**How:**\n- The vectored handler reports a fault at once only in our own code: the .exe, the disc part and native mods (they never catch a fault). `mods::library::open/close` register and drop the library.\n- A fault in any other library (overlay, driver) goes on to its own handler. If nobody catches it, the unhandled filter reports it with the same read/write/execute details.\n\n**Tested:**\n- Small Windows test under Wine (mingw build of `crash.cpp`): the old code dies on a foreign `IsBadReadPtr(-1)`, the new code goes on. Faul",
+      "mergedAt": "2026-11-13T22:43:59Z"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [],
+    "closed": [
+     {
+      "number": 366,
+      "title": "Mobies behind Ratchet are not rendered when using freecam",
+      "author": "stentines"
+     }
+    ]
+   },
+   "releases": [],
+   "progress": null,
+   "contributors": [
+    "farfeduc",
+    "llesieur99",
+    "Lynder063",
+    "nickyyOO",
+    "pezzadev"
+   ]
+  },
+  {
+   "repo": "rac1-decomp",
+   "title": "Ratchet & Clank",
+   "branches": [
+    {
+     "name": "main",
+     "commits": []
+    }
+   ],
+   "commitCount": 0,
+   "pullRequests": {
+    "merged": [],
+    "opened": []
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": null,
+   "contributors": []
+  },
+  {
+   "repo": "rac2-decomp",
+   "title": "Going Commando",
+   "branches": [
+    {
+     "name": "master",
+     "commits": [
+      {
+       "sha": "0397181dd9403acfbbbb7eb8576ac8c05e245abd",
+       "title": "feat(pal): match func_PAL_L09_0040FD68 and func_PAL_L00_003B9E80 with -frac2-keep-user-copies (#458)",
+       "author": "gelatinous-bullion",
+       "date": "2026-11-13T13:55:06Z"
+      },
+      {
+       "sha": "b11cf1e10edfe78e1e78eac90f00d922c6249b0b",
+       "title": "feat(pal): match four PAL menu and timer functions (#457)",
+       "author": "gelatinous-bullion",
+       "date": "2026-11-13T13:54:51Z"
+      },
+      {
+       "sha": "97e4211ae1e2d2a35619fd568530c83872fd7acf",
+       "title": "feat(pal): match twelve PAL functions and one USA v2.00 function from related C (#456)",
+       "author": "gelatinous-bullion",
+       "date": "2026-11-13T13:54:37Z"
+      },
+      {
+       "sha": "ba96ee0a050ecdb8340bdc738eb7b6132fe4dc97",
+       "title": "feat(us2): match five USA v2.00 menu functions (#454)",
+       "author": "gelatinous-bullion",
+       "date": "2026-11-13T13:54:03Z"
+      }
+     ]
+    }
+   ],
+   "commitCount": 4,
+   "pullRequests": {
+    "merged": [
+     {
+      "number": 454,
+      "title": "feat(us2): match five USA v2.00 menu functions",
+      "author": "gelatinous-bullion",
+      "untrustedBody": "Five USA v2.00 functions, 17,528 bytes. Four are v2.00 copies of matched or near-matched USA v1.01 functions, written from that C with v2.00's data and changes.\n\n| Function | Bytes | Places | Unit | Source of the C |\n| --- | ---: | ---: | --- | --- |\n| `func_US2_L15_00430500` | 5024 | 1 | `src/us2/levels/15_gorn/L15_00430500-g8.c` | v1.01 `func_L15_0042EFE0` (Gorn menu panel) |\n| `func_US2_L10_00423CB8` | 5036 | 1 | `src/us2/levels/10_hrugis_cloud/L10_00423CB8-g8.c` | v1.01 `func_L10_004227A0` (Hrugis copy) |\n| `func_US2_L05_00420420` | 5180 | 1 | `src/us2/levels/05_feltzin_system/L05_00420420-g8.c` | v1.01 `func_L05_0041EF00` (Feltzin copy) |\n| `func_US2_L04_00418348` | 652 | 2 (levels 4, 11) | `src/us2/levels/shared/L04_00418348-box.c` | new: a framed menu box with a highlight bar |\n| `func_US2_002D4ED8` | 1636 | 28 (boot and 27 levels) | `src/us2/game/002D4ED8-g8.c` | v1.01 `func_002D3FA0` (preview menu; near miss in `nonmatching/`) |\n\n## The three menu panels\n\nv2.00's changes, as i",
+      "mergedAt": "2026-11-13T13:54:04Z"
+     },
+     {
+      "number": 456,
+      "title": "feat(pal): match twelve PAL functions and one USA v2.00 function from related C",
+      "author": "gelatinous-bullion",
+      "untrustedBody": "Thirteen functions, all ports of C that already matches in a related release: one USA v2.00 function and twelve PAL ones. They are checked against my PAL disc, whose SHA-256 is the one in `docs/build/versions.md`.\n\n| Function | Bytes | Places | Unit | From |\n| --- | ---: | ---: | --- | --- |\n| `func_US2_L02_003C58E0` | 844 | 8 | `src/us2/levels/shared/L02_003C58E0-menu-g8.c` | v1.01 `func_L02_003C43F0` (c1991e64) |\n| `func_PAL_L02_004029E0` | 1412 | 1 | `src/pal/levels/02_maktar_nebula/L02_004029E0-g8.c` | v2.00 `func_US2_L02_003FF808` |\n| `func_PAL_L02_004030B4` | 3816 | 1 | `src/pal/levels/02_maktar_nebula/L02_004030B4-g8.c` | v2.00 `func_US2_L02_003FFEDC` |\n| `func_PAL_L05_00422CA8` | 3516 | 1 | `src/pal/levels/05_feltzin_system/L05_00422CA8-g8.c` | v2.00 `func_US2_L05_0041F478` |\n| `func_PAL_L05_004259FC` | 1452 | 1 | `src/pal/levels/05_feltzin_system/L05_004259FC-menu-g8.c` | v2.00 `func_US2_L05_00421F7C` |\n| `func_PAL_L15_00435B68` | 1452 | 1 | `src/pal/levels/15_gorn/L15_00435B6",
+      "mergedAt": "2026-11-13T13:54:37Z"
+     },
+     {
+      "number": 457,
+      "title": "feat(pal): match four PAL menu and timer functions",
+      "author": "gelatinous-bullion",
+      "untrustedBody": "Four PAL functions, 17,668 bytes. Each is the PAL copy of a USA v2.00 function that already matches, rebuilt with PAL's changes. All four are checked against my PAL disc, whose SHA-256 is the one in `docs/build/versions.md`.\n\n| Function | Bytes | Places | Unit | From |\n| --- | ---: | ---: | --- | --- |\n| `func_PAL_L15_004342E0` | 5276 | 1 | `src/pal/levels/15_gorn/L15_004342E0-g8.c` | v2.00 `func_US2_L15_00430500` (PR #454) |\n| `func_PAL_L10_00427628` | 5572 | 1 | `src/pal/levels/10_hrugis_cloud/L10_00427628-g8.c` | v2.00 `func_US2_L10_00423CB8` (PR #454) |\n| `func_PAL_L05_00423C50` | 5772 | 1 | `src/pal/levels/05_feltzin_system/L05_00423C50-g8.c` | v2.00 `func_US2_L05_00420420` (PR #454) |\n| `func_PAL_L04_0041B850` | 1048 | 2 (levels 4, 11) | `src/pal/levels/shared/L04_0041B850-cc.c` | v2.00 `func_US2_L04_004185D8` |\n\n## The three menu panels\n\nThese keep v2.00's C and flags (`-malign-loops=2`, as in PR #454), with PAL's text ids. Some entry titles are drawn differently depending on PA",
+      "mergedAt": "2026-11-13T13:54:51Z"
+     },
+     {
+      "number": 458,
+      "title": "feat(pal): match func_PAL_L09_0040FD68 and func_PAL_L00_003B9E80 with -frac2-keep-user-copies",
+      "author": "gelatinous-bullion",
+      "untrustedBody": "Two PAL functions, 2,168 bytes, matched with a new opt-in compiler switch, `-frac2-keep-user-copies`. Both are checked against my PAL disc, whose SHA-256 is the one in `docs/build/versions.md`.\n\n| Function | Bytes | Places | Unit | From |\n| --- | ---: | ---: | --- | --- |\n| `func_PAL_L09_0040FD68` | 984 | 1 | `src/pal/levels/09_dobbo/L09_0040FD68-g8.c` | v1.01 `func_L09_0040AC48` (a Dobbo door) |\n| `func_PAL_L00_003B9E80` | 1184 | 27 | `src/pal/levels/shared/L00_003B9E80-counter-g8.c` | v1.01 `func_L00_003B63D8` |\n\nBoth are ports to 50 Hz:\n\n- A 60 Hz frame count n becomes (n * 5 + 2) / 6.\n- The rates are PAL's values (L00's 1/15 and 1/3600 become 0.08 and 0.0004).\n\n## The switch\n\nIn both functions, retail allocates a frame counter as if a register copy of it were kept and tied to it. The counter takes the first free register, ahead of `counter + 1` and the constants.\n\nBy default this tree never keeps such a copy:\n\n- cse makes the copy's source the canonical register, and flow deletes t",
+      "mergedAt": "2026-11-13T13:55:06Z"
+     }
+    ],
+    "opened": [
+     {
+      "number": 458,
+      "title": "feat(pal): match func_PAL_L09_0040FD68 and func_PAL_L00_003B9E80 with -frac2-keep-user-copies",
+      "author": "gelatinous-bullion",
+      "untrustedBody": "Two PAL functions, 2,168 bytes, matched with a new opt-in compiler switch, `-frac2-keep-user-copies`. Both are checked against my PAL disc, whose SHA-256 is the one in `docs/build/versions.md`.\n\n| Function | Bytes | Places | Unit | From |\n| --- | ---: | ---: | --- | --- |\n| `func_PAL_L09_0040FD68` | 984 | 1 | `src/pal/levels/09_dobbo/L09_0040FD68-g8.c` | v1.01 `func_L09_0040AC48` (a Dobbo door) |\n| `func_PAL_L00_003B9E80` | 1184 | 27 | `src/pal/levels/shared/L00_003B9E80-counter-g8.c` | v1.01 `func_L00_003B63D8` |\n\nBoth are ports to 50 Hz:\n\n- A 60 Hz frame count n becomes (n * 5 + 2) / 6.\n- The rates are PAL's values (L00's 1/15 and 1/3600 become 0.08 and 0.0004).\n\n## The switch\n\nIn both functions, retail allocates a frame counter as if a register copy of it were kept and tied to it. The counter takes the first free register, ahead of `counter + 1` and the constants.\n\nBy default this tree never keeps such a copy:\n\n- cse makes the copy's source the canonical register, and flow deletes t",
+      "mergedAt": "2026-11-13T13:55:06Z"
+     },
+     {
+      "number": 460,
+      "title": "feat(pal,us2): match the PAL and USA v2.00 copies of func_002DC3C8",
+      "author": "Fromnowheree",
+      "untrustedBody": "## What\n\nMatches 2 functions: the PAL and USA v2.00 copies of `func_002DC3C8`, the timed text page controller matched for USA v1.01 in #451.\n\n| Function | Release | Catalogued entry | Placements |\n|---|---|---|---|\n| `func_PAL_002DD0C0` | PAL | `002DD0C0` → `002DD0C8`, 848 bytes | boot and 27 levels |\n| `func_US2_002DD0F8` | USA v2.00 | `002DD0F8` → `002DD100`, 848 bytes | boot and 27 levels |\n\n- **Same instructions, other constants.** Both disassemble instruction for instruction like v1.01's copy; only immediates differ:\n  - PAL: text ids 0x16CC lower (`0x33C0` → `0x1CF4`, ...), and 50 Hz page times: 150, 200 and 250 frames where v1.01 waits 180, 240 and 300.\n  - USA v2.00: text ids 0xB8 higher (`0x33C0` → `0x3478`, ...); times unchanged.\n- **Same entry.** Both begin with the 8-byte residue #451 measured in v1.01 (`sw $zero, 0x50($a0); nop`), so each gets the same named `FUNCTION_ENTRY_OFFSETS` row, `(856, 8)`. `tools/carry.py --version pal --entries` and `--version us2 --entries` cha",
+      "mergedAt": "2026-11-14T08:03:20Z"
+     },
+     {
+      "number": 461,
+      "title": "feat: match func_PAL_002BBCC0 and the USA v2.00 and PAL copies of func_L22_003A5018",
+      "author": "gelatinous-bullion",
+      "untrustedBody": "Three functions in two releases, 7,872 bytes:\n\n- one PAL function ported to 50 Hz;\n- the USA v2.00 and PAL copies of the level 22/23 HUD counters panel.\n\n**Updated for 3c92af87.** v1.01's `func_L22_003A5018` landed there with `-frac2-sched-global-yield`. This PR no longer adds it, or the `-frac2-sched-defer-live-load` switch I had written for the same tie. The two copies now take master's source and flags, and the branch is rebased on 3c92af87.\n\n| Function | Bytes | Places | Unit | Notes |\n| --- | ---: | ---: | --- | --- |\n| `func_PAL_002BBCC0` | 1856 | 28 | `src/pal/game/002BBCC0.c` | from v1.01 `func_002BB100` |\n| `func_US2_L22_003A6448` | 3008 | 2 | `src/us2/levels/shared/L22_003A6448-hud-g8.c` | master's v1.01 C, other text ids |\n| `func_PAL_L22_003A83A8` | 3008 | 2 | `src/pal/levels/shared/L22_003A83A8-hud-g8.c` | master's v1.01 C, other text ids |\n\nThe USA v2.00 and PAL functions are checked against my discs, whose SHA-256s are the ones in `docs/build/versions.md`.\n\n## func_PAL_0",
+      "mergedAt": "2026-11-14T08:03:08Z"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [
+     {
+      "number": 459,
+      "title": "[STEAMOS] Game won't install",
+      "author": "SoraKazooie24"
+     }
+    ],
+    "closed": []
+   },
+   "releases": [],
+   "progress": {
+    "before": {
+     "code": {
+      "done": 5468348,
+      "total": 5524052
+     },
+     "functions": {
+      "done": 8501,
+      "total": 8527
+     }
+    },
+    "after": {
+     "code": {
+      "done": 5468348,
+      "total": 5524052
+     },
+     "functions": {
+      "done": 8501,
+      "total": 8527
+     }
+    }
+   },
+   "contributors": [
+    "Fromnowheree",
+    "gelatinous-bullion"
+   ]
+  },
+  {
+   "repo": "rac3-decomp",
+   "title": "Up Your Arsenal",
+   "branches": [
+    {
+     "name": "master",
+     "commits": [
+      {
+       "sha": "abf1542c6d86717aa1e61d304c450318eaf2c0aa",
+       "title": "feat(levels): match 151 functions in level 36 (vidcomic 1 special edition) and level 39 (multiplayer menu) and shared level code",
+       "author": "bigbeno37",
+       "date": "2026-11-13T23:59:59Z"
+      },
+      {
+       "sha": "e8a21072ba2c85c698f2a20a4aad85fd59419dbb",
+       "title": "fix(levels): cut 80 level 30 31 32 33 34 35 36 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 files where code built with other flags begins",
+       "author": "bigbeno37",
+       "date": "2026-11-13T22:31:31Z"
+      },
+      {
+       "sha": "90f26722ce86bfe1138371b14af9ba1d8f05daf3",
+       "title": "feat(levels): match 32 functions in level 39 (multiplayer menu) and shared level code",
+       "author": "bigbeno37",
+       "date": "2026-11-13T21:33:37Z"
+      },
+      {
+       "sha": "ec09a4f740dab98b91d6cdedeadc80e304616894",
+       "title": "fix(levels): cut 40 level 30 31 32 33 34 35 36 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 files where code built with other flags begins",
+       "author": "bigbeno37",
+       "date": "2026-11-13T20:32:23Z"
+      },
+      {
+       "sha": "d5c3e9395e8cce118a3bc60ff19d96f3bef94115",
+       "title": "feat(levels): match 59 functions in level 39 (multiplayer menu) and shared level code",
+       "author": "bigbeno37",
+       "date": "2026-11-13T19:55:23Z"
+      },
+      {
+       "sha": "26f0f21e7c46466d2641c9236f5b7bfcf3294560",
+       "title": "fix(levels): cut 40 level 30 31 32 33 34 35 36 39 files where code built with other flags begins",
+       "author": "bigbeno37",
+       "date": "2026-11-13T19:11:29Z"
+      },
+      {
+       "sha": "dfcab25413979baf73c6dc163d63d9d6706addcc",
+       "title": "feat(levels): match 29 functions in level 36 (vidcomic 1 special edition) and level 39 (multiplayer menu) and shared level code",
+       "author": "bigbeno37",
+       "date": "2026-11-13T18:53:52Z"
+      },
+      {
+       "sha": "4c54c77e42825b0f40903695ee178960fe887cb4",
+       "title": "fix(levels): correct 7 declarations of functions that are not matched yet",
+       "author": "bigbeno37",
+       "date": "2026-11-13T18:12:32Z"
+      },
+      {
+       "sha": "e619353d3975a193ae4205012343c74ce78dfdde",
+       "title": "feat(levels): match 61 functions in level 36 (vidcomic 1 special edition) and shared level code",
+       "author": "bigbeno37",
+       "date": "2026-11-13T17:52:04Z"
+      },
+      {
+       "sha": "1530f0ff1825b97d2c1193972731c119a336e035",
+       "title": "feat(levels): match 23 functions in level 39 (multiplayer menu) and shared level code",
+       "author": "bigbeno37",
+       "date": "2026-11-13T17:05:47Z"
+      },
+      {
+       "sha": "192528e6e219ec89c3946e7dd8ecf9c68728c96b",
+       "title": "feat(levels): match 188 functions in the shared level code (L01/L03/L04/L05 files) and levels 04, 19 and 31 (#56)",
+       "author": "TheBoso",
+       "date": "2026-11-13T16:03:31Z"
+      },
+      {
+       "sha": "c9347d4f0bbf2e6175a49a1cebe4b4dc62cfc3ae",
+       "title": "feat(us): five NTSC-U hero state machines and three small functions in C (#57)",
+       "author": "llesieur99",
+       "date": "2026-11-13T15:15:03Z"
+      },
+      {
+       "sha": "9c7c6894e41e7700f63b270c8c536efca174ce7e",
+       "title": "feat(levels): match 61 functions in level 39 (multiplayer menu) and shared level code",
+       "author": "bigbeno37",
+       "date": "2026-11-13T13:23:42Z"
+      },
+      {
+       "sha": "4d9caefdce81eb571f8312dd2bc2083fcdb27f03",
+       "title": "feat(levels): match 21 functions in level 39 (multiplayer menu) and shared level code",
+       "author": "bigbeno37",
+       "date": "2026-11-13T10:54:46Z"
+      },
+      {
+       "sha": "f133bdaf52b8fcd2c13c6bdecde1e818af713a07",
+       "title": "fix(tools): keep case labels when porting PAL constants to NTSC-U (#54)",
+       "author": "llesieur99",
+       "date": "2026-11-13T10:03:40Z"
+      },
+      {
+       "sha": "42df9c7b7440be62cfea1f930a3a44ee671e564c",
+       "title": "feat(us): 223 multiplayer-level NTSC-U functions in C (#53)",
+       "author": "llesieur99",
+       "date": "2026-11-13T09:58:16Z"
+      },
+      {
+       "sha": "6b6b5c14f335970b3ec1ce631e6a70b52e355d02",
+       "title": "feat(us): 123 single-player NTSC-U level functions in C (#52)",
+       "author": "llesieur99",
+       "date": "2026-11-13T09:02:33Z"
+      },
+      {
+       "sha": "058e8bca05bd3338c196198ec0baacb58eb4c698",
+       "title": "feat(levels): match 36 functions in level 39 (multiplayer menu) and shared level code",
+       "author": "bigbeno37",
+       "date": "2026-11-13T08:21:36Z"
+      },
+      {
+       "sha": "08cb3bada549f624555ec9b573c1f4d6b48defde",
+       "title": "fix(levels): cut 12 level 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 files where code built with other flags begins",
+       "author": "bigbeno37",
+       "date": "2026-11-13T08:01:33Z"
+      },
+      {
+       "sha": "1b3c4c6d9551a4d5fc8378e96b96097f02b054df",
+       "title": "fix(levels): cut 12 level 39 files where code built with other flags begins",
+       "author": "bigbeno37",
+       "date": "2026-11-13T07:44:54Z"
+      },
+      {
+       "sha": "9af8f794c591fed29dd77f5fd3589c283f5827df",
+       "title": "Merge upstream master (5f88d49d0) into matches",
+       "author": "bigbeno37",
+       "date": "2026-11-13T07:37:31Z"
+      },
+      {
+       "sha": "49acb9066fce8f577a10966c1f54355c3dbc70f9",
+       "title": "Merge upstream master (228af1a32) into matches",
+       "author": "bigbeno37",
+       "date": "2026-11-13T06:49:31Z"
+      },
+      {
+       "sha": "eb31283558949b85be895e9b7bfeef96547648e8",
+       "title": "Merge upstream master (3700371c7) into matches",
+       "author": "bigbeno37",
+       "date": "2026-11-13T05:56:07Z"
+      },
+      {
+       "sha": "2231c02728fbd89c93882d3c84ce223ef9104bed",
+       "title": "feat(levels): match 26 functions in level 39 (multiplayer menu) and shared level code",
+       "author": "bigbeno37",
+       "date": "2026-11-13T05:16:55Z"
+      },
+      {
+       "sha": "057d707d46c5713521f81d44e5fd2f723fd91ffd",
+       "title": "feat(levels): match 67 functions in level 39 (multiplayer menu) and shared level code",
+       "author": "bigbeno37",
+       "date": "2026-11-13T04:45:34Z"
+      },
+      {
+       "sha": "26027f1f4b21decf3c61cf090b9829d5d80d1e8b",
+       "title": "feat(levels): match 80 functions in level 39 (multiplayer menu) and shared level code",
+       "author": "bigbeno37",
+       "date": "2026-11-13T03:23:55Z"
+      },
+      {
+       "sha": "58271958c6b7ae57eb1234faf4cedd774543aca1",
+       "title": "fix(levels): cut 22 level 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 files where code built with other flags begins",
+       "author": "bigbeno37",
+       "date": "2026-11-13T02:43:06Z"
+      },
+      {
+       "sha": "e4ebeb87acef47ed0968d6e884319b7c6fda7590",
+       "title": "fix(levels): cut 24 level 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 files where code built with other flags begins",
+       "author": "bigbeno37",
+       "date": "2026-11-13T02:22:55Z"
+      },
+      {
+       "sha": "ccd4c6e5c033f78dafcd2f0aa750898c22c3abc5",
+       "title": "fix(levels): cut 24 level 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 files where code built with other flags begins",
+       "author": "bigbeno37",
+       "date": "2026-11-13T02:06:09Z"
+      },
+      {
+       "sha": "5dc23488b2fdb57c4224e0df25289d63f328c1d8",
+       "title": "feat(levels): match 24 functions in level 39 (multiplayer menu) and shared level code",
+       "author": "bigbeno37",
+       "date": "2026-11-13T01:19:53Z"
+      },
+      {
+       "sha": "93fe54277e7ed25e6613d38eb45d8b6088585c16",
+       "title": "feat(levels): match 41 functions in level 39 (multiplayer menu) and shared level code",
+       "author": "bigbeno37",
+       "date": "2026-11-13T00:41:05Z"
+      },
+      {
+       "sha": "0a95b4f5c9990ce23a70fa51391504a3a50666b6",
+       "title": "feat(levels): match 80 functions in level 39 (multiplayer menu) and shared level code",
+       "author": "bigbeno37",
+       "date": "2026-11-13T00:21:14Z"
+      },
+      {
+       "sha": "0fad698d7f0c817a8312417ddf9924f283788870",
+       "title": "feat(levels): match 80 functions in level 39 (multiplayer menu) and shared level code",
+       "author": "bigbeno37",
+       "date": "2026-11-13T00:00:31Z"
+      }
+     ]
+    }
+   ],
+   "commitCount": 33,
+   "pullRequests": {
+    "merged": [
+     {
+      "number": 33,
+      "title": "feat(levels): match 26 functions in levels 17 (Crash Site) and 02 (Florana)",
+      "author": "TheBoso",
+      "untrustedBody": "## Functions\n\n26 functions: 15 in level 17 (Crash Site) and 11 in level 02 (Florana), all plain C.\n\n`src/levels/02_florana/L02_0034C9F0.c`:\n- `func_L02_0034C9F0`: plain C (file built with `@ps2as` and `-mvu0-use-vf0-vf2`)\n`src/levels/02_florana/L02_00352208.c`:\n- `func_L02_00352208`: plain C (file built with `@ps2as` and `-mvu0-use-vf0-vf2`)\n- `func_L02_003523D0`: plain C (file built with `@ps2as` and `-mvu0-use-vf0-vf2`)\n`src/levels/02_florana/L02_0039C730.c`:\n- `func_L02_0039CE20`: plain C (file built with `@ps2as` and `-mvu0-use-vf0-vf2`)\n`src/levels/02_florana/L02_0039EF28.c`:\n- `func_L02_0039F7D8`: plain C (file built with `@ps2as` and `-mvu0-use-vf0-vf2`)\n- `func_L02_0039F980`: plain C (file built with `@ps2as` and `-mvu0-use-vf0-vf2`)\n`src/levels/02_florana/L02_003AD978.c`:\n- `func_L02_003AD978`: plain C (file built with `@ps2as` and `-mvu0-use-vf0-vf2`)\n`src/levels/02_florana/L02_003BBA80.c`:\n- `func_L02_003BBC98`: plain C (file built with `@ps2as` and `-mvu0-use-vf0-vf2`)\n`src",
+      "mergedAt": "2026-11-13T05:52:24Z"
+     },
+     {
+      "number": 34,
+      "title": "feat(levels): match 17 functions in the multiplayer shared code (guber pool, Siege Ranger)",
+      "author": "TheBoso",
+      "untrustedBody": "## Functions\n\n17 functions in the multiplayer shared code (levels 39 to 53), all plain C.\n\n`src/levels/shared/L39_0061D1D8.c` (new, cut from `L39_0061D0B8.c`; the guber pool):\n- `func_L39_0061D1D8`, `func_L39_0061D2D8`, `func_L39_0061D3F0`, `func_L39_0061D470`, `func_L39_0061D540`, `func_L39_0061D6A8`, `func_L39_0061D800`: plain C (new)\n- `func_L39_0061D628`, `func_L39_0061D780`, `func_L39_0061D7B0`, `func_L39_0061D7F8`, `func_L39_0061D8B8`: already C, moved unchanged with the cut\n\n`src/levels/shared/L40_0040A4D0.c` (Siege Ranger), file built with `-mvu0-use-vf0-vf2` and `@ps2as`:\n- `func_L40_0040AA08`, `func_L40_0040ABB8` (think callback), `func_L40_0040B058`, `func_L40_0040B9C0`, `func_L40_0040BAF0`, `func_L40_0040BC00`, `func_L40_0040C6F0`, `func_L40_0040C878`, `func_L40_0040D4C0`, `func_L40_0040D7D0` (steering): plain C\n\n## Checks\n\n- [x] `python tests/check_repository.py` passes (\"repository checks passed\") and `python tools/pr_check.py --target all` prints `OK`\n- [x] Based on curr",
+      "mergedAt": "2026-11-13T06:39:19Z"
+     },
+     {
+      "number": 35,
+      "title": "feat(levels): match 14 functions in levels 13, 26, 29 and 31",
+      "author": "TheBoso",
+      "untrustedBody": "## Functions\n\n14 functions in levels 13, 26, 29 and 31: 12 plain C and 2 hand-written VU0 functions as `ASM_FUNC`.\n\n`src/levels/13_holostar_studios_ratchet/L13_0034C658.c`:\n- `func_L13_0034C730`: plain C\n`src/levels/13_holostar_studios_ratchet/L13_003FB2E8.c`:\n- `func_L13_003FB2E8`: plain C\n`src/levels/13_holostar_studios_ratchet/L13_0047BC90.c`:\n- `func_L13_0047BC90`: plain C\n`src/levels/13_holostar_studios_ratchet/L13_0047DEC8.c`:\n- `func_L13_0047DEC8`: plain C\n`src/levels/26_kerwan_ranger_missions/L26_00423CE8.c`:\n- `func_L26_00423CE8`: plain C\n`src/levels/26_kerwan_ranger_missions/L26_004444E8.c`:\n- `func_L26_004444E8`: `ASM_FUNC` (hand-written VU0)\n- `func_L26_00444554`: `ASM_FUNC` (hand-written VU0)\n`src/levels/26_kerwan_ranger_missions/L26_004A4A90.c`:\n- `func_L26_004A4A90`: plain C\n`src/levels/26_kerwan_ranger_missions/L26_004A6CC8.c`:\n- `func_L26_004A6CC8`: plain C\n`src/levels/29_tyhrranosis_ranger_missions/L29_004265F0.c`:\n- `func_L29_004265F0`: plain C\n`src/levels/29_tyhrran",
+      "mergedAt": "2026-11-13T05:55:59Z"
+     },
+     {
+      "number": 36,
+      "title": "feat(levels): match 33 functions in levels 10 (Zeldrin Starport) and 12 (Rilgar)",
+      "author": "TheBoso",
+      "untrustedBody": "## Functions\n\n33 functions: 28 in level 10 (Zeldrin Starport) and 5 in level 12 (Rilgar), all plain C.\n\n`src/levels/10_zeldrin_starport/L10_00358008.c`:\n- `func_L10_00358008`: plain C (file built with `@ps2as`)\n`src/levels/10_zeldrin_starport/L10_003587D8.c`:\n- `func_L10_00358F48`: plain C (file built with `@ps2as`)\n- `func_L10_00359238`: plain C (file built with `@ps2as`)\n`src/levels/10_zeldrin_starport/L10_00359EA0.c`:\n- `func_L10_0035A158`: plain C (file built with `@ps2as` and `-mvu0-use-vf0-vf2`)\n`src/levels/10_zeldrin_starport/L10_003B4350.c`:\n- `func_L10_003B4350`: plain C (file built with `@ps2as`)\n- `func_L10_003B4600`: plain C (file built with `@ps2as`)\n- `func_L10_003B5690`: plain C (file built with `@ps2as`)\n- `func_L10_003B57A8`: plain C (file built with `@ps2as`)\n`src/levels/10_zeldrin_starport/L10_003B5B48.c`:\n- `func_L10_003B85A0`: plain C (file built with `@ps2as`)\n`src/levels/10_zeldrin_starport/L10_003B9078.c`:\n- `func_L10_003B9D28`: plain C (file built with `@ps2as`",
+      "mergedAt": "2026-11-13T06:00:02Z"
+     },
+     {
+      "number": 37,
+      "title": "feat(levels): match 26 functions in level 14 (Koros)",
+      "author": "TheBoso",
+      "untrustedBody": "## Functions\n\n26 functions, all plain C: 14 (Koros): 26.\n\n<details>\n<summary>Every function, by file</summary>\n\n`src/levels/14_koros/L14_00353718.c`:\n- `func_L14_00353910`: plain C (file built with `@ps2as` and `-mvu0-use-vf0-vf2`)\n- `func_L14_003539E0`: plain C (file built with `@ps2as` and `-mvu0-use-vf0-vf2`)\n`src/levels/14_koros/L14_00354030.c`:\n- `func_L14_00354030`: plain C (file built with `@ps2as`)\n`src/levels/14_koros/L14_003542F0.c`:\n- `func_L14_003542F0`: plain C (file built with `@ps2as` and `-mvu0-use-vf0-vf2`)\n- `func_L14_00354538`: plain C (file built with `@ps2as` and `-mvu0-use-vf0-vf2`)\n- `func_L14_00354C28`: plain C (file built with `@ps2as` and `-mvu0-use-vf0-vf2`)\n`src/levels/14_koros/L14_0035C810.c`:\n- `func_L14_0035C810`: plain C (file built with `@ps2as`)\n- `func_L14_0035CD38`: plain C (file built with `@ps2as`)\n- `func_L14_0035CF00`: plain C (file built with `@ps2as`)\n- `func_L14_0035D088`: plain C (file built with `@ps2as`)\n`src/levels/14_koros/L14_0035D490.c`",
+      "mergedAt": "2026-11-13T06:02:44Z"
+     },
+     {
+      "number": 38,
+      "title": "feat(levels): match 18 functions in level 03 (Starship Phoenix)",
+      "author": "TheBoso",
+      "untrustedBody": "## Functions\n\n18 functions, all plain C: 03 (Starship Phoenix): 18.\n\n<details>\n<summary>Every function, by file</summary>\n\n`src/levels/03_starship_phoenix/L03_0032DB58.c`:\n- `func_L03_0032DC08`: plain C (file built with `@ps2as` and `-mvu0-use-vf0-vf2`)\n- `func_L03_0032DF60`: plain C (file built with `@ps2as` and `-mvu0-use-vf0-vf2`)\n- `func_L03_0032EC38`: plain C (file built with `@ps2as` and `-mvu0-use-vf0-vf2`)\n`src/levels/03_starship_phoenix/L03_00395808.c`:\n- `func_L03_00395808`: plain C (file built with `@ps2as` and `-mvu0-use-vf0-vf2`)\n- `func_L03_003965E8`: plain C (file built with `@ps2as` and `-mvu0-use-vf0-vf2`)\n`src/levels/03_starship_phoenix/L03_00397698.c`:\n- `func_L03_00397698`: plain C\n`src/levels/03_starship_phoenix/L03_00399278.c`:\n- `func_L03_003993A0`: plain C (file built with `@ps2as` and `-mvu0-use-vf0-vf2`)\n`src/levels/03_starship_phoenix/L03_00399D30.c`:\n- `func_L03_0039A1F8`: plain C (file built with `@ps2as` and `-mvu0-use-vf0-vf2`)\n- `func_L03_0039A5D0`: plai",
+      "mergedAt": "2026-11-13T06:05:38Z"
+     },
+     {
+      "number": 39,
+      "title": "feat(levels): match 31 functions in level 24 (Insomniac Museum)",
+      "author": "TheBoso",
+      "untrustedBody": "## Functions\n\n31 functions, all plain C: 24 (Insomniac Museum): 31.\n\n<details>\n<summary>Every function, by file</summary>\n\n`src/levels/24_insomniac_museum/L24_0032E508.c`:\n- `func_L24_0032E508`: plain C (file built with `@ps2as`)\n`src/levels/24_insomniac_museum/L24_0034A2C8.c`:\n- `func_L24_0034BA30`: plain C (file built with `@ps2as` and `-mvu0-use-vf0-vf2`)\n- `func_L24_0034BC48`: plain C (file built with `@ps2as` and `-mvu0-use-vf0-vf2`)\n- `func_L24_0034C088`: plain C (file built with `@ps2as` and `-mvu0-use-vf0-vf2`)\n`src/levels/24_insomniac_museum/L24_0034C618.c`:\n- `func_L24_0034C7A8`: plain C (file built with `@ps2as` and `-mvu0-use-vf0-vf2`)\n- `func_L24_0034C8D0`: plain C (file built with `@ps2as` and `-mvu0-use-vf0-vf2`)\n`src/levels/24_insomniac_museum/L24_0034DAB8.c`:\n- `func_L24_0034E370`: plain C (file built with `@ps2as`)\n`src/levels/24_insomniac_museum/L24_0034F040.c`:\n- `func_L24_0034F040`: plain C (file built with `@ps2as` and `-mvu0-use-vf0-vf2`)\n- `func_L24_0034F080`: p",
+      "mergedAt": "2026-11-13T06:08:31Z"
+     },
+     {
+      "number": 40,
+      "title": "feat(levels): match 10 functions in levels 01 (Veldin), 18 (Aridia) and 48 (Aquatos Sewers MP)",
+      "author": "TheBoso",
+      "untrustedBody": "## Functions\n\n10 functions, all plain C: 01 (Veldin): 7, 18 (Aridia): 2, 48 (Aquatos Sewers (multiplayer)): 1.\n\n<details>\n<summary>Every function, by file</summary>\n\n`src/levels/01_veldin/L01_0032ADF0.c`:\n- `func_L01_0032ADF0`: plain C (file built with `@ps2as` and `-mvu0-use-vf0-vf2`)\n`src/levels/01_veldin/L01_0035B710.c`:\n- `func_L01_0035B710`: plain C (file built with `@ps2as` and `-mvu0-use-vf0-vf2`)\n- `func_L01_0035BC18`: plain C (file built with `@ps2as` and `-mvu0-use-vf0-vf2`)\n`src/levels/01_veldin/L01_003AF290.c`:\n- `func_L01_003B08A0`: plain C (file built with `@ps2as` and `-mvu0-use-vf0-vf2`)\n`src/levels/01_veldin/L01_003BCDF8.c`:\n- `func_L01_003BD9A8`: plain C (file built with `@ps2as` and `-mvu0-use-vf0-vf2`)\n`src/levels/01_veldin/L01_003E1AD8.c`:\n- `func_L01_003E1CD0`: plain C (file built with `@ps2as`)\n`src/levels/01_veldin/L01_0049BBD8.c`:\n- `func_L01_0049BBD8`: plain C\n`src/levels/18_aridia/L18_004AE710.c`:\n- `func_L18_004AE710`: plain C\n`src/levels/18_aridia/L18_004B0",
+      "mergedAt": "2026-11-13T06:43:10Z"
+     },
+     {
+      "number": 41,
+      "title": "feat(levels): match 35 functions in levels 6 and 7",
+      "author": "cadelass",
+      "untrustedBody": "## What\n\nMatch 35 functions in level 6 (Starship Phoenix Under Attack) and level 7 (Annihilation Nation):\n\n- **Level 6, 3 functions** (the work already on the branch, now verified and committed):\n  `func_L06_0032DF80`, `func_L06_0032E168`, `func_L06_0032E2B0`.\n  The only `INCLUDE_ASM` left in `src/levels/06_starship_phoenix_under_attack/` is\n  `func_L06_00347370`, which is real VU0 (`lqc2`/`sqc2`/`vadd.xyz`/`vsub.xyz`) and stays out\n  by the matching rules; the other three entries there are `LINKER_REMNANT`.\n- **Level 7, 32 functions**: 00353D88, 003535B0, 003C8B60, 0035CA80, 003AA9C0, 003BB1A8,\n  003349E8, 003B3798, 003318D8, 00333D70, 00352A88, 003C86D0, 00335448, 003D2B30, 00331FA0,\n  003C9780, 003C90F8, 00332230, 003B04C8, 003E34D8, 003310E8, 003BF838, 003537B0, 003A3B40,\n  003B6800, 003C8A10, 00333C70, 003AF240, 003BCDD0, 003E3AB0, 00334968, 003CECD0.\n\nThe scope is claimed in issue #3 (`src/levels/06_starship_phoenix_under_attack/` and\n`src/levels/07_annihilation_nation/`); no oth",
+      "mergedAt": "2026-11-13T06:11:57Z"
+     },
+     {
+      "number": 42,
+      "title": "feat(levels): match 11 functions in level 36 (Vidcomic 1 Special Edition)",
+      "author": "TheBoso",
+      "untrustedBody": "## Functions\n\n11 functions, all plain C: 36 (Vid-comic 1 Special Edition): 11.\n\n<details>\n<summary>Every function, by file</summary>\n\n`src/levels/36_vidcomic_1_special_edition/L36_0031D768.c`:\n- `func_L36_0031D878`: plain C (file built with `@ps2as` and `-mvu0-use-vf0-vf2`)\n`src/levels/36_vidcomic_1_special_edition/L36_00348BB8.c`:\n- `func_L36_00348BB8`: plain C (file built with `@ps2as` and `-mvu0-use-vf0-vf2`)\n`src/levels/36_vidcomic_1_special_edition/L36_0034E8C0.c`:\n- `func_L36_0034FE78`: plain C (file built with `@ps2as` and `-mvu0-use-vf0-vf2`)\n`src/levels/36_vidcomic_1_special_edition/L36_00353598.c`:\n- `func_L36_00354288`: plain C (file built with `@ps2as` and `-mvu0-use-vf0-vf2`)\n- `func_L36_00354648`: plain C (file built with `@ps2as` and `-mvu0-use-vf0-vf2`)\n- `func_L36_00354D88`: plain C (file built with `@ps2as` and `-mvu0-use-vf0-vf2`)\n`src/levels/36_vidcomic_1_special_edition/L36_00355290.c`:\n- `func_L36_00355388`: plain C\n`src/levels/36_vidcomic_1_special_edition/L36_00",
+      "mergedAt": "2026-11-13T06:14:45Z"
+     },
+     {
+      "number": 43,
+      "title": "feat(levels): match 13 functions in levels 28 (Aquatos Sewers) and 22 (Mylon)",
+      "author": "TheBoso",
+      "untrustedBody": "## Functions\n\n13 functions, all plain C: 22 (Mylon): 6, 28 (Aquatos Sewers): 7.\n\n<details>\n<summary>Every function, by file</summary>\n\n`src/levels/22_mylon/L22_00343800.c`:\n- `func_L22_00343800`: plain C (file built with `@ps2as` and `-mvu0-use-vf0-vf2`)\n- `func_L22_00343C18`: plain C (file built with `@ps2as` and `-mvu0-use-vf0-vf2`)\n`src/levels/22_mylon/L22_0034CAD8.c`:\n- `func_L22_0034CBD8`: plain C (file built with `@ps2as`)\n`src/levels/22_mylon/L22_003BC778.c`:\n- `func_L22_003BC778`: plain C (file built with `@ps2as`)\n`src/levels/22_mylon/L22_003BCF38.c`:\n- `func_L22_003BCFF8`: plain C (file built with `@ps2as` and `-mvu0-use-vf0-vf2`)\n`src/levels/22_mylon/L22_00429B20.c`:\n- `func_L22_00429B20`: plain C (file built with `@ps2as`)\n`src/levels/28_aquatos_sewers/L28_003098F0.c`:\n- `func_L28_00309CE8`: plain C (file built with `@ps2as`)\n`src/levels/28_aquatos_sewers/L28_003420C0.c`:\n- `func_L28_003420C0`: plain C (file built with `@ps2as`)\n`src/levels/28_aquatos_sewers/L28_0039B910.c`",
+      "mergedAt": "2026-11-13T06:17:34Z"
+     },
+     {
+      "number": 44,
+      "title": "feat(levels): match 8 functions in level 27 (Aquatos Base)",
+      "author": "TheBoso",
+      "untrustedBody": "## Functions\n\n8 functions, all plain C: 27 (Aquatos Base): 8.\n\n<details>\n<summary>Every function, by file</summary>\n\n`src/levels/27_aquatos_base/L27_003A1250.c`:\n- `func_L27_003A1250`: plain C (file built with `@ps2as` and `-mvu0-use-vf0-vf2`)\n- `func_L27_003A17B0`: plain C (file built with `@ps2as` and `-mvu0-use-vf0-vf2`)\n- `func_L27_003A2548`: plain C (file built with `@ps2as` and `-mvu0-use-vf0-vf2`)\n- `func_L27_003A2B98`: plain C (file built with `@ps2as` and `-mvu0-use-vf0-vf2`)\n- `func_L27_003A3310`: plain C (file built with `@ps2as` and `-mvu0-use-vf0-vf2`)\n- `func_L27_003A3498`: plain C (file built with `@ps2as` and `-mvu0-use-vf0-vf2`)\n`src/levels/27_aquatos_base/L27_003A43A8.c`:\n- `func_L27_003A43A8`: plain C (file built with `@ps2as`)\n`src/levels/27_aquatos_base/L27_003FCDE0.c`:\n- `func_L27_003FCDE0`: plain C (file built with `@ps2as`)\n\n</details>\n\n## Checks\n\n- [x] `python tests/check_repository.py` passes (\"repository checks passed\") and `python tools/pr_check.py --target ",
+      "mergedAt": "2026-11-13T06:20:21Z"
+     },
+     {
+      "number": 45,
+      "title": "feat(levels): match 18 functions in level 05 (Daxx)",
+      "author": "TheBoso",
+      "untrustedBody": "## Functions\n\n18 functions, all plain C: 05 (Daxx): 18.\n\n<details>\n<summary>Every function, by file</summary>\n\n`src/levels/05_daxx/L05_0032ADD0.c`:\n- `func_L05_0032B3B8`: plain C (file built with `@ps2as` and `-mvu0-use-vf0-vf2`)\n- `func_L05_0032B630`: plain C (file built with `@ps2as` and `-mvu0-use-vf0-vf2`)\n`src/levels/05_daxx/L05_00355700.c`:\n- `func_L05_00355700`: plain C (file built with `@ps2as` and `-mvu0-use-vf0-vf2`)\n`src/levels/05_daxx/L05_0035F360.c`:\n- `func_L05_00360448`: plain C (file built with `@ps2as` and `-mvu0-use-vf0-vf2`)\n`src/levels/05_daxx/L05_003619F0.c`:\n- `func_L05_00362148`: plain C (file built with `@ps2as` and `-mvu0-use-vf0-vf2`)\n- `func_L05_003622D0`: plain C (file built with `@ps2as` and `-mvu0-use-vf0-vf2`)\n- `func_L05_003624B0`: plain C (file built with `@ps2as` and `-mvu0-use-vf0-vf2`)\n`src/levels/05_daxx/L05_003B1BD0.c`:\n- `func_L05_003B1E90`: plain C (file built with `@ps2as` and `-mvu0-use-vf0-vf2`)\n`src/levels/05_daxx/L05_003B2668.c`:\n- `func_L05",
+      "mergedAt": "2026-11-13T06:23:09Z"
+     },
+     {
+      "number": 46,
+      "title": "feat(levels): match 5 functions in the second half of level 19 (Thran Asteroid Belt)",
+      "author": "TheBoso",
+      "untrustedBody": "## Functions\n\n5 functions, all plain C: 19 (Thran Asteroid Belt): 5.\n\n<details>\n<summary>Every function, by file</summary>\n\n`src/levels/19_thran_asteroid_belt/L19_0040F070.c`:\n- `func_L19_0040F070`: plain C (file built with `@ps2as`)\n`src/levels/19_thran_asteroid_belt/L19_00445488.c`:\n- `func_L19_00445488`: plain C (file built with `@ps2as` and `-mvu0-use-vf0-vf2`)\n`src/levels/19_thran_asteroid_belt/L19_00490538.c`:\n- `func_L19_00490538`: plain C\n`src/levels/19_thran_asteroid_belt/L19_00492770.c`:\n- `func_L19_00492770`: plain C\n`src/levels/19_thran_asteroid_belt/L19_00501FE0.c`:\n- `func_L19_00501FE0`: plain C (file built with `@ps2as` and `-mvu0-use-vf0-vf2`)\n\n</details>\n\n## Checks\n\n- [x] `python tests/check_repository.py` passes (\"repository checks passed\") and `python tools/pr_check.py --target all` prints `OK`\n- [x] Based on current `master` (92a6235a)\n- [x] `tools/carry_us.sh`: NTSC-U carry and both progress reports regenerated; `version_map.py --check` in step\n- [x] `python tools/",
+      "mergedAt": "2026-11-13T06:25:37Z"
+     },
+     {
+      "number": 47,
+      "title": "feat(us): carry 123 PAL level matches to their NTSC-U counterparts",
+      "author": "llesieur99",
+      "untrustedBody": "## Functions\n\n123 NTSC-U level functions of the single-player levels in `src/us/levels/`, each the NTSC-U counterpart of a PAL level function already matched in C (`config/us/map.tsv` rows with status `differs`: the PAL C does not reproduce the NTSC-U bytes as it is). All plain C with their PAL file's flags (`config/us/text_parts.txt`); each file's header names the PAL source it comes from.\n\n- 50 Hz → 60 Hz constants: frame counts and rates (`25` → `30`, `5` → `6`, `100` → `120`, per-frame floats ×5/6)\n- addresses: the names are read from the NTSC-U bytes and written as NTSC-U's (level data `D_LNN_XXXXXXXX`, the resident core below `0x1D5680` plainly, functions by their NTSC-U catalogue names, `$gp` slots as `D_XXXXXXXX_sda` at their NTSC-U offset)\n- one program links `src/levels/`'s PAL-named C and these NTSC-U-named files, and a name gets one value per program: where the PAL C uses one of a file's names for another place, or a level calls another copy than the catalogue's place, the ",
+      "mergedAt": "2026-11-13T05:07:20Z"
+     },
+     {
+      "number": 48,
+      "title": "chore: require LF line endings in new and changed files",
+      "author": "llesieur99",
+      "untrustedBody": "## Functions\n\nNone: a repository rule. Text files are committed and checked out with LF line endings.\n\n- `.gitattributes`: `* text=auto eol=lf` (the `*.patch` rule stays)\n- `AGENTS.md`, Rules: LF in every text file you write or change, and how to write LF on Windows\n- `tests/check_repository.py`, check 7: a CRLF working copy of a file git has with LF, or a new CRLF file under the source folders, is reported\n\nWhy: `tools/version_map.py` hashes a source file's bytes into `config/us/map.tsv`, so a CRLF working copy of a file git stores with LF gives a hash that matches that checkout and no other. It happened while preparing #47 (two new files written with CRLF on Windows).\n\n## Checks\n\n- [x] `python tests/check_repository.py` passes; `python -m unittest discover -s tests` passes\n- [x] The new check reports a tracked LF file rewritten with CRLF and a new CRLF file, and nothing on a clean tree\n- [x] No file changes line endings: the 2,296 files committed with CRLF stay as they are (git leave",
+      "mergedAt": "2026-11-13T05:28:22Z"
+     },
+     {
+      "number": 49,
+      "title": "fix(tools): write tracked files with LF on Windows",
+      "author": "llesieur99",
+      "untrustedBody": "## Functions\n\nNone: tools only. Follow-up to #48 (LF line endings).\n\n- `tools/gen_bytematch_names.py`, `tools/names.py`, `tools/us_names.py`, `tools/migrate_jtbls.py`, `tools/reconcile.py`, `tools/fix_quadword_ops.py`, `tools/fix_reg_names.py`, `tools/fix_short_loops.py`: write the tracked files they produce with LF (`newline=\"\\n\"`); on Windows they wrote CRLF\n- `tests/check_repository.py`: the hint for a CRLF working copy now says to delete the file before `git checkout -- FILE` (a plain checkout leaves a file git sees as unchanged in place)\n\nFound while landing the open PRs: `gen_bytematch_names.py` run on its own wrote `include/bytematch_names.h` with CRLF, and check 7 caught it. `tools/progress.py`, `tools/version_map.py`, `tools/level_tree.py` and `tools/resolve_symbols.py` already write LF. Writes to `build/`, `asm/` and temporary files are unchanged.\n\n## Checks\n\n- [x] `python tests/check_repository.py` passes; `python -m unittest discover -s tests` passes\n- [x] `tools/gen_bytema",
+      "mergedAt": "2026-11-13T05:56:31Z"
+     },
+     {
+      "number": 50,
+      "title": "fix(tools): keep asm/us/ when setup_asm.py clears frontbin's asm/",
+      "author": "llesieur99",
+      "untrustedBody": "## Functions\n\nNone: one tool fix.\n\n- `tools/setup_asm.py`: `asm_paths()` leaves the other versions' assembly folders (`asm/us/`, `tools/version.py`) out of what it clears, as it already does for the other targets' folders\n\n`setup_asm.py --target frontbin` (or `--target all`) clears frontbin's `asm/` before splat writes it again. `asm/us/` (the NTSC-U assembly that `tools/asm_build.py --version us` writes) sits inside it but is no target's folder, so it was deleted, and the next NTSC-U build had to regenerate it.\n\n## Checks\n\n- [x] `python tests/check_repository.py` passes; `python -m unittest discover -s tests` passes\n- [x] With a scratch `asm/` holding `us/`, `boot_elf/`, `nonmatchings/` and a loose `.s`: master's `asm_paths(frontbin)` lists `asm/us` among the paths to clear; this one lists only `asm/nonmatchings` and the loose file\n- [x] No retail or generated files in the diff\n\n## Notes\n\nNo change for the PAL targets' own folders.\n\n🤖 Generated with [Claude Code](https://claude.com/cl",
+      "mergedAt": "2026-11-13T06:43:27Z"
+     },
+     {
+      "number": 51,
+      "title": "feat(levels): port 7 shared level functions matched in rac2-decomp and rac4-decomp",
+      "author": "farfeduc",
+      "untrustedBody": "## Functions\n\nSeven shared level functions whose code is already matched in rac2-decomp or rac4-decomp. The C is theirs, renamed to this catalogue's names, and each block says which function it comes from. Claimed in #3.\n\n- `func_L01_00415A58`: rac2-decomp's `func_00285548`; its file now needs `@ps2as`\n- `func_L01_00438EA0`: rac2-decomp's `func_L00_00310048`; its file now needs `@ps2as`\n- `func_L01_004B1160`: rac2-decomp's `func_002EEE50`, plain C (its file already had `@ps2as`)\n- `func_L07_004522E8`: rac2-decomp's `func_L06_003660F0`; its file now needs `@ps2as`\n- `func_L39_00578DB8`: rac4-decomp's `func_0043A470`; its file now needs `@ps2as`\n- `func_L39_0063A1E8`: rac4-decomp's `func_0051FD70`, plain C (its file already had `@ps2as`)\n- `func_L40_0041B040`: rac4-decomp's `func_L41_00411728`, plain C\n\n## Checks\n\n- [x] `python3 tests/check_repository.py`: \"repository checks passed\"; `python3 -m unittest discover -s tests`: 52 tests OK\n- [x] Full build on master 92a6235: `tools/build.py ",
+      "mergedAt": "2026-11-13T06:50:06Z"
+     },
+     {
+      "number": 52,
+      "title": "feat(us): 123 single-player NTSC-U level functions in C",
+      "author": "llesieur99",
+      "untrustedBody": "## Functions\n\n123 NTSC-U level functions of the single-player levels in `src/us/levels/` (407,308 bytes of code), all plain C:\n\n- **101 NTSC-U counterparts** of PAL level functions already matched in C whose NTSC-U bytes differ: 17 ported from their PAL C as in #47 and 84 finished by hand from the PAL C. Each keeps its PAL file's flags line (`config/us/text_parts.txt`) and names its PAL source in its header.\n- **22 NTSC-U-only functions** (no PAL counterpart), written from the NTSC-U assembly, each with the flags of the code around it (its neighbours' PAL files; where the two sides differ, the side it matches with).\n- 15 are 8 KB and up, among them the hero state dispatchers of the vidcomic and Clank levels (`func_L30_004C05F8`, 37,656 bytes; `func_L30_004D34B0`; `func_L23_004E6F00`) and `func_L01_00503B68`.\n\nNames as in #47: level data `D_LNN_XXXXXXXX`, the resident core plainly, functions by their NTSC-U catalogue names, `$gp` slots as `D_XXXXXXXX_sda`, and an alias `<name>_<this add",
+      "mergedAt": "2026-11-13T09:02:34Z"
+     },
+     {
+      "number": 53,
+      "title": "feat(us): 223 multiplayer-level NTSC-U functions in C",
+      "author": "llesieur99",
+      "untrustedBody": "## Functions\n\n223 NTSC-U level functions with a place in the multiplayer levels (39 to 55; 7 of them also in single-player levels) in `src/us/levels/` (89,044 bytes of code), all plain C:\n\n- **161 NTSC-U counterparts** of PAL level functions already matched in C whose NTSC-U bytes differ: 137 ported from their PAL C as in #47 (including the 127 multiplayer ones #47 held back) and 24 finished by hand from the PAL C. Each keeps its PAL file's flags line as master has it now (after the latest cuts of the level 39 to 53 files) and names its PAL source in its header.\n- **62 NTSC-U-only functions** (no PAL counterpart), written from the NTSC-U assembly, each with the flags of the code around it (its neighbours' PAL files; where the two sides differ, the side it matches with).\n\nNames as in #47 and #52, with the multiplayer levels' own `$gp` slots and an alias `<name>_<this address>` where the PAL C linked in the same program uses a name for another place. Every file was checked again against ",
+      "mergedAt": "2026-11-13T09:58:16Z"
+     },
+     {
+      "number": 54,
+      "title": "fix(tools): keep case labels when porting PAL constants to NTSC-U",
+      "author": "llesieur99",
+      "untrustedBody": "## Functions\n\nNone: one tool fix and its tests.\n\n- `tools/us_port.py`: `substitute_all()` offers first the candidate that keeps the `case N:` labels as PAL wrote them, then the earlier candidates\n- `tests/test_us_port.py`: three tests for it\n\nA PAL → NTSC-U constant pair found in the code (a frame count, `0x7E` → `0x97`, 126 → 151) can also be a `case` value (a state number). The first candidate used to replace every occurrence, and a switch compiled to a jump table has the same `.text` whichever case a label names, so it checked MATCH with two jump-table entries swapped. Only the level build showed it: the `.data` of levels 23 and 30 to 36 for `func_L23_004E6F00` and `func_L30_004D34B0`, fixed by hand in #52. The other candidates still follow, for a switch compiled to compares, where the label's value is in the code; a constant written only in a label is still replaced.\n\n## Checks\n\n- [x] `python tests/check_repository.py` passes; `python -m unittest discover -s tests` passes (3 new te",
+      "mergedAt": "2026-11-13T10:03:41Z"
+     },
+     {
+      "number": 56,
+      "title": "feat(levels): match 188 functions in the shared level code (L01/L03/L04/L05 files) and levels 04, 19 and 31",
+      "author": "TheBoso",
+      "untrustedBody": "Replaces #55 with one PR of batch commits, to keep master's history clean: 12 commits of 10–20 newly matched functions each, grouped by file area. 188 functions in all, all plain C: the shared level code (L01/L03/L04/L05 files); levels 04 (Marcadia), 19 (Thran Asteroid Belt), 31 (Vid-comic 1).\n\n## Commits\n\n| # | Commit | New functions |\n|---|---|---|\n| 1 | `468ca10f` feat(levels): match 14 functions in the shared level code (L01 files) | 14 |\n| 2 | `c9267f47` feat(levels): match 17 functions in the shared level code (L01 files) | 17 |\n| 3 | `dea649fe` feat(levels): match 17 functions in the shared level code (L03 files) | 17 |\n| 4 | `c18d709a` feat(levels): match 11 functions in the shared level code (L03/L04 files) | 11 |\n| 5 | `af8b9696` feat(levels): match 15 functions in the shared level code (L04 files) | 15 |\n| 6 | `78c26dea` feat(levels): match 14 functions in the shared level code (L04 files) | 14 |\n| 7 | `f8a8d825` feat(levels): match 12 functions in the shared level code (L04",
+      "mergedAt": "2026-11-13T16:03:32Z"
+     },
+     {
+      "number": 57,
+      "title": "feat(us): five NTSC-U hero state machines and three small functions in C",
+      "author": "llesieur99",
+      "untrustedBody": "## Functions\n\nEight NTSC-U level functions in `src/us/levels/` (128,212 bytes of code), all plain C. Each needed only its `config/levels/divs_nops.txt` row (the nops retail has before each `div.s`/`sqrt.s`), which #52 and #53 did not carry:\n\n- **five hero per-frame state machines**, NTSC-U counterparts of matched PAL C: `func_L01_004F2090` (34,592 bytes, in 20 levels), `func_L19_004E5D40` (29,240), `func_L02_004C6CD0` (27,088), `func_L23_004DF5A8` (19,688) and `func_L19_004EECE0` (16,864). The PAL C's 50 Hz timing becomes NTSC-U's: the `(x*5+2)/6` rescales are dropped and hundreds of frame counts, per-frame rates and dampings take their 60 Hz values, each read from the NTSC-U code. Each keeps its PAL file's flags line and names its PAL source in its header;\n- **three NTSC-U-only functions** written from the NTSC-U assembly: `func_L01_003AC950`, `func_L24_0035A0C8` and `func_L30_003B1FD0`, each with its neighbours' flags.\n\nThe eight rows are under their own NTSC-U names; none is a PAL c",
+      "mergedAt": "2026-11-13T15:15:03Z"
+     }
+    ],
+    "opened": [
+     {
+      "number": 47,
+      "title": "feat(us): carry 123 PAL level matches to their NTSC-U counterparts",
+      "author": "llesieur99",
+      "untrustedBody": "## Functions\n\n123 NTSC-U level functions of the single-player levels in `src/us/levels/`, each the NTSC-U counterpart of a PAL level function already matched in C (`config/us/map.tsv` rows with status `differs`: the PAL C does not reproduce the NTSC-U bytes as it is). All plain C with their PAL file's flags (`config/us/text_parts.txt`); each file's header names the PAL source it comes from.\n\n- 50 Hz → 60 Hz constants: frame counts and rates (`25` → `30`, `5` → `6`, `100` → `120`, per-frame floats ×5/6)\n- addresses: the names are read from the NTSC-U bytes and written as NTSC-U's (level data `D_LNN_XXXXXXXX`, the resident core below `0x1D5680` plainly, functions by their NTSC-U catalogue names, `$gp` slots as `D_XXXXXXXX_sda` at their NTSC-U offset)\n- one program links `src/levels/`'s PAL-named C and these NTSC-U-named files, and a name gets one value per program: where the PAL C uses one of a file's names for another place, or a level calls another copy than the catalogue's place, the ",
+      "mergedAt": "2026-11-13T05:07:20Z"
+     },
+     {
+      "number": 48,
+      "title": "chore: require LF line endings in new and changed files",
+      "author": "llesieur99",
+      "untrustedBody": "## Functions\n\nNone: a repository rule. Text files are committed and checked out with LF line endings.\n\n- `.gitattributes`: `* text=auto eol=lf` (the `*.patch` rule stays)\n- `AGENTS.md`, Rules: LF in every text file you write or change, and how to write LF on Windows\n- `tests/check_repository.py`, check 7: a CRLF working copy of a file git has with LF, or a new CRLF file under the source folders, is reported\n\nWhy: `tools/version_map.py` hashes a source file's bytes into `config/us/map.tsv`, so a CRLF working copy of a file git stores with LF gives a hash that matches that checkout and no other. It happened while preparing #47 (two new files written with CRLF on Windows).\n\n## Checks\n\n- [x] `python tests/check_repository.py` passes; `python -m unittest discover -s tests` passes\n- [x] The new check reports a tracked LF file rewritten with CRLF and a new CRLF file, and nothing on a clean tree\n- [x] No file changes line endings: the 2,296 files committed with CRLF stay as they are (git leave",
+      "mergedAt": "2026-11-13T05:28:22Z"
+     },
+     {
+      "number": 49,
+      "title": "fix(tools): write tracked files with LF on Windows",
+      "author": "llesieur99",
+      "untrustedBody": "## Functions\n\nNone: tools only. Follow-up to #48 (LF line endings).\n\n- `tools/gen_bytematch_names.py`, `tools/names.py`, `tools/us_names.py`, `tools/migrate_jtbls.py`, `tools/reconcile.py`, `tools/fix_quadword_ops.py`, `tools/fix_reg_names.py`, `tools/fix_short_loops.py`: write the tracked files they produce with LF (`newline=\"\\n\"`); on Windows they wrote CRLF\n- `tests/check_repository.py`: the hint for a CRLF working copy now says to delete the file before `git checkout -- FILE` (a plain checkout leaves a file git sees as unchanged in place)\n\nFound while landing the open PRs: `gen_bytematch_names.py` run on its own wrote `include/bytematch_names.h` with CRLF, and check 7 caught it. `tools/progress.py`, `tools/version_map.py`, `tools/level_tree.py` and `tools/resolve_symbols.py` already write LF. Writes to `build/`, `asm/` and temporary files are unchanged.\n\n## Checks\n\n- [x] `python tests/check_repository.py` passes; `python -m unittest discover -s tests` passes\n- [x] `tools/gen_bytema",
+      "mergedAt": "2026-11-13T05:56:31Z"
+     },
+     {
+      "number": 50,
+      "title": "fix(tools): keep asm/us/ when setup_asm.py clears frontbin's asm/",
+      "author": "llesieur99",
+      "untrustedBody": "## Functions\n\nNone: one tool fix.\n\n- `tools/setup_asm.py`: `asm_paths()` leaves the other versions' assembly folders (`asm/us/`, `tools/version.py`) out of what it clears, as it already does for the other targets' folders\n\n`setup_asm.py --target frontbin` (or `--target all`) clears frontbin's `asm/` before splat writes it again. `asm/us/` (the NTSC-U assembly that `tools/asm_build.py --version us` writes) sits inside it but is no target's folder, so it was deleted, and the next NTSC-U build had to regenerate it.\n\n## Checks\n\n- [x] `python tests/check_repository.py` passes; `python -m unittest discover -s tests` passes\n- [x] With a scratch `asm/` holding `us/`, `boot_elf/`, `nonmatchings/` and a loose `.s`: master's `asm_paths(frontbin)` lists `asm/us` among the paths to clear; this one lists only `asm/nonmatchings` and the loose file\n- [x] No retail or generated files in the diff\n\n## Notes\n\nNo change for the PAL targets' own folders.\n\n🤖 Generated with [Claude Code](https://claude.com/cl",
+      "mergedAt": "2026-11-13T06:43:27Z"
+     },
+     {
+      "number": 51,
+      "title": "feat(levels): port 7 shared level functions matched in rac2-decomp and rac4-decomp",
+      "author": "farfeduc",
+      "untrustedBody": "## Functions\n\nSeven shared level functions whose code is already matched in rac2-decomp or rac4-decomp. The C is theirs, renamed to this catalogue's names, and each block says which function it comes from. Claimed in #3.\n\n- `func_L01_00415A58`: rac2-decomp's `func_00285548`; its file now needs `@ps2as`\n- `func_L01_00438EA0`: rac2-decomp's `func_L00_00310048`; its file now needs `@ps2as`\n- `func_L01_004B1160`: rac2-decomp's `func_002EEE50`, plain C (its file already had `@ps2as`)\n- `func_L07_004522E8`: rac2-decomp's `func_L06_003660F0`; its file now needs `@ps2as`\n- `func_L39_00578DB8`: rac4-decomp's `func_0043A470`; its file now needs `@ps2as`\n- `func_L39_0063A1E8`: rac4-decomp's `func_0051FD70`, plain C (its file already had `@ps2as`)\n- `func_L40_0041B040`: rac4-decomp's `func_L41_00411728`, plain C\n\n## Checks\n\n- [x] `python3 tests/check_repository.py`: \"repository checks passed\"; `python3 -m unittest discover -s tests`: 52 tests OK\n- [x] Full build on master 92a6235: `tools/build.py ",
+      "mergedAt": "2026-11-13T06:50:06Z"
+     },
+     {
+      "number": 52,
+      "title": "feat(us): 123 single-player NTSC-U level functions in C",
+      "author": "llesieur99",
+      "untrustedBody": "## Functions\n\n123 NTSC-U level functions of the single-player levels in `src/us/levels/` (407,308 bytes of code), all plain C:\n\n- **101 NTSC-U counterparts** of PAL level functions already matched in C whose NTSC-U bytes differ: 17 ported from their PAL C as in #47 and 84 finished by hand from the PAL C. Each keeps its PAL file's flags line (`config/us/text_parts.txt`) and names its PAL source in its header.\n- **22 NTSC-U-only functions** (no PAL counterpart), written from the NTSC-U assembly, each with the flags of the code around it (its neighbours' PAL files; where the two sides differ, the side it matches with).\n- 15 are 8 KB and up, among them the hero state dispatchers of the vidcomic and Clank levels (`func_L30_004C05F8`, 37,656 bytes; `func_L30_004D34B0`; `func_L23_004E6F00`) and `func_L01_00503B68`.\n\nNames as in #47: level data `D_LNN_XXXXXXXX`, the resident core plainly, functions by their NTSC-U catalogue names, `$gp` slots as `D_XXXXXXXX_sda`, and an alias `<name>_<this add",
+      "mergedAt": "2026-11-13T09:02:34Z"
+     },
+     {
+      "number": 53,
+      "title": "feat(us): 223 multiplayer-level NTSC-U functions in C",
+      "author": "llesieur99",
+      "untrustedBody": "## Functions\n\n223 NTSC-U level functions with a place in the multiplayer levels (39 to 55; 7 of them also in single-player levels) in `src/us/levels/` (89,044 bytes of code), all plain C:\n\n- **161 NTSC-U counterparts** of PAL level functions already matched in C whose NTSC-U bytes differ: 137 ported from their PAL C as in #47 (including the 127 multiplayer ones #47 held back) and 24 finished by hand from the PAL C. Each keeps its PAL file's flags line as master has it now (after the latest cuts of the level 39 to 53 files) and names its PAL source in its header.\n- **62 NTSC-U-only functions** (no PAL counterpart), written from the NTSC-U assembly, each with the flags of the code around it (its neighbours' PAL files; where the two sides differ, the side it matches with).\n\nNames as in #47 and #52, with the multiplayer levels' own `$gp` slots and an alias `<name>_<this address>` where the PAL C linked in the same program uses a name for another place. Every file was checked again against ",
+      "mergedAt": "2026-11-13T09:58:16Z"
+     },
+     {
+      "number": 54,
+      "title": "fix(tools): keep case labels when porting PAL constants to NTSC-U",
+      "author": "llesieur99",
+      "untrustedBody": "## Functions\n\nNone: one tool fix and its tests.\n\n- `tools/us_port.py`: `substitute_all()` offers first the candidate that keeps the `case N:` labels as PAL wrote them, then the earlier candidates\n- `tests/test_us_port.py`: three tests for it\n\nA PAL → NTSC-U constant pair found in the code (a frame count, `0x7E` → `0x97`, 126 → 151) can also be a `case` value (a state number). The first candidate used to replace every occurrence, and a switch compiled to a jump table has the same `.text` whichever case a label names, so it checked MATCH with two jump-table entries swapped. Only the level build showed it: the `.data` of levels 23 and 30 to 36 for `func_L23_004E6F00` and `func_L30_004D34B0`, fixed by hand in #52. The other candidates still follow, for a switch compiled to compares, where the label's value is in the code; a constant written only in a label is still replaced.\n\n## Checks\n\n- [x] `python tests/check_repository.py` passes; `python -m unittest discover -s tests` passes (3 new te",
+      "mergedAt": "2026-11-13T10:03:41Z"
+     },
+     {
+      "number": 55,
+      "title": "feat(levels): match 188 functions in the shared level code (L01/L03/L04/L05 files) and levels 04, 19 and 31",
+      "author": "TheBoso",
+      "untrustedBody": "One PR of batch commits, to keep master's history clean: 12 commits of 10–20 newly matched functions each, grouped by file area. 188 functions in all, all plain C: the shared level code (L01/L03/L04/L05 files); levels 04 (Marcadia), 19 (Thran Asteroid Belt), 31 (Vid-comic 1).\n\n## Commits\n\n| # | Commit | New functions |\n|---|---|---|\n| 1 | `bcfe136a` feat(levels): match 14 functions in the shared level code (L01 files) | 14 |\n| 2 | `3c90de7e` feat(levels): match 17 functions in the shared level code (L01 files) | 17 |\n| 3 | `91954e0c` feat(levels): match 17 functions in the shared level code (L03 files) | 17 |\n| 4 | `b796b434` feat(levels): match 11 functions in the shared level code (L03/L04 files) | 11 |\n| 5 | `9c4ddf0c` feat(levels): match 15 functions in the shared level code (L04 files) | 15 |\n| 6 | `f302f61c` feat(levels): match 14 functions in the shared level code (L04 files) | 14 |\n| 7 | `63e10248` feat(levels): match 12 functions in the shared level code (L04 files) | 12 |\n| 8"
+     },
+     {
+      "number": 56,
+      "title": "feat(levels): match 188 functions in the shared level code (L01/L03/L04/L05 files) and levels 04, 19 and 31",
+      "author": "TheBoso",
+      "untrustedBody": "Replaces #55 with one PR of batch commits, to keep master's history clean: 12 commits of 10–20 newly matched functions each, grouped by file area. 188 functions in all, all plain C: the shared level code (L01/L03/L04/L05 files); levels 04 (Marcadia), 19 (Thran Asteroid Belt), 31 (Vid-comic 1).\n\n## Commits\n\n| # | Commit | New functions |\n|---|---|---|\n| 1 | `468ca10f` feat(levels): match 14 functions in the shared level code (L01 files) | 14 |\n| 2 | `c9267f47` feat(levels): match 17 functions in the shared level code (L01 files) | 17 |\n| 3 | `dea649fe` feat(levels): match 17 functions in the shared level code (L03 files) | 17 |\n| 4 | `c18d709a` feat(levels): match 11 functions in the shared level code (L03/L04 files) | 11 |\n| 5 | `af8b9696` feat(levels): match 15 functions in the shared level code (L04 files) | 15 |\n| 6 | `78c26dea` feat(levels): match 14 functions in the shared level code (L04 files) | 14 |\n| 7 | `f8a8d825` feat(levels): match 12 functions in the shared level code (L04",
+      "mergedAt": "2026-11-13T16:03:32Z"
+     },
+     {
+      "number": 57,
+      "title": "feat(us): five NTSC-U hero state machines and three small functions in C",
+      "author": "llesieur99",
+      "untrustedBody": "## Functions\n\nEight NTSC-U level functions in `src/us/levels/` (128,212 bytes of code), all plain C. Each needed only its `config/levels/divs_nops.txt` row (the nops retail has before each `div.s`/`sqrt.s`), which #52 and #53 did not carry:\n\n- **five hero per-frame state machines**, NTSC-U counterparts of matched PAL C: `func_L01_004F2090` (34,592 bytes, in 20 levels), `func_L19_004E5D40` (29,240), `func_L02_004C6CD0` (27,088), `func_L23_004DF5A8` (19,688) and `func_L19_004EECE0` (16,864). The PAL C's 50 Hz timing becomes NTSC-U's: the `(x*5+2)/6` rescales are dropped and hundreds of frame counts, per-frame rates and dampings take their 60 Hz values, each read from the NTSC-U code. Each keeps its PAL file's flags line and names its PAL source in its header;\n- **three NTSC-U-only functions** written from the NTSC-U assembly: `func_L01_003AC950`, `func_L24_0035A0C8` and `func_L30_003B1FD0`, each with its neighbours' flags.\n\nThe eight rows are under their own NTSC-U names; none is a PAL c",
+      "mergedAt": "2026-11-13T15:15:03Z"
+     },
+     {
+      "number": 58,
+      "title": "feat(levels): match 13 functions in the shared level code (L01/L03/L04/L05 files) and levels 18 and 19",
+      "author": "TheBoso",
+      "untrustedBody": "One PR of batch commits, to keep master's history clean: 1 commits of 10–20 newly matched functions each, grouped by file area. 13 functions in all, all plain C: the shared level code (L01/L03/L04/L05 files); levels 18 (Aridia), 19 (Thran Asteroid Belt).\n\n## Commits\n\n| # | Commit | New functions |\n|---|---|---|\n| 1 | `4a1c05ae` feat(levels): match 13 functions in levels 18 (Aridia) and 19 (Thran Asteroid Belt) and the shared level code (L01/L03/L04/L05 files) | 13 |\n\n## Functions\n\n<details>\n<summary>Every function the PR turns into C or moves, by file (13)</summary>\n\n`src/levels/18_aridia/L18_00436E90.c`:\n- `func_L18_00436E90`: plain C (file built with `@ps2as`)\n`src/levels/19_thran_asteroid_belt/L19_003AFB40.c`:\n- `func_L19_003B1730`: plain C (file built with `@ps2as`)\n`src/levels/19_thran_asteroid_belt/L19_003D26C0.c`:\n- `func_L19_003D2DD8`: plain C (file built with `@ps2as` and `-mvu0-use-vf0-vf2`)\n`src/levels/shared/L01_00415D40.c`:\n- `func_L01_00415DD8`: plain C (file built with `"
+     },
+     {
+      "number": 59,
+      "title": "feat(levels): match 13 more functions in level 23",
+      "author": "xx255q",
+      "untrustedBody": "Matches 13 more level 23 functions in plain C (7,064 bytes):\n\n- func_L23_003B98A8 (152 bytes): `L23_003B94C8.c`\n- func_L23_003A77F0 (276 bytes): `L23_003A6688.c`\n- func_L23_003A6A60 (308 bytes): `L23_003A6688.c`\n- func_L23_003B5628 (308 bytes): `L23_003B3BB8.c`\n- func_L23_003BB5A8 (344 bytes): `L23_003B94C8.c`\n- func_L23_003986C8 (448 bytes): `L23_003986C8.c`\n- func_L23_003B6AD0 (448 bytes): `L23_003B3BB8.c`\n- func_L23_003B0200 (636 bytes): `L23_003AD800.c`\n- func_L23_003BB150 (960 bytes): `L23_003B94C8.c`\n- func_L23_003B3EA8 (608 bytes): `L23_003B3BB8.c`\n- func_L23_003B67B0 (480 bytes): `L23_003B3BB8.c`\n- func_L23_003B34F8 (1040 bytes): `L23_003AD800.c`\n- func_L23_003A4008 (1056 bytes): `L23_003A4008.c`\n\nConfig and file changes\n- `L23_003986C8.c` gets `@ps2as`: func_L23_003986C8 is the same source as func_L22_003BC778, whose file has it. The file is converted to LF.\n- `L23_003B3BB8.c` gets `-mvu0-use-vf0-vf2` (func_L23_003B3EA8 and func_L23_003B67B0 use the vu0.h vector helpers); ever"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": {
+    "before": {
+     "code": {
+      "done": 1905200,
+      "total": 7546948
+     },
+     "functions": {
+      "done": 8487,
+      "total": 16164
+     }
+    },
+    "after": {
+     "code": {
+      "done": 2518456,
+      "total": 7546948
+     },
+     "functions": {
+      "done": 9818,
+      "total": 16164
+     }
+    }
+   },
+   "contributors": [
+    "bigbeno37",
+    "cadelass",
+    "farfeduc",
+    "llesieur99",
+    "TheBoso",
+    "xx255q"
+   ]
+  },
+  {
+   "repo": "rac4-decomp",
+   "title": "Ratchet: Deadlocked",
+   "branches": [
+    {
+     "name": "main",
+     "commits": []
+    }
+   ],
+   "commitCount": 0,
+   "pullRequests": {
+    "merged": [],
+    "opened": [
+     {
+      "number": 149,
+      "title": "Match 24 US net functions never tried before",
+      "author": "farfeduc",
+      "untrustedBody": "24 small US `net.text` functions that `config/us/inventory.tsv` cuts as their own starts and that no earlier round attempted. Each was written from retail's code:\n\n| Functions | Profile | Notes |\n| --- | --- | --- |\n| func_01E9BCE8, func_01EA0668, func_01EA06A8, func_01EA7248, func_01EA8E80, func_01EA90F0, func_01EA9850, func_01EA9950, func_01EAB228, func_01EAB2C0, func_01EAB310, func_01EC26C8, func_01EC27F8, func_01ED9310, func_01EDA3C0, func_01EEBE54, func_01EEEDA0 | `@ee296 -O2 -G0` | |\n| func_01EA0728, func_01EC2228 | `@ee296 -O2 -G0` | the callee takes an 8-byte struct by value |\n| func_01EC22E0 | `@ee296 -O2 -G0 -fno-optimize-sibling-calls` | retail calls with `jal` where a tail call was possible |\n| func_01EF697C | `@ee296 -O2 -G0 -mno-split-addresses` | |\n| func_01EC4DF0 | `@ee32-040921 -O2 -G0` | takes the address of its own argument |\n| func_01EC52E0, func_01EC6728 | `@ee32-040921 -O2 -G0` | |\n\nfunc_01EEEDA0 now comes from its US source on PAL too (100% on both), so `src/pal/"
+     },
+     {
+      "number": 150,
+      "title": "Match 18 more never-tried US functions (3 core, 15 net)",
+      "author": "farfeduc",
+      "untrustedBody": "Second round on US functions that `config/us/inventory.tsv` cuts as their own starts and that no earlier round attempted (first round: #149). 18 functions, 3 in `core.text` and 15 in `net.text`:\n\n| Functions | Profile | Notes |\n| --- | --- | --- |\n| func_00154B58, func_01E9C3F0, func_01E9DDD0, func_01EA48D8, func_01EA5760, func_01EA98C0, func_01EA9F90, func_01EAB610, func_01EABE78, func_01EDB3E0, func_01EFC7B4 | `@ee296 -O2 -G0` | func_01EDB3E0 returns a 24-byte struct built from six arguments, func_01EA48D8 an 8-byte struct |\n| func_01EF3CF0 | `@ee296 -O2 -G0 -fno-optimize-sibling-calls -mno-split-addresses` | |\n| func_01EACB98 | `@ee296 -O2 -G0 -fno-optimize-sibling-calls` | |\n| func_00155BF0 | `@ee29 -O2 -G0` | |\n| func_0015F3F0 | default | |\n| func_01E9E838, func_01EA7538, func_01EA95C0 | `@ee296 -O2 -G0 -falign-jumps=1` | m2c drafts; func_01EA7538's `#define` aliases replaced by plain externs |\n\nThe `nonmatching/` drafts of func_0015F3F0, func_01E9DDD0, func_01E9E838, func_01EA95C"
+     },
+     {
+      "number": 151,
+      "title": "Match six PAL core, network and overlay functions",
+      "author": "Sumaiter",
+      "untrustedBody": "Add six PAL (`SCES_532.85`) functions: network configuration copy/defaults, menu flag selection, extension bone-mode updates, nearest-value selection, and two context readers.\r\n\r\n| Function | Bytes | PAL placements |\r\n| --- | ---: | ---: |\r\n| `func_01EED628` | 384 | 1 |\r\n| `func_L00_005083B0` | 200 | 1 |\r\n| `func_L01_0045CE10` | 216 | 12 |\r\n| `func_001486F8` | 152 | 1 |\r\n| `func_L01_005A93D8` | 216 | 12 |\r\n| `func_L01_005A9868` | 68 | 12 |\r\n\r\nThe six definitions add 1,236 distinct code bytes and cover 39 physical placements (6,736 bytes). Their C was reviewed against complete native function windows, including parameter/return ABI, initialization, access widths and ordering, data ownership, and actual call/global relocation targets in every PAL placement. No new data definitions or compiler-pipeline changes are included.\r\n\r\nValidation:\r\n- Complete `tools/build.sh` build of all 8,986 non-library C translation units.\r\n- Canonical source/object bindings and all 39 PAL byte and actual relo"
+     },
+     {
+      "number": 152,
+      "title": "Match 50 more never-tried US functions (17 core, 33 net)",
+      "author": "farfeduc",
+      "untrustedBody": "Third round on US functions that `config/us/inventory.tsv` cuts as their own starts and that no earlier round attempted (after #149 and #150). 50 functions, 17 in `core.text` and 33 in `net.text`. Most come in families: functions with the same instruction sequence, so one solved member gives the others.\n\n| Functions | Profile | How |\n| --- | --- | --- |\n| func_01E9A0F0, func_01E9ACF8, func_01EA8A50, func_01EB5A88, func_01EB5BC8, func_01EB5D90, func_01EC1438, func_01EDDD30, func_01EE03B8, func_01EFD418 | `@ee296 -O2 -G0` | written from retail's code |\n| 22 object factories: func_01EF63F0, func_01EF6B68, func_01EF7248, func_01EF7E60, func_01EF7FD0, func_01EF8BB4, func_01EFB650, func_01EFD564, func_01EFDD84, func_01EFE658, func_01EFF908, func_01F0015C, func_01F003CC, func_01F034A8, func_01F0371C, func_01F03BF8, func_01F03FA4, func_01F04AE8, func_01F06474, func_01F065D4, func_01F0B9A0, func_01F0C308 | `@ee296 -O2 -G0 -mno-split-addresses` | assert the arguments (`func_01F0C090`), allocate "
+     },
+     {
+      "number": 153,
+      "title": "Match 43 more never-tried US net functions",
+      "author": "farfeduc",
+      "untrustedBody": "Fourth round on US functions that `config/us/inventory.tsv` cuts as their own starts and that no earlier round attempted (after #149, #150 and #152). 43 functions, all in `net.text`.\n\nMost of them build with `@ee296 -Os -G0 -mno-split-addresses`, a profile some files of the repo already use but that my earlier sweeps never tried. With `-O2` these functions came out a register or two off.\n\n| Functions | Profile | How |\n| --- | --- | --- |\n| 29 singleton releases: func_01EF2C58, func_01EF608C, func_01EF64B4, func_01EF6ACC, func_01EF6C2C, func_01EF730C, func_01EF7F34, func_01EF8094, func_01EF8C78, func_01EFB724, func_01EFCD18, func_01EFD638, func_01EFDE58, func_01EFE72C, func_01EFF9D4, func_01F00230, func_01F00490, func_01F03574, func_01F037E0, func_01F03CCC, func_01F04068, func_01F04BB4, func_01F06538, func_01F06698, func_01F07D18, func_01F0A6D4, func_01F0BA64, func_01F0BBBC, func_01F0C3D4 | `@ee296 -Os -G0 -mno-split-addresses` | if the global object is set, call its vtable slot 8 with "
+     },
+     {
+      "number": 154,
+      "title": "Add PAL C for 12 PAL-only functions; fix initial values in three files from #139",
+      "author": "chistianh",
+      "untrustedBody": "12 PAL-only functions, one commit each, all reserved in #112 (my comment there), and one fix to three of my files from #139.\r\n\r\n| PAL | Where | Size |\r\n|---|---|---|\r\n| func_L01_004F4050 | `src/pal/overlays/shared/` | 120 |\r\n| func_L00_0076D250 | `src/pal/overlays/l00_multiplayer_menu/` | 404 |\r\n| func_L00_0076D7B8 | `src/pal/overlays/l00_multiplayer_menu/` | 404 |\r\n| func_L00_0076E108 | `src/pal/overlays/l00_multiplayer_menu/` | 404 |\r\n| func_L00_0076E450 | `src/pal/overlays/l00_multiplayer_menu/` | 408 |\r\n| func_L00_0076DD30 | `src/pal/overlays/l00_multiplayer_menu/` | 412 |\r\n| func_L00_0076CEB0 | `src/pal/overlays/l00_multiplayer_menu/` | 420 |\r\n| func_L00_0076D5E8 | `src/pal/overlays/l00_multiplayer_menu/` | 428 |\r\n| func_L00_0076D970 | `src/pal/overlays/l00_multiplayer_menu/` | 436 |\r\n| func_L00_0076D408 | `src/pal/overlays/l00_multiplayer_menu/` | 448 |\r\n| func_L00_0076DB48 | `src/pal/overlays/l00_multiplayer_menu/` | 452 |\r\n| func_L01_003EED90 | `src/pal/overlays/shared/` | 560 "
+     },
+     {
+      "number": 155,
+      "title": "Match 9 more US functions (2 game, 7 net)",
+      "author": "farfeduc",
+      "untrustedBody": "Fifth round: near misses from earlier rounds and functions no round had attempted. 9 US functions, 2 in `.text` and 7 in `net.text`.\n\n| Function | Profile | How |\n| --- | --- | --- |\n| func_01EABF38 | `@ee296 -O2 -G0 -mno-split-addresses` | the first test is inverted (`if (*arg0 == NULL) { ... } return 0xDAC5;`), which gives retail's `bnel` |\n| func_01EF6228 | `@ee296 -Os -G0 -mno-split-addresses` | the same code as func_01EFEA48 (#153), with its own file and lines |\n| func_01EEBDD4, func_01F0C090 | `@ee296 -Os -G0 -mno-split-addresses` | older drafts that match with `-Os`; func_01F0C090 is the assert handler that the net code calls with a file name and a line |\n| func_01EF3D40, func_01F040B0 | `@ee296 -Os -G0 -fno-optimize-sibling-calls -mno-split-addresses` | older drafts that match with this profile |\n| func_01EF3C70 | `@ee296 -O2 -G0 -fno-schedule-insns -mno-split-addresses` | allocate 0x18 bytes and copy a 24-byte struct into them |\n| func_00405D38 | `@ee296 -O2 -G0` | the same co"
+     },
+     {
+      "number": 156,
+      "title": "Match 18 more US functions (8 net, 2 game, 8 overlays)",
+      "author": "GarfTornion",
+      "untrustedBody": "## What\n\nEighteen functions from the batch-61 reservation ([#112](https://github.com/OpenRAC/rac4-decomp/issues/112) comment 6704251527), all on the US disc (SCUS_974.65): 8 network text, 2 resident game text, 8 level overlays. 2,068 bytes of retail code, none of it matched before.\n\n- net: `func_01E9ACB0` 72, `func_01EAB3C0` 88, `func_01ED5A28` 100, `func_01ED17A8` 112, `func_01EB5B08` 128, `func_01EFCC48` 140, `func_01ECD2D0` 148, `func_01F0C668` 184\n- game: `func_003FB4E0` 80, `func_004C6868` 168\n- overlays: `func_L00_00519B40` 40, `func_L00_00774A98` 72, `func_L00_0073FB98` 80, `func_L00_00540F30` 100, `func_L00_00711FA0` 112, `func_L01_005A0DC0` 128, `func_L00_00538478` 140, `func_L00_00741990` 176\n\nThree commits: the matches, the reservation's remaining bodies staged under `nonmatching/` with their verdict lines, and one regeneration commit that records those near misses in the maps and reports (they were absent, so `progress.py --check` was red on this branch until that commit).\n"
+     },
+     {
+      "number": 157,
+      "title": "Match 18 US net functions of 88 to 240 bytes",
+      "author": "farfeduc",
+      "untrustedBody": "Sixth round: medium-sized `net.text` functions (88 to 240 bytes) that no earlier round attempted, written by hand from retail's code. 18 US functions.\n\n| Functions | Profile | What they do |\n| --- | --- | --- |\n| func_01EE6EE0, func_01EE6F78 | `@ee296 -O2 -G0 -mno-split-addresses` | assert, build a 16-byte local object, pass it to func_01EE7098, destroy it (`dtor(&obj, 2)`); same code, other constructor, destructor and line |\n| func_01E9BD30, func_01E9BE70 | `@ee296 -O2 -G0 -mno-split-addresses` | fill three fields, then three chained calls with early returns; same code, other request id |\n| func_01E9A000, func_01E9A4A0 | `@ee296 -O2 -G0` | load an IOP module, then bind its RPC server until it answers; same code, other module, server id and globals |\n| func_01EFDA50, func_01EFE2A4 | `@ee296 -O2 -G0 -mno-split-addresses` | two asserts, then a 17-argument virtual call (five floats, four stack arguments); same code, other vtable slot and lines |\n| func_01EFCD54 | `@ee296 -O2 -G0 -mno-spli"
+     },
+     {
+      "number": 158,
+      "title": "Pal oficial 19",
+      "author": "chistianh",
+      "untrustedBody": "7 PAL-only functions, one commit each, all reserved in #112 (my comment there).\n\n| PAL | Where | Size |\n|---|---|---|\n| func_L00_00774F28 | `src/pal/overlays/l00_multiplayer_menu/` | 400 |\n| func_L00_00774AA0 | `src/pal/overlays/l00_multiplayer_menu/` | 420 |\n| func_L00_0077E978 | `src/pal/overlays/l00_multiplayer_menu/` | 436 |\n| func_L00_0076AC00 | `src/pal/overlays/l00_multiplayer_menu/` | 440 |\n| func_L00_00773AF8 | `src/pal/overlays/l00_multiplayer_menu/` | 444 |\n| func_L00_005CC040 | `src/pal/overlays/shared/` | 488 |\n| func_L00_0076A2C0 | `src/pal/overlays/l00_multiplayer_menu/` | 488 |\n\nChecks: every file in `src/pal/` MATCHES with `tools/check_func.py --version pal`, checked with `src/pal/` set aside, except files that fail in my checker only: `L15_004D8550.c`, `L01_00496500.c`, `L01_004AC708.c`, `core/0012C680.c`, and the `@ee296` files (a compiler I do not have installed). The branch is based on `main` (1242ee13). `config/` and the reports are not regenerated. The C is plain"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": null,
+   "contributors": [
+    "chistianh",
+    "farfeduc",
+    "GarfTornion",
+    "Sumaiter"
+   ]
+  },
+  {
+   "repo": "openrac-mods",
+   "title": "OpenRAC mods",
+   "branches": [
+    {
+     "name": "master",
+     "commits": [
+      {
+       "sha": "8038f3913aaa49400a87d73d40acdda9dd6829f9",
+       "title": "chore(index): approve gadget-quick-use 1.0.1",
+       "author": "openrac-bot[bot]",
+       "date": "2026-11-13T08:43:17Z"
+      }
+     ]
+    }
+   ],
+   "commitCount": 1,
+   "pullRequests": {
+    "merged": [],
+    "opened": []
+   },
+   "issues": {
+    "opened": [
+     {
+      "number": 186,
+      "title": "Review gadget-quick-use 1.0.1",
+      "author": "openrac-bot[bot]"
+     }
+    ],
+    "closed": [
+     {
+      "number": 186,
+      "title": "Review gadget-quick-use 1.0.1",
+      "author": "openrac-bot[bot]"
+     }
+    ]
+   },
+   "releases": [],
+   "progress": null,
+   "contributors": []
+  }
+ ]
+}

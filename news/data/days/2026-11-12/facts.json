@@ -1,0 +1,1598 @@
+{
+ "format": 1,
+ "date": "2026-11-12",
+ "totals": {
+  "commits": 84,
+  "pullRequestsMerged": 45,
+  "pullRequestsOpened": 58,
+  "contributors": 12
+ },
+ "projects": [
+  {
+   "repo": "OpenRAC",
+   "title": "OpenRAC launcher",
+   "branches": [
+    {
+     "name": "develop",
+     "commits": [
+      {
+       "sha": "821e9750428cdf486e88a2dd01aacde93a1bd2c9",
+       "title": "fix(port): the stick moving the cursor no longer steps a pause row (#488)",
+       "author": "Lynder063",
+       "date": "2026-11-12T22:53:07Z"
+      },
+      {
+       "sha": "6416b23f9280a78e40ae5b14c2d33aec6db26760",
+       "title": "perf(enhanced): faster Enhanced graphics on handhelds, presets and effects detail (#453)",
+       "author": "nickyyOO",
+       "date": "2026-11-12T22:37:16Z"
+      },
+      {
+       "sha": "b5350e76dd7332b02778832dfd51ab8b28d1f94a",
+       "title": "fix(mods): clear play watchers before unloading a refused mod (#482)",
+       "author": "Lynder063",
+       "date": "2026-11-12T22:05:13Z"
+      },
+      {
+       "sha": "9c9cc53ee0421cf787ca9fa11736036746eda785",
+       "title": "build(port): include <chrono> where mods.cpp reads the steady clock (#458)",
+       "author": "farfeduc",
+       "date": "2026-11-12T21:45:46Z"
+      },
+      {
+       "sha": "70872c21f42465308203306db83d3031939f0762",
+       "title": "fix(launcher): save reports to the desktop's own Downloads folder on Linux (#483)",
+       "author": "Lynder063",
+       "date": "2026-11-12T21:45:42Z"
+      },
+      {
+       "sha": "fbc890287d0bf1b00b95b1f92040fd4f8f4f843f",
+       "title": "feat(launcher): rac2 save editor level progress and mod fields on the weapon rows (#485)",
+       "author": "Veradictus",
+       "date": "2026-11-12T20:47:19Z"
+      },
+      {
+       "sha": "3c3471a03da78f9a43cabc5492386215a64334d0",
+       "title": "fix(rac1): move Aridia counters with HUD Edges (#481)",
+       "author": "llesieur99",
+       "date": "2026-11-12T20:36:32Z"
+      },
+      {
+       "sha": "15948c0c8e5e8226c0b9589b97be46dd8eeb8916",
+       "title": "feat(sdk): expose RAC1 unspent gold bolt accounting to mods (#444)",
+       "author": "SavedbyBlood9",
+       "date": "2026-11-12T20:30:18Z"
+      },
+      {
+       "sha": "80b58552d8bf14fb98eda63a6c49477a0ae352bf",
+       "title": "fix: takeoff crash with a full moby pool, launcher Copy report on Linux (#477)",
+       "author": "Lynder063",
+       "date": "2026-11-12T20:25:32Z"
+      },
+      {
+       "sha": "21c720599a7dc6ea8da73446d3d6d76d39777f36",
+       "title": "feat(hdr): SDR hue, SDR chrominance, highlights and blowout sliders (#480)",
+       "author": "nickyyOO",
+       "date": "2026-11-12T20:19:40Z"
+      },
+      {
+       "sha": "b5153a3bdedfbf07b80e13450f52036b5266e218",
+       "title": "feat(mods): refuse a native library other users can change (#478)",
+       "author": "nickyyOO",
+       "date": "2026-11-12T19:34:32Z"
+      },
+      {
+       "sha": "c381cf6eda6fceed41dc37b2506ad256cd2deff9",
+       "title": "fix(rac3): record decomp pin c73ab8f in game.json (#475)",
+       "author": "nickyyOO",
+       "date": "2026-11-12T10:48:34Z"
+      },
+      {
+       "sha": "1d4f3e5ebcea261b3f7adf26c7386f9e5f821688",
+       "title": "chore(rac3): move the decomp to c73ab8f (8367 of 16164 PAL) (#474)",
+       "author": "Veradictus",
+       "date": "2026-11-12T08:18:56Z"
+      },
+      {
+       "sha": "117cc13fb43a9c4285428fdefdcba50d2184b611",
+       "title": "fix: Suck Cannon tube with HUD Edges, Pokitaru sky at Unlimited draw distance (#473)",
+       "author": "nickyyOO",
+       "date": "2026-11-12T07:51:44Z"
+      },
+      {
+       "sha": "67d1f55db651e08552a4b4fb99f2dd35d811083e",
+       "title": "feat(rac2): vendor hooks, text hook and mod save data in the save editor (#472)",
+       "author": "Veradictus",
+       "date": "2026-11-12T07:41:01Z"
+      },
+      {
+       "sha": "146d75ec7dabc71d2b36950d433c71b1d8a2b8f3",
+       "title": "feat(launcher): incremental builds setting for developers (#471)",
+       "author": "Veradictus",
+       "date": "2026-11-12T07:40:57Z"
+      },
+      {
+       "sha": "01a2f7465cb2d6b6a51a908b659fa4d53c94fc88",
+       "title": "style(port): format the picker's report-folder setter (#470)",
+       "author": "Veradictus",
+       "date": "2026-11-12T06:28:15Z"
+      },
+      {
+       "sha": "8f3571b1c99056d7b09147cbc040a7a2d23cc29a",
+       "title": "fix(port): the click picker writes moby-picker.json in the game's data folder (#469)",
+       "author": "Veradictus",
+       "date": "2026-11-12T06:15:53Z"
+      },
+      {
+       "sha": "6343172159c779aa84721ebcf593251f4e88802b",
+       "title": "chore(import): rac2-decomp be855139, rac3-decomp f2290040 (#468)",
+       "author": "Veradictus",
+       "date": "2026-11-12T06:15:31Z"
+      },
+      {
+       "sha": "6dc9cade8981b9a2605379100e62e75d801a3a9e",
+       "title": "feat(sdk): Going Commando's hook points for NG++ (SDK 1.14.6) (#466)",
+       "author": "Veradictus",
+       "date": "2026-11-12T05:21:38Z"
+      },
+      {
+       "sha": "1ccff3e7d2292c2564c4ff3e7032a88d234520ef",
+       "title": "fix(port): keep far mobys live out to the Draw distance with an Active distance setting (#467)",
+       "author": "Veradictus",
+       "date": "2026-11-12T05:09:34Z"
+      },
+      {
+       "sha": "609490b1cebe31c0feb7fab06b1f1a35966632d7",
+       "title": "fix(tools): explain Windows build environment setup failures (#465)",
+       "author": "pezzadev",
+       "date": "2026-11-12T00:27:30Z"
+      }
+     ]
+    },
+    {
+     "name": "master",
+     "commits": []
+    }
+   ],
+   "commitCount": 22,
+   "pullRequests": {
+    "merged": [
+     {
+      "number": 444,
+      "title": "Expose RAC1 unspent gold bolt accounting to mods",
+      "author": "SavedbyBlood9",
+      "untrustedBody": "Adds `GoldBolts_CountUnspent` (`rac1.gold_bolt.count_unspent`, `i32()`) for PAL v2.00 and NTSC-U. With no mod, the original game's calculation runs unchanged.\n\nArchipelago gold-weapon case randomization must track purchased cases independently of owned gold upgrades. Receiving a shuffled gold weapon must not consume four gold bolts or buy its original case; buying a randomized case must spend four gold bolts even when its reward is something else. Hooking the unspent balance preserves the collected-bolt total and the game's existing prices and affordability checks.\n\nAdds hook rows, the binding and C declaration, and regenerates the stable id lock, C script binding, C++/Luau bindings, launcher alias map and SDK references. NTSC-U 0x00215248 is paired with PAL func_00216098 by the decompilation's US map. The generated script binding has index changes because the explicit hook precedes catalogue hooks; permanent ids and aliases are retained.\n\nValidation: 21 SDK-tool tests passed (9 bindin",
+      "mergedAt": "2026-11-12T20:30:19Z"
+     },
+     {
+      "number": 453,
+      "title": "perf(enhanced): faster Enhanced graphics on handhelds, presets and effects detail",
+      "author": "nickyyOO",
+      "untrustedBody": "**Before**\nEnhanced graphics took about 27.6 ms of GPU a frame on the Odin 3 at preset Low with upscaling, and 16.7 ms at native 1080p (base game: 4.4 to 5.7 ms). Quality options mostly scaled resolution, and phones started on the PC defaults.\n\n**After**\nMeasured on the Odin 3 (Novalis, standing):\n- Upscaling Performance, Low: 27.6 -> about 12.2 ms. Native 1080p, Low, no AA: 16.7 -> 14.2 ms.\n- Mode uniforms become pipeline specialisation constants, so the driver drops the code a mode leaves out (about 4.8 ms).\n- Paths only a few draws need left every world shader: leaf back shadow, fur and wet coat outside Ratchet, cheaper probe light for blended mobys, a lighter early-lighting read.\n- New setting Effects detail, set by the presets. High has no lossy shortcut. Medium and Low allow coarser water, cheaper blended light and far shadows in turns. Low also does early GI on 4x4 cells and one far cascade a frame.\n- Sharper upscaler: ASR quality shaders and a mip bias while the world is drawn ",
+      "mergedAt": "2026-11-12T22:37:17Z"
+     },
+     {
+      "number": 458,
+      "title": "build(port): include <chrono> where mods.cpp reads the steady clock",
+      "author": "farfeduc",
+      "untrustedBody": "`port/game/common/mods.cpp` calls `std::chrono::steady_clock::now()` without including `<chrono>`. With libc++ on Windows (llvm-mingw, clang 23) no other header brings it in, so `openrac_mods` does not build there:\n\n```\nmods.cpp:210:49: error: no member named 'steady_clock' in namespace 'std::chrono'\n```\n\nOne line: `#include <chrono>` beside the other standard headers.\n\n## Verified\n\n- `openrac_mods` and the mod tests (`mod_loader`, `mod_manifest`, `mod_scripts`, `settings`, `mod_ui_menus`, `mod_touch`, `mod_boundary`) build and pass with llvm-mingw (clang 23) on Windows, configured with `cmake --preset release`.\n\n## Not verified\n\n- Not built with MSVC, GCC or Apple clang here (the include is standard and changes nothing where it already built).\n\n#459 and #460 carry this same commit as their first, since they build `mods.cpp`; once this one is in, they rebase to their own commit.\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)",
+      "mergedAt": "2026-11-12T21:45:47Z"
+     },
+     {
+      "number": 465,
+      "title": "fix(tools): explain Windows build environment setup failures",
+      "author": "pezzadev",
+      "untrustedBody": "Windows native builds previously hid vcvars64.bat output and reported only that Visual Studio setup failed. Preserve setup stdout/stderr separately from the UTF-16 environment dump, distinguish setup failures from environment-readback failures and missing INCLUDE, and report the exit code, toolset, SDK and compiler availability. Unrelated environment values are not dumped.\n\nAdd focused regressions for each failure phase, Unicode environment values and real Windows batch success/failure. Run the build-tool tests in the Windows native CI job.\n\nValidation:\n- `python -m unittest discover -s tools -p test_build_port.py -v`: 50 passed, including both real Windows batch tests.\n- `python -m unittest discover -s tools -p test_ci_scope.py`: 19 passed.\n- Loaded the installed Visual Studio environment successfully: MSVC 14.43.34808, Windows SDK 10.0.22621.0.\n- `git diff --check origin/develop...HEAD`: passed.\n- Full local tools discovery: 367 tests, 3 failures, 4 errors, 12 skips. Failures occur i",
+      "mergedAt": "2026-11-12T00:27:31Z"
+     },
+     {
+      "number": 466,
+      "title": "feat(sdk): Going Commando's hook points for NG++ (SDK 1.14.6)",
+      "author": "Veradictus",
+      "untrustedBody": "Six new rac2 hook points on all three discs (ntsc, pal, ntsc2), for the NG++ mod (openrac-mods ng-plus-plus):\n\n- `rac2.weapon.level_up` (Weapon_LevelUp, void(i32)): the step to the next version by experience.\n- `rac2.item.upgrade` (Item_Upgrade, i32(i32)): the vendor's Mega purchase.\n- `rac2.vendor.build_list` (Vendor_BuildList, void(i32)): the vendor's list.\n- `rac2.vendor.price` (Vendor_Price, i32()): the price of the entry under the cursor.\n- `rac2.item.colors` (Item_Colors, void(i32,u32,u32,u32)): an item's tint (quick select, weapons grid).\n- `rac2.combat.post_hit` (Moby_PostHit, void(u32,u32)): a hit posted to a moby, its damage at request +0x1C.\n\nBindings and reference docs regenerated, RAC2_IDENTIFIED.tsv rows, SDK version 1.14.6 (not tagged).",
+      "mergedAt": "2026-11-12T05:21:39Z"
+     },
+     {
+      "number": 467,
+      "title": "fix(port): keep far mobys live out to the Draw distance with an Active distance setting",
+      "author": "Veradictus",
+      "untrustedBody": "Far enemies in Going Commando were drawn out to the Draw distance (400% by default) but the game only updated them out to its own distances, so past the console's range they stood in their spawn poses and froze again on the way out. Most visible on Tabora, but it was every planet.\n\nThe game's active list (func_002A08A0) updates every moby whose MobyProc drawn flag (+0x31) is set. #436 pinned that flag to the console's distances so the simulation stayed retail's; this makes the reach a setting instead:\n\n- **Active distance** (`active_distance`, Graphics next to Draw distance): `match` (default) scales the drawn flag's distance by Draw distance, so whatever the window draws is live and stops where the window stops drawing it (Unlimited: everything in view). `original` keeps the console's distances, as before.\n- The AI's own ranges (sight, aggro, attack) are untouched; only the update/visibility cull is scaled. The Electrolyzer boards keep the game's distance at every setting, as before #",
+      "mergedAt": "2026-11-12T05:09:34Z"
+     },
+     {
+      "number": 468,
+      "title": "chore(import): rac2-decomp be855139, rac3-decomp f2290040",
+      "author": "Veradictus",
+      "untrustedBody": "Moves the rac2 and rac3 pins to their branch tips (rac2 brings #444, #445, #447, #448) and regenerates the port tables each needs:\n\n- rac2-ntsc: derived_names.json from a build at the pin; asm_interface.json and asm_part_exports.def written again with the disc; func_L04_00411298's stale asm signature removed (it has C now).\n- rac2-pal, rac2-ntsc2: release.py, release_carry.py, copycalls.py, then asm_interface.json and asm_part_exports.def. formed_as keeps the committed 0x2621E2 / 0x262262 (#405).\n- rac3-ntsc: release_rac3.py.\n\nAll five game targets (rac2-ntsc/pal/ntsc2, rac3-ntsc/pal) build with ninja -k 0 from a clean decomp checkout.",
+      "mergedAt": "2026-11-12T06:15:32Z"
+     },
+     {
+      "number": 469,
+      "title": "fix(port): the click picker writes moby-picker.json in the game's data folder",
+      "author": "Veradictus",
+      "untrustedBody": "The debug overlay's click picker wrote `moby-picker.json` to the working directory, which can be a decomp checkout. It turned up as an untracked file in games/rac2/decomp. The file now goes in the game's data folder, next to its logs and crashes, and the panel shows the full path.",
+      "mergedAt": "2026-11-12T06:15:53Z"
+     },
+     {
+      "number": 470,
+      "title": "style(port): format the picker's report-folder setter",
+      "author": "Veradictus",
+      "untrustedBody": "Adds a blank line that clang-format 21.1.8 wants after #469's new function. That one line was failing the conventions check on develop.",
+      "mergedAt": "2026-11-12T06:28:16Z"
+     },
+     {
+      "number": 471,
+      "title": "feat(launcher): incremental builds setting for developers",
+      "author": "Veradictus",
+      "untrustedBody": "Adds Settings > Developer tools > \"Incremental builds (for developers)\" (config incrementalBuilds, off by default). With it on, the \"update is ready\" notice on a game built by an older OpenRAC runs port-build (incremental) instead of port-rebuild (from scratch). A build folder with no stamp from build_port.py, or built by another OpenRAC version, is still built from scratch and the notice says why. The manual Rebuild from scratch action is unchanged. Tests: Rust (port_build::Why), front end (updateStep). Not to be merged until tested.",
+      "mergedAt": "2026-11-12T07:40:58Z"
+     },
+     {
+      "number": 472,
+      "title": "feat(rac2): vendor hooks, text hook and mod save data in the save editor",
+      "author": "Veradictus",
+      "untrustedBody": "Hook points for Going Commando's vendor list drawing, item version colour and text lookup (with port-owned text slots for mods), and a generic way for a mod to describe its per-save data so the launcher's save editor can edit it. Used by NG++ 0.1.3.",
+      "mergedAt": "2026-11-12T07:41:01Z"
+     },
+     {
+      "number": 473,
+      "title": "fix: Suck Cannon tube with HUD Edges, Pokitaru sky at Unlimited draw distance",
+      "author": "nickyyOO",
+      "untrustedBody": "Before: with HUD: Edges on a wide screen the Suck Cannon tube looked empty. At Draw distance Unlimited the Pokitaru sky turned cyan. Unlimited went back to 400% after a restart.\n\nAfter: the tube fills, the sky is clear, and Unlimited stays.\n\nHow:\n- 2D fills wholly past the screen edge are no longer pulled to it.\n- Unlimited stops at 4096 units, past any level, so the class 1161 mobys with far-off spheres stay hidden.\n- `draw_distance = 0` is read as Unlimited.\n\nTested: Pokitaru in the container (21:9 + Edges; Unlimited with a full camera turn). ctest settings, moby_fade, moby_view, rac2_moby_view, renderer_gif, renderer_direct, renderer_direct_vulkan.",
+      "mergedAt": "2026-11-12T07:51:45Z"
+     },
+     {
+      "number": 474,
+      "title": "chore(rac3): move the decomp to c73ab8f",
+      "author": "Veradictus",
+      "untrustedBody": "Picks up rac3-decomp #31 and #32 and the progress report: 8367 of 16164 PAL, 7907 of 16222 NTSC-U.",
+      "mergedAt": "2026-11-12T08:18:56Z"
+     },
+     {
+      "number": 475,
+      "title": "fix(rac3): record decomp pin c73ab8f in game.json",
+      "author": "nickyyOO",
+      "untrustedBody": "**Before:** #474 moved the `games/rac3/decomp` submodule to c73ab8f but `games/rac3/game.json` still recorded f229004. The \"Decomp pins\" step (`tools/sources.py check`) failed on develop.\n\n**After:** game.json (tree, NTSC and PAL) records c73ab8f, the pin. c73ab8f is newer than f229004 (same branch).\n\n**How:** `python tools/sources.py update rac3/decomp c73ab8f`, then `python tools/openrac.py tables` (docs/SOURCES.md row).\n\n**Tested:** `sources.py check` and `check --since develop` pass, tables give no diff, `shared.py check` and `unittest discover -s tools` pass. rac3 has no port tables yet, so no port change is needed.",
+      "mergedAt": "2026-11-12T10:48:34Z"
+     },
+     {
+      "number": 477,
+      "title": "fix: takeoff crash with a full moby pool, launcher Copy report on Linux",
+      "author": "Lynder063",
+      "untrustedBody": "Skip the flight escort ships when the moby pool is full (T-16 crash leaving Eudora with x4 enemies).\nCopy report falls back to execCommand when WebKitGTK refuses the clipboard (Linux \"can't save logs\"); not yet checked in game or on a Linux desktop.\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)",
+      "mergedAt": "2026-11-12T20:25:33Z"
+     },
+     {
+      "number": 478,
+      "title": "feat(mods): refuse a native library other users can change",
+      "author": "nickyyOO",
+      "untrustedBody": "**Before:** on Linux and macOS the port loaded a mod library even when any user of the computer could swap it.\n\n**After:** the port refuses a library that is writable by all, or that sits under a folder writable by all without the sticky bit. The log says why and how to fix it (`chmod o-w`). Android and Windows are unchanged.\n\n**How:** a `stat` check of the file and its parent folders in `mod_library.cpp` before `dlopen`. Note added to `docs/port/MODS.md`.\n\n**Tested:** new checks in `mod_loader_test` (world-writable file, world-writable folder, sticky folder). The `identity_key` check in that test already fails on develop.",
+      "mergedAt": "2026-11-12T19:34:32Z"
+     },
+     {
+      "number": 480,
+      "title": "feat(hdr): SDR hue, SDR chrominance, highlights and blowout sliders",
+      "author": "nickyyOO",
+      "untrustedBody": "## Before\n\nSDR clips each channel at white, so stacked fire sprites look orange. HDR keeps the mix, so the same fire looks red (3 layers: OKLab hue 109° in SDR, 47° in HDR). Players who use RenoDX asked for an \"SDR Hue\" slider.\n\n## After\n\nFour sliders in Graphics > HDR (desktop menu and Android drawer; mouse, touch and pad) and in the settings file:\n\n- **SDR hue** (`hdr_sdr_hue`, default 0): very bright colours take their SDR hue.\n- **SDR chrominance** (`hdr_sdr_chroma`, default 0): and their SDR saturation.\n- **HDR highlights** (`hdr_highlights`, default 100): 0 is as in SDR.\n- **HDR blowout** (`hdr_blowout`, default 0): very bright light fades to white.\n\nOnly pixels above white change. The defaults keep today's picture bit for bit.\n\n## How\n\n- `common/hdr.h` (`to_light`, `apply_look`) and `hdr_encode.comp` do the same math. Hue and saturation mix in OKLab; lightness stays HDR's. A colour outside BT.709 moves towards grey until it fits. It never passes the peak.\n- Default sliders take ",
+      "mergedAt": "2026-11-12T20:19:41Z"
+     },
+     {
+      "number": 481,
+      "title": "fix(rac1): move Aridia counters with HUD Edges",
+      "author": "llesieur99",
+      "untrustedBody": "Aridia's sand-shark and sand-shark-plant counters stayed inside the 4:3 area with **HUD: Edges**. Their draw routine discards the shifted HUD element position and selects fixed left/right anchors instead.\n\nMove those anchors outward only while drawing Aridia's HUD, then restore them. Centre mode and other planets are unchanged. Mappings are included for NTSC-U, PAL v2.00 and PAL v1.00; NTSC-J remains unchanged because its anchors have not been paired.\n\nThis carries forward the Aridia HUD portion originally proposed by @Lynder063 in #477 and subsequently removed from that PR. It addresses the bottom-counter portion of support ticket T-17. The nanotech HUD work is separate and is not included here.\n\nValidation:\n- Native Windows x64 NTSC-U build with these HUD changes, clang-cl 23.1.5.\n- Maintainer confirmed the Aridia controller test after the cutscene.\n- NTSC anchor addresses checked against the owned disc; PAL v1.00 mappings checked against `release_names.json`.\n- `git diff --check` pa",
+      "mergedAt": "2026-11-12T20:36:32Z"
+     },
+     {
+      "number": 482,
+      "title": "fix(mods): clear play watchers before unloading a refused mod",
+      "author": "Lynder063",
+      "untrustedBody": "#476 rebased onto current develop (its fork branch conflicted); author's commit kept, test list conflict resolved.\nSupersedes #476.\n\n---\n_Generated by [Claude Code](https://claude.ai/code/session_01E5SuSUcxdGTVaReTqPBGij)_",
+      "mergedAt": "2026-11-12T22:05:13Z"
+     },
+     {
+      "number": 483,
+      "title": "fix(launcher): save reports to the desktop's own Downloads folder on Linux",
+      "author": "Lynder063",
+      "untrustedBody": "Save report now uses XDG_DOWNLOAD_DIR from user-dirs.dirs, so a Downloads folder with another name is found.\nBefore, it fell back to the home folder.\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)",
+      "mergedAt": "2026-11-12T21:45:43Z"
+     },
+     {
+      "number": 485,
+      "title": "feat(launcher): rac2 save editor level progress and mod fields on the weapon rows",
+      "author": "Veradictus",
+      "untrustedBody": "Going Commando save editor: hoverbike races and per-planet cut scenes, Aranos Prison escape and pad switches, and mod save fields that attach to the native weapon rows (NG++ tiers continue each version picker). Docs in launcher/docs/RAC2_SAVE_FORMAT.md and docs/port/MODS.md.",
+      "mergedAt": "2026-11-12T20:47:19Z"
+     },
+     {
+      "number": 488,
+      "title": "fix(port): the stick moving the cursor no longer steps a pause row",
+      "author": "Lynder063",
+      "untrustedBody": "#459 (farfeduc's commits kept) with develop merged and clang-format applied to options_menu.h, which failed the conventions check.\nSupersedes #459.\n\n---\n_Generated by [Claude Code](https://claude.ai/code/session_01E5SuSUcxdGTVaReTqPBGij)_",
+      "mergedAt": "2026-11-12T22:53:07Z"
+     }
+    ],
+    "opened": [
+     {
+      "number": 466,
+      "title": "feat(sdk): Going Commando's hook points for NG++ (SDK 1.14.6)",
+      "author": "Veradictus",
+      "untrustedBody": "Six new rac2 hook points on all three discs (ntsc, pal, ntsc2), for the NG++ mod (openrac-mods ng-plus-plus):\n\n- `rac2.weapon.level_up` (Weapon_LevelUp, void(i32)): the step to the next version by experience.\n- `rac2.item.upgrade` (Item_Upgrade, i32(i32)): the vendor's Mega purchase.\n- `rac2.vendor.build_list` (Vendor_BuildList, void(i32)): the vendor's list.\n- `rac2.vendor.price` (Vendor_Price, i32()): the price of the entry under the cursor.\n- `rac2.item.colors` (Item_Colors, void(i32,u32,u32,u32)): an item's tint (quick select, weapons grid).\n- `rac2.combat.post_hit` (Moby_PostHit, void(u32,u32)): a hit posted to a moby, its damage at request +0x1C.\n\nBindings and reference docs regenerated, RAC2_IDENTIFIED.tsv rows, SDK version 1.14.6 (not tagged).",
+      "mergedAt": "2026-11-12T05:21:39Z"
+     },
+     {
+      "number": 467,
+      "title": "fix(port): keep far mobys live out to the Draw distance with an Active distance setting",
+      "author": "Veradictus",
+      "untrustedBody": "Far enemies in Going Commando were drawn out to the Draw distance (400% by default) but the game only updated them out to its own distances, so past the console's range they stood in their spawn poses and froze again on the way out. Most visible on Tabora, but it was every planet.\n\nThe game's active list (func_002A08A0) updates every moby whose MobyProc drawn flag (+0x31) is set. #436 pinned that flag to the console's distances so the simulation stayed retail's; this makes the reach a setting instead:\n\n- **Active distance** (`active_distance`, Graphics next to Draw distance): `match` (default) scales the drawn flag's distance by Draw distance, so whatever the window draws is live and stops where the window stops drawing it (Unlimited: everything in view). `original` keeps the console's distances, as before.\n- The AI's own ranges (sight, aggro, attack) are untouched; only the update/visibility cull is scaled. The Electrolyzer boards keep the game's distance at every setting, as before #",
+      "mergedAt": "2026-11-12T05:09:34Z"
+     },
+     {
+      "number": 468,
+      "title": "chore(import): rac2-decomp be855139, rac3-decomp f2290040",
+      "author": "Veradictus",
+      "untrustedBody": "Moves the rac2 and rac3 pins to their branch tips (rac2 brings #444, #445, #447, #448) and regenerates the port tables each needs:\n\n- rac2-ntsc: derived_names.json from a build at the pin; asm_interface.json and asm_part_exports.def written again with the disc; func_L04_00411298's stale asm signature removed (it has C now).\n- rac2-pal, rac2-ntsc2: release.py, release_carry.py, copycalls.py, then asm_interface.json and asm_part_exports.def. formed_as keeps the committed 0x2621E2 / 0x262262 (#405).\n- rac3-ntsc: release_rac3.py.\n\nAll five game targets (rac2-ntsc/pal/ntsc2, rac3-ntsc/pal) build with ninja -k 0 from a clean decomp checkout.",
+      "mergedAt": "2026-11-12T06:15:32Z"
+     },
+     {
+      "number": 469,
+      "title": "fix(port): the click picker writes moby-picker.json in the game's data folder",
+      "author": "Veradictus",
+      "untrustedBody": "The debug overlay's click picker wrote `moby-picker.json` to the working directory, which can be a decomp checkout. It turned up as an untracked file in games/rac2/decomp. The file now goes in the game's data folder, next to its logs and crashes, and the panel shows the full path.",
+      "mergedAt": "2026-11-12T06:15:53Z"
+     },
+     {
+      "number": 470,
+      "title": "style(port): format the picker's report-folder setter",
+      "author": "Veradictus",
+      "untrustedBody": "Adds a blank line that clang-format 21.1.8 wants after #469's new function. That one line was failing the conventions check on develop.",
+      "mergedAt": "2026-11-12T06:28:16Z"
+     },
+     {
+      "number": 471,
+      "title": "feat(launcher): incremental builds setting for developers",
+      "author": "Veradictus",
+      "untrustedBody": "Adds Settings > Developer tools > \"Incremental builds (for developers)\" (config incrementalBuilds, off by default). With it on, the \"update is ready\" notice on a game built by an older OpenRAC runs port-build (incremental) instead of port-rebuild (from scratch). A build folder with no stamp from build_port.py, or built by another OpenRAC version, is still built from scratch and the notice says why. The manual Rebuild from scratch action is unchanged. Tests: Rust (port_build::Why), front end (updateStep). Not to be merged until tested.",
+      "mergedAt": "2026-11-12T07:40:58Z"
+     },
+     {
+      "number": 472,
+      "title": "feat(rac2): vendor hooks, text hook and mod save data in the save editor",
+      "author": "Veradictus",
+      "untrustedBody": "Hook points for Going Commando's vendor list drawing, item version colour and text lookup (with port-owned text slots for mods), and a generic way for a mod to describe its per-save data so the launcher's save editor can edit it. Used by NG++ 0.1.3.",
+      "mergedAt": "2026-11-12T07:41:01Z"
+     },
+     {
+      "number": 473,
+      "title": "fix: Suck Cannon tube with HUD Edges, Pokitaru sky at Unlimited draw distance",
+      "author": "nickyyOO",
+      "untrustedBody": "Before: with HUD: Edges on a wide screen the Suck Cannon tube looked empty. At Draw distance Unlimited the Pokitaru sky turned cyan. Unlimited went back to 400% after a restart.\n\nAfter: the tube fills, the sky is clear, and Unlimited stays.\n\nHow:\n- 2D fills wholly past the screen edge are no longer pulled to it.\n- Unlimited stops at 4096 units, past any level, so the class 1161 mobys with far-off spheres stay hidden.\n- `draw_distance = 0` is read as Unlimited.\n\nTested: Pokitaru in the container (21:9 + Edges; Unlimited with a full camera turn). ctest settings, moby_fade, moby_view, rac2_moby_view, renderer_gif, renderer_direct, renderer_direct_vulkan.",
+      "mergedAt": "2026-11-12T07:51:45Z"
+     },
+     {
+      "number": 474,
+      "title": "chore(rac3): move the decomp to c73ab8f",
+      "author": "Veradictus",
+      "untrustedBody": "Picks up rac3-decomp #31 and #32 and the progress report: 8367 of 16164 PAL, 7907 of 16222 NTSC-U.",
+      "mergedAt": "2026-11-12T08:18:56Z"
+     },
+     {
+      "number": 475,
+      "title": "fix(rac3): record decomp pin c73ab8f in game.json",
+      "author": "nickyyOO",
+      "untrustedBody": "**Before:** #474 moved the `games/rac3/decomp` submodule to c73ab8f but `games/rac3/game.json` still recorded f229004. The \"Decomp pins\" step (`tools/sources.py check`) failed on develop.\n\n**After:** game.json (tree, NTSC and PAL) records c73ab8f, the pin. c73ab8f is newer than f229004 (same branch).\n\n**How:** `python tools/sources.py update rac3/decomp c73ab8f`, then `python tools/openrac.py tables` (docs/SOURCES.md row).\n\n**Tested:** `sources.py check` and `check --since develop` pass, tables give no diff, `shared.py check` and `unittest discover -s tools` pass. rac3 has no port tables yet, so no port change is needed.",
+      "mergedAt": "2026-11-12T10:48:34Z"
+     },
+     {
+      "number": 476,
+      "title": "fix(mods): clear play watchers before unloading a refused mod",
+      "author": "llesieur99",
+      "untrustedBody": "A native mod can register camera-script and metal-detector callbacks and then fail to acquire the exclusive moby-update gate. The loader closes its DLL, but `drop_figures` previously left those callbacks and camera-script ownership behind. A later camera event could jump into unloaded code.\n\nClear these registrations only when they belong to the removed mod, preserving other mods' callbacks. Add resident callback checks and a native DLL fixture that registers observers before failing on an already-owned gate.\n\nThis addresses the failure mechanism investigated for support ticket T-15: Multiplayer was refused after Weapon Wheel Pause had acquired the gate, followed by a crash opening the Novalis vendor. The affected code is identical in reported build `117cc13f` and current develop `c381cf6ed`. The exact reported gameplay session has not been reproduced, and this does not make two exclusive-gate mods compatible.\n\nValidation on Windows x64, clang-cl 23.1.5, headless Debug:\n- Before the fi",
+      "mergedAt": "2026-11-15T12:03:27Z"
+     },
+     {
+      "number": 477,
+      "title": "fix: takeoff crash with a full moby pool, launcher Copy report on Linux",
+      "author": "Lynder063",
+      "untrustedBody": "Skip the flight escort ships when the moby pool is full (T-16 crash leaving Eudora with x4 enemies).\nCopy report falls back to execCommand when WebKitGTK refuses the clipboard (Linux \"can't save logs\"); not yet checked in game or on a Linux desktop.\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)",
+      "mergedAt": "2026-11-12T20:25:33Z"
+     },
+     {
+      "number": 478,
+      "title": "feat(mods): refuse a native library other users can change",
+      "author": "nickyyOO",
+      "untrustedBody": "**Before:** on Linux and macOS the port loaded a mod library even when any user of the computer could swap it.\n\n**After:** the port refuses a library that is writable by all, or that sits under a folder writable by all without the sticky bit. The log says why and how to fix it (`chmod o-w`). Android and Windows are unchanged.\n\n**How:** a `stat` check of the file and its parent folders in `mod_library.cpp` before `dlopen`. Note added to `docs/port/MODS.md`.\n\n**Tested:** new checks in `mod_loader_test` (world-writable file, world-writable folder, sticky folder). The `identity_key` check in that test already fails on develop.",
+      "mergedAt": "2026-11-12T19:34:32Z"
+     },
+     {
+      "number": 479,
+      "title": "feat(sdk): a mod's data kept with the game's saves, interface 1.16",
+      "author": "farfeduc",
+      "untrustedBody": "**Builds on #460** (interface 1.15): the first commits here are #460's (with #458's `<chrono>` include); the change of this PR is the last commit, `feat(sdk): a mod's data kept with the game's saves, interface 1.16`. Once #460 is merged, only that commit remains.\n\n## Why\n\nWhat a mod remembers of a game has nowhere to go but a file of its own, which a save does not carry. weapon-xp keeps its profiles in its folder (\"loading an older save does not roll back XP\"), Revolverator and robot-salvage keep sidecars beside the saves, and the multiplayer mod keeps notes for its own card folder. Each solves it again, and none follows the save the player loads. MODS.md section 12 lists mods' needs as they come: this one is recurring.\n\n## Interface 1.16\n\n| Call | |\n|---|---|\n| `save_data_set(mod, bytes, size)` | the mod's data for the game in progress, at most `OPENRAC_SAVE_DATA_MAX` (64 KiB); 0 forgets it. The port keeps a copy and writes it beside each save the game writes from then on. The mod cal"
+     },
+     {
+      "number": 480,
+      "title": "feat(hdr): SDR hue, SDR chrominance, highlights and blowout sliders",
+      "author": "nickyyOO",
+      "untrustedBody": "## Before\n\nSDR clips each channel at white, so stacked fire sprites look orange. HDR keeps the mix, so the same fire looks red (3 layers: OKLab hue 109° in SDR, 47° in HDR). Players who use RenoDX asked for an \"SDR Hue\" slider.\n\n## After\n\nFour sliders in Graphics > HDR (desktop menu and Android drawer; mouse, touch and pad) and in the settings file:\n\n- **SDR hue** (`hdr_sdr_hue`, default 0): very bright colours take their SDR hue.\n- **SDR chrominance** (`hdr_sdr_chroma`, default 0): and their SDR saturation.\n- **HDR highlights** (`hdr_highlights`, default 100): 0 is as in SDR.\n- **HDR blowout** (`hdr_blowout`, default 0): very bright light fades to white.\n\nOnly pixels above white change. The defaults keep today's picture bit for bit.\n\n## How\n\n- `common/hdr.h` (`to_light`, `apply_look`) and `hdr_encode.comp` do the same math. Hue and saturation mix in OKLab; lightness stays HDR's. A colour outside BT.709 moves towards grey until it fits. It never passes the peak.\n- Default sliders take ",
+      "mergedAt": "2026-11-12T20:19:41Z"
+     },
+     {
+      "number": 481,
+      "title": "fix(rac1): move Aridia counters with HUD Edges",
+      "author": "llesieur99",
+      "untrustedBody": "Aridia's sand-shark and sand-shark-plant counters stayed inside the 4:3 area with **HUD: Edges**. Their draw routine discards the shifted HUD element position and selects fixed left/right anchors instead.\n\nMove those anchors outward only while drawing Aridia's HUD, then restore them. Centre mode and other planets are unchanged. Mappings are included for NTSC-U, PAL v2.00 and PAL v1.00; NTSC-J remains unchanged because its anchors have not been paired.\n\nThis carries forward the Aridia HUD portion originally proposed by @Lynder063 in #477 and subsequently removed from that PR. It addresses the bottom-counter portion of support ticket T-17. The nanotech HUD work is separate and is not included here.\n\nValidation:\n- Native Windows x64 NTSC-U build with these HUD changes, clang-cl 23.1.5.\n- Maintainer confirmed the Aridia controller test after the cutscene.\n- NTSC anchor addresses checked against the owned disc; PAL v1.00 mappings checked against `release_names.json`.\n- `git diff --check` pa",
+      "mergedAt": "2026-11-12T20:36:32Z"
+     },
+     {
+      "number": 482,
+      "title": "fix(mods): clear play watchers before unloading a refused mod",
+      "author": "Lynder063",
+      "untrustedBody": "#476 rebased onto current develop (its fork branch conflicted); author's commit kept, test list conflict resolved.\nSupersedes #476.\n\n---\n_Generated by [Claude Code](https://claude.ai/code/session_01E5SuSUcxdGTVaReTqPBGij)_",
+      "mergedAt": "2026-11-12T22:05:13Z"
+     },
+     {
+      "number": 483,
+      "title": "fix(launcher): save reports to the desktop's own Downloads folder on Linux",
+      "author": "Lynder063",
+      "untrustedBody": "Save report now uses XDG_DOWNLOAD_DIR from user-dirs.dirs, so a Downloads folder with another name is found.\nBefore, it fell back to the home folder.\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)",
+      "mergedAt": "2026-11-12T21:45:43Z"
+     },
+     {
+      "number": 484,
+      "title": "fix(port): draw the mobys behind the game's camera in freecam",
+      "author": "Lynder063",
+      "untrustedBody": "Fixes #366: in freecam a moby is kept by its draw distance in any direction, not by the game camera's view.\nNormal play is unchanged; a unit test covers the check.\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)",
+      "mergedAt": "2026-11-13T08:37:30Z"
+     },
+     {
+      "number": 485,
+      "title": "feat(launcher): rac2 save editor level progress and mod fields on the weapon rows",
+      "author": "Veradictus",
+      "untrustedBody": "Going Commando save editor: hoverbike races and per-planet cut scenes, Aranos Prison escape and pad switches, and mod save fields that attach to the native weapon rows (NG++ tiers continue each version picker). Docs in launcher/docs/RAC2_SAVE_FORMAT.md and docs/port/MODS.md.",
+      "mergedAt": "2026-11-12T20:47:19Z"
+     },
+     {
+      "number": 486,
+      "title": "feat(rac1): add a switchable connected nanotech HUD panel",
+      "author": "llesieur99",
+      "untrustedBody": "The NTSC-U nanotech HUD can now use one connected rounded backplate sized for the four-, five- and eight-orb layouts. Fixed-height texture slices keep the corners rounded without stretching them or leaving square joins, with a small vertical margin around the orbs.\n\n**Nanotech HUD panel** is exposed through the existing launcher/game-fixes switch and is enabled by default. It is independent of Enhanced Graphics. Turning it off calls the original PS2 drawing routine unchanged. Health values, orb placement, animation and fading remain controlled by the game.\n\nThis is an optional visual change for the nanotech portion of T-17. Aridia's counters are handled separately in #481. This PR is scoped to NTSC-U; other disc versions are unchanged.\n\nValidation:\n- Native Windows x64 NTSC-U build with clang-cl 23.1.5 and manual Pokitaru previews at capacities 4, 5 and 8.\n- `rac1_hud_panels` and `game_fixes`: 2/2 pass in the native test build.\n- The real HUD wrapper, compiled again from this PR's exac",
+      "mergedAt": "2026-11-13T08:37:54Z"
+     },
+     {
+      "number": 487,
+      "title": "feat(sdk): a mod's data kept with the game's saves, interface 1.16",
+      "author": "Lynder063",
+      "untrustedBody": "#479 (farfeduc's commits kept) with develop merged and clang-format applied to its changed lines, which failed the conventions check.\nSupersedes #479.\n\n---\n_Generated by [Claude Code](https://claude.ai/code/session_01E5SuSUcxdGTVaReTqPBGij)_",
+      "mergedAt": "2026-11-15T12:03:01Z"
+     },
+     {
+      "number": 488,
+      "title": "fix(port): the stick moving the cursor no longer steps a pause row",
+      "author": "Lynder063",
+      "untrustedBody": "#459 (farfeduc's commits kept) with develop merged and clang-format applied to options_menu.h, which failed the conventions check.\nSupersedes #459.\n\n---\n_Generated by [Claude Code](https://claude.ai/code/session_01E5SuSUcxdGTVaReTqPBGij)_",
+      "mergedAt": "2026-11-12T22:53:07Z"
+     },
+     {
+      "number": 489,
+      "title": "feat(sdk): the game's own collision query asked by a mod, interface 1.17",
+      "author": "farfeduc",
+      "untrustedBody": "**Builds on #487** (interface 1.16, which carries #460's 1.15): this branch is #487's head plus one commit, `feat(sdk): the game's own collision query asked by a mod, interface 1.17`. Once #487 is merged, only that commit remains.\n\n## Why\n\nA weapon added by a mod draws its shots itself (props, interface 1.12), but has no way to make them stop where the game's own shots stop:\n\n- `level_line` (1.14) sees only the level's walls and ground, not doors, crates or creatures, and says only \"blocked\";\n- `collision_triangles` (1.12) leaves out creatures (their collision is spheres and capsules on their joints, not triangles) and leaves the whole query to the mod.\n\nThe game's shots do not collide as objects: each tick, a shot asks the game's segment query between its last place and its new one, and reacts to what it hits (RAC1's Blaster shot, `homing_shot_update`, asks `coll_line(start, pos, 0, owner, ...)`). This gives mods that same query.\n\n## Interface 1.17\n\n| Call | |\n|---|---|\n| `collision_l",
+      "mergedAt": "2026-11-15T12:04:41Z"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [],
+    "closed": [
+     {
+      "number": 279,
+      "title": "Stick sensitivity doesn't seem to work?",
+      "author": "Billabong1985"
+     },
+     {
+      "number": 355,
+      "title": "Going Commando PAL: HUD aliases call no-C stubs and crash at startup",
+      "author": "Sumaiter"
+     }
+    ]
+   },
+   "releases": [
+    {
+     "tag": "sdk-v1.14.6",
+     "name": "Mod SDK 1.14.6",
+     "publishedAt": "2026-11-12T05:33:13Z"
+    }
+   ],
+   "progress": null,
+   "contributors": [
+    "farfeduc",
+    "llesieur99",
+    "Lynder063",
+    "nickyyOO",
+    "pezzadev",
+    "SavedbyBlood9",
+    "Veradictus"
+   ]
+  },
+  {
+   "repo": "rac1-decomp",
+   "title": "Ratchet & Clank",
+   "branches": [
+    {
+     "name": "main",
+     "commits": []
+    }
+   ],
+   "commitCount": 0,
+   "pullRequests": {
+    "merged": [],
+    "opened": []
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": null,
+   "contributors": []
+  },
+  {
+   "repo": "rac2-decomp",
+   "title": "Going Commando",
+   "branches": [
+    {
+     "name": "master",
+     "commits": [
+      {
+       "sha": "be855139f0c06445dc6caf36628756f6cc1aecc8",
+       "title": "ci(progress): leave jp and kr out of the releases' agreement check for now (#453)",
+       "author": "Veradictus",
+       "date": "2026-11-12T03:02:49Z"
+      }
+     ]
+    }
+   ],
+   "commitCount": 1,
+   "pullRequests": {
+    "merged": [
+     {
+      "number": 453,
+      "title": "ci(progress): leave jp and kr out of the releases' agreement check for now",
+      "author": "Veradictus",
+      "untrustedBody": "The jp and kr discs (SCPS_150.56, SCKA_200.11) aren't available here, so their reports can't be rebuilt after each batch, and the agreement check failed master. This adds a SYNC_SKIP set to leave them out. Each release's own `--check` still runs. Remove the set once someone with those discs rebuilds the reports.",
+      "mergedAt": "2026-11-12T03:02:50Z"
+     }
+    ],
+    "opened": [
+     {
+      "number": 453,
+      "title": "ci(progress): leave jp and kr out of the releases' agreement check for now",
+      "author": "Veradictus",
+      "untrustedBody": "The jp and kr discs (SCPS_150.56, SCKA_200.11) aren't available here, so their reports can't be rebuilt after each batch, and the agreement check failed master. This adds a SYNC_SKIP set to leave them out. Each release's own `--check` still runs. Remove the set once someone with those discs rebuilds the reports.",
+      "mergedAt": "2026-11-12T03:02:50Z"
+     },
+     {
+      "number": 454,
+      "title": "feat(us2): match five USA v2.00 menu functions",
+      "author": "gelatinous-bullion",
+      "untrustedBody": "Five USA v2.00 functions, 17,528 bytes. Four are v2.00 copies of matched or near-matched USA v1.01 functions, written from that C with v2.00's data and changes.\n\n| Function | Bytes | Places | Unit | Source of the C |\n| --- | ---: | ---: | --- | --- |\n| `func_US2_L15_00430500` | 5024 | 1 | `src/us2/levels/15_gorn/L15_00430500-g8.c` | v1.01 `func_L15_0042EFE0` (Gorn menu panel) |\n| `func_US2_L10_00423CB8` | 5036 | 1 | `src/us2/levels/10_hrugis_cloud/L10_00423CB8-g8.c` | v1.01 `func_L10_004227A0` (Hrugis copy) |\n| `func_US2_L05_00420420` | 5180 | 1 | `src/us2/levels/05_feltzin_system/L05_00420420-g8.c` | v1.01 `func_L05_0041EF00` (Feltzin copy) |\n| `func_US2_L04_00418348` | 652 | 2 (levels 4, 11) | `src/us2/levels/shared/L04_00418348-box.c` | new: a framed menu box with a highlight bar |\n| `func_US2_002D4ED8` | 1636 | 28 (boot and 27 levels) | `src/us2/game/002D4ED8-g8.c` | v1.01 `func_002D3FA0` (preview menu; near miss in `nonmatching/`) |\n\n## The three menu panels\n\nv2.00's changes, as i",
+      "mergedAt": "2026-11-13T13:54:04Z"
+     },
+     {
+      "number": 456,
+      "title": "feat(pal): match twelve PAL functions and one USA v2.00 function from related C",
+      "author": "gelatinous-bullion",
+      "untrustedBody": "Thirteen functions, all ports of C that already matches in a related release: one USA v2.00 function and twelve PAL ones. They are checked against my PAL disc, whose SHA-256 is the one in `docs/build/versions.md`.\n\n| Function | Bytes | Places | Unit | From |\n| --- | ---: | ---: | --- | --- |\n| `func_US2_L02_003C58E0` | 844 | 8 | `src/us2/levels/shared/L02_003C58E0-menu-g8.c` | v1.01 `func_L02_003C43F0` (c1991e64) |\n| `func_PAL_L02_004029E0` | 1412 | 1 | `src/pal/levels/02_maktar_nebula/L02_004029E0-g8.c` | v2.00 `func_US2_L02_003FF808` |\n| `func_PAL_L02_004030B4` | 3816 | 1 | `src/pal/levels/02_maktar_nebula/L02_004030B4-g8.c` | v2.00 `func_US2_L02_003FFEDC` |\n| `func_PAL_L05_00422CA8` | 3516 | 1 | `src/pal/levels/05_feltzin_system/L05_00422CA8-g8.c` | v2.00 `func_US2_L05_0041F478` |\n| `func_PAL_L05_004259FC` | 1452 | 1 | `src/pal/levels/05_feltzin_system/L05_004259FC-menu-g8.c` | v2.00 `func_US2_L05_00421F7C` |\n| `func_PAL_L15_00435B68` | 1452 | 1 | `src/pal/levels/15_gorn/L15_00435B6",
+      "mergedAt": "2026-11-13T13:54:37Z"
+     },
+     {
+      "number": 457,
+      "title": "feat(pal): match four PAL menu and timer functions",
+      "author": "gelatinous-bullion",
+      "untrustedBody": "Four PAL functions, 17,668 bytes. Each is the PAL copy of a USA v2.00 function that already matches, rebuilt with PAL's changes. All four are checked against my PAL disc, whose SHA-256 is the one in `docs/build/versions.md`.\n\n| Function | Bytes | Places | Unit | From |\n| --- | ---: | ---: | --- | --- |\n| `func_PAL_L15_004342E0` | 5276 | 1 | `src/pal/levels/15_gorn/L15_004342E0-g8.c` | v2.00 `func_US2_L15_00430500` (PR #454) |\n| `func_PAL_L10_00427628` | 5572 | 1 | `src/pal/levels/10_hrugis_cloud/L10_00427628-g8.c` | v2.00 `func_US2_L10_00423CB8` (PR #454) |\n| `func_PAL_L05_00423C50` | 5772 | 1 | `src/pal/levels/05_feltzin_system/L05_00423C50-g8.c` | v2.00 `func_US2_L05_00420420` (PR #454) |\n| `func_PAL_L04_0041B850` | 1048 | 2 (levels 4, 11) | `src/pal/levels/shared/L04_0041B850-cc.c` | v2.00 `func_US2_L04_004185D8` |\n\n## The three menu panels\n\nThese keep v2.00's C and flags (`-malign-loops=2`, as in PR #454), with PAL's text ids. Some entry titles are drawn differently depending on PA",
+      "mergedAt": "2026-11-13T13:54:51Z"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [
+     {
+      "number": 455,
+      "title": "Game Crash on arena",
+      "author": "adamkevinsky-ops"
+     }
+    ],
+    "closed": []
+   },
+   "releases": [],
+   "progress": {
+    "before": {
+     "code": {
+      "done": 5468348,
+      "total": 5524052
+     },
+     "functions": {
+      "done": 8501,
+      "total": 8527
+     }
+    },
+    "after": {
+     "code": {
+      "done": 5468348,
+      "total": 5524052
+     },
+     "functions": {
+      "done": 8501,
+      "total": 8527
+     }
+    }
+   },
+   "contributors": [
+    "gelatinous-bullion",
+    "Veradictus"
+   ]
+  },
+  {
+   "repo": "rac3-decomp",
+   "title": "Up Your Arsenal",
+   "branches": [
+    {
+     "name": "master",
+     "commits": [
+      {
+       "sha": "92a6235a9258d291a12be0b0cc678e1aeeba6fde",
+       "title": "feat(levels): match 40 functions in level 39 (multiplayer menu)",
+       "author": "bigbeno37",
+       "date": "2026-11-12T20:03:27Z"
+      },
+      {
+       "sha": "2b6c1ffba640648a9560f7ef4a122d6dc26c84dd",
+       "title": "fix(levels): cut 12 level 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 files where code built with other flags begins",
+       "author": "bigbeno37",
+       "date": "2026-11-12T19:23:46Z"
+      },
+      {
+       "sha": "59fa07c46f36778d12e7e48d7ab1253be3639e33",
+       "title": "fix(levels): cut 12 level 39 files where code built with other flags begins",
+       "author": "bigbeno37",
+       "date": "2026-11-12T18:54:42Z"
+      },
+      {
+       "sha": "027e7d6b3a1fa6b4fc082cb7a68faf41e7af2384",
+       "title": "feat(levels): match 20 functions in level 39 (multiplayer menu)",
+       "author": "bigbeno37",
+       "date": "2026-11-12T18:51:07Z"
+      },
+      {
+       "sha": "cf6bc083d7bc38558c91fa2064c7d74ec06588fe",
+       "title": "fix(levels): build 71 level 39 files with `@ee29 -O2 -G8 -fno-strict-aliasing`",
+       "author": "bigbeno37",
+       "date": "2026-11-12T15:10:50Z"
+      },
+      {
+       "sha": "75b4a1d3229cafa81ae193dbec9b3b22a8751627",
+       "title": "feat(levels): match 20 functions in level 39 (multiplayer menu)",
+       "author": "bigbeno37",
+       "date": "2026-11-12T14:51:33Z"
+      },
+      {
+       "sha": "3476f717ac9451bc2df3fe6c4c3bbd9be3577abc",
+       "title": "feat(levels): match 20 functions in level 39 (multiplayer menu)",
+       "author": "bigbeno37",
+       "date": "2026-11-12T14:05:31Z"
+      },
+      {
+       "sha": "669506405fa11edacb52b445a92a35c1e70cf83f",
+       "title": "feat(levels): match 20 functions in level 39 (multiplayer menu)",
+       "author": "bigbeno37",
+       "date": "2026-11-12T13:55:37Z"
+      },
+      {
+       "sha": "c5dc54791387e893282203a950d16d2e3b438f95",
+       "title": "fix(levels): cut 12 level 39 files where code built with other flags begins",
+       "author": "bigbeno37",
+       "date": "2026-11-12T13:47:20Z"
+      },
+      {
+       "sha": "b389114bbaed25231c6cffeac7e491637215f7bc",
+       "title": "fix(us): 21 core rows of config/us/built.tsv are built from C again",
+       "author": "bigbeno37",
+       "date": "2026-11-12T13:43:55Z"
+      },
+      {
+       "sha": "c73ab8f001fe7b0ed4c03d0c82b4686a272e6d68",
+       "title": "chore(progress): 8367 of 16164 functions (PAL), 7907 of 16222 (NTSC-U) after merging #31, #32",
+       "author": "Veradictus",
+       "date": "2026-11-12T08:03:23Z"
+      },
+      {
+       "sha": "691752e3e6c40d2989d91b58a38daafeb465891d",
+       "title": "fix(levels): revert func_L14_003F9A10 to INCLUDE_ASM, its inline asm broke level 14's build",
+       "author": "Veradictus",
+       "date": "2026-11-12T07:44:53Z"
+      },
+      {
+       "sha": "e017f05f5d59cf191b20c2f922ccd951c08f74de",
+       "title": "feat(levels): match 172 functions in levels 01,03,05,14,19,22,24,27,28,36,48 (#32)",
+       "author": "Veradictus",
+       "date": "2026-11-12T07:13:21Z"
+      },
+      {
+       "sha": "0bbbe722fa0b1c8a942eeec4a1d0f8312b363ed1",
+       "title": "feat(levels): match 27 functions in level 11 (Obani Moons) (#31)",
+       "author": "TheBoso",
+       "date": "2026-11-12T07:10:58Z"
+      },
+      {
+       "sha": "f229004088b45cc3d00b106bf90991a44968c96f",
+       "title": "chore(progress): 8169 of 16164 functions (PAL), 7797 of 16222 (NTSC-U) after merging #24-#30",
+       "author": "Veradictus",
+       "date": "2026-11-12T04:03:17Z"
+      },
+      {
+       "sha": "2f43b08b2d100b617697e9649d1f08390ab51a0d",
+       "title": "chore(us): list four PAL matches that do not carry to NTSC-U as exceptions",
+       "author": "Veradictus",
+       "date": "2026-11-12T04:02:30Z"
+      },
+      {
+       "sha": "1f78e04fa24db86b7249dc483370c84575ae3755",
+       "title": "fix(levels): drop level 23's duplicate INCLUDE_ASM markers for the functions L23_003A53D0.c owns",
+       "author": "Veradictus",
+       "date": "2026-11-12T03:04:42Z"
+      },
+      {
+       "sha": "acb160424c728774665a1bd02a884c56d14d7ca4",
+       "title": "feat(levels): match 18 Marcadia functions (#26)",
+       "author": "cadelass",
+       "date": "2026-11-12T03:03:22Z"
+      },
+      {
+       "sha": "be026800bd26668e8b20cde5dea810dd9745f444",
+       "title": "feat(levels): match the vidcomic hero state machine func_L30_004C4318 (#24)",
+       "author": "DrLegitamate",
+       "date": "2026-11-12T03:02:25Z"
+      },
+      {
+       "sha": "e024fdf131411571c7659dc17b5fc689b34264ba",
+       "title": "feat(levels): match 3 near misses with the game's fabs (fabs_asm) (#25)",
+       "author": "DrLegitamate",
+       "date": "2026-11-12T03:01:51Z"
+      },
+      {
+       "sha": "592e442d52dce82c3d34343ff0a3fd3664cf0812",
+       "title": "feat(levels): match 12 near misses in levels 8-33 (depends on #27, #28, #29) (#30)",
+       "author": "DrLegitamate",
+       "date": "2026-11-12T03:01:10Z"
+      },
+      {
+       "sha": "b34348a7c33ec1d460b89ce35f56e334c072447f",
+       "title": "feat(levels): match 20 small functions in levels 20 and 21 (#27)",
+       "author": "DrLegitamate",
+       "date": "2026-11-12T03:00:01Z"
+      },
+      {
+       "sha": "3239ccb91ef2eb3a4f35c8566fd9929fd2750d43",
+       "title": "feat(levels): match 31 small functions in levels 9, 30, 33, 34 and 35 (#29)",
+       "author": "DrLegitamate",
+       "date": "2026-11-12T02:59:27Z"
+      },
+      {
+       "sha": "b2edf5e8b861d08fda2192ff2239095f0a30cca7",
+       "title": "feat(levels): match 30 small functions in levels 8, 16 and 32 (#28)",
+       "author": "DrLegitamate",
+       "date": "2026-11-12T02:58:35Z"
+      }
+     ]
+    }
+   ],
+   "commitCount": 24,
+   "pullRequests": {
+    "merged": [
+     {
+      "number": 24,
+      "title": "feat(levels): match the vidcomic hero state machine func_L30_004C4318",
+      "author": "DrLegitamate",
+      "untrustedBody": "## Summary\n\n- **`feat(levels)`: match `func_L30_004C4318`**, the vidcomic hero per-frame state machine (family A2 member, 7 places, 37,828 bytes). This lands the staged near miss as source. Its file takes `-mvu0-use-vf0-vf2 ... @ps2as` and `include/vu0.h`, as the root's does. The last differences were the order of argument moves at two calls. EABI gives ints and floats separate registers, so a float's position among the ints in a prototype changes only the insn order, which sched1 keeps where its other ranks tie:\n  - `func_L01_004E63F0` takes its pointer last, `(f32, f32, f32 *)`.\n  - `func_L01_00476B98` takes its first float before its sixth int.\n- **`docs(nonmatching)`: the `func_L39_0064EA40` near miss goes from 93 to 72 opcode-diff regions.** The s2/s3 swap is solved, and the file header lists what is left.\n\n## Verified (rebased on master 16e82b9)\n\n- [x] `tools/check.py --target level_NN` for `func_L30_004C4318`: MATCH at all 7 places\n- [x] `tools/build_levels.py --setup 30 31 32 3",
+      "mergedAt": "2026-11-12T03:02:25Z"
+     },
+     {
+      "number": 25,
+      "title": "feat(levels): match 3 near misses with the game's fabs (fabs_asm)",
+      "author": "DrLegitamate",
+      "untrustedBody": "## Summary\n\nThese are three near misses where the only difference was where `abs.s` is scheduled. `__builtin_fabsf` is an ordinary insn that the scheduler places by latency. Retail's `abs.s` is scheduled as an asm, which is how `include/vu0.h` documents `fabs_asm()`, the game's fabs. With `fabs_asm`, each one matches:\n\n- **`func_L31_003A5178`** (vidcomic 1, levels 31 and 36): retail loads the gp float before `abs.s`. The function takes `(m, pos)` as `func_L31_003A53F8` calls it, and that later prototype now takes `void *` for `m`.\n- **`func_L05_003AFC08`** (Daxx): retail issues `abs.s` before `addiu $a1,$zero,2`. The prototype order fixes from the staged draft are kept.\n- **`func_L01_00451738`** (34 places): retail's `abs.s` comes after `ld $ra`. The draft's note had held this one back for needing an asm, and vu0.h's `fabs_asm` is now that sanctioned asm.\n\nEach file gains `#include \"vu0.h\"`. Their other functions are unchanged, and the staged near misses and their `nonmatching/README.m",
+      "mergedAt": "2026-11-12T03:01:52Z"
+     },
+     {
+      "number": 26,
+      "title": "feat(levels): match 18 Marcadia functions",
+      "author": "cadelass",
+      "untrustedBody": "Replace 18 Marcadia functions with C, including five additional matches in this commit. Preserve unresolved attempts in `nonmatching/levels/` and document the matching patterns.\n\nFunctions: `func_L04_00366AC8`, `func_L04_00367068`, `func_L04_00367150`, `func_L04_003CD2C0`, `func_L04_003CE120`, `func_L04_003CE348`, `func_L04_003CFCF8`, `func_L04_003CFDA8`, `func_L04_003CFDB8`, `func_L04_003E1B88`, `func_L04_003E3280`, `func_L04_003E51D0`, `func_L04_003E5250`, `func_L04_003E5D88`, `func_L04_003ED190`, `func_L04_0042A9A0`, `func_L04_004AB470`, and `func_L04_004AD6A8`.\n\nUse file-wide `@ps2as` for inline float constants and the required global address forms. `L04_003CD2C0.c` also uses `-mvu0-use-vf0-vf2` with the shared VU0 helpers. Add the divide-padding entry for `func_L04_003E1B88`. No ordinary EE inline assembly or register pins are introduced.\n\nValidation:\n- `python3 -m unittest discover -s tests`: 52 tests, OK.\n- `tools/build.py --target all -j 32` with SN v1.36, wibo and the Windows ",
+      "mergedAt": "2026-11-12T03:03:23Z"
+     },
+     {
+      "number": 27,
+      "title": "feat(levels): match 20 small functions in levels 20 and 21",
+      "author": "DrLegitamate",
+      "untrustedBody": "## Summary\n\nThis matches 20 small functions (56 to 300 bytes) in two levels, each of which is in its own level only:\n\n- **Level 21 (Obani Draco), 9 functions:** `func_L21_00338150`, `func_L21_00338CC8`, `func_L21_00339148`, `func_L21_003A4148`, `func_L21_003AA258`, `func_L21_003AFEF0`, `func_L21_003AFF88`, `func_L21_003B0068`, `func_L21_003BE250`\n- **Level 20 (final boss), 11 functions:** `func_L20_003B2960`, `func_L20_003E7988`, `func_L20_003EB838`, `func_L20_003F3F28`, `func_L20_003FB350`, `func_L20_00402308`, `func_L20_00402380`, `func_L20_004023F8`, `func_L20_00402598`, `func_L20_00442428`, `func_L20_00442CF8`\n\n**File flags:**\n- 10 files take `@ps2as`, because their functions build float constants inline (lui/ori/mtc1), which only Ps2EeAs gives. Every function already matched in those files was rechecked with the new flags and still matches.\n- `L20_003E6150.c` and `L20_00442CF8.c` also take `-mvu0-use-vf0-vf2`. Their new functions use `vec_sub_ab`/`vec_add_ab` from `include/vu0.h`;",
+      "mergedAt": "2026-11-12T03:00:02Z"
+     },
+     {
+      "number": 28,
+      "title": "feat(levels): match 30 small functions in levels 8, 16 and 32",
+      "author": "DrLegitamate",
+      "untrustedBody": "## Summary\n\nThis matches 30 small functions (300 bytes or less), each found in a single level, with one commit per level:\n\n- **Level 8 (Aquatos), 12 functions:** `func_L08_0039AC38`, `func_L08_0039ACD0`, `func_L08_0039AD20`, `func_L08_0039AD70`, `func_L08_0039ADC0`, `func_L08_0039AEB0`, `func_L08_0039AF00`, `func_L08_0039AF50`, `func_L08_0039AFA0`, `func_L08_0039C760`, `func_L08_003A0D90`, `func_L08_003BDFB8`\n- **Level 16 (Kerwan), 8 functions:** `func_L16_00345AD0`, `func_L16_00346010`, `func_L16_003CC150`, `func_L16_003E2B18`, `func_L16_003E2C28`, `func_L16_003E7300`, `func_L16_00434938`, `func_L16_00434A50`\n- **Level 32 (vidcomic 4), 10 functions:** `func_L32_00349958`, `func_L32_003A1670`, `func_L32_003A21E0`, `func_L32_003B41E8`, `func_L32_003B5828`, `func_L32_003B8390`, `func_L32_003BE8E0`, `func_L32_003C3F98`, `func_L32_003C4F70`, `func_L32_003C5280`\n\n**File flags and tables:**\n- Files whose new functions build float constants inline (lui/ori/mtc1) take `@ps2as`.\n- Files with ne",
+      "mergedAt": "2026-11-12T02:58:36Z"
+     },
+     {
+      "number": 29,
+      "title": "feat(levels): match 31 small functions in levels 9, 30, 33, 34 and 35",
+      "author": "DrLegitamate",
+      "untrustedBody": "## Summary\n\nThis matches 31 small functions (300 bytes or less), each found in a single level, with one commit per level:\n\n- **8 small functions in level 9 (Tyhrranosis):** `func_L09_003BD360`, `func_L09_003BF9B8`, `func_L09_003DE200`, `func_L09_003E7DA8`, `func_L09_003E91B8`, `func_L09_00403E40`, `func_L09_0043D590`, `func_L09_004C6668`\n- **8 small functions in level 30 (vidcomic, unnamed):** `func_L30_00342090`, `func_L30_00342980`, `func_L30_00349280`, `func_L30_00349470`, `func_L30_0034A0A8`, `func_L30_0034ACC8`, `func_L30_0034B980`, `func_L30_0034BBC0`\n- **1 small function in level 33 (vidcomic 2):** `func_L33_003534E0`\n- **9 small functions in level 34 (vidcomic 3):** `func_L34_0034F4B8`, `func_L34_0034F500`, `func_L34_0034F5A0`, `func_L34_0034F630`, `func_L34_00350710`, `func_L34_003515A0`, `func_L34_00351B58`, `func_L34_00352018`, `func_L34_003BEFC0`\n- **5 small functions in level 35 (vidcomic 5):** `func_L35_003A2C40`, `func_L35_003A5FD8`, `func_L35_003A6240`, `func_L35_003BC9",
+      "mergedAt": "2026-11-12T02:59:27Z"
+     },
+     {
+      "number": 30,
+      "title": "feat(levels): match 12 near misses in levels 8-33 (depends on #27, #28, #29)",
+      "author": "DrLegitamate",
+      "untrustedBody": "**Depends on #27, #28 and #29.** This branch merges those three, because the functions here are in files they change. Only the last commit, \"match 12 near misses\", is new; review that one once they are merged.\n\n## Summary\n\nThis matches 12 functions whose earlier drafts were 1 to 5 rows away: `func_L08_0039AE10`, `func_L08_0039AE60`, `func_L08_00407680`, `func_L08_004076E0`, `func_L09_003BFFC0`, `func_L16_00346100`, `func_L20_003D6AE0`, `func_L20_003F9C10`, `func_L21_003B0E90`, `func_L21_003B2A40`, `func_L32_003B81F0`, `func_L33_0034F9D8`.\n\nWhat fixed them:\n- **Store order in the source:** `func_L08_0039AE10`/`0039AE60`, `func_L20_003F9C10`, `func_L21_003B2A40`.\n- **A global's declared shape:** an array read as `[0]` (`D_L08_001E60B0`), or a scalar passed by address (`D_L16_001D66B0`, `D_001D66B0`).\n- **`func_003A52A0` returns `s32`,** as it is declared elsewhere.\n- **Control flow:** one `||` chain for `func_L20_003D6AE0`, and a do/while that gives the `beql` back-edge for `func_L32_003",
+      "mergedAt": "2026-11-12T03:01:10Z"
+     },
+     {
+      "number": 31,
+      "title": "feat(levels): match 27 functions in level 11 (Obani Moons)",
+      "author": "TheBoso",
+      "untrustedBody": "## Functions\n\n27 functions in level 11 (Obani Moons), all plain C.\n\n`src/levels/11_obani_moons/L11_003161B8.c`:\n- `func_L11_003161B8`: plain C\n`src/levels/11_obani_moons/L11_00350EE0.c`:\n- `func_L11_00351528`: plain C (file built with `@ps2as`)\n`src/levels/11_obani_moons/L11_0039C3D0.c`:\n- `func_L11_0039C3D0`: plain C\n`src/levels/11_obani_moons/L11_003A2CD0.c`:\n- `func_L11_003A40B8`: plain C (file built with `@ps2as`)\n- `func_L11_003A41E0`: plain C (file built with `@ps2as`)\n- `func_L11_003A4410`: plain C (file built with `@ps2as`)\n- `func_L11_003A45D0`: plain C (file built with `@ps2as`)\n`src/levels/11_obani_moons/L11_003A6B78.c`:\n- `func_L11_003A6B78`: plain C (file built with `@ps2as` and `-mvu0-use-vf0-vf2`)\n- `func_L11_003A6BF8`: plain C (file built with `@ps2as` and `-mvu0-use-vf0-vf2`)\n- `func_L11_003A6CE0`: plain C (file built with `@ps2as` and `-mvu0-use-vf0-vf2`)\n`src/levels/11_obani_moons/L11_003A8FE0.c`:\n- `func_L11_003A8FE0`: plain C (file built with `@ps2as` and `-mvu0-us",
+      "mergedAt": "2026-11-12T07:10:59Z"
+     }
+    ],
+    "opened": [
+     {
+      "number": 31,
+      "title": "feat(levels): match 27 functions in level 11 (Obani Moons)",
+      "author": "TheBoso",
+      "untrustedBody": "## Functions\n\n27 functions in level 11 (Obani Moons), all plain C.\n\n`src/levels/11_obani_moons/L11_003161B8.c`:\n- `func_L11_003161B8`: plain C\n`src/levels/11_obani_moons/L11_00350EE0.c`:\n- `func_L11_00351528`: plain C (file built with `@ps2as`)\n`src/levels/11_obani_moons/L11_0039C3D0.c`:\n- `func_L11_0039C3D0`: plain C\n`src/levels/11_obani_moons/L11_003A2CD0.c`:\n- `func_L11_003A40B8`: plain C (file built with `@ps2as`)\n- `func_L11_003A41E0`: plain C (file built with `@ps2as`)\n- `func_L11_003A4410`: plain C (file built with `@ps2as`)\n- `func_L11_003A45D0`: plain C (file built with `@ps2as`)\n`src/levels/11_obani_moons/L11_003A6B78.c`:\n- `func_L11_003A6B78`: plain C (file built with `@ps2as` and `-mvu0-use-vf0-vf2`)\n- `func_L11_003A6BF8`: plain C (file built with `@ps2as` and `-mvu0-use-vf0-vf2`)\n- `func_L11_003A6CE0`: plain C (file built with `@ps2as` and `-mvu0-use-vf0-vf2`)\n`src/levels/11_obani_moons/L11_003A8FE0.c`:\n- `func_L11_003A8FE0`: plain C (file built with `@ps2as` and `-mvu0-us",
+      "mergedAt": "2026-11-12T07:10:59Z"
+     },
+     {
+      "number": 32,
+      "title": "feat(levels): match 172 functions in levels 01, 03, 05, 14, 19, 22, 24, 27, 28, 36 and 48",
+      "author": "TheBoso",
+      "untrustedBody": "## Functions\n\n172 functions in 11 levels, all plain C, in 104 files:\n\n| Level | Functions |\n|---|---|\n| 01 Veldin | 15 |\n| 03 Starship Phoenix | 39 |\n| 05 Daxx | 4 |\n| 14 Koros | 23 |\n| 19 Thran Asteroid Belt | 15 |\n| 22 Mylon | 8 |\n| 24 Insomniac Museum | 34 |\n| 27 Aquatos Base | 7 |\n| 28 Aquatos Sewers | 11 |\n| 36 Vidcomic 1 Special Edition | 15 |\n| 48 Aquatos Sewers (multiplayer) | 1 |\n\n<details>\n<summary>Every function, by file</summary>\n\n`src/levels/01_veldin/L01_00353EA0.c`:\n- `func_L01_00355D88`: plain C\n`src/levels/01_veldin/L01_00356588.c`:\n- `func_L01_00356818`: plain C (file built with `@ps2as`)\n- `func_L01_003569A0`: plain C (file built with `@ps2as`)\n- `func_L01_00356B70`: plain C (file built with `@ps2as`)\n`src/levels/01_veldin/L01_00356BA8.c`:\n- `func_L01_00356BA8`: plain C (file built with `@ps2as` and `-mvu0-use-vf0-vf2`)\n`src/levels/01_veldin/L01_003AF290.c`:\n- `func_L01_003B0E00`: plain C (file built with `@ps2as` and `-mvu0-use-vf0-vf2`)\n`src/levels/01_veldin/L01_00"
+     },
+     {
+      "number": 33,
+      "title": "feat(levels): match 26 functions in levels 17 (Crash Site) and 02 (Florana)",
+      "author": "TheBoso",
+      "untrustedBody": "## Functions\n\n26 functions: 15 in level 17 (Crash Site) and 11 in level 02 (Florana), all plain C.\n\n`src/levels/02_florana/L02_0034C9F0.c`:\n- `func_L02_0034C9F0`: plain C (file built with `@ps2as` and `-mvu0-use-vf0-vf2`)\n`src/levels/02_florana/L02_00352208.c`:\n- `func_L02_00352208`: plain C (file built with `@ps2as` and `-mvu0-use-vf0-vf2`)\n- `func_L02_003523D0`: plain C (file built with `@ps2as` and `-mvu0-use-vf0-vf2`)\n`src/levels/02_florana/L02_0039C730.c`:\n- `func_L02_0039CE20`: plain C (file built with `@ps2as` and `-mvu0-use-vf0-vf2`)\n`src/levels/02_florana/L02_0039EF28.c`:\n- `func_L02_0039F7D8`: plain C (file built with `@ps2as` and `-mvu0-use-vf0-vf2`)\n- `func_L02_0039F980`: plain C (file built with `@ps2as` and `-mvu0-use-vf0-vf2`)\n`src/levels/02_florana/L02_003AD978.c`:\n- `func_L02_003AD978`: plain C (file built with `@ps2as` and `-mvu0-use-vf0-vf2`)\n`src/levels/02_florana/L02_003BBA80.c`:\n- `func_L02_003BBC98`: plain C (file built with `@ps2as` and `-mvu0-use-vf0-vf2`)\n`src",
+      "mergedAt": "2026-11-13T05:52:24Z"
+     },
+     {
+      "number": 34,
+      "title": "feat(levels): match 17 functions in the multiplayer shared code (guber pool, Siege Ranger)",
+      "author": "TheBoso",
+      "untrustedBody": "## Functions\n\n17 functions in the multiplayer shared code (levels 39 to 53), all plain C.\n\n`src/levels/shared/L39_0061D1D8.c` (new, cut from `L39_0061D0B8.c`; the guber pool):\n- `func_L39_0061D1D8`, `func_L39_0061D2D8`, `func_L39_0061D3F0`, `func_L39_0061D470`, `func_L39_0061D540`, `func_L39_0061D6A8`, `func_L39_0061D800`: plain C (new)\n- `func_L39_0061D628`, `func_L39_0061D780`, `func_L39_0061D7B0`, `func_L39_0061D7F8`, `func_L39_0061D8B8`: already C, moved unchanged with the cut\n\n`src/levels/shared/L40_0040A4D0.c` (Siege Ranger), file built with `-mvu0-use-vf0-vf2` and `@ps2as`:\n- `func_L40_0040AA08`, `func_L40_0040ABB8` (think callback), `func_L40_0040B058`, `func_L40_0040B9C0`, `func_L40_0040BAF0`, `func_L40_0040BC00`, `func_L40_0040C6F0`, `func_L40_0040C878`, `func_L40_0040D4C0`, `func_L40_0040D7D0` (steering): plain C\n\n## Checks\n\n- [x] `python tests/check_repository.py` passes (\"repository checks passed\") and `python tools/pr_check.py --target all` prints `OK`\n- [x] Based on curr",
+      "mergedAt": "2026-11-13T06:39:19Z"
+     },
+     {
+      "number": 35,
+      "title": "feat(levels): match 14 functions in levels 13, 26, 29 and 31",
+      "author": "TheBoso",
+      "untrustedBody": "## Functions\n\n14 functions in levels 13, 26, 29 and 31: 12 plain C and 2 hand-written VU0 functions as `ASM_FUNC`.\n\n`src/levels/13_holostar_studios_ratchet/L13_0034C658.c`:\n- `func_L13_0034C730`: plain C\n`src/levels/13_holostar_studios_ratchet/L13_003FB2E8.c`:\n- `func_L13_003FB2E8`: plain C\n`src/levels/13_holostar_studios_ratchet/L13_0047BC90.c`:\n- `func_L13_0047BC90`: plain C\n`src/levels/13_holostar_studios_ratchet/L13_0047DEC8.c`:\n- `func_L13_0047DEC8`: plain C\n`src/levels/26_kerwan_ranger_missions/L26_00423CE8.c`:\n- `func_L26_00423CE8`: plain C\n`src/levels/26_kerwan_ranger_missions/L26_004444E8.c`:\n- `func_L26_004444E8`: `ASM_FUNC` (hand-written VU0)\n- `func_L26_00444554`: `ASM_FUNC` (hand-written VU0)\n`src/levels/26_kerwan_ranger_missions/L26_004A4A90.c`:\n- `func_L26_004A4A90`: plain C\n`src/levels/26_kerwan_ranger_missions/L26_004A6CC8.c`:\n- `func_L26_004A6CC8`: plain C\n`src/levels/29_tyhrranosis_ranger_missions/L29_004265F0.c`:\n- `func_L29_004265F0`: plain C\n`src/levels/29_tyhrran",
+      "mergedAt": "2026-11-13T05:55:59Z"
+     },
+     {
+      "number": 36,
+      "title": "feat(levels): match 33 functions in levels 10 (Zeldrin Starport) and 12 (Rilgar)",
+      "author": "TheBoso",
+      "untrustedBody": "## Functions\n\n33 functions: 28 in level 10 (Zeldrin Starport) and 5 in level 12 (Rilgar), all plain C.\n\n`src/levels/10_zeldrin_starport/L10_00358008.c`:\n- `func_L10_00358008`: plain C (file built with `@ps2as`)\n`src/levels/10_zeldrin_starport/L10_003587D8.c`:\n- `func_L10_00358F48`: plain C (file built with `@ps2as`)\n- `func_L10_00359238`: plain C (file built with `@ps2as`)\n`src/levels/10_zeldrin_starport/L10_00359EA0.c`:\n- `func_L10_0035A158`: plain C (file built with `@ps2as` and `-mvu0-use-vf0-vf2`)\n`src/levels/10_zeldrin_starport/L10_003B4350.c`:\n- `func_L10_003B4350`: plain C (file built with `@ps2as`)\n- `func_L10_003B4600`: plain C (file built with `@ps2as`)\n- `func_L10_003B5690`: plain C (file built with `@ps2as`)\n- `func_L10_003B57A8`: plain C (file built with `@ps2as`)\n`src/levels/10_zeldrin_starport/L10_003B5B48.c`:\n- `func_L10_003B85A0`: plain C (file built with `@ps2as`)\n`src/levels/10_zeldrin_starport/L10_003B9078.c`:\n- `func_L10_003B9D28`: plain C (file built with `@ps2as`",
+      "mergedAt": "2026-11-13T06:00:02Z"
+     },
+     {
+      "number": 37,
+      "title": "feat(levels): match 26 functions in level 14 (Koros)",
+      "author": "TheBoso",
+      "untrustedBody": "## Functions\n\n26 functions, all plain C: 14 (Koros): 26.\n\n<details>\n<summary>Every function, by file</summary>\n\n`src/levels/14_koros/L14_00353718.c`:\n- `func_L14_00353910`: plain C (file built with `@ps2as` and `-mvu0-use-vf0-vf2`)\n- `func_L14_003539E0`: plain C (file built with `@ps2as` and `-mvu0-use-vf0-vf2`)\n`src/levels/14_koros/L14_00354030.c`:\n- `func_L14_00354030`: plain C (file built with `@ps2as`)\n`src/levels/14_koros/L14_003542F0.c`:\n- `func_L14_003542F0`: plain C (file built with `@ps2as` and `-mvu0-use-vf0-vf2`)\n- `func_L14_00354538`: plain C (file built with `@ps2as` and `-mvu0-use-vf0-vf2`)\n- `func_L14_00354C28`: plain C (file built with `@ps2as` and `-mvu0-use-vf0-vf2`)\n`src/levels/14_koros/L14_0035C810.c`:\n- `func_L14_0035C810`: plain C (file built with `@ps2as`)\n- `func_L14_0035CD38`: plain C (file built with `@ps2as`)\n- `func_L14_0035CF00`: plain C (file built with `@ps2as`)\n- `func_L14_0035D088`: plain C (file built with `@ps2as`)\n`src/levels/14_koros/L14_0035D490.c`",
+      "mergedAt": "2026-11-13T06:02:44Z"
+     },
+     {
+      "number": 38,
+      "title": "feat(levels): match 18 functions in level 03 (Starship Phoenix)",
+      "author": "TheBoso",
+      "untrustedBody": "## Functions\n\n18 functions, all plain C: 03 (Starship Phoenix): 18.\n\n<details>\n<summary>Every function, by file</summary>\n\n`src/levels/03_starship_phoenix/L03_0032DB58.c`:\n- `func_L03_0032DC08`: plain C (file built with `@ps2as` and `-mvu0-use-vf0-vf2`)\n- `func_L03_0032DF60`: plain C (file built with `@ps2as` and `-mvu0-use-vf0-vf2`)\n- `func_L03_0032EC38`: plain C (file built with `@ps2as` and `-mvu0-use-vf0-vf2`)\n`src/levels/03_starship_phoenix/L03_00395808.c`:\n- `func_L03_00395808`: plain C (file built with `@ps2as` and `-mvu0-use-vf0-vf2`)\n- `func_L03_003965E8`: plain C (file built with `@ps2as` and `-mvu0-use-vf0-vf2`)\n`src/levels/03_starship_phoenix/L03_00397698.c`:\n- `func_L03_00397698`: plain C\n`src/levels/03_starship_phoenix/L03_00399278.c`:\n- `func_L03_003993A0`: plain C (file built with `@ps2as` and `-mvu0-use-vf0-vf2`)\n`src/levels/03_starship_phoenix/L03_00399D30.c`:\n- `func_L03_0039A1F8`: plain C (file built with `@ps2as` and `-mvu0-use-vf0-vf2`)\n- `func_L03_0039A5D0`: plai",
+      "mergedAt": "2026-11-13T06:05:38Z"
+     },
+     {
+      "number": 39,
+      "title": "feat(levels): match 31 functions in level 24 (Insomniac Museum)",
+      "author": "TheBoso",
+      "untrustedBody": "## Functions\n\n31 functions, all plain C: 24 (Insomniac Museum): 31.\n\n<details>\n<summary>Every function, by file</summary>\n\n`src/levels/24_insomniac_museum/L24_0032E508.c`:\n- `func_L24_0032E508`: plain C (file built with `@ps2as`)\n`src/levels/24_insomniac_museum/L24_0034A2C8.c`:\n- `func_L24_0034BA30`: plain C (file built with `@ps2as` and `-mvu0-use-vf0-vf2`)\n- `func_L24_0034BC48`: plain C (file built with `@ps2as` and `-mvu0-use-vf0-vf2`)\n- `func_L24_0034C088`: plain C (file built with `@ps2as` and `-mvu0-use-vf0-vf2`)\n`src/levels/24_insomniac_museum/L24_0034C618.c`:\n- `func_L24_0034C7A8`: plain C (file built with `@ps2as` and `-mvu0-use-vf0-vf2`)\n- `func_L24_0034C8D0`: plain C (file built with `@ps2as` and `-mvu0-use-vf0-vf2`)\n`src/levels/24_insomniac_museum/L24_0034DAB8.c`:\n- `func_L24_0034E370`: plain C (file built with `@ps2as`)\n`src/levels/24_insomniac_museum/L24_0034F040.c`:\n- `func_L24_0034F040`: plain C (file built with `@ps2as` and `-mvu0-use-vf0-vf2`)\n- `func_L24_0034F080`: p",
+      "mergedAt": "2026-11-13T06:08:31Z"
+     },
+     {
+      "number": 40,
+      "title": "feat(levels): match 10 functions in levels 01 (Veldin), 18 (Aridia) and 48 (Aquatos Sewers MP)",
+      "author": "TheBoso",
+      "untrustedBody": "## Functions\n\n10 functions, all plain C: 01 (Veldin): 7, 18 (Aridia): 2, 48 (Aquatos Sewers (multiplayer)): 1.\n\n<details>\n<summary>Every function, by file</summary>\n\n`src/levels/01_veldin/L01_0032ADF0.c`:\n- `func_L01_0032ADF0`: plain C (file built with `@ps2as` and `-mvu0-use-vf0-vf2`)\n`src/levels/01_veldin/L01_0035B710.c`:\n- `func_L01_0035B710`: plain C (file built with `@ps2as` and `-mvu0-use-vf0-vf2`)\n- `func_L01_0035BC18`: plain C (file built with `@ps2as` and `-mvu0-use-vf0-vf2`)\n`src/levels/01_veldin/L01_003AF290.c`:\n- `func_L01_003B08A0`: plain C (file built with `@ps2as` and `-mvu0-use-vf0-vf2`)\n`src/levels/01_veldin/L01_003BCDF8.c`:\n- `func_L01_003BD9A8`: plain C (file built with `@ps2as` and `-mvu0-use-vf0-vf2`)\n`src/levels/01_veldin/L01_003E1AD8.c`:\n- `func_L01_003E1CD0`: plain C (file built with `@ps2as`)\n`src/levels/01_veldin/L01_0049BBD8.c`:\n- `func_L01_0049BBD8`: plain C\n`src/levels/18_aridia/L18_004AE710.c`:\n- `func_L18_004AE710`: plain C\n`src/levels/18_aridia/L18_004B0",
+      "mergedAt": "2026-11-13T06:43:10Z"
+     },
+     {
+      "number": 41,
+      "title": "feat(levels): match 35 functions in levels 6 and 7",
+      "author": "cadelass",
+      "untrustedBody": "## What\n\nMatch 35 functions in level 6 (Starship Phoenix Under Attack) and level 7 (Annihilation Nation):\n\n- **Level 6, 3 functions** (the work already on the branch, now verified and committed):\n  `func_L06_0032DF80`, `func_L06_0032E168`, `func_L06_0032E2B0`.\n  The only `INCLUDE_ASM` left in `src/levels/06_starship_phoenix_under_attack/` is\n  `func_L06_00347370`, which is real VU0 (`lqc2`/`sqc2`/`vadd.xyz`/`vsub.xyz`) and stays out\n  by the matching rules; the other three entries there are `LINKER_REMNANT`.\n- **Level 7, 32 functions**: 00353D88, 003535B0, 003C8B60, 0035CA80, 003AA9C0, 003BB1A8,\n  003349E8, 003B3798, 003318D8, 00333D70, 00352A88, 003C86D0, 00335448, 003D2B30, 00331FA0,\n  003C9780, 003C90F8, 00332230, 003B04C8, 003E34D8, 003310E8, 003BF838, 003537B0, 003A3B40,\n  003B6800, 003C8A10, 00333C70, 003AF240, 003BCDD0, 003E3AB0, 00334968, 003CECD0.\n\nThe scope is claimed in issue #3 (`src/levels/06_starship_phoenix_under_attack/` and\n`src/levels/07_annihilation_nation/`); no oth",
+      "mergedAt": "2026-11-13T06:11:57Z"
+     },
+     {
+      "number": 42,
+      "title": "feat(levels): match 11 functions in level 36 (Vidcomic 1 Special Edition)",
+      "author": "TheBoso",
+      "untrustedBody": "## Functions\n\n11 functions, all plain C: 36 (Vid-comic 1 Special Edition): 11.\n\n<details>\n<summary>Every function, by file</summary>\n\n`src/levels/36_vidcomic_1_special_edition/L36_0031D768.c`:\n- `func_L36_0031D878`: plain C (file built with `@ps2as` and `-mvu0-use-vf0-vf2`)\n`src/levels/36_vidcomic_1_special_edition/L36_00348BB8.c`:\n- `func_L36_00348BB8`: plain C (file built with `@ps2as` and `-mvu0-use-vf0-vf2`)\n`src/levels/36_vidcomic_1_special_edition/L36_0034E8C0.c`:\n- `func_L36_0034FE78`: plain C (file built with `@ps2as` and `-mvu0-use-vf0-vf2`)\n`src/levels/36_vidcomic_1_special_edition/L36_00353598.c`:\n- `func_L36_00354288`: plain C (file built with `@ps2as` and `-mvu0-use-vf0-vf2`)\n- `func_L36_00354648`: plain C (file built with `@ps2as` and `-mvu0-use-vf0-vf2`)\n- `func_L36_00354D88`: plain C (file built with `@ps2as` and `-mvu0-use-vf0-vf2`)\n`src/levels/36_vidcomic_1_special_edition/L36_00355290.c`:\n- `func_L36_00355388`: plain C\n`src/levels/36_vidcomic_1_special_edition/L36_00",
+      "mergedAt": "2026-11-13T06:14:45Z"
+     },
+     {
+      "number": 43,
+      "title": "feat(levels): match 13 functions in levels 28 (Aquatos Sewers) and 22 (Mylon)",
+      "author": "TheBoso",
+      "untrustedBody": "## Functions\n\n13 functions, all plain C: 22 (Mylon): 6, 28 (Aquatos Sewers): 7.\n\n<details>\n<summary>Every function, by file</summary>\n\n`src/levels/22_mylon/L22_00343800.c`:\n- `func_L22_00343800`: plain C (file built with `@ps2as` and `-mvu0-use-vf0-vf2`)\n- `func_L22_00343C18`: plain C (file built with `@ps2as` and `-mvu0-use-vf0-vf2`)\n`src/levels/22_mylon/L22_0034CAD8.c`:\n- `func_L22_0034CBD8`: plain C (file built with `@ps2as`)\n`src/levels/22_mylon/L22_003BC778.c`:\n- `func_L22_003BC778`: plain C (file built with `@ps2as`)\n`src/levels/22_mylon/L22_003BCF38.c`:\n- `func_L22_003BCFF8`: plain C (file built with `@ps2as` and `-mvu0-use-vf0-vf2`)\n`src/levels/22_mylon/L22_00429B20.c`:\n- `func_L22_00429B20`: plain C (file built with `@ps2as`)\n`src/levels/28_aquatos_sewers/L28_003098F0.c`:\n- `func_L28_00309CE8`: plain C (file built with `@ps2as`)\n`src/levels/28_aquatos_sewers/L28_003420C0.c`:\n- `func_L28_003420C0`: plain C (file built with `@ps2as`)\n`src/levels/28_aquatos_sewers/L28_0039B910.c`",
+      "mergedAt": "2026-11-13T06:17:34Z"
+     },
+     {
+      "number": 44,
+      "title": "feat(levels): match 8 functions in level 27 (Aquatos Base)",
+      "author": "TheBoso",
+      "untrustedBody": "## Functions\n\n8 functions, all plain C: 27 (Aquatos Base): 8.\n\n<details>\n<summary>Every function, by file</summary>\n\n`src/levels/27_aquatos_base/L27_003A1250.c`:\n- `func_L27_003A1250`: plain C (file built with `@ps2as` and `-mvu0-use-vf0-vf2`)\n- `func_L27_003A17B0`: plain C (file built with `@ps2as` and `-mvu0-use-vf0-vf2`)\n- `func_L27_003A2548`: plain C (file built with `@ps2as` and `-mvu0-use-vf0-vf2`)\n- `func_L27_003A2B98`: plain C (file built with `@ps2as` and `-mvu0-use-vf0-vf2`)\n- `func_L27_003A3310`: plain C (file built with `@ps2as` and `-mvu0-use-vf0-vf2`)\n- `func_L27_003A3498`: plain C (file built with `@ps2as` and `-mvu0-use-vf0-vf2`)\n`src/levels/27_aquatos_base/L27_003A43A8.c`:\n- `func_L27_003A43A8`: plain C (file built with `@ps2as`)\n`src/levels/27_aquatos_base/L27_003FCDE0.c`:\n- `func_L27_003FCDE0`: plain C (file built with `@ps2as`)\n\n</details>\n\n## Checks\n\n- [x] `python tests/check_repository.py` passes (\"repository checks passed\") and `python tools/pr_check.py --target ",
+      "mergedAt": "2026-11-13T06:20:21Z"
+     },
+     {
+      "number": 45,
+      "title": "feat(levels): match 18 functions in level 05 (Daxx)",
+      "author": "TheBoso",
+      "untrustedBody": "## Functions\n\n18 functions, all plain C: 05 (Daxx): 18.\n\n<details>\n<summary>Every function, by file</summary>\n\n`src/levels/05_daxx/L05_0032ADD0.c`:\n- `func_L05_0032B3B8`: plain C (file built with `@ps2as` and `-mvu0-use-vf0-vf2`)\n- `func_L05_0032B630`: plain C (file built with `@ps2as` and `-mvu0-use-vf0-vf2`)\n`src/levels/05_daxx/L05_00355700.c`:\n- `func_L05_00355700`: plain C (file built with `@ps2as` and `-mvu0-use-vf0-vf2`)\n`src/levels/05_daxx/L05_0035F360.c`:\n- `func_L05_00360448`: plain C (file built with `@ps2as` and `-mvu0-use-vf0-vf2`)\n`src/levels/05_daxx/L05_003619F0.c`:\n- `func_L05_00362148`: plain C (file built with `@ps2as` and `-mvu0-use-vf0-vf2`)\n- `func_L05_003622D0`: plain C (file built with `@ps2as` and `-mvu0-use-vf0-vf2`)\n- `func_L05_003624B0`: plain C (file built with `@ps2as` and `-mvu0-use-vf0-vf2`)\n`src/levels/05_daxx/L05_003B1BD0.c`:\n- `func_L05_003B1E90`: plain C (file built with `@ps2as` and `-mvu0-use-vf0-vf2`)\n`src/levels/05_daxx/L05_003B2668.c`:\n- `func_L05",
+      "mergedAt": "2026-11-13T06:23:09Z"
+     },
+     {
+      "number": 46,
+      "title": "feat(levels): match 5 functions in the second half of level 19 (Thran Asteroid Belt)",
+      "author": "TheBoso",
+      "untrustedBody": "## Functions\n\n5 functions, all plain C: 19 (Thran Asteroid Belt): 5.\n\n<details>\n<summary>Every function, by file</summary>\n\n`src/levels/19_thran_asteroid_belt/L19_0040F070.c`:\n- `func_L19_0040F070`: plain C (file built with `@ps2as`)\n`src/levels/19_thran_asteroid_belt/L19_00445488.c`:\n- `func_L19_00445488`: plain C (file built with `@ps2as` and `-mvu0-use-vf0-vf2`)\n`src/levels/19_thran_asteroid_belt/L19_00490538.c`:\n- `func_L19_00490538`: plain C\n`src/levels/19_thran_asteroid_belt/L19_00492770.c`:\n- `func_L19_00492770`: plain C\n`src/levels/19_thran_asteroid_belt/L19_00501FE0.c`:\n- `func_L19_00501FE0`: plain C (file built with `@ps2as` and `-mvu0-use-vf0-vf2`)\n\n</details>\n\n## Checks\n\n- [x] `python tests/check_repository.py` passes (\"repository checks passed\") and `python tools/pr_check.py --target all` prints `OK`\n- [x] Based on current `master` (92a6235a)\n- [x] `tools/carry_us.sh`: NTSC-U carry and both progress reports regenerated; `version_map.py --check` in step\n- [x] `python tools/",
+      "mergedAt": "2026-11-13T06:25:37Z"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": {
+    "before": {
+     "code": {
+      "done": 1727092,
+      "total": 7546948
+     },
+     "functions": {
+      "done": 8054,
+      "total": 16164
+     }
+    },
+    "after": {
+     "code": {
+      "done": 1905200,
+      "total": 7546948
+     },
+     "functions": {
+      "done": 8487,
+      "total": 16164
+     }
+    }
+   },
+   "contributors": [
+    "bigbeno37",
+    "cadelass",
+    "DrLegitamate",
+    "TheBoso",
+    "Veradictus"
+   ]
+  },
+  {
+   "repo": "rac4-decomp",
+   "title": "Ratchet: Deadlocked",
+   "branches": [
+    {
+     "name": "main",
+     "commits": []
+    }
+   ],
+   "commitCount": 0,
+   "pullRequests": {
+    "merged": [],
+    "opened": [
+     {
+      "number": 148,
+      "title": "Match 12 US near misses (1 core, 9 net, 2 overlay)",
+      "author": "farfeduc",
+      "untrustedBody": "12 US functions that earlier rounds had left as near misses (same size, a few words off). Most drafts computed something slightly different from retail; reading retail's code fixed them:\n\n| Function | What was wrong |\n| --- | --- |\n| func_0012AB60 | 64-byte stride instead of 16, and the result is computed before the last call |\n| func_01EC3DE0 | C already in `src/` that did not match: the `r == 0` branch holds the body |\n| func_01EE1A60 | each loop re-reads its global (`while ((p = D_x) != 0)`) |\n| func_01EF05A4 | a loop over 0x280 elements of 0x34 bytes (the draft used a `#define`) |\n| func_01F0A2FC | store order |\n| func_L00_00541D98 | the callee takes `arg0[1]` |\n| func_L01_006538A8 | two-argument callee (`arg0, 1`), `-G0` |\n| func_01EC3460, func_01EC4250, func_01EC54E0, func_01EC7878 | built with `@ee32-040921` |\n| func_01EA8FD8 | matched in an earlier round, never published |\n\nfunc_0012AB60 and func_01F0A2FC now come from their US source on PAL too, so their `src/pal/` copies are "
+     }
+    ]
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": null,
+   "contributors": [
+    "farfeduc"
+   ]
+  },
+  {
+   "repo": "openrac-mods",
+   "title": "OpenRAC mods",
+   "branches": [
+    {
+     "name": "master",
+     "commits": [
+      {
+       "sha": "ad7c8e33192adab9ff4e589249ea614c2cfbaf78",
+       "title": "chore(index): approve expanded-quick-select 1.0.1",
+       "author": "openrac-bot[bot]",
+       "date": "2026-11-12T22:56:13Z"
+      },
+      {
+       "sha": "7579c4e4ee3dcef64aa48b76fb0c778348900e6f",
+       "title": "chore(index): approve expanded-quick-select 1.0.0",
+       "author": "openrac-bot[bot]",
+       "date": "2026-11-12T22:38:04Z"
+      },
+      {
+       "sha": "792a77bdfa497eb52779ed9deed63528791a05a8",
+       "title": "fix(multiplayer): send the hero's scale in the pose, 0.12.5 (#181)",
+       "author": "Lynder063",
+       "date": "2026-11-12T22:18:54Z"
+      },
+      {
+       "sha": "28f9d30415ba82b8dff8b6ac60ce56c9f38ad057",
+       "title": "feat(index): List expanded-quick-select (#180)",
+       "author": "openrac-bot[bot]",
+       "date": "2026-11-12T22:03:52Z"
+      },
+      {
+       "sha": "01579e95a0464224fd392e04c06b0bc1da50ac64",
+       "title": "fix(archipelago): #170, #171 and #157 rebuilt on current master (#177)",
+       "author": "Lynder063",
+       "date": "2026-11-12T21:45:57Z"
+      },
+      {
+       "sha": "968123136d200022e10c0b8f420955297d9759f9",
+       "title": "chore(index): approve gadget-quick-use 1.0.0",
+       "author": "openrac-bot[bot]",
+       "date": "2026-11-12T21:42:50Z"
+      },
+      {
+       "sha": "7adb39d1ed0780e08be2fc2e66670a30b473d3fd",
+       "title": "feat(ng-plus-plus): show the game's own level-up popup for a tier reached by experience, 0.1.10",
+       "author": "Veradictus",
+       "date": "2026-11-12T20:46:58Z"
+      },
+      {
+       "sha": "410de951c2e00eee66bfd915e17b7aea36172a4f",
+       "title": "feat(ng-plus-plus): attach the weapon tiers to the save editor's version pickers",
+       "author": "Veradictus",
+       "date": "2026-11-12T20:46:58Z"
+      },
+      {
+       "sha": "1410fe7710156549a08537bd9720426b62dbea47",
+       "title": "fix(ng-plus-plus): keep the tiers across restarts and updates, write each step at once, drop the vendor trace, 0.1.9",
+       "author": "Veradictus",
+       "date": "2026-11-12T20:46:58Z"
+      },
+      {
+       "sha": "416667064df55ea7ed7f687d5fd80c25cc2a4566",
+       "title": "chore(index): list gadget-quick-use (#173)",
+       "author": "openrac-bot[bot]",
+       "date": "2026-11-12T20:36:10Z"
+      },
+      {
+       "sha": "6943d2a99553fd415743706b6b296d04586b172e",
+       "title": "fix(item-randomizer): RAC1 empty vendors and Gadgetron PDA crashes (#156)",
+       "author": "SavedbyBlood9",
+       "date": "2026-11-12T20:29:47Z"
+      },
+      {
+       "sha": "e36466897623d851e30a836bd0b2a76da676d6da",
+       "title": "fix(archipelago): RAC1 Gadgetron PDA crash with empty vendor stock (#145)",
+       "author": "SavedbyBlood9",
+       "date": "2026-11-12T20:29:33Z"
+      },
+      {
+       "sha": "b12c5efad99d4d536b927fd8897649f8de437db8",
+       "title": "fix(difficulty): remove copies stacked on their original (#175)",
+       "author": "Lynder063",
+       "date": "2026-11-12T20:25:36Z"
+      },
+      {
+       "sha": "7eacdbb72c90c69af123360b05489d966dfaa50a",
+       "title": "feat(index): show what a native mod's libraries can do in its review issue (#176)",
+       "author": "nickyyOO",
+       "date": "2026-11-12T19:34:27Z"
+      },
+      {
+       "sha": "5004bb8d4c32420ba2ee5dbb437990612921460a",
+       "title": "fix(index): bind a review approval to the archives' SHA-256 (#174)",
+       "author": "nickyyOO",
+       "date": "2026-11-12T15:49:32Z"
+      },
+      {
+       "sha": "05fbb36298f088a0d7a7a29cc854297b11342087",
+       "title": "chore(index): approve bolt-grabber-v2 1.0.0",
+       "author": "openrac-bot[bot]",
+       "date": "2026-11-12T10:04:23Z"
+      },
+      {
+       "sha": "490e72f723821dcaed997ab5eefa8a9bd2a35265",
+       "title": "feat(cheats): cheats switched from the pause menu, 0.3.1 (#163)",
+       "author": "farfeduc",
+       "date": "2026-11-12T09:32:28Z"
+      },
+      {
+       "sha": "245b8efb14d8939c365cf0978c6cd063fe9e946d",
+       "title": "fix(multiplayer): the stick moving the cursor no longer chooses a pause row, 0.12.4 (#165)",
+       "author": "farfeduc",
+       "date": "2026-11-12T09:11:22Z"
+      },
+      {
+       "sha": "47ae7dfc6f5809da63255b50b0e62e5448e6a585",
+       "title": "feat(index): List bolt-grabber-v2 (#160)",
+       "author": "openrac-bot[bot]",
+       "date": "2026-11-12T09:11:18Z"
+      },
+      {
+       "sha": "1fecc128510bce2833763782790650ec8ea5024d",
+       "title": "chore(index): approve debug-menu 1.1.1",
+       "author": "openrac-bot[bot]",
+       "date": "2026-11-12T09:09:11Z"
+      },
+      {
+       "sha": "78d7099e822cee7f603dde16353853ce28db6043",
+       "title": "chore(index): approve pause-weapon-wheel 1.0.2",
+       "author": "openrac-bot[bot]",
+       "date": "2026-11-12T09:09:05Z"
+      },
+      {
+       "sha": "243513837c5a01f837e4a03a13e62a6b4b2e8db8",
+       "title": "chore(index): approve wrench-throw 1.0.2",
+       "author": "openrac-bot[bot]",
+       "date": "2026-11-12T09:09:03Z"
+      },
+      {
+       "sha": "5b8fd49e27c1c64d585142c36f3a29657b4fe2a1",
+       "title": "fix(index): retry approval pushes and close the review issue (#168)",
+       "author": "Lynder063",
+       "date": "2026-11-12T08:57:23Z"
+      },
+      {
+       "sha": "963a4b8c5da8e07be8d915162b026a1ccea4ad11",
+       "title": "fix(ng-plus-plus): leave the optional hooks out of the manifest's list until the SDK names them, 0.1.8",
+       "author": "Veradictus",
+       "date": "2026-11-12T08:38:29Z"
+      },
+      {
+       "sha": "0e23b2a5d33776caba097243b249fb140092041f",
+       "title": "fix(ng-plus-plus): tint the weapon's own vendor entry by its tier, log the vendor's preview state after a purchase, 0.1.7",
+       "author": "Veradictus",
+       "date": "2026-11-12T08:18:30Z"
+      },
+      {
+       "sha": "38c65f6db4034f40f491694c8218189ebd453313",
+       "title": "feat(ng-plus-plus): name a tiered weapon by its tier and first version everywhere the game prints it, 0.1.6",
+       "author": "Veradictus",
+       "date": "2026-11-12T08:18:30Z"
+      },
+      {
+       "sha": "142ba9e249a5aa4e42ea4f2bafe93baa8f7802ac",
+       "title": "fix(ng-plus-plus): name the RYNO II's and the Zodiac's vendor tier, log each purchase, slow the RYNO II's levels five times, 0.1.5",
+       "author": "Veradictus",
+       "date": "2026-11-12T08:18:30Z"
+      },
+      {
+       "sha": "e9bec2643103aa53316c03ecc20353bc705fb6b4",
+       "title": "fix(ng-plus-plus): fill the experience bar toward the next tier, write vendor texts into the port's slots, 0.1.4",
+       "author": "Veradictus",
+       "date": "2026-11-12T08:18:30Z"
+      },
+      {
+       "sha": "0093d9e9b50ef29ed740caf2fca5b5e25107467d",
+       "title": "style(ng-plus-plus): format with clang-format 21.1.8",
+       "author": "Veradictus",
+       "date": "2026-11-12T08:18:30Z"
+      },
+      {
+       "sha": "348da6904b127a4fd2f3efd321efd1e76ba8e3e5",
+       "title": "fix(difficulty): leave the turrets the player rides on Gaspar and Hoven alone (#166)",
+       "author": "nickyyOO",
+       "date": "2026-11-12T08:13:39Z"
+      },
+      {
+       "sha": "9658b672ecd7af45a4cf3425e2ce98ff06d42466",
+       "title": "feat(ng-plus-plus): describe the tiers file for the launcher's save editor",
+       "author": "Veradictus",
+       "date": "2026-11-12T07:28:04Z"
+      },
+      {
+       "sha": "d9fe449aea06c11b9aeff74c1923d24b2085f6f2",
+       "title": "fix(ng-plus-plus): price tiers from each weapon's Mega, name them in the vendor, count experience from the mod's start, 0.1.3",
+       "author": "Veradictus",
+       "date": "2026-11-12T07:27:38Z"
+      },
+      {
+       "sha": "bfd53576aa060eadec0bf3124341461759af85d2",
+       "title": "fix(ng-plus-plus): build the vendor's tier entry as the game's Mega entry, next to its weapon, in its tier's tint, 0.1.2",
+       "author": "Veradictus",
+       "date": "2026-11-12T06:48:44Z"
+      },
+      {
+       "sha": "eeb1fdc294ba2ae29f30e18d7b61646db7750afb",
+       "title": "fix(ng-plus-plus): declare the mod so the port loads it, 0.1.1",
+       "author": "Veradictus",
+       "date": "2026-11-12T06:22:06Z"
+      },
+      {
+       "sha": "436fd62fc3463e48115451196b1a32d6e5b4d7c7",
+       "title": "build: build against the mod SDK 1.14.6",
+       "author": "Veradictus",
+       "date": "2026-11-12T05:34:01Z"
+      },
+      {
+       "sha": "9952eb76dbd4385a681fa06cfd474a6009ac5e37",
+       "title": "build: build against OpenRAC's SDK with Going Commando's NG++ hook points until SDK 1.14.6 is released",
+       "author": "Veradictus",
+       "date": "2026-11-12T05:22:27Z"
+      },
+      {
+       "sha": "88942ed2efabfd525f548426583666fe6ce08ee5",
+       "title": "feat(ng-plus-plus): NG++, Alpha to Omega tiers for Going Commando's weapons and tougher enemies each new game",
+       "author": "Veradictus",
+       "date": "2026-11-12T04:58:38Z"
+      }
+     ]
+    }
+   ],
+   "commitCount": 37,
+   "pullRequests": {
+    "merged": [
+     {
+      "number": 145,
+      "title": "Fix RAC1 Gadgetron PDA crash with empty vendor stock",
+      "author": "SavedbyBlood9",
+      "untrustedBody": "Prevents the RAC1 Gadgetron PDA from opening an empty vendor menu. Ammunition availability includes explicit stock and ammunition generated for owned weapons. Covers NTSC-U and PAL v2.00.\n\nReview corrections:\n- Adds `Vendor_OpenMenu` to the Archipelago manifest.\n- Bounds-checks stock item IDs against the 37-entry price table before reading it.\n- Integrates current master (SDK 1.14.6). The released SDK's `rac1.hpp` declares `Vendor_OpenMenu`, but `rac1.h` does not: removing the C compatibility block fails compilation. The block is retained with this explanation until the SDK C header is corrected.\n\nValidation: Windows x64/MSVC and released SDK 1.14.6; all 13 native CTest tests passed, including the solver sweep. `git diff --check` passed. Previous NTSC-U in-game PDA validation remains applicable; no new in-game validation performed.\n\nMerge #145 before #156 and #157. Their branches already incorporate these corrections and have their overlapping changes reconciled. #170 and #171 extract ",
+      "mergedAt": "2026-11-12T20:29:34Z"
+     },
+     {
+      "number": 156,
+      "title": "Fix RAC1 item randomizer empty vendors and Gadgetron PDA crashes",
+      "author": "SavedbyBlood9",
+      "untrustedBody": "Fixes RAC1 item-randomizer vendor crashes and access to an unowned starting Bomb Glove. Buying the final row starts the normal closing transition while retaining a valid row for the purchase handler. Empty filtered physical vendors lose interaction until stock returns. The Gadgetron PDA opens only when ammunition is available, including ammunition generated for owned weapons.\n\nWhen Bomb Glove is unowned, stale Circle/Triangle and pending equipment references fall back to the wrench through the normal equipment switch. Owned Bomb Glove and other selected weapons retain their behavior; the save/seed gate remains enforced.\n\nReview corrections:\n- Declares `rac1.vendor.open_menu` in the manifest and bumps the mod to 2.4.2.\n- Moves hero, quick-swap, moby-base and vendor-close addresses into the PAL/NTSC-U disc mappings.\n- Bounds-checks the PDA price-table lookup against its 37 entries and adds malformed-stock regression cases.\n- Incorporates #145 and current master, resolving the shared disc",
+      "mergedAt": "2026-11-12T20:29:48Z"
+     },
+     {
+      "number": 160,
+      "title": "List bolt-grabber-v2",
+      "author": "openrac-bot[bot]",
+      "untrustedBody": "From #159, checked by the listing bot. @OpenRAC/maintainers, please review.\n\nCloses #159",
+      "mergedAt": "2026-11-12T09:11:18Z"
+     },
+     {
+      "number": 163,
+      "title": "feat(cheats): cheats switched from the pause menu, 0.3.1",
+      "author": "farfeduc",
+      "untrustedBody": "A new native mod, **cheats**, for Ratchet & Clank (PAL and NTSC-U), built with the pinned SDK 1.14.4 for interface 1.12 (the current launcher's).\n\n## What it does\n\nIn a level, **Pause > Options > Cheats** opens a page of the game's own menus:\n\n| Row | |\n|---|---|\n| Invincibility | Hits take no health (`rac1.player.take_damage`) |\n| Infinite ammo | Shots take no ammo (`rac1.weapon.take_ammo`); switched on, every owned weapon is filled |\n| Infinite oxygen | The hero's air is put back to a full breath after each tick (no hook point there) |\n| Bolt multiplier | x1 to x100 on each bolt picked up (`rac1.moby.collect_bolt` + `openrac_api.bolts`) |\n| Refill ammo / Give 10000 bolts | Buttons |\n\nThe launcher's settings say what is on at the start, and a small HUD line (`hud_text_set`) names what is on. With every cheat off, each hook calls the game's own function as it was called and nothing is written. `\"multiplayer\": \"solo\"`.\n\n## Two things worth a maintainer's look\n\n- **The settings stay in s",
+      "mergedAt": "2026-11-12T09:32:29Z"
+     },
+     {
+      "number": 165,
+      "title": "fix(multiplayer): the stick moving the cursor no longer chooses a pause row, 0.12.4",
+      "author": "farfeduc",
+      "untrustedBody": "## The bug\n\nOn the pause menu's pages (**Options > Multiplayer**, and the Team tools, Party rules and Remove pages opened from it), moving the cursor with the **left stick** can act on the row it arrives at:\n\n- the game's pad reading (`func_002181F0`, `games/rac1` `src/game/system/pad.c`) turns the stick into Left or Right as soon as one axis leans `0x30` from the centre, whatever the other does, so pushing it down a little off straight is also Left or Right;\n- OpenRAC's port (`mod_ui.cpp`, `pause::input`) chooses a row's **button**, and answers a question **Yes**, on Cross, Left or Right alike.\n\nSo a player moving down the Multiplayer page could **save the party**, **go to the host**, **give up** a rescue (the deferred lethal hit), **remove or ban** a member (host, Remove page), or **leave the party** (moving onto Yes in the question). Found with the cheats mod (#163), where it switched cheats on by moving onto them.\n\nThe port is being fixed in OpenRAC/OpenRAC#459; this protects playe",
+      "mergedAt": "2026-11-12T09:11:22Z"
+     },
+     {
+      "number": 166,
+      "title": "fix(difficulty): leave the turrets the player rides on Gaspar and Hoven alone",
+      "author": "nickyyOO",
+      "untrustedBody": "Before: with the Difficulty mod, the turret the player rides on Gaspar fired no shots, which blocks progress, and Hoven's moved and shot faster.\n\nAfter: both are left as the game has them.\n\nHow: classes 1201 and 1267 are excluded in classes.tsv; classes.h is regenerated and the README is updated.\n\nTested: ctest -R difficulty (6/6).",
+      "mergedAt": "2026-11-12T08:13:40Z"
+     },
+     {
+      "number": 168,
+      "title": "fix(index): approvals fall back to a PR and leave the issue open",
+      "author": "Lynder063",
+      "untrustedBody": "A refused push to master is now retried on the new master.\nThe fallback PR closes the review issue and is reused if open.",
+      "mergedAt": "2026-11-12T08:57:23Z"
+     },
+     {
+      "number": 173,
+      "title": "List gadget-quick-use",
+      "author": "openrac-bot[bot]",
+      "untrustedBody": "From #172, checked by the listing bot. @OpenRAC/maintainers, please review.\n\nCloses #172",
+      "mergedAt": "2026-11-12T20:36:11Z"
+     },
+     {
+      "number": 174,
+      "title": "fix(index): bind a review approval to the archives' SHA-256",
+      "author": "nickyyOO",
+      "untrustedBody": "## Before\nA maintainer approved a version by its number only. The author could replace a release archive after the review, and the index then published the new, unreviewed file.\n\n## After\nThe approval stores the SHA-256 of each archive shown on the review issue. If an archive changes, that version waits for review again. The bot reopens the closed issue (or warns on the open one) and removes the `approved` label.\n\n## How\n- `submit_bot.py review` writes the hashes on the issue's last line. Only that line counts, so hashes in the author's changelog are ignored.\n- `submit_bot.py approve` saves `{version, sha256}` in `index/approved.json`.\n- `build_index.py` publishes only when the release's hashes match. Older entries with a bare version still work.\n\n## Tested\n- `python3 -m unittest discover -s tools/tests`: 108 tests pass (7 new).\n- `python3 tools/build_index.py --check --offline tools/tests/fixtures/github` passes.\n- Not tested: the workflows on GitHub.",
+      "mergedAt": "2026-11-12T15:49:32Z"
+     },
+     {
+      "number": 175,
+      "title": "fix(difficulty): remove copies stacked on their original",
+      "author": "Lynder063",
+      "untrustedBody": "Path enemies (Novalis birdbots) snapped their copies onto the original (T-12).\nCopies that land on their original are removed; difficulty tests pass, not yet checked in game.\n\n---\n_Generated by [Claude Code](https://claude.ai/code/session_01E5SuSUcxdGTVaReTqPBGij)_",
+      "mergedAt": "2026-11-12T20:25:37Z"
+     },
+     {
+      "number": 176,
+      "title": "feat(index): show what a native mod's libraries can do in its review issue",
+      "author": "nickyyOO",
+      "untrustedBody": "**Before:** a review issue for a native mod showed only the hashes and the links. A reviewer had to dig into the libraries by hand.\n\n**After:** the bot downloads the release archives, checks their SHA-256 and reads each library's imports and strings (ELF, PE, Mach-O). The issue gets a table of what the libraries can do (network, start programs, load code, clipboard, saved secrets, ...), marks what is new since the published version, and lists URLs and IPs.\n\n**How:** new `tools/binary_scan.py` in pure Python, called from `submit_bot.py`. `build_index.py` passes the previous published version. Takes milliseconds for a usual mod. Mod authors change nothing.\n\n**Tested:** `python -m unittest` in tools: 122 pass, 10 new for the scan.",
+      "mergedAt": "2026-11-12T19:34:28Z"
+     },
+     {
+      "number": 177,
+      "title": "fix(archipelago): #170, #171 and #157 rebuilt on current master",
+      "author": "Lynder063",
+      "untrustedBody": "One commit per PR (authors kept), rebuilt after #145/#156 were squash-merged; #145/#156 ammo follow-ups reapplied, archipelago 2.3.0.\nSupersedes #170, #171, #157.\n\n---\n_Generated by [Claude Code](https://claude.ai/code/session_01E5SuSUcxdGTVaReTqPBGij)_",
+      "mergedAt": "2026-11-12T21:45:58Z"
+     },
+     {
+      "number": 180,
+      "title": "List expanded-quick-select",
+      "author": "openrac-bot[bot]",
+      "untrustedBody": "From #178, checked by the listing bot. @OpenRAC/maintainers, please review.\n\nCloses #178",
+      "mergedAt": "2026-11-12T22:03:53Z"
+     },
+     {
+      "number": 181,
+      "title": "fix(multiplayer): send the hero's scale in the pose",
+      "author": "Lynder063",
+      "untrustedBody": "The pose now carries the hero's scale, so a figure no longer keeps a stale one (wide Ratchet after Go to host).\nPart of #70: the client hit and hurt sync is not fixed here.\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)",
+      "mergedAt": "2026-11-12T22:18:54Z"
+     }
+    ],
+    "opened": [
+     {
+      "number": 166,
+      "title": "fix(difficulty): leave the turrets the player rides on Gaspar and Hoven alone",
+      "author": "nickyyOO",
+      "untrustedBody": "Before: with the Difficulty mod, the turret the player rides on Gaspar fired no shots, which blocks progress, and Hoven's moved and shot faster.\n\nAfter: both are left as the game has them.\n\nHow: classes 1201 and 1267 are excluded in classes.tsv; classes.h is regenerated and the README is updated.\n\nTested: ctest -R difficulty (6/6).",
+      "mergedAt": "2026-11-12T08:13:40Z"
+     },
+     {
+      "number": 167,
+      "title": "fix: enemy copies, party host takeover and edge cases in Difficulty",
+      "author": "nickyyOO",
+      "untrustedBody": "Before: with Enemy count above 1, copies of path and cover enemies (Novalis birdbots, troopers, saw bots) stood on top of each other: they hid each other, caught each other's shots and split apart once hit. Spawned and big enemies could still overlap. When a party's host left, the new host ran no Chaos events or enemy copies, and an event on at that moment never ended.\n\nAfter:\n- Birdbots, mine layers and minibombers are no longer copied (their init puts them at their path's start).\n- Copies keep apart from every enemy of their class: spawned ones too, big ones by their own size (up to 4 units). They never go through walls, and walking ones never go off ledges. The level's own enemies are never moved.\n- A new host keeps the party's rules and runs the events and copies itself (Multiplayer hands the rules over to its mods; the Item Randomizer keeps the party's seed).\n- Bolt counts are restored after Moby_RecordDeath, a health orb never lowers health, and a member no longer moves copies.\n-"
+     },
+     {
+      "number": 168,
+      "title": "fix(index): approvals fall back to a PR and leave the issue open",
+      "author": "Lynder063",
+      "untrustedBody": "A refused push to master is now retried on the new master.\nThe fallback PR closes the review issue and is reused if open.",
+      "mergedAt": "2026-11-12T08:57:23Z"
+     },
+     {
+      "number": 170,
+      "title": "Fix Archipelago unowned Bomb Glove equipment shortcuts",
+      "author": "SavedbyBlood9",
+      "untrustedBody": "Extracts the Bomb Glove fix from #157 for separate review, as requested.\n\nWhen Bomb Glove is unowned, stale starting equipment and Circle/Triangle references switch back to the wrench through the normal equipment switch. Owned Bomb Glove and other selected weapons retain their behavior.\n\nDepends on #145; the branch includes its PDA fix and current-master integration. Review the isolated fix against that branch at https://github.com/SavedbyBlood9/openrac-mods/compare/fix/archipelago-rac1-gadgetron-pda...fix/archipelago-unowned-bomb-glove . Merge #145 first. #157 already incorporates this branch and should follow this fix.\n\nValidation: Windows x64/MSVC with the released SDK 1.14.6; all five Archipelago CTest tests passed, including PAL and NTSC-U load tests. No new in-game validation performed."
+     },
+     {
+      "number": 171,
+      "title": "Fix Archipelago seed associations after successful new-game overwrites",
+      "author": "SavedbyBlood9",
+      "untrustedBody": "Extracts the save-overwrite fix from #157 for separate review, as requested.\n\nAn occupied save slot changes seed association only after a fresh game's save write and close succeed. Busy, failed and cancelled writes preserve the old association. Loaded foreign saves remain protected; offline fresh-game overwrites bind once the room identity arrives. Starting or loading another game discards unsent progress from the previous game.\n\nDepends on #145 and the separately extracted Bomb Glove fix. The branch contains those prerequisites; its own delta is https://github.com/SavedbyBlood9/openrac-mods/compare/fix/archipelago-unowned-bomb-glove...fix/archipelago-save-overwrite . #157 already incorporates this branch and should follow it. This PR contains no starting-weapon, New Game+ start or shuffled-gold-case options.\n\nDeclares the required save hooks in the manifest and carries the save-judgement lifecycle needed independently of the New Game+ feature.\n\nValidation: Windows x64/MSVC with releas"
+     },
+     {
+      "number": 173,
+      "title": "List gadget-quick-use",
+      "author": "openrac-bot[bot]",
+      "untrustedBody": "From #172, checked by the listing bot. @OpenRAC/maintainers, please review.\n\nCloses #172",
+      "mergedAt": "2026-11-12T20:36:11Z"
+     },
+     {
+      "number": 174,
+      "title": "fix(index): bind a review approval to the archives' SHA-256",
+      "author": "nickyyOO",
+      "untrustedBody": "## Before\nA maintainer approved a version by its number only. The author could replace a release archive after the review, and the index then published the new, unreviewed file.\n\n## After\nThe approval stores the SHA-256 of each archive shown on the review issue. If an archive changes, that version waits for review again. The bot reopens the closed issue (or warns on the open one) and removes the `approved` label.\n\n## How\n- `submit_bot.py review` writes the hashes on the issue's last line. Only that line counts, so hashes in the author's changelog are ignored.\n- `submit_bot.py approve` saves `{version, sha256}` in `index/approved.json`.\n- `build_index.py` publishes only when the release's hashes match. Older entries with a bare version still work.\n\n## Tested\n- `python3 -m unittest discover -s tools/tests`: 108 tests pass (7 new).\n- `python3 tools/build_index.py --check --offline tools/tests/fixtures/github` passes.\n- Not tested: the workflows on GitHub.",
+      "mergedAt": "2026-11-12T15:49:32Z"
+     },
+     {
+      "number": 175,
+      "title": "fix(difficulty): remove copies stacked on their original",
+      "author": "Lynder063",
+      "untrustedBody": "Path enemies (Novalis birdbots) snapped their copies onto the original (T-12).\nCopies that land on their original are removed; difficulty tests pass, not yet checked in game.\n\n---\n_Generated by [Claude Code](https://claude.ai/code/session_01E5SuSUcxdGTVaReTqPBGij)_",
+      "mergedAt": "2026-11-12T20:25:37Z"
+     },
+     {
+      "number": 176,
+      "title": "feat(index): show what a native mod's libraries can do in its review issue",
+      "author": "nickyyOO",
+      "untrustedBody": "**Before:** a review issue for a native mod showed only the hashes and the links. A reviewer had to dig into the libraries by hand.\n\n**After:** the bot downloads the release archives, checks their SHA-256 and reads each library's imports and strings (ELF, PE, Mach-O). The issue gets a table of what the libraries can do (network, start programs, load code, clipboard, saved secrets, ...), marks what is new since the published version, and lists URLs and IPs.\n\n**How:** new `tools/binary_scan.py` in pure Python, called from `submit_bot.py`. `build_index.py` passes the previous published version. Takes milliseconds for a usual mod. Mod authors change nothing.\n\n**Tested:** `python -m unittest` in tools: 122 pass, 10 new for the scan.",
+      "mergedAt": "2026-11-12T19:34:28Z"
+     },
+     {
+      "number": 177,
+      "title": "fix(archipelago): #170, #171 and #157 rebuilt on current master",
+      "author": "Lynder063",
+      "untrustedBody": "One commit per PR (authors kept), rebuilt after #145/#156 were squash-merged; #145/#156 ammo follow-ups reapplied, archipelago 2.3.0.\nSupersedes #170, #171, #157.\n\n---\n_Generated by [Claude Code](https://claude.ai/code/session_01E5SuSUcxdGTVaReTqPBGij)_",
+      "mergedAt": "2026-11-12T21:45:58Z"
+     },
+     {
+      "number": 180,
+      "title": "List expanded-quick-select",
+      "author": "openrac-bot[bot]",
+      "untrustedBody": "From #178, checked by the listing bot. @OpenRAC/maintainers, please review.\n\nCloses #178",
+      "mergedAt": "2026-11-12T22:03:53Z"
+     },
+     {
+      "number": 181,
+      "title": "fix(multiplayer): send the hero's scale in the pose",
+      "author": "Lynder063",
+      "untrustedBody": "The pose now carries the hero's scale, so a figure no longer keeps a stale one (wide Ratchet after Go to host).\nPart of #70: the client hit and hurt sync is not fixed here.\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)",
+      "mergedAt": "2026-11-12T22:18:54Z"
+     },
+     {
+      "number": 183,
+      "title": "List auto-swingshot",
+      "author": "openrac-bot[bot]",
+      "untrustedBody": "From #182, checked by the listing bot. @OpenRAC/maintainers, please review.\n\nCloses #182",
+      "mergedAt": "2026-11-14T19:23:02Z"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [
+     {
+      "number": 169,
+      "title": "Review bolt-grabber-v2 1.0.0",
+      "author": "openrac-bot[bot]"
+     },
+     {
+      "number": 172,
+      "title": "Submit: Gadget Quick Use",
+      "author": "ParadoxEpoch"
+     },
+     {
+      "number": 178,
+      "title": "Submit: Expanded Quick Select",
+      "author": "glawks"
+     },
+     {
+      "number": 179,
+      "title": "Review gadget-quick-use 1.0.0",
+      "author": "openrac-bot[bot]"
+     },
+     {
+      "number": 182,
+      "title": "Submit: Auto Swingshot",
+      "author": "glawks"
+     },
+     {
+      "number": 184,
+      "title": "Review expanded-quick-select 1.0.1",
+      "author": "openrac-bot[bot]"
+     },
+     {
+      "number": 185,
+      "title": "Review expanded-quick-select 1.0.0",
+      "author": "openrac-bot[bot]"
+     }
+    ],
+    "closed": [
+     {
+      "number": 130,
+      "title": "Review damage-numbers 0.8.1",
+      "author": "openrac-bot[bot]"
+     },
+     {
+      "number": 133,
+      "title": "Review revolverator 0.3.3",
+      "author": "openrac-bot[bot]"
+     },
+     {
+      "number": 134,
+      "title": "Review revolverator 0.3.2",
+      "author": "openrac-bot[bot]"
+     },
+     {
+      "number": 146,
+      "title": "Review pause-weapon-wheel 1.0.1",
+      "author": "openrac-bot[bot]"
+     },
+     {
+      "number": 155,
+      "title": "Review wrench-throw 1.0.2",
+      "author": "openrac-bot[bot]"
+     },
+     {
+      "number": 158,
+      "title": "Review pause-weapon-wheel 1.0.2",
+      "author": "openrac-bot[bot]"
+     },
+     {
+      "number": 159,
+      "title": "Submit: Bolt Grabber V2",
+      "author": "ParadoxEpoch"
+     },
+     {
+      "number": 161,
+      "title": "Review debug-menu 1.1.1",
+      "author": "openrac-bot[bot]"
+     },
+     {
+      "number": 169,
+      "title": "Review bolt-grabber-v2 1.0.0",
+      "author": "openrac-bot[bot]"
+     },
+     {
+      "number": 172,
+      "title": "Submit: Gadget Quick Use",
+      "author": "ParadoxEpoch"
+     },
+     {
+      "number": 178,
+      "title": "Submit: Expanded Quick Select",
+      "author": "glawks"
+     },
+     {
+      "number": 179,
+      "title": "Review gadget-quick-use 1.0.0",
+      "author": "openrac-bot[bot]"
+     },
+     {
+      "number": 184,
+      "title": "Review expanded-quick-select 1.0.1",
+      "author": "openrac-bot[bot]"
+     },
+     {
+      "number": 185,
+      "title": "Review expanded-quick-select 1.0.0",
+      "author": "openrac-bot[bot]"
+     }
+    ]
+   },
+   "releases": [
+    {
+     "tag": "ng-plus-plus-v0.1.0",
+     "name": "ng-plus-plus-v0.1.0",
+     "publishedAt": "2026-11-12T05:56:18Z"
+    },
+    {
+     "tag": "ng-plus-plus-v0.1.1",
+     "name": "ng-plus-plus-v0.1.1",
+     "publishedAt": "2026-11-12T06:41:54Z"
+    },
+    {
+     "tag": "ng-plus-plus-v0.1.10",
+     "name": "ng-plus-plus-v0.1.10",
+     "publishedAt": "2026-11-12T21:44:15Z"
+    },
+    {
+     "tag": "ng-plus-plus-v0.1.8",
+     "name": "ng-plus-plus-v0.1.8",
+     "publishedAt": "2026-11-12T08:59:42Z"
+    }
+   ],
+   "progress": null,
+   "contributors": [
+    "farfeduc",
+    "Lynder063",
+    "nickyyOO",
+    "SavedbyBlood9",
+    "Veradictus"
+   ]
+  }
+ ]
+}

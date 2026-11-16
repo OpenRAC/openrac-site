@@ -1,0 +1,1718 @@
+{
+ "format": 1,
+ "date": "2026-11-15",
+ "totals": {
+  "commits": 160,
+  "pullRequestsMerged": 26,
+  "pullRequestsOpened": 39,
+  "contributors": 14
+ },
+ "projects": [
+  {
+   "repo": "OpenRAC",
+   "title": "OpenRAC launcher",
+   "branches": [
+    {
+     "name": "develop",
+     "commits": [
+      {
+       "sha": "8f9945dd47edc81918a5e48bfc302ec29d36390c",
+       "title": "fix(rac2): Press START, pause, weapon sound and level AI after the decomp bump (#532)",
+       "author": "nickyyOO",
+       "date": "2026-11-15T22:28:14Z"
+      },
+      {
+       "sha": "79f35143ae179e561b4dcd44ae0be5752833a285",
+       "title": "fix(rac2): Aranos hatch keeps the game's active distance (#533)",
+       "author": "nickyyOO",
+       "date": "2026-11-15T21:13:02Z"
+      },
+      {
+       "sha": "e6fed90ea682146b7f71d806cbdff463cfbb21d1",
+       "title": "fix(cmake): repair stale decomp paths, missing submodules and patches at configure (#531)",
+       "author": "Lynder063",
+       "date": "2026-11-15T20:35:44Z"
+      },
+      {
+       "sha": "c3e797ac30e9bb8380d73da922eb91e8131d6790",
+       "title": "fix(port): retain offscreen scenery shadow casters (#530)",
+       "author": "pezzadev",
+       "date": "2026-11-15T18:05:35Z"
+      },
+      {
+       "sha": "fba8443bf21d7260a8ac82ad04b9a29e63d9c302",
+       "title": "fix(launcher): scroll an overfull top bar and keep long paths inside Settings (#529)",
+       "author": "nickyyOO",
+       "date": "2026-11-15T16:08:23Z"
+      },
+      {
+       "sha": "9ec112d2217f546018df963bf35a962489f8728f",
+       "title": "fix(renderer): build the texture pack reader without std::jthread (#528)",
+       "author": "nickyyOO",
+       "date": "2026-11-15T15:39:52Z"
+      },
+      {
+       "sha": "d1628f479a2377c18c20fc705a8cd224d4017613",
+       "title": "fix(renderer): remove texture pack stutters (#526)",
+       "author": "nickyyOO",
+       "date": "2026-11-15T14:02:17Z"
+      },
+      {
+       "sha": "120ccaa2b50ba6027880bf9e695d80cea842a1d5",
+       "title": "chore(port): drop rac1 NTSC hand rows the decomp now has C for (#527)",
+       "author": "nickyyOO",
+       "date": "2026-11-15T14:01:43Z"
+      },
+      {
+       "sha": "959c53d1e256947542bd3c1b6cfd229cb9712335",
+       "title": "fix: guard every disc's tables against version drift (#525)",
+       "author": "nickyyOO",
+       "date": "2026-11-15T13:51:34Z"
+      },
+      {
+       "sha": "483c621bfa3a7073ae5dad905683ea292b018fab",
+       "title": "ci: build Going Commando's PAL and v2.00 with every change that builds its USA disc (#523)",
+       "author": "Lynder063",
+       "date": "2026-11-15T12:20:24Z"
+      },
+      {
+       "sha": "d51944c30b11cdd8e9cb2f376136d5af55fa7bae",
+       "title": "fix(touch): show retry and quit buttons in rac2 minigames (#524)",
+       "author": "nickyyOO",
+       "date": "2026-11-15T12:07:22Z"
+      },
+      {
+       "sha": "074d5093fd8583a24387a056c0b7652c464decf2",
+       "title": "feat(sdk): the game's own collision query asked by a mod, interface 1.17 (#489)",
+       "author": "farfeduc",
+       "date": "2026-11-15T12:04:40Z"
+      },
+      {
+       "sha": "7431cbb0e262af7839006138f475a45d79541fee",
+       "title": "fix(rac1): cover widescreen with Visibomb signal-loss static (#516)",
+       "author": "llesieur99",
+       "date": "2026-11-15T12:03:45Z"
+      },
+      {
+       "sha": "da6f63cc4e11fe02a97f78de9e71e9baad2cee9d",
+       "title": "fix(rac1): raise Hoven's rendered water with its pool (#515)",
+       "author": "llesieur99",
+       "date": "2026-11-15T12:03:36Z"
+      },
+      {
+       "sha": "a8c8b9100af7cf483ae090f0b2d8cdef6ad933a3",
+       "title": "fix(mods): clear play watchers before unloading a refused mod (#476)",
+       "author": "llesieur99",
+       "date": "2026-11-15T12:03:26Z"
+      },
+      {
+       "sha": "2321453041d1bf8563b2730839b2ec113927d4d7",
+       "title": "feat(port): rac1 hook points for the weapons' target choice (#464)",
+       "author": "farfeduc",
+       "date": "2026-11-15T12:03:17Z"
+      },
+      {
+       "sha": "365131e0722d431e8f98fac00c64540b616763ed",
+       "title": "feat(sdk): a mod's data kept with the game's saves, interface 1.16 (#487)",
+       "author": "Lynder063",
+       "date": "2026-11-15T12:03:01Z"
+      },
+      {
+       "sha": "eadd360a92418d0ee9e0b2b8c8181401bb864f86",
+       "title": "feat(rac2): ship Going Commando prebuilt for all three discs (#511)",
+       "author": "Lynder063",
+       "date": "2026-11-15T12:02:44Z"
+      },
+      {
+       "sha": "8c8a8b7897699569addf397dfd401f7746751a46",
+       "title": "fix(launcher): keep the header buttons solid during a tab slide (#519)",
+       "author": "nickyyOO",
+       "date": "2026-11-15T09:26:30Z"
+      },
+      {
+       "sha": "7ad9219b78c7e13a52a04abb555f999ca6da944b",
+       "title": "fix(port): stabilize FSR scenery motion and cap enhanced render scale (#517)",
+       "author": "pezzadev",
+       "date": "2026-11-15T07:25:34Z"
+      },
+      {
+       "sha": "6e7815f8af0173af0245ae69701033b68298f7c3",
+       "title": "feat(tools): install missing Windows build dependencies (#514)",
+       "author": "pezzadev",
+       "date": "2026-11-15T05:23:43Z"
+      }
+     ]
+    },
+    {
+     "name": "master",
+     "commits": []
+    }
+   ],
+   "commitCount": 21,
+   "pullRequests": {
+    "merged": [
+     {
+      "number": 464,
+      "title": "feat(port): rac1 hook points for the weapons' target choice",
+      "author": "farfeduc",
+      "untrustedBody": "Draft, to ask before going further (issues are closed to my account, so the proposal comes as a PR).\n\n## What\n\nFour rac1 hook points, one for each function that chooses a weapon's auto-aim target on its own, on both discs:\n\n| Id | Function (PAL / NTSC-U) | What it picks |\n|---|---|---|\n| `rac1.weapon.blaster.pick_target` | `select_blaster_auto_aim_target` (`func_L00_002B5998` / `FUN_L00_002b46a8`) | the Blaster's target: the nearest creature within 20 units and about 9 degrees of the heading, in sight; writes the yaw and pitch toward it |\n| `rac1.weapon.ryno.pick_target` | `select_ryno_target` (`func_L00_002CD7B0` / `FUN_L00_002cc360`) | each R.Y.N.O. missile's target, within the range and angles its caller gives |\n| `rac1.weapon.gold_devastator.pick_target` | `select_gold_devastator_missile_target` (`func_L00_002B1290` / `FUN_L00_002affa8`) | the gold Devastator missile's, within 40 units |\n| `rac1.weapon.drone.pick_target` | `select_nearest_drone_target` (`func_L00_002CF3D8` / `FUN_L",
+      "mergedAt": "2026-11-15T12:03:18Z"
+     },
+     {
+      "number": 476,
+      "title": "fix(mods): clear play watchers before unloading a refused mod",
+      "author": "llesieur99",
+      "untrustedBody": "A native mod can register camera-script and metal-detector callbacks and then fail to acquire the exclusive moby-update gate. The loader closes its DLL, but `drop_figures` previously left those callbacks and camera-script ownership behind. A later camera event could jump into unloaded code.\n\nClear these registrations only when they belong to the removed mod, preserving other mods' callbacks. Add resident callback checks and a native DLL fixture that registers observers before failing on an already-owned gate.\n\nThis addresses the failure mechanism investigated for support ticket T-15: Multiplayer was refused after Weapon Wheel Pause had acquired the gate, followed by a crash opening the Novalis vendor. The affected code is identical in reported build `117cc13f` and current develop `c381cf6ed`. The exact reported gameplay session has not been reproduced, and this does not make two exclusive-gate mods compatible.\n\nValidation on Windows x64, clang-cl 23.1.5, headless Debug:\n- Before the fi",
+      "mergedAt": "2026-11-15T12:03:27Z"
+     },
+     {
+      "number": 487,
+      "title": "feat(sdk): a mod's data kept with the game's saves, interface 1.16",
+      "author": "Lynder063",
+      "untrustedBody": "#479 (farfeduc's commits kept) with develop merged and clang-format applied to its changed lines, which failed the conventions check.\nSupersedes #479.\n\n---\n_Generated by [Claude Code](https://claude.ai/code/session_01E5SuSUcxdGTVaReTqPBGij)_",
+      "mergedAt": "2026-11-15T12:03:01Z"
+     },
+     {
+      "number": 489,
+      "title": "feat(sdk): the game's own collision query asked by a mod, interface 1.17",
+      "author": "farfeduc",
+      "untrustedBody": "**Builds on #487** (interface 1.16, which carries #460's 1.15): this branch is #487's head plus one commit, `feat(sdk): the game's own collision query asked by a mod, interface 1.17`. Once #487 is merged, only that commit remains.\n\n## Why\n\nA weapon added by a mod draws its shots itself (props, interface 1.12), but has no way to make them stop where the game's own shots stop:\n\n- `level_line` (1.14) sees only the level's walls and ground, not doors, crates or creatures, and says only \"blocked\";\n- `collision_triangles` (1.12) leaves out creatures (their collision is spheres and capsules on their joints, not triangles) and leaves the whole query to the mod.\n\nThe game's shots do not collide as objects: each tick, a shot asks the game's segment query between its last place and its new one, and reacts to what it hits (RAC1's Blaster shot, `homing_shot_update`, asks `coll_line(start, pos, 0, owner, ...)`). This gives mods that same query.\n\n## Interface 1.17\n\n| Call | |\n|---|---|\n| `collision_l",
+      "mergedAt": "2026-11-15T12:04:41Z"
+     },
+     {
+      "number": 511,
+      "title": "feat(rac2): ship Going Commando prebuilt for all three discs",
+      "author": "Lynder063",
+      "untrustedBody": "Going Commando (USA v1.01, PAL, USA v2.00) now builds with no disc code, so installers carry it like Ratchet & Clank.\nPlayers need only the ISO: no compiler, no Zig kit, no build step.",
+      "mergedAt": "2026-11-15T12:02:44Z"
+     },
+     {
+      "number": 514,
+      "title": "feat(tools): install missing Windows build dependencies",
+      "author": "pezzadev",
+      "untrustedBody": "Windows builds currently stop when required development tools are missing. This installs missing Visual Studio C++ Build Tools and Windows SDK, Git, LLVM, Ninja and CMake through WinGet, rechecks discovery, and continues the build. Existing Build Tools 2022 installations get their missing C++ workload through the Visual Studio Installer.\n\nWhen WinGet is unavailable, setup tries App Installer registration and then Microsoft's current-user repair module. `--no-install-deps` disables both tool installation and WinGet repair, including when passed through `build_game.py`. Tool discovery and setup live in `build_port_tools.py`, which the launcher tracks when deciding whether a game needs rebuilding.\n\nValidation:\n- All 19 jobs in the [full CI run](https://github.com/OpenRAC/OpenRAC/actions/runs/43678695414) passed on commit `56ae67a94`, including the repository suite, Windows/Linux launchers, Windows/Fedora/Linux port jobs, Linux R&C 2, and enhanced Vulkan tests.\n- Focused local Windows buil",
+      "mergedAt": "2026-11-15T05:23:44Z"
+     },
+     {
+      "number": 515,
+      "title": "fix(rac1): raise Hoven's rendered water with its pool",
+      "author": "llesieur99",
+      "untrustedBody": "When the Hydrodisplacer raises Hoven's pool, the native height-copy routine updates the water objects but writes their rendered heights into Pokitaru's ripple table. The visible surface stays below the raised swimming level.\n\nUse Hoven's own ripple table, matching its PAL retail routine, and carry the address into the PAL1 and JP host tables. The change is confined to the port layer.\n\nValidation:\n- Isolated Windows PAL 2.0, classic graphics, 16:9: all 16 rendered tiles now follow their water objects at the raised height; before/after captures confirm the surface is visible.\n- A same-build negative control restoring only the old address reproduces the failure.\n- Hero position, rotation, state and camera traces match through the 4,300-tick replay.\n- Eight targeted CTest checks pass: visibility, water host forwarding, PAL call ABI and the four RAC1 host tables.\n- Strict changed-line conventions pass with clang-format 21.1.8.\n- The maintainer also confirmed the corrected behavior in an int",
+      "mergedAt": "2026-11-15T12:03:37Z"
+     },
+     {
+      "number": 516,
+      "title": "fix(rac1): cover widescreen with Visibomb signal-loss static",
+      "author": "llesieur99",
+      "untrustedBody": "## Problem\nT-24 reports that RAC1's Visibomb signal-loss static leaves uncovered strips at the sides of a widescreen view. The effect is a grid of textured 32-pixel tiles, so the renderer preserves each tile's original picture placement instead of treating the grid as a full-screen effect.\n\n## Change\nWrap only DrawTiledScreenOverlay with the existing whole-target display-list markers. Keep the original game's draw, opacity, texture and timing, and restore ordinary HUD placement after it. Register the wrapper for NTSC-U, PAL v2.00, PAL v1.00 and NTSC-J using the existing release mappings.\n\n## Validation\n- Reproduced the same uncovered side bands in an isolated NTSC-U Novalis session at 1280x800: unlock weapons, equip Visibomb (13), fire, then let the missile leave its permitted area. No personal saves or mods used.\n- Verified the corrected develop-based executable covers both sides at 1280x800; checked the same scenario at 1024x768 (4:3).\n- Built `openrac-rac1-ntsc` with clang-cl on Win",
+      "mergedAt": "2026-11-15T12:03:45Z"
+     },
+     {
+      "number": 517,
+      "title": "fix(port): stabilize FSR scenery motion and cap enhanced render scale",
+      "author": "pezzadev",
+      "untrustedBody": "Distant static scenery could receive false motion vectors even with a stationary camera because depth reconstruction made a float world-space round trip. Compose clip-to-clip reprojection in double precision instead, sharing one camera inversion per frame. Moved ties and shrubs now enter temporal history with the interpolated transforms actually drawn.\n\nEnhanced rendering also caps its effective render scale at 100% while retaining the saved preference; the settings guide documents this intentional behavior. The three fixes remain separate commits.\n\nValidation:\n- Built the RAC1 NTSC enhanced game on Windows.\n- Four focused CTests passed: frontend_geometry, fsr3_frame, fsr3_motion and motion_blur, with Vulkan validation enabled for GPU tests.\n- The distant stationary-camera GPU regression failed before the precision fix and passed afterward. Camera jitter cancellation, signed object velocities and full-frame FSR/HUD behavior remain covered.\n- The motion regression also passed on desktop",
+      "mergedAt": "2026-11-15T07:25:35Z"
+     },
+     {
+      "number": 519,
+      "title": "fix(launcher): keep the header buttons solid during a tab slide",
+      "author": "nickyyOO",
+      "untrustedBody": "A scrolled page's picture slid over the desktop header and washed out its buttons. The header now has its own view-transition layer on top.",
+      "mergedAt": "2026-11-15T09:26:31Z"
+     },
+     {
+      "number": 520,
+      "title": "fix(launcher): rac2 save flags proven in game",
+      "author": "Lynder063",
+      "untrustedBody": "All 177 Going Commando save flags were set and cleared in a save, loaded by the game and kept by its autosave.\nSo the save editor's Advanced tab shows no \"unverified\" badge now. Built on #511.",
+      "mergedAt": "2026-11-15T10:54:58Z"
+     },
+     {
+      "number": 522,
+      "title": "fix(port): PAL effects follow 50 ticks a second",
+      "author": "Lynder063",
+      "untrustedBody": "Enhanced water, floating objects, wetness and haze counted 60 ticks a second, so on Going Commando's PAL they ran 17% slow.\nThey now use the game's tick rate (was #521, closed when its base branch was merged).",
+      "mergedAt": "2026-11-15T12:02:35Z"
+     },
+     {
+      "number": 523,
+      "title": "ci: build rac2-pal and rac2-ntsc2 like rac2-ntsc",
+      "author": "Lynder063",
+      "untrustedBody": "Pull requests skipped Going Commando's PAL and USA v2.00 unless their own folder changed, though shared changes broke them alone.\nNow they are built and tested whenever rac2-ntsc is.",
+      "mergedAt": "2026-11-15T12:20:25Z"
+     },
+     {
+      "number": 524,
+      "title": "fix(touch): show retry and quit buttons in rac2 minigames",
+      "author": "nickyyOO",
+      "untrustedBody": "**Before:** in Going Commando minigames that hide the level (the hacking board with \"Try Again\" and \"To Quit\"), the touch pad showed the cutscene set: only a Skip button (Start). There was no way to try again or quit by touch.\n\n**After:** these minigames get their own `minigame` set: a large Retry button (Circle) and a Quit button (Triangle). The stick stays.\n\n**How:** the game enters state 7 for these minigames (`RequestGameStateChange(7, 1, object, kind)`, which hides the level). `rac2_touch` fell through to `cutscene` for it; it now returns `minigame`. New `minigame` set in `common.json`, new `retry` icon, MODS.md lists the context. Only the pad changes; no game logic.\n\n**Tested:** `touch_pad`, `mod_touch` and `touch_overlay` (software GL) pass. Drew the `cutscene` and `minigame` sets with the real overlay over the user's screenshot: `cutscene` matches the bug, `minigame` shows Retry and Quit. Syntax-checked `touch.c` against the NTSC host headers.\n\n**Not tested:** a real minigame o",
+      "mergedAt": "2026-11-15T12:07:23Z"
+     },
+     {
+      "number": 525,
+      "title": "fix: guard every disc's tables against version drift",
+      "author": "nickyyOO",
+      "untrustedBody": "**Before:** each disc's program (rac1 PAL, PAL v1, NTSC-J, NTSC-U; rac2 v1.01, v2.00, PAL) could bind a function, a C type or a data address differently from the others, and nothing caught it. Some carried rac2 and rac1 rows pointed at the wrong place (split variants, an L07 datum, PAL twins). Several features were on one disc only. The folders under port/game each had their own layout, and their READMEs were long.\n\n**After:** parity.py checks bindings, C types and carried data addresses on every program, against both the release tables and versionmap's data moves. It runs in the build and in CI, needs no disc, and every deliberate difference has a written reason in parity.tsv. The wrong rows are fixed. The health HUD panel, enhanced Pokitaru/Fleet water, custom ship destinations and Aridia's counters now work on every rac1 disc. Every program folder has the same layout (tables/, release/, checks/), with a short README in plain English. The rac2 game facts moved to docs/port/RAC2_NOTES",
+      "mergedAt": "2026-11-15T13:51:34Z"
+     },
+     {
+      "number": 526,
+      "title": "fix(renderer): remove texture pack stutters",
+      "author": "nickyyOO",
+      "untrustedBody": "Texture packs (PNG and KTX2) caused huge hitches in play, even with a few pictures.\n\n**Before:** each time a HUD texture was converted again, the pack file was read and decoded again (130-550 ms per picture). Glyph pages also built a distance field at 4x size (~2.4 s). Level load decoded pack pictures one by one under a lock.\n\n**After:** no hitch over 50 ms in play. Worst frame went from ~2.7 s to 25-31 ms. The title frame went from ~900 ms to ~55 ms, and Novalis loads in 1.6 s instead of 3.3 s. Nothing changes without a pack.\n\n**How:**\n- Pack pictures stay in memory after the first read (LRU, 1 GB desktop / 512 MB Android). Level pictures are not kept.\n- Files are read off the lock. HUD pictures that are not ready yet load in the background, and the original shows meanwhile.\n- A level's pack pictures are decoded on 8 threads while the level loads.\n- A small per-game list in the cache folder remembers which pictures were shown in play, so later runs read only those ahead.\n- No distance",
+      "mergedAt": "2026-11-15T14:02:18Z"
+     },
+     {
+      "number": 527,
+      "title": "chore: drop rac1 NTSC hand rows the decomp now has C for",
+      "author": "nickyyOO",
+      "untrustedBody": "**Before:** 10 rows of port/game/rac1-ntsc/hand/hand.tsv named functions the NTSC decomp now has its own C for, so hostgen no longer read them. xcheck on the NTSC-U disc listed them as rows that can go.\n\n**After:** the 10 rows, their fcheck verdicts, one allow.tsv entry and their C files under hand/functional/ are gone. Nothing the port builds changes.\n\n**How:** removed FUN_L00_0020dd20, FUN_L00_002d5160, FUN_L00_002a5040, FUN_00212e28, FUN_L00_00264740, FUN_L00_00269d20, FUN_00215e00, FUN_L06_00307578, _getRef0 and FUN_00238f08. One comment in rac1_version.h no longer points at a deleted file.\n\n**Tested:** check_versions.py (parity rac1/rac2 0 problems, release and hostnames checks OK); tools and hostgen Python tests pass. rac1-ntsc_hand_xcheck on the NTSC-U disc passed before this change (168 rows, 0 unexplained differences).",
+      "mergedAt": "2026-11-15T14:01:44Z"
+     },
+     {
+      "number": 528,
+      "title": "fix(renderer): build the texture pack reader without std::jthread",
+      "author": "nickyyOO",
+      "untrustedBody": "**Before:** the Linux and Linux arm64 launcher builds stopped in texture_pack.cpp: libc++ keeps `std::jthread` and `std::stop_token` behind an experimental switch (#526 used them).\n\n**After:** they build again.\n\n**How:** the reader and the load workers use the port's `JoiningThread` (common/joining_thread.h), and the reader stops on an atomic flag set when the pack state goes. Same in scene/level.cpp.\n\n**Tested:** both files compile (syntax check with the release preset's flags); conventions check: 0 to fix.",
+      "mergedAt": "2026-11-15T15:39:52Z"
+     },
+     {
+      "number": 529,
+      "title": "fix(launcher): scroll an overfull top bar and keep long paths inside Settings",
+      "author": "nickyyOO",
+      "untrustedBody": "**Before:** with an update and a running job, the top bar ran past the window edge, and narrow windows squeezed its gaps and hid icons. Long Godot paths in Settings ran outside the launcher.\n\n**After:** everything after the logo scrolls sideways when it does not fit, with a mouse wheel too. Each end fades out softly while more is hidden there. The bar keeps its normal spacing at any width. Path fields stay inside the window. Found paths are one line, cut in the middle of the folders, the file name kept, and the full path is in the tooltip. Long paths in messages wrap.\n\n**How:** `Header.svelte` wraps the tabs, job and buttons in a scrolling row with an eased mask (`--fade-start`/`--fade-end` registered in `app.css` so they animate). Android keeps its rail and bar (`display: contents`). `PathField.svelte` uses `splitPath` (`lib/format.ts`, tested). The preview shows long Godot paths with `?longpaths`.\n\n**Tested:** `yarn verify`, `yarn test:android`, `cargo fmt --check`. Checked in the br",
+      "mergedAt": "2026-11-15T16:08:24Z"
+     },
+     {
+      "number": 530,
+      "title": "fix(port): retain offscreen scenery shadow casters",
+      "author": "pezzadev",
+      "untrustedBody": "RAC2 folded camera PVS and near-plane rejection into the scenery's hidden flags. That removed offscreen objects from the shadow caster groups and made their ground shadows disappear as the camera moved.\n\nKeep offscreen ties and shrubs resident for shadow rendering while preserving explicit game hiding and scaled far-distance limits. Move record capture out of the frame loop into a CPU-testable reader, with regression coverage for camera turns, hiding, distance limits, matrix ownership, invalid tables and terrain units.\n\nValidation:\n- Windows enhanced RAC2 USA v1.01 build passed against develop's pinned source.\n- Oozla shadow fix visually confirmed by the reporter before the capture extraction.\n- CPU scenery capture and CPU/Vulkan sun-shadow regressions passed.\n- Strict formatting/conventions, layering and PAL/NTSC renderer hook parity passed.\n- clang-tidy is clean on the new implementation and tests; existing included headers still report unrelated warnings.\n\nAll RAC2 releases use the ",
+      "mergedAt": "2026-11-15T18:05:36Z"
+     },
+     {
+      "number": 531,
+      "title": "fix(cmake): repair stale decomp paths, missing submodules and patches at configure",
+      "author": "Lynder063",
+      "untrustedBody": "Configure now resets a cached decomp path from before the submodule move to the default.\nIt also checks out a missing decomp submodule and applies OpenRAC's patches, like tools/sources.py init.",
+      "mergedAt": "2026-11-15T20:35:45Z"
+     },
+     {
+      "number": 532,
+      "title": "fix(rac2): Press START, pause, weapon sound and level AI after the decomp bump",
+      "author": "nickyyOO",
+      "untrustedBody": "**Before:** the title movie had no Press START. Pause did not open, because a level copy read its data at another level's address. Weapon fire was silent: the emitter volume came back as a float the callers read as int, so it was 0. Several levels' AI got 0 for headings and arrival checks. Insomniac's asm functions ran as stubs.\n\n**After:** all of these behave like the original, on NTSC, PAL and v2.00.\n\n**How:**\n- The movie player hands each picture to the game, which draws Press START over it.\n- hostgen refuses cross-level data reads, and the build fails on them.\n- int hand overrides for the volume and level-mover functions, each with a TODO to drop it once the decomp agrees.\n- The asm functions are hand C, proved against the disc translation, or reach rows.\n- New build guards, needing no disc: one for reachable asm (rac1 and rac2), one for call results the callee never sets.\n\n**Tested:** rac2-ntsc in the container: title, New Game, pause, weapon fire. check_versions and the hostgen u",
+      "mergedAt": "2026-11-15T22:28:14Z"
+     },
+     {
+      "number": 533,
+      "title": "fix(rac2): keep the Aranos hatch at the game's active distance",
+      "author": "nickyyOO",
+      "untrustedBody": "**Before:** with Active distance on Match, the Aranos hatch updated while the launch camera was still flying past the ship. Ratchet left the hatch off camera, and the view froze on the ship for 240 ticks.\n\n**After:** the ship flyby plays, then Ratchet climbs out of the hatch with the side camera, as on PS2.\n\n**How:** class 2759 (the hatch) always uses the game's own update distance, through the same list that already exempts the Electrolyzer boards (renamed to game_distance_moby).\n\n**Tested:** rac2-ntsc in the container with default settings: flyby, fade, hatch exit with the reference camera.",
+      "mergedAt": "2026-11-15T21:13:02Z"
+     }
+    ],
+    "opened": [
+     {
+      "number": 514,
+      "title": "feat(tools): install missing Windows build dependencies",
+      "author": "pezzadev",
+      "untrustedBody": "Windows builds currently stop when required development tools are missing. This installs missing Visual Studio C++ Build Tools and Windows SDK, Git, LLVM, Ninja and CMake through WinGet, rechecks discovery, and continues the build. Existing Build Tools 2022 installations get their missing C++ workload through the Visual Studio Installer.\n\nWhen WinGet is unavailable, setup tries App Installer registration and then Microsoft's current-user repair module. `--no-install-deps` disables both tool installation and WinGet repair, including when passed through `build_game.py`. Tool discovery and setup live in `build_port_tools.py`, which the launcher tracks when deciding whether a game needs rebuilding.\n\nValidation:\n- All 19 jobs in the [full CI run](https://github.com/OpenRAC/OpenRAC/actions/runs/43678695414) passed on commit `56ae67a94`, including the repository suite, Windows/Linux launchers, Windows/Fedora/Linux port jobs, Linux R&C 2, and enhanced Vulkan tests.\n- Focused local Windows buil",
+      "mergedAt": "2026-11-15T05:23:44Z"
+     },
+     {
+      "number": 515,
+      "title": "fix(rac1): raise Hoven's rendered water with its pool",
+      "author": "llesieur99",
+      "untrustedBody": "When the Hydrodisplacer raises Hoven's pool, the native height-copy routine updates the water objects but writes their rendered heights into Pokitaru's ripple table. The visible surface stays below the raised swimming level.\n\nUse Hoven's own ripple table, matching its PAL retail routine, and carry the address into the PAL1 and JP host tables. The change is confined to the port layer.\n\nValidation:\n- Isolated Windows PAL 2.0, classic graphics, 16:9: all 16 rendered tiles now follow their water objects at the raised height; before/after captures confirm the surface is visible.\n- A same-build negative control restoring only the old address reproduces the failure.\n- Hero position, rotation, state and camera traces match through the 4,300-tick replay.\n- Eight targeted CTest checks pass: visibility, water host forwarding, PAL call ABI and the four RAC1 host tables.\n- Strict changed-line conventions pass with clang-format 21.1.8.\n- The maintainer also confirmed the corrected behavior in an int",
+      "mergedAt": "2026-11-15T12:03:37Z"
+     },
+     {
+      "number": 516,
+      "title": "fix(rac1): cover widescreen with Visibomb signal-loss static",
+      "author": "llesieur99",
+      "untrustedBody": "## Problem\nT-24 reports that RAC1's Visibomb signal-loss static leaves uncovered strips at the sides of a widescreen view. The effect is a grid of textured 32-pixel tiles, so the renderer preserves each tile's original picture placement instead of treating the grid as a full-screen effect.\n\n## Change\nWrap only DrawTiledScreenOverlay with the existing whole-target display-list markers. Keep the original game's draw, opacity, texture and timing, and restore ordinary HUD placement after it. Register the wrapper for NTSC-U, PAL v2.00, PAL v1.00 and NTSC-J using the existing release mappings.\n\n## Validation\n- Reproduced the same uncovered side bands in an isolated NTSC-U Novalis session at 1280x800: unlock weapons, equip Visibomb (13), fire, then let the missile leave its permitted area. No personal saves or mods used.\n- Verified the corrected develop-based executable covers both sides at 1280x800; checked the same scenario at 1024x768 (4:3).\n- Built `openrac-rac1-ntsc` with clang-cl on Win",
+      "mergedAt": "2026-11-15T12:03:45Z"
+     },
+     {
+      "number": 517,
+      "title": "fix(port): stabilize FSR scenery motion and cap enhanced render scale",
+      "author": "pezzadev",
+      "untrustedBody": "Distant static scenery could receive false motion vectors even with a stationary camera because depth reconstruction made a float world-space round trip. Compose clip-to-clip reprojection in double precision instead, sharing one camera inversion per frame. Moved ties and shrubs now enter temporal history with the interpolated transforms actually drawn.\n\nEnhanced rendering also caps its effective render scale at 100% while retaining the saved preference; the settings guide documents this intentional behavior. The three fixes remain separate commits.\n\nValidation:\n- Built the RAC1 NTSC enhanced game on Windows.\n- Four focused CTests passed: frontend_geometry, fsr3_frame, fsr3_motion and motion_blur, with Vulkan validation enabled for GPU tests.\n- The distant stationary-camera GPU regression failed before the precision fix and passed afterward. Camera jitter cancellation, signed object velocities and full-frame FSR/HUD behavior remain covered.\n- The motion regression also passed on desktop",
+      "mergedAt": "2026-11-15T07:25:35Z"
+     },
+     {
+      "number": 518,
+      "title": "feat: export interface textures and held weapons from the launcher",
+      "author": "nickyyOO",
+      "untrustedBody": "## Before\nTexture pack makers had to play the game with dumping on to get the HUD, menu, font and effect textures. Weapon and gadget models had to be found level by level.\n\n## After\n- **Models and textures → Interface textures**: the launcher plays the game's routes hidden for a few minutes (**Make**, by kind: Font, HUD and menus, Effects) and writes a run file. **Export** then rebuilds every texture from the player's own disc in under a second, named the way texture packs name them.\n- **Weapons and gadgets** in the model export: every item Ratchet holds or wears, each from the first level that has it (rac1 and rac2).\n- The project ships no run file. Each player makes their own.\n\n## How\n- The port notes how each interface texture is made, plus the disc sectors the game reads (`--interface-run`). At exit it finds each source blob on the disc, also inside WAD streams. A run file holds only hashes, registers and disc offsets, with no game bytes.\n- `--interface-export` reads the blobs back"
+     },
+     {
+      "number": 519,
+      "title": "fix(launcher): keep the header buttons solid during a tab slide",
+      "author": "nickyyOO",
+      "untrustedBody": "A scrolled page's picture slid over the desktop header and washed out its buttons. The header now has its own view-transition layer on top.",
+      "mergedAt": "2026-11-15T09:26:31Z"
+     },
+     {
+      "number": 520,
+      "title": "fix(launcher): rac2 save flags proven in game",
+      "author": "Lynder063",
+      "untrustedBody": "All 177 Going Commando save flags were set and cleared in a save, loaded by the game and kept by its autosave.\nSo the save editor's Advanced tab shows no \"unverified\" badge now. Built on #511.",
+      "mergedAt": "2026-11-15T10:54:58Z"
+     },
+     {
+      "number": 521,
+      "title": "fix(port): PAL effects follow 50 ticks a second",
+      "author": "Lynder063",
+      "untrustedBody": "Enhanced water, floating objects, wetness and haze counted 60 ticks a second, so on Going Commando's PAL they ran 17% slow.\nThey now use the game's tick rate. Built on #520."
+     },
+     {
+      "number": 522,
+      "title": "fix(port): PAL effects follow 50 ticks a second",
+      "author": "Lynder063",
+      "untrustedBody": "Enhanced water, floating objects, wetness and haze counted 60 ticks a second, so on Going Commando's PAL they ran 17% slow.\nThey now use the game's tick rate (was #521, closed when its base branch was merged).",
+      "mergedAt": "2026-11-15T12:02:35Z"
+     },
+     {
+      "number": 523,
+      "title": "ci: build rac2-pal and rac2-ntsc2 like rac2-ntsc",
+      "author": "Lynder063",
+      "untrustedBody": "Pull requests skipped Going Commando's PAL and USA v2.00 unless their own folder changed, though shared changes broke them alone.\nNow they are built and tested whenever rac2-ntsc is.",
+      "mergedAt": "2026-11-15T12:20:25Z"
+     },
+     {
+      "number": 524,
+      "title": "fix(touch): show retry and quit buttons in rac2 minigames",
+      "author": "nickyyOO",
+      "untrustedBody": "**Before:** in Going Commando minigames that hide the level (the hacking board with \"Try Again\" and \"To Quit\"), the touch pad showed the cutscene set: only a Skip button (Start). There was no way to try again or quit by touch.\n\n**After:** these minigames get their own `minigame` set: a large Retry button (Circle) and a Quit button (Triangle). The stick stays.\n\n**How:** the game enters state 7 for these minigames (`RequestGameStateChange(7, 1, object, kind)`, which hides the level). `rac2_touch` fell through to `cutscene` for it; it now returns `minigame`. New `minigame` set in `common.json`, new `retry` icon, MODS.md lists the context. Only the pad changes; no game logic.\n\n**Tested:** `touch_pad`, `mod_touch` and `touch_overlay` (software GL) pass. Drew the `cutscene` and `minigame` sets with the real overlay over the user's screenshot: `cutscene` matches the bug, `minigame` shows Retry and Quit. Syntax-checked `touch.c` against the NTSC host headers.\n\n**Not tested:** a real minigame o",
+      "mergedAt": "2026-11-15T12:07:23Z"
+     },
+     {
+      "number": 525,
+      "title": "fix: guard every disc's tables against version drift",
+      "author": "nickyyOO",
+      "untrustedBody": "**Before:** each disc's program (rac1 PAL, PAL v1, NTSC-J, NTSC-U; rac2 v1.01, v2.00, PAL) could bind a function, a C type or a data address differently from the others, and nothing caught it. Some carried rac2 and rac1 rows pointed at the wrong place (split variants, an L07 datum, PAL twins). Several features were on one disc only. The folders under port/game each had their own layout, and their READMEs were long.\n\n**After:** parity.py checks bindings, C types and carried data addresses on every program, against both the release tables and versionmap's data moves. It runs in the build and in CI, needs no disc, and every deliberate difference has a written reason in parity.tsv. The wrong rows are fixed. The health HUD panel, enhanced Pokitaru/Fleet water, custom ship destinations and Aridia's counters now work on every rac1 disc. Every program folder has the same layout (tables/, release/, checks/), with a short README in plain English. The rac2 game facts moved to docs/port/RAC2_NOTES",
+      "mergedAt": "2026-11-15T13:51:34Z"
+     },
+     {
+      "number": 526,
+      "title": "fix(renderer): remove texture pack stutters",
+      "author": "nickyyOO",
+      "untrustedBody": "Texture packs (PNG and KTX2) caused huge hitches in play, even with a few pictures.\n\n**Before:** each time a HUD texture was converted again, the pack file was read and decoded again (130-550 ms per picture). Glyph pages also built a distance field at 4x size (~2.4 s). Level load decoded pack pictures one by one under a lock.\n\n**After:** no hitch over 50 ms in play. Worst frame went from ~2.7 s to 25-31 ms. The title frame went from ~900 ms to ~55 ms, and Novalis loads in 1.6 s instead of 3.3 s. Nothing changes without a pack.\n\n**How:**\n- Pack pictures stay in memory after the first read (LRU, 1 GB desktop / 512 MB Android). Level pictures are not kept.\n- Files are read off the lock. HUD pictures that are not ready yet load in the background, and the original shows meanwhile.\n- A level's pack pictures are decoded on 8 threads while the level loads.\n- A small per-game list in the cache folder remembers which pictures were shown in play, so later runs read only those ahead.\n- No distance",
+      "mergedAt": "2026-11-15T14:02:18Z"
+     },
+     {
+      "number": 527,
+      "title": "chore: drop rac1 NTSC hand rows the decomp now has C for",
+      "author": "nickyyOO",
+      "untrustedBody": "**Before:** 10 rows of port/game/rac1-ntsc/hand/hand.tsv named functions the NTSC decomp now has its own C for, so hostgen no longer read them. xcheck on the NTSC-U disc listed them as rows that can go.\n\n**After:** the 10 rows, their fcheck verdicts, one allow.tsv entry and their C files under hand/functional/ are gone. Nothing the port builds changes.\n\n**How:** removed FUN_L00_0020dd20, FUN_L00_002d5160, FUN_L00_002a5040, FUN_00212e28, FUN_L00_00264740, FUN_L00_00269d20, FUN_00215e00, FUN_L06_00307578, _getRef0 and FUN_00238f08. One comment in rac1_version.h no longer points at a deleted file.\n\n**Tested:** check_versions.py (parity rac1/rac2 0 problems, release and hostnames checks OK); tools and hostgen Python tests pass. rac1-ntsc_hand_xcheck on the NTSC-U disc passed before this change (168 rows, 0 unexplained differences).",
+      "mergedAt": "2026-11-15T14:01:44Z"
+     },
+     {
+      "number": 528,
+      "title": "fix(renderer): build the texture pack reader without std::jthread",
+      "author": "nickyyOO",
+      "untrustedBody": "**Before:** the Linux and Linux arm64 launcher builds stopped in texture_pack.cpp: libc++ keeps `std::jthread` and `std::stop_token` behind an experimental switch (#526 used them).\n\n**After:** they build again.\n\n**How:** the reader and the load workers use the port's `JoiningThread` (common/joining_thread.h), and the reader stops on an atomic flag set when the pack state goes. Same in scene/level.cpp.\n\n**Tested:** both files compile (syntax check with the release preset's flags); conventions check: 0 to fix.",
+      "mergedAt": "2026-11-15T15:39:52Z"
+     },
+     {
+      "number": 529,
+      "title": "fix(launcher): scroll an overfull top bar and keep long paths inside Settings",
+      "author": "nickyyOO",
+      "untrustedBody": "**Before:** with an update and a running job, the top bar ran past the window edge, and narrow windows squeezed its gaps and hid icons. Long Godot paths in Settings ran outside the launcher.\n\n**After:** everything after the logo scrolls sideways when it does not fit, with a mouse wheel too. Each end fades out softly while more is hidden there. The bar keeps its normal spacing at any width. Path fields stay inside the window. Found paths are one line, cut in the middle of the folders, the file name kept, and the full path is in the tooltip. Long paths in messages wrap.\n\n**How:** `Header.svelte` wraps the tabs, job and buttons in a scrolling row with an eased mask (`--fade-start`/`--fade-end` registered in `app.css` so they animate). Android keeps its rail and bar (`display: contents`). `PathField.svelte` uses `splitPath` (`lib/format.ts`, tested). The preview shows long Godot paths with `?longpaths`.\n\n**Tested:** `yarn verify`, `yarn test:android`, `cargo fmt --check`. Checked in the br",
+      "mergedAt": "2026-11-15T16:08:24Z"
+     },
+     {
+      "number": 530,
+      "title": "fix(port): retain offscreen scenery shadow casters",
+      "author": "pezzadev",
+      "untrustedBody": "RAC2 folded camera PVS and near-plane rejection into the scenery's hidden flags. That removed offscreen objects from the shadow caster groups and made their ground shadows disappear as the camera moved.\n\nKeep offscreen ties and shrubs resident for shadow rendering while preserving explicit game hiding and scaled far-distance limits. Move record capture out of the frame loop into a CPU-testable reader, with regression coverage for camera turns, hiding, distance limits, matrix ownership, invalid tables and terrain units.\n\nValidation:\n- Windows enhanced RAC2 USA v1.01 build passed against develop's pinned source.\n- Oozla shadow fix visually confirmed by the reporter before the capture extraction.\n- CPU scenery capture and CPU/Vulkan sun-shadow regressions passed.\n- Strict formatting/conventions, layering and PAL/NTSC renderer hook parity passed.\n- clang-tidy is clean on the new implementation and tests; existing included headers still report unrelated warnings.\n\nAll RAC2 releases use the ",
+      "mergedAt": "2026-11-15T18:05:36Z"
+     },
+     {
+      "number": 531,
+      "title": "fix(cmake): repair stale decomp paths, missing submodules and patches at configure",
+      "author": "Lynder063",
+      "untrustedBody": "Configure now resets a cached decomp path from before the submodule move to the default.\nIt also checks out a missing decomp submodule and applies OpenRAC's patches, like tools/sources.py init.",
+      "mergedAt": "2026-11-15T20:35:45Z"
+     },
+     {
+      "number": 532,
+      "title": "fix(rac2): Press START, pause, weapon sound and level AI after the decomp bump",
+      "author": "nickyyOO",
+      "untrustedBody": "**Before:** the title movie had no Press START. Pause did not open, because a level copy read its data at another level's address. Weapon fire was silent: the emitter volume came back as a float the callers read as int, so it was 0. Several levels' AI got 0 for headings and arrival checks. Insomniac's asm functions ran as stubs.\n\n**After:** all of these behave like the original, on NTSC, PAL and v2.00.\n\n**How:**\n- The movie player hands each picture to the game, which draws Press START over it.\n- hostgen refuses cross-level data reads, and the build fails on them.\n- int hand overrides for the volume and level-mover functions, each with a TODO to drop it once the decomp agrees.\n- The asm functions are hand C, proved against the disc translation, or reach rows.\n- New build guards, needing no disc: one for reachable asm (rac1 and rac2), one for call results the callee never sets.\n\n**Tested:** rac2-ntsc in the container: title, New Game, pause, weapon fire. check_versions and the hostgen u",
+      "mergedAt": "2026-11-15T22:28:14Z"
+     },
+     {
+      "number": 533,
+      "title": "fix(rac2): keep the Aranos hatch at the game's active distance",
+      "author": "nickyyOO",
+      "untrustedBody": "**Before:** with Active distance on Match, the Aranos hatch updated while the launch camera was still flying past the ship. Ratchet left the hatch off camera, and the view froze on the ship for 240 ticks.\n\n**After:** the ship flyby plays, then Ratchet climbs out of the hatch with the side camera, as on PS2.\n\n**How:** class 2759 (the hatch) always uses the game's own update distance, through the same list that already exempts the Electrolyzer boards (renamed to game_distance_moby).\n\n**Tested:** rac2-ntsc in the container with default settings: flyby, fade, hatch exit with the reference camera.",
+      "mergedAt": "2026-11-15T21:13:02Z"
+     },
+     {
+      "number": 534,
+      "title": "fix(port): keep moby activity as on the console, animate far mobys in the picture only",
+      "author": "nickyyOO",
+      "untrustedBody": "Before: Active distance (Match) widened the game's drawn flag (+0x31) to the Draw distance. That flag is game logic: it decides which mobys run, wakes their groups, fills the target list and lock-on, and moby effects take random numbers. So the game ran differently from the console (Aranos' hatch broke the launch camera), and rac2 needed an exception list.\n\nAfter: +0x31 always uses the console's distance, in rac1 and rac2. The exception list is gone. At Match, far mobys the game leaves asleep are animated by the renderer only, on a copy of their animation fields. Nothing is written to game memory. Original shows them still. fix_wide_moby_effects and Field of View work as before.\n\nHow: new frontend/sleeping_mobys.h repeats the game's activity test (+0x31, +0x30 range, groups) and loops each sleeping moby's sequence. scene::moby_palette takes optional keys.\n\nTested: rac1 NTSC regress on Novalis, Kerwan and Eudora with Match and Original: same routes; on Eudora the RAM after 1700 ticks is"
+     },
+     {
+      "number": 535,
+      "title": "feat(sdk): expose the RAC1 Gadgetron icon strip",
+      "author": "noire342",
+      "untrustedBody": "I added `rac1.vendor.icon_strip.draw` so mods can customize the row of item and ammo icons in the Gadgetron menu. The hook is available in C, C++ and Luau on all four RAC1 releases. Calling the original draws the selection highlight and advances the carousel scroll.\n\n## Validation\n\n- Built the four Windows targets. All seven focused CTest checks passed, covering the four call ABIs, the mod manifest, the loader and scripts. The SDK generator checks (`gen_binding.py rac1 --check` and `gen_reference.py --check`) and `check_versions.py` also passed.\n- On PAL v2.00 and NTSC-U, bought the Pyrocitor for 2,500 bolts and verified that an ammo purchase added one round and charged the displayed price. I exercised the native PDA entry point and verified that closing the menu returned control with inventory and bolts intact.\n- Opened, navigated and closed the Novalis shop with zero mods loaded. I repeated the same inputs with a Luau hook that calls `original()`. The icon strip matched pixel for pix"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [],
+    "closed": [
+     {
+      "number": 372,
+      "title": "Going Commando PAL: main menu never drawn (func_V1_002CA070 is a no-C stub), plus more HUD aliases to map",
+      "author": "JuanjoAvila"
+     },
+     {
+      "number": 379,
+      "title": "Suggestion: Support for HRTF and surround sound",
+      "author": "StarPepe"
+     }
+    ]
+   },
+   "releases": [],
+   "progress": null,
+   "contributors": [
+    "farfeduc",
+    "llesieur99",
+    "Lynder063",
+    "nickyyOO",
+    "noire342",
+    "pezzadev"
+   ]
+  },
+  {
+   "repo": "rac1-decomp",
+   "title": "Ratchet & Clank",
+   "branches": [
+    {
+     "name": "main",
+     "commits": [
+      {
+       "sha": "84bd565ff5d079384f1b673ac8e39ea3e06c68b7",
+       "title": "feat(data): complete PAL executable data matching (#242)",
+       "author": "noire342",
+       "date": "2026-11-15T16:04:49Z"
+      }
+     ]
+    }
+   ],
+   "commitCount": 1,
+   "pullRequests": {
+    "merged": [
+     {
+      "number": 242,
+      "title": "feat(data): complete PAL executable data matching",
+      "author": "noire342",
+      "untrustedBody": "I checked what was left in the PAL v2.00 data report. I gave the 24-byte HUD clock format at `0x001E7DC0` its own data block and let the SN linker generate the remaining 297 padding bytes. The report now matches **699,072 of 699,072 bytes (100.00%)**.\n\nThe linker uses normal section alignment, with explicit rules for the `kprintf` and `init_once` jump tables. The Python and Windows entry points also use the same clean build script.\n\n## Validation\n\n- Rebuilt PAL v2.00 from scratch. All 1,229,744 reconstructed bytes matched retail at their original addresses, and all 5,118 functions still match.\n- Checked all 83 padding ranges against the native linker map and retail bytes. Changing a padding byte makes the report reject that range.\n- Ran 402 tool tests and checked that the Windows launcher selects Git Bash even with a WSL alias first on PATH.\n- Rebuilt all 102 NTSC-U-specific units and reproduced the tracked NTSC-U function map byte for byte.",
+      "mergedAt": "2026-11-15T16:04:50Z"
+     }
+    ],
+    "opened": [
+     {
+      "number": 242,
+      "title": "feat(data): complete PAL executable data matching",
+      "author": "noire342",
+      "untrustedBody": "I checked what was left in the PAL v2.00 data report. I gave the 24-byte HUD clock format at `0x001E7DC0` its own data block and let the SN linker generate the remaining 297 padding bytes. The report now matches **699,072 of 699,072 bytes (100.00%)**.\n\nThe linker uses normal section alignment, with explicit rules for the `kprintf` and `init_once` jump tables. The Python and Windows entry points also use the same clean build script.\n\n## Validation\n\n- Rebuilt PAL v2.00 from scratch. All 1,229,744 reconstructed bytes matched retail at their original addresses, and all 5,118 functions still match.\n- Checked all 83 padding ranges against the native linker map and retail bytes. Changing a padding byte makes the report reject that range.\n- Ran 402 tool tests and checked that the Windows launcher selects Git Bash even with a WSL alias first on PATH.\n- Rebuilt all 102 NTSC-U-specific units and reproduced the tracked NTSC-U function map byte for byte.",
+      "mergedAt": "2026-11-15T16:04:50Z"
+     },
+     {
+      "number": 243,
+      "title": "refactor(hud): name PAL selector slot fields",
+      "author": "noire342",
+      "untrustedBody": "I gave the PAL HUD selectors a shared `HudSelectorSlot` layout with names for the icon, directional neighbours and selection ID. The eight-slot wheel uses the ID to queue an item, while the four-slot selector uses it for a Gadgebot command. The comment explains when the wheel queues an item and how the Drone Device requests replenishment.\n\n## Validation\n- Rebuilt PAL v2.00 with the SN toolchain and checked the affected overlay against retail. The executable and the complete overlay object, including its relocations, match the upstream builds byte for byte.\n- Recompiled the affected file with the PAL v1.00, NTSC-U and NTSC-J overrides. Each object matches its own upstream baseline byte for byte. The progress reports and version tables are current.\n- Ran the pinned formatter, the local CI lint and syntax checks, and all 402 tool tests.\n\nI ran these checks in WSL. I did not run the full container-based rebuild of every retail disc."
+     },
+     {
+      "number": 244,
+      "title": "refactor(vendor): share pricing and ammo records",
+      "author": "noire342",
+      "untrustedBody": "I reused `VendorItemPrice` for the 24-byte entries read by Gadgetron, the HUD and the other overlay readers of the same table. The fields now identify the item and ammo prices, the PDA rate, ammo capacity, the default pickup amount and the minimum ammo granted on first acquisition. The existing offsets and regional declarations stay the same.\n\n## Validation\n\n- Rebuilt PAL v2.00 with the SN toolchain. The ELF is byte-for-byte identical to the base build and all ten affected overlays match retail.\n- Recompiled the 19 affected PAL v1.00, NTSC-U and NTSC-J translation units. Their code, data, symbols and relocations match the base objects. Only assembler debug metadata differs.\n- Ran the pinned formatter, local lint and syntax checks, and all 402 tool tests. All four progress reports are current.\n\nThe alternate-disc checks cover the affected objects. The full container-based builds from those discs were not run.\n\nThere is one adjacent HUD edit in #243. The remaining branch will need a smal"
+     },
+     {
+      "number": 245,
+      "title": "refactor(input): use PadState in ClearPadInput",
+      "author": "noire342",
+      "untrustedBody": "I switched `ClearPadInput` to the shared `PadState` and removed the duplicate layout. The reset now uses the same field names as the rest of the controller code and keeps the retail write order.\n\n## Validation\n\n- Rebuilt PAL v2.00 from scratch. The linked ELF is byte-for-byte identical to the upstream build. The 100 bytes of `ClearPadInput` match the retail executable and all 19 overlays on PAL v2.00 and NTSC-U.\n- Regenerated the PAL v2.00 and NTSC-U progress reports and confirmed they match the committed reports. All 402 tool tests passed.\n\nI ran these checks in WSL. The full `tools/check_all.sh` run across all four versions is still pending."
+     }
+    ]
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": {
+    "before": {
+     "code": {
+      "done": 3713584,
+      "total": 3713584
+     },
+     "functions": {
+      "done": 5118,
+      "total": 5118
+     },
+     "data": {
+      "done": 698751,
+      "total": 699072
+     }
+    },
+    "after": {
+     "code": {
+      "done": 3713584,
+      "total": 3713584
+     },
+     "functions": {
+      "done": 5118,
+      "total": 5118
+     },
+     "data": {
+      "done": 699072,
+      "total": 699072
+     }
+    }
+   },
+   "contributors": [
+    "noire342"
+   ]
+  },
+  {
+   "repo": "rac2-decomp",
+   "title": "Going Commando",
+   "branches": [
+    {
+     "name": "master",
+     "commits": [
+      {
+       "sha": "005bfc4dd3b0d715dcbffabdb8835e356e34474a",
+       "title": "fix(src): agree on return types between definitions and declarations",
+       "author": "Lynder063",
+       "date": "2026-11-15T22:33:37Z"
+      },
+      {
+       "sha": "28c0391dfa68de0287057d4e15768cbfffa36c8b",
+       "title": "refactor(src): snake_case locals and MOBY_CLASS_* names for moby class ids",
+       "author": "Lynder063",
+       "date": "2026-11-15T20:01:16Z"
+      },
+      {
+       "sha": "ca4bd73ccef5ab45d0f27eaef1d56e2e704d7295",
+       "title": "refactor(names): readable names like rac1-decomp, snake_case, in definitions too",
+       "author": "Lynder063",
+       "date": "2026-11-15T19:48:51Z"
+      },
+      {
+       "sha": "1c71328d0e50cf4af85e6444817a7ba167bdd628",
+       "title": "docs(src): readable names, simple comments and moby labels for USA v1.01 (#464)",
+       "author": "Lynder063",
+       "date": "2026-11-15T19:10:11Z"
+      }
+     ]
+    }
+   ],
+   "commitCount": 4,
+   "pullRequests": {
+    "merged": [
+     {
+      "number": 464,
+      "title": "docs(src): readable names, simple comments and moby labels for USA v1.01",
+      "author": "Lynder063",
+      "untrustedBody": "## What\n\nA readability pass over every USA v1.01 C unit (`src/core`, `src/game`, `src/levels`, 3,500+ files, about 8,150 functions):\n\n- **Function comments:** a short plain-English comment above each function saying what it does in the game. Existing matching notes are kept unchanged.\n- **Local names:** decompiler-style locals and parameters (`s0`, `arg0`, `temp_v0`, `var_a1`, ...) and `unkXX` fields of file-local structs are renamed to meaningful names (`moby`, `vars`, `pathPoint`, ...).\n- **Moby labels:** moby class ids in code are labelled from `docs/game/moby-dispatch.tsv`, e.g. `0x10D0 /* Y.E.T.I. */`, or `/* moby class N */` when the class has no label.\n- **Function and data names:** `include/names.h` gains **7,463 descriptive aliases** (8,508 in all), following the file's own rule. Definitions and `extern` declarations keep the catalogue names (`func_…`, `D_…`), and bodies use the readable ones (about 156k call sites).\n  - Examples: `UpdateArcticLeviathanMoby`, `UpdateYetiMoby`,",
+      "mergedAt": "2026-11-15T19:10:12Z"
+     }
+    ],
+    "opened": [
+     {
+      "number": 463,
+      "title": "WIP: refactor(src): readable names, function comments and refactor plan",
+      "author": "Lynder063",
+      "untrustedBody": "## What\n\n<!-- The functions matched or the change made, and why. -->\n\n## Checked\n\n<!-- The commands you ran and what they printed, e.g. `tools/build.py all`: 28 programs OK;\nhow many functions this adds (leave `progress/report.json` out: it is regenerated on master). Say what you did not run. -->"
+     },
+     {
+      "number": 464,
+      "title": "docs(src): readable names, simple comments and moby labels for USA v1.01",
+      "author": "Lynder063",
+      "untrustedBody": "## What\n\nA readability pass over every USA v1.01 C unit (`src/core`, `src/game`, `src/levels`, 3,500+ files, about 8,150 functions):\n\n- **Function comments:** a short plain-English comment above each function saying what it does in the game. Existing matching notes are kept unchanged.\n- **Local names:** decompiler-style locals and parameters (`s0`, `arg0`, `temp_v0`, `var_a1`, ...) and `unkXX` fields of file-local structs are renamed to meaningful names (`moby`, `vars`, `pathPoint`, ...).\n- **Moby labels:** moby class ids in code are labelled from `docs/game/moby-dispatch.tsv`, e.g. `0x10D0 /* Y.E.T.I. */`, or `/* moby class N */` when the class has no label.\n- **Function and data names:** `include/names.h` gains **7,463 descriptive aliases** (8,508 in all), following the file's own rule. Definitions and `extern` declarations keep the catalogue names (`func_…`, `D_…`), and bodies use the readable ones (about 156k call sites).\n  - Examples: `UpdateArcticLeviathanMoby`, `UpdateYetiMoby`,",
+      "mergedAt": "2026-11-15T19:10:12Z"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [
+     {
+      "number": 465,
+      "title": "OpenRAC: Ratchet & Clank 2: Locked and Loaded stopped",
+      "author": "AngelMM99"
+     }
+    ],
+    "closed": [
+     {
+      "number": 455,
+      "title": "Game Crash on arena",
+      "author": "adamkevinsky-ops"
+     },
+     {
+      "number": 459,
+      "title": "[STEAMOS] Game won't install",
+      "author": "SoraKazooie24"
+     }
+    ]
+   },
+   "releases": [],
+   "progress": {
+    "before": {
+     "code": {
+      "done": 5524052,
+      "total": 5524052
+     },
+     "functions": {
+      "done": 8527,
+      "total": 8527
+     }
+    },
+    "after": {
+     "code": {
+      "done": 5524052,
+      "total": 5524052
+     },
+     "functions": {
+      "done": 8527,
+      "total": 8527
+     }
+    }
+   },
+   "contributors": [
+    "Lynder063"
+   ]
+  },
+  {
+   "repo": "rac3-decomp",
+   "title": "Up Your Arsenal",
+   "branches": [
+    {
+     "name": "master",
+     "commits": [
+      {
+       "sha": "2fb361723670067815b077158e1b7eebb69c3581",
+       "title": "chore(progress): 12449 of 16533 functions (PAL), 12145 of 16528 (NTSC-U)",
+       "author": "llesieur99",
+       "date": "2026-11-15T23:21:51Z"
+      },
+      {
+       "sha": "4317b7e0acfdf5eb4a537b1c74d63e4384b4c879",
+       "title": "feat(boot_elf): match func_00125940 of libkernel's timer, with the T2 count read as 64-bit",
+       "author": "llesieur99",
+       "date": "2026-11-15T20:55:13Z"
+      },
+      {
+       "sha": "351cbe09575c56e1da5a538fed2e1a07047ca3ba",
+       "title": "feat(boot_elf): match libkernel's sceSifInitRpc (func_00121FE8), one 412-byte function on both discs",
+       "author": "llesieur99",
+       "date": "2026-11-15T19:52:28Z"
+      },
+      {
+       "sha": "bbf5113166a61e4f14c70534f0d59711a79de38a",
+       "title": "feat(boot_elf): match 13 engine-core functions, sync through include/cpu.h, memcpy/memmove hand-written",
+       "author": "llesieur99",
+       "date": "2026-11-15T19:06:20Z"
+      },
+      {
+       "sha": "cc10bff72b783840bad5ee17416d48285b28ea69",
+       "title": "feat(boot_elf): match libkernel's SetNextComp and libgraph's sceGsSetDefDispEnv and sceGsExecStoreImage",
+       "author": "llesieur99",
+       "date": "2026-11-15T17:57:59Z"
+      },
+      {
+       "sha": "9c49a52c183a9d1f6402c2f567f45893a336d95b",
+       "title": "feat(boot_elf): match libmpeg's form_predictions on Sony's ee-gcc 2.9",
+       "author": "llesieur99",
+       "date": "2026-11-15T17:24:30Z"
+      },
+      {
+       "sha": "9883663099fdeaf60a0abcc50ec91b8811afe830",
+       "title": "fix(inventory): cut func_0012AB80 into its linker remnant and func_0012AB88, on both discs",
+       "author": "llesieur99",
+       "date": "2026-11-15T17:10:03Z"
+      },
+      {
+       "sha": "3cfbb4a27171453ec80f0a907f52b50c1f702c26",
+       "title": "feat(boot_elf): match two libmpeg functions of the engine core on Sony's ee-gcc 2.9",
+       "author": "llesieur99",
+       "date": "2026-11-15T16:55:15Z"
+      },
+      {
+       "sha": "33cebf909b1842b81be84d7b6e257769274776a7",
+       "title": "feat(boot_elf): match 5 Sony library functions of the engine core, two files on Sony's tools",
+       "author": "llesieur99",
+       "date": "2026-11-15T16:41:06Z"
+      },
+      {
+       "sha": "bb06f169c0c1868b5e97812b9e9a8e32dd36a502",
+       "title": "feat(boot_elf): match newlib's calloc, malloc_extend_top and __sbprintf's two copies",
+       "author": "llesieur99",
+       "date": "2026-11-15T16:18:31Z"
+      },
+      {
+       "sha": "14b31a89959387891d8069880bfefdbc0fcc3427",
+       "title": "fix(boot_elf): cut func_001192F0 into a linker remnant and _localeconv_r (func_001192F8), in C",
+       "author": "llesieur99",
+       "date": "2026-11-15T16:18:31Z"
+      },
+      {
+       "sha": "f70eff77972a7623702a018013fdc6b39902cced",
+       "title": "fix(boot_elf): start _eh.c at __default_terminate (func_001267E0), libgcc _eh.o's first function",
+       "author": "llesieur99",
+       "date": "2026-11-15T16:18:31Z"
+      },
+      {
+       "sha": "efc30a0c12af617e69d20486cee328705e33ae94",
+       "title": "feat(boot_elf): match newlib's _vfprintf_r and malloc in the engine core",
+       "author": "llesieur99",
+       "date": "2026-11-15T15:54:03Z"
+      },
+      {
+       "sha": "1ce522d8716e7f4d413f2053d46fba867dec32f6",
+       "title": "feat(boot_elf): match newlib's exit in the engine core",
+       "author": "llesieur99",
+       "date": "2026-11-15T15:41:47Z"
+      },
+      {
+       "sha": "8ec714e4ce2656d7d3135c453d4bb5fcb45b689e",
+       "title": "feat(boot_elf): match func_00135B50, the EE DMA reset, with 1352E0.c on Sony's ee-as",
+       "author": "llesieur99",
+       "date": "2026-11-15T15:34:49Z"
+      },
+      {
+       "sha": "7f15360a67a40c16d6b6bdbc55af26c825809ce7",
+       "title": "feat(boot_elf): match func_001216C8, the printf core's variadic wrapper",
+       "author": "llesieur99",
+       "date": "2026-11-15T15:26:44Z"
+      },
+      {
+       "sha": "884e894fa72bd6a997d224f97168c58414f986e1",
+       "title": "feat(boot_elf): match strtoll_r, malloc_trim, __sseek, execute_cfa_insn and 5 more in the engine core",
+       "author": "llesieur99",
+       "date": "2026-11-15T15:23:45Z"
+      },
+      {
+       "sha": "f0533440a50c9b4479cd307a131479e8025c1929",
+       "title": "fix(boot_elf): declare malloc_trim, __sseek and the alarm pool init with their return types",
+       "author": "llesieur99",
+       "date": "2026-11-15T15:23:44Z"
+      },
+      {
+       "sha": "f61fd0d2f56e4523dece7708c55003f138740e85",
+       "title": "feat(boot_elf): match newlib's _close_r, strstr and vsprintf in the engine core",
+       "author": "llesieur99",
+       "date": "2026-11-15T14:54:59Z"
+      },
+      {
+       "sha": "e04873bf13423ca2826a662473bbe4071ae25498",
+       "title": "fix(boot_elf): cut six more newlib modules off where their fill words now end the file before",
+       "author": "llesieur99",
+       "date": "2026-11-15T10:51:48Z"
+      },
+      {
+       "sha": "715655327e6222b5857df33310e7c0c6ea7e17b5",
+       "title": "fix(inventory): start an engine-core entry after the linker's fill, cutting 16 rows that began with it",
+       "author": "llesieur99",
+       "date": "2026-11-15T10:51:47Z"
+      },
+      {
+       "sha": "7d1bf9d557e05684872e45072f617c04124bee1a",
+       "title": "feat(boot_elf): match newlib's _dtoa_r (func_001173F8) in the engine core",
+       "author": "llesieur99",
+       "date": "2026-11-15T10:22:53Z"
+      },
+      {
+       "sha": "46efe40cde306a004b4a00e0976a34663c637d33",
+       "title": "fix(tools): let a C file's read-only data with a jump table hold strings and constants too",
+       "author": "llesieur99",
+       "date": "2026-11-15T10:14:04Z"
+      },
+      {
+       "sha": "517d0270e6dba52ff205619479c90791359a2d2f",
+       "title": "fix(boot_elf): cut newlib's 116F80.c into one file per module where the linker's fill words show them",
+       "author": "llesieur99",
+       "date": "2026-11-15T10:14:04Z"
+      },
+      {
+       "sha": "a2b824cefa59b52a4d9525b966a30d53f5b6ad34",
+       "title": "feat(boot_elf): match 6 engine-core functions",
+       "author": "llesieur99",
+       "date": "2026-11-15T09:45:35Z"
+      },
+      {
+       "sha": "c84e91b46ded57add48ca73cf28535f2f39880c6",
+       "title": "feat(boot_elf): match 8 Sony library functions of the engine core",
+       "author": "llesieur99",
+       "date": "2026-11-15T09:24:06Z"
+      },
+      {
+       "sha": "42515c77929f61842530bf2d467fe543a29f1ff9",
+       "title": "fix(boot_elf): give 10 more engine-core files Sony's ee-gcc 2.9, cut 12D578.c, 1352E0.c and 13ADA8.c where SN code begins",
+       "author": "llesieur99",
+       "date": "2026-11-15T09:10:06Z"
+      },
+      {
+       "sha": "51b07fc8868fab364a91bcc491137671a4d2e538",
+       "title": "feat(boot_elf): match newlib's vfprintf (func_0011C180) in the engine core",
+       "author": "llesieur99",
+       "date": "2026-11-15T09:09:38Z"
+      },
+      {
+       "sha": "e340d8e3fea9b9d02f0553205bbfd1d9bdaaf63c",
+       "title": "fix(tools): place a core C file's jump tables in their retail places (core_rodata.py)",
+       "author": "llesieur99",
+       "date": "2026-11-15T09:09:38Z"
+      },
+      {
+       "sha": "6db2c8f0aec44cfdebe3f7f23144bd0a39482f06",
+       "title": "feat(boot_elf): match 27 engine-core functions",
+       "author": "llesieur99",
+       "date": "2026-11-15T08:45:28Z"
+      },
+      {
+       "sha": "187c4514ab33d7a56bcb4e5d42bb6bf6564997d2",
+       "title": "feat(levels): match 38 level functions with the flags of their files",
+       "author": "llesieur99",
+       "date": "2026-11-15T08:03:24Z"
+      },
+      {
+       "sha": "ec7e5cac1d2b80202b715c9404368141d8a89e06",
+       "title": "feat(boot_elf): match 17 newlib functions of the engine core",
+       "author": "llesieur99",
+       "date": "2026-11-15T07:32:35Z"
+      },
+      {
+       "sha": "120fa6c9c28d3b05c8ccf606da7364fa4f3fa438",
+       "title": "feat(boot_elf): match 16 engine-core functions, mark 14 remnants and 7 hand-written functions",
+       "author": "llesieur99",
+       "date": "2026-11-15T07:26:53Z"
+      },
+      {
+       "sha": "fd3f66d0a95643a6528d4da2e9e2ffedc6be8b01",
+       "title": "fix(boot_elf): give 11 engine-core files the Sony compiler their code was built with, cut 135CE0.c where SN code begins",
+       "author": "llesieur99",
+       "date": "2026-11-15T07:13:54Z"
+      },
+      {
+       "sha": "f344c378b458fcfb5d1557fc3cfb6e406a0f7643",
+       "title": "fix(us): cut 10 NTSC-U boot_elf core functions like PAL and build them from C",
+       "author": "llesieur99",
+       "date": "2026-11-15T07:13:15Z"
+      },
+      {
+       "sha": "887a3aa406904aa33da5b4a6eb2eaa6c4259556b",
+       "title": "feat(levels): match 60 level functions",
+       "author": "llesieur99",
+       "date": "2026-11-15T06:48:07Z"
+      },
+      {
+       "sha": "6cf7f4063bc900266e3bf9401de7cf9db940978e",
+       "title": "feat(levels): match 40 level functions",
+       "author": "llesieur99",
+       "date": "2026-11-15T06:06:58Z"
+      },
+      {
+       "sha": "f8d65d2f561a60f2fa2fae16319f172a826b4eaf",
+       "title": "feat(levels): match 14 level functions",
+       "author": "llesieur99",
+       "date": "2026-11-15T05:07:07Z"
+      },
+      {
+       "sha": "43baeee4c5e0ee38a6f28cf2d9008fe6c5a1c5b0",
+       "title": "chore(progress): regenerate the catalogue's tables, the reports and the NTSC-U carry after the rebase",
+       "author": "bigbeno37",
+       "date": "2026-11-15T02:20:39Z"
+      },
+      {
+       "sha": "350d75fc27a7697a09973e51c068353781e3802f",
+       "title": "fix(us): four NTSC-U level 39 functions are one source with their PAL twins",
+       "author": "bigbeno37",
+       "date": "2026-11-15T01:17:17Z"
+      },
+      {
+       "sha": "427fbfd708f46868471754001108db5a49dcc950",
+       "title": "fix(levels): the catalogue's exception tables on upstream's catalogue rules",
+       "author": "bigbeno37",
+       "date": "2026-11-15T01:14:30Z"
+      },
+      {
+       "sha": "6d571757b016ce8426253f227b6f51afd6f8849c",
+       "title": "fix(levels): settle the level files both sides changed on 2026-11-14",
+       "author": "bigbeno37",
+       "date": "2026-11-15T00:52:41Z"
+      },
+      {
+       "sha": "706f2309214682abe7892a78aa3f52d69b95c7bb",
+       "title": "feat(levels): match 87 functions in level 3 (starship phoenix) and level 8 (aquatos) and level 9 (tyhrranosis) and level 16 (kerwan) and level 20 (final boss) and level 21 (obani draco) and level 24 (insomniac museum) and level 33 (vidcomic 2) and level 39 (multiplayer menu) and shared level code",
+       "author": "bigbeno37",
+       "date": "2026-11-15T00:30:46Z"
+      },
+      {
+       "sha": "75a4f611f34ff729c4ee6a25d4ce1b348c629c49",
+       "title": "fix(levels): cut 64 level 3 8 9 16 20 21 24 30 34 36 files where code built with other flags begins",
+       "author": "bigbeno37",
+       "date": "2026-11-15T00:30:45Z"
+      },
+      {
+       "sha": "acb0f04c307d4322f942d1f4f519af2c344f61d0",
+       "title": "feat(levels): match 38 functions in level 3 (starship phoenix) and level 8 (aquatos) and level 9 (tyhrranosis) and level 16 (kerwan) and level 20 (final boss) and level 24 (insomniac museum)",
+       "author": "bigbeno37",
+       "date": "2026-11-15T00:30:42Z"
+      },
+      {
+       "sha": "700b7b20847a6d3efcfc4a6e26a779e8382a5539",
+       "title": "fix(levels): correct 1 declarations of functions that are not matched yet",
+       "author": "bigbeno37",
+       "date": "2026-11-15T00:30:41Z"
+      },
+      {
+       "sha": "1e717f23f0270998a8ad46cbb54dbf10f0dee029",
+       "title": "feat(levels): match 14 functions in level 3 (starship phoenix) and level 8 (aquatos) and level 9 (tyhrranosis) and level 16 (kerwan) and level 20 (final boss) and level 21 (obani draco) and level 24 (insomniac museum)",
+       "author": "bigbeno37",
+       "date": "2026-11-15T00:30:40Z"
+      },
+      {
+       "sha": "229dbed1484c4fafea932caf4cbc0b2a2c773469",
+       "title": "fix(levels): cut 2 level 9 16 files where code built with other flags begins",
+       "author": "bigbeno37",
+       "date": "2026-11-15T00:30:38Z"
+      },
+      {
+       "sha": "d1ca5ce1baef5e93482fb2dbe5f326a963a3d0ce",
+       "title": "feat(levels): match 20 functions in level 3 (starship phoenix) and level 8 (aquatos) and level 16 (kerwan) and level 20 (final boss) and level 21 (obani draco) and level 24 (insomniac museum)",
+       "author": "bigbeno37",
+       "date": "2026-11-15T00:30:37Z"
+      },
+      {
+       "sha": "f2cc4b2c62db36cb4dc2ae192173a0b242ea3f3a",
+       "title": "fix(levels): cut 4 level 16 20 21 24 files where code built with other flags begins",
+       "author": "bigbeno37",
+       "date": "2026-11-15T00:30:36Z"
+      },
+      {
+       "sha": "76cabbb8524fd956489c672f969d2e9eaa146a75",
+       "title": "fix(levels): cut 3 level 16 21 24 files where code built with other flags begins",
+       "author": "bigbeno37",
+       "date": "2026-11-15T00:30:35Z"
+      },
+      {
+       "sha": "59d8152f3e5499dae383c40940dc478cae2d908d",
+       "title": "feat(levels): match 11 functions in level 3 (starship phoenix) and level 8 (aquatos) and level 9 (tyhrranosis) and level 16 (kerwan) and level 20 (final boss) and level 21 (obani draco) and level 24 (insomniac museum)",
+       "author": "bigbeno37",
+       "date": "2026-11-15T00:30:34Z"
+      },
+      {
+       "sha": "4f0fa6867fe216278ebabd18f3af59a4253fb2b2",
+       "title": "fix(levels): cut 5 level 3 9 16 20 files where code built with other flags begins",
+       "author": "bigbeno37",
+       "date": "2026-11-15T00:30:32Z"
+      },
+      {
+       "sha": "d2b78dcbe515706dc8e92937e5dcbd9ca549b60c",
+       "title": "feat(levels): match 7 functions in level 3 (starship phoenix) and level 8 (aquatos) and level 9 (tyhrranosis) and level 16 (kerwan) and level 20 (final boss) and level 21 (obani draco) and level 24 (insomniac museum)",
+       "author": "bigbeno37",
+       "date": "2026-11-15T00:30:31Z"
+      },
+      {
+       "sha": "d45a14feb96e2f0df7fc4bd6d0821dd6cc8eb0da",
+       "title": "fix(levels): cut 5 level 9 20 21 files where code built with other flags begins",
+       "author": "bigbeno37",
+       "date": "2026-11-15T00:30:29Z"
+      },
+      {
+       "sha": "89127c96234ca1324e8c87659ae5d393f6f53c1e",
+       "title": "feat(levels): match 18 functions in level 3 (starship phoenix) and level 8 (aquatos) and level 9 (tyhrranosis) and level 16 (kerwan) and level 20 (final boss) and level 21 (obani draco) and level 24 (insomniac museum)",
+       "author": "bigbeno37",
+       "date": "2026-11-15T00:30:28Z"
+      },
+      {
+       "sha": "1c0b6edc7105a430fa8c92dac178ad61fdf88e76",
+       "title": "fix(levels): cut 3 level 3 16 20 files where code built with other flags begins",
+       "author": "bigbeno37",
+       "date": "2026-11-15T00:30:27Z"
+      },
+      {
+       "sha": "c46b5fd4658c01a83a1e4bc79dea1f38b5995317",
+       "title": "fix(levels): cut 5 level 8 9 16 20 files where code built with other flags begins",
+       "author": "bigbeno37",
+       "date": "2026-11-15T00:30:26Z"
+      },
+      {
+       "sha": "37fa6d749fc250f558c3bc22e7fdb6e78da9c9bc",
+       "title": "feat(levels): match 20 functions in level 3 (starship phoenix) and level 9 (tyhrranosis) and level 16 (kerwan) and level 20 (final boss) and level 21 (obani draco) and level 24 (insomniac museum) and shared level code",
+       "author": "bigbeno37",
+       "date": "2026-11-15T00:30:22Z"
+      },
+      {
+       "sha": "a387b68bda6f2037b3611f6b17a12298b6800669",
+       "title": "fix(levels): cut 13 level 3 9 16 20 21 24 31 33 36 files where code built with other flags begins",
+       "author": "bigbeno37",
+       "date": "2026-11-15T00:30:20Z"
+      },
+      {
+       "sha": "2e7e6908ee550c98a2341ec048dde8e4644a385a",
+       "title": "feat(levels): match 13 functions in level 3 (starship phoenix) and level 8 (aquatos) and level 9 (tyhrranosis) and level 16 (kerwan) and level 20 (final boss) and level 21 (obani draco) and level 24 (insomniac museum) and shared level code",
+       "author": "bigbeno37",
+       "date": "2026-11-15T00:30:19Z"
+      },
+      {
+       "sha": "de3a3be16598ce5ff1bbec7906dd53afafe4840a",
+       "title": "fix(levels): cut 3 level 8 20 24 files where code built with other flags begins",
+       "author": "bigbeno37",
+       "date": "2026-11-15T00:30:18Z"
+      },
+      {
+       "sha": "d83fa31d80b3356332d3721fd165e759a381ffee",
+       "title": "feat(levels): match 20 functions in level 3 (starship phoenix) and level 9 (tyhrranosis) and level 16 (kerwan) and level 20 (final boss) and level 21 (obani draco) and shared level code",
+       "author": "bigbeno37",
+       "date": "2026-11-15T00:30:16Z"
+      },
+      {
+       "sha": "51b14ffe168f2a5db1abcacc97ff0085583b6041",
+       "title": "fix(levels): cut 4 level 8 21 24 files where code built with other flags begins",
+       "author": "bigbeno37",
+       "date": "2026-11-15T00:30:15Z"
+      },
+      {
+       "sha": "0c321a961ca53834029b7ada0e07ecf5ef20605e",
+       "title": "fix(levels): cut 7 level 3 20 21 24 files where code built with other flags begins",
+       "author": "bigbeno37",
+       "date": "2026-11-15T00:30:14Z"
+      },
+      {
+       "sha": "b568fdde24c77b6c47f24a503b02601f980a877f",
+       "title": "feat(levels): match 18 functions in level 3 (starship phoenix) and level 9 (tyhrranosis) and level 20 (final boss) and level 21 (obani draco) and level 24 (insomniac museum) and level 33 (vidcomic 2) and level 39 (multiplayer menu) and shared level code",
+       "author": "bigbeno37",
+       "date": "2026-11-15T00:30:13Z"
+      },
+      {
+       "sha": "4a1eb818dbf2c58ec5e73e80b61053915024514c",
+       "title": "fix(levels): correct 4 declarations of functions that are not matched yet",
+       "author": "bigbeno37",
+       "date": "2026-11-15T00:30:11Z"
+      },
+      {
+       "sha": "bde63a9cba026f9c603959f97c7156872b80ba65",
+       "title": "fix(levels): cut 1 level 9 files where code built with other flags begins",
+       "author": "bigbeno37",
+       "date": "2026-11-15T00:30:10Z"
+      },
+      {
+       "sha": "a55776c73ee667156bd7181a0c760a83948f7367",
+       "title": "feat(levels): match 41 functions in level 33 (vidcomic 2) and level 35 (vidcomic 5) and level 39 (multiplayer menu) and shared level code",
+       "author": "bigbeno37",
+       "date": "2026-11-15T00:30:09Z"
+      },
+      {
+       "sha": "f866995c8ed5e385f34bc5c93554ed073f45bf6f",
+       "title": "fix(levels): cut 15 level 33 35 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 files where code built with other flags begins",
+       "author": "bigbeno37",
+       "date": "2026-11-15T00:30:08Z"
+      },
+      {
+       "sha": "b81c2027cf14110ac277b8c3b7fa00e3f6c6fed5",
+       "title": "feat(levels): match 57 functions in level 35 (vidcomic 5) and level 36 (vidcomic 1 special edition) and level 39 (multiplayer menu) and shared level code",
+       "author": "bigbeno37",
+       "date": "2026-11-15T00:30:06Z"
+      },
+      {
+       "sha": "d8b8120d0dec453c7895595f1021de6063e10efa",
+       "title": "fix(levels): cut 21 level 36 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 files where code built with other flags begins",
+       "author": "bigbeno37",
+       "date": "2026-11-15T00:30:05Z"
+      },
+      {
+       "sha": "6a85cc4246f0531e017851a53032259a67cbad07",
+       "title": "feat(levels): match 46 functions in level 39 (multiplayer menu) and shared level code",
+       "author": "bigbeno37",
+       "date": "2026-11-15T00:30:04Z"
+      },
+      {
+       "sha": "ab7d6abf1846ee4c65de5586b9e13ccccb20d4bb",
+       "title": "fix(levels): cut 21 level 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 files where code built with other flags begins",
+       "author": "bigbeno37",
+       "date": "2026-11-15T00:30:03Z"
+      },
+      {
+       "sha": "47248b27327f1315b13cddee958bcf4ff33ee5f7",
+       "title": "fix(levels): correct 2 declarations of functions that are not matched yet",
+       "author": "bigbeno37",
+       "date": "2026-11-15T00:30:02Z"
+      },
+      {
+       "sha": "145b48a4462458167a7baaaa1ca0ccc9b9fe6542",
+       "title": "fix(levels): cut 2 level 39 files where code built with other flags begins",
+       "author": "bigbeno37",
+       "date": "2026-11-15T00:30:01Z"
+      },
+      {
+       "sha": "04148b6ded0a35bac6419fe1c7cc5efb0a055d0c",
+       "title": "feat(levels): match 21 functions in level 39 (multiplayer menu) and shared level code",
+       "author": "bigbeno37",
+       "date": "2026-11-15T00:30:00Z"
+      },
+      {
+       "sha": "b9c22e3dbfde57d92c1da4208dfe0083dafc3f9d",
+       "title": "fix(levels): cut 3 level 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 files where code built with other flags begins",
+       "author": "bigbeno37",
+       "date": "2026-11-15T00:29:59Z"
+      },
+      {
+       "sha": "53d911f2b3338d2f69536bbb1b9d3bc656595ee3",
+       "title": "feat(levels): match 46 functions in level 39 (multiplayer menu) and shared level code",
+       "author": "bigbeno37",
+       "date": "2026-11-15T00:29:58Z"
+      },
+      {
+       "sha": "19ba85ae5a4764a84cd6de292c522aa6f02bd802",
+       "title": "feat(levels): match func_L39_004B5F68, the DNAS allocator's imalloc",
+       "author": "bigbeno37",
+       "date": "2026-11-15T00:29:57Z"
+      },
+      {
+       "sha": "66e0ee9591e9b350602056b8b144288e64f53327",
+       "title": "docs(levels): DNAS_STRING allowed, with its full evidence, its limits and their tests",
+       "author": "bigbeno37",
+       "date": "2026-11-15T00:29:56Z"
+      },
+      {
+       "sha": "c4400e89e4e7222b125d9339a0debb7c02c5b9b3",
+       "title": "feat(levels): text inside a protected block, and the DNAS allocator's malloc and free",
+       "author": "bigbeno37",
+       "date": "2026-11-15T00:29:55Z"
+      },
+      {
+       "sha": "6f6072cc60460e0fe12f01963e58ad28c93b017d",
+       "title": "feat(levels): match four protected DNAS functions in level 39",
+       "author": "bigbeno37",
+       "date": "2026-11-15T00:29:54Z"
+      },
+      {
+       "sha": "6b385b582be2e9fb8e646d59dba73ba4c8e67f21",
+       "title": "feat(levels): the DNAS protection macros and the tables of the blocks' random words",
+       "author": "bigbeno37",
+       "date": "2026-11-15T00:29:53Z"
+      },
+      {
+       "sha": "b89c6ff195797f70dcb76b3e30085e4e081c18f3",
+       "title": "feat(tools): protect level 39's DNAS blocks on the compiled object",
+       "author": "bigbeno37",
+       "date": "2026-11-15T00:29:52Z"
+      },
+      {
+       "sha": "0dee1bfb7b35743f61dc3a7cfd680a761e0e0f1d",
+       "title": "fix(levels): cut 2 level 39 files where code built with other flags begins",
+       "author": "bigbeno37",
+       "date": "2026-11-15T00:29:45Z"
+      },
+      {
+       "sha": "16e818a0b8598f16336838d22fce5543df92e457",
+       "title": "feat(levels): match 29 functions in level 39 (multiplayer menu)",
+       "author": "bigbeno37",
+       "date": "2026-11-15T00:29:44Z"
+      },
+      {
+       "sha": "dd6f27d97beb6a9fd702fd23e166ffcbe830abd2",
+       "title": "fix(levels): cut 7 level 39 files where code built with other flags begins",
+       "author": "bigbeno37",
+       "date": "2026-11-15T00:29:43Z"
+      },
+      {
+       "sha": "5ef11824568efe5743127f6aa2325fcd25dc4d73",
+       "title": "feat(levels): match 36 functions in level 39 (multiplayer menu)",
+       "author": "bigbeno37",
+       "date": "2026-11-15T00:29:42Z"
+      },
+      {
+       "sha": "c74d2c90c081df68c1aff19fbe40096bec5b5c14",
+       "title": "fix(levels): cut 1 level 39 files where code built with other flags begins",
+       "author": "bigbeno37",
+       "date": "2026-11-15T00:29:41Z"
+      },
+      {
+       "sha": "ae9faa9e27e5fe0e881c992f5b2ce6f9a3bbc779",
+       "title": "feat(levels): match 116 functions in level 39 (multiplayer menu)",
+       "author": "bigbeno37",
+       "date": "2026-11-15T00:29:40Z"
+      },
+      {
+       "sha": "63cda4dbe9eeee04b65303a8be64c44a825c7caf",
+       "title": "fix(levels): cut 25 level 39 files where code built with other flags begins",
+       "author": "bigbeno37",
+       "date": "2026-11-15T00:29:39Z"
+      },
+      {
+       "sha": "2ff0f76263cc0833630260a739131b6d44d34700",
+       "title": "feat(levels): match 139 functions in level 39 (multiplayer menu) and shared level code",
+       "author": "bigbeno37",
+       "date": "2026-11-15T00:29:38Z"
+      },
+      {
+       "sha": "d45c1c3a261dae1e0f35a6e8e4a291d435a91fc1",
+       "title": "fix(levels): correct 3 declarations of functions that are not matched yet",
+       "author": "bigbeno37",
+       "date": "2026-11-15T00:29:37Z"
+      },
+      {
+       "sha": "d18e1d2f1ad11cb2310d81923588a9bf4a4084ea",
+       "title": "fix(levels): join level 39's rows that DNAS's encrypted blocks cut at a jal",
+       "author": "bigbeno37",
+       "date": "2026-11-15T00:29:36Z"
+      },
+      {
+       "sha": "97ce415d05f214152328403c21fde07aa14d73a9",
+       "title": "feat(tools): keep a level's catalogue row whole where a call word reaches inside it",
+       "author": "bigbeno37",
+       "date": "2026-11-15T00:29:35Z"
+      },
+      {
+       "sha": "2f1656d6980735726bd4d590f212b40fc09e04eb",
+       "title": "feat(levels): match 122 functions in level 39 (multiplayer menu)",
+       "author": "bigbeno37",
+       "date": "2026-11-15T00:29:34Z"
+      },
+      {
+       "sha": "3df48993d1a7225cdcede896c18cb5dabc6573df",
+       "title": "feat(levels): match 76 functions in level 39 (multiplayer menu) and shared level code",
+       "author": "bigbeno37",
+       "date": "2026-11-15T00:29:33Z"
+      },
+      {
+       "sha": "1a2e1582ab4afb59bd38f08efbc9a82954cadeed",
+       "title": "fix(levels): cut 15 level 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 files where code built with other flags begins",
+       "author": "bigbeno37",
+       "date": "2026-11-15T00:29:32Z"
+      },
+      {
+       "sha": "2455501e87c605685dac5e4669fbe972eff10c10",
+       "title": "feat(levels): match 49 functions in level 39 (multiplayer menu) and shared level code",
+       "author": "bigbeno37",
+       "date": "2026-11-15T00:29:31Z"
+      },
+      {
+       "sha": "0ca984bedb8ea6cf80151905b0011bc2c51486a6",
+       "title": "fix(levels): assemble level 39's Sony libraries with Sony's assembler (@eeas)",
+       "author": "bigbeno37",
+       "date": "2026-11-15T00:29:30Z"
+      },
+      {
+       "sha": "35f03758f45ba103cf999b9f72432ef9b25464ce",
+       "title": "feat(levels): 23 level 39 library functions in C, from their NTSC-U matches",
+       "author": "bigbeno37",
+       "date": "2026-11-15T00:29:29Z"
+      },
+      {
+       "sha": "e34d5baaaa7b4a7d225fa77e663fe6e9961c7df1",
+       "title": "fix(levels): correct the boundaries of level 39's library rows that DNAS's encrypted blocks broke",
+       "author": "bigbeno37",
+       "date": "2026-11-15T00:29:29Z"
+      },
+      {
+       "sha": "4d65986817e5de0ddd634c3f93045b1e904d7bab",
+       "title": "feat(tools): a cut edit for the level catalogue's boundary exceptions",
+       "author": "bigbeno37",
+       "date": "2026-11-15T00:29:28Z"
+      },
+      {
+       "sha": "f2a8a01f489de56164059c722e0938a9b32d26ae",
+       "title": "fix(levels): cut 9 level 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 files where code built with other flags begins",
+       "author": "bigbeno37",
+       "date": "2026-11-15T00:29:27Z"
+      },
+      {
+       "sha": "2f6bfdf48d7154b1c746fb158df4ab6198c846c0",
+       "title": "docs: describe the @eeas assembler flag",
+       "author": "bigbeno37",
+       "date": "2026-11-15T00:29:26Z"
+      },
+      {
+       "sha": "ae315b6cd84818b004d205edf713220fb0adb2b1",
+       "title": "feat(tools): assemble @eeas ranges with Sony's ee-as 2.10-ee-001003-1",
+       "author": "bigbeno37",
+       "date": "2026-11-15T00:29:25Z"
+      },
+      {
+       "sha": "5839af4c29155265f7be48c95c089ab9aaa943a7",
+       "title": "fix(levels): correct 1 declarations of functions that are not matched yet",
+       "author": "bigbeno37",
+       "date": "2026-11-15T00:29:25Z"
+      },
+      {
+       "sha": "f1bdb5d3dc958bef5bfbd4af6fe32bad9b33eaa7",
+       "title": "fix(levels): cut 3 level 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 files where code built with other flags begins",
+       "author": "bigbeno37",
+       "date": "2026-11-15T00:29:24Z"
+      },
+      {
+       "sha": "60aaa3baec833e896f2931c34f5c3e495392588c",
+       "title": "feat(levels): match 22 functions in level 30 (vidcomic unnamed) and level 39 (multiplayer menu) and shared level code",
+       "author": "bigbeno37",
+       "date": "2026-11-15T00:29:23Z"
+      },
+      {
+       "sha": "35dad1a9126b515ff4aac10408965f91d64b9e8a",
+       "title": "fix(levels): cut 20 level 30 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 files where code built with other flags begins",
+       "author": "bigbeno37",
+       "date": "2026-11-15T00:29:22Z"
+      },
+      {
+       "sha": "f3e2e6e87d3074275e93feb027845dcb63b9c63b",
+       "title": "feat(levels): match 36 functions in level 33 (vidcomic 2) and level 39 (multiplayer menu) and shared level code",
+       "author": "bigbeno37",
+       "date": "2026-11-15T00:29:21Z"
+      },
+      {
+       "sha": "e118cbe28c490c762cf61532fbc33c67a47a10e5",
+       "title": "fix(levels): correct 1 declarations of functions that are not matched yet",
+       "author": "bigbeno37",
+       "date": "2026-11-15T00:29:20Z"
+      },
+      {
+       "sha": "cf6027cd0e76914443bd1918d3e9053221a50fd8",
+       "title": "feat(levels): match 46 functions in level 39 (multiplayer menu) and shared level code",
+       "author": "bigbeno37",
+       "date": "2026-11-15T00:29:20Z"
+      },
+      {
+       "sha": "9d046181e21e2fc44808a643e06180d71f6ab7db",
+       "title": "fix(levels): correct 5 declarations of functions that are not matched yet",
+       "author": "bigbeno37",
+       "date": "2026-11-15T00:29:19Z"
+      },
+      {
+       "sha": "689d57d14aa16b6387dea8f5f1e4c0adaf83e8ae",
+       "title": "perf(tools): build the NTSC-U native names once per level in asm_build.py",
+       "author": "bigbeno37",
+       "date": "2026-11-15T00:29:18Z"
+      },
+      {
+       "sha": "a019834669bfb61191498bc27a7ade00754503de",
+       "title": "feat(levels): match 106 functions in level 32 (vidcomic 4) and level 39 (multiplayer menu) and shared level code",
+       "author": "bigbeno37",
+       "date": "2026-11-15T00:29:18Z"
+      },
+      {
+       "sha": "2c7f8041d21aa4095b92f902ccc3588f20518294",
+       "title": "feat(levels): match 118 functions in level 32 (vidcomic 4) and level 33 (vidcomic 2) and level 34 (vidcomic 3) and level 35 (vidcomic 5) and level 39 (multiplayer menu) and shared level code",
+       "author": "bigbeno37",
+       "date": "2026-11-15T00:29:16Z"
+      },
+      {
+       "sha": "ea8eefc94ed9fe504cd712d8eb12353d1f26d30d",
+       "title": "fix(levels): cut 5 level 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 files where code built with other flags begins",
+       "author": "bigbeno37",
+       "date": "2026-11-15T00:29:15Z"
+      },
+      {
+       "sha": "1b2fba114e49046407977bf7f68831cb38ee704c",
+       "title": "feat(levels): match 152 functions in level 30 (vidcomic unnamed) and level 32 (vidcomic 4) and level 33 (vidcomic 2) and level 34 (vidcomic 3) and level 39 (multiplayer menu) and shared level code",
+       "author": "bigbeno37",
+       "date": "2026-11-15T00:29:15Z"
+      },
+      {
+       "sha": "7de5078ab752a55b56779d6ce8d46ac2748cf89a",
+       "title": "fix(levels): cut 73 level 30 31 32 33 34 35 36 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 files where code built with other flags begins",
+       "author": "bigbeno37",
+       "date": "2026-11-15T00:29:09Z"
+      },
+      {
+       "sha": "bc7f5a08f4dec67c8224109fdc1ab99b35bb6cbb",
+       "title": "fix(levels): correct the boundaries of 26 catalogue rows",
+       "author": "bigbeno37",
+       "date": "2026-11-15T00:29:08Z"
+      },
+      {
+       "sha": "a3db79e72457970f83981a9c84a13ffc3caf169a",
+       "title": "feat(tools): let the level catalogue read a table of boundary exceptions",
+       "author": "bigbeno37",
+       "date": "2026-11-15T00:29:07Z"
+      },
+      {
+       "sha": "d71fbc9b0fef39d304d46f2732a6a0d17c50b7a8",
+       "title": "fix(levels): correct 3 declarations of functions that are not matched yet",
+       "author": "bigbeno37",
+       "date": "2026-11-15T00:29:06Z"
+      },
+      {
+       "sha": "8100731358536ab1612034665d96c9d9dc3db151",
+       "title": "feat(tools): compile @ee296 ranges with Sony's ee-gcc 2.96-ee-001003-1",
+       "author": "bigbeno37",
+       "date": "2026-11-15T00:29:05Z"
+      },
+      {
+       "sha": "279b101bf4df14c3534b61edd09c8fdd94ad9a11",
+       "title": "docs: allow literal EE hardware register and scratchpad addresses with volatile",
+       "author": "bigbeno37",
+       "date": "2026-11-15T00:29:04Z"
+      },
+      {
+       "sha": "046eb839478be38d34c2efb90ce03b5d95a57fd5",
+       "title": "fix(tools): the sq-$ra rewrite writes $ra's save as an instruction in a Ps2EeAs delay slot",
+       "author": "bigbeno37",
+       "date": "2026-11-15T00:29:04Z"
+      },
+      {
+       "sha": "1e5131a1dae40f16d72beced1cf8061b58228c90",
+       "title": "feat(tools): a committed sq-$ra table for level functions",
+       "author": "bigbeno37",
+       "date": "2026-11-15T00:29:03Z"
+      },
+      {
+       "sha": "c931e9851d2ccd84c3d4fabc8e8857ca641cf36c",
+       "title": "feat(include): the game's assert as a macro, for the one function that has its trap",
+       "author": "bigbeno37",
+       "date": "2026-11-15T00:29:02Z"
+      },
+      {
+       "sha": "1e204927e8b23348c7a8e3cbc1288d7ffa76e19c",
+       "title": "feat(levels): match 131 functions in level 30 (vidcomic unnamed) and level 32 (vidcomic 4) and level 33 (vidcomic 2) and level 34 (vidcomic 3) and level 39 (multiplayer menu) and shared level code",
+       "author": "bigbeno37",
+       "date": "2026-11-15T00:29:02Z"
+      },
+      {
+       "sha": "cfc654cf1861bc49e195a941f3042510e621859f",
+       "title": "fix(levels): cut 17 level 30 31 32 33 34 36 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 files where code built with other flags begins",
+       "author": "bigbeno37",
+       "date": "2026-11-15T00:29:01Z"
+      },
+      {
+       "sha": "5e63563fa64ea38a7c74ca6885122a3989fc4596",
+       "title": "feat(levels): match 151 functions in level 30 (vidcomic unnamed) and level 34 (vidcomic 3) and level 36 (vidcomic 1 special edition) and level 39 (multiplayer menu) and shared level code",
+       "author": "bigbeno37",
+       "date": "2026-11-15T00:29:00Z"
+      },
+      {
+       "sha": "fddbdf99c140e106ee14ddfd69eb430a6b5fa042",
+       "title": "fix(levels): cut 66 level 30 31 32 33 34 35 36 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 files where code built with other flags begins",
+       "author": "bigbeno37",
+       "date": "2026-11-15T00:28:59Z"
+      }
+     ]
+    }
+   ],
+   "commitCount": 133,
+   "pullRequests": {
+    "merged": [],
+    "opened": [
+     {
+      "number": 65,
+      "title": "feat(levels): match 108 functions in levels 7, 27 and 30",
+      "author": "cadelass",
+      "untrustedBody": "Level 7 (Annihilation Nation) continued and retry passes, plus the earlier level 27 and 30 work: 108 functions to plain C, all proven by the level builds.\n\n## Functions\n\n| Level | Converted | `INCLUDE_ASM` left in the level | Near misses kept in `nonmatching/levels/` |\n| --- | --- | --- | --- |\n| 07 Annihilation Nation | 102 | 230 (53 plain, 51 mmi, 46 switch, 80 vu0) | 8 |\n| 27 Aquatos Base | 5 | 1 | 1 |\n| 30 Vid-comic unnamed | 1 | 2 | 2 |\n\nAll plain C. Files that needed a flag change are listed under Notes; no function has flags of its own.\n\n<details>\n<summary>The 108 functions</summary>\n\nLevel 7 (`func_L07_`): 003303B0, 00330748, 00330828, 003309A0, 00331008, 00331158, 003319C8, 00332848, 003328D0, 00332958, 00332A90, 00332BE0, 00332F90, 003330E8, 00333200, 00333310, 00333918, 00334318, 00334408, 00334588, 00334A98, 00334EC0, 00334FB0, 003350F0, 003352B8, 00335558, 00352F30, 00352FF0, 00353378, 00353498, 003535E8, 003538A0, 00353980, 0035C880, 0035CAB8, 003A3BB0, 003A5ED0, 003A6110"
+     },
+     {
+      "number": 66,
+      "title": "feat(levels): match 9 functions in the shared level 6 files",
+      "author": "DrLegitamate",
+      "untrustedBody": "Nine more functions from the shared level 6 files claimed in #3, plus nine near misses.\n\n**Matched**\n- `func_L06_003564A0` (`src/levels/shared/L06_00354F18.c`, levels 06 and 14)\n- `func_L06_00358938` (`src/levels/shared/L06_00356C80.c`, levels 06, 14 and 20): writes the new moby through `struct Moby` (the file now includes `structs/moby.h`). Its `$gp` reads are level data (`D_L06_001DD358`/`35C`/`36C`; the offsets differ in levels 14 and 20).\n\n`L06_00354F18.c` was CRLF and is LF now, so the whole-file diff is large; `git diff -w` shows the real change.\n\n- `func_L06_003528B8` (`src/levels/shared/L06_00351930.c`, levels 06 and 14), second commit: the two-pass twin of the matched `func_L06_00352CA0`. Their shared types move to the file prelude, and `D_00352CA0`'s `pad1C` becomes the `f32 f1C` both write.\n- Third commit: `func_L06_00350FD0` (levels 06, 14; adds the divs_nops row `func_L06_00350FD0 2` for the two nops retail has before its `div.s`), `func_L06_00352110` (06, 14), `func_L06_0"
+     },
+     {
+      "number": 68,
+      "title": "feat(levels): match 5 more functions in level 23",
+      "author": "xx255q",
+      "untrustedBody": "Matches 5 more level 23 functions in plain C (4,260 bytes):\nfunc_L23_0047E620 (608 bytes): L23_0047E620.c\nfunc_L23_003B0CE0 (476 bytes): L23_003AD800.c\nfunc_L23_003A97B8 (1160 bytes): L23_003A6688.c\nfunc_L23_003B44F8 (984 bytes): L23_003B3BB8.c\nfunc_L23_003BB8A8 (1032 bytes): L23_003B94C8.c\nFunctions and file changes\nAll plain C, built with each file's current flags; no text_parts.txt changes.\nfunc_L23_0047E620 is the same source as func_L08_0047F170.\nfunc_L23_003A97B8: the table entries in L23_003A6688.c are { s32 id; f32 x4; f32 x8; s32 xC[2]; } (Rec14, same 0x14 size; the file's other user, func_L23_003A9C40, reads only .id and still matches).\nfunc_L23_003B0CE0 reaches pos and dir only through pointers to them, the form docs/wiki/Matching-Patterns.md describes (func_L11_003798E8), and reads 0x1DEC40 through $gp with the per-function alias D_L23_001DEC40_3B0CE0 (.extern …, 4).\nfunc_L23_003BB8A8 extends the file's Moby_3BB7C8 (a u16 at 0x96; 0xAA becomes s16, which retail reads with l"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [
+     {
+      "number": 67,
+      "title": "boot_elf: may Sony library C read or switch $gp through a header (include/gp.h)?",
+      "author": "llesieur99"
+     }
+    ],
+    "closed": [
+     {
+      "number": 60,
+      "title": "Ratchet and clank ps3 and psvita decompiled games?",
+      "author": "jeejfaafq1-deu"
+     }
+    ]
+   },
+   "releases": [],
+   "progress": {
+    "before": {
+     "code": {
+      "done": 2783940,
+      "total": 7538408
+     },
+     "functions": {
+      "done": 10105,
+      "total": 16124
+     }
+    },
+    "after": {
+     "code": {
+      "done": 3815352,
+      "total": 7525064
+     },
+     "functions": {
+      "done": 12449,
+      "total": 16533
+     }
+    }
+   },
+   "contributors": [
+    "bigbeno37",
+    "cadelass",
+    "DrLegitamate",
+    "llesieur99",
+    "xx255q"
+   ]
+  },
+  {
+   "repo": "rac4-decomp",
+   "title": "Ratchet: Deadlocked",
+   "branches": [
+    {
+     "name": "main",
+     "commits": []
+    }
+   ],
+   "commitCount": 0,
+   "pullRequests": {
+    "merged": [],
+    "opened": [
+     {
+      "number": 167,
+      "title": "Match fifty-two PAL functions",
+      "author": "Shaar-games",
+      "untrustedBody": "Exact PAL functions:\n\n- `func_L01_00508FD8`\n- `func_L05_00492668`\n- `func_L15_004D8AC8`\n- `func_L15_004D8D88`\n- `func_L41_00444998`\n- `func_L41_00449AF8`\n- `func_L05_004935C0`\n- `func_L00_0077A058`\n- `func_L01_0050C478`\n- `func_L01_00514C10`\n- `func_L01_005A90D0`\n- `func_L41_0040F680`\n- `func_L41_003DD2E8`\n- `func_L05_004DD738`\n- `func_L41_00446AA8`\n- `func_L00_0077A190`\n- `func_L00_0077A1F8`\n- `func_L00_0077A2C8`\n- `func_L00_0077A330`\n- `func_L41_003DE2A0`\n- `func_L00_00590698`\n- `func_L41_00444BE0`\n- `func_L01_00574FE0`\n- `func_L41_0040EC00`\n- `func_L01_004A4B00`\n\n- `func_L00_00779E70`\n\n- `func_L00_0077B660`\n- `func_00549A30`\n- `func_L01_00454C08`\n- `func_L01_004672D0`\n- `func_L01_004B5780`\n- `func_L41_006184F8`\n\n- `func_L00_00703BE8`\n- `func_L41_0055EFB0`\n\n- `func_L00_0051B138`\n- `func_L01_004E8418`\n- `func_L01_006589D8`\n- `func_L01_00636C58`\n- `func_L01_00501CD8`\n- `func_L41_00447310`\n\n- `func_00425780`\n- `func_L01_004368D8`\n- `func_L01_00439E80`\n- `func_L01_00466278`\n- `func_L00_0"
+     },
+     {
+      "number": 168,
+      "title": "Match 20 US functions across game, net and core code",
+      "author": "farfeduc",
+      "untrustedBody": "A hand-matching session of 20 US functions (15 game, 4 net, 1 core, 2,584 bytes), taken from the same ease ranking as #165, mostly among functions whose size in `config/functions.tsv` is 4 bytes larger than in `config/us/inventory.tsv` (the trailing zero word), plus one shape twin.\r\n\r\n| Area | Count | Examples |\r\n| --- | --- | --- |\r\n| Game (resident `.text`) | 15 | buffer and allocator helpers around func_00403308/func_004033D0, a 64-bit register packer (func_00449350), a menu callback setter (func_00480FB8), per-player table updates (func_004C5910, func_004AB7B8) |\r\n| Net | 4 | func_01EA4770, func_01EBA250, func_01EBE1B8, func_01F07554 |\r\n| Core | 1 | func_00156430 |\r\n\r\nFlags are in each file: 8 build with `@ee296 -O2 -G0`, 9 with the SN default, 1 with `-O2 -G8`, and 2 with `@ee296 -Os -G0 -mno-split-addresses`.\r\n\r\nNotes:\r\n- func_004D9A48 is the shape twin of func_004D8A18: same code, its own structure layout (0x18-byte items, the list at 0x0B4).\r\n- func_004F81E0 was drafted in an e"
+     },
+     {
+      "number": 169,
+      "title": "Match 26 more US functions (1 core, 12 net, 2 game, 11 overlays)",
+      "author": "GarfTornion",
+      "untrustedBody": "## What\n\nTwenty-six functions on the US disc (SCUS_974.65), 3,272 bytes of retail code, none of it\nmatched before: 1 core, 12 network text, 2 resident game text, 11 level overlays.\n\n- core: `func_0015B2C8` 168\n- net: `func_01ED2458` 44, `func_01EC3D98` 68, `func_01ED7530` 92, `func_01ED70C8` 100, `func_01EAB500` 108, `func_01EE7010` 136, `func_01EF328C` 140, `func_01EFE528` 148, `func_01EBD678` 160, `func_01EA2018` 168, `func_01EA7C98` 172, `func_01EA04A0` 184\n- game: `func_004B00D0` 136, `func_005111D0` 200\n- overlays: `func_L00_00519BB8` 32, `func_L01_00469250` 56, `func_L00_006F5628` 68, `func_L00_0076ED88` 80, `func_L00_0053C260` 96, `func_L01_00516E58` 112, `func_L00_00537FB0` 132, `func_L00_0071A200` 144, `func_L00_0070CD80` 152, `func_L00_0075CC38` 176, `func_L01_003FE568` 200\n\nFive commits: three carrying the matches and the attempts that did not reach exact (staged under\n`nonmatching/` with their measured difference), then two that only refresh near-miss records, plus\none rege"
+     },
+     {
+      "number": 170,
+      "title": "PAL: add 20 independently reviewed reconstructions",
+      "author": "Sumaiter",
+      "untrustedBody": "This draft adds 20 independently reviewed PAL reconstructions: 1,844 distinct function bytes across 33 physical placements. The functions cover stdio allocation, scalar menu helpers, four message-record construction, descriptor setters and the complete shared 64-byte validation body. Two existing message-helper parameter declarations are made consistent with the already matched unsigned-word callers.\n\nThe catalogue changes describe the individually reviewed function boundaries: padding stays outside complete bodies, the shared return tail belongs to its parent, and the three true setter entries retain the preceding stack-adjust remnants. No compiler, profile, emitter or reference-byte changes are included.\n\nValidation performed on a separate checkout based on `1242ee13`:\n\n- All 20 new translation units and both changed existing helpers were freshly compiled through unchanged `tools/cc.sh`, with their original file-level flags.\n- All native bytes and actual relocation targets match at a"
+     },
+     {
+      "number": 171,
+      "title": "Preserve 91 PAL nonmatching drafts for further decompilation",
+      "author": "Sumaiter",
+      "untrustedBody": "This preserves 91 compiler-backed PAL C drafts for further decompilation: 88 from the retained local archive and three from the newly handed-off batches. Each draft lives under `nonmatching/pal/<area>/`, with a PAL reproduction command, the retained-object comparison, and unresolved review questions. The README indexes every added file.\r\n\r\nExisting matches, physical overlaps with published matches, equal or better recorded public near results, and other contributors' active reservations were excluded. The known shared-return fragment `func_L00_006D1894` is also excluded. Existing US drafts remain available.\r\n\r\nThese are unfinished reconstructions. Search scores were used only for selection; they are not correctness percentages. The recorded comparisons mask relocation fields and do not approve the actual targets, initial values, data ownership, ABI, or semantics. One draft has masked text equality but unresolved bindings; another differs at some placements despite equality at others. L"
+     },
+     {
+      "number": 172,
+      "title": "Match 167 functions",
+      "author": "Adam1400",
+      "untrustedBody": "Matches 167 functions for SCUS_974.65, each in a file of its own; 161 of them match SCES_532.85 too.\n\nFunctions:\n\n- `func_L00_0077CD30` (`src/overlays/l00_multiplayer_menu/L00_0077CD30.c`)\n- `func_L00_00728E70` (`src/overlays/l00_multiplayer_menu/L00_00728E70.c`)\n- `func_004F4D28` (`src/game/004F4D28.c`)\n- `func_L00_0071BB90` (`src/overlays/l00_multiplayer_menu/L00_0071BB90.c`)\n- `func_L00_00567128` (`src/overlays/l00_multiplayer_menu/L00_00567128.c`)\n- `func_L15_004D7108` (`src/overlays/shared/L15_004D7108.c`)\n- `func_L00_00712458` (`src/overlays/l00_multiplayer_menu/L00_00712458.c`)\n- `func_001634F0` (`src/core/001634F0.c`)\n- `func_001511F0` (`src/core/001511F0.c`)\n- `func_L04_00486670` (`src/overlays/shared/L04_00486670.c`)\n- `func_L00_005376A8` (`src/overlays/l00_multiplayer_menu/L00_005376A8.c`)\n- `func_004CE2F8` (`src/game/004CE2F8.c`)\n- `func_L01_0050BC88` (`src/overlays/shared/L01_0050BC88.c`)\n- `func_L00_007168B0` (`src/overlays/l00_multiplayer_menu/L00_007168B0.c`)\n- `func_L0"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": null,
+   "contributors": [
+    "Adam1400",
+    "farfeduc",
+    "GarfTornion",
+    "Shaar-games",
+    "Sumaiter"
+   ]
+  },
+  {
+   "repo": "openrac-mods",
+   "title": "OpenRAC mods",
+   "branches": [
+    {
+     "name": "master",
+     "commits": [
+      {
+       "sha": "9af2554a782d277b8f47f07351ed7f03bf6eb122",
+       "title": "feat(index): List bolt-multiplier (#191)",
+       "author": "openrac-bot[bot]",
+       "date": "2026-11-15T08:08:13Z"
+      }
+     ]
+    }
+   ],
+   "commitCount": 1,
+   "pullRequests": {
+    "merged": [
+     {
+      "number": 191,
+      "title": "List bolt-multiplier",
+      "author": "openrac-bot[bot]",
+      "untrustedBody": "From #190, checked by the listing bot. @OpenRAC/maintainers, please review.\n\nCloses #190",
+      "mergedAt": "2026-11-15T08:08:14Z"
+     }
+    ],
+    "opened": [
+     {
+      "number": 191,
+      "title": "List bolt-multiplier",
+      "author": "openrac-bot[bot]",
+      "untrustedBody": "From #190, checked by the listing bot. @OpenRAC/maintainers, please review.\n\nCloses #190",
+      "mergedAt": "2026-11-15T08:08:14Z"
+     },
+     {
+      "number": 192,
+      "title": "fix(rac1): save real inventory during randomized NPC rewards",
+      "author": "llesieur99",
+      "untrustedBody": "Helga can request an autosave before her update returns, while the randomizer temporarily presents the Swingshot ownership byte as the location's collection state. That temporary value can be saved alongside the randomized reward. Archipelago uses the same substitutions, and its existing explicit-serialization guard can resume them too early when save calls are nested.\n\nGuard save preparation, autosave requests and explicit serialization for the complete outer save call in both mods. Nested calls share the guard; the NPC's collection view resumes only after saving finishes. Preserve real inventory, arguments and return values, and retain Archipelago's coordinate/gold serialization handling. Declare the hooks in both manifests and add regression coverage using the existing mock hosts, including a full NTSC randomizer load-test route.\n\nValidation:\n- New tests fail on the original randomizer and Archipelago implementations, then pass with the patch.\n- Built both mod subdirectories on Wind"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [
+     {
+      "number": 190,
+      "title": "Submit: Bolt Multiplier",
+      "author": "glawks"
+     },
+     {
+      "number": 193,
+      "title": "Review bolt-multiplier 0.2.4",
+      "author": "openrac-bot[bot]"
+     },
+     {
+      "number": 194,
+      "title": "Review bolt-multiplier 0.3.0",
+      "author": "openrac-bot[bot]"
+     }
+    ],
+    "closed": [
+     {
+      "number": 190,
+      "title": "Submit: Bolt Multiplier",
+      "author": "glawks"
+     }
+    ]
+   },
+   "releases": [],
+   "progress": null,
+   "contributors": [
+    "llesieur99"
+   ]
+  }
+ ]
+}

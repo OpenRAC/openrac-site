@@ -1,0 +1,910 @@
+{
+ "format": 1,
+ "date": "2026-11-10",
+ "totals": {
+  "commits": 60,
+  "pullRequestsMerged": 16,
+  "pullRequestsOpened": 19,
+  "contributors": 9
+ },
+ "projects": [
+  {
+   "repo": "OpenRAC",
+   "title": "OpenRAC launcher",
+   "branches": [
+    {
+     "name": "develop",
+     "commits": [
+      {
+       "sha": "4f543058ec407c6fcd32df598b4f9225d29c1d18",
+       "title": "feat(baker): add optional LZ4 bake asset storage (#440)",
+       "author": "pezzadev",
+       "date": "2026-11-10T23:59:37Z"
+      },
+      {
+       "sha": "fe90c551e582abe145f8d606da9f42bdbbe6ff61",
+       "title": "feat(enhanced): add subtle multi-resolution bloom (#407)",
+       "author": "momo1212221",
+       "date": "2026-11-10T17:18:31Z"
+      },
+      {
+       "sha": "eb7b3f5c8c5c7fe414e95774a26847dfb4babdd7",
+       "title": "fix(hostgen): register a release's executable copies of level functions (#439)",
+       "author": "nickyyOO",
+       "date": "2026-11-10T13:49:06Z"
+      },
+      {
+       "sha": "30741b6c4aa4764476b383bae3a32454a050c5d7",
+       "title": "ci: bump actions/setup-java (#424)",
+       "author": "dependabot[bot]",
+       "date": "2026-11-10T13:09:00Z"
+      },
+      {
+       "sha": "4c40abaf6d638304593654680e2a2b01698fd927",
+       "title": "chore(sdk): 1.14.5, with rac1's vendor open menu hook (#438)",
+       "author": "nickyyOO",
+       "date": "2026-11-10T13:06:12Z"
+      },
+      {
+       "sha": "dd70e31e0fea02056b3952b8ec1024b1ed9de167",
+       "title": "Add RAC1 Vendor_OpenMenu hook for remote vendor handling (#422)",
+       "author": "SavedbyBlood9",
+       "date": "2026-11-10T12:23:54Z"
+      },
+      {
+       "sha": "12f542bbfa62028398f0a710b0b4c31effa52c89",
+       "title": "perf(frontend): copy an effect texture once a frame, not once a quad (#437)",
+       "author": "nickyyOO",
+       "date": "2026-11-10T12:20:40Z"
+      },
+      {
+       "sha": "24e0485475bb19dfa0cdd4498b8b943ffef1fcc9",
+       "title": "fix(rac2): armour vendor model and far mobys running their logic (#436)",
+       "author": "nickyyOO",
+       "date": "2026-11-10T10:41:16Z"
+      },
+      {
+       "sha": "12c33ffa2482d6adac6646062d13d57fd71e5cd7",
+       "title": "fix(rac2): the race HUD wrappers take the game function's result type (#435)",
+       "author": "Veradictus",
+       "date": "2026-11-10T06:02:23Z"
+      },
+      {
+       "sha": "badd127cfcbf553c17219c3504e8fff72f1a2084",
+       "title": "fix(hostgen): pass over an assembly signature once the function has C (#434)",
+       "author": "Veradictus",
+       "date": "2026-11-10T05:57:07Z"
+      },
+      {
+       "sha": "27fa4ea35f51fd30ea4e6b77d10d1a8bf097025a",
+       "title": "fix(launcher): bake lighting for edited levels (#433)",
+       "author": "pezzadev",
+       "date": "2026-11-10T03:08:12Z"
+      },
+      {
+       "sha": "6d0d7b49f3040856b9b5f66d88baf9c3750f235e",
+       "title": "feat(baker): bake reflections by default for gameplay levels (#432)",
+       "author": "pezzadev",
+       "date": "2026-11-10T01:43:43Z"
+      }
+     ]
+    },
+    {
+     "name": "master",
+     "commits": []
+    }
+   ],
+   "commitCount": 12,
+   "pullRequests": {
+    "merged": [
+     {
+      "number": 407,
+      "title": "feat(enhanced): add subtle multi-resolution bloom",
+      "author": "momo1212221",
+      "untrustedBody": "## Summary\n\nAdds a small, focused bloom pass to the enhanced renderer.\n\nThe implementation keeps bloom isolated in its own renderer module and only touches the frontend at the existing post-colour hook. It runs after temporal reconstruction / motion blur and before the native HUD.\n\n### Rendering\n- soft bright-pass on the first reduction level\n- five-level Gaussian downsample pyramid\n- compute reconstruction / upsample\n- one additive fullscreen composite\n- deliberately subtle default strength\n- compatibility rendering remains unchanged\n\n### Resource / failure handling\n- compact RGBA8 bloom pyramid\n- explicit release on frontend shutdown and world reset\n- resize-safe resource recreation\n- clean self-disable on shader / compute-copy failure instead of retrying every frame\n\n### Tests\nAdds a dedicated bloom regression covering:\n- compatibility bypass\n- multiple render target sizes\n- alpha preservation\n- Gaussian spread outside a bright patch\n- default vs strong bloom strength\n- Vulkan enhan",
+      "mergedAt": "2026-11-10T17:18:32Z"
+     },
+     {
+      "number": 422,
+      "title": "Add RAC1 Vendor_OpenMenu hook for Gadgetron PDA handling",
+      "author": "SavedbyBlood9",
+      "untrustedBody": "## Summary\n\nAdds a `Vendor_OpenMenu` hook for Ratchet & Clank 1 (NTSC-U and PAL v2.00), allowing mods to intercept vendor menu opening, including the Gadgetron PDA remote vendor.\n\n## Motivation\n\nThe Archipelago mod can remove all purchasable vendor items. Opening the Gadgetron PDA with no available menu rows can cause a crash.\n\nExisting vendor interaction hooks can handle physical vendors but do not intercept the PDA's remote menu opening.\n\nThis new hook allows mods to prevent the PDA from opening when no valid purchase rows are available.\n\n## Changes\n\n- Add `Vendor_OpenMenu` hook mappings for NTSC-U and PAL v2.00.\n- Register `rac1.vendor.open_menu` with signature `void(u32)`.\n- Add generated C, C++, and Luau bindings.\n- Update launcher hook IDs and SDK reference documentation.\n- Support `after_catalogue` ordering to preserve existing hook indices.\n\n## Testing\n\n- OpenRAC debug build compiled successfully.\n- SDK binding and reference generation checks passed.\n- Tested the Archipelago Ga",
+      "mergedAt": "2026-11-10T12:23:54Z"
+     },
+     {
+      "number": 424,
+      "title": "ci: bump actions/setup-java from 6.1.0 to 6.2.0 in the actions group across 1 directory",
+      "author": "dependabot[bot]",
+      "untrustedBody": "Bumps the actions group with 1 update in the / directory: [actions/setup-java](https://github.com/actions/setup-java).\n\nUpdates `actions/setup-java` from 6.1.0 to 6.2.0\n<details>\n<summary>Release notes</summary>\n<p><em>Sourced from <a href=\"https://github.com/actions/setup-java/releases\">actions/setup-java's releases</a>.</em></p>\n<blockquote>\n<h2>v6.2.0</h2>\n<h2>What's Changed</h2>\n<ul>\n<li>Fix Liberica SDKMAN patch release resolution by <a href=\"https://github.com/brunoborges\"><code>@​brunoborges</code></a> in <a href=\"https://redirect.github.com/actions/setup-java/pull/1291\">actions/setup-java#1291</a></li>\n<li>Update Undici to 6.29.1 by <a href=\"https://github.com/brunoborges\"><code>@​brunoborges</code></a> in <a href=\"https://redirect.github.com/actions/setup-java/pull/1308\">actions/setup-java#1308</a></li>\n<li>chore(deps): bump the monthly-npm-updates group with 12 updates by <a href=\"https://github.com/dependabot\"><code>@​dependabot</code></a>[bot] in <a href=\"https://redirect.g",
+      "mergedAt": "2026-11-10T13:09:01Z"
+     },
+     {
+      "number": 432,
+      "title": "feat(baker): bake reflections by default for gameplay levels",
+      "author": "pezzadev",
+      "untrustedBody": "## Summary\n\n- Bake reflection probes automatically when a gameplay level exports collision and gameplay data. Keep explicit opt-outs and retain strict coverage for explicit opt-ins.\n- Let automatic bakes keep local GI in areas without a safe capture. Record that outcome so the launcher and baker can reuse a valid GI-only result.\n- Refresh the launcher profile when the gameplay export appears or disappears, and report final receiver coverage separately from merge-stage coverage.\n\n## Verification\n\n- Windows build of the enhanced baker and reflection bake test\n- 20 native pipeline tests covering automatic placement, cache reuse, missing reflection assets, and explicit opt-out\n- 13 launcher bake-readiness tests\n- Touched-line clang-format, port layering, and `git diff --check`\n- Reduced level 11 bake with partial coverage verified against final receiver counts",
+      "mergedAt": "2026-11-10T01:43:44Z"
+     },
+     {
+      "number": 433,
+      "title": "fix(launcher): bake lighting for edited levels",
+      "author": "pezzadev",
+      "untrustedBody": "Fixes #342.\n\nWith Mods enabled, lighting preparation and readiness use the same assembled override stack as Play. The baker decodes packed gameplay and static collision from the stack's fixed and virtual sectors. Original levels, edited variants, and ship destinations have separate cache entries, so switching back can reuse a matching bake.\n\n## Validation\n\n- Windows native baker and enhanced viewer build, probe scene test, and all 23 native pipeline tests.\n- 20 editor override and destination tests, 14 launcher lighting tests, and the Windows launcher compile check.\n- Svelte type check and lint, plus touched-line C++ formatting.\n- A local NTSC-U Novalis check reproduced the exported gameplay and collision from fixed and virtual sector patches. PAL gameplay and a full in-game ship destination playthrough were outside the local verification.",
+      "mergedAt": "2026-11-10T03:08:13Z"
+     },
+     {
+      "number": 434,
+      "title": "fix(hostgen): pass over an assembly signature once the function has C",
+      "author": "Veradictus",
+      "untrustedBody": "Building rac2-ntsc from a decomp newer than the port stopped hostgen: `assembly signature for func_L04_00411298: expected an assembly-only function`. The decomp had matched that function since its signature entry was written. hostgen now warns and leaves the function to its C. A signature for a host-defined function, or for one the program doesn't have, is still an error. There's a test for the new case.",
+      "mergedAt": "2026-11-10T05:57:07Z"
+     },
+     {
+      "number": 435,
+      "title": "fix(rac2): the race HUD wrappers take the game function's result type",
+      "author": "Veradictus",
+      "untrustedBody": "hud.c's RACE_HUD defined every race HUD wrapper as void. rac2-decomp's matched func_L04_00411298 returns s32, so building against the newer decomp failed with conflicting types. The wrapper now takes the game function's own result type and restores the HUD in a cleanup after the call. It still compiles where the function is assembly-only (void).",
+      "mergedAt": "2026-11-10T06:02:23Z"
+     },
+     {
+      "number": 436,
+      "title": "fix(rac2): armour vendor model and far mobys running their logic",
+      "author": "nickyyOO",
+      "untrustedBody": "## Before\n- The armour vendor's preview and Ratchet kept the armour he owns: the profile read the owned armour (0x001A7A18), not the pack the game loaded (0x001A7290).\n- MobyProc's drawn flag (+0x31) followed the Draw distance setting (400% by default). The active list (func_002A08A0) updates every moby with that flag, so mobys past the console's distance ran their logic. Twenty idle seconds of Boldan left 131 mobys in a different state or place than at 100%. This is the likely cause of the Boldan magneboot door and the Todano Robo Fizzwidget getting stuck.\n\n## After\n- Ratchet and the vendor's preview wear the armour the game loaded. The PAL and v2.00 tables use the same word at their own addresses.\n- The drawn flag uses each moby's own distance at every setting, as on the console, and skips mobys with alpha below 8 (retail slti at 0x2A52C4). The window still draws as far as the setting says.\n\n## Tested\n- Built openrac-rac2-ntsc with the NTSC disc. Runs are deterministic: RAM dumps of ",
+      "mergedAt": "2026-11-10T10:41:17Z"
+     },
+     {
+      "number": 437,
+      "title": "perf: copy an effect texture once a frame, not once a quad",
+      "author": "nickyyOO",
+      "untrustedBody": "**Before:** in some camera spots the game draws ~1000 effect quads (Blarg Station by the ship: 264 quads, then 1186 after a small camera move). Each quad copied its texture and CLUT (~5 KB) again, and the renderer copied and hashed each one again: 12.6 MB a frame. On a phone the game tick went from 2.5 to 7.3 ms and the frame rate fell from 120 to 60.\n\n**After:** the texture is copied once a frame. Same spot in the container: game tick 4.6 -> 1.9 ms, effects draw 2.9 -> 1.2 ms (Vulkan on lavapipe), the same as the spot without the extra quads.\n\n**How:** quads of a source already copied this frame share its upload, and the renderer sends only the last upload at each block (all of them go in before any quad is drawn, so earlier ones were never sampled).\n\n**Tested:** the spot on OpenGL and Vulkan, before/after shots are identical pixel for pixel; ctest effect_quad, renderer_texture, effect_material, frontend_pacing, frontend_geometry; conventions check. Not tested on a phone.",
+      "mergedAt": "2026-11-10T12:20:40Z"
+     },
+     {
+      "number": 438,
+      "title": "chore(sdk): 1.14.5, with rac1's vendor open menu hook",
+      "author": "nickyyOO",
+      "untrustedBody": "Drop the after_catalogue table key: point indices are internal to the port, so the hook point takes its place with the others. Tidy the two Vendor_OpenMenu rows in libraries.tsv.",
+      "mergedAt": "2026-11-10T13:06:13Z"
+     },
+     {
+      "number": 439,
+      "title": "fix(hostgen): register a release's executable copies of level functions",
+      "author": "nickyyOO",
+      "untrustedBody": "**Before:** In Ratchet & Clank NTSC-J, New Game and Load Game hang. The title calls the memory card menu's state 0xB handler through `0x0020A448`. That is a copy of `func_L00_0024BAE8` that the JP catalogue lists as `boot:0020A448`, and the JP decomp's C matches there (`map.tsv`). `read_places` dropped every `boot:` place, so the port had no function at that address. The call did nothing (`call to code address 0x0020a448, which no function of the port has`) and `mode_freeze_state` stayed at 0xB.\n\n**After:** hostgen keeps a release catalogue's `boot:` places of a level-named function whose row says `same` yes, and registers them in `k_exe` when no other function is at that address and the translation reaches no level's own addresses. The ones left out are listed in `report.json` `boot_places_left_out`.\n\n**How:** `program.py` `read_places`/`code_tables`, plus a `level_relative` flag on each translated function (`lower.py`).\n\n**Tested:** new unit test (fails without the fix); `test_hostge",
+      "mergedAt": "2026-11-10T13:49:07Z"
+     },
+     {
+      "number": 440,
+      "title": "feat(baker): add optional LZ4 bake asset storage",
+      "author": "pezzadev",
+      "untrustedBody": "Adds optional lossless storage compression for baked GI grids and reflection captures. Builds configured with `OPENRAC_BAKE_LZ4=ON` can use `--lz4-assets` when running `--bake-all`. Assets retain their filenames and GPU payloads, and enabled readers accept both plain files and checksummed LZ4 frames.\n\nCompression uses the existing worker pool with bounded parallel file sizes and atomic publication. Reflection validation reuses the GI bytes already decoded by the background loader. Cache identities include the storage mode, and the launcher treats experimental compressed caches as stale in its normal plain-asset workflow. The enhanced CI build enables the codec while the regular build exercises the default-off path.\n\nValidation\n- Seven targeted Windows suites passed after rebasing onto develop, including the CLI, native pipeline, modded-level integration, reflection, atlas, and renderer tests.\n- Formatting/conventions and layering checks passed. The new codec source was checked with cla",
+      "mergedAt": "2026-11-10T23:59:37Z"
+     }
+    ],
+    "opened": [
+     {
+      "number": 432,
+      "title": "feat(baker): bake reflections by default for gameplay levels",
+      "author": "pezzadev",
+      "untrustedBody": "## Summary\n\n- Bake reflection probes automatically when a gameplay level exports collision and gameplay data. Keep explicit opt-outs and retain strict coverage for explicit opt-ins.\n- Let automatic bakes keep local GI in areas without a safe capture. Record that outcome so the launcher and baker can reuse a valid GI-only result.\n- Refresh the launcher profile when the gameplay export appears or disappears, and report final receiver coverage separately from merge-stage coverage.\n\n## Verification\n\n- Windows build of the enhanced baker and reflection bake test\n- 20 native pipeline tests covering automatic placement, cache reuse, missing reflection assets, and explicit opt-out\n- 13 launcher bake-readiness tests\n- Touched-line clang-format, port layering, and `git diff --check`\n- Reduced level 11 bake with partial coverage verified against final receiver counts",
+      "mergedAt": "2026-11-10T01:43:44Z"
+     },
+     {
+      "number": 433,
+      "title": "fix(launcher): bake lighting for edited levels",
+      "author": "pezzadev",
+      "untrustedBody": "Fixes #342.\n\nWith Mods enabled, lighting preparation and readiness use the same assembled override stack as Play. The baker decodes packed gameplay and static collision from the stack's fixed and virtual sectors. Original levels, edited variants, and ship destinations have separate cache entries, so switching back can reuse a matching bake.\n\n## Validation\n\n- Windows native baker and enhanced viewer build, probe scene test, and all 23 native pipeline tests.\n- 20 editor override and destination tests, 14 launcher lighting tests, and the Windows launcher compile check.\n- Svelte type check and lint, plus touched-line C++ formatting.\n- A local NTSC-U Novalis check reproduced the exported gameplay and collision from fixed and virtual sector patches. PAL gameplay and a full in-game ship destination playthrough were outside the local verification.",
+      "mergedAt": "2026-11-10T03:08:13Z"
+     },
+     {
+      "number": 434,
+      "title": "fix(hostgen): pass over an assembly signature once the function has C",
+      "author": "Veradictus",
+      "untrustedBody": "Building rac2-ntsc from a decomp newer than the port stopped hostgen: `assembly signature for func_L04_00411298: expected an assembly-only function`. The decomp had matched that function since its signature entry was written. hostgen now warns and leaves the function to its C. A signature for a host-defined function, or for one the program doesn't have, is still an error. There's a test for the new case.",
+      "mergedAt": "2026-11-10T05:57:07Z"
+     },
+     {
+      "number": 435,
+      "title": "fix(rac2): the race HUD wrappers take the game function's result type",
+      "author": "Veradictus",
+      "untrustedBody": "hud.c's RACE_HUD defined every race HUD wrapper as void. rac2-decomp's matched func_L04_00411298 returns s32, so building against the newer decomp failed with conflicting types. The wrapper now takes the game function's own result type and restores the HUD in a cleanup after the call. It still compiles where the function is assembly-only (void).",
+      "mergedAt": "2026-11-10T06:02:23Z"
+     },
+     {
+      "number": 436,
+      "title": "fix(rac2): armour vendor model and far mobys running their logic",
+      "author": "nickyyOO",
+      "untrustedBody": "## Before\n- The armour vendor's preview and Ratchet kept the armour he owns: the profile read the owned armour (0x001A7A18), not the pack the game loaded (0x001A7290).\n- MobyProc's drawn flag (+0x31) followed the Draw distance setting (400% by default). The active list (func_002A08A0) updates every moby with that flag, so mobys past the console's distance ran their logic. Twenty idle seconds of Boldan left 131 mobys in a different state or place than at 100%. This is the likely cause of the Boldan magneboot door and the Todano Robo Fizzwidget getting stuck.\n\n## After\n- Ratchet and the vendor's preview wear the armour the game loaded. The PAL and v2.00 tables use the same word at their own addresses.\n- The drawn flag uses each moby's own distance at every setting, as on the console, and skips mobys with alpha below 8 (retail slti at 0x2A52C4). The window still draws as far as the setting says.\n\n## Tested\n- Built openrac-rac2-ntsc with the NTSC disc. Runs are deterministic: RAM dumps of ",
+      "mergedAt": "2026-11-10T10:41:17Z"
+     },
+     {
+      "number": 437,
+      "title": "perf: copy an effect texture once a frame, not once a quad",
+      "author": "nickyyOO",
+      "untrustedBody": "**Before:** in some camera spots the game draws ~1000 effect quads (Blarg Station by the ship: 264 quads, then 1186 after a small camera move). Each quad copied its texture and CLUT (~5 KB) again, and the renderer copied and hashed each one again: 12.6 MB a frame. On a phone the game tick went from 2.5 to 7.3 ms and the frame rate fell from 120 to 60.\n\n**After:** the texture is copied once a frame. Same spot in the container: game tick 4.6 -> 1.9 ms, effects draw 2.9 -> 1.2 ms (Vulkan on lavapipe), the same as the spot without the extra quads.\n\n**How:** quads of a source already copied this frame share its upload, and the renderer sends only the last upload at each block (all of them go in before any quad is drawn, so earlier ones were never sampled).\n\n**Tested:** the spot on OpenGL and Vulkan, before/after shots are identical pixel for pixel; ctest effect_quad, renderer_texture, effect_material, frontend_pacing, frontend_geometry; conventions check. Not tested on a phone.",
+      "mergedAt": "2026-11-10T12:20:40Z"
+     },
+     {
+      "number": 438,
+      "title": "chore(sdk): 1.14.5, with rac1's vendor open menu hook",
+      "author": "nickyyOO",
+      "untrustedBody": "Drop the after_catalogue table key: point indices are internal to the port, so the hook point takes its place with the others. Tidy the two Vendor_OpenMenu rows in libraries.tsv.",
+      "mergedAt": "2026-11-10T13:06:13Z"
+     },
+     {
+      "number": 439,
+      "title": "fix(hostgen): register a release's executable copies of level functions",
+      "author": "nickyyOO",
+      "untrustedBody": "**Before:** In Ratchet & Clank NTSC-J, New Game and Load Game hang. The title calls the memory card menu's state 0xB handler through `0x0020A448`. That is a copy of `func_L00_0024BAE8` that the JP catalogue lists as `boot:0020A448`, and the JP decomp's C matches there (`map.tsv`). `read_places` dropped every `boot:` place, so the port had no function at that address. The call did nothing (`call to code address 0x0020a448, which no function of the port has`) and `mode_freeze_state` stayed at 0xB.\n\n**After:** hostgen keeps a release catalogue's `boot:` places of a level-named function whose row says `same` yes, and registers them in `k_exe` when no other function is at that address and the translation reaches no level's own addresses. The ones left out are listed in `report.json` `boot_places_left_out`.\n\n**How:** `program.py` `read_places`/`code_tables`, plus a `level_relative` flag on each translated function (`lower.py`).\n\n**Tested:** new unit test (fails without the fix); `test_hostge",
+      "mergedAt": "2026-11-10T13:49:07Z"
+     },
+     {
+      "number": 440,
+      "title": "feat(baker): add optional LZ4 bake asset storage",
+      "author": "pezzadev",
+      "untrustedBody": "Adds optional lossless storage compression for baked GI grids and reflection captures. Builds configured with `OPENRAC_BAKE_LZ4=ON` can use `--lz4-assets` when running `--bake-all`. Assets retain their filenames and GPU payloads, and enabled readers accept both plain files and checksummed LZ4 frames.\n\nCompression uses the existing worker pool with bounded parallel file sizes and atomic publication. Reflection validation reuses the GI bytes already decoded by the background loader. Cache identities include the storage mode, and the launcher treats experimental compressed caches as stale in its normal plain-asset workflow. The enhanced CI build enables the codec while the regular build exercises the default-off path.\n\nValidation\n- Seven targeted Windows suites passed after rebasing onto develop, including the CLI, native pipeline, modded-level integration, reflection, atlas, and renderer tests.\n- Formatting/conventions and layering checks passed. The new codec source was checked with cla",
+      "mergedAt": "2026-11-10T23:59:37Z"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [],
+    "closed": [
+     {
+      "number": 342,
+      "title": "Enhanced lighting and level edits",
+      "author": "TheWhiteGuardian"
+     }
+    ]
+   },
+   "releases": [
+    {
+     "tag": "sdk-v1.14.5",
+     "name": "Mod SDK 1.14.5",
+     "publishedAt": "2026-11-10T13:11:16Z"
+    }
+   ],
+   "progress": null,
+   "contributors": [
+    "momo1212221",
+    "nickyyOO",
+    "pezzadev",
+    "SavedbyBlood9",
+    "Veradictus"
+   ]
+  },
+  {
+   "repo": "rac1-decomp",
+   "title": "Ratchet & Clank",
+   "branches": [
+    {
+     "name": "main",
+     "commits": [
+      {
+       "sha": "a8df73e50684cf451cdbb78b05233eda0e1f9003",
+       "title": "docs: short README and docs sorted into folders (#241)",
+       "author": "nickyyOO",
+       "date": "2026-11-10T09:46:18Z"
+      }
+     ]
+    }
+   ],
+   "commitCount": 1,
+   "pullRequests": {
+    "merged": [
+     {
+      "number": 241,
+      "title": "docs: short README and docs sorted into folders",
+      "author": "nickyyOO",
+      "untrustedBody": "## Before\nA 131-line README with long setup steps, and docs in one flat folder with mixed-case names.\n\n## After\nA short README like Lombyte's: the OpenRAC logo with \"decompilation project\" under it, a code badge for each version, progress, quick setup, credits and license (96 lines). The details moved to docs/, now sorted into docs/build, docs/contributing, docs/game, docs/agents and docs/history (with the old notes/ folder), with lowercase names and a docs/README.md index.\n\n## How\nFiles moved with git mv. Every link and path mention (docs, tools, configs, comments) points to the new place.\n\n## Tested\ntools/check_docs.py, move_src.py --check, check_no_retail.py, fakematch_scan.py --check, ratchets.py --check, gen_progress_report.py --check and the tools/tests unit tests pass. The build was not run (no disc in the container). Relative Markdown links checked with a link checker.",
+      "mergedAt": "2026-11-10T09:46:18Z"
+     }
+    ],
+    "opened": [
+     {
+      "number": 241,
+      "title": "docs: short README and docs sorted into folders",
+      "author": "nickyyOO",
+      "untrustedBody": "## Before\nA 131-line README with long setup steps, and docs in one flat folder with mixed-case names.\n\n## After\nA short README like Lombyte's: the OpenRAC logo with \"decompilation project\" under it, a code badge for each version, progress, quick setup, credits and license (96 lines). The details moved to docs/, now sorted into docs/build, docs/contributing, docs/game, docs/agents and docs/history (with the old notes/ folder), with lowercase names and a docs/README.md index.\n\n## How\nFiles moved with git mv. Every link and path mention (docs, tools, configs, comments) points to the new place.\n\n## Tested\ntools/check_docs.py, move_src.py --check, check_no_retail.py, fakematch_scan.py --check, ratchets.py --check, gen_progress_report.py --check and the tools/tests unit tests pass. The build was not run (no disc in the container). Relative Markdown links checked with a link checker.",
+      "mergedAt": "2026-11-10T09:46:18Z"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": {
+    "before": {
+     "code": {
+      "done": 3713584,
+      "total": 3713584
+     },
+     "functions": {
+      "done": 5118,
+      "total": 5118
+     },
+     "data": {
+      "done": 698751,
+      "total": 699072
+     }
+    },
+    "after": {
+     "code": {
+      "done": 3713584,
+      "total": 3713584
+     },
+     "functions": {
+      "done": 5118,
+      "total": 5118
+     },
+     "data": {
+      "done": 698751,
+      "total": 699072
+     }
+    }
+   },
+   "contributors": [
+    "nickyyOO"
+   ]
+  },
+  {
+   "repo": "rac2-decomp",
+   "title": "Going Commando",
+   "branches": [
+    {
+     "name": "master",
+     "commits": [
+      {
+       "sha": "045f54eecee927f5f8f82855aeb3ce753a2baaa3",
+       "title": "feat(us2): carry 1 functions in L19_00413430-g8.c",
+       "author": "bigbeno37",
+       "date": "2026-11-10T14:09:49Z"
+      },
+      {
+       "sha": "4388706500ce18fe17a8e4097da27e0a55b4d914",
+       "title": "feat(pal): carry 1 functions in 002F6F08-g8.c",
+       "author": "bigbeno37",
+       "date": "2026-11-10T13:50:27Z"
+      },
+      {
+       "sha": "32707af653eab9d1b9f2faf3a8f6c2f65d0d283b",
+       "title": "feat(src): match 25 functions, 0026EC50-loader.c to L04_004127A8-hud-g8.c",
+       "author": "bigbeno37",
+       "date": "2026-11-10T13:43:33Z"
+      },
+      {
+       "sha": "5d23e20cae94cbaa3c87f0f3c29296fd77eaa16f",
+       "title": "fix(compiler): update the tc-mips.c checksum after the docs move",
+       "author": "bigbeno37",
+       "date": "2026-11-10T12:38:12Z"
+      },
+      {
+       "sha": "8b27a5ded6b56c061d40ca79dee3f453d7e6d877",
+       "title": "docs: short README and docs sorted into folders (#440)",
+       "author": "nickyyOO",
+       "date": "2026-11-10T09:48:57Z"
+      },
+      {
+       "sha": "62919ebb540cfa7cb17a4b55e96d9427396d5397",
+       "title": "feat(src): match func_002CBC58",
+       "author": "Lynder063",
+       "date": "2026-11-10T07:21:15Z"
+      }
+     ]
+    }
+   ],
+   "commitCount": 6,
+   "pullRequests": {
+    "merged": [
+     {
+      "number": 440,
+      "title": "docs: short README and docs sorted into folders",
+      "author": "nickyyOO",
+      "untrustedBody": "## Before\nA long README with setup steps and hand-updated progress tables, and docs in one flat folder with mixed-case names.\n\n## After\nA short README like Lombyte's: the OpenRAC logo with \"<game> decompilation project\" under it, a code badge and a note for each version, quick setup, credits and license. Progress comes only from the ByteMatch badges, so the README needs no commit when progress moves. The details moved to docs/, now sorted into docs/build, docs/contributing, docs/game, docs/research, docs/port and docs/agents, with lowercase names and a docs/README.md index.\n\n## How\nFiles moved with git mv. Every link and path mention points to the new place. tools/progress.py no longer writes a table into the README. The SN tools download and container notes move to docs/build/building.md, the tracking rules to CONTRIBUTING.md. The old rac2 logo is removed; docs/assets is unignored for the OpenRAC logo.\n\n## Tested\ntests/check_repository.py and tools/progress.py --check pass; the unit t",
+      "mergedAt": "2026-11-10T09:48:58Z"
+     }
+    ],
+    "opened": [
+     {
+      "number": 440,
+      "title": "docs: short README and docs sorted into folders",
+      "author": "nickyyOO",
+      "untrustedBody": "## Before\nA long README with setup steps and hand-updated progress tables, and docs in one flat folder with mixed-case names.\n\n## After\nA short README like Lombyte's: the OpenRAC logo with \"<game> decompilation project\" under it, a code badge and a note for each version, quick setup, credits and license. Progress comes only from the ByteMatch badges, so the README needs no commit when progress moves. The details moved to docs/, now sorted into docs/build, docs/contributing, docs/game, docs/research, docs/port and docs/agents, with lowercase names and a docs/README.md index.\n\n## How\nFiles moved with git mv. Every link and path mention points to the new place. tools/progress.py no longer writes a table into the README. The SN tools download and container notes move to docs/build/building.md, the tracking rules to CONTRIBUTING.md. The old rac2 logo is removed; docs/assets is unignored for the OpenRAC logo.\n\n## Tested\ntests/check_repository.py and tools/progress.py --check pass; the unit t",
+      "mergedAt": "2026-11-10T09:48:58Z"
+     },
+     {
+      "number": 441,
+      "title": "feat(pal,us2): port four functions, mark three original assembly, retain one near miss",
+      "author": "nominalsan",
+      "untrustedBody": "## What\n\nFour functions of the PAL (SCES_516.07) and USA v2.00 releases ported as C from their matched counterparts, three marked original assembly, and one PAL near miss retained in `nonmatching/`.\n\n| Function | Bytes | Places | From |\n| --- | ---: | --- | --- |\n| `func_US2_002D3138` | 592 | boot + 27 levels | `func_002D2188` with text id 0x2BE5 for 0x2D4F. New `src/us2/game/002D3138-g8.c` with its original's profile |\n| `func_US2_00349C00` | 644 | boot + 27 levels | `func_00348EC0` with the menu fields 0x70 further in and 88-byte label slots. New `src/us2/game/00349368-g8.c` |\n| `func_US2_L02_00400E04` | 716 | level 02 | `func_PAL_L02_00403FF0` (#437) with v2.00's data (`D_US2_L02_<address>`) and text ids 0x2DDB, 0x2DDC, 0x2DF8, 0x2DF4, 0x2DDD. New `L02_00400E04-g8.c` |\n| `func_PAL_L08_003DF82C` | 988 | levels 08, 19 | `func_L08_003DB518` with the fade step scaled by 1.2f (50 Hz). New `src/pal/levels/shared/L08_003DF82C-g8.c` |\n\nMarked `ASM_FUNC` under the second criterion of AGENTS.",
+      "mergedAt": "2026-11-11T09:32:14Z"
+     },
+     {
+      "number": 442,
+      "title": "feat(pal,us2): port func_L00_002D5EB8 to both releases, retain one near-miss pair",
+      "author": "nominalsan",
+      "untrustedBody": "## What\n\nThe PAL and USA v2.00 copies of the matched USA v1.01 `func_L00_002D5EB8` (`src/levels/shared/L00_002D3798-g8.c`), ported as C, and one near-miss pair retained in `nonmatching/`.\n\n| Function | Bytes | Places | From |\n| --- | ---: | --- | --- |\n| `func_PAL_L00_002D6408` | 1376 | 27 levels | `func_L00_002D5EB8` with the 50 Hz duration `0x12C` (300 frames) where v1.01 passes `0x168` (360), and PAL's own callees `func_PAL_00288E20`, `func_PAL_L00_0030E648`, `func_PAL_002B1588`. New `src/pal/levels/shared/L00_002D6408-g8.c` |\n| `func_US2_L00_002D6258` | 1376 | 27 levels | `func_L00_002D5EB8` with v2.00's own callees `func_US2_00288F30`, `func_US2_L00_0030D9F8`, `func_US2_002B1880`. New `src/us2/levels/shared/L00_002D6258-g8.c` |\n\nBoth use the `-g8` default profile, like their original, so `config/cflags.txt` is unchanged. The per-level externals are `ref_PAL_L00_002D6408_00` and `ref_US2_L00_002D6258_00`.\n\nRetained near miss (markers kept): `func_PAL_002CCAC8` and `func_US2_002CCC1",
+      "mergedAt": "2026-11-11T09:29:23Z"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": {
+    "before": {
+     "code": {
+      "done": 5459260,
+      "total": 5524060
+     },
+     "functions": {
+      "done": 8491,
+      "total": 8527
+     }
+    },
+    "after": {
+     "code": {
+      "done": 5459260,
+      "total": 5524060
+     },
+     "functions": {
+      "done": 8491,
+      "total": 8527
+     }
+    }
+   },
+   "contributors": [
+    "bigbeno37",
+    "Lynder063",
+    "nickyyOO",
+    "nominalsan"
+   ]
+  },
+  {
+   "repo": "rac3-decomp",
+   "title": "Up Your Arsenal",
+   "branches": [
+    {
+     "name": "master",
+     "commits": [
+      {
+       "sha": "2531fd6e4ea7ed08c74674b46d33c4cc18575ec7",
+       "title": "feat(levels): match 9 functions in level 39 (multiplayer menu)",
+       "author": "bigbeno37",
+       "date": "2026-11-10T11:37:33Z"
+      },
+      {
+       "sha": "ba2eb64f3ceebbcecd3c0134877c2ebcb95dbb62",
+       "title": "feat(levels): match 20 functions in level 39 (multiplayer menu)",
+       "author": "bigbeno37",
+       "date": "2026-11-10T11:29:42Z"
+      },
+      {
+       "sha": "70485655c6d5893fe141fb90e684b6ffe04d8955",
+       "title": "fix(levels): cut 4 level 39 files where code built with other flags begins",
+       "author": "bigbeno37",
+       "date": "2026-11-10T11:25:11Z"
+      },
+      {
+       "sha": "c32e3548f50fa37e0825e20a1372a9276df02eb6",
+       "title": "feat(levels): match 20 functions in level 39 (multiplayer menu)",
+       "author": "bigbeno37",
+       "date": "2026-11-10T11:15:16Z"
+      },
+      {
+       "sha": "fa3e7aef6197bb6eeb80b56dc9c743497c04a859",
+       "title": "fix(levels): cut 10 level 39 files where code built with other flags begins",
+       "author": "bigbeno37",
+       "date": "2026-11-10T11:08:16Z"
+      },
+      {
+       "sha": "e85c439c235a5a27f3d14bc1bf908751c18f26cc",
+       "title": "fix(us): func_00384EA8 is built from C in NTSC-U boot_elf again",
+       "author": "bigbeno37",
+       "date": "2026-11-10T11:01:20Z"
+      },
+      {
+       "sha": "13b9091840ab79377b30c932a57e3e213388f0d9",
+       "title": "docs: short README and docs sorted into folders (#16)",
+       "author": "nickyyOO",
+       "date": "2026-11-10T09:49:32Z"
+      },
+      {
+       "sha": "f83413766d36335c4117ae66ac6f39148a50800e",
+       "title": "feat(levels): match 20 functions in level 39 (multiplayer menu)",
+       "author": "bigbeno37",
+       "date": "2026-11-10T08:21:10Z"
+      },
+      {
+       "sha": "a14f54296497955ce1ba03f7d8fde4852924e6e1",
+       "title": "feat(levels): match 20 functions in level 39 (multiplayer menu)",
+       "author": "bigbeno37",
+       "date": "2026-11-10T08:09:29Z"
+      },
+      {
+       "sha": "3dccc8d61e2311e159ff3a021f03cbfd102c2b45",
+       "title": "feat(levels): match 20 functions in level 39 (multiplayer menu)",
+       "author": "bigbeno37",
+       "date": "2026-11-10T07:05:56Z"
+      },
+      {
+       "sha": "9cb971555189bfcd29de00bd9440fce67fbdac0b",
+       "title": "feat(levels): match 20 functions in level 39 (multiplayer menu)",
+       "author": "bigbeno37",
+       "date": "2026-11-10T06:59:08Z"
+      },
+      {
+       "sha": "b8335867888d488c463976765e260a557a4abaaf",
+       "title": "feat(levels): match 20 functions in level 39 (multiplayer menu)",
+       "author": "bigbeno37",
+       "date": "2026-11-10T06:54:20Z"
+      },
+      {
+       "sha": "1510f0656c21360bfc23d00fdcf771c5ac6d6445",
+       "title": "feat(levels): match 20 functions in level 39 (multiplayer menu)",
+       "author": "bigbeno37",
+       "date": "2026-11-10T06:50:36Z"
+      },
+      {
+       "sha": "3954b8f62cf008f1613a4738830fb1883f28a83e",
+       "title": "feat(levels): match 20 functions in level 39 (multiplayer menu)",
+       "author": "bigbeno37",
+       "date": "2026-11-10T06:45:48Z"
+      },
+      {
+       "sha": "c94ffd8bf401e1c4de6701f54e8637c2ee68d647",
+       "title": "feat(levels): match 20 functions in level 39 (multiplayer menu)",
+       "author": "bigbeno37",
+       "date": "2026-11-10T06:38:46Z"
+      },
+      {
+       "sha": "a7e33e9a1d8719b99d3f495f0df4fc09c6a6f089",
+       "title": "feat(levels): match 20 functions in level 39 (multiplayer menu)",
+       "author": "bigbeno37",
+       "date": "2026-11-10T06:32:52Z"
+      },
+      {
+       "sha": "7a50012fbd537adf8199a38be4707cbfacdd6f05",
+       "title": "feat(levels): match 20 functions in level 39 (multiplayer menu)",
+       "author": "bigbeno37",
+       "date": "2026-11-10T06:25:42Z"
+      },
+      {
+       "sha": "4db6890241df7b7ff45ab3d2d8581e38596afa81",
+       "title": "feat(levels): match 20 functions in level 39 (multiplayer menu)",
+       "author": "bigbeno37",
+       "date": "2026-11-10T06:16:35Z"
+      },
+      {
+       "sha": "781a43bb3b1ecd326ac54b8e723b8c9874fd09a9",
+       "title": "feat(levels): match 20 functions in level 39 (multiplayer menu)",
+       "author": "bigbeno37",
+       "date": "2026-11-10T06:09:01Z"
+      },
+      {
+       "sha": "e686ff9686b0c8fbc80dcdddd5a33d070ced7c04",
+       "title": "feat(levels): match 20 functions in level 39 (multiplayer menu)",
+       "author": "bigbeno37",
+       "date": "2026-11-10T05:55:10Z"
+      },
+      {
+       "sha": "dbe557e72e08d67c16786f57344362041945a3bb",
+       "title": "feat(levels): match 20 functions in level 39 (multiplayer menu)",
+       "author": "bigbeno37",
+       "date": "2026-11-10T05:47:54Z"
+      },
+      {
+       "sha": "6f59c36e94f1815cdcc7ad6f93468a9237fe6cec",
+       "title": "fix(levels): cut 9 level 39 files where code built with other flags begins",
+       "author": "bigbeno37",
+       "date": "2026-11-10T05:36:31Z"
+      },
+      {
+       "sha": "c85cabf256a0e122543eb27843b39f1502a7bda9",
+       "title": "fix(levels): cut 12 level 39 files where code built with other flags begins",
+       "author": "bigbeno37",
+       "date": "2026-11-10T05:28:43Z"
+      },
+      {
+       "sha": "b3f19311ecf50af311e7a5f206e02d5a6a23f81b",
+       "title": "fix(levels): cut 12 level 39 files where code built with other flags begins",
+       "author": "bigbeno37",
+       "date": "2026-11-10T05:23:39Z"
+      },
+      {
+       "sha": "2f45bcbc3c57ea1bd7d6d5257f0ab5e0f1cc08bb",
+       "title": "fix(levels): cut 12 level 39 files where code built with other flags begins",
+       "author": "bigbeno37",
+       "date": "2026-11-10T05:18:03Z"
+      },
+      {
+       "sha": "804f559161103330d78d0d4eecb87a3085b8cbc5",
+       "title": "fix(levels): cut 3 level 39 files where code built with other flags begins",
+       "author": "bigbeno37",
+       "date": "2026-11-10T05:12:43Z"
+      },
+      {
+       "sha": "918615e7c288d173e376f5c2fa774929e3327b65",
+       "title": "feat(levels): match 20 functions in level 39 (multiplayer menu)",
+       "author": "bigbeno37",
+       "date": "2026-11-10T04:34:04Z"
+      },
+      {
+       "sha": "e5a4ed7146954185c091b1f2af643c8fea6c4968",
+       "title": "feat(levels): match 20 functions in level 39 (multiplayer menu)",
+       "author": "bigbeno37",
+       "date": "2026-11-10T04:28:57Z"
+      },
+      {
+       "sha": "8ea06311c26a4007a3404160c03ba7efaa9bb601",
+       "title": "fix(levels): build 8 level 39 files with `@ee29 -O2 -G8`",
+       "author": "bigbeno37",
+       "date": "2026-11-10T04:04:06Z"
+      },
+      {
+       "sha": "37ddd254b10edf0f33856e685fcc6f7056540c18",
+       "title": "feat(levels): match 20 functions in level 39 (multiplayer menu)",
+       "author": "bigbeno37",
+       "date": "2026-11-10T03:58:10Z"
+      },
+      {
+       "sha": "48529465aca197e8e4f85815e40c56d82c3d3eaf",
+       "title": "feat(levels): match 20 functions in level 39 (multiplayer menu)",
+       "author": "bigbeno37",
+       "date": "2026-11-10T03:46:30Z"
+      },
+      {
+       "sha": "9035cdb9098302e6240de763b621c40ef5d209d3",
+       "title": "feat(levels): match 20 functions in level 39 (multiplayer menu)",
+       "author": "bigbeno37",
+       "date": "2026-11-10T03:37:39Z"
+      },
+      {
+       "sha": "4895cb000ad81162622d0e248eb688a3d307b619",
+       "title": "feat(levels): match 20 functions in level 39 (multiplayer menu)",
+       "author": "bigbeno37",
+       "date": "2026-11-10T03:19:03Z"
+      },
+      {
+       "sha": "dadd48fab36c16e54ad7217c1d9f123c9aad1e64",
+       "title": "feat(levels): match 20 functions in level 39 (multiplayer menu)",
+       "author": "bigbeno37",
+       "date": "2026-11-10T02:19:03Z"
+      },
+      {
+       "sha": "a906e7d263dd67595a968d1f3021334707e984e4",
+       "title": "feat(levels): match 20 functions in level 39 (multiplayer menu)",
+       "author": "bigbeno37",
+       "date": "2026-11-10T02:06:14Z"
+      },
+      {
+       "sha": "61f6222d653997f93021432ccb82972943faf9e9",
+       "title": "feat(levels): match 20 functions in level 39 (multiplayer menu)",
+       "author": "bigbeno37",
+       "date": "2026-11-10T01:51:45Z"
+      },
+      {
+       "sha": "0a415cba1d6c91e4ac9918123cfb2e3955b12196",
+       "title": "feat(levels): match 20 functions in level 39 (multiplayer menu)",
+       "author": "bigbeno37",
+       "date": "2026-11-10T01:18:56Z"
+      },
+      {
+       "sha": "a9830e80eb6fe5110ba97a1d917c32c7fbccf16a",
+       "title": "feat(levels): match 20 functions in level 39 (multiplayer menu)",
+       "author": "bigbeno37",
+       "date": "2026-11-10T01:14:19Z"
+      },
+      {
+       "sha": "ae83408811dc039f07fcaa21a9d076aa25fd6ce4",
+       "title": "feat(levels): match 20 functions in level 39 (multiplayer menu)",
+       "author": "bigbeno37",
+       "date": "2026-11-10T01:07:04Z"
+      }
+     ]
+    }
+   ],
+   "commitCount": 39,
+   "pullRequests": {
+    "merged": [
+     {
+      "number": 16,
+      "title": "docs: short README and docs sorted into folders",
+      "author": "nickyyOO",
+      "untrustedBody": "## Before\nA long README with setup steps and hand-updated progress tables, and docs in one flat folder with mixed-case names.\n\n## After\nA short README like Lombyte's: the OpenRAC logo with \"<game> decompilation project\" under it, a code badge and a note for each version, quick setup, credits and license. Progress comes only from the ByteMatch badges, so the README needs no commit when progress moves. The details moved to docs/, now sorted into docs/build, docs/contributing, docs/game, docs/research/us and docs/history, with lowercase names and a docs/README.md index.\n\n## How\nFiles moved with git mv. Every link and path mention points to the new place. tools/progress.py no longer writes or checks README tables (it still prints them); its README test now checks for the badges instead. docs/wiki stays where it is, since wiki-sync.yml publishes it. 28 source files keep the old doc paths in their comments: config/us/map.tsv records their hashes and rewriting it needs the toolchain.\n\n## Test",
+      "mergedAt": "2026-11-10T09:49:32Z"
+     }
+    ],
+    "opened": [
+     {
+      "number": 16,
+      "title": "docs: short README and docs sorted into folders",
+      "author": "nickyyOO",
+      "untrustedBody": "## Before\nA long README with setup steps and hand-updated progress tables, and docs in one flat folder with mixed-case names.\n\n## After\nA short README like Lombyte's: the OpenRAC logo with \"<game> decompilation project\" under it, a code badge and a note for each version, quick setup, credits and license. Progress comes only from the ByteMatch badges, so the README needs no commit when progress moves. The details moved to docs/, now sorted into docs/build, docs/contributing, docs/game, docs/research/us and docs/history, with lowercase names and a docs/README.md index.\n\n## How\nFiles moved with git mv. Every link and path mention points to the new place. tools/progress.py no longer writes or checks README tables (it still prints them); its README test now checks for the badges instead. docs/wiki stays where it is, since wiki-sync.yml publishes it. 28 source files keep the old doc paths in their comments: config/us/map.tsv records their hashes and rewriting it needs the toolchain.\n\n## Test",
+      "mergedAt": "2026-11-10T09:49:32Z"
+     },
+     {
+      "number": 17,
+      "title": "feat(levels): match 31 functions in level 07 (Annihilation Nation)",
+      "author": "nominalsan",
+      "untrustedBody": "## Functions\n\n31 functions in level 07 (Annihilation Nation), all plain C, each in the `src/levels/07_annihilation_nation/` file that owns its address, inside `localdecomp:start/end` markers:\n\n- `func_L07_00330F30`, `func_L07_00331FF0`, `func_L07_00332928`, `func_L07_003332B8`, `func_L07_00333878`, `func_L07_003338C0`, `func_L07_00333AB8`, `func_L07_00333B20`, `func_L07_00333CF8`, `func_L07_00333D20`, `func_L07_00333D40`: plain C\n- `func_L07_003346D8`, `func_L07_00334A20`, `func_L07_003A2408`, `func_L07_003A24C8`, `func_L07_003A5FA0`, `func_L07_003A63D8`, `func_L07_003A6460`, `func_L07_003A8D58`: plain C\n- `func_L07_003AF758`, `func_L07_003AF7B8`, `func_L07_003B0F20`, `func_L07_003B2870`, `func_L07_003B62C8`: plain C\n- `func_L07_003C0ED8`, `func_L07_003C1120`, `func_L07_003C1AF8`, `func_L07_003C1B40`, `func_L07_003CE320`, `func_L07_003D2B98`, `func_L07_003E31F8`: plain C\n\nAlso 9 near misses in `nonmatching/levels/` with rows in `nonmatching/README.md`: `func_L07_003328D0`, `func_L07_00",
+      "mergedAt": "2026-11-11T18:01:37Z"
+     },
+     {
+      "number": 18,
+      "title": "feat(levels): match 19 functions in level 23 (Holostar Studios, Clank)",
+      "author": "xx255q",
+      "untrustedBody": "Matches 19 level 23 functions in plain C (3,120 bytes):\n\n- func_L23_0032B060 (304 bytes), func_L23_0032B570 (256): `L23_0032B060.c`\n- func_L23_0039B990 (44): `L23_0039B990.c`\n- func_L23_003A2E78 (116), func_L23_003A2EF0 (116), func_L23_003A2FB8 (100): `L23_003A2068.c`\n- func_L23_003A5328 (164): `L23_003A4448.c`\n- func_L23_003A9C40 (188): `L23_003A6688.c`\n- func_L23_003AAED8 (128), func_L23_003AB058 (232), func_L23_003AB770 (128), func_L23_003ABA68 (232): `L23_003AAA58.c`\n- func_L23_003B0978 (164), func_L23_003B1230 (152): `L23_003AD800.c`\n- func_L23_003B6990 (240): `L23_003B3BB8.c`\n- func_L23_003BA5D8 (152), func_L23_003BB0B8 (152): `L23_003B94C8.c`\n- func_L23_003BF488 (116): `L23_003BF0C0.c`\n- func_L23_00406898 (136): `L23_00406898.c`\n\nFunctions\nAll plain C, built with each file's existing flags. No flag overrides and no `text_parts.txt` or `divs_nops.txt` changes. The draft of func_L23_003A5328 in `nonmatching/` is removed with its README row; `progress/report.json` is refreshed.\n\nNe",
+      "mergedAt": "2026-11-11T17:59:39Z"
+     },
+     {
+      "number": 19,
+      "title": "feat(levels): match 28 more functions in level 23 with file flags",
+      "author": "xx255q",
+      "untrustedBody": "Builds on #18 (its first commit is #18's). Only the second commit, fd777a1, is new here.\n\nMatches 28 more level 23 functions in plain C (6,244 bytes):\n\n- func_L23_003373D0 (280 bytes): `L23_003373D0.c`\n- func_L23_003A6838 (308 bytes): `L23_003A6688.c`\n- func_L23_003A6970 (236 bytes): `L23_003A6688.c`\n- func_L23_003A6D18 (88 bytes): `L23_003A6688.c`\n- func_L23_003A6D70 (248 bytes): `L23_003A6688.c`\n- func_L23_003A6E68 (232 bytes): `L23_003A6688.c`\n- func_L23_003A6F50 (244 bytes): `L23_003A6688.c`\n- func_L23_003AAD58 (384 bytes): `L23_003AAA58.c`\n- func_L23_003AAF58 (256 bytes): `L23_003AAA58.c`\n- func_L23_003AF9B8 (312 bytes): `L23_003AD800.c`\n- func_L23_003B0010 (256 bytes): `L23_003AD800.c`\n- func_L23_003B0110 (240 bytes): `L23_003AD800.c`\n- func_L23_003B1418 (116 bytes): `L23_003AD800.c`\n- func_L23_003B54A0 (152 bytes): `L23_003B3BB8.c`\n- func_L23_003B7F60 (164 bytes): `L23_003B7530.c`\n- func_L23_003B9AC0 (196 bytes): `L23_003B94C8.c`\n- func_L23_003BB510 (152 bytes): `L23_003B94C8.c`",
+      "mergedAt": "2026-11-11T18:00:30Z"
+     },
+     {
+      "number": 20,
+      "title": "feat(levels): match 34 more functions in level 23",
+      "author": "xx255q",
+      "untrustedBody": "Builds on #19 (which builds on #18). Only the commits after fd777a1 are new here (48fc915, 6da5799, d8e37fa, 38df4fc, af0088c, 7d371ce).\n\nMatches 34 more level 23 functions in plain C (18,584 bytes):\n\n- func_L23_00309888 (112 bytes): `L23_00309798.c`\n- func_L23_003AFAF0 (332 bytes): `L23_003AD800.c`\n- func_L23_003B5538 (236 bytes): `L23_003B3BB8.c`\n- func_L23_003B9940 (380 bytes): `L23_003B94C8.c`\n- func_L23_003A5008 (260 bytes): `L23_003A4448.c`\n- func_L23_003B12C8 (336 bytes): `L23_003AD800.c`\n- func_L23_003A6B98 (384 bytes): `L23_003A6688.c`\n- func_L23_003ABB50 (428 bytes): `L23_003AAA58.c`\n- func_L23_003B5068 (340 bytes): `L23_003B3BB8.c`\n- func_L23_003AB5F0 (384 bytes): `L23_003AAA58.c`\n- func_L23_003AFC40 (464 bytes): `L23_003AD800.c`\n- func_L23_003BBCB0 (492 bytes): `L23_003B94C8.c`\n- func_L23_003A5590 (448 bytes): `L23_003A53D0.c`\n- func_L23_003BA3E8 (496 bytes): `L23_003B94C8.c`\n- func_L23_003AB140 (428 bytes): `L23_003AAA58.c`\n- func_L23_003A3020 (440 bytes): `L23_003A2068.c`",
+      "mergedAt": "2026-11-11T18:01:09Z"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": {
+    "before": {
+     "code": {
+      "done": 1496972,
+      "total": 7546948
+     },
+     "functions": {
+      "done": 7164,
+      "total": 16164
+     }
+    },
+    "after": {
+     "code": {
+      "done": 1633508,
+      "total": 7546948
+     },
+     "functions": {
+      "done": 7733,
+      "total": 16164
+     }
+    }
+   },
+   "contributors": [
+    "bigbeno37",
+    "nickyyOO",
+    "nominalsan",
+    "xx255q"
+   ]
+  },
+  {
+   "repo": "rac4-decomp",
+   "title": "Ratchet: Deadlocked",
+   "branches": [
+    {
+     "name": "main",
+     "commits": [
+      {
+       "sha": "cf4b0ed92a8c0a3bcd4f63f50825dde370e44d38",
+       "title": "docs: short README and docs sorted into folders (#143)",
+       "author": "nickyyOO",
+       "date": "2026-11-10T09:50:03Z"
+      }
+     ]
+    }
+   ],
+   "commitCount": 1,
+   "pullRequests": {
+    "merged": [
+     {
+      "number": 143,
+      "title": "docs: short README and docs sorted into folders",
+      "author": "nickyyOO",
+      "untrustedBody": "## Before\nA long README with setup steps and hand-updated progress tables, and docs in one flat folder with mixed-case names.\n\n## After\nA short README like Lombyte's: the OpenRAC logo with \"<game> decompilation project\" under it, a code badge and a note for each version, quick setup, credits and license. Progress comes only from the ByteMatch badges, so the README needs no commit when progress moves. The details moved to docs/, now sorted into docs/build, docs/contributing, docs/agents and docs/history (with the old notes/ folder), with lowercase names and a docs/README.md index.\n\n## How\nFiles moved with git mv. Every link and path mention points to the new place. tools/progress.py no longer writes or checks README tables (it still prints them). The badges by part and by level move to docs/build/progress.md. docs/assets is unignored for the OpenRAC logo.\n\n## Tested\ntools/progress.py --check passes for us and pal; the unit tests fail the same 2 elftools imports as main. The build was no",
+      "mergedAt": "2026-11-10T09:50:03Z"
+     }
+    ],
+    "opened": [
+     {
+      "number": 143,
+      "title": "docs: short README and docs sorted into folders",
+      "author": "nickyyOO",
+      "untrustedBody": "## Before\nA long README with setup steps and hand-updated progress tables, and docs in one flat folder with mixed-case names.\n\n## After\nA short README like Lombyte's: the OpenRAC logo with \"<game> decompilation project\" under it, a code badge and a note for each version, quick setup, credits and license. Progress comes only from the ByteMatch badges, so the README needs no commit when progress moves. The details moved to docs/, now sorted into docs/build, docs/contributing, docs/agents and docs/history (with the old notes/ folder), with lowercase names and a docs/README.md index.\n\n## How\nFiles moved with git mv. Every link and path mention points to the new place. tools/progress.py no longer writes or checks README tables (it still prints them). The badges by part and by level move to docs/build/progress.md. docs/assets is unignored for the OpenRAC logo.\n\n## Tested\ntools/progress.py --check passes for us and pal; the unit tests fail the same 2 elftools imports as main. The build was no",
+      "mergedAt": "2026-11-10T09:50:03Z"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": {
+    "before": {
+     "code": {
+      "done": 744880,
+      "total": 5781432
+     },
+     "functions": {
+      "done": 7673,
+      "total": 18170
+     }
+    },
+    "after": {
+     "code": {
+      "done": 744880,
+      "total": 5781432
+     },
+     "functions": {
+      "done": 7673,
+      "total": 18170
+     }
+    }
+   },
+   "contributors": [
+    "nickyyOO"
+   ]
+  },
+  {
+   "repo": "openrac-mods",
+   "title": "OpenRAC mods",
+   "branches": [
+    {
+     "name": "master",
+     "commits": [
+      {
+       "sha": "667f33e8742735f285751699a45fe22d01adda8a",
+       "title": "chore(index): approve wrench-throw 1.0.1",
+       "author": "openrac-bot[bot]",
+       "date": "2026-11-10T07:59:53Z"
+      }
+     ]
+    }
+   ],
+   "commitCount": 1,
+   "pullRequests": {
+    "merged": [],
+    "opened": []
+   },
+   "issues": {
+    "opened": [
+     {
+      "number": 154,
+      "title": "Review wrench-throw 1.0.1",
+      "author": "openrac-bot[bot]"
+     },
+     {
+      "number": 155,
+      "title": "Review wrench-throw 1.0.2",
+      "author": "openrac-bot[bot]"
+     }
+    ],
+    "closed": [
+     {
+      "number": 154,
+      "title": "Review wrench-throw 1.0.1",
+      "author": "openrac-bot[bot]"
+     }
+    ]
+   },
+   "releases": [],
+   "progress": null,
+   "contributors": []
+  }
+ ]
+}

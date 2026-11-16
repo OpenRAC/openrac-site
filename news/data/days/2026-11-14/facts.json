@@ -1,0 +1,1024 @@
+{
+ "format": 1,
+ "date": "2026-11-14",
+ "totals": {
+  "commits": 81,
+  "pullRequestsMerged": 17,
+  "pullRequestsOpened": 26,
+  "contributors": 15
+ },
+ "projects": [
+  {
+   "repo": "OpenRAC",
+   "title": "OpenRAC launcher",
+   "branches": [
+    {
+     "name": "develop",
+     "commits": [
+      {
+       "sha": "2d41fcbabd23cfcc8f507f6f660064b62d402cdf",
+       "title": "fix(launcher): keep the update dialog's main button gold under the pointer (#513)",
+       "author": "nickyyOO",
+       "date": "2026-11-14T18:27:39Z"
+      },
+      {
+       "sha": "157455cda9963bb4ab7b29d92a552fbc23fd6463",
+       "title": "fix(launcher): keep the game marked in the Games list while the next tab loads (#512)",
+       "author": "nickyyOO",
+       "date": "2026-11-14T18:24:43Z"
+      },
+      {
+       "sha": "f3d41b66b801f7486adf812fe40300b8005556fc",
+       "title": "fix(launcher): send job output in batches so the window stays responsive (#510)",
+       "author": "nickyyOO",
+       "date": "2026-11-14T18:06:59Z"
+      },
+      {
+       "sha": "134ed064c58a6b9eca76c46ea217f7a7f790a941",
+       "title": "fix(hdr): stop SDR hue from banding on pale SDR colours (#509)",
+       "author": "nickyyOO",
+       "date": "2026-11-14T17:36:29Z"
+      },
+      {
+       "sha": "10bab3860fd4d41ba43d3a00f9c1d7ffcb33942a",
+       "title": "feat: one entry list for the game's Video pages and the in-game menu (#508)",
+       "author": "nickyyOO",
+       "date": "2026-11-14T17:08:13Z"
+      },
+      {
+       "sha": "049c59885620245c6c22f99743a167a8d14c8449",
+       "title": "fix(rac1): carry the boot memory card wrap and new hooks to NTSC-J and PAL v1 (#507)",
+       "author": "nickyyOO",
+       "date": "2026-11-14T13:32:45Z"
+      },
+      {
+       "sha": "ade2291dc25ddd0059c9935091cdec2bf86448a8",
+       "title": "feat: SVG and KTX2 pictures in texture packs, kept compressed on the GPU (#506)",
+       "author": "nickyyOO",
+       "date": "2026-11-14T12:12:02Z"
+      },
+      {
+       "sha": "b046bede742cac0a611ab1eb1b93623b2b138fa4",
+       "title": "fix(launcher): mods and saves come in with the page; new README pictures (#505)",
+       "author": "nickyyOO",
+       "date": "2026-11-14T11:24:43Z"
+      },
+      {
+       "sha": "7cfce31bc074f672411307d2fb6905ef53bfad64",
+       "title": "fix(regress): trace frames that keep the last picture (#504)",
+       "author": "nickyyOO",
+       "date": "2026-11-14T08:04:57Z"
+      },
+      {
+       "sha": "d2dee35f23d122cf99ed7c905e8f3a2a5dde7716",
+       "title": "feat(port): add shared typed materials and Material Studio (#503)",
+       "author": "pezzadev",
+       "date": "2026-11-14T07:12:50Z"
+      }
+     ]
+    },
+    {
+     "name": "master",
+     "commits": []
+    }
+   ],
+   "commitCount": 10,
+   "pullRequests": {
+    "merged": [
+     {
+      "number": 503,
+      "title": "feat(port): add shared typed materials and Material Studio",
+      "author": "pezzadev",
+      "untrustedBody": "Mesh slots now reference reusable named materials. Editing a shared definition updates every linked surface; making an independent copy separates it. Material Studio exposes Lit, Glass Lit, Lit Fur Surface, Lit Wet Fur Surface, Lit Foliage and Original, with inherited controls shown without saving untouched defaults.\n\nThe renderer shares equivalent surface records and stores optical parameters in the Vulkan material table. Glass retains authored cutout coverage, Original restores linked retail chrome packets, and preparation fingerprints account for material types that change transport. Authored Novalis, Kerwan and Eudora NTSC profiles ship through the normal export/bake flow.\n\nThe cleanup separates Studio navigation, property widgets, preview ownership, chrome preparation and surface GPU tests. Verified ship layouts are selected by the RAC1 game profile instead of shared frontend game checks. Separate fixes declare probe-sphere graph resources and keep the window responsive during loa",
+      "mergedAt": "2026-11-14T07:12:50Z"
+     },
+     {
+      "number": 504,
+      "title": "fix(regress): trace frames that keep the last picture",
+      "author": "nickyyOO",
+      "untrustedBody": "**Before:** a frame where the game sends nothing new keeps the last picture, and the trace got no line for it. Gaspar's standard route ends on such a frame, so the runner saw 658 of 660 frames after control and marked the run \"exit\".\n\n**After:** Gaspar is \"ok\". Every window frame has a trace line.\n\n**How:** `keep_picture` writes a trace line with the last tick's values and `k: 1`. Trace comparisons skip those lines. Docs updated.\n\n**Tested:** container, rac1 NTSC, software GL, render_scale=25. Gaspar was \"exit\" before the fix and is \"ok\" after it. Full standard set: 19/19 ok. `test_regress` passes 40/40, with 2 new tests. Not tested on a GPU or on PAL.",
+      "mergedAt": "2026-11-14T08:04:57Z"
+     },
+     {
+      "number": 505,
+      "title": "fix(launcher): mods and saves come in with the page; new README pictures",
+      "author": "nickyyOO",
+      "untrustedBody": "**Before**\nThe README GIF and the launcher screenshots (README Mods picture, launcher/README game and Mods pictures) showed the old launcher look. Switching tabs also had a glitch: on the first visit to Mods the mod list was read after the slide took its picture, so the updates panel showed in its place for a moment and the rows popped in. On later visits the kept rows stayed hidden until the list was read again. Games did the same with saves (\"Reading the memory card…\" during the slide from Settings).\n\n**After**\nThe README GIF is recorded from the current launcher, with the same steps, size and speed (1440x900, 20 fps, about 33 s, 3.1 MB). The three screenshots are taken again at their old sizes. Mods and saves come in with the page, so a tab switch is a clean fade.\n\n**How**\n- `motion.ts`: `holdSlide()` lets a page make its slide wait up to 300 ms for a first read.\n- `PluginsPanel` and `SaveManagerBlock` use it when nothing is kept yet. Kept rows show at once. Saves and found updates ",
+      "mergedAt": "2026-11-14T11:24:43Z"
+     },
+     {
+      "number": 506,
+      "title": "feat: SVG and KTX2 pictures in texture packs, kept compressed on the GPU",
+      "author": "nickyyOO",
+      "untrustedBody": "## Before\nTexture packs read only PNGs, and every replacement took RGBA8 on the GPU.\n\n## After\n- Packs may also hold SVG (drawn at 4x the texture's size, for sharp HUD icons, text and logos) and KTX2.\n- KTX2 may be Basis Universal (UASTC or ETC1S) or plain RGBA8. Formats only some GPUs read (BC1-BC7, ASTC, ETC2 in the file) are refused, so a pack works on every platform.\n- Basis KTX2 is transcoded at load to what the GPU reads: BC7, else ASTC 4x4, else RGBA8. It is uploaded with the file's mip levels, so it takes about a quarter of the GPU memory.\n- When a texture has several pictures, the game uses SVG first, then KTX2, then PNG. A file that cannot be read falls back to the next one.\n- The launcher checks SVG and KTX2 on import, counts a texture once across kinds, and merges, exports and gives hints for the new kinds.\n\n## How\n- `renderer/textures/pack_pictures` holds the decoders: Basis Universal 2.50 for the transcoder and zstd, and nanosvg.\n- `TexturePool::set_blocks` and `gpu_block",
+      "mergedAt": "2026-11-14T12:12:03Z"
+     },
+     {
+      "number": 507,
+      "title": "fix(rac1): carry the boot memory card wrap and new hooks to NTSC-J and PAL v1",
+      "author": "nickyyOO",
+      "untrustedBody": "**Before:** rac1-jp and rac1-pal1 failed to build on develop. boot.c calls `func_00209BB8__game`, but these releases had no wrap row for CheckBootMemoryCard. They also missed the GoldBolts_CountUnspent and Vendor_OpenMenu hooks and the new HUD wrap names.\n\n**After:** both releases build. They get the boot memory card wrap and the two mod hooks, same as PAL and NTSC-U.\n\n**How:**\n- Add the missing rows to libraries.tsv and host/rac1_names.tsv, as release_rac1.py writes them (JP func_0020AAE0, PAL v1 func_00208C38 for the memory card check).\n- The sky routine stays left out on these discs. Its omit moves from a hand edit of rac1_version.h to release.json, and release_rac1.py now drops table rows of host C a release leaves out. Before, a new carry would wrap the sky routine with no host function and break the link.\n- JP's Aridia omit and PAL v1's Aridia anchors also move to release.json, so a new carry keeps them.\n\n**Tested:** hostgen (--asm off) for rac1-jp and rac1-pal1, then clang -fsyn",
+      "mergedAt": "2026-11-14T13:32:46Z"
+     },
+     {
+      "number": 508,
+      "title": "feat: one entry list for the game's Video pages and the in-game menu",
+      "author": "nickyyOO",
+      "untrustedBody": "**Before:** the game's own Video page (rac1 and rac2, title and pause menu) kept its own long list of port settings, separate from the in-game menu. The two drifted apart, and the page showed 4 to 7 of about 24 rows at a time.\n\n**After:** the Video page shows a short list of key settings from the in-game menu's own entries: Display mode (desktop only), Picture, Field of View, HUD, Render scale, Anti-aliasing, Anisotropic filtering, Draw distance, Frame rate, VSync, Frame counter, HDR and Enhanced graphics. Game fixes and everything else stay in the in-game menu.\n\n**How:** a `kGamePage` flag in `menu_catalog` marks the entries. The game pages use the same labels, values and steps as the in-game menu. FOV shows as 0.85x, and AA shows \"(upscaler)\" when FSR replaces it.\n\n**Tested:** rac1 and rac2 title and pause Video pages in the container: scrolling, 4:3 hiding the HUD row, touch screen hiding Display mode, German labels, and each new row changing and saving. `menu_catalog`, `settings`, ",
+      "mergedAt": "2026-11-14T17:08:13Z"
+     },
+     {
+      "number": 509,
+      "title": "fix(hdr): stop SDR hue from banding on pale SDR colours",
+      "author": "nickyyOO",
+      "untrustedBody": "## Before\n\nWith SDR Hue up, smooth effects showed sudden bands of orange and pink (the metal detector's rings up close). Where SDR shows a colour pale, its hue swings a lot with each 8-bit step of the picture, and that hue got the full strength of the HDR colour.\n\n## After\n\nThe bands are gone or much weaker. The largest colour change between neighbouring 8-bit steps drops from 0.042 to 0.014 (OKLab); plain HDR is 0.003. Flames keep their SDR yellow to the core. Default settings are unchanged.\n\n## How\n\n- `sdr_hue_of` scales the pixel until its lowest channel is at 0.4 (was 0.8), so the hue comes from a stronger colour.\n- A pale SDR hue turns a much stronger HDR colour only in part (`kSureHueShare`).\n- Same in `hdr_encode.comp`.\n\n## Tested\n\n- `hdr` (new test: neighbouring 8-bit steps stay close; it fails on the old code) and `vulkan_hdr` (GPU against CPU) pass; conventions pass.\n- Synthetic metal-detector rings (a pale pink 8-bit sprite added up 1 to 6 times over a ground, three colour s",
+      "mergedAt": "2026-11-14T17:36:30Z"
+     },
+     {
+      "number": 510,
+      "title": "fix(launcher): send job output in batches so the window stays responsive",
+      "author": "nickyyOO",
+      "untrustedBody": "**Before:** every output line of a job was its own event to the page. Each event runs on the launcher's main thread, so a chatty program (the game, the Enhanced lighting baker) froze the window: no navigation, Cancel did not react, and queued lines kept showing after the game had closed. This hit every platform; on Android it hit the baker (the game runs in its own activity there).\n\n**After:** the window stays responsive while the game or the baker runs, Cancel works, and the log stops when the program ends.\n\n**How:** core `jobs::batched` sends a job's lines about ten times a second, at most 1000 per batch (older ones dropped with a note), then the exit. Lines written after the exit by a left-behind process are dropped. The page adds each batch in one change (`Queue.applyAll`). `cancel_job` is now async, so Windows' taskkill does not block the main thread.\n\n**Tested:** cargo test (2 tests fail on develop too: they need the decomp submodules), cargo clippy -D warnings, yarn verify, new ",
+      "mergedAt": "2026-11-14T18:06:59Z"
+     },
+     {
+      "number": 512,
+      "title": "fix(launcher): keep the game marked in the Games list while the next tab loads",
+      "author": "nickyyOO",
+      "untrustedBody": "**Before:** On desktop, pressing Mods from a game's page made the Games list drop its mark while the Mods page loaded and slid in. The open disc shrank and turned back, then the Mods list showed it marked again.\n\n**After:** The Games list keeps its game marked until the Mods page replaces it. The disc stays still.\n\n**How:** GameList marks `app.version`'s game on every page except the library, not only on the game page. The old list stays on screen during the slide, after `app.page` has already changed.\n\n**Tested:** `yarn verify` and `yarn test:android` pass. In the browser preview, the Games list kept its mark on every check from the press until Mods came in (before: lost it at once). Not tested on macOS WebKit or Windows WebView2.",
+      "mergedAt": "2026-11-14T18:24:43Z"
+     },
+     {
+      "number": 513,
+      "title": "fix(launcher): keep the update dialog's main button gold under the pointer",
+      "author": "nickyyOO",
+      "untrustedBody": "**Before:** in the update dialog, hovering the main button (\"Try again\", \"Update and restart\", or \"Download from GitHub\" when it is the main one) turned it into a dark control fill with dark text. The label was nearly unreadable in every theme, worst in OLED.\n\n**After:** the button turns gold under the pointer, like every other main button in the launcher.\n\n**How:** the shared button hover in app.css sets a dark background and wins over the dialog's own amber fill. The dialog's hover now sets the gold fill itself instead of only a brightness filter.\n\n**Tested:** yarn verify and yarn test:android pass. Hovered the button in the browser preview in all four themes (openrac, OLED, Nord, Mocha), failed-update and download-only cases. Not tested in the built desktop app.",
+      "mergedAt": "2026-11-14T18:27:39Z"
+     }
+    ],
+    "opened": [
+     {
+      "number": 503,
+      "title": "feat(port): add shared typed materials and Material Studio",
+      "author": "pezzadev",
+      "untrustedBody": "Mesh slots now reference reusable named materials. Editing a shared definition updates every linked surface; making an independent copy separates it. Material Studio exposes Lit, Glass Lit, Lit Fur Surface, Lit Wet Fur Surface, Lit Foliage and Original, with inherited controls shown without saving untouched defaults.\n\nThe renderer shares equivalent surface records and stores optical parameters in the Vulkan material table. Glass retains authored cutout coverage, Original restores linked retail chrome packets, and preparation fingerprints account for material types that change transport. Authored Novalis, Kerwan and Eudora NTSC profiles ship through the normal export/bake flow.\n\nThe cleanup separates Studio navigation, property widgets, preview ownership, chrome preparation and surface GPU tests. Verified ship layouts are selected by the RAC1 game profile instead of shared frontend game checks. Separate fixes declare probe-sphere graph resources and keep the window responsive during loa",
+      "mergedAt": "2026-11-14T07:12:50Z"
+     },
+     {
+      "number": 504,
+      "title": "fix(regress): trace frames that keep the last picture",
+      "author": "nickyyOO",
+      "untrustedBody": "**Before:** a frame where the game sends nothing new keeps the last picture, and the trace got no line for it. Gaspar's standard route ends on such a frame, so the runner saw 658 of 660 frames after control and marked the run \"exit\".\n\n**After:** Gaspar is \"ok\". Every window frame has a trace line.\n\n**How:** `keep_picture` writes a trace line with the last tick's values and `k: 1`. Trace comparisons skip those lines. Docs updated.\n\n**Tested:** container, rac1 NTSC, software GL, render_scale=25. Gaspar was \"exit\" before the fix and is \"ok\" after it. Full standard set: 19/19 ok. `test_regress` passes 40/40, with 2 new tests. Not tested on a GPU or on PAL.",
+      "mergedAt": "2026-11-14T08:04:57Z"
+     },
+     {
+      "number": 505,
+      "title": "fix(launcher): mods and saves come in with the page; new README pictures",
+      "author": "nickyyOO",
+      "untrustedBody": "**Before**\nThe README GIF and the launcher screenshots (README Mods picture, launcher/README game and Mods pictures) showed the old launcher look. Switching tabs also had a glitch: on the first visit to Mods the mod list was read after the slide took its picture, so the updates panel showed in its place for a moment and the rows popped in. On later visits the kept rows stayed hidden until the list was read again. Games did the same with saves (\"Reading the memory card…\" during the slide from Settings).\n\n**After**\nThe README GIF is recorded from the current launcher, with the same steps, size and speed (1440x900, 20 fps, about 33 s, 3.1 MB). The three screenshots are taken again at their old sizes. Mods and saves come in with the page, so a tab switch is a clean fade.\n\n**How**\n- `motion.ts`: `holdSlide()` lets a page make its slide wait up to 300 ms for a first read.\n- `PluginsPanel` and `SaveManagerBlock` use it when nothing is kept yet. Kept rows show at once. Saves and found updates ",
+      "mergedAt": "2026-11-14T11:24:43Z"
+     },
+     {
+      "number": 506,
+      "title": "feat: SVG and KTX2 pictures in texture packs, kept compressed on the GPU",
+      "author": "nickyyOO",
+      "untrustedBody": "## Before\nTexture packs read only PNGs, and every replacement took RGBA8 on the GPU.\n\n## After\n- Packs may also hold SVG (drawn at 4x the texture's size, for sharp HUD icons, text and logos) and KTX2.\n- KTX2 may be Basis Universal (UASTC or ETC1S) or plain RGBA8. Formats only some GPUs read (BC1-BC7, ASTC, ETC2 in the file) are refused, so a pack works on every platform.\n- Basis KTX2 is transcoded at load to what the GPU reads: BC7, else ASTC 4x4, else RGBA8. It is uploaded with the file's mip levels, so it takes about a quarter of the GPU memory.\n- When a texture has several pictures, the game uses SVG first, then KTX2, then PNG. A file that cannot be read falls back to the next one.\n- The launcher checks SVG and KTX2 on import, counts a texture once across kinds, and merges, exports and gives hints for the new kinds.\n\n## How\n- `renderer/textures/pack_pictures` holds the decoders: Basis Universal 2.50 for the transcoder and zstd, and nanosvg.\n- `TexturePool::set_blocks` and `gpu_block",
+      "mergedAt": "2026-11-14T12:12:03Z"
+     },
+     {
+      "number": 507,
+      "title": "fix(rac1): carry the boot memory card wrap and new hooks to NTSC-J and PAL v1",
+      "author": "nickyyOO",
+      "untrustedBody": "**Before:** rac1-jp and rac1-pal1 failed to build on develop. boot.c calls `func_00209BB8__game`, but these releases had no wrap row for CheckBootMemoryCard. They also missed the GoldBolts_CountUnspent and Vendor_OpenMenu hooks and the new HUD wrap names.\n\n**After:** both releases build. They get the boot memory card wrap and the two mod hooks, same as PAL and NTSC-U.\n\n**How:**\n- Add the missing rows to libraries.tsv and host/rac1_names.tsv, as release_rac1.py writes them (JP func_0020AAE0, PAL v1 func_00208C38 for the memory card check).\n- The sky routine stays left out on these discs. Its omit moves from a hand edit of rac1_version.h to release.json, and release_rac1.py now drops table rows of host C a release leaves out. Before, a new carry would wrap the sky routine with no host function and break the link.\n- JP's Aridia omit and PAL v1's Aridia anchors also move to release.json, so a new carry keeps them.\n\n**Tested:** hostgen (--asm off) for rac1-jp and rac1-pal1, then clang -fsyn",
+      "mergedAt": "2026-11-14T13:32:46Z"
+     },
+     {
+      "number": 508,
+      "title": "feat: one entry list for the game's Video pages and the in-game menu",
+      "author": "nickyyOO",
+      "untrustedBody": "**Before:** the game's own Video page (rac1 and rac2, title and pause menu) kept its own long list of port settings, separate from the in-game menu. The two drifted apart, and the page showed 4 to 7 of about 24 rows at a time.\n\n**After:** the Video page shows a short list of key settings from the in-game menu's own entries: Display mode (desktop only), Picture, Field of View, HUD, Render scale, Anti-aliasing, Anisotropic filtering, Draw distance, Frame rate, VSync, Frame counter, HDR and Enhanced graphics. Game fixes and everything else stay in the in-game menu.\n\n**How:** a `kGamePage` flag in `menu_catalog` marks the entries. The game pages use the same labels, values and steps as the in-game menu. FOV shows as 0.85x, and AA shows \"(upscaler)\" when FSR replaces it.\n\n**Tested:** rac1 and rac2 title and pause Video pages in the container: scrolling, 4:3 hiding the HUD row, touch screen hiding Display mode, German labels, and each new row changing and saving. `menu_catalog`, `settings`, ",
+      "mergedAt": "2026-11-14T17:08:13Z"
+     },
+     {
+      "number": 509,
+      "title": "fix(hdr): stop SDR hue from banding on pale SDR colours",
+      "author": "nickyyOO",
+      "untrustedBody": "## Before\n\nWith SDR Hue up, smooth effects showed sudden bands of orange and pink (the metal detector's rings up close). Where SDR shows a colour pale, its hue swings a lot with each 8-bit step of the picture, and that hue got the full strength of the HDR colour.\n\n## After\n\nThe bands are gone or much weaker. The largest colour change between neighbouring 8-bit steps drops from 0.042 to 0.014 (OKLab); plain HDR is 0.003. Flames keep their SDR yellow to the core. Default settings are unchanged.\n\n## How\n\n- `sdr_hue_of` scales the pixel until its lowest channel is at 0.4 (was 0.8), so the hue comes from a stronger colour.\n- A pale SDR hue turns a much stronger HDR colour only in part (`kSureHueShare`).\n- Same in `hdr_encode.comp`.\n\n## Tested\n\n- `hdr` (new test: neighbouring 8-bit steps stay close; it fails on the old code) and `vulkan_hdr` (GPU against CPU) pass; conventions pass.\n- Synthetic metal-detector rings (a pale pink 8-bit sprite added up 1 to 6 times over a ground, three colour s",
+      "mergedAt": "2026-11-14T17:36:30Z"
+     },
+     {
+      "number": 510,
+      "title": "fix(launcher): send job output in batches so the window stays responsive",
+      "author": "nickyyOO",
+      "untrustedBody": "**Before:** every output line of a job was its own event to the page. Each event runs on the launcher's main thread, so a chatty program (the game, the Enhanced lighting baker) froze the window: no navigation, Cancel did not react, and queued lines kept showing after the game had closed. This hit every platform; on Android it hit the baker (the game runs in its own activity there).\n\n**After:** the window stays responsive while the game or the baker runs, Cancel works, and the log stops when the program ends.\n\n**How:** core `jobs::batched` sends a job's lines about ten times a second, at most 1000 per batch (older ones dropped with a note), then the exit. Lines written after the exit by a left-behind process are dropped. The page adds each batch in one change (`Queue.applyAll`). `cancel_job` is now async, so Windows' taskkill does not block the main thread.\n\n**Tested:** cargo test (2 tests fail on develop too: they need the decomp submodules), cargo clippy -D warnings, yarn verify, new ",
+      "mergedAt": "2026-11-14T18:06:59Z"
+     },
+     {
+      "number": 511,
+      "title": "feat(rac2): ship Going Commando prebuilt for all three discs",
+      "author": "Lynder063",
+      "untrustedBody": "Going Commando (USA v1.01, PAL, USA v2.00) now builds with no disc code, so installers carry it like Ratchet & Clank.\nPlayers need only the ISO: no compiler, no Zig kit, no build step.",
+      "mergedAt": "2026-11-15T12:02:44Z"
+     },
+     {
+      "number": 512,
+      "title": "fix(launcher): keep the game marked in the Games list while the next tab loads",
+      "author": "nickyyOO",
+      "untrustedBody": "**Before:** On desktop, pressing Mods from a game's page made the Games list drop its mark while the Mods page loaded and slid in. The open disc shrank and turned back, then the Mods list showed it marked again.\n\n**After:** The Games list keeps its game marked until the Mods page replaces it. The disc stays still.\n\n**How:** GameList marks `app.version`'s game on every page except the library, not only on the game page. The old list stays on screen during the slide, after `app.page` has already changed.\n\n**Tested:** `yarn verify` and `yarn test:android` pass. In the browser preview, the Games list kept its mark on every check from the press until Mods came in (before: lost it at once). Not tested on macOS WebKit or Windows WebView2.",
+      "mergedAt": "2026-11-14T18:24:43Z"
+     },
+     {
+      "number": 513,
+      "title": "fix(launcher): keep the update dialog's main button gold under the pointer",
+      "author": "nickyyOO",
+      "untrustedBody": "**Before:** in the update dialog, hovering the main button (\"Try again\", \"Update and restart\", or \"Download from GitHub\" when it is the main one) turned it into a dark control fill with dark text. The label was nearly unreadable in every theme, worst in OLED.\n\n**After:** the button turns gold under the pointer, like every other main button in the launcher.\n\n**How:** the shared button hover in app.css sets a dark background and wins over the dialog's own amber fill. The dialog's hover now sets the gold fill itself instead of only a brightness filter.\n\n**Tested:** yarn verify and yarn test:android pass. Hovered the button in the browser preview in all four themes (openrac, OLED, Nord, Mocha), failed-update and download-only cases. Not tested in the built desktop app.",
+      "mergedAt": "2026-11-14T18:27:39Z"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": null,
+   "contributors": [
+    "Lynder063",
+    "nickyyOO",
+    "pezzadev"
+   ]
+  },
+  {
+   "repo": "rac1-decomp",
+   "title": "Ratchet & Clank",
+   "branches": [
+    {
+     "name": "main",
+     "commits": []
+    }
+   ],
+   "commitCount": 0,
+   "pullRequests": {
+    "merged": [],
+    "opened": []
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": null,
+   "contributors": []
+  },
+  {
+   "repo": "rac2-decomp",
+   "title": "Going Commando",
+   "branches": [
+    {
+     "name": "master",
+     "commits": [
+      {
+       "sha": "7620562ff292c7c09f1c727baf16933ebfffb065",
+       "title": "chore(progress): USA v1.01 8527 of 8527, PAL 8607 of 8607, USA v2.00 8579 of 8579 functions",
+       "author": "Lynder063",
+       "date": "2026-11-14T11:48:57Z"
+      },
+      {
+       "sha": "fe2cdfe052dfb0131f5c5625cd9d8910bb420907",
+       "title": "feat(pal): match func_PAL_002CD520, the last PAL function, with a fakematch and -frac2-la-unweighted-refs",
+       "author": "Lynder063",
+       "date": "2026-11-14T11:44:29Z"
+      },
+      {
+       "sha": "6a454006a10e9ae4e7e611ca0fc8eeea860a8ad0",
+       "title": "chore(progress): USA v1.01 8527 of 8527, PAL 8606 of 8607, USA v2.00 8579 of 8579 functions",
+       "author": "Lynder063",
+       "date": "2026-11-14T11:16:39Z"
+      },
+      {
+       "sha": "206e08ac503c3408164e6b46d553b70806b0618b",
+       "title": "feat(pal,us2): match the last three PAL and USA v2.00 HUD copies with fakematch order hints",
+       "author": "Lynder063",
+       "date": "2026-11-14T10:55:02Z"
+      },
+      {
+       "sha": "d89fa29e66bfa7326de8e68ebd163768bb186630",
+       "title": "docs(nonmatching): third-pass notes for func_PAL_002CD520",
+       "author": "Lynder063",
+       "date": "2026-11-14T08:50:20Z"
+      },
+      {
+       "sha": "fc7640c070dcddfe39e0f158db28eeff43fd26cf",
+       "title": "docs(nonmatching): record the func_002CC6B0 release copies' compiler-rule diagnosis",
+       "author": "Lynder063",
+       "date": "2026-11-14T08:34:37Z"
+      },
+      {
+       "sha": "75ea2bfb91d4951ebc3a6bd428649d56d5d506a4",
+       "title": "chore(progress): USA v1.01 8527 of 8527, PAL 8605 of 8607, USA v2.00 8577 of 8579 functions",
+       "author": "Lynder063",
+       "date": "2026-11-14T08:15:21Z"
+      },
+      {
+       "sha": "809e260c831c8832ef57a03030cad2f23bd8b287",
+       "title": "feat(pal): match func_PAL_L11_0045DCE0 with two opt-in allocation and scheduling rules",
+       "author": "Lynder063",
+       "date": "2026-11-14T08:14:57Z"
+      },
+      {
+       "sha": "3318fb4484a5483266ef15eeb0a161f90decb7d4",
+       "title": "feat(pal,us2): match the release copies of func_002DC3C8 (#460)",
+       "author": "Fromnowheree",
+       "date": "2026-11-14T08:03:20Z"
+      },
+      {
+       "sha": "ce4fbdc992bf0043a9c7b9c6971a5faf7e106953",
+       "title": "feat: match func_PAL_002BBCC0 and the USA v2.00 and PAL copies of func_L22_003A5018 (#461)",
+       "author": "gelatinous-bullion",
+       "date": "2026-11-14T08:03:08Z"
+      },
+      {
+       "sha": "3a38baa5306e7c9251dea30a66257590ce591815",
+       "title": "feat(src): match the USA v2.00 and PAL copies of func_L04_0040AD28 (#462)",
+       "author": "gelatinous-bullion",
+       "date": "2026-11-14T08:02:52Z"
+      },
+      {
+       "sha": "614993331605de49d3f0b4550ca6d65308e9cf40",
+       "title": "chore(progress): USA v1.01 8527 of 8527, PAL 8600 of 8607, USA v2.00 8574 of 8579 functions",
+       "author": "Lynder063",
+       "date": "2026-11-14T07:29:59Z"
+      },
+      {
+       "sha": "f2de54d4bae6bf46587814afc304adf9e063fdea",
+       "title": "feat(pal,us2): match twenty PAL and USA v2.00 copies of v1.01 functions with opt-in PRE hash offsets",
+       "author": "Lynder063",
+       "date": "2026-11-14T07:27:36Z"
+      },
+      {
+       "sha": "3c92af8728f2b7f4bcac59345e46d3770b02a749",
+       "title": "feat(src): match the last 26 USA v1.01 functions with opt-in compiler rules",
+       "author": "Lynder063",
+       "date": "2026-11-14T02:35:58Z"
+      }
+     ]
+    }
+   ],
+   "commitCount": 14,
+   "pullRequests": {
+    "merged": [
+     {
+      "number": 460,
+      "title": "feat(pal,us2): match the PAL and USA v2.00 copies of func_002DC3C8",
+      "author": "Fromnowheree",
+      "untrustedBody": "## What\n\nMatches 2 functions: the PAL and USA v2.00 copies of `func_002DC3C8`, the timed text page controller matched for USA v1.01 in #451.\n\n| Function | Release | Catalogued entry | Placements |\n|---|---|---|---|\n| `func_PAL_002DD0C0` | PAL | `002DD0C0` → `002DD0C8`, 848 bytes | boot and 27 levels |\n| `func_US2_002DD0F8` | USA v2.00 | `002DD0F8` → `002DD100`, 848 bytes | boot and 27 levels |\n\n- **Same instructions, other constants.** Both disassemble instruction for instruction like v1.01's copy; only immediates differ:\n  - PAL: text ids 0x16CC lower (`0x33C0` → `0x1CF4`, ...), and 50 Hz page times: 150, 200 and 250 frames where v1.01 waits 180, 240 and 300.\n  - USA v2.00: text ids 0xB8 higher (`0x33C0` → `0x3478`, ...); times unchanged.\n- **Same entry.** Both begin with the 8-byte residue #451 measured in v1.01 (`sw $zero, 0x50($a0); nop`), so each gets the same named `FUNCTION_ENTRY_OFFSETS` row, `(856, 8)`. `tools/carry.py --version pal --entries` and `--version us2 --entries` cha",
+      "mergedAt": "2026-11-14T08:03:20Z"
+     },
+     {
+      "number": 461,
+      "title": "feat: match func_PAL_002BBCC0 and the USA v2.00 and PAL copies of func_L22_003A5018",
+      "author": "gelatinous-bullion",
+      "untrustedBody": "Three functions in two releases, 7,872 bytes:\n\n- one PAL function ported to 50 Hz;\n- the USA v2.00 and PAL copies of the level 22/23 HUD counters panel.\n\n**Updated for 3c92af87.** v1.01's `func_L22_003A5018` landed there with `-frac2-sched-global-yield`. This PR no longer adds it, or the `-frac2-sched-defer-live-load` switch I had written for the same tie. The two copies now take master's source and flags, and the branch is rebased on 3c92af87.\n\n| Function | Bytes | Places | Unit | Notes |\n| --- | ---: | ---: | --- | --- |\n| `func_PAL_002BBCC0` | 1856 | 28 | `src/pal/game/002BBCC0.c` | from v1.01 `func_002BB100` |\n| `func_US2_L22_003A6448` | 3008 | 2 | `src/us2/levels/shared/L22_003A6448-hud-g8.c` | master's v1.01 C, other text ids |\n| `func_PAL_L22_003A83A8` | 3008 | 2 | `src/pal/levels/shared/L22_003A83A8-hud-g8.c` | master's v1.01 C, other text ids |\n\nThe USA v2.00 and PAL functions are checked against my discs, whose SHA-256s are the ones in `docs/build/versions.md`.\n\n## func_PAL_0",
+      "mergedAt": "2026-11-14T08:03:08Z"
+     },
+     {
+      "number": 462,
+      "title": "feat(src): match the USA v2.00 and PAL copies of func_L04_0040AD28",
+      "author": "gelatinous-bullion",
+      "untrustedBody": "Two functions, 6,824 bytes: the USA v2.00 and PAL copies of the level 04/11 race-challenge panel. Both are plain C with no compiler switches, each in a unit of its own (`-O2 -G8 -ffunction-sections -g`, like the other HUD panels). They are checked against my discs, whose SHA-256s are the ones in `docs/build/versions.md`.\n\n| Function | Bytes | Places | Unit |\n| --- | ---: | ---: | --- |\n| `func_US2_L04_0040C224` | 3384 | 2 | `src/us2/levels/shared/L04_0040C224-panel-g8.c` |\n| `func_PAL_L04_0040F2AC` | 3440 | 2 | `src/pal/levels/shared/L04_0040F2AC-panel-g8.c` |\n\n## Source shape\n\nThe panel has four ties that are decided by source shape:\n\n- **Title select.** Each arm looks up its own string with the language ternary, `func_00288FB8(D_001A79F0_1 == 11 ? id_a : id_b)`. jump2 cross-jumps the identical tails after sched2. This puts the `0x96` row in a block of its own for sched2, and makes the id select local to each arm.\n- **One `label`** carries every looked-up string the panel draws: the r",
+      "mergedAt": "2026-11-14T08:02:52Z"
+     }
+    ],
+    "opened": [
+     {
+      "number": 462,
+      "title": "feat(src): match the USA v2.00 and PAL copies of func_L04_0040AD28",
+      "author": "gelatinous-bullion",
+      "untrustedBody": "Two functions, 6,824 bytes: the USA v2.00 and PAL copies of the level 04/11 race-challenge panel. Both are plain C with no compiler switches, each in a unit of its own (`-O2 -G8 -ffunction-sections -g`, like the other HUD panels). They are checked against my discs, whose SHA-256s are the ones in `docs/build/versions.md`.\n\n| Function | Bytes | Places | Unit |\n| --- | ---: | ---: | --- |\n| `func_US2_L04_0040C224` | 3384 | 2 | `src/us2/levels/shared/L04_0040C224-panel-g8.c` |\n| `func_PAL_L04_0040F2AC` | 3440 | 2 | `src/pal/levels/shared/L04_0040F2AC-panel-g8.c` |\n\n## Source shape\n\nThe panel has four ties that are decided by source shape:\n\n- **Title select.** Each arm looks up its own string with the language ternary, `func_00288FB8(D_001A79F0_1 == 11 ? id_a : id_b)`. jump2 cross-jumps the identical tails after sched2. This puts the `0x96` row in a block of its own for sched2, and makes the id select local to each arm.\n- **One `label`** carries every looked-up string the panel draws: the r",
+      "mergedAt": "2026-11-14T08:02:52Z"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": {
+    "before": {
+     "code": {
+      "done": 5468348,
+      "total": 5524052
+     },
+     "functions": {
+      "done": 8501,
+      "total": 8527
+     }
+    },
+    "after": {
+     "code": {
+      "done": 5524052,
+      "total": 5524052
+     },
+     "functions": {
+      "done": 8527,
+      "total": 8527
+     }
+    }
+   },
+   "contributors": [
+    "Fromnowheree",
+    "gelatinous-bullion",
+    "Lynder063"
+   ]
+  },
+  {
+   "repo": "rac3-decomp",
+   "title": "Up Your Arsenal",
+   "branches": [
+    {
+     "name": "master",
+     "commits": [
+      {
+       "sha": "118d38de512cf7b8cb32af59eade359ffbecfb82",
+       "title": "feat(us): match 2 NTSC-U level functions",
+       "author": "llesieur99",
+       "date": "2026-11-14T22:25:31Z"
+      },
+      {
+       "sha": "001cee8409d2b438b6d1f02fd3694e350981e151",
+       "title": "feat(levels): match 60 level functions",
+       "author": "llesieur99",
+       "date": "2026-11-14T21:59:07Z"
+      },
+      {
+       "sha": "63fa8eb5a4229a1d3b20258a8c5fdc19b983c2ba",
+       "title": "feat(levels,frontbin,boot_elf): match 45 functions",
+       "author": "Veradictus",
+       "date": "2026-11-14T21:20:09Z"
+      },
+      {
+       "sha": "3a2e158f36a95823a6df1f2f7c01755d941fbe1b",
+       "title": "feat(frontbin,boot_elf): match 8 functions",
+       "author": "Veradictus",
+       "date": "2026-11-14T20:34:28Z"
+      },
+      {
+       "sha": "bb0cd128e1cab79fce844fb646bb06a5e81f0576",
+       "title": "feat(levels): match 17 functions in level 11 (Obani Moons) (#63)",
+       "author": "cadelass",
+       "date": "2026-11-14T20:32:18Z"
+      },
+      {
+       "sha": "4a0d102af54cd08bb9266e2175c864d62bb87314",
+       "title": "feat(levels,frontbin,boot_elf): match 24 functions",
+       "author": "Veradictus",
+       "date": "2026-11-14T19:28:36Z"
+      },
+      {
+       "sha": "0224718513c1bf063f1b76cbdaae06d0ea61ae4f",
+       "title": "chore(progress): 10088 of 16124 functions (PAL), 10204 of 16169 (NTSC-U)",
+       "author": "Veradictus",
+       "date": "2026-11-14T17:50:17Z"
+      },
+      {
+       "sha": "86602c1ac5aae8643917df5f49d881227a651ba4",
+       "title": "chore(us): carry today's PAL matches to NTSC-U",
+       "author": "Veradictus",
+       "date": "2026-11-14T17:50:10Z"
+      },
+      {
+       "sha": "345c14c3ef8e6105a90a0203572eba2ddbf61ebb",
+       "title": "fix(frontbin,nonmatching): restore draft rows, file ranges and a block marker",
+       "author": "Veradictus",
+       "date": "2026-11-14T17:37:48Z"
+      },
+      {
+       "sha": "79b665855cb6209f9dfae09e99a6f1e61619be0d",
+       "title": "fix(levels): read the player count through D_L40_00241120 in func_L40_004D9838",
+       "author": "Veradictus",
+       "date": "2026-11-14T17:37:48Z"
+      },
+      {
+       "sha": "ccc0b53ddbd19fc9e247aeb451874e66646ded3e",
+       "title": "feat(us): match 3 NTSC-U level functions",
+       "author": "llesieur99",
+       "date": "2026-11-14T17:28:10Z"
+      },
+      {
+       "sha": "115d087aa60294872da649fa7bd6f352ebabb9b1",
+       "title": "chore(nonmatching): keep 231 NTSC-U drafts of PAL assembly functions",
+       "author": "llesieur99",
+       "date": "2026-11-14T17:09:42Z"
+      },
+      {
+       "sha": "8e96d956391c8a97b54bf182a75b58c57d94233e",
+       "title": "chore(progress): 10088 of 16124 functions (PAL), 10159 of 16169 (NTSC-U)",
+       "author": "Veradictus",
+       "date": "2026-11-14T16:41:51Z"
+      },
+      {
+       "sha": "ab5db6aff229a79c8e8f4496e972561fcab1dde2",
+       "title": "feat(levels): match 30 functions in the shared level 6 files (L06_0035xxxx) (#61)",
+       "author": "DrLegitamate",
+       "date": "2026-11-14T15:47:50Z"
+      },
+      {
+       "sha": "0fe6a55e257d9454609008cf7c884cf033a1e201",
+       "title": "feat(levels): match two PAL functions in Daxx and shared vector code (#62)",
+       "author": "Sumaiter",
+       "date": "2026-11-14T15:47:37Z"
+      },
+      {
+       "sha": "835d103e9cde1dd0d673502eadd0a9141d2688fc",
+       "title": "feat(levels): match 5 functions",
+       "author": "Veradictus",
+       "date": "2026-11-14T15:36:50Z"
+      },
+      {
+       "sha": "f94a90795b10de8262eed3bb40471ae54ca65ca6",
+       "title": "feat(levels): match 37 functions",
+       "author": "Veradictus",
+       "date": "2026-11-14T14:55:52Z"
+      },
+      {
+       "sha": "9a81c59214544c6a5b516dcd4e02397c43756d68",
+       "title": "feat(levels): match 46 functions",
+       "author": "Veradictus",
+       "date": "2026-11-14T14:44:51Z"
+      },
+      {
+       "sha": "90374d646c6667f919675455f123f5ae8634781b",
+       "title": "feat(levels): match 10 functions",
+       "author": "Veradictus",
+       "date": "2026-11-14T13:21:06Z"
+      },
+      {
+       "sha": "5d54ccbe02b9f061d6497c38c685414edaea26b9",
+       "title": "feat(us): match 8 NTSC-U level functions",
+       "author": "llesieur99",
+       "date": "2026-11-14T12:04:55Z"
+      },
+      {
+       "sha": "1d05c2311a509ec6e2966c4aa0833b22ba3d2442",
+       "title": "feat(us): match 26 NTSC-U level functions",
+       "author": "llesieur99",
+       "date": "2026-11-14T10:47:06Z"
+      },
+      {
+       "sha": "16b16a930d4f3c52e98f34ac4992ccb1d3b205f8",
+       "title": "feat(us): match 31 NTSC-U level functions",
+       "author": "llesieur99",
+       "date": "2026-11-14T10:17:28Z"
+      },
+      {
+       "sha": "6dada23fd655d3c3dc6f81374cb8b32a99cd9f39",
+       "title": "feat(us): match 49 NTSC-U level functions",
+       "author": "llesieur99",
+       "date": "2026-11-14T09:30:18Z"
+      },
+      {
+       "sha": "0f359b8726a2d6c322fa691499f2e3b06e7321f1",
+       "title": "feat(levels,frontbin): match 38 functions",
+       "author": "Veradictus",
+       "date": "2026-11-14T09:06:08Z"
+      },
+      {
+       "sha": "0c5a00bccce27d94286cc3a580c765b6e188c90e",
+       "title": "feat(us): match 49 NTSC-U level functions",
+       "author": "llesieur99",
+       "date": "2026-11-14T08:57:23Z"
+      },
+      {
+       "sha": "d374b0e0809e692ba0318b3f6cf559017f1c47d9",
+       "title": "refactor(levels): move the split level-only functions into their level folders",
+       "author": "Veradictus",
+       "date": "2026-11-14T08:10:52Z"
+      },
+      {
+       "sha": "7e752b6dcb8a7b4f4393df911328cea6ec0e3dd4",
+       "title": "feat(levels): match 5 level functions the catalogue fix unlocks",
+       "author": "Veradictus",
+       "date": "2026-11-14T08:10:52Z"
+      },
+      {
+       "sha": "59329b99c11fe41fada3a44ca738fda614be4961",
+       "title": "fix(levels): catalogue keeps delay slots out of data-pointer starts; split false folds",
+       "author": "Veradictus",
+       "date": "2026-11-14T08:10:52Z"
+      },
+      {
+       "sha": "57c34df047470b4137f9995b8de1c74304a56c7a",
+       "title": "feat(frontbin,boot_elf): match 39 functions",
+       "author": "Veradictus",
+       "date": "2026-11-14T07:53:35Z"
+      },
+      {
+       "sha": "6b45192e5ff0cdafdfff8fef0ccef1ac9bcb8f9f",
+       "title": "feat(frontbin): match 38 functions",
+       "author": "Veradictus",
+       "date": "2026-11-14T07:53:34Z"
+      },
+      {
+       "sha": "10d902427a344c8afd69ce02c97376808248b6ca",
+       "title": "feat(levels,frontbin): match 38 functions",
+       "author": "Veradictus",
+       "date": "2026-11-14T07:53:34Z"
+      },
+      {
+       "sha": "8511e971ec4b59bc2443eb8f699a1cf4975f2af3",
+       "title": "feat(levels): match 19 functions",
+       "author": "Veradictus",
+       "date": "2026-11-14T07:20:07Z"
+      },
+      {
+       "sha": "2a22759b83cc53d782871a294d4b22ac887bcc52",
+       "title": "feat(us): match 4 NTSC-U level functions",
+       "author": "llesieur99",
+       "date": "2026-11-14T07:01:37Z"
+      },
+      {
+       "sha": "199c5ff85a0f3bff866a61bd76133e690111e9eb",
+       "title": "feat(us): match 81 NTSC-U level functions",
+       "author": "llesieur99",
+       "date": "2026-11-14T06:19:03Z"
+      },
+      {
+       "sha": "4365b0f254a7800eeb8e18422a5d5effb8b0d245",
+       "title": "feat(us): match 71 NTSC-U level functions",
+       "author": "llesieur99",
+       "date": "2026-11-14T05:08:50Z"
+      },
+      {
+       "sha": "3e1393362c26276aeee01fe3ee45d493d8b1d24b",
+       "title": "feat(us): match 74 NTSC-U level functions",
+       "author": "llesieur99",
+       "date": "2026-11-14T03:54:05Z"
+      },
+      {
+       "sha": "f6a9eb23bd07487d7730b328838d0745555363ef",
+       "title": "feat(levels): match 27 functions",
+       "author": "Veradictus",
+       "date": "2026-11-14T03:52:38Z"
+      },
+      {
+       "sha": "5f4d2170c52a7ce45748d7252116207d3764308e",
+       "title": "feat(us): match 15 NTSC-U level functions with their div.s nops",
+       "author": "llesieur99",
+       "date": "2026-11-14T03:30:34Z"
+      },
+      {
+       "sha": "10e6e05fb0d0d21a122cdf6bed674d7609421369",
+       "title": "feat(us): match 164 NTSC-U level counterparts of PAL C",
+       "author": "llesieur99",
+       "date": "2026-11-14T03:19:20Z"
+      },
+      {
+       "sha": "718f26d9f0cd69f2704a72c014d9758de5d5725f",
+       "title": "feat(us): match 123 NTSC-U level functions",
+       "author": "llesieur99",
+       "date": "2026-11-14T02:58:09Z"
+      },
+      {
+       "sha": "c41a70f3a51b26baf2d970293f687b50cbbba98d",
+       "title": "feat(us): match 48 NTSC-U level functions",
+       "author": "llesieur99",
+       "date": "2026-11-14T02:39:12Z"
+      },
+      {
+       "sha": "65d3af78989d7e42e60acc26e15976acf52e8d4b",
+       "title": "feat(us): match 39 NTSC-U level counterparts of PAL C",
+       "author": "llesieur99",
+       "date": "2026-11-14T01:45:38Z"
+      },
+      {
+       "sha": "4ce46e15947f997cdd7b38f26244d3ffc908aad7",
+       "title": "feat(levels): match 13 more functions in level 23 (#59)",
+       "author": "xx255q",
+       "date": "2026-11-14T01:35:23Z"
+      },
+      {
+       "sha": "2734e52663c062700e5adcfdedce6da5101fb065",
+       "title": "chore: remove the baserom symlink committed by mistake in #58",
+       "author": "Veradictus",
+       "date": "2026-11-14T01:33:26Z"
+      },
+      {
+       "sha": "c36523a7086fb6dd50cc921a3779b96addc120bd",
+       "title": "feat(levels): match 13 functions in the shared level code (L01/L03/L04/L05 files) and levels 18 and 19 (#58)",
+       "author": "Bozo",
+       "date": "2026-11-14T01:32:54Z"
+      },
+      {
+       "sha": "4d6300971afb1804a800c8166449a0c4d80cad3d",
+       "title": "docs(nonmatching): park func_L40_003F4080 at 21 aligned rows",
+       "author": "Veradictus",
+       "date": "2026-11-14T00:42:36Z"
+      },
+      {
+       "sha": "92688abd8e91b99b781b28fb80705c5757c8e4c3",
+       "title": "feat(levels): match func_L08_0039B088 (Aquatos, 3996 bytes)",
+       "author": "Veradictus",
+       "date": "2026-11-14T00:38:23Z"
+      },
+      {
+       "sha": "9adaf63b02093113bab34f2d74830d3896fd0e76",
+       "title": "feat(levels): match func_L08_0039D188 (Aquatos, 4776 bytes)",
+       "author": "Veradictus",
+       "date": "2026-11-14T00:30:45Z"
+      },
+      {
+       "sha": "9140ad855852de8bcbeb2718c7ccb339d9cc8184",
+       "title": "feat(levels): match func_L08_0039F5E0 (Aquatos, 4776 bytes)",
+       "author": "Veradictus",
+       "date": "2026-11-14T00:25:06Z"
+      },
+      {
+       "sha": "005409aaa72cc8908f085a8723eaf373f1a662b1",
+       "title": "feat(core): match func_003E1418, func_003F0CF0 and their boot_elf twins func_003E17D0, func_003F10A8",
+       "author": "Veradictus",
+       "date": "2026-11-14T00:14:11Z"
+      },
+      {
+       "sha": "cf774a4ba31d5ed0388317c5f6483925571eb3cb",
+       "title": "docs(nonmatching): bring func_L20_003FB6A8 from 1709 to 263 differing rows",
+       "author": "Veradictus",
+       "date": "2026-11-14T00:07:34Z"
+      },
+      {
+       "sha": "6e248f6f871ac41ced8a2ae78935b09c3b09289f",
+       "title": "docs(nonmatching): record the attempts on func_L06_0034A7A8's last 33 rows",
+       "author": "Veradictus",
+       "date": "2026-11-14T00:05:20Z"
+      },
+      {
+       "sha": "dba364160ed3da682a1b8bbd0dad13a28a9c52e6",
+       "title": "feat(levels): match func_L14_003F9A10 with mat_scale, the vector library's matrix scale",
+       "author": "Veradictus",
+       "date": "2026-11-14T00:03:03Z"
+      }
+     ]
+    }
+   ],
+   "commitCount": 53,
+   "pullRequests": {
+    "merged": [
+     {
+      "number": 63,
+      "title": "feat(levels): match 17 functions in level 11 (Obani Moons)",
+      "author": "cadelass",
+      "untrustedBody": "Matches 17 functions of level 11 (Obani Moons, PAL) in `src/levels/11_obani_moons/`: 3 from an earlier round and 14 from this one. 9 of the new ones are real VU0, written with the `include/vu0.h` helpers and j-form statements.\n\n**Matched:** `func_L11_003A9260`, `003A9B30`, `00433210`, `003A2CD0`, `003510D0`, `00350360`, `00472AD8`, `003BDED0`, `003FCBD0`, `00316318`, `003AE290`, `00350EE0`, `003AF6B8`, `00348538`, `003798E8`, `003AFF60`, `003A9E60`.\n\n**Left in assembly (7):**\n- `0034C8A0`, `0034F5E0` and `003A2DB0`: near misses with updated drafts in `nonmatching/levels/`.\n- `003BDA60` and `0034F0F0`: they save registers in 16-byte `sq` slots, and levels have no `sq_ra_funcs` table.\n- `003C7B60`: it reads `$s3` before writing it.\n- `003C3650`: new from the catalogue fix in master, not attempted.\n\n## Config changes\n\n`config/levels/text_parts.txt`:\n- `-mvu0-use-vf0-vf2`, placed first, on the six files whose new C uses the VU0 helpers.\n- `@ps2as` on six files (inline float constants, a 64",
+      "mergedAt": "2026-11-14T20:32:18Z"
+     }
+    ],
+    "opened": [
+     {
+      "number": 61,
+      "title": "feat(levels): match 30 functions in the shared level 6 files (L06_0035xxxx)",
+      "author": "DrLegitamate",
+      "untrustedBody": "Matches 30 functions in the four shared level 6 source files claimed in #3 (`src/levels/shared/L06_003506E0.c`, `L06_00351930.c`, `L06_00354F18.c`, `L06_00356C80.c`). All are built into levels 06 and 14; `func_L06_00359A88` is also in 07, and `func_L06_003584D0` also in 07, 10 and 23.\n\n- `L06_003506E0.c`: 00350D60, 00351220, 003512D0, 00351410, 00351508, 003517C0\n- `L06_00351930.c`: 003525E0, 00352CA0, 00353210, 003532B8, 00353480, 00353AC8, 00353B90, 00354118, 00354B08, 00354C28, 00354E38\n- `L06_00354F18.c`: 00354F18, 00355F90, 003565B8\n- `L06_00356C80.c`: 003574E0, 003575B8, 00357768, 00357850, 00357968, 00357B28, 00357EE0, 00357FB8, 003584D0, 00359A88\n\n## File flags\n\nOne line per file in `config/levels/text_parts.txt`:\n- all four files get `-mvu0-use-vf0-vf2`, for the `vu0.h` helpers (`vec_sub_*`, `vec_add_*`, `qzero`);\n- `L06_003506E0.c`, `L06_00354F18.c` and `L06_00356C80.c` get `@ps2as` for the float constants retail builds inline (`lui`/`ori`/`mtc1`); `L06_00351930.c` already ha"
+     },
+     {
+      "number": 62,
+      "title": "feat(levels): match two PAL functions in Daxx and shared vector code",
+      "author": "Sumaiter",
+      "untrustedBody": "This PR adds two PAL implementations. NTSC-U carry is still required before merge; no NTSC-U disc is available locally.\n\n## Functions\n\n- `func_L05_003DB5C0` (404 bytes, Daxx): emit two particles with a randomized horizontal offset and update the object's timer. Uses the existing `vu0.h` vector helpers.\n- `func_L32_003C4128` (184 bytes, shared by levels 32, 33, 34 and 35): compute vector projection and remainder, preserving the non-positive-axis path. Uses the existing `qzero` helper and a VU0/COP2 subtraction block with explicit operands and clobbers, as permitted by `AGENTS.md`.\n\nExisting whole-file compiler/assembler flags are unchanged. No new type layouts, linker aliases, global definitions, ordinary EE inline assembly, register pins, barriers or hardcoded addresses are introduced. The changed source files use LF.\n\n## Checks\n\n- [x] Recompiled the unchanged reviewed source with current file flags: exact size and bytes, complete boundaries, no extra text/data, and every actual reloca"
+     },
+     {
+      "number": 63,
+      "title": "feat(levels): match 17 functions in level 11 (Obani Moons)",
+      "author": "cadelass",
+      "untrustedBody": "Matches 17 functions of level 11 (Obani Moons, PAL) in `src/levels/11_obani_moons/`: 3 from an earlier round and 14 from this one. 9 of the new ones are real VU0, written with the `include/vu0.h` helpers and j-form statements.\n\n**Matched:** `func_L11_003A9260`, `003A9B30`, `00433210`, `003A2CD0`, `003510D0`, `00350360`, `00472AD8`, `003BDED0`, `003FCBD0`, `00316318`, `003AE290`, `00350EE0`, `003AF6B8`, `00348538`, `003798E8`, `003AFF60`, `003A9E60`.\n\n**Left in assembly (7):**\n- `0034C8A0`, `0034F5E0` and `003A2DB0`: near misses with updated drafts in `nonmatching/levels/`.\n- `003BDA60` and `0034F0F0`: they save registers in 16-byte `sq` slots, and levels have no `sq_ra_funcs` table.\n- `003C7B60`: it reads `$s3` before writing it.\n- `003C3650`: new from the catalogue fix in master, not attempted.\n\n## Config changes\n\n`config/levels/text_parts.txt`:\n- `-mvu0-use-vf0-vf2`, placed first, on the six files whose new C uses the VU0 helpers.\n- `@ps2as` on six files (inline float constants, a 64",
+      "mergedAt": "2026-11-14T20:32:18Z"
+     },
+     {
+      "number": 64,
+      "title": "docs: names from rac1/rac2 twins and comments on the NTSC-U natives",
+      "author": "llesieur99",
+      "untrustedBody": "Readable names for rac3 functions, taken from their twins in rac1-decomp and rac2-decomp, and a one- or\ntwo-sentence comment above each NTSC-U native in `src/us/levels/`. No code changes: C keeps every address\nname (the names are lookup rows, as docs/contributing/names.md says), and comments change no bytes.\n\n## Functions\n\nNo function is matched or changed. Two commits:\n\n- `docs(names)`: 513 new rows in `config/names.tsv` (no existing row is changed), `include/names.h`\n  regenerated with `tools/names.py header`, and the new sources in `docs/contributing/names.md`.\n- `docs(us)`: a comment on 1,428 of the 1,481 natives in `src/us/levels/` (the other\n  53 already had a description right above the definition and keep it), and `config/us/map.tsv`'s\n  source hashes from `tools/version_map.py --write`.\n\n### Names\n\n| Source | recovered | descriptive | candidate | rows |\n| --- | ---: | ---: | ---: | ---: |\n| rac1-decomp `config/names.tsv` (PAL v2.00, SCES-50916) | 6 | 138 | 209 | 353 |\n| rac2-d"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [
+     {
+      "number": 60,
+      "title": "Ratchet and clank ps3 and psvita decompiled games?",
+      "author": "jeejfaafq1-deu"
+     }
+    ],
+    "closed": []
+   },
+   "releases": [],
+   "progress": {
+    "before": {
+     "code": {
+      "done": 2518456,
+      "total": 7546948
+     },
+     "functions": {
+      "done": 9818,
+      "total": 16164
+     }
+    },
+    "after": {
+     "code": {
+      "done": 2783940,
+      "total": 7538408
+     },
+     "functions": {
+      "done": 10105,
+      "total": 16124
+     }
+    }
+   },
+   "contributors": [
+    "Bozo",
+    "cadelass",
+    "DrLegitamate",
+    "llesieur99",
+    "Sumaiter",
+    "Veradictus",
+    "xx255q"
+   ]
+  },
+  {
+   "repo": "rac4-decomp",
+   "title": "Ratchet: Deadlocked",
+   "branches": [
+    {
+     "name": "main",
+     "commits": []
+    }
+   ],
+   "commitCount": 0,
+   "pullRequests": {
+    "merged": [],
+    "opened": [
+     {
+      "number": 159,
+      "title": "Match 25 functions",
+      "author": "Adam1400",
+      "untrustedBody": "Matches 25 functions for SCUS_974.65, each in a file of its own; 23 of them match SCES_532.85 too.\n\nFunctions:\n\n- `func_L01_004B8CF8` (`src/overlays/shared/L01_004B8CF8.c`)\n- `func_L01_004E84F0` (`src/overlays/shared/L01_004E84F0.c`)\n- `func_L01_005A0CF8` (`src/overlays/shared/L01_005A0CF8.c`)\n- `func_L01_0052E6F8` (`src/overlays/shared/L01_0052E6F8.c`)\n- `func_L02_003C56E8` (`src/overlays/shared/L02_003C56E8.c`)\n- `func_L00_0077BDF0` (`src/overlays/l00_multiplayer_menu/L00_0077BDF0.c`)\n- `func_L41_004489F0` (`src/overlays/shared/L41_004489F0.c`)\n- `func_L00_0059BAC8` (`src/overlays/shared/L00_0059BAC8.c`)\n- `func_L00_006ED170` (`src/overlays/shared/L00_006ED170.c`)\n- `func_L00_005D1A18` (`src/overlays/shared/L00_005D1A18.c`)\n- `func_L01_004CF658` (`src/overlays/shared/L01_004CF658.c`)\n- `func_L01_00433038` (`src/overlays/shared/L01_00433038.c`)\n- `func_L00_006EBFE8` (`src/overlays/shared/L00_006EBFE8.c`)\n- `func_L01_00445778` (`src/overlays/shared/L01_00445778.c`)\n- `func_L01_004160B8"
+     },
+     {
+      "number": 160,
+      "title": "Match 58 US net functions of 88 to 256 bytes",
+      "author": "farfeduc",
+      "untrustedBody": "Three hand-matching sessions on medium-sized `net.text` functions (88 to 256 bytes) that no earlier round attempted, written by hand from retail's code and packaged in one PR. 58 US functions.\n\nAll build with `@ee296 -O2 -G0`, except func_01E9AD78 (`-mno-split-addresses` added) and func_01E9EE28 (`-fno-strict-aliasing` added: it keeps the load of a field after an unaligned 8-byte struct copy).\n\n| Area | Functions | What they do |\n| --- | --- | --- |\n| RPC and socket wrappers | func_01E9A2B0, func_01E9A7C8, func_01E9A9A8, func_01E9AAC8, func_01E9BB70, func_01E9BC38, func_01E9C1B8, func_01E9C258, func_01E9C358, func_01E9CDC8, func_01E9CFD0, func_01E9D2A0, func_01E9D740 | calls through func_01E9B788 / func_01E9D828 with request structs and one-entry iovec lists; list lookups; a 256-id scan |\n| IOP ring buffer | func_01E9B640, func_01E9B700 | read the next packet (wrapping at the buffer end); release and notify |\n| Lock-wrapped calls | func_01E9DF88, func_01E9E198, func_01E9E270, func_01E9"
+     },
+     {
+      "number": 161,
+      "title": "Match twenty PAL functions and reconcile shared record declarations",
+      "author": "Sumaiter",
+      "untrustedBody": "Match twenty previously unmatched PAL functions across core, network, resident and overlay code, with the same compiled bytes at every native placement. Reconcile the shared `D_001F1480` record view and related declarations in four existing PAL functions; these four corrections preserve their compiled objects and are not counted as new matches.\r\n\r\nThe new functions are:\r\n\r\n- `func_00147D88` (84 bytes, 1 placement)\r\n- `func_0014A0B8` (108 bytes, 1 placement)\r\n- `func_0014A150` (132 bytes, 1 placement)\r\n- `func_0015F028` (80 bytes, 1 placement)\r\n- `func_0045E288` (80 bytes, 15 placements)\r\n- `func_01EA73A8` (76 bytes, 1 placement)\r\n- `func_01EACF60` (80 bytes, 1 placement)\r\n- `func_01EB66E8` (92 bytes, 1 placement)\r\n- `func_L00_005421F8` (160 bytes, 1 placement)\r\n- `func_L00_0070CD58` (80 bytes, 1 placement)\r\n- `func_L00_0071EDF0` (92 bytes, 1 placement)\r\n- `func_L00_00756560` (56 bytes, 1 placement)\r\n- `func_L00_00772168` (120 bytes, 1 placement)\r\n- `func_L01_004967E8` (96 bytes, 2 plac"
+     },
+     {
+      "number": 162,
+      "title": "Match 41 US net functions of 132 to 252 bytes",
+      "author": "farfeduc",
+      "untrustedBody": "A hand-matching session on medium `net.text` functions from 0x01EBD000 to 0x01ED5700 (132 to 252 bytes) that no earlier round attempted, written from retail's code. 41 US functions, all built with `@ee296 -O2 -G0`.\n\n| Area | Functions | What they do |\n| --- | --- | --- |\n| Connection and packets | func_01EBD2A8, func_01EBD5E8, func_01EBE028, func_01EBE0F0, func_01EBFA50, func_01EBFCC0, func_01EBFD78, func_01EBFE28, func_01EC0580, func_01EC1310, func_01EC20E8 | slot scan, buffered string send, session start, packet header build, the trailer word get/set pair, receive loop, state dispatch, socket setup |\n| Handler table at D_001B6898 | func_01EC24C0, func_01EC2558, func_01EC2618 | remove and find in the 16-entry table, 0x4C-byte object allocation |\n| Probes and status | func_01EC2700, func_01EC2960, func_01EC2D60, func_01EC2DE8, func_01EC2E80, func_01EC2F68 | connect probe, probe after 5000 ms, counters over 256 entries, info copies |\n| Peer tables (D_00167F38, D_001B7258) | func_01EC985"
+     },
+     {
+      "number": 163,
+      "title": "Match 25 US net functions of 132 to 252 bytes",
+      "author": "farfeduc",
+      "untrustedBody": "A hand-matching session on medium `net.text` functions from 0x01ED5778 to 0x01EE5430 (132 to 252 bytes) that no earlier round attempted, written from retail's code. 25 US functions.\n\nAll build with `@ee296 -O2 -G0`, except func_01EE34E0 and func_01EE4D48 (`@ee296 -Os -G0`) and func_01EE3570 and func_01EE52E8 (`@ee296 -Os -G0 -mno-split-addresses`). The memory-pool code around 0x01EE3000-0x01EE5500 looks built with `-Os`.\n\n| Area | Functions | What they do |\n| --- | --- | --- |\n| Session requests (D_00169CD0) | func_01ED6098, func_01ED62B8, func_01ED6B28, func_01ED6C30, func_01ED6CB8 | stop call; wrappers that terminate the strings of a request and send it through func_01ED5DD0 |\n| Setup and teardown | func_01ED9358, func_01ED9420, func_01EDB658, func_01EDB6F8, func_01EDD538 | callback table teardown, module init, stream setup and reset, status string serializer |\n| Field serializers | func_01EDA408, func_01EDA4F8, func_01EDA5C0 | one func_01EAA130/func_01EAA218 call per field, -0x15 on"
+     },
+     {
+      "number": 164,
+      "title": "Match twenty new PAL core and overlay functions",
+      "author": "Sumaiter",
+      "untrustedBody": "Add twenty independently reviewed PAL (SCES_532.85) implementations: five core functions, four Battledome functions and eleven shared overlay functions. They cover 2,664 distinct code bytes and 83 physical placements. Regenerate the PAL/US native maps and PAL progress report; the regenerated US progress report has no content change.\r\n\r\nEach candidate was checked independently for complete boundaries, signature/ABI, actual relocation targets at every placement, data ownership/initial values and access/FP semantics. The six byte predicates preserve the existing PAL source contracts and conditional read order; all 65,536 byte pairs per predicate were checked against the native instruction flow. No new shared types, data definitions or compiler-output changes are introduced. The one whole-file `-Wa,-mips4` profile uses the project's existing assembler profile.\r\n\r\nValidation on a separate checkout based on `1242ee13f7a1583cd0ba3e157097cf3985073c80`:\r\n\r\n- All 766 PAL C translation units buil"
+     },
+     {
+      "number": 165,
+      "title": "Match 99 US functions picked across game, net and core code",
+      "author": "farfeduc",
+      "untrustedBody": "A hand-matching session of 99 US functions (34 game, 62 net, 3 core) picked by an ease score instead of by address: every unmatched US main-image function that is not reserved in #112, not in an open PR and not library code, minus hand-written assembly (COP0, VU0, `lq`/`sq`, `sync`, `addi`, MMI) and catalogue artifacts (functions that read registers they never set, start with `addiu sp, +N`, or branch past their end), ranked by size, unmatched callees, globals, loops and FPU use. About half of the ~200 tried matched.\n\n| Area | Count | Examples |\n| --- | --- | --- |\n| Game (resident `.text`) | 34 | virtual-call wrappers ending in func_00408260, buffer helpers around func_00403308/func_00403330, list and table searches, a 64-bit LCG step (func_003F6188) |\n| Net | 62 | request and status helpers, list unlink and search, bit-table accessors, a Mersenne Twister seed (func_01EA9988), memory-pool helpers, lock/unlock wrappers |\n| Core | 3 | func_00142150, func_00152E58, func_00152EC0 |\n\nFlags"
+     },
+     {
+      "number": 166,
+      "title": "Match 348 functions",
+      "author": "Adam1400",
+      "untrustedBody": "Matches 348 functions for SCUS_974.65, each in a file of its own; 336 of them match SCES_532.85 too.\n\nFunctions:\n\n- `func_L01_0045BFB0` (`src/overlays/shared/L01_0045BFB0.c`)\n- `func_L01_004BBAE0` (`src/overlays/shared/L01_004BBAE0.c`)\n- `func_L05_0048EB88` (`src/overlays/shared/L05_0048EB88.c`)\n- `func_L01_00571B40` (`src/overlays/shared/L01_00571B40.c`)\n- `func_L01_004B38EC` (`src/overlays/shared/L01_004B38EC.c`)\n- `func_L01_004B3D48` (`src/overlays/shared/L01_004B3D48.c`)\n- `func_L01_004B6978` (`src/overlays/shared/L01_004B6978.c`)\n- `func_L01_004ADB78` (`src/overlays/shared/L01_004ADB78.c`)\n- `func_L01_00468D48` (`src/overlays/shared/L01_00468D48.c`)\n- `func_L01_004AF1F0` (`src/overlays/shared/L01_004AF1F0.c`)\n- `func_L01_004ED6C0` (`src/overlays/shared/L01_004ED6C0.c`)\n- `func_L02_004CBF38` (`src/overlays/shared/L02_004CBF38.c`)\n- `func_L01_0056D030` (`src/overlays/shared/L01_0056D030.c`)\n- `func_L41_00444F00` (`src/overlays/shared/L41_00444F00.c`)\n- `func_L01_00586830` (`src/over"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": null,
+   "contributors": [
+    "Adam1400",
+    "farfeduc",
+    "Sumaiter"
+   ]
+  },
+  {
+   "repo": "openrac-mods",
+   "title": "OpenRAC mods",
+   "branches": [
+    {
+     "name": "master",
+     "commits": [
+      {
+       "sha": "6a147f2bc32c1e0415cdd9389101eaa5544470fd",
+       "title": "chore(index): approve auto-swingshot 1.0.0",
+       "author": "openrac-bot[bot]",
+       "date": "2026-11-14T19:28:22Z"
+      },
+      {
+       "sha": "4cc017c78fdabbfec1494618d27bb5eb08bdff7b",
+       "title": "feat(index): List auto-swingshot (#183)",
+       "author": "openrac-bot[bot]",
+       "date": "2026-11-14T19:23:01Z"
+      },
+      {
+       "sha": "d51e17012d098d2ec9e5528476176c0b55dd6fad",
+       "title": "fix(archipelago): include owned weapons in ammo drop candidates (#187)",
+       "author": "SavedbyBlood9",
+       "date": "2026-11-14T19:22:11Z"
+      },
+      {
+       "sha": "74d5033c61596c13696a1bce59a3f52bd2c516e7",
+       "title": "fix(item-randomizer): include all owned ammo weapons in drops (#188)",
+       "author": "SavedbyBlood9",
+       "date": "2026-11-14T19:22:08Z"
+      }
+     ]
+    }
+   ],
+   "commitCount": 4,
+   "pullRequests": {
+    "merged": [
+     {
+      "number": 183,
+      "title": "List auto-swingshot",
+      "author": "openrac-bot[bot]",
+      "untrustedBody": "From #182, checked by the listing bot. @OpenRAC/maintainers, please review.\n\nCloses #182",
+      "mergedAt": "2026-11-14T19:23:02Z"
+     },
+     {
+      "number": 187,
+      "title": "fix(archipelago): allow ammo drops for owned out-of-order weapons",
+      "author": "SavedbyBlood9",
+      "untrustedBody": "Archipelago can grant a starting weapon before its normal planet, but ammo selection still reads the retail vendor stock. Add an Ammo_ChooseDrop hook that temporarily supplies a terminated list of owned ammo-supporting weapons, then restores the real stock.\n\nThe retail selector still handles assigned first-break ammo, low-ammo priority, pickup count and the Bomb Glove fallback. Add PAL/NTSC selector-spy regression coverage for out-of-order weapons, exclusion of unowned/non-ammo items, argument/output passthrough and stock restoration. Register the hook, document the behavior and bump the mod to 2.3.1.\n\nValidation: Windows x64 Release build; all 12 Archipelago CTest cases passed. Tests use the simulated host and do not execute the retail selector; in-game verification remains.",
+      "mergedAt": "2026-11-14T19:22:12Z"
+     },
+     {
+      "number": 188,
+      "title": "fix(item-randomizer): select ammo from all owned ammo weapons",
+      "author": "SavedbyBlood9",
+      "untrustedBody": "RAC1 ammo drops currently borrow the vendor-menu stock, which can omit an owned weapon received before its normal planet. Build the ammo selector's temporary stock directly from all owned ammo-supporting weapons instead, retaining a terminator and restoring the real vendor stock afterward.\n\nKeep the existing rando_on gate so saves outside this seed use the unmodified selector. Delegate assigned first-break ammo, low-ammo priority, pickup count and the Bomb Glove fallback to the retail routine. Add PAL/NTSC selector-spy tests and an untagged-save passthrough check, document the behavior and bump the mod to 2.4.3. RAC2 code is unchanged.\n\nValidation: Windows x64 Release build; all 8 targeted item-randomizer tests passed, including RAC1 PAL/NTSC load coverage and RAC2 load/solver tests. The long solver_sweep was excluded. All 12 Archipelago tests also passed. Tests use a simulated host; in-game verification remains.",
+      "mergedAt": "2026-11-14T19:22:09Z"
+     }
+    ],
+    "opened": [
+     {
+      "number": 187,
+      "title": "fix(archipelago): allow ammo drops for owned out-of-order weapons",
+      "author": "SavedbyBlood9",
+      "untrustedBody": "Archipelago can grant a starting weapon before its normal planet, but ammo selection still reads the retail vendor stock. Add an Ammo_ChooseDrop hook that temporarily supplies a terminated list of owned ammo-supporting weapons, then restores the real stock.\n\nThe retail selector still handles assigned first-break ammo, low-ammo priority, pickup count and the Bomb Glove fallback. Add PAL/NTSC selector-spy regression coverage for out-of-order weapons, exclusion of unowned/non-ammo items, argument/output passthrough and stock restoration. Register the hook, document the behavior and bump the mod to 2.3.1.\n\nValidation: Windows x64 Release build; all 12 Archipelago CTest cases passed. Tests use the simulated host and do not execute the retail selector; in-game verification remains.",
+      "mergedAt": "2026-11-14T19:22:12Z"
+     },
+     {
+      "number": 188,
+      "title": "fix(item-randomizer): select ammo from all owned ammo weapons",
+      "author": "SavedbyBlood9",
+      "untrustedBody": "RAC1 ammo drops currently borrow the vendor-menu stock, which can omit an owned weapon received before its normal planet. Build the ammo selector's temporary stock directly from all owned ammo-supporting weapons instead, retaining a terminator and restoring the real vendor stock afterward.\n\nKeep the existing rando_on gate so saves outside this seed use the unmodified selector. Delegate assigned first-break ammo, low-ammo priority, pickup count and the Bomb Glove fallback to the retail routine. Add PAL/NTSC selector-spy tests and an untagged-save passthrough check, document the behavior and bump the mod to 2.4.3. RAC2 code is unchanged.\n\nValidation: Windows x64 Release build; all 8 targeted item-randomizer tests passed, including RAC1 PAL/NTSC load coverage and RAC2 load/solver tests. The long solver_sweep was excluded. All 12 Archipelago tests also passed. Tests use a simulated host; in-game verification remains.",
+      "mergedAt": "2026-11-14T19:22:09Z"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [
+     {
+      "number": 189,
+      "title": "Review auto-swingshot 1.0.0",
+      "author": "openrac-bot[bot]"
+     }
+    ],
+    "closed": [
+     {
+      "number": 182,
+      "title": "Submit: Auto Swingshot",
+      "author": "glawks"
+     },
+     {
+      "number": 189,
+      "title": "Review auto-swingshot 1.0.0",
+      "author": "openrac-bot[bot]"
+     }
+    ]
+   },
+   "releases": [],
+   "progress": null,
+   "contributors": [
+    "SavedbyBlood9"
+   ]
+  }
+ ]
+}
