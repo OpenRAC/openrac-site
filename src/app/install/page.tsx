@@ -7,13 +7,33 @@ import { getDevBuild, getLauncherRelease, noFiles } from "@/lib/releases";
 
 export const revalidate = 300;
 
-const DESCRIPTION = "Get the OpenRAC launcher for Windows, macOS, Linux or Android. It sets each game up from your own disc; no game is downloaded.";
+const DESCRIPTION = "Download the OpenRAC launcher to build and run native ports of Ratchet & Clank from your own disc on Windows, macOS, Android, and Linux (ARM and x86_64).";
 
 export const metadata: Metadata = {
-  title: "Install",
+  title: "Download Launcher & Native Port Setup",
   description: DESCRIPTION,
+  keywords: [
+    "Ratchet & Clank PC port download",
+    "Ratchet and Clank PC download",
+    "OpenRAC launcher",
+    "Ratchet & Clank PC installer",
+    "Ratchet & Clank PC",
+    "download PC port",
+    "play Ratchet & Clank on PC",
+    "how to play Ratchet & Clank on PC",
+    "Ratchet & Clank Steam Deck",
+    "Ratchet & Clank Windows 11",
+    "Ratchet & Clank Linux port",
+    "PC port setup",
+    "Windows",
+    "Linux",
+    "Steam Deck",
+    "macOS",
+    "Android",
+  ],
   alternates: { canonical: "/install" },
-  openGraph: { title: "Install OpenRAC", description: DESCRIPTION, url: "/install", type: "website" },
+  openGraph: { title: "Download Ratchet & Clank PC Port Launcher · OpenRAC", description: DESCRIPTION, url: "/install", type: "website" },
+  twitter: { card: "summary_large_image", title: "Download Ratchet & Clank PC Port Launcher · OpenRAC", description: DESCRIPTION },
 };
 
 /** What a player needs before the launcher can build a game, in order. */
