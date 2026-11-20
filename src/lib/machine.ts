@@ -185,7 +185,16 @@ export function homeLd(site: string, release?: LauncherRelease | null) {
         "@id": `${site}/#website`,
         name: "OpenRAC",
         // The names people type; tells Google which site name to show and that "Open RAC" means us.
-        alternateName: ["Open RAC", "openrac.dev", "OpenRAC PC Port", "Ratchet & Clank PC Port", "Ratchet and Clank PC Port"],
+        alternateName: [
+          "Open RAC",
+          "openrac.dev",
+          "OpenRAC PC Port",
+          "Ratchet & Clank PC Port",
+          "Ratchet and Clank PC Port",
+          "Ratchet & Clank PC",
+          "Ratchet and Clank PC",
+          "Ratchet & Clank Native Port",
+        ],
         url: `${site}/`,
         description: "An unofficial hub for the Ratchet & Clank native PC port and independent community decompilation projects.",
         inLanguage: "en",

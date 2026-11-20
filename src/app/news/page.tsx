@@ -13,6 +13,16 @@ const TITLE = "OpenRAC News";
 export const metadata: Metadata = {
   title: { absolute: TITLE },
   description: NEWS_DESCRIPTION,
+  keywords: [
+    "OpenRAC news",
+    "Ratchet & Clank PC port progress",
+    "Ratchet and Clank PC updates",
+    "Ratchet & Clank decompilation",
+    "PS2 decompilation devlog",
+    "rac1-decomp",
+    "rac2-decomp",
+    "OpenRAC",
+  ],
   alternates: newsAlternates("/news"),
   openGraph: { title: TITLE, description: NEWS_DESCRIPTION, url: "/news", type: "website" },
   twitter: { card: "summary_large_image", title: TITLE, description: NEWS_DESCRIPTION },
