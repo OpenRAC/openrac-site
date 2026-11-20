@@ -96,7 +96,7 @@ function intro(site: string, progress: ProgressMap): string {
 
 > OpenRAC (${site}) is an unofficial, community-run hub that tracks the independent decompilation projects of the Ratchet & Clank games in one place, while also providing native ports for Windows, macOS, Android, and Linux (ARM and x86_64). Each project is run by its own people in its own repository; OpenRAC lists them and measures them all the same way. Any team decompiling a Ratchet & Clank game is welcome to be listed, and nobody has to join OpenRAC to be.
 
-- Native ports: Built directly from the decompiled source code. The OpenRAC launcher sets each game up from your legally owned disc or ISO on Windows, macOS, Android, and Linux (ARM and x86_64).
+- Native ports: Built directly from the decompiled source code, running natively with no emulator in between. The OpenRAC launcher sets each game up from your legally owned disc or ISO on Windows, macOS, Android, and Linux (ARM and x86_64).
 - Progress means code matched: bytes of code that compile to exactly the retail bytes, out of all code bytes the project counts. It is the same figure ByteMatch shows.
 - Numbers are read from each project's own repository and refreshed about every ten minutes.
 - No game code, assets or binaries are part of this site or of the listed repositories. A legally obtained copy of a game is needed to build anything.
