@@ -24,7 +24,7 @@ const description =
 export const metadata: Metadata = {
   title,
   description,
-  keywords: ["Ratchet & Clank mods", "Ratchet & Clank PC", "OpenRAC", "mods", "randomizer", "Archipelago", "PC port", "PS2"],
+  keywords: ["Ratchet & Clank mods", "Ratchet & Clank PC", "Ratchet & Clank PC port", "Ratchet and Clank PC port", "OpenRAC", "mods", "randomizer", "Archipelago", "PC port", "PS2"],
   alternates: { canonical: "/mods", types: { "application/json": "/mods.json" } },
   openGraph: { title: `${title} · OpenRAC`, description, url: "/mods", images: [SHARE_IMAGE] },
   twitter: { card: "summary_large_image", title: `${title} · OpenRAC`, description, images: [SHARE_IMAGE] },

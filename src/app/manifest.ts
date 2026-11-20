@@ -3,9 +3,9 @@ import type { MetadataRoute } from "next";
 /** The web app manifest: name, colours and icons for "add to home screen". */
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "OpenRAC · Ratchet & Clank Decompilation Hub",
+    name: "OpenRAC · Ratchet & Clank Native PC Port & Decompilation Hub",
     short_name: "OpenRAC",
-    description: "Unofficial hub for community decompilation projects of the Ratchet & Clank series.",
+    description: "Unofficial hub for the Ratchet & Clank native PC port and community decompilation projects.",
     start_url: "/",
     display: "standalone",
     background_color: "#131313",

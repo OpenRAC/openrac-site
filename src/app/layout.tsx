@@ -22,9 +22,9 @@ const chakra = Chakra_Petch({
   preload: false,
 });
 
-const title = "OpenRAC · Ratchet & Clank Decompilation Hub";
+const title = "OpenRAC · Ratchet & Clank Native PC Port & Decompilation Hub";
 const description =
-  "OpenRAC is an unofficial hub for community decompilation projects of the Ratchet & Clank series. Track progress for every title and download the OpenRAC launcher.";
+  "OpenRAC is an unofficial hub for the Ratchet & Clank native PC ports and community decompilation projects. Track progress for every title and download the OpenRAC launcher.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl()),
@@ -34,14 +34,22 @@ export const metadata: Metadata = {
   },
   description,
   keywords: [
-    "Ratchet & Clank",
+    "Ratchet & Clank PC port",
+    "Ratchet & Clank PC",
+    "Ratchet and Clank PC port",
     "OpenRAC",
+    "native PC port",
+    "PC port",
+    "Ratchet & Clank",
     "decompilation",
     "reverse engineering",
     "PlayStation 2",
-    "PS2",
+    "PS2 PC port",
     "matching decompilation",
     "game preservation",
+    "Windows",
+    "Linux",
+    "Steam Deck",
   ],
   authors: [{ name: "OpenRAC Community", url: "https://openrac.dev" }],
   creator: "OpenRAC Community",
