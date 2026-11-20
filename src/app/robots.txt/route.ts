@@ -12,7 +12,7 @@ export const dynamic = "force-static";
 export function GET() {
   const site = siteUrl();
   const host = new URL(site).host;
-  const txt = `# OpenRAC - Unofficial Native PC Ports & Decompilation Hub for Ratchet & Clank
+  const txt = `# OpenRAC - Community Decompilation Hub & Native Ports for Ratchet & Clank (Windows, macOS, Android, Linux ARM and x86_64)
 # Machine map for AI tools: ${site}/llms.txt
 # Full context & FAQ for AI: ${site}/llms-full.txt
 

@@ -7,10 +7,10 @@ import { getDevBuild, getLauncherRelease, noFiles } from "@/lib/releases";
 
 export const revalidate = 300;
 
-const DESCRIPTION = "Download the OpenRAC launcher to play the Ratchet & Clank PC port on Windows, Linux, macOS or Android. Builds natively from your own disc copy.";
+const DESCRIPTION = "Download the OpenRAC launcher to build and run native ports of Ratchet & Clank from your own disc on Windows, macOS, Android, and Linux (ARM and x86_64).";
 
 export const metadata: Metadata = {
-  title: "Download PC Port Launcher & Setup",
+  title: "Download Launcher & Native Port Setup",
   description: DESCRIPTION,
   keywords: [
     "Ratchet & Clank PC port download",

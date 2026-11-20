@@ -22,9 +22,9 @@ const chakra = Chakra_Petch({
   preload: false,
 });
 
-const title = "OpenRAC · Ratchet & Clank Native PC Port & Decompilation Hub";
+const title = "OpenRAC · Ratchet & Clank Decompilation Hub & Native PC Ports";
 const description =
-  "OpenRAC is an unofficial hub for the Ratchet & Clank native PC ports and community decompilation projects. Track progress for every title and download the OpenRAC launcher.";
+  "OpenRAC is an unofficial hub for community decompilation projects of the Ratchet & Clank series, also providing native ports for Windows, macOS, Android, and Linux (ARM and x86_64). Track progress for every title and download the OpenRAC launcher.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl()),
