@@ -2,7 +2,7 @@ import type { Entry } from "./search.ts";
 
 /** The site's own pages and sections: in the full list, and what the search answers before it is in. */
 export const PLACES: Entry[] = [
-  { t: "Install", k: "Page", h: "/install", d: "Get the OpenRAC launcher for your system to run the PC port.", a: "download launcher setup get play pc port windows linux macos android no emulator without emulator" },
+  { t: "Install", k: "Page", h: "/install", d: "Get the OpenRAC launcher for your system to run the PC port.", a: "download launcher setup get play pc port windows linux macos android no emulator without emulator without emulator on windows linux steam deck" },
   { t: "Progress", k: "Section", h: "/#progress", d: "How much of each game compiles to the retail bytes.", a: "percent matched status" },
   { t: "Recent activity", k: "Section", h: "/#activity", d: "The latest commits across the projects.", a: "commits github" },
   { t: "Get involved", k: "Section", h: "/#contribute", d: "Ways to help the decompilation projects.", a: "contribute help join" },
