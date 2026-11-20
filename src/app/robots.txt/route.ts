@@ -11,12 +11,26 @@ export const dynamic = "force-static";
  */
 export function GET() {
   const site = siteUrl();
-  const txt = `# OpenRAC welcomes search engines and AI tools. A summary for AI: ${site}/llms.txt
+  const host = new URL(site).host;
+  const txt = `# OpenRAC - Unofficial Native PC Ports & Decompilation Hub for Ratchet & Clank
+# Machine map for AI tools: ${site}/llms.txt
+# Full context & FAQ for AI: ${site}/llms-full.txt
+
 User-agent: *
 Content-Signal: search=yes, ai-input=yes, ai-train=yes
 Allow: /
 Disallow: /mods?
 
+# Explicit permissions for AI search engines and assistants
+User-agent: GPTBot
+User-agent: ChatGPT-User
+User-agent: ClaudeBot
+User-agent: PerplexityBot
+User-agent: Google-Extended
+User-agent: CCBot
+Allow: /
+
+Host: ${host}
 Sitemap: ${site}/sitemap.xml
 `;
   return new Response(txt, { headers: { "Content-Type": "text/plain; charset=utf-8" } });

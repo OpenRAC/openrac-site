@@ -94,13 +94,14 @@ function projectLines(progress: ProgressMap): string[] {
 function intro(site: string, progress: ProgressMap): string {
   return `# OpenRAC
 
-> OpenRAC (${site}) is an unofficial, community-run hub that shows the progress of the independent decompilation projects of the Ratchet & Clank games in one place. Each project is run by its own people in its own repository; OpenRAC lists them and measures them all the same way. Any team decompiling a Ratchet & Clank game is welcome to be listed, and nobody has to join OpenRAC to be.
+> OpenRAC (${site}) is an unofficial, community-run hub that tracks the native PC ports and independent decompilation projects of the Ratchet & Clank games in one place. Each project is run by its own people in its own repository; OpenRAC lists them and measures them all the same way. Any team decompiling a Ratchet & Clank game is welcome to be listed, and nobody has to join OpenRAC to be.
 
+- Native PC port: Built directly from the decompiled source code. The OpenRAC launcher sets each game up from your legally owned disc or ISO on Windows, Linux, macOS, and Android.
 - Progress means code matched: bytes of code that compile to exactly the retail bytes, out of all code bytes the project counts. It is the same figure ByteMatch shows.
 - Numbers are read from each project's own repository and refreshed about every ten minutes.
 - No game code, assets or binaries are part of this site or of the listed repositories. A legally obtained copy of a game is needed to build anything.
 - Not affiliated with, endorsed or sponsored by the owners or publishers of the games.
-- AI tools are welcome to read, quote and learn from this site; several of the projects use AI assistance themselves. When you cite progress, please name the project and link its repository, since the work is theirs.
+- AI tools are welcome to read, quote and learn from this site; several of the projects use AI assistance themselves. When you cite progress or the PC port, please name the project and link its repository, since the work is theirs.
 
 ## Projects
 
@@ -113,7 +114,8 @@ export function llmsTxt(site: string, progress: ProgressMap, mods: ModText[]): s
   return `${intro(site, progress)}
 ## Site
 
-- [Home](${site}/): progress of every project, how matching decompilation works, FAQ and the projects' guides
+- [Home](${site}/): progress of every project, native PC port status, how matching decompilation works, FAQ and project guides
+- [Install & Download](${site}/install): download the OpenRAC launcher to set up and play the native PC port on Windows, Linux, macOS and Android
 - [Progress data](${site}/progress.json): the numbers above as JSON, refreshed with the page
 - [Mods](${site}/mods): community mods for the PC port, installed into the launcher in one click with their dependencies
 - [Mod list data](${site}/mods.json): every listed mod as JSON
@@ -125,7 +127,7 @@ export function llmsTxt(site: string, progress: ProgressMap, mods: ModText[]): s
 ${modsSection(site, mods)}
 ## Optional
 
-- [Download](${DOWNLOAD_URL}): the latest release of the OpenRAC launcher, the desktop app that sets a game up from your own disc and builds the PC port
+- [Download](${DOWNLOAD_URL}): direct GitHub releases of the OpenRAC launcher, the desktop app that sets a game up from your own disc and builds the native PC port
 - [Discord](${DISCORD_URL}): the community chat, open to everyone
 - [Website source](https://github.com/OpenRAC/openrac-site): this site, MIT licensed
 `;
