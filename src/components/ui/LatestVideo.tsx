@@ -34,21 +34,21 @@ export default function LatestVideo({ video, look, fill = false }: { video: Vide
   const label = `Play the latest video: ${video.title}`;
   const button =
     look === "hud" ? (
-      <button type="button" onClick={() => setOpen(true)} aria-label={label} className="group mt-5 ml-auto flex cursor-pointer items-center justify-end gap-3 text-right">
-        <span className="min-w-0 max-w-[190px]">
+      <button type="button" onClick={() => setOpen(true)} aria-label={label} className="group mt-4 ml-auto flex cursor-pointer items-center justify-end gap-3 text-right">
+        <span className="min-w-0 max-w-[220px]">
           <small className="block font-mono text-[11px] font-semibold tracking-[.08em] text-body">
             NEW VIDEO{date && <> · <b className="text-amber">{date}</b></>}
           </small>
-          {/* Two lines at most, then "...". The halo is a drop-shadow here: a text-shadow would be cut off at the clipped box. */}
-          <span className="mt-1 line-clamp-2 text-[13px] font-medium leading-snug text-text transition-colors [overflow-wrap:anywhere] [text-shadow:none] [filter:drop-shadow(0_0_4px_rgb(5_5_5/.9))_drop-shadow(0_0_10px_rgb(5_5_5/.6))] group-hover:text-amber">
-            {video.title}
+          {/* One line, then "...". In the HUD's body colour, as the counts above. The halo is a drop-shadow here: a text-shadow would be cut off at the clipped box. */}
+          <span className="mt-0.5 block truncate text-[13px] font-medium leading-snug text-body transition-colors [text-shadow:none] [filter:drop-shadow(0_0_4px_rgb(5_5_5/.9))_drop-shadow(0_0_10px_rgb(5_5_5/.6))] group-hover:text-amber">
+            {shortTitle(video.title)}
           </span>
         </span>
-        <span className="relative aspect-video w-[136px] flex-none overflow-hidden rounded-xl bg-ink-deep shadow-[0_6px_20px_rgb(0_0_0/.45)]">
-          <Image src={video.thumbnail} alt="" fill sizes="136px" className="object-cover" />
+        <span className="relative aspect-video w-[80px] flex-none overflow-hidden rounded-md bg-ink-deep shadow-[0_6px_20px_rgb(0_0_0/.45)]">
+          <Image src={video.thumbnail} alt="" fill sizes="80px" className="object-cover" />
           <span aria-hidden className="absolute inset-0 flex items-center justify-center">
-            <span className="flex size-[34px] items-center justify-center rounded-full bg-ink/70 text-text transition-colors group-hover:bg-ink/90">
-              <svg viewBox="0 0 24 24" className="size-[17px] fill-current">{play}</svg>
+            <span className="flex size-6 items-center justify-center rounded-full bg-ink/70 text-text transition-colors group-hover:bg-ink/90">
+              <svg viewBox="0 0 24 24" className="size-3 fill-current">{play}</svg>
             </span>
           </span>
         </span>
@@ -81,7 +81,7 @@ export default function LatestVideo({ video, look, fill = false }: { video: Vide
         onClose={() => setOpen(false)}
         // A press on the dark backdrop (the dialog itself, outside its box) closes it.
         onClick={(e) => e.target === e.currentTarget && setOpen(false)}
-        className="m-auto w-[min(960px,calc(100vw-32px))] max-w-none overflow-hidden rounded-xl bg-coal p-0 text-left text-text [text-shadow:none] backdrop:bg-black/80"
+        className="m-auto w-[min(960px,calc(100vw-32px))] max-w-none overflow-hidden rounded-xl bg-ink p-0 text-left text-text [text-shadow:none] shadow-[0_20px_60px_rgb(0_0_0/0.6)] backdrop:bg-black/80"
       >
         {open && (
           <>
