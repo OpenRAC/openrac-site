@@ -1,0 +1,1178 @@
+{
+ "format": 1,
+ "date": "2026-11-16",
+ "totals": {
+  "commits": 80,
+  "pullRequestsMerged": 29,
+  "pullRequestsOpened": 35,
+  "contributors": 16
+ },
+ "projects": [
+  {
+   "repo": "OpenRAC",
+   "title": "OpenRAC launcher",
+   "branches": [
+    {
+     "name": "develop",
+     "commits": [
+      {
+       "sha": "89d5f4ec373dd14c9b438099673ae776ab19f77b",
+       "title": "fix(hostgen): read rac2's readable names in the release view (#545)",
+       "author": "nickyyOO",
+       "date": "2026-11-16T23:14:16Z"
+      },
+      {
+       "sha": "21aa59baee6c562bb2a2a73eaa7e3dc443d8dc27",
+       "title": "feat(sdk): a prop fixed to a moby's joint, and where it was drawn, interface 1.18 (#547)",
+       "author": "farfeduc",
+       "date": "2026-11-16T22:43:35Z"
+      },
+      {
+       "sha": "c1ba7edd7e4e8f1719abb60286689b4399a62943",
+       "title": "fix: skip textures made anew each tick in the texture dump (#546)",
+       "author": "nickyyOO",
+       "date": "2026-11-16T21:13:04Z"
+      },
+      {
+       "sha": "10158c031569ea6d8e5dde97110aa2fc85924e17",
+       "title": "fix(rac2): pause menu rows and full-window movies (#542)",
+       "author": "Lynder063",
+       "date": "2026-11-16T14:23:47Z"
+      },
+      {
+       "sha": "3939b8a77da3ebaed28672066acd3c0f3a64e073",
+       "title": "feat(sdk): expose the RAC1 Gadgetron icon strip (#535)",
+       "author": "noire342",
+       "date": "2026-11-16T13:55:40Z"
+      },
+      {
+       "sha": "dff3a8992c7921032c5d6b98ac95bd2b54326888",
+       "title": "fix(renderer): refill one texture for rac2 movie frames (#543)",
+       "author": "nickyyOO",
+       "date": "2026-11-16T13:54:49Z"
+      },
+      {
+       "sha": "27ec3bfbdcb2cfc80e100e449e07e476f41bd27d",
+       "title": "ci: bump hendrikmuhs/ccache-action (#539)",
+       "author": "dependabot[bot]",
+       "date": "2026-11-16T13:10:39Z"
+      },
+      {
+       "sha": "ddd8ee41f1840998655a0c4aeb98a9ab65de9ec5",
+       "title": "fix(port): keep moby activity as on the console, animate far mobys in the picture only (#534)",
+       "author": "nickyyOO",
+       "date": "2026-11-16T13:10:34Z"
+      },
+      {
+       "sha": "eb8ac064698d4e97a8f9f57678f15b7cbe2bec02",
+       "title": "ci: give game build jobs a two-hour limit (#541)",
+       "author": "nickyyOO",
+       "date": "2026-11-16T09:51:49Z"
+      },
+      {
+       "sha": "d1a14a9a38089a9764f8ddac721eeda918fa64dc",
+       "title": "chore(import): rac2-decomp 005bfc4dd, with PAL and v2.00 tables rewritten (#538)",
+       "author": "Veradictus",
+       "date": "2026-11-16T08:38:01Z"
+      },
+      {
+       "sha": "61a50794d39085e1e73cecdf6b289aaaba43df96",
+       "title": "fix(port): synchronize RAC2 nanotech effects with moving platforms (#537)",
+       "author": "pezzadev",
+       "date": "2026-11-16T05:19:05Z"
+      },
+      {
+       "sha": "ffcb9e78dea41b65872a11283272b803c85a0104",
+       "title": "fix(hostgen): fail the assembly guard only on translations code reaches (#536)",
+       "author": "Veradictus",
+       "date": "2026-11-16T03:08:10Z"
+      }
+     ]
+    },
+    {
+     "name": "master",
+     "commits": []
+    }
+   ],
+   "commitCount": 12,
+   "pullRequests": {
+    "merged": [
+     {
+      "number": 534,
+      "title": "fix(port): keep moby activity as on the console, animate far mobys in the picture only",
+      "author": "nickyyOO",
+      "untrustedBody": "Before: Active distance (Match) widened the game's drawn flag (+0x31) to the Draw distance. That flag is game logic: it decides which mobys run, wakes their groups, fills the target list and lock-on, and moby effects take random numbers. So the game ran differently from the console (Aranos' hatch broke the launch camera), and rac2 needed an exception list.\n\nAfter: +0x31 always uses the console's distance, in rac1 and rac2. The exception list is gone. At Match, far mobys the game leaves asleep are animated by the renderer only, on a copy of their animation fields. Nothing is written to game memory. Original shows them still. fix_wide_moby_effects and Field of View work as before.\n\nHow: new frontend/sleeping_mobys.h repeats the game's activity test (+0x31, +0x30 range, groups) and loops each sleeping moby's sequence. scene::moby_palette takes optional keys.\n\nTested: rac1 NTSC regress on Novalis, Kerwan and Eudora with Match and Original: same routes; on Eudora the RAM after 1700 ticks is",
+      "mergedAt": "2026-11-16T13:10:34Z"
+     },
+     {
+      "number": 535,
+      "title": "feat(sdk): expose the RAC1 Gadgetron icon strip",
+      "author": "noire342",
+      "untrustedBody": "I added `rac1.vendor.icon_strip.draw` so mods can customize the row of item and ammo icons in the Gadgetron menu. The hook is available in C, C++ and Luau on all four RAC1 releases. Calling the original draws the selection highlight and advances the carousel scroll.\n\n## Validation\n\n- Built the four Windows targets. All seven focused CTest checks passed, covering the four call ABIs, the mod manifest, the loader and scripts. The SDK generator checks (`gen_binding.py rac1 --check` and `gen_reference.py --check`) and `check_versions.py` also passed.\n- On PAL v2.00 and NTSC-U, bought the Pyrocitor for 2,500 bolts and verified that an ammo purchase added one round and charged the displayed price. I exercised the native PDA entry point and verified that closing the menu returned control with inventory and bolts intact.\n- Opened, navigated and closed the Novalis shop with zero mods loaded. I repeated the same inputs with a Luau hook that calls `original()`. The icon strip matched pixel for pix",
+      "mergedAt": "2026-11-16T13:55:40Z"
+     },
+     {
+      "number": 536,
+      "title": "fix(hostgen): fail the assembly guard only on translations code reaches",
+      "author": "Veradictus",
+      "untrustedBody": "## Summary\n\nSince #532, a rac1 build made with the disc stops in hostgen: rac1 PAL fails with 260 errors of the form `func_… runs as its assembly (translated from it), and the program reach it`.\n\n#532's assembly guard fails every function hostgen translates from the disc's assembly, whether or not anything reaches it. A build without the disc translates nothing, so CI never runs into this. Builds with the disc do: rac1's programs translate many functions that no translated code calls (260 in PAL alone), and adding them to `assembly_allow` is no way out, because a disc-less build would then fail them as unused rows.\n\n- `assembly_guard` keeps every translation in the report's `assembly_reached`, but fails only one that a translated caller reaches, the same as a stub without the disc.\n- `AssemblyGuard` tests: an unreached translation is listed but passes; a reached one fails.\n\nrac2 is unaffected. Its allowed rows all have callers, and its translated routines have their own C since #532.\n\n",
+      "mergedAt": "2026-11-16T03:08:11Z"
+     },
+     {
+      "number": 537,
+      "title": "fix(port): synchronize RAC2 nanotech effects with moving platforms",
+      "author": "pezzadev",
+      "untrustedBody": "Nanotech on Siberius's moving trucks could split into a lagging orb body, outline and spark cluster, both inside an intact crate and while floating after the crate breaks. Capture callback-only position anchors, rebase delayed mesh geometry, and move newly spawned attached sparks with the displayed anchor from their first frame.\r\n\r\nEffect interpolation now lives separately from HUD recording. Existing callback-owner and world-space history behavior is retained, with regression coverage for rigid sprite shape, missing/reused anchors, and unaligned callback arguments. No baking, asset or player configuration changes are required.\r\n\r\nValidation:\r\n- [Full CI run](https://github.com/OpenRAC/OpenRAC/actions/runs/43802323281) passed: Windows, Fedora, all Linux game versions, and enhanced Vulkan/equivalence/CPU/baker coverage.\n- Full Windows enhanced `openrac-rac2-ntsc` rebuild on the latest develop; `frontend_geometry`, `effect_attachment`, `rac2_effect_attachment`, `rac2_moby_view` and `effe",
+      "mergedAt": "2026-11-16T05:19:06Z"
+     },
+     {
+      "number": 538,
+      "title": "chore(import): rac2-decomp 005bfc4dd, with PAL and v2.00 tables rewritten",
+      "author": "Veradictus",
+      "untrustedBody": "## Summary\n\nMoves the rac2 decomp pin from `7620562` to master's tip, `005bfc4dd`. That range is four commits: readable names, snake_case, and return types agreed between definitions and declarations. Those commits broke all three rac2 builds against the decomp's master. This PR brings OpenRAC back in line on every disc.\n\n- **USA v1.01:**\n  - Removed the `asm.signatures` entries and `result_allow` rows for functions that have C now.\n  - `options.c`'s `func_00288FB8` (GetLocalizedString) now returns `gaddr`, matching the decomp's new `char *`.\n- **PAL / USA v2.00:**\n  - Rewrote the release tables from the decomp built against the discs. That build matches all 28 programs for v1.01, PAL and v2.00.\n  - Cleaned up `result_allow` rows.\n- **PAL bug fix:** v1.01's C for `gfx_start_color_fade` and its sibling calls `IntToFloat`, `FloatToInt` and `get_moby_color` by `F500f9762_` names.\n  - PAL's build gives those names no value, so the release view kept v1.01's addresses.\n  - In PAL, `FloatToIn",
+      "mergedAt": "2026-11-16T08:38:02Z"
+     },
+     {
+      "number": 539,
+      "title": "ci: bump hendrikmuhs/ccache-action from 1.2.24 to 1.2.25 in /.github/actions/compiler-cache in the actions group across 1 directory",
+      "author": "dependabot[bot]",
+      "untrustedBody": "Bumps the actions group with 1 update in the /.github/actions/compiler-cache directory: [hendrikmuhs/ccache-action](https://github.com/hendrikmuhs/ccache-action).\n\nUpdates `hendrikmuhs/ccache-action` from 1.2.24 to 1.2.25\n<details>\n<summary>Release notes</summary>\n<p><em>Sourced from <a href=\"https://github.com/hendrikmuhs/ccache-action/releases\">hendrikmuhs/ccache-action's releases</a>.</em></p>\n<blockquote>\n<h2>v1.2.25</h2>\n<h2>What's Changed</h2>\n<ul>\n<li>Bump <code>@​types/node</code> from 26.2.0 to 26.4.0 by <a href=\"https://github.com/dependabot\"><code>@​dependabot</code></a>[bot] in <a href=\"https://redirect.github.com/hendrikmuhs/ccache-action/pull/466\">hendrikmuhs/ccache-action#466</a></li>\n<li>Bump <code>@​types/node</code> from 26.4.0 to 26.6.2 by <a href=\"https://github.com/dependabot\"><code>@​dependabot</code></a>[bot] in <a href=\"https://redirect.github.com/hendrikmuhs/ccache-action/pull/474\">hendrikmuhs/ccache-action#474</a></li>\n<li>Bump handlebars from 4.7.9 to 4.7.10 ",
+      "mergedAt": "2026-11-16T13:10:39Z"
+     },
+     {
+      "number": 541,
+      "title": "ci: give game build jobs a two-hour limit",
+      "author": "nickyyOO",
+      "untrustedBody": "**Before:** game build jobs stopped at one hour (\"The job has exceeded the maximum execution time of 1h0m0s\"), mostly with a cold compiler cache: launcher.yml `build` (every row but Windows and Android) and the port build jobs in checks.yml. Windows had 180 minutes and sdk.yml had no limit (6 h default).\n\n**After:** game build jobs get 120 minutes. No job runs past two hours. Short jobs (5-45 min) keep their limits.\n\n**How:** launcher.yml uses a flat `timeout-minutes: 120` instead of `matrix.timeout || 60` and drops the per-row values. checks.yml build jobs at 60 go to 120. sdk.yml jobs get 120 instead of no limit.\n\n**Tested:** all workflows parse as YAML. Not run: actionlint locally (it runs in checks), no CI dispatch. Windows with a cold cache is close to two hours, so it may still need a warm cache.",
+      "mergedAt": "2026-11-16T09:51:50Z"
+     },
+     {
+      "number": 542,
+      "title": "fix(rac2): pause menu rows and full-window movies",
+      "author": "Lynder063",
+      "untrustedBody": "Pause Options text, icons and bars line up again with the Video row.\nMovies fill a 16:9 window on black instead of a small box over the game.",
+      "mergedAt": "2026-11-16T14:23:48Z"
+     },
+     {
+      "number": 543,
+      "title": "fix(renderer): refill one texture for rac2 movie frames",
+      "author": "nickyyOO",
+      "untrustedBody": "**Before:** since #532, every rac2 movie frame went through the generic GS upload path: hash 1 MB, convert it, check texture packs, make a new GL texture. The pool kept up to 120 old frames (about 120 MB in RAM and as much on the GPU). rac1 shows its movies with one texture that it refills.\n\n**After:** a movie picture has one texture per block. Each frame copies the RGBA rows into it and refills the GL texture in place (`glTexSubImage2D`). It stays until the movie ends. The game's own list (Press START, subtitles) is drawn as before.\n\n**How:** `TexturePool::set_picture` / `forget_picture` replace `mark_picture` and the `upload_image` call in `frontend::upload_picture`. `resolve` returns the picture only for a PSMCT32 draw that samples it whole.\n\n**Tested:**\n- `renderer_texture_test` (new `pictures` case) and `texture_blocks_gl` on GL and Vulkan (lavapipe): the refill keeps the same GL id and draws the new texels.\n- Pool cost per 512x512 frame without GL: 1.05 ms and 120 kept textures b",
+      "mergedAt": "2026-11-16T13:54:49Z"
+     },
+     {
+      "number": 545,
+      "title": "fix(hostgen): read rac2's readable names in the release view",
+      "author": "nickyyOO",
+      "untrustedBody": "**Before:** Going Commando USA v2.00 and PAL crashed on the title screen. Their release tables were in the old format: the names were guessed from catalogue order, the old code of the primary release (v1.01) could stay next to the release's own code at the same address, and several level hooks had no C. Pre-rendered movies were black on every version (sound played), since #543.\n\n**After:** both releases reach the title, New Game and every level. The port reads rac2 the way it reads rac1: what the release's build placed is the release's code. Movies show again, full window (#542 merged in).\n\n**How:**\n- `release.py build` reads the release's build (`placed.json`). The table lists `placed`, `absent`, `gone_in` and `folded_places`, and `Release.splice` drops the left-out definitions under every spelling.\n- Each release's facts are in `release/release.json`. The hand C is written into the release's `hand/` in its own names, as rac1 does.\n- Level hooks are paired by their callers. Their empt",
+      "mergedAt": "2026-11-16T23:14:17Z"
+     },
+     {
+      "number": 546,
+      "title": "fix: skip textures made anew each tick in the texture dump",
+      "author": "nickyyOO",
+      "untrustedBody": "## Before\nThe texture dump wrote thousands of junk files into `Interface/`. rac1 uploads a 64x64 texture on every tick on each planet. It is fully transparent and a few texels change by 1 each tick, so every tick gave a new hash and a new file. No pack can replace these.\n\n## After\nOnly real textures are dumped. On rac1 NTSC-U levels 0-5, `Interface/` went from 2399 files to 86. All removed files were those transparent 64x64 textures. `Planets/`, `Shared/` and `Animated/` stay the same.\n\n## How\n- `texture_pack::LiveWatch` watches each upload place. A place that gets a new, never seen texture on 64 ticks in a row (at most 4 ticks apart) is live: it is not dumped, and the files this run already wrote for it are removed.\n- Animation cycles are not affected: their frames come back, so they never reach 64 new ones. Many new textures in one tick count once.\n- A held texture that is still drawn more than 4 ticks later (a fade's last picture) is dumped once.\n- Only the dump changes. Game logic ",
+      "mergedAt": "2026-11-16T21:13:04Z"
+     },
+     {
+      "number": 547,
+      "title": "feat(sdk): a prop fixed to a moby's joint, and where it was drawn, interface 1.18",
+      "author": "farfeduc",
+      "untrustedBody": "Three commits on develop (#489's 1.17 is in): `feat(sdk): a prop fixed to a moby's joint, interface 1.18`, `feat(sdk): where a prop was drawn last, prop_frame (interface 1.18)` and `docs(sdk): a guide to props, on a joint too (interface 1.18)`.\n\n## Why\n\nA mod that adds a weapon draws the weapon's model as a prop (1.12), but could only pose it from its own tick:\n\n- the pose lagged a frame behind the hero's animation, and the mod never saw his hand's matrix nor where the game puts its own pieces, so the model floated beside the hand;\n- the game's own weapon could not be hidden for good: rac1 shows all the hero's held pieces again each tick (`update_hero_item_moby_flags`, from his own update, outside the moby updates and before the draw), so `moby_hide` on it lasted no frame;\n- once the model sits in the hand, the mod still has to know where its muzzle is to start the shots there. rac1's held item moby keeps only the yaw and pitch of its joint, so that place is wrong as soon as the hero r",
+      "mergedAt": "2026-11-16T22:43:36Z"
+     }
+    ],
+    "opened": [
+     {
+      "number": 536,
+      "title": "fix(hostgen): fail the assembly guard only on translations code reaches",
+      "author": "Veradictus",
+      "untrustedBody": "## Summary\n\nSince #532, a rac1 build made with the disc stops in hostgen: rac1 PAL fails with 260 errors of the form `func_… runs as its assembly (translated from it), and the program reach it`.\n\n#532's assembly guard fails every function hostgen translates from the disc's assembly, whether or not anything reaches it. A build without the disc translates nothing, so CI never runs into this. Builds with the disc do: rac1's programs translate many functions that no translated code calls (260 in PAL alone), and adding them to `assembly_allow` is no way out, because a disc-less build would then fail them as unused rows.\n\n- `assembly_guard` keeps every translation in the report's `assembly_reached`, but fails only one that a translated caller reaches, the same as a stub without the disc.\n- `AssemblyGuard` tests: an unreached translation is listed but passes; a reached one fails.\n\nrac2 is unaffected. Its allowed rows all have callers, and its translated routines have their own C since #532.\n\n",
+      "mergedAt": "2026-11-16T03:08:11Z"
+     },
+     {
+      "number": 537,
+      "title": "fix(port): synchronize RAC2 nanotech effects with moving platforms",
+      "author": "pezzadev",
+      "untrustedBody": "Nanotech on Siberius's moving trucks could split into a lagging orb body, outline and spark cluster, both inside an intact crate and while floating after the crate breaks. Capture callback-only position anchors, rebase delayed mesh geometry, and move newly spawned attached sparks with the displayed anchor from their first frame.\r\n\r\nEffect interpolation now lives separately from HUD recording. Existing callback-owner and world-space history behavior is retained, with regression coverage for rigid sprite shape, missing/reused anchors, and unaligned callback arguments. No baking, asset or player configuration changes are required.\r\n\r\nValidation:\r\n- [Full CI run](https://github.com/OpenRAC/OpenRAC/actions/runs/43802323281) passed: Windows, Fedora, all Linux game versions, and enhanced Vulkan/equivalence/CPU/baker coverage.\n- Full Windows enhanced `openrac-rac2-ntsc` rebuild on the latest develop; `frontend_geometry`, `effect_attachment`, `rac2_effect_attachment`, `rac2_moby_view` and `effe",
+      "mergedAt": "2026-11-16T05:19:06Z"
+     },
+     {
+      "number": 538,
+      "title": "chore(import): rac2-decomp 005bfc4dd, with PAL and v2.00 tables rewritten",
+      "author": "Veradictus",
+      "untrustedBody": "## Summary\n\nMoves the rac2 decomp pin from `7620562` to master's tip, `005bfc4dd`. That range is four commits: readable names, snake_case, and return types agreed between definitions and declarations. Those commits broke all three rac2 builds against the decomp's master. This PR brings OpenRAC back in line on every disc.\n\n- **USA v1.01:**\n  - Removed the `asm.signatures` entries and `result_allow` rows for functions that have C now.\n  - `options.c`'s `func_00288FB8` (GetLocalizedString) now returns `gaddr`, matching the decomp's new `char *`.\n- **PAL / USA v2.00:**\n  - Rewrote the release tables from the decomp built against the discs. That build matches all 28 programs for v1.01, PAL and v2.00.\n  - Cleaned up `result_allow` rows.\n- **PAL bug fix:** v1.01's C for `gfx_start_color_fade` and its sibling calls `IntToFloat`, `FloatToInt` and `get_moby_color` by `F500f9762_` names.\n  - PAL's build gives those names no value, so the release view kept v1.01's addresses.\n  - In PAL, `FloatToIn",
+      "mergedAt": "2026-11-16T08:38:02Z"
+     },
+     {
+      "number": 539,
+      "title": "ci: bump hendrikmuhs/ccache-action from 1.2.24 to 1.2.25 in /.github/actions/compiler-cache in the actions group across 1 directory",
+      "author": "dependabot[bot]",
+      "untrustedBody": "Bumps the actions group with 1 update in the /.github/actions/compiler-cache directory: [hendrikmuhs/ccache-action](https://github.com/hendrikmuhs/ccache-action).\n\nUpdates `hendrikmuhs/ccache-action` from 1.2.24 to 1.2.25\n<details>\n<summary>Release notes</summary>\n<p><em>Sourced from <a href=\"https://github.com/hendrikmuhs/ccache-action/releases\">hendrikmuhs/ccache-action's releases</a>.</em></p>\n<blockquote>\n<h2>v1.2.25</h2>\n<h2>What's Changed</h2>\n<ul>\n<li>Bump <code>@​types/node</code> from 26.2.0 to 26.4.0 by <a href=\"https://github.com/dependabot\"><code>@​dependabot</code></a>[bot] in <a href=\"https://redirect.github.com/hendrikmuhs/ccache-action/pull/466\">hendrikmuhs/ccache-action#466</a></li>\n<li>Bump <code>@​types/node</code> from 26.4.0 to 26.6.2 by <a href=\"https://github.com/dependabot\"><code>@​dependabot</code></a>[bot] in <a href=\"https://redirect.github.com/hendrikmuhs/ccache-action/pull/474\">hendrikmuhs/ccache-action#474</a></li>\n<li>Bump handlebars from 4.7.9 to 4.7.10 ",
+      "mergedAt": "2026-11-16T13:10:39Z"
+     },
+     {
+      "number": 540,
+      "title": "Support randomized RAC1 reward displays and acquisition animations",
+      "author": "SavedbyBlood9",
+      "untrustedBody": "RAC1 randomized rewards display and present the item actually received, including models absent from the current planet. Adds render-only replacements and approved framing profiles for vendor monitors/holograms, world pickups, Infobot locations and gold-weapon cases. Preserves native vendor weapon framing, native Gold Bolt pickups, and separate transforms for each display context. Vendor titles fit inside the monitor.\n\nProvides Gold Bolt acquisition, weapon purchase demos and portable Infobot opening/video/closing sequences with player-relative cameras, native mechanical audio and visible scenery. Presentations do not award inventory items.\n\nIncludes six in-game-tested native receiving motions: Persuader, Raritanium, Zoomerator, Codebot, Premium Nanotech and Ultra Nanotech. Persuader/Raritanium start at the catch; Nanotech starts with the can already held. Original native rigs align hands and props. Persuader retains its animated blue swirl; Persuader/Raritanium/Zoomerator face the cam"
+     },
+     {
+      "number": 541,
+      "title": "ci: give game build jobs a two-hour limit",
+      "author": "nickyyOO",
+      "untrustedBody": "**Before:** game build jobs stopped at one hour (\"The job has exceeded the maximum execution time of 1h0m0s\"), mostly with a cold compiler cache: launcher.yml `build` (every row but Windows and Android) and the port build jobs in checks.yml. Windows had 180 minutes and sdk.yml had no limit (6 h default).\n\n**After:** game build jobs get 120 minutes. No job runs past two hours. Short jobs (5-45 min) keep their limits.\n\n**How:** launcher.yml uses a flat `timeout-minutes: 120` instead of `matrix.timeout || 60` and drops the per-row values. checks.yml build jobs at 60 go to 120. sdk.yml jobs get 120 instead of no limit.\n\n**Tested:** all workflows parse as YAML. Not run: actionlint locally (it runs in checks), no CI dispatch. Windows with a cold cache is close to two hours, so it may still need a warm cache.",
+      "mergedAt": "2026-11-16T09:51:50Z"
+     },
+     {
+      "number": 542,
+      "title": "fix(rac2): pause menu rows and full-window movies",
+      "author": "Lynder063",
+      "untrustedBody": "Pause Options text, icons and bars line up again with the Video row.\nMovies fill a 16:9 window on black instead of a small box over the game.",
+      "mergedAt": "2026-11-16T14:23:48Z"
+     },
+     {
+      "number": 543,
+      "title": "fix(renderer): refill one texture for rac2 movie frames",
+      "author": "nickyyOO",
+      "untrustedBody": "**Before:** since #532, every rac2 movie frame went through the generic GS upload path: hash 1 MB, convert it, check texture packs, make a new GL texture. The pool kept up to 120 old frames (about 120 MB in RAM and as much on the GPU). rac1 shows its movies with one texture that it refills.\n\n**After:** a movie picture has one texture per block. Each frame copies the RGBA rows into it and refills the GL texture in place (`glTexSubImage2D`). It stays until the movie ends. The game's own list (Press START, subtitles) is drawn as before.\n\n**How:** `TexturePool::set_picture` / `forget_picture` replace `mark_picture` and the `upload_image` call in `frontend::upload_picture`. `resolve` returns the picture only for a PSMCT32 draw that samples it whole.\n\n**Tested:**\n- `renderer_texture_test` (new `pictures` case) and `texture_blocks_gl` on GL and Vulkan (lavapipe): the refill keeps the same GL id and draws the new texels.\n- Pool cost per 512x512 frame without GL: 1.05 ms and 120 kept textures b",
+      "mergedAt": "2026-11-16T13:54:49Z"
+     },
+     {
+      "number": 544,
+      "title": "feat(rac2): MODS badge on save slots written with mods",
+      "author": "Lynder063",
+      "untrustedBody": "Load and Save pages show a small MODS badge on slots saved with mods, as RAC1 does.\nUSA v1.01 only for now; PAL and v2.00 need their release tables written again.",
+      "mergedAt": "2026-11-17T00:44:34Z"
+     },
+     {
+      "number": 545,
+      "title": "fix(hostgen): read rac2's readable names in the release view",
+      "author": "nickyyOO",
+      "untrustedBody": "**Before:** Going Commando USA v2.00 and PAL crashed on the title screen. Their release tables were in the old format: the names were guessed from catalogue order, the old code of the primary release (v1.01) could stay next to the release's own code at the same address, and several level hooks had no C. Pre-rendered movies were black on every version (sound played), since #543.\n\n**After:** both releases reach the title, New Game and every level. The port reads rac2 the way it reads rac1: what the release's build placed is the release's code. Movies show again, full window (#542 merged in).\n\n**How:**\n- `release.py build` reads the release's build (`placed.json`). The table lists `placed`, `absent`, `gone_in` and `folded_places`, and `Release.splice` drops the left-out definitions under every spelling.\n- Each release's facts are in `release/release.json`. The hand C is written into the release's `hand/` in its own names, as rac1 does.\n- Level hooks are paired by their callers. Their empt",
+      "mergedAt": "2026-11-16T23:14:17Z"
+     },
+     {
+      "number": 546,
+      "title": "fix: skip textures made anew each tick in the texture dump",
+      "author": "nickyyOO",
+      "untrustedBody": "## Before\nThe texture dump wrote thousands of junk files into `Interface/`. rac1 uploads a 64x64 texture on every tick on each planet. It is fully transparent and a few texels change by 1 each tick, so every tick gave a new hash and a new file. No pack can replace these.\n\n## After\nOnly real textures are dumped. On rac1 NTSC-U levels 0-5, `Interface/` went from 2399 files to 86. All removed files were those transparent 64x64 textures. `Planets/`, `Shared/` and `Animated/` stay the same.\n\n## How\n- `texture_pack::LiveWatch` watches each upload place. A place that gets a new, never seen texture on 64 ticks in a row (at most 4 ticks apart) is live: it is not dumped, and the files this run already wrote for it are removed.\n- Animation cycles are not affected: their frames come back, so they never reach 64 new ones. Many new textures in one tick count once.\n- A held texture that is still drawn more than 4 ticks later (a fade's last picture) is dumped once.\n- Only the dump changes. Game logic ",
+      "mergedAt": "2026-11-16T21:13:04Z"
+     },
+     {
+      "number": 547,
+      "title": "feat(sdk): a prop fixed to a moby's joint, and where it was drawn, interface 1.18",
+      "author": "farfeduc",
+      "untrustedBody": "Three commits on develop (#489's 1.17 is in): `feat(sdk): a prop fixed to a moby's joint, interface 1.18`, `feat(sdk): where a prop was drawn last, prop_frame (interface 1.18)` and `docs(sdk): a guide to props, on a joint too (interface 1.18)`.\n\n## Why\n\nA mod that adds a weapon draws the weapon's model as a prop (1.12), but could only pose it from its own tick:\n\n- the pose lagged a frame behind the hero's animation, and the mod never saw his hand's matrix nor where the game puts its own pieces, so the model floated beside the hand;\n- the game's own weapon could not be hidden for good: rac1 shows all the hero's held pieces again each tick (`update_hero_item_moby_flags`, from his own update, outside the moby updates and before the draw), so `moby_hide` on it lasted no frame;\n- once the model sits in the hand, the mod still has to know where its muzzle is to start the shots there. rac1's held item moby keeps only the yaw and pitch of its joint, so that place is wrong as soon as the hero r",
+      "mergedAt": "2026-11-16T22:43:36Z"
+     },
+     {
+      "number": 548,
+      "title": "fix(port): skip invisible blank texture exports",
+      "author": "pezzadev",
+      "untrustedBody": "Texture dumping can write blank PNGs with different filenames because their hidden RGB values change. Follow up on #546 by omitting these uploads immediately when texture sampling and an active source-over blend prove that zero-alpha texels cannot contribute colour.\n\nKeep RGB-only, Highlight, unblended and unknown draws, blank animation frames, and the original replacement hashes. Include the export policy in conversion caching and propagate it when a live upload settles. Upstream's live-texture detection and movie upload fixes remain intact.\n\nValidation:\n- Windows enhanced build of `texture_pack_test`, `renderer_texture_test` and `renderer_gif_test`; all three CTest suites pass.\n- Synthetic regressions for texture functions, fixed/destination alpha, unknown draws, cache transitions, settled live uploads, GIF state propagation, faint alpha, replacement lookup and blank animation frames.\n- PAL/NTSC renderer host-hook tests and RAC1/RAC2 version table parity checks pass.\n- Changed-line f",
+      "mergedAt": "2026-11-17T00:30:36Z"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": null,
+   "contributors": [
+    "farfeduc",
+    "Lynder063",
+    "nickyyOO",
+    "noire342",
+    "pezzadev",
+    "SavedbyBlood9",
+    "Veradictus"
+   ]
+  },
+  {
+   "repo": "rac1-decomp",
+   "title": "Ratchet & Clank",
+   "branches": [
+    {
+     "name": "main",
+     "commits": []
+    }
+   ],
+   "commitCount": 0,
+   "pullRequests": {
+    "merged": [],
+    "opened": []
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": null,
+   "contributors": []
+  },
+  {
+   "repo": "rac2-decomp",
+   "title": "Going Commando",
+   "branches": [
+    {
+     "name": "master",
+     "commits": [
+      {
+       "sha": "7ef0c488dfc60ad930b9541c6c7048a9bfb3e709",
+       "title": "docs(src): readable PAL and USA v2.00 sources, rac1 style",
+       "author": "Lynder063",
+       "date": "2026-11-16T09:01:18Z"
+      },
+      {
+       "sha": "d553ee14b7b0bd93762d08c8178b2be61767433f",
+       "title": "refactor(names): name globals and PAL/USA v2.00 functions, rac1 style",
+       "author": "Lynder063",
+       "date": "2026-11-16T07:48:50Z"
+      }
+     ]
+    }
+   ],
+   "commitCount": 2,
+   "pullRequests": {
+    "merged": [],
+    "opened": [
+     {
+      "number": 466,
+      "title": "fix(carry): name the release's empty level hooks by their callers",
+      "author": "nickyyOO",
+      "untrustedBody": "**Before:** the boot's empty 8-byte level hooks were paired with v1.01's by order. USA v2.00 has its hooks 8 bytes on and one more, and PAL has its own run, so many release hooks had another hook's name (func_0026F748, the hero's state change hook, among them). OpenRAC had to pair them again by their callers (pair_stubs).\n\n**After:** carry.py pairs each hook by the calls to it. A v1.01 function with a place in the release, or the one release function of the same shape, calls the release's hook at the same word. A hook that no call names takes its place in the run between two named ones, where both moved alike. The USA v2.00 and PAL catalogues and sources use these names. The hook only USA v2.00 has is func_US2_0026F7E0 (stub_empty_us2), and PAL's empty overlay callback is v1.01's func_0032A130 (moby_do_nothing).\n\n**Tested:** `tools/build.py all --version us2` and `--version pal`: every program builds to the retail bytes, and placed.json changes only in hook names and values. carry.py's",
+      "mergedAt": "2026-11-17T08:41:05Z"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [
+     {
+      "number": 467,
+      "title": "[STEAMOS] R&C2 still not building iso disc on new launcher update",
+      "author": "SoraKazooie24"
+     }
+    ],
+    "closed": []
+   },
+   "releases": [],
+   "progress": {
+    "before": {
+     "code": {
+      "done": 5524052,
+      "total": 5524052
+     },
+     "functions": {
+      "done": 8527,
+      "total": 8527
+     }
+    },
+    "after": {
+     "code": {
+      "done": 5524052,
+      "total": 5524052
+     },
+     "functions": {
+      "done": 8527,
+      "total": 8527
+     }
+    }
+   },
+   "contributors": [
+    "Lynder063",
+    "nickyyOO"
+   ]
+  },
+  {
+   "repo": "rac3-decomp",
+   "title": "Up Your Arsenal",
+   "branches": [
+    {
+     "name": "master",
+     "commits": [
+      {
+       "sha": "94c69dac4cdc38965729d12ad8292e9fcf4fa630",
+       "title": "fix(levels): correct 6 declarations of functions that are not matched yet",
+       "author": "bigbeno37",
+       "date": "2026-11-16T23:40:56Z"
+      },
+      {
+       "sha": "c23adecdfae964dd3a3491d6a25ca83f62c8b45f",
+       "title": "chore(progress): regenerate the reports and the NTSC-U carry at upstream 2e37b9c92",
+       "author": "bigbeno37",
+       "date": "2026-11-16T23:37:44Z"
+      },
+      {
+       "sha": "2e37b9c92f26ecbc263138f244e8a22d89144492",
+       "title": "feat(tools): report return types that differ between definition and declarations (#81)",
+       "author": "llesieur99",
+       "date": "2026-11-16T22:55:07Z"
+      },
+      {
+       "sha": "d2906331e1b5f972320f644dab6dc3168ebf5510",
+       "title": "feat(tools): sister_twins.py, rac3 functions a sister already has in C (#80)",
+       "author": "llesieur99",
+       "date": "2026-11-16T22:43:06Z"
+      },
+      {
+       "sha": "c2061935255c8b01bbc97c711aed4c2e5c8cf0b6",
+       "title": "feat(levels): match 20 functions in level 3 (starship phoenix) and level 9 (tyhrranosis) and level 14 (koros) and level 16 (kerwan) and level 24 (insomniac museum) and shared level code",
+       "author": "bigbeno37",
+       "date": "2026-11-16T22:38:24Z"
+      },
+      {
+       "sha": "41b8289e7d81afad37e6d8ed8b9e09c449a0da92",
+       "title": "fix(levels): cut 15 level 2 5 6 7 8 10 11 12 13 14 16 18 19 20 22 23 24 26 27 28 29 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 files where code built with other flags begins",
+       "author": "bigbeno37",
+       "date": "2026-11-16T22:31:33Z"
+      },
+      {
+       "sha": "25b347f0fff1615368fca6c2b2c22a3811fc7581",
+       "title": "fix(tools): us_port.py renames the names of a port in one pass (#79)",
+       "author": "llesieur99",
+       "date": "2026-11-16T22:16:57Z"
+      },
+      {
+       "sha": "f47c3ad3885672d2ca39cc6ea37c8e8e3a2dc3af",
+       "title": "fix(levels): correct 1 declarations of functions that are not matched yet",
+       "author": "bigbeno37",
+       "date": "2026-11-16T22:15:58Z"
+      },
+      {
+       "sha": "7b4c434ce4e2a302afbcca688c6b36a96c1ba20e",
+       "title": "chore(progress): regenerate the NTSC-U carry's tables on b2e7a94f",
+       "author": "bigbeno37",
+       "date": "2026-11-16T22:05:35Z"
+      },
+      {
+       "sha": "d3eba53385d3a02b5b2e7473d6b14d439ed32066",
+       "title": "fix(tools): a match no longer makes a level's setup run in full",
+       "author": "bigbeno37",
+       "date": "2026-11-16T21:13:32Z"
+      },
+      {
+       "sha": "bcf6f7c5ab1c80d963895df939fe61061204f9cc",
+       "title": "build(tools): a level's setup is skipped when nothing it reads has changed",
+       "author": "bigbeno37",
+       "date": "2026-11-16T21:13:26Z"
+      },
+      {
+       "sha": "6ffa3f78a6f58165016d58fecd5a9244db2c64a8",
+       "title": "build(tools): c_objects.py reuses the result of a function whose inputs are unchanged",
+       "author": "bigbeno37",
+       "date": "2026-11-16T21:13:26Z"
+      },
+      {
+       "sha": "b2e7a94f4f3ddb4d6299a9a75f0d5f4d7cf80d83",
+       "title": "feat(levels): match 28 PAL functions and 5 NTSC-U counterparts (#76)",
+       "author": "GianniGr",
+       "date": "2026-11-16T20:58:03Z"
+      },
+      {
+       "sha": "d266e5b1b8cd0378e379d66a803d3114b53d4646",
+       "title": "feat(boot_elf,frontbin): match 9 core functions (twins, US drafts) giving their files @ps2as (#75)",
+       "author": "farfeduc",
+       "date": "2026-11-16T20:48:45Z"
+      },
+      {
+       "sha": "a9360cd1d76cd056c6387ecba9fdbc90208d056e",
+       "title": "nonmatching: 13 Codex wave 4 functions that matched but could not land",
+       "author": "llesieur99",
+       "date": "2026-11-16T20:15:53Z"
+      },
+      {
+       "sha": "ffb1a0e977a4b869ec67186cc80868ec3fd5ef97",
+       "title": "nonmatching: 10 functions of Codex waves 6-10 that matched alone but were held at landing",
+       "author": "llesieur99",
+       "date": "2026-11-16T19:42:38Z"
+      },
+      {
+       "sha": "5f54b6f234dd40f1c568cd663cccf458b37a5509",
+       "title": "feat(levels): match 27 level 7 functions decompiled from the assembly",
+       "author": "llesieur99",
+       "date": "2026-11-16T19:39:56Z"
+      },
+      {
+       "sha": "fc33e162037c664208547b103c6baa89b79371b1",
+       "title": "nonmatching: 250 near drafts of the Claude waves (K, C2-C4, B, B8, E, S, S2)",
+       "author": "llesieur99",
+       "date": "2026-11-16T19:32:43Z"
+      },
+      {
+       "sha": "72bd036756e5083ffe4e5ae06fb570daa36a3e78",
+       "title": "nonmatching: 206 near drafts of Codex wave 10 (P10)",
+       "author": "llesieur99",
+       "date": "2026-11-16T19:32:31Z"
+      },
+      {
+       "sha": "09c4caaa1507aeaca474fe2d1ae89e90e65684d7",
+       "title": "nonmatching: 542 Codex near drafts (waves 3-8), 13 closer drafts replace older ones",
+       "author": "llesieur99",
+       "date": "2026-11-16T19:32:30Z"
+      },
+      {
+       "sha": "1a09f3470b2a70f80109f2b54fff14f1c6729585",
+       "title": "feat(levels): match func_L01_00327038",
+       "author": "llesieur99",
+       "date": "2026-11-16T19:31:21Z"
+      },
+      {
+       "sha": "77ad9296b7279abfb50c2910efba8c05b4f42883",
+       "title": "feat(levels): match 95 level functions decompiled from the assembly",
+       "author": "llesieur99",
+       "date": "2026-11-16T19:18:22Z"
+      },
+      {
+       "sha": "074e59ab8a80eab16574d6d412da427af729eb4a",
+       "title": "feat(boot_elf): match 3 more functions of the front-end copy in boot_elf",
+       "author": "llesieur99",
+       "date": "2026-11-16T18:59:49Z"
+      },
+      {
+       "sha": "cbcc9d46e3861ec796d7140f9a155327b8586083",
+       "title": "feat(us): match the NTSC-U counterparts of two level 39 DNAS functions",
+       "author": "llesieur99",
+       "date": "2026-11-16T18:07:05Z"
+      },
+      {
+       "sha": "98ab90c0c8040a88de1f5981c65ddd6e46a99786",
+       "title": "test(dnas): NTSC-U's own C for level 39 holds level 39 blocks too",
+       "author": "llesieur99",
+       "date": "2026-11-16T17:41:17Z"
+      },
+      {
+       "sha": "84cd8ab55972ec3bf3a5facd3bbfb29c10d3053d",
+       "title": "feat(us): match 3 NTSC-U frontbin counterparts of PAL C",
+       "author": "llesieur99",
+       "date": "2026-11-16T17:35:55Z"
+      },
+      {
+       "sha": "7ee6e8360b12079f61c9ef446de1191d0703f3e7",
+       "title": "fix(us): move a whole PAL object's absolute jump tables to its NTSC-U place",
+       "author": "llesieur99",
+       "date": "2026-11-16T17:25:50Z"
+      },
+      {
+       "sha": "cd3a2c5fb7af7b7344646672a446f06a7fb2eda6",
+       "title": "feat(us): match 25 NTSC-U level counterparts of PAL C",
+       "author": "llesieur99",
+       "date": "2026-11-16T17:08:30Z"
+      },
+      {
+       "sha": "8955b8488f72e849120470980bcddd0be801a42c",
+       "title": "feat(us): match 31 NTSC-U level counterparts of PAL C",
+       "author": "llesieur99",
+       "date": "2026-11-16T16:20:37Z"
+      },
+      {
+       "sha": "f10aab76961963764556a90a6d1b7654d408f501",
+       "title": "feat(us): match func_003E40B0, the NTSC-U counterpart of func_003E41F8",
+       "author": "llesieur99",
+       "date": "2026-11-16T16:06:10Z"
+      },
+      {
+       "sha": "1118a8b816ae9630acf4b2c7f38898b50d84b7da",
+       "title": "chore(progress): 12903 of 16533 functions (PAL), 12799 of 16528 (NTSC-U)",
+       "author": "llesieur99",
+       "date": "2026-11-16T15:32:19Z"
+      },
+      {
+       "sha": "eb302969c350fa52e5823c363078c07cdaa4384c",
+       "title": "feat(levels): match func_L01_003C63E0",
+       "author": "llesieur99",
+       "date": "2026-11-16T14:13:08Z"
+      },
+      {
+       "sha": "e0c7b461cbc2360d5f70df97a8129a1f1a1b7c43",
+       "title": "feat(levels): match 100 level functions decompiled from the assembly",
+       "author": "llesieur99",
+       "date": "2026-11-16T13:52:39Z"
+      },
+      {
+       "sha": "6555dd0d4225c39fa22244a76788a389c28656b5",
+       "title": "feat(boot_elf): match 3 more functions of the front-end copy in boot_elf",
+       "author": "llesieur99",
+       "date": "2026-11-16T13:25:58Z"
+      },
+      {
+       "sha": "19a75c714e796d925f5381400a70cd40b8f02dba",
+       "title": "feat(levels): match func_L07_00334C28",
+       "author": "llesieur99",
+       "date": "2026-11-16T10:41:09Z"
+      },
+      {
+       "sha": "0c7bdf5e594c1d3cc6bd45113c6b0142a276ddf4",
+       "title": "feat(levels): match 18 level functions decompiled from the assembly",
+       "author": "llesieur99",
+       "date": "2026-11-16T10:36:42Z"
+      },
+      {
+       "sha": "da6b7b641c11911a9537ad384e15ff7e3a27a6fd",
+       "title": "feat(boot_elf): match 10 more functions of the front-end copy in boot_elf",
+       "author": "llesieur99",
+       "date": "2026-11-16T10:33:03Z"
+      },
+      {
+       "sha": "6cc9bfe75e4f608feafc490583a0bac505c2b5b4",
+       "title": "feat(frontbin): give four files new flag lines, match 5 functions (#74)",
+       "author": "gelatinous-bullion",
+       "date": "2026-11-16T10:24:21Z"
+      },
+      {
+       "sha": "1f44ce1e67a88fabbea9a3950278e3696da30186",
+       "title": "feat(levels): match 23 more level functions whose NTSC-U twins have the same code",
+       "author": "llesieur99",
+       "date": "2026-11-16T10:11:14Z"
+      },
+      {
+       "sha": "56c93fec817561ce18d395c29a88233a445cbac3",
+       "title": "feat(levels): match 63 level functions whose NTSC-U twins have the same code",
+       "author": "llesieur99",
+       "date": "2026-11-16T09:47:47Z"
+      },
+      {
+       "sha": "efcb5824cbdbcdb34dc437d7cca38b94cf8dd8f5",
+       "title": "feat(boot_elf): match 13 functions of the front-end copy in boot_elf",
+       "author": "llesieur99",
+       "date": "2026-11-16T09:33:05Z"
+      },
+      {
+       "sha": "292ded4dd5ca8a29b81daaea6280961b74a791d8",
+       "title": "docs: names from rac1/rac2 twins and comments on the NTSC-U natives (#64)",
+       "author": "llesieur99",
+       "date": "2026-11-16T08:56:49Z"
+      },
+      {
+       "sha": "23e94fd6ccf50e7dfdfc701c3f0f97e0b0dcf656",
+       "title": "feat(levels): match 46 shared L03-L05 functions (#72)",
+       "author": "TheBoso",
+       "date": "2026-11-16T08:27:05Z"
+      },
+      {
+       "sha": "245f0272239970daec0fdab1753eec3795567d45",
+       "title": "feat(levels): match 108 functions in levels 7, 27 and 30 (#65)",
+       "author": "cadelass",
+       "date": "2026-11-16T07:57:04Z"
+      },
+      {
+       "sha": "61d75d2b0156489c5858cae4e7819e4747b3e374",
+       "title": "feat(frontbin): give five files @ps2as, match 5 functions (#73)",
+       "author": "gelatinous-bullion",
+       "date": "2026-11-16T07:43:35Z"
+      },
+      {
+       "sha": "fa1983f9aad2ddcd31ab7e261af5f230d85c4010",
+       "title": "feat(levels): match 9 functions in the shared level 6 files (#66)",
+       "author": "DrLegitamate",
+       "date": "2026-11-16T07:37:20Z"
+      },
+      {
+       "sha": "637d2b7eb73ebd8122027da8f8cf154531459abe",
+       "title": "feat(levels): match 5 more functions in level 23 (#68)",
+       "author": "xx255q",
+       "date": "2026-11-16T07:31:28Z"
+      },
+      {
+       "sha": "013ced621545e41f986696a94fd99b855403d9f6",
+       "title": "feat: match 5 functions (4 frontbin, 1 in level 11) (#69)",
+       "author": "gelatinous-bullion",
+       "date": "2026-11-16T07:24:45Z"
+      },
+      {
+       "sha": "cdfc123b1a3d0317becb5ccfef377d835c888df3",
+       "title": "feat(frontbin): cut 3EA8E0.c where Ps2EeAs begins, match 5 functions (#71)",
+       "author": "gelatinous-bullion",
+       "date": "2026-11-16T07:09:53Z"
+      },
+      {
+       "sha": "8a7f7e7555dfe30504a4633486de80e5267e918b",
+       "title": "feat(boot_elf,frontbin): match 18 core functions (rac4 ports, twins, US drafts) (#70)",
+       "author": "farfeduc",
+       "date": "2026-11-16T06:22:34Z"
+      },
+      {
+       "sha": "895ad130a81d3de67635cc2ac6026f3c75839068",
+       "title": "fix(checks): read prototypes with function-pointer parameters as declarations",
+       "author": "llesieur99",
+       "date": "2026-11-16T06:10:37Z"
+      },
+      {
+       "sha": "31b73a3c868dded0661c81e2351f9b96c1acd9d7",
+       "title": "feat(us): match 5 NTSC-U level counterparts whose prologue saves with sq",
+       "author": "llesieur99",
+       "date": "2026-11-16T05:52:11Z"
+      },
+      {
+       "sha": "3c8a9639785de347512e46c44e850041724317fc",
+       "title": "fix(us): built rows of the nine NTSC-U core natives",
+       "author": "llesieur99",
+       "date": "2026-11-16T05:45:59Z"
+      },
+      {
+       "sha": "2b0ebf3ad1dc6497e9f85322585ca81d99d741bf",
+       "title": "feat(us): match 288 NTSC-U level counterparts of PAL C",
+       "author": "llesieur99",
+       "date": "2026-11-16T05:14:49Z"
+      },
+      {
+       "sha": "f21ae0ea299c602d7902322862edf3c66a1156b9",
+       "title": "feat(us): match 9 NTSC-U core counterparts of PAL C (7 frontbin, 2 boot_elf)",
+       "author": "llesieur99",
+       "date": "2026-11-16T04:20:48Z"
+      },
+      {
+       "sha": "114d379d9045c9b17709726ea7464432baa5d0db",
+       "title": "feat(levels): match 8 more level functions whose NTSC-U twins have the same code",
+       "author": "llesieur99",
+       "date": "2026-11-16T03:19:38Z"
+      },
+      {
+       "sha": "0695fae7d2aeee87c1dbc1e90b8c0a3e25813cdf",
+       "title": "feat(levels): match 12 level functions whose NTSC-U twins have the same code",
+       "author": "llesieur99",
+       "date": "2026-11-16T02:58:14Z"
+      },
+      {
+       "sha": "f9885dd25ff0e4bb52045387f8809d111bdc78bb",
+       "title": "feat(us): match 4 NTSC-U level functions ported from rac2-decomp and rac4-decomp",
+       "author": "llesieur99",
+       "date": "2026-11-16T02:50:53Z"
+      },
+      {
+       "sha": "4ab6e364f639eb34d8375e900ea333bc8fed66fa",
+       "title": "feat(levels): match 10 shared level functions ported from rac2-decomp and rac4-decomp",
+       "author": "llesieur99",
+       "date": "2026-11-16T01:37:45Z"
+      },
+      {
+       "sha": "cc8f031e57d3a79502d0f5b580e39e47a2bcc23e",
+       "title": "feat(boot_elf): match func_0013CD28, ported from rac2-decomp",
+       "author": "llesieur99",
+       "date": "2026-11-16T01:32:21Z"
+      },
+      {
+       "sha": "0a2052869300553ed00f9b20a6e04bc3a79fd8f0",
+       "title": "feat(frontbin): match 2 frontbin functions ported from rac4-decomp",
+       "author": "llesieur99",
+       "date": "2026-11-16T01:21:16Z"
+      },
+      {
+       "sha": "cafca12a2e2d21c7ba0a5f6a26f4f752c026d0c6",
+       "title": "feat(boot_elf): match 3 engine-core functions ported from rac2-decomp and rac4-decomp",
+       "author": "llesieur99",
+       "date": "2026-11-16T01:21:05Z"
+      }
+     ]
+    }
+   ],
+   "commitCount": 62,
+   "pullRequests": {
+    "merged": [
+     {
+      "number": 64,
+      "title": "docs: names from rac1/rac2 twins and comments on the NTSC-U natives",
+      "author": "llesieur99",
+      "untrustedBody": "Readable names for rac3 functions, taken from their twins in rac1-decomp and rac2-decomp, and a one- or\ntwo-sentence comment above each NTSC-U native in `src/us/levels/`. No code changes: C keeps every address\nname (the names are lookup rows, as docs/contributing/names.md says), and comments change no bytes.\n\nRebuilt on master `23e94fd6`: the twin search and the name picking were rerun on that tree, and the\ncomments were reinserted at each native's current definition (details under \"Rebuild\" below).\n\n## Functions\n\nNo function is matched or changed. Two commits:\n\n- `docs(names)`: 513 new rows in `config/names.tsv` (no existing row is changed), `include/names.h`\n  regenerated with `tools/names.py header`, and the new sources in `docs/contributing/names.md`.\n- `docs(us)`: a comment on 1,400 of the 1,752 natives in `src/us/levels/` (53 already had a description\n  right above the definition and keep it; the 299 that landed after the comments were written have none\n  yet), and `config/us/map",
+      "mergedAt": "2026-11-16T08:56:49Z"
+     },
+     {
+      "number": 65,
+      "title": "feat(levels): match 108 functions in levels 7, 27 and 30",
+      "author": "cadelass",
+      "untrustedBody": "Level 7 (Annihilation Nation) continued and retry passes, plus the earlier level 27 and 30 work: 108 functions to plain C, all proven by the level builds.\n\n## Functions\n\n| Level | Converted | `INCLUDE_ASM` left in the level | Near misses kept in `nonmatching/levels/` |\n| --- | --- | --- | --- |\n| 07 Annihilation Nation | 102 | 230 (53 plain, 51 mmi, 46 switch, 80 vu0) | 8 |\n| 27 Aquatos Base | 5 | 1 | 1 |\n| 30 Vid-comic unnamed | 1 | 2 | 2 |\n\nAll plain C. Files that needed a flag change are listed under Notes; no function has flags of its own.\n\n<details>\n<summary>The 108 functions</summary>\n\nLevel 7 (`func_L07_`): 003303B0, 00330748, 00330828, 003309A0, 00331008, 00331158, 003319C8, 00332848, 003328D0, 00332958, 00332A90, 00332BE0, 00332F90, 003330E8, 00333200, 00333310, 00333918, 00334318, 00334408, 00334588, 00334A98, 00334EC0, 00334FB0, 003350F0, 003352B8, 00335558, 00352F30, 00352FF0, 00353378, 00353498, 003535E8, 003538A0, 00353980, 0035C880, 0035CAB8, 003A3BB0, 003A5ED0, 003A6110",
+      "mergedAt": "2026-11-16T07:57:05Z"
+     },
+     {
+      "number": 66,
+      "title": "feat(levels): match 9 functions in the shared level 6 files",
+      "author": "DrLegitamate",
+      "untrustedBody": "Nine more functions from the shared level 6 files claimed in #3, plus nine near misses.\n\n**Matched**\n- `func_L06_003564A0` (`src/levels/shared/L06_00354F18.c`, levels 06 and 14)\n- `func_L06_00358938` (`src/levels/shared/L06_00356C80.c`, levels 06, 14 and 20): writes the new moby through `struct Moby` (the file now includes `structs/moby.h`). Its `$gp` reads are level data (`D_L06_001DD358`/`35C`/`36C`; the offsets differ in levels 14 and 20).\n\n`L06_00354F18.c` was CRLF and is LF now, so the whole-file diff is large; `git diff -w` shows the real change.\n\n- `func_L06_003528B8` (`src/levels/shared/L06_00351930.c`, levels 06 and 14), second commit: the two-pass twin of the matched `func_L06_00352CA0`. Their shared types move to the file prelude, and `D_00352CA0`'s `pad1C` becomes the `f32 f1C` both write.\n- Third commit: `func_L06_00350FD0` (levels 06, 14; adds the divs_nops row `func_L06_00350FD0 2` for the two nops retail has before its `div.s`), `func_L06_00352110` (06, 14), `func_L06_0",
+      "mergedAt": "2026-11-16T07:37:21Z"
+     },
+     {
+      "number": 68,
+      "title": "feat(levels): match 5 more functions in level 23",
+      "author": "xx255q",
+      "untrustedBody": "Matches 5 more level 23 functions in plain C (4,260 bytes):\nfunc_L23_0047E620 (608 bytes): L23_0047E620.c\nfunc_L23_003B0CE0 (476 bytes): L23_003AD800.c\nfunc_L23_003A97B8 (1160 bytes): L23_003A6688.c\nfunc_L23_003B44F8 (984 bytes): L23_003B3BB8.c\nfunc_L23_003BB8A8 (1032 bytes): L23_003B94C8.c\nFunctions and file changes\nAll plain C, built with each file's current flags; no text_parts.txt changes.\nfunc_L23_0047E620 is the same source as func_L08_0047F170.\nfunc_L23_003A97B8: the table entries in L23_003A6688.c are { s32 id; f32 x4; f32 x8; s32 xC[2]; } (Rec14, same 0x14 size; the file's other user, func_L23_003A9C40, reads only .id and still matches).\nfunc_L23_003B0CE0 reaches pos and dir only through pointers to them, the form docs/wiki/Matching-Patterns.md describes (func_L11_003798E8), and reads 0x1DEC40 through $gp with the per-function alias D_L23_001DEC40_3B0CE0 (.extern …, 4).\nfunc_L23_003BB8A8 extends the file's Moby_3BB7C8 (a u16 at 0x96; 0xAA becomes s16, which retail reads with l",
+      "mergedAt": "2026-11-16T07:31:29Z"
+     },
+     {
+      "number": 69,
+      "title": "feat: match 5 functions (4 frontbin, 1 in level 11)",
+      "author": "gelatinous-bullion",
+      "untrustedBody": "## Functions\n\n- `func_003A9AD0` (frontbin, `3A9050.c`): plain C. Its boot_elf copy `func_003A9E88` already had the same C; the US draft's only blocker (a single-function `@ps2as`) is gone now that the whole file is `@ps2as`.\n- `func_L11_003C3650` (level 11, `L11_003C3650.c`): plain C, written from the assembly.\n- `func_003E4440` (frontbin, `3E3E40.c`): plain C, the US draft with PAL's constant (0.009f, the 50 Hz value, where the US has 0.008f).\n- `func_003E72B8` (frontbin, `3E7188.c`): plain C, PAL code with no US twin, written from the assembly. Adds `func_003E72B8 2 1` to `config/frontbin/divs_nops.txt` (retail's two `div.s` padded with two and one `nop`s).\n- `func_00392BB8` (frontbin): plain C, landed by cutting `392A18.c` at `0x392F68` (below).\n\n## Checks\n\n- [ ] `python tests/check_repository.py` passes and `python tools/pr_check.py` prints `OK`: `pr_check.py` prints `OK` for frontbin and i5bootn. boot_elf's 8 \"defines a variable\" errors and `check_repository.py`'s 9 problems (thos",
+      "mergedAt": "2026-11-16T07:24:45Z"
+     },
+     {
+      "number": 70,
+      "title": "feat(boot_elf,frontbin): match 18 core functions (rac4 ports, twins, US drafts)",
+      "author": "farfeduc",
+      "untrustedBody": "## Functions\n\n18 functions of the engine core and the front end (boot_elf and frontbin), in three commits. Claimed in #3.\n\n**Ported from rac4-decomp** (the same instructions, addresses masked, as a function rac4-decomp has matched; its C with this game's names read from retail, and each file's own declarations):\n\n- boot_elf core: `func_00136010`, `func_0013A9F0`\n- boot_elf's front end: `func_003C5110` (one other field offset), `func_003E7620`\n- frontbin: `func_00392748`\n\n**Twins of functions already in C in the other core program:**\n\n- boot_elf: `func_00382CB8` (frontbin's `func_003828D8`), `func_003ABBE8` (`func_003AB830`), `func_003EF998` (`func_003EF5E0`)\n- frontbin: `func_003A9AD0` (boot_elf's `func_003A9E88`), `func_003C5110` (`func_003C54C8`), `func_003CE098` (`func_003CE450`)\n\n**US drafts from `nonmatching/` that now match with their files' flags.** They were held as \"flags\", because the US needed `@ps2as`, which their PAL files now have; one was a near miss. All but one compile",
+      "mergedAt": "2026-11-16T06:22:34Z"
+     },
+     {
+      "number": 71,
+      "title": "feat(frontbin): cut 3EA8E0.c where Ps2EeAs begins, match 5 functions",
+      "author": "gelatinous-bullion",
+      "untrustedBody": "## Functions\n\nAll plain C with their file's own flags. They're in `src/frontbin/3ED988.c`, cut from `3EA8E0.c` (below).\n- `func_003ED988`, `func_003EE800`, `func_003EF2A0`, `func_003EFFF8`: the US drafts (rac3-uya-decomp `func_003E8420`, `func_003E9298`, `func_003E9D38`, `func_003EAA90`), unchanged. They only ever needed Ps2EeAs (they build their float constants inline). `func_003EFFF8`'s boot_elf copy was already C.\n- `func_003F0B00`: PAL code with no US twin, written from the assembly (a float argument times 5/6 stored through the object at 0x2C).\n\n## Checks\n\n- [ ] `python tests/check_repository.py` passes and `python tools/pr_check.py` prints `OK`: `pr_check.py` prints `OK` for frontbin and i5bootn. boot_elf's 8 \"defines a variable\" errors and `check_repository.py`'s 9 problems are already on master, in files this PR doesn't touch.\n- [x] Full build prints `MATCH`: `tools/build.py --target all` gives 3× MATCH, `tools/build_levels.py` gives 49 of 49 levels, `tools/carry_us.sh` gives 5",
+      "mergedAt": "2026-11-16T07:09:53Z"
+     },
+     {
+      "number": 72,
+      "title": "feat(levels): match 46 shared L03-L05 functions",
+      "author": "TheBoso",
+      "untrustedBody": "Replaces 46 remaining INCLUDE_ASM functions in 33 shared L03/L04/L05 source files with plain C. The candidates were checked against upstream master before integration and refreshed against 2b0ebf3a before submission; newer upstream changes do not touch these PAL files.\r\n\r\n## Functions\r\n\r\n- `func_L03_00300AD8`: plain C.\r\n- `func_L03_00300F50`: plain C.\r\n- `func_L03_0034B008`: plain C.\r\n- `func_L03_0034BC80`: plain C; file flags: `-O2 -G8 -fopt-stack -mno-check-zero-division @ps2as`.\r\n- `func_L03_0039AE90`: plain C.\r\n- `func_L03_0039D7F8`: plain C; file flags: `-O2 -G8 -fopt-stack -mno-check-zero-division @ps2as`.\r\n- `func_L03_003A1D48`: plain C; file flags: `-O2 -G8 -fopt-stack -mno-check-zero-division @ps2as`.\r\n- `func_L03_003A4800`: plain C.\r\n- `func_L03_003AE9A0`: plain C; file flags: `-O2 -G8 -fopt-stack -mno-check-zero-division -mno-split-addresses @ps2as`.\r\n- `func_L03_003B18E0`: plain C; file flags: `-O2 -G8 -fopt-stack -mno-check-zero-division -mno-split-addresses`.\r\n- `func_L03",
+      "mergedAt": "2026-11-16T08:27:05Z"
+     },
+     {
+      "number": 73,
+      "title": "feat(frontbin): give five files @ps2as, match 5 functions",
+      "author": "gelatinous-bullion",
+      "untrustedBody": "## Functions\n\nAll plain C, the US drafts unchanged apart from the leftover declarations noted below. Each had needed a single-function `@ps2as` override in the US project. Here its whole file takes `@ps2as` instead:\n- `func_00391408` (`38E0A8.c`; US `func_0038CBD0`)\n- `func_003A0D48` (`3A0C00.c`; US `func_0039BD48`): its two `INCLUDE_RODATA` lines go, gcc emits `jtbl_0031C410` and `jtbl_0031C460` itself\n- `func_003AF890` (`3AF2A0.c`; US `func_003AA2E8`)\n- `func_003D9740` (`3D9378.c`; US `func_003D41E0`): the port's leftover declarations before it are replaced by the draft's own\n- `func_003F1D60` (`3F1998.c`; US `func_003EC798`)\n\n## Checks\n\n- [ ] `python tests/check_repository.py` passes and `python tools/pr_check.py` prints `OK`: `pr_check.py` prints `OK` for frontbin and i5bootn. boot_elf's 8 \"defines a variable\" errors and `check_repository.py`'s 9 problems are already on master, in files this PR doesn't touch.\n- [x] Full build prints `MATCH`: `tools/build.py --target all` gives 3× M",
+      "mergedAt": "2026-11-16T07:43:35Z"
+     },
+     {
+      "number": 74,
+      "title": "feat(frontbin): give four files new flag lines, match 5 functions",
+      "author": "gelatinous-bullion",
+      "untrustedBody": "## Functions\n\nAll plain C with their file's own flags.\n- `func_003811E8` (`381140.c`): PAL code with no US twin, written from the assembly.\n- `func_00381D88` (`381140.c`): the US draft of `func_0037DD30` with PAL's 50 Hz timings (75, 12, 25, 138, 151 where the US has 90, 15, 30, 165, 181) and PAL's name of its callee, `func_0038FA18`.\n- `func_003AAE60` (`3AA9D8.c`): PAL code with no US twin, written from the assembly.\n- `func_003BDD38` (`3BDA58.c`): the US draft of `func_003B8840`, unchanged.\n- `func_003BFE58` (`3BFE58.c`): the US draft of `func_003BA948`, unchanged. Its boot_elf copy was already C, so it adds no bytes to the PAL report.\n\n## Checks\n\n- [x] `python tests/check_repository.py` passes (\"repository checks passed\") and `python tools/pr_check.py` prints `OK` for frontbin, boot_elf and i5bootn\n- [x] Full build prints `MATCH`: `tools/build.py --target all` gives 3× MATCH, `tools/build_levels.py` gives 49 of 49 levels, `tools/carry_us.sh` gives 54 of 54 NTSC-U targets\n- [x] No re",
+      "mergedAt": "2026-11-16T10:24:21Z"
+     },
+     {
+      "number": 75,
+      "title": "feat(boot_elf,frontbin): match 9 core functions (twins, US drafts) giving their files @ps2as",
+      "author": "farfeduc",
+      "untrustedBody": "## Functions\r\n\r\n9 functions of the engine core and the front end (boot_elf and frontbin), in two commits. Claimed in #3.\r\n\r\n**Twins of functions already in C** (the same instructions, addresses masked, as a function in C in the other core program or in level code):\r\n\r\n- boot_elf: `func_003AC360` (level code's `func_L39_006023D8`), `func_003F0EB8` (frontbin's `func_003F0B00`)\r\n- frontbin: `func_003A3E28` (boot_elf's `func_003A4228`), `func_003C3D30` (boot_elf's `func_003C40E8`)\r\n\r\n**US drafts from `nonmatching/`** held as \"flags: the US matched it with `@ps2as`\". They land unchanged:\r\n\r\n- boot_elf: `func_003B6940`, `func_003D0ED8`, `func_003D9AF8`\r\n- frontbin: `func_003B6588`, `func_003D0B20`\r\n\r\n## Flags\r\n\r\nEight files get `@ps2as`: boot_elf `3AC190.c`, `3F05C8.c`, `3B6900.c`, `3D0EC8.c`, `3D9730.c`; frontbin `3A3B70.c`, `3B6548.c`, `3D0B10.c`. Every other C function of those files still matches (core build). `3C2FE0.c` already had it.\r\n\r\nI tried the same on more files and left them out",
+      "mergedAt": "2026-11-16T20:48:45Z"
+     },
+     {
+      "number": 76,
+      "title": "feat(levels): match 16 PAL functions and 5 NTSC-U counterparts",
+      "author": "GianniGr",
+      "untrustedBody": "## Summary\n\n- Match **16 new PAL functions / 9,040 bytes**: 12 in Annihilation Nation and four in Final Boss.\n- Add **five native NTSC-U implementations / 4,064 bytes**, with compiler flags inherited from their PAL owners.\n- Include 11 new reconstruction drafts and the improved existing drafts selected during maintainer integration; drafts are unlinked and are not counted as matches.\n- Refresh the version map, actual C-build coverage, generated bytematch header and progress reports.\n\n### Upstream overlap resolved\n\nThe original submission contained 28 PAL matches. Twelve landed independently on master while this PR was being prepared. Maintainer **llesieur99** merged master into this branch in `aae22280`, preserving master's implementations and resolving overlapping drafts. Those 12 are **not** claimed as new contributions here.\n\nFor the 45 overlapping draft files, the maintainer retained the draft with fewer differences using the owning-file flags: 14 from this PR, 31 from master, with",
+      "mergedAt": "2026-11-16T20:58:04Z"
+     },
+     {
+      "number": 79,
+      "title": "fix(tools): us_port.py renames the names of a port in one pass",
+      "author": "llesieur99",
+      "untrustedBody": "us_port.py turned each relocated name into its NTSC-U address one name at a time. When the\nNTSC-U address of one name is the PAL address of another name the block also uses, the second\nrename caught the first one's result as well, and the two names became one: a port that reads two\nglobals would read one of them twice. The same could happen to the function's own name and to the\ncallee twins renamed after it.\n\nThe renames are now made in one pass (rename_all), so a new name is never renamed again. Where no\nnew name is another name's old one, the output is the same as before. Codex's NTSC-U porting\nadapter hit this in level 33 (two level globals merged in func_L33_0034DE80; its relocation audit\ncaught it), which is how the pattern was found; this is the same loop in the repository's tool.\ntests/test_us_port.py covers the chained case, whole-word matching and the name forms.",
+      "mergedAt": "2026-11-16T22:16:57Z"
+     },
+     {
+      "number": 80,
+      "title": "feat(tools): sister_twins.py, rac3 functions a sister already has in C",
+      "author": "llesieur99",
+      "untrustedBody": "## Purpose\n\n`tools/sister_twins.py` finds rac3 functions that are still in assembly and whose code is a function another OpenRAC decompilation has already matched in C. The sister's C can then be ported instead of written again. A twin is **exact** when every relocation-masked word is equal, and **near** (20 words and more) when at least 95 % of them are.\n\nThe tool turns the one-off scan scripts of 2026-11-15 into a reusable tool. That scan found 203 twins (179 exact), and porting their C gave dozens of matches.\n\n- **Sisters as arguments:** `--sister rac1=PATH --sister rac2=PATH --sister rac4=PATH --sister sac=PATH --sister rac5=PATH`. There is no hard-coded layout. The tool reads the sister trees and never changes them: no fetch, no checkout. Updating the clones is the user's job, and the doc says so.\n- **Sister dumps:** each sister needs its own, in its `baserom/` (or `--sister-baserom NAME=DIR`). A sister or version without them is skipped, with a message.\n- **rac3's side** comes fr",
+      "mergedAt": "2026-11-16T22:43:06Z"
+     },
+     {
+      "number": 81,
+      "title": "feat(tools): report return types that differ between definition and declarations",
+      "author": "llesieur99",
+      "untrustedBody": "## What\n\n`tools/check_return_types.py`, a **report-only** check. It is adapted from rac2-decomp's `tests/check_return_types.py` (005bfc4dd).\n\n- It parses every `.c` under `src/` with clang (`-fsyntax-only -Xclang -ast-dump=json`, MIPS target, `-I include -I .`).\n- It reduces every definition and declaration to the class the EE ABI returns it in: void, int32, int64, int128, float, double (soft-float, `$v0`), pointer, aggregate. Declarations include file scope, block scope, headers, and C89 implicit declarations at a call.\n- It groups them by the function the build links them to, and lists each group whose classes differ, for PAL and NTSC-U separately.\n\nEach file still matches retail on its own. But a port that links all the C together reads the result from the wrong register when the classes disagree. In rac2, a float definition read as int silenced every 3D sound.\n\n- **Exit code:** 0 whatever it finds. `--strict` exits 1 (it fails today).\n- **CI:** not wired in, not even as a non-faili",
+      "mergedAt": "2026-11-16T22:55:08Z"
+     }
+    ],
+    "opened": [
+     {
+      "number": 69,
+      "title": "feat: match 5 functions (4 frontbin, 1 in level 11)",
+      "author": "gelatinous-bullion",
+      "untrustedBody": "## Functions\n\n- `func_003A9AD0` (frontbin, `3A9050.c`): plain C. Its boot_elf copy `func_003A9E88` already had the same C; the US draft's only blocker (a single-function `@ps2as`) is gone now that the whole file is `@ps2as`.\n- `func_L11_003C3650` (level 11, `L11_003C3650.c`): plain C, written from the assembly.\n- `func_003E4440` (frontbin, `3E3E40.c`): plain C, the US draft with PAL's constant (0.009f, the 50 Hz value, where the US has 0.008f).\n- `func_003E72B8` (frontbin, `3E7188.c`): plain C, PAL code with no US twin, written from the assembly. Adds `func_003E72B8 2 1` to `config/frontbin/divs_nops.txt` (retail's two `div.s` padded with two and one `nop`s).\n- `func_00392BB8` (frontbin): plain C, landed by cutting `392A18.c` at `0x392F68` (below).\n\n## Checks\n\n- [ ] `python tests/check_repository.py` passes and `python tools/pr_check.py` prints `OK`: `pr_check.py` prints `OK` for frontbin and i5bootn. boot_elf's 8 \"defines a variable\" errors and `check_repository.py`'s 9 problems (thos",
+      "mergedAt": "2026-11-16T07:24:45Z"
+     },
+     {
+      "number": 70,
+      "title": "feat(boot_elf,frontbin): match 18 core functions (rac4 ports, twins, US drafts)",
+      "author": "farfeduc",
+      "untrustedBody": "## Functions\n\n18 functions of the engine core and the front end (boot_elf and frontbin), in three commits. Claimed in #3.\n\n**Ported from rac4-decomp** (the same instructions, addresses masked, as a function rac4-decomp has matched; its C with this game's names read from retail, and each file's own declarations):\n\n- boot_elf core: `func_00136010`, `func_0013A9F0`\n- boot_elf's front end: `func_003C5110` (one other field offset), `func_003E7620`\n- frontbin: `func_00392748`\n\n**Twins of functions already in C in the other core program:**\n\n- boot_elf: `func_00382CB8` (frontbin's `func_003828D8`), `func_003ABBE8` (`func_003AB830`), `func_003EF998` (`func_003EF5E0`)\n- frontbin: `func_003A9AD0` (boot_elf's `func_003A9E88`), `func_003C5110` (`func_003C54C8`), `func_003CE098` (`func_003CE450`)\n\n**US drafts from `nonmatching/` that now match with their files' flags.** They were held as \"flags\", because the US needed `@ps2as`, which their PAL files now have; one was a near miss. All but one compile",
+      "mergedAt": "2026-11-16T06:22:34Z"
+     },
+     {
+      "number": 71,
+      "title": "feat(frontbin): cut 3EA8E0.c where Ps2EeAs begins, match 5 functions",
+      "author": "gelatinous-bullion",
+      "untrustedBody": "## Functions\n\nAll plain C with their file's own flags. They're in `src/frontbin/3ED988.c`, cut from `3EA8E0.c` (below).\n- `func_003ED988`, `func_003EE800`, `func_003EF2A0`, `func_003EFFF8`: the US drafts (rac3-uya-decomp `func_003E8420`, `func_003E9298`, `func_003E9D38`, `func_003EAA90`), unchanged. They only ever needed Ps2EeAs (they build their float constants inline). `func_003EFFF8`'s boot_elf copy was already C.\n- `func_003F0B00`: PAL code with no US twin, written from the assembly (a float argument times 5/6 stored through the object at 0x2C).\n\n## Checks\n\n- [ ] `python tests/check_repository.py` passes and `python tools/pr_check.py` prints `OK`: `pr_check.py` prints `OK` for frontbin and i5bootn. boot_elf's 8 \"defines a variable\" errors and `check_repository.py`'s 9 problems are already on master, in files this PR doesn't touch.\n- [x] Full build prints `MATCH`: `tools/build.py --target all` gives 3× MATCH, `tools/build_levels.py` gives 49 of 49 levels, `tools/carry_us.sh` gives 5",
+      "mergedAt": "2026-11-16T07:09:53Z"
+     },
+     {
+      "number": 72,
+      "title": "feat(levels): match 46 shared L03-L05 functions",
+      "author": "TheBoso",
+      "untrustedBody": "Replaces 46 remaining INCLUDE_ASM functions in 33 shared L03/L04/L05 source files with plain C. The candidates were checked against upstream master before integration and refreshed against 2b0ebf3a before submission; newer upstream changes do not touch these PAL files.\r\n\r\n## Functions\r\n\r\n- `func_L03_00300AD8`: plain C.\r\n- `func_L03_00300F50`: plain C.\r\n- `func_L03_0034B008`: plain C.\r\n- `func_L03_0034BC80`: plain C; file flags: `-O2 -G8 -fopt-stack -mno-check-zero-division @ps2as`.\r\n- `func_L03_0039AE90`: plain C.\r\n- `func_L03_0039D7F8`: plain C; file flags: `-O2 -G8 -fopt-stack -mno-check-zero-division @ps2as`.\r\n- `func_L03_003A1D48`: plain C; file flags: `-O2 -G8 -fopt-stack -mno-check-zero-division @ps2as`.\r\n- `func_L03_003A4800`: plain C.\r\n- `func_L03_003AE9A0`: plain C; file flags: `-O2 -G8 -fopt-stack -mno-check-zero-division -mno-split-addresses @ps2as`.\r\n- `func_L03_003B18E0`: plain C; file flags: `-O2 -G8 -fopt-stack -mno-check-zero-division -mno-split-addresses`.\r\n- `func_L03",
+      "mergedAt": "2026-11-16T08:27:05Z"
+     },
+     {
+      "number": 73,
+      "title": "feat(frontbin): give five files @ps2as, match 5 functions",
+      "author": "gelatinous-bullion",
+      "untrustedBody": "## Functions\n\nAll plain C, the US drafts unchanged apart from the leftover declarations noted below. Each had needed a single-function `@ps2as` override in the US project. Here its whole file takes `@ps2as` instead:\n- `func_00391408` (`38E0A8.c`; US `func_0038CBD0`)\n- `func_003A0D48` (`3A0C00.c`; US `func_0039BD48`): its two `INCLUDE_RODATA` lines go, gcc emits `jtbl_0031C410` and `jtbl_0031C460` itself\n- `func_003AF890` (`3AF2A0.c`; US `func_003AA2E8`)\n- `func_003D9740` (`3D9378.c`; US `func_003D41E0`): the port's leftover declarations before it are replaced by the draft's own\n- `func_003F1D60` (`3F1998.c`; US `func_003EC798`)\n\n## Checks\n\n- [ ] `python tests/check_repository.py` passes and `python tools/pr_check.py` prints `OK`: `pr_check.py` prints `OK` for frontbin and i5bootn. boot_elf's 8 \"defines a variable\" errors and `check_repository.py`'s 9 problems are already on master, in files this PR doesn't touch.\n- [x] Full build prints `MATCH`: `tools/build.py --target all` gives 3× M",
+      "mergedAt": "2026-11-16T07:43:35Z"
+     },
+     {
+      "number": 74,
+      "title": "feat(frontbin): give four files new flag lines, match 5 functions",
+      "author": "gelatinous-bullion",
+      "untrustedBody": "## Functions\n\nAll plain C with their file's own flags.\n- `func_003811E8` (`381140.c`): PAL code with no US twin, written from the assembly.\n- `func_00381D88` (`381140.c`): the US draft of `func_0037DD30` with PAL's 50 Hz timings (75, 12, 25, 138, 151 where the US has 90, 15, 30, 165, 181) and PAL's name of its callee, `func_0038FA18`.\n- `func_003AAE60` (`3AA9D8.c`): PAL code with no US twin, written from the assembly.\n- `func_003BDD38` (`3BDA58.c`): the US draft of `func_003B8840`, unchanged.\n- `func_003BFE58` (`3BFE58.c`): the US draft of `func_003BA948`, unchanged. Its boot_elf copy was already C, so it adds no bytes to the PAL report.\n\n## Checks\n\n- [x] `python tests/check_repository.py` passes (\"repository checks passed\") and `python tools/pr_check.py` prints `OK` for frontbin, boot_elf and i5bootn\n- [x] Full build prints `MATCH`: `tools/build.py --target all` gives 3× MATCH, `tools/build_levels.py` gives 49 of 49 levels, `tools/carry_us.sh` gives 54 of 54 NTSC-U targets\n- [x] No re",
+      "mergedAt": "2026-11-16T10:24:21Z"
+     },
+     {
+      "number": 75,
+      "title": "feat(boot_elf,frontbin): match 9 core functions (twins, US drafts) giving their files @ps2as",
+      "author": "farfeduc",
+      "untrustedBody": "## Functions\r\n\r\n9 functions of the engine core and the front end (boot_elf and frontbin), in two commits. Claimed in #3.\r\n\r\n**Twins of functions already in C** (the same instructions, addresses masked, as a function in C in the other core program or in level code):\r\n\r\n- boot_elf: `func_003AC360` (level code's `func_L39_006023D8`), `func_003F0EB8` (frontbin's `func_003F0B00`)\r\n- frontbin: `func_003A3E28` (boot_elf's `func_003A4228`), `func_003C3D30` (boot_elf's `func_003C40E8`)\r\n\r\n**US drafts from `nonmatching/`** held as \"flags: the US matched it with `@ps2as`\". They land unchanged:\r\n\r\n- boot_elf: `func_003B6940`, `func_003D0ED8`, `func_003D9AF8`\r\n- frontbin: `func_003B6588`, `func_003D0B20`\r\n\r\n## Flags\r\n\r\nEight files get `@ps2as`: boot_elf `3AC190.c`, `3F05C8.c`, `3B6900.c`, `3D0EC8.c`, `3D9730.c`; frontbin `3A3B70.c`, `3B6548.c`, `3D0B10.c`. Every other C function of those files still matches (core build). `3C2FE0.c` already had it.\r\n\r\nI tried the same on more files and left them out",
+      "mergedAt": "2026-11-16T20:48:45Z"
+     },
+     {
+      "number": 76,
+      "title": "feat(levels): match 16 PAL functions and 5 NTSC-U counterparts",
+      "author": "GianniGr",
+      "untrustedBody": "## Summary\n\n- Match **16 new PAL functions / 9,040 bytes**: 12 in Annihilation Nation and four in Final Boss.\n- Add **five native NTSC-U implementations / 4,064 bytes**, with compiler flags inherited from their PAL owners.\n- Include 11 new reconstruction drafts and the improved existing drafts selected during maintainer integration; drafts are unlinked and are not counted as matches.\n- Refresh the version map, actual C-build coverage, generated bytematch header and progress reports.\n\n### Upstream overlap resolved\n\nThe original submission contained 28 PAL matches. Twelve landed independently on master while this PR was being prepared. Maintainer **llesieur99** merged master into this branch in `aae22280`, preserving master's implementations and resolving overlapping drafts. Those 12 are **not** claimed as new contributions here.\n\nFor the 45 overlapping draft files, the maintainer retained the draft with fewer differences using the owning-file flags: 14 from this PR, 31 from master, with",
+      "mergedAt": "2026-11-16T20:58:04Z"
+     },
+     {
+      "number": 77,
+      "title": "feat(levels): match 11 more functions in level 7",
+      "author": "cadelass",
+      "untrustedBody": "**Draft:** this PR stays a draft until more level 7 functions are converted. I will mark it ready once the batch is bigger.\n\nFollows #65 (merged). Two batches, rebased on current `master`: 11 level 7 functions and 20 shared level 1 functions (`src/levels/shared/L01_*.c`, issue #3's lapsed manstie claim). Functions `master` already had keep its C, so the diff only holds what `master` lacks. `progress/report.json` is regenerated on merge.\n\n## Functions\n\nAll are in level 7 (Annihilation Nation, PAL) and in files of my scope in issue #3.\n\n- `func_L07_00334238`: plain C (`L07_00334238.c` now has `-mvu0-use-vf0-vf2` added to its `@ps2as` line)\n- `func_L07_003A7238`: plain C\n- `func_L07_003A7378`: plain C\n- `func_L07_003A7558`: plain C\n- `func_L07_003A79F0`: needs `-mvu0-use-vf0-vf2 ... @ps2as` on `L07_003A70B0.c` and a `divs_nops` row of 2 (VU0, `vec_sub_ab`/`vec_add_ab`)\n- `func_L07_003D41D8`: plain C\n- `func_L07_003D5008`: needs `-mvu0-use-vf0-vf2 ... -mno-split-addresses @ps2as` on `L07_0"
+     },
+     {
+      "number": 78,
+      "title": "feat(levels): match 24 level functions",
+      "author": "nominalsan",
+      "untrustedBody": "## Functions\n\n24 level functions, all plain C (no inline asm besides `.extern` size hints; `include/vu0.h` helpers `vec_add_ab`, `vec_add_ba`, `qzero`, `fabs_asm` where retail uses them), each in the `src/levels/` file that owns its address, inside `localdecomp:start/end` markers:\n\n- shared files: `func_L18_00457C10` (20 levels), `func_L30_00346DA8` (7), `func_L40_004904B8` (4), `func_L12_003D3338` (4), `func_L31_003A4280`, `func_L31_0034B700`, `func_L31_0034A638`, `func_L22_003B6B90`, `func_L06_0034A0E0`, `func_L02_004C2BA0` (2 each)\n- single-level files: `func_L03_0032DA08`, `func_L03_003A2790`, `func_L08_0037CE30`, `func_L08_003BDA50`, `func_L09_003CC1F0`, `func_L14_00362868`, `func_L14_003F81B8`, `func_L22_003EA088`, `func_L22_003EA3F0`, `func_L28_00394320`, `func_L28_00394890`, `func_L32_003A6308`, `func_L32_003A7E18`, `func_L33_003AEF48`\n\nAlso 53 new near misses in `nonmatching/levels/` with rows in `nonmatching/README.md`; the drafts of the 8 functions above that had one (`func_"
+     },
+     {
+      "number": 79,
+      "title": "fix(tools): us_port.py renames the names of a port in one pass",
+      "author": "llesieur99",
+      "untrustedBody": "us_port.py turned each relocated name into its NTSC-U address one name at a time. When the\nNTSC-U address of one name is the PAL address of another name the block also uses, the second\nrename caught the first one's result as well, and the two names became one: a port that reads two\nglobals would read one of them twice. The same could happen to the function's own name and to the\ncallee twins renamed after it.\n\nThe renames are now made in one pass (rename_all), so a new name is never renamed again. Where no\nnew name is another name's old one, the output is the same as before. Codex's NTSC-U porting\nadapter hit this in level 33 (two level globals merged in func_L33_0034DE80; its relocation audit\ncaught it), which is how the pattern was found; this is the same loop in the repository's tool.\ntests/test_us_port.py covers the chained case, whole-word matching and the name forms.",
+      "mergedAt": "2026-11-16T22:16:57Z"
+     },
+     {
+      "number": 80,
+      "title": "feat(tools): sister_twins.py, rac3 functions a sister already has in C",
+      "author": "llesieur99",
+      "untrustedBody": "## Purpose\n\n`tools/sister_twins.py` finds rac3 functions that are still in assembly and whose code is a function another OpenRAC decompilation has already matched in C. The sister's C can then be ported instead of written again. A twin is **exact** when every relocation-masked word is equal, and **near** (20 words and more) when at least 95 % of them are.\n\nThe tool turns the one-off scan scripts of 2026-11-15 into a reusable tool. That scan found 203 twins (179 exact), and porting their C gave dozens of matches.\n\n- **Sisters as arguments:** `--sister rac1=PATH --sister rac2=PATH --sister rac4=PATH --sister sac=PATH --sister rac5=PATH`. There is no hard-coded layout. The tool reads the sister trees and never changes them: no fetch, no checkout. Updating the clones is the user's job, and the doc says so.\n- **Sister dumps:** each sister needs its own, in its `baserom/` (or `--sister-baserom NAME=DIR`). A sister or version without them is skipped, with a message.\n- **rac3's side** comes fr",
+      "mergedAt": "2026-11-16T22:43:06Z"
+     },
+     {
+      "number": 81,
+      "title": "feat(tools): report return types that differ between definition and declarations",
+      "author": "llesieur99",
+      "untrustedBody": "## What\n\n`tools/check_return_types.py`, a **report-only** check. It is adapted from rac2-decomp's `tests/check_return_types.py` (005bfc4dd).\n\n- It parses every `.c` under `src/` with clang (`-fsyntax-only -Xclang -ast-dump=json`, MIPS target, `-I include -I .`).\n- It reduces every definition and declaration to the class the EE ABI returns it in: void, int32, int64, int128, float, double (soft-float, `$v0`), pointer, aggregate. Declarations include file scope, block scope, headers, and C89 implicit declarations at a call.\n- It groups them by the function the build links them to, and lists each group whose classes differ, for PAL and NTSC-U separately.\n\nEach file still matches retail on its own. But a port that links all the C together reads the result from the wrong register when the classes disagree. In rac2, a float definition read as int silenced every 3D sound.\n\n- **Exit code:** 0 whatever it finds. `--strict` exits 1 (it fails today).\n- **CI:** not wired in, not even as a non-faili",
+      "mergedAt": "2026-11-16T22:55:08Z"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": {
+    "before": {
+     "code": {
+      "done": 3815352,
+      "total": 7525064
+     },
+     "functions": {
+      "done": 12449,
+      "total": 16533
+     }
+    },
+    "after": {
+     "code": {
+      "done": 4119696,
+      "total": 7525064
+     },
+     "functions": {
+      "done": 13067,
+      "total": 16533
+     }
+    }
+   },
+   "contributors": [
+    "bigbeno37",
+    "cadelass",
+    "DrLegitamate",
+    "farfeduc",
+    "gelatinous-bullion",
+    "GianniGr",
+    "llesieur99",
+    "nominalsan",
+    "TheBoso",
+    "xx255q"
+   ]
+  },
+  {
+   "repo": "rac4-decomp",
+   "title": "Ratchet: Deadlocked",
+   "branches": [
+    {
+     "name": "main",
+     "commits": []
+    }
+   ],
+   "commitCount": 0,
+   "pullRequests": {
+    "merged": [],
+    "opened": []
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": null,
+   "contributors": []
+  },
+  {
+   "repo": "openrac-mods",
+   "title": "OpenRAC mods",
+   "branches": [
+    {
+     "name": "master",
+     "commits": [
+      {
+       "sha": "6fe0aa75d76bcca614ab815d20437faf2538f2df",
+       "title": "fix(archipelago): fill rac1 tests as a real game does (#201)",
+       "author": "Lynder063",
+       "date": "2026-11-16T15:42:17Z"
+      },
+      {
+       "sha": "656cb117a19762467fd70babf141faee85680f4d",
+       "title": "fix(rac1): save real inventory during randomized NPC rewards (#192)",
+       "author": "llesieur99",
+       "date": "2026-11-16T15:27:15Z"
+      },
+      {
+       "sha": "7816679f2787464a0de96d404f5d756d6cace2ac",
+       "title": "chore(index): approve bolt-multiplier 0.2.4",
+       "author": "openrac-bot[bot]",
+       "date": "2026-11-16T15:19:57Z"
+      },
+      {
+       "sha": "af2256491b3408d5bbe9c0a852f1aa6fb8837550",
+       "title": "chore(index): approve bolt-multiplier 0.3.0",
+       "author": "openrac-bot[bot]",
+       "date": "2026-11-16T15:15:29Z"
+      }
+     ]
+    }
+   ],
+   "commitCount": 4,
+   "pullRequests": {
+    "merged": [
+     {
+      "number": 192,
+      "title": "fix(rac1): save real inventory during randomized NPC rewards",
+      "author": "llesieur99",
+      "untrustedBody": "Helga can request an autosave before her update returns, while the randomizer temporarily presents the Swingshot ownership byte as the location's collection state. That temporary value can be saved alongside the randomized reward. Archipelago uses the same substitutions, and its existing explicit-serialization guard can resume them too early when save calls are nested.\n\nGuard save preparation, autosave requests and explicit serialization for the complete outer save call in both mods. Nested calls share the guard; the NPC's collection view resumes only after saving finishes. Preserve real inventory, arguments and return values, and retain Archipelago's coordinate/gold serialization handling. Declare the hooks in both manifests and add regression coverage using the existing mock hosts, including a full NTSC randomizer load-test route.\n\nValidation:\n- New tests fail on the original randomizer and Archipelago implementations, then pass with the patch.\n- Built both mod subdirectories on Wind",
+      "mergedAt": "2026-11-16T15:27:16Z"
+     },
+     {
+      "number": 201,
+      "title": "fix(archipelago): flaky rac1 test_fill",
+      "author": "Lynder063",
+      "untrustedBody": "test_fill used the mocked main fill and dead-ended on some seeds (e.g. 55942669391566764603).\nIt now places progression in pre_fill like a real solo game; 920 seeded runs pass.\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)",
+      "mergedAt": "2026-11-16T15:42:18Z"
+     }
+    ],
+    "opened": [
+     {
+      "number": 195,
+      "title": "Show and animate actual Archipelago rewards at pickups and purchases",
+      "author": "SavedbyBlood9",
+      "untrustedBody": "Randomized rewards display and present the item actually received: vendor/world/gold-case models, fitted names, inventory icons, NPC purchase prompts, and reward-based acquisition sequences. Vendors present only the last purchase after exit. Original NPC handoff models and scenes remain native; other-game rewards use a Gold Bolt with item and recipient names.\n\nIncludes the six in-game-tested receiving animations: Persuader, Raritanium, Zoomerator, Codebot, Premium Nanotech, and Ultra Nanotech. Persuader/Raritanium begin at the catch; Nanotech begins with the can already held. The original native rigs keep props aligned. Persuader has its animated blue swirl, and Persuader/Raritanium/Zoomerator face the presentation camera upright. Codebot/Nanotech retain their original scene audio; Persuader/Raritanium/Zoomerator use the weapon acquisition fanfare, with Zoomerator's sound ending with its motion. Background music pauses during reward presentations and resumes from its previous playback "
+     },
+     {
+      "number": 196,
+      "title": "Item randomizer: present actual rewards at pickups and vendors",
+      "author": "SavedbyBlood9",
+      "untrustedBody": "RAC1 shuffled vendors and world pickups show the actual reward's model, fitted name and inventory icon, with reward-based Gold Bolt, weapon demo and Infobot sequences. Vendors present only the last purchase on exit. NPC handoff scenes/models stay native while purchase prompts name the reward.\n\nIncludes the six in-game-tested receiving animations: Persuader, Raritanium, Zoomerator, Codebot, Premium Nanotech and Ultra Nanotech. Persuader/Raritanium begin at the catch; Nanotech begins with the can already held. Native rigs align the held props, including Persuader's animated blue swirl. Persuader/Raritanium/Zoomerator face the camera upright and use the weapon acquisition fanfare; Zoomerator's sound ends with its motion. Codebot/Nanotech retain their original scene audio. Background music pauses during presentations and resumes from its previous playback position. Approved Persuader and Premium Nanotech vendor adjustments are built into companion engine PR https://github.com/OpenRAC/OpenR"
+     },
+     {
+      "number": 197,
+      "title": "Item randomizer: add optional New Game+ start for RAC1",
+      "author": "SavedbyBlood9",
+      "untrustedBody": "Adds a RAC1-only launcher setting, **Start in New Game+** (`start_in_new_game_plus`), off by default. When enabled, a randomized save uses the retail New Game+ mode flag and Goodies menu, matching Archipelago's behavior without granting gold weapons or completed-save inventory.\n\nThe option respects the existing seed/save gate, leaves foreign saves and the front end alone, and never downgrades an already-earned New Game+ save when disabled. It is selected separately from seed codes, so existing item placement remains unchanged. The setting uses normal multiplayer gameplay-setting agreement. RAC2 is unchanged. Mod version becomes 2.4.4.\n\nThis is an independent change based on master, separate from the reward presentation and gold-case shuffle draft #196. It does not enable the separate Novalis postgame shop flag.\n\nValidation: released SDK 1.14.6 build and all 8 focused tests passed, including PAL/NTSC enabled/disabled mode, untagged/foreign-save protection, front-end exclusion, no postga",
+      "mergedAt": "2026-11-17T08:28:27Z"
+     },
+     {
+      "number": 198,
+      "title": "Archipelago: separate shuffled gold-case purchase and shop access fixes",
+      "author": "SavedbyBlood9",
+      "untrustedBody": "Shuffled gold cases can be purchased without owning the original base weapon, while retaining both retail currency costs. The temporary ownership view is restored for save serialization. Enabling `shuffle_gold_weapons` also opens the Novalis shop teleporter and full stock without requiring or enabling New Game+.\n\nThe Archipelago gold-weapon pool, server option, APWorld generation, currency accounting and save checks already exist on master. This PR isolates the remaining gold-case gameplay changes previously bundled with reward presentation in #195. It does not replace models, names, icons or animations and does not grant completed-save inventory or gold upgrades merely by enabling the option. Version becomes 2.3.2.\n\nValidation: current-master save fixes merged; released SDK 1.14.6 build, all 12 native tests and actual Windows archive packaging passed, including PAL/NTSC gold-case purchases without the base weapon, ownership restoration, affordability, duplicate checks, and shop access",
+      "mergedAt": "2026-11-17T08:28:31Z"
+     },
+     {
+      "number": 199,
+      "title": "Item randomizer: add optional gold-weapon case shuffle pool",
+      "author": "SavedbyBlood9",
+      "untrustedBody": "Adds the RAC1 launcher switch **Shuffle gold-weapon cases** (`shuffle_gold_weapons`, off by default). The ten gold upgrades and purchase locations join the selected item pools. The Novalis shop opens without New Game+, and purchases retain the normal bolt price plus four Gold Bolts without requiring ownership of the original base weapon. Receiving a gold weapon grants its base weapon and upgrade.\n\nGold Bolt currency and progression items stay outside cases. Separate saved checks track purchases independently of upgrade ownership, preserving duplicate protection and currency accounting across saves and NG+. Extended seed codes carry the option; legacy seed placements remain unchanged. The extra save state requires OpenRAC interface 1.16. RAC2 and NPC coordinate pools are unchanged. Version becomes 2.4.5.\n\nThis is the gold-case gameplay extracted from #196. It includes no replacement models, icons, long-name layout, custom acquisition animations, model editors or playtest utilities. An o",
+      "mergedAt": "2026-11-17T08:52:21Z"
+     },
+     {
+      "number": 201,
+      "title": "fix(archipelago): flaky rac1 test_fill",
+      "author": "Lynder063",
+      "untrustedBody": "test_fill used the mocked main fill and dead-ended on some seeds (e.g. 55942669391566764603).\nIt now places progression in pre_fill like a real solo game; 920 seeded runs pass.\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)",
+      "mergedAt": "2026-11-16T15:42:18Z"
+     },
+     {
+      "number": 202,
+      "title": "feat(rac1): add optional Items-menu pool to both randomizers",
+      "author": "SavedbyBlood9",
+      "untrustedBody": "RAC1's Items category now has its own optional pool in both the item randomizer and Archipelago. Enabling **Shuffle items** (`shuffle_items`) adds all nine entries: Hoverboard, Persuader, Bolt Grabber, Map-o-Matic, Platinum Zoomerator, Raritanium, CodeBot, Premium Nanotech and Ultra Nanotech. It defaults off; off keeps all nine at their vanilla locations, independently of Shuffle gadgets.\n\nThe six previously excluded rewards/checks are implemented, including both Nanotech transactions. Source collection is stored separately from inventory using the host's save-scoped mod data. Receiving an item elsewhere does not collect its original check, and nested NPC autosaves preserve real inventory. Retail prices and Raritanium consumption remain; received-item replay does not refund a spent Raritanium, and Ultra received before Premium stays at eight maximum health.\n\n- Add the standalone setting, seed encoding and solver support, plus the APWorld option, stable special-item/check IDs, slot-data"
+     },
+     {
+      "number": 203,
+      "title": "feat(cheats): the cheats in OpenRAC's own menu too, 0.4.0",
+      "author": "farfeduc",
+      "untrustedBody": "**cheats 0.4.0**: the same switches and buttons as the pause page, in OpenRAC's own menu, at any time in the game. Still interface 1.12 and the pinned SDK; one commit on master.\n\n## Why\n\nThe cheats could only be switched from **Pause > Options > Cheats**, in a level. OpenRAC's in-game menu has listed mods' menus (`developer_menu`, interface 1.10) since #211, the menu shared by desktop and Android. It opens with Alt, Start+Select, or the drawer on a touch screen. A Cheats menu there is quicker to reach on a PC, and on a touch screen it is the natural place.\n\n## What it adds\n\nA **Cheats** menu:\n\n| Item | |\n|---|---|\n| Invincibility: On/Off | toggles; the label says the state |\n| Infinite ammo: On/Off | toggles; switched on, every owned weapon is filled first, as from the page |\n| Infinite oxygen: On/Off | toggles |\n| Bolt multiplier: x1 | each press steps on (x1, x2, x3, x5, x10, x100, back to x1) |\n| Refill ammo | as the page's button |\n| Give 10000 bolts | as the page's button, in a le",
+      "mergedAt": "2026-11-17T08:32:46Z"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [
+     {
+      "number": 200,
+      "title": "The mod index build failed",
+      "author": "openrac-bot[bot]"
+     }
+    ],
+    "closed": [
+     {
+      "number": 193,
+      "title": "Review bolt-multiplier 0.2.4",
+      "author": "openrac-bot[bot]"
+     },
+     {
+      "number": 194,
+      "title": "Review bolt-multiplier 0.3.0",
+      "author": "openrac-bot[bot]"
+     },
+     {
+      "number": 200,
+      "title": "The mod index build failed",
+      "author": "openrac-bot[bot]"
+     }
+    ]
+   },
+   "releases": [],
+   "progress": null,
+   "contributors": [
+    "farfeduc",
+    "llesieur99",
+    "Lynder063",
+    "SavedbyBlood9"
+   ]
+  }
+ ]
+}

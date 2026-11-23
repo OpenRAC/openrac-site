@@ -1,0 +1,916 @@
+{
+ "format": 1,
+ "date": "2026-11-18",
+ "totals": {
+  "commits": 53,
+  "pullRequestsMerged": 9,
+  "pullRequestsOpened": 39,
+  "contributors": 16
+ },
+ "projects": [
+  {
+   "repo": "OpenRAC",
+   "title": "OpenRAC launcher",
+   "branches": [
+    {
+     "name": "develop",
+     "commits": [
+      {
+       "sha": "cef20495798f314cad4659bb3e9a457dfcec865a",
+       "title": "fix(rac2): keep the Field of View while the weapon wheel is open (T-49) (#588)",
+       "author": "Lynder063",
+       "date": "2026-11-18T16:32:19Z"
+      },
+      {
+       "sha": "ce3ab3e82f5746578b20559e217b826b2f6b015f",
+       "title": "fix(rac2): Sheepinator no longer deletes Joba arena robots (T-45) (#587)",
+       "author": "Lynder063",
+       "date": "2026-11-18T15:48:46Z"
+      },
+      {
+       "sha": "2c13100869bf45dbbdc7772f874c84152b8d1c91",
+       "title": "style(port): clang-format the lines the 1.1.0 release check flags (#585)",
+       "author": "Lynder063",
+       "date": "2026-11-18T10:05:44Z"
+      },
+      {
+       "sha": "03ba30123d9a923c63ec460b6ec513e8f897aff5",
+       "title": "fix(launcher): short Secret Agent Clank name, keep the subtitle whole (#583)",
+       "author": "nickyyOO",
+       "date": "2026-11-18T08:20:52Z"
+      },
+      {
+       "sha": "554a81e14258cc465066f87b9b464ee629bbe8bb",
+       "title": "feat(sdk): require native mods to opt in to Vulkan access (#582)",
+       "author": "pezzadev",
+       "date": "2026-11-18T04:22:30Z"
+      },
+      {
+       "sha": "8350114db76c7f2d724a0c0448113c1a182cae04",
+       "title": "fix(port): draw Hoven ice beneath its scuff decals (#581)",
+       "author": "pezzadev",
+       "date": "2026-11-18T01:18:34Z"
+      }
+     ]
+    },
+    {
+     "name": "master",
+     "commits": [
+      {
+       "sha": "9b6573caf0dc708689be1783b5e4ac831118777b",
+       "title": "Merge pull request #584 from OpenRAC/release/1.1.0",
+       "author": "Lynder063",
+       "date": "2026-11-18T10:51:31Z"
+      }
+     ]
+    }
+   ],
+   "commitCount": 7,
+   "pullRequests": {
+    "merged": [
+     {
+      "number": 581,
+      "title": "fix(port): draw Hoven ice beneath its scuff decals",
+      "author": "pezzadev",
+      "untrustedBody": "Both ice layers on Hoven belong before the shrub pass. The translucent layer previously drew in the late effects pass and washed out the scuff decals. Mark the start of the RAC1 shrub pass so the earlier strips use the existing early effects pass.\n\n## Verification\n\n- Reproduced the washout and confirmed the restored scuffs in live RAC1 NTSC-U gameplay on Windows with Vulkan. Compared the captured draw list and the same in-game view.\n- Built `openrac-rac1-ntsc` from the local disc on Windows after refreshing the managed source patches from `develop`.\n- Passed `renderer_gif`, `effect_material`, host-hook parity, port conventions and layering.\n- Verified the shared hook bindings for PAL, PAL v1.00 and NTSC-J from the release tables. Gameplay was tested on NTSC-U.\n\nThe capture uses the terrain and shrub draw boundaries. The game's debug draw mask can bypass this routing if it skips either draw.",
+      "mergedAt": "2026-11-18T01:18:35Z"
+     },
+     {
+      "number": 582,
+      "title": "feat(sdk): require native mods to opt in to Vulkan access",
+      "author": "pezzadev",
+      "untrustedBody": "## What changed\n\n- Native mods targeting API 1.20 declare `\"vulkan_queue\": true` to use OpenRAC's Vulkan handles, device setup, or native view images. Loading an opted-in mod keeps Vulkan rendering and queue submission on the game thread for the session. Mods targeting older APIs retain their existing behavior.\n- The launcher and SDK packager validate the declaration. GitHub previews check the declared API version, and the installer checks the compiled library listed in the release ZIP.\n- The starter template targets API 1.20. The SDK docs explain the opt-in and the planned Render Graph mod API.\n\n## Verification\n\n- Built `openrac-rac1-ntsc` and `mod_loader_test` on Windows, and ran `ctest -R '^mod_loader$'`.\n- Passed the RAC1 host-binding parity check, port conventions and layering, and the SDK reference check and 68 SDK tests.\n- Passed `cargo fmt --all --check`, focused launcher Vulkan tests, and launcher API version parity.\n- Ran Vulkan smoke checks on RAC1 NTSC with opted-in, undecl",
+      "mergedAt": "2026-11-18T04:22:31Z"
+     },
+     {
+      "number": 583,
+      "title": "fix(launcher): short Secret Agent Clank name, keep the subtitle whole",
+      "author": "nickyyOO",
+      "untrustedBody": "**Before:** the launcher showed \"Ratchet & Clank: Secret Agent Clank\". On the desktop game page a long title could break inside the game's own name (\"Going\" / \"Commando\").\n\n**After:** the launcher shows \"Secret Agent Clank\". On the desktop game page the game's own name moves to its own line, whole, when the title does not fit on one line.\n\n**How:** `withShownTitles` in `labels.ts` maps the shown name when the library is read. The game page splits the title with `titleLines` into two inline blocks; a two-part title never breaks inside a part.\n\n**Tested:** `yarn verify`, `yarn test:android`, browser preview at 960, 1024, 1200, 1600 and 2400 px and on Android. Not run in the Tauri app.\n\n<img width=\"2608\" height=\"2292\" alt=\"image\" src=\"https://github.com/user-attachments/assets/f6599b02-3e40-404a-b722-d5c7dccb7274\" />",
+      "mergedAt": "2026-11-18T08:20:52Z"
+     },
+     {
+      "number": 584,
+      "title": "Release launcher 1.1.0",
+      "author": "Lynder063",
+      "untrustedBody": "Launcher 1.1.0 from develop: the 249 pull requests merged since 1.0.2, with the version in Cargo.toml, Cargo.lock (launcher, core and iOS crates), package.json and tauri.conf.json, and `launcher/release-notes/1.1.0.md`.\n\nMod SDK 1.20.0 (`sdk/VERSION` on develop) is released with it. After merging, `launcher-v1.1.0` and `sdk-v1.20.0` are tagged on this PR's merge commit.\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)",
+      "mergedAt": "2026-11-18T10:51:32Z"
+     },
+     {
+      "number": 585,
+      "title": "fix(port): clang-format lines flagged by the 1.1.0 release check",
+      "author": "Lynder063",
+      "untrustedBody": "Release PR #584 fails Port conventions: lines from develop that clang-format 21.1.8 would change.\nFormat only; Metal's mtlgl.mm also gets its includes sorted.\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)",
+      "mergedAt": "2026-11-18T10:05:44Z"
+     },
+     {
+      "number": 587,
+      "title": "fix(rac2): Sheepinator no longer deletes Joba arena robots (T-45)",
+      "author": "Lynder063",
+      "untrustedBody": "The Sheepinator turned a just-recycled Joba arena security robot again, deleting it; with all 16 gone the Impossible Challenge round never ended (USA v1.01 only, also on PS2; PAL and v2.00 already keep it).\nFixed for v1.01, shown as an always-on Game fix in the launcher (new kind \"always\"), with the Mapper markers moved there too.",
+      "mergedAt": "2026-11-18T15:48:47Z"
+     },
+     {
+      "number": 588,
+      "title": "fix(rac2): keep the Field of View while the weapon wheel is open (T-49)",
+      "author": "Lynder063",
+      "untrustedBody": "Opening the weapon wheel puts the game in mode 4, and the custom Field of View only applied in mode 0, so the view zoomed back to default.\nThe rac2 profile now names mode 4 as the quick select, which keeps the gameplay lens.",
+      "mergedAt": "2026-11-18T16:32:20Z"
+     }
+    ],
+    "opened": [
+     {
+      "number": 581,
+      "title": "fix(port): draw Hoven ice beneath its scuff decals",
+      "author": "pezzadev",
+      "untrustedBody": "Both ice layers on Hoven belong before the shrub pass. The translucent layer previously drew in the late effects pass and washed out the scuff decals. Mark the start of the RAC1 shrub pass so the earlier strips use the existing early effects pass.\n\n## Verification\n\n- Reproduced the washout and confirmed the restored scuffs in live RAC1 NTSC-U gameplay on Windows with Vulkan. Compared the captured draw list and the same in-game view.\n- Built `openrac-rac1-ntsc` from the local disc on Windows after refreshing the managed source patches from `develop`.\n- Passed `renderer_gif`, `effect_material`, host-hook parity, port conventions and layering.\n- Verified the shared hook bindings for PAL, PAL v1.00 and NTSC-J from the release tables. Gameplay was tested on NTSC-U.\n\nThe capture uses the terrain and shrub draw boundaries. The game's debug draw mask can bypass this routing if it skips either draw.",
+      "mergedAt": "2026-11-18T01:18:35Z"
+     },
+     {
+      "number": 582,
+      "title": "feat(sdk): require native mods to opt in to Vulkan access",
+      "author": "pezzadev",
+      "untrustedBody": "## What changed\n\n- Native mods targeting API 1.20 declare `\"vulkan_queue\": true` to use OpenRAC's Vulkan handles, device setup, or native view images. Loading an opted-in mod keeps Vulkan rendering and queue submission on the game thread for the session. Mods targeting older APIs retain their existing behavior.\n- The launcher and SDK packager validate the declaration. GitHub previews check the declared API version, and the installer checks the compiled library listed in the release ZIP.\n- The starter template targets API 1.20. The SDK docs explain the opt-in and the planned Render Graph mod API.\n\n## Verification\n\n- Built `openrac-rac1-ntsc` and `mod_loader_test` on Windows, and ran `ctest -R '^mod_loader$'`.\n- Passed the RAC1 host-binding parity check, port conventions and layering, and the SDK reference check and 68 SDK tests.\n- Passed `cargo fmt --all --check`, focused launcher Vulkan tests, and launcher API version parity.\n- Ran Vulkan smoke checks on RAC1 NTSC with opted-in, undecl",
+      "mergedAt": "2026-11-18T04:22:31Z"
+     },
+     {
+      "number": 583,
+      "title": "fix(launcher): short Secret Agent Clank name, keep the subtitle whole",
+      "author": "nickyyOO",
+      "untrustedBody": "**Before:** the launcher showed \"Ratchet & Clank: Secret Agent Clank\". On the desktop game page a long title could break inside the game's own name (\"Going\" / \"Commando\").\n\n**After:** the launcher shows \"Secret Agent Clank\". On the desktop game page the game's own name moves to its own line, whole, when the title does not fit on one line.\n\n**How:** `withShownTitles` in `labels.ts` maps the shown name when the library is read. The game page splits the title with `titleLines` into two inline blocks; a two-part title never breaks inside a part.\n\n**Tested:** `yarn verify`, `yarn test:android`, browser preview at 960, 1024, 1200, 1600 and 2400 px and on Android. Not run in the Tauri app.\n\n<img width=\"2608\" height=\"2292\" alt=\"image\" src=\"https://github.com/user-attachments/assets/f6599b02-3e40-404a-b722-d5c7dccb7274\" />",
+      "mergedAt": "2026-11-18T08:20:52Z"
+     },
+     {
+      "number": 584,
+      "title": "Release launcher 1.1.0",
+      "author": "Lynder063",
+      "untrustedBody": "Launcher 1.1.0 from develop: the 249 pull requests merged since 1.0.2, with the version in Cargo.toml, Cargo.lock (launcher, core and iOS crates), package.json and tauri.conf.json, and `launcher/release-notes/1.1.0.md`.\n\nMod SDK 1.20.0 (`sdk/VERSION` on develop) is released with it. After merging, `launcher-v1.1.0` and `sdk-v1.20.0` are tagged on this PR's merge commit.\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)",
+      "mergedAt": "2026-11-18T10:51:32Z"
+     },
+     {
+      "number": 585,
+      "title": "fix(port): clang-format lines flagged by the 1.1.0 release check",
+      "author": "Lynder063",
+      "untrustedBody": "Release PR #584 fails Port conventions: lines from develop that clang-format 21.1.8 would change.\nFormat only; Metal's mtlgl.mm also gets its includes sorted.\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)",
+      "mergedAt": "2026-11-18T10:05:44Z"
+     },
+     {
+      "number": 586,
+      "title": "fix(launcher): keep an installed mod the index has no archive of for this platform",
+      "author": "Promises",
+      "untrustedBody": "## What\n\nAn installed native mod whose index entry has no archive for this platform (a hand-built copy, say) no longer holds back every other mod's update. Its installed version now fits as it is. Game, disc, API and revocation still count. A mod that is **not** installed still has nothing to install here (`NotForPlatform`, as before).\n\nThis is the follow-up I offered in the notes of #554.\n\n## Why\n\n- **Glawks' Weapon Wheel Pause publishes a Windows build only.** On Linux I built it from its release with its own CI steps. The game loads it fine, but it is in the index with only `windows-x86_64`.\n- **`Resolver::pick` asked the index whether the installed version runs here.** `runs_here` failed it with `NotForPlatform`, so every set containing it failed to resolve.\n- **The updater then held every update.** `mod_updates::plan` resolves the candidates together with what is installed. The failing mod is not a candidate, so there was nothing to blame and every candidate was held as \"the set d",
+      "mergedAt": "2026-11-19T05:02:02Z"
+     },
+     {
+      "number": 587,
+      "title": "fix(rac2): Sheepinator no longer deletes Joba arena robots (T-45)",
+      "author": "Lynder063",
+      "untrustedBody": "The Sheepinator turned a just-recycled Joba arena security robot again, deleting it; with all 16 gone the Impossible Challenge round never ended (USA v1.01 only, also on PS2; PAL and v2.00 already keep it).\nFixed for v1.01, shown as an always-on Game fix in the launcher (new kind \"always\"), with the Mapper markers moved there too.",
+      "mergedAt": "2026-11-18T15:48:47Z"
+     },
+     {
+      "number": 588,
+      "title": "fix(rac2): keep the Field of View while the weapon wheel is open (T-49)",
+      "author": "Lynder063",
+      "untrustedBody": "Opening the weapon wheel puts the game in mode 4, and the custom Field of View only applied in mode 0, so the view zoomed back to default.\nThe rac2 profile now names mode 4 as the quick select, which keeps the gameplay lens.",
+      "mergedAt": "2026-11-18T16:32:20Z"
+     },
+     {
+      "number": 589,
+      "title": "feat(launcher): copy saves from the game's other disc",
+      "author": "farfeduc",
+      "untrustedBody": "## The problem\n\nEach disc has its own memory card (`memcard/<serial>/`). Build Ratchet & Clank from the PAL disc, play, then rebuild from the US disc: the PAL saves seem gone. They are still on the PAL card, which the US game never reads. This was asked for in the Discord's feature-requests (\"Save compatible between version\").\n\nThe saves themselves are compatible:\n- every Ratchet & Clank disc (PAL v2.00 and v1.00, US, Japan) lists the same chunks with the same ids and sizes (`save_edit.rs`);\n- Going Commando's US discs (v1.01 and v2.00 share `SCUS_972.68`, so one card) and its PAL disc have the same save tables (`save_edit_rac2.rs`);\n- a save holds no language or 50/60 Hz setting: the options in it are camera, help, subtitles, sound and volumes (chunks 25 to 36).\n\nOnly the card's folder differs: `BESCES-50916RATCHET` on PAL, `BASCUS-97199RATCHET` on the US disc, `BISCPS-15037RATCHET` in Japan (the games' `func_00298BB8` template).\n\n## What it does\n\nThe Saves panel shows **Copy from PAL",
+      "mergedAt": "2026-11-19T05:02:11Z"
+     },
+     {
+      "number": 590,
+      "title": "feat(sdk): hero state entry, gravity mode and item update hook points",
+      "author": "Promises",
+      "untrustedBody": "## What\n\nThree new rac1 hook points for mods:\n\n- **`rac1.player.enter_move_state`** (`Hero_EnterMoveState`, `i32(i32,i32)`, params `state`, `force`): `HeroEnterMoveState`, the hero's state change. One hook point over its 14 copies: L00 (levels 0, 4, 7, 9, 10, 13) and one each in levels 1, 2, 3, 5, 6, 8, 11, 12, 14, 15, 16, 17 and 18.\n- **`rac1.player.resolve_gravity_mode`** (`Hero_ResolveGravityMode`, `i32()`): `resolve_hero_gravity_mode`, the hero's gravity mode at the start of his update (0 the world's, 1 along the ground normal). One shared function on every disc.\n- **`rac1.player.update_equipped_items`** (`Hero_UpdateEquippedItems`, `void()`): `update_hero_equipped_items`, the per-tick item update that also sets the item locks. One shared function; its three callers are calls, not copies.\n\n## Why\n\nA mod that gives Ratchet & Clank Going Commando's Gravity Boots in place of the Magneboots needs them. Everything that makes the Magneboots' magnet walk hangs on the hero's Magneboots fla",
+      "mergedAt": "2026-11-19T05:02:19Z"
+     },
+     {
+      "number": 591,
+      "title": "feat(sdk): a hook point called as the game calls it, interface 1.21",
+      "author": "farfeduc",
+      "untrustedBody": "A mod that does what the game does at a hook point sometimes wants the other mods' hooks there to apply. A mod's own weapon takes its rounds as the game's weapons do, and another mod's infinite ammo should cover it too. Until now the only way was `function()` with the game function's name in one disc's build (`FUN_L00_00233db8` on NTSC-U for `rac1.weapon.take_ammo`). That is another name on each disc, and nothing says that the function it returns goes through the hook chain.\n\nInterface 1.21 adds one call at the end of the table:\n\n- `hook_entry(name, signature)` finds the hook point as `hook` does (its id, name or an alias) and checks the signature the same way (`i32` and `u32` are one). It returns the function the game calls there: hooks.c's entry, by the point's symbol, which runs the mods' replacements (the mod loaded last first) and then the game's own function.\n  - It can be called at any time.\n  - It returns null for a hook point this OpenRAC lacks, another signature, or no functi",
+      "mergedAt": "2026-11-19T05:02:15Z"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [
+    {
+     "tag": "launcher-v1.1.0",
+     "name": "v1.1.0",
+     "publishedAt": "2026-11-18T12:48:56Z"
+    },
+    {
+     "tag": "sdk-v1.20.0",
+     "name": "Mod SDK 1.20.0",
+     "publishedAt": "2026-11-18T13:00:25Z"
+    }
+   ],
+   "progress": null,
+   "contributors": [
+    "farfeduc",
+    "Lynder063",
+    "nickyyOO",
+    "pezzadev",
+    "Promises"
+   ]
+  },
+  {
+   "repo": "rac1-decomp",
+   "title": "Ratchet & Clank",
+   "branches": [
+    {
+     "name": "main",
+     "commits": []
+    }
+   ],
+   "commitCount": 0,
+   "pullRequests": {
+    "merged": [],
+    "opened": []
+   },
+   "issues": {
+    "opened": [
+     {
+      "number": 246,
+      "title": "Levels not building in setup",
+      "author": "OtoshiGamiPrime"
+     }
+    ],
+    "closed": []
+   },
+   "releases": [],
+   "progress": null,
+   "contributors": []
+  },
+  {
+   "repo": "rac2-decomp",
+   "title": "Going Commando",
+   "branches": [
+    {
+     "name": "master",
+     "commits": []
+    }
+   ],
+   "commitCount": 0,
+   "pullRequests": {
+    "merged": [],
+    "opened": []
+   },
+   "issues": {
+    "opened": [
+     {
+      "number": 469,
+      "title": "Build rac2 fails have all dependencies",
+      "author": "prototype6006-hash"
+     }
+    ],
+    "closed": []
+   },
+   "releases": [],
+   "progress": null,
+   "contributors": []
+  },
+  {
+   "repo": "rac3-decomp",
+   "title": "Up Your Arsenal",
+   "branches": [
+    {
+     "name": "master",
+     "commits": [
+      {
+       "sha": "762eb31582df34914b89d3cdc5ee8c53d414d561",
+       "title": "chore(progress): carry master to NTSC-U and refresh the reports",
+       "author": "Veradictus",
+       "date": "2026-11-18T18:32:26Z"
+      },
+      {
+       "sha": "2795340598521de0b8ddf221303e4a575328e0a4",
+       "title": "chore(us): carry #101 and #103-#107 to the NTSC-U map",
+       "author": "Veradictus",
+       "date": "2026-11-18T17:50:52Z"
+      },
+      {
+       "sha": "aaae8951579acacc1a40a19b5e679ac46348f103",
+       "title": "chore(progress): refresh the reports after #101 and #103-#107",
+       "author": "Veradictus",
+       "date": "2026-11-18T17:42:56Z"
+      },
+      {
+       "sha": "0852678577852adcece0b4de2dcb983251560cbc",
+       "title": "feat(levels): match 83 functions in shared level code (#107)",
+       "author": "Bozo",
+       "date": "2026-11-18T17:39:45Z"
+      },
+      {
+       "sha": "9d847f56f8850f1df9da6b53ed776d594af3f0ed",
+       "title": "fix(levels): carry two native NTSC-U Vidcomic functions (#105)",
+       "author": "stephendolan2017",
+       "date": "2026-11-18T17:39:25Z"
+      },
+      {
+       "sha": "c703dc6dd4b89f55e3f063e0f74e5c10be96c1e6",
+       "title": "fix(levels): separate native NTSC-U level 39 pointer aliases (#104)",
+       "author": "stephendolan2017",
+       "date": "2026-11-18T17:39:24Z"
+      },
+      {
+       "sha": "fa9579c0664f2f88f183582f3f4036c7818fceab",
+       "title": "feat(levels): match 5 functions (level 2 port, four level 7 functions) (#103)",
+       "author": "gelatinous-bullion",
+       "date": "2026-11-18T17:39:23Z"
+      },
+      {
+       "sha": "d2abc3d1bd3dba0a30c567d8cc0fa46b0f22f672",
+       "title": "docs: ask contributors to batch matches into one pull request with clustered commits",
+       "author": "Veradictus",
+       "date": "2026-11-18T06:53:25Z"
+      },
+      {
+       "sha": "512cdf9c1d64d42436d25f93b77cd9790b5a69a1",
+       "title": "feat(levels): match 36 functions in shared level code (#101)",
+       "author": "Bozo",
+       "date": "2026-11-18T04:56:10Z"
+      },
+      {
+       "sha": "feac7f85225b05e3bd83435a23141a7b2d5702a8",
+       "title": "chore(progress): carry #96-#100 to NTSC-U and refresh the reports",
+       "author": "Veradictus",
+       "date": "2026-11-18T04:55:47Z"
+      },
+      {
+       "sha": "4b17733e86e8fd98a8fcc20ac8c39100f5d1621d",
+       "title": "fix(levels): declare D_L20_001E2E80 once in L20_003EE688.c",
+       "author": "Veradictus",
+       "date": "2026-11-18T04:37:17Z"
+      },
+      {
+       "sha": "fb83c696dec46be4d031a46c52f520107e5ed9ca",
+       "title": "fix(levels): link the native Vidcomic function in seven US levels (#100)",
+       "author": "stephendolan2017",
+       "date": "2026-11-18T04:04:46Z"
+      },
+      {
+       "sha": "b7d31bbc15a92d129a9f0dd7d8311ce0c7556a4a",
+       "title": "feat(levels): match 5 functions ported from matched copies in other levels (#99)",
+       "author": "gelatinous-bullion",
+       "date": "2026-11-18T04:04:44Z"
+      },
+      {
+       "sha": "4e3e624e11491507003ec7c6a737d10cbb24f8f5",
+       "title": "fix(levels): separate six Vidcomic globals on NTSC-U (#98)",
+       "author": "stephendolan2017",
+       "date": "2026-11-18T04:04:43Z"
+      },
+      {
+       "sha": "8745e988cc86ed7b4a243c840c3b5e4b8a8ad29f",
+       "title": "fix(levels): carry all shared Florana placements to NTSC-U (#97)",
+       "author": "stephendolan2017",
+       "date": "2026-11-18T04:04:42Z"
+      },
+      {
+       "sha": "543ae66999cda8567d30977c17c3e3443f9e6f29",
+       "title": "feat(levels): match 5 functions (twins and ports of matched level code) (#96)",
+       "author": "gelatinous-bullion",
+       "date": "2026-11-18T04:04:40Z"
+      },
+      {
+       "sha": "e35cbbcb42954af70600880ebaa45db0cef64fdf",
+       "title": "chore(progress): carry #94 and #95 to NTSC-U and refresh the reports",
+       "author": "Veradictus",
+       "date": "2026-11-18T04:03:58Z"
+      },
+      {
+       "sha": "1634eba5f824b94b7a3a9555a7c4f0d692a5a64e",
+       "title": "fix(levels): separate Obani Moons globals on NTSC-U (#95)",
+       "author": "stephendolan2017",
+       "date": "2026-11-18T02:59:25Z"
+      },
+      {
+       "sha": "cab3aff21ab52b9b4857f4a7db1ffdc288191078",
+       "title": "feat(levels): match 5 functions (twins and ports of matched level code) (#94)",
+       "author": "gelatinous-bullion",
+       "date": "2026-11-18T02:59:23Z"
+      },
+      {
+       "sha": "a6b5a8f722361f57a8f356acfed413e093404deb",
+       "title": "chore(progress): carry #93 to NTSC-U and refresh the reports",
+       "author": "Veradictus",
+       "date": "2026-11-18T02:58:55Z"
+      },
+      {
+       "sha": "39d6f3f0e42e6639e062e40a367d4f1ac7715d7f",
+       "title": "fix(levels): resolve six level 35 aliases on NTSC-U (#93)",
+       "author": "stephendolan2017",
+       "date": "2026-11-18T02:39:59Z"
+      },
+      {
+       "sha": "a1b4387690d9ec89fea82e7fca9f6795bc99fad2",
+       "title": "chore(progress): carry #90-#92 to NTSC-U and refresh the reports",
+       "author": "Veradictus",
+       "date": "2026-11-18T02:39:25Z"
+      },
+      {
+       "sha": "c0a7a241a1bb1f416f1f8587273a3e7afc63edb3",
+       "title": "feat(levels): match 26 functions in shared level code (#92)",
+       "author": "Bozo",
+       "date": "2026-11-18T02:05:43Z"
+      },
+      {
+       "sha": "b235a09601821e46276324c1d4b50b5a08de63fc",
+       "title": "fix(levels): resolve five Vidcomic table aliases on NTSC-U (#91)",
+       "author": "stephendolan2017",
+       "date": "2026-11-18T02:05:20Z"
+      },
+      {
+       "sha": "08568824d1b183a26cb566ee2a8b0715e6e6d902",
+       "title": "feat(levels): match func_L30_0034C040 on both discs (#90)",
+       "author": "stephendolan2017",
+       "date": "2026-11-18T02:05:19Z"
+      },
+      {
+       "sha": "a35a9155401bdff05275cb64566a8802629f288e",
+       "title": "chore(progress): carry #77, #83-#89 to NTSC-U and refresh the reports",
+       "author": "Veradictus",
+       "date": "2026-11-18T02:04:38Z"
+      },
+      {
+       "sha": "87765a4565285ab4f16ce2fc2ee6c1005b9fd958",
+       "title": "fix(levels): declare func_L01_004F4410 where func_L01_004F45F0 calls it",
+       "author": "Veradictus",
+       "date": "2026-11-18T02:02:15Z"
+      },
+      {
+       "sha": "f6067376fecb6a16c3744ff26abf26ccde0b626a",
+       "title": "feat(levels): match 5 twins of matched level functions (#89)",
+       "author": "gelatinous-bullion",
+       "date": "2026-11-18T00:50:41Z"
+      },
+      {
+       "sha": "150c2caed2deafc53e40eb7c1e5c6270bcf12040",
+       "title": "feat(levels): match 5 functions (four twins of func_L03_00372D20, level 16) (#88)",
+       "author": "gelatinous-bullion",
+       "date": "2026-11-18T00:50:40Z"
+      },
+      {
+       "sha": "b386a1cf2593668da65bc50f3f664de3920a74fd",
+       "title": "feat(levels): match 5 functions (levels 7 and 28) (#87)",
+       "author": "gelatinous-bullion",
+       "date": "2026-11-18T00:50:39Z"
+      },
+      {
+       "sha": "a05daa760d62202994e7ae7c44c6f179c833fd64",
+       "title": "feat: match 5 functions (boot_elf, levels 7 and 30) (#86)",
+       "author": "gelatinous-bullion",
+       "date": "2026-11-18T00:50:39Z"
+      },
+      {
+       "sha": "bb1973608a375e1ac25dd1e4622a4cd562087153",
+       "title": "feat(levels): match 48 functions in shared level 1 files and levels 1-29 (#85)",
+       "author": "Bozo",
+       "date": "2026-11-18T00:50:38Z"
+      },
+      {
+       "sha": "c16f31776fcfa5a2956e35de704d02c0fe7e450e",
+       "title": "feat(boot_elf): match 6 functions (whole-file @ps2as, one cut, asm cleanup) (#84)",
+       "author": "gelatinous-bullion",
+       "date": "2026-11-18T00:50:37Z"
+      },
+      {
+       "sha": "26ca1c6c3d4a248146ecd49566f7b97559b2ac8a",
+       "title": "chore(us): list two merged functions whose PAL C does not check on NTSC-U yet",
+       "author": "Veradictus",
+       "date": "2026-11-18T00:42:27Z"
+      },
+      {
+       "sha": "6208ca260da9591b523aaed5f61247ac5f2168b3",
+       "title": "fix(levels): call func_L01_003D2A18's callee by its level name",
+       "author": "Veradictus",
+       "date": "2026-11-18T00:41:04Z"
+      }
+     ]
+    }
+   ],
+   "commitCount": 35,
+   "pullRequests": {
+    "merged": [],
+    "opened": [
+     {
+      "number": 88,
+      "title": "feat(levels): match 5 functions (four twins of func_L03_00372D20, level 16)",
+      "author": "gelatinous-bullion",
+      "untrustedBody": "## Functions\n\nAll plain C with their file's own flags.\n- `func_L16_004DCA98` (`src/levels/16_kerwan/L16_004DCA98.c`; US `func_L16_004DCA98`)\n- `func_L14_0038B940`, `func_L22_00384320`, `func_L23_00374F78`, `func_L24_00383038` (each alone in its file): twins of `func_L03_00372D20`\n\n## Checks\n\n- [x] `python tests/check_repository.py` passes and `python tools/pr_check.py` prints `OK`\n- [x] Full build prints `MATCH`: `tools/build.py --target all` gives 3× MATCH, `tools/build_levels.py` gives 49 of 49 levels, `tools/carry_us.sh` gives 54 of 54 NTSC-U targets\n- [x] No retail or generated files in the diff (`config/us/` and `progress/` are `tools/carry_us.sh`'s)\n- [x] No new aliases; no flag overrides (four whole-file flag lines for single-function files, below)\n- [x] Based on current `master`. Unit tests OK.\n\n## Notes\n\n**`func_L16_004DCA98`.** The rac2-ported draft modelled one global. Retail reads `D_L16_001DFC40` (`%hi`/`%lo`) and stores the sum into `D_L16_001DB03C` (`$gp - 0x1874`), retu"
+     },
+     {
+      "number": 89,
+      "title": "feat(levels): match 5 twins of matched level functions",
+      "author": "gelatinous-bullion",
+      "untrustedBody": "## Functions\n\nAll plain C with their file's own flags, each alone in its file.\n- `func_L28_0036CF48`, `func_L31_0037DBE8`, `func_L32_0037B5D8`, `func_L33_0037FD50`: twins of `func_L03_00372D20` (the other four are in #88)\n- `func_L07_0049BB68`: twin of `func_L03_0048A810`\n\n## Checks\n\n- [x] `python tests/check_repository.py` passes and `python tools/pr_check.py` prints `OK`\n- [x] Full build prints `MATCH`: `tools/build.py --target all` gives 3× MATCH, `tools/build_levels.py` gives 49 of 49 levels, `tools/carry_us.sh` gives 54 of 54 NTSC-U targets\n- [x] No retail or generated files in the diff (`config/us/` and `progress/` are `tools/carry_us.sh`'s)\n- [x] No new aliases; no flag overrides (four whole-file flag lines for single-function files, below)\n- [x] Based on current `master`. Unit tests OK.\n\n## Notes\n\n**Twins.** Each function's relocation-masked words (`tools/twin_mask.py`) equal those of a function already in C, except for `%lo` offsets the mask doesn't follow. Each is that C with"
+     },
+     {
+      "number": 90,
+      "title": "feat(levels): match func_L30_0034C040 on both discs",
+      "author": "stephendolan2017",
+      "untrustedBody": "## Function\n\nPromote the existing plain-C draft of `func_L30_0034C040` into its shared Vidcomic source file. Levels 30, 32, 34 and 35 on both discs now build it from the same C definition with the file’s existing compiler flags.\n\n## Why US level 30 used assembly\n\nThe draft matched the retail instructions in isolation. The conflict appeared when the US build placed its C object alongside the other functions in level 30. The US-native `func_L30_0034AAA0` already used two of the draft’s global names for different addresses.\n\n| Name in the draft | Address used by `func_L30_0034AAA0` | Address this function reads |\n| --- | --- | --- |\n| `D_L30_001DD49C` | `0x001DD49C` | `0x001DD4DC` |\n| `D_L30_001DD4A0` | `0x001DD4A0` | `0x001DD4E0` |\n\nThe placement check requires each symbol to have one address within a level. It rejected this object and kept the retail assembly. Adding the project’s caller suffix `_0034C040` to those two references lets each resolve to the address its caller actually read"
+     },
+     {
+      "number": 91,
+      "title": "fix(levels): resolve five Vidcomic table aliases on NTSC-U",
+      "author": "stephendolan2017",
+      "untrustedBody": "## Functions\n\nFive existing plain-C functions in level 30 (Vidcomic) now link from C on both discs. No compiler flags changed.\n\n| Function | PAL level 30 | NTSC-U level 30 |\n| --- | --- | --- |\n| `func_L30_00348EE0` | `0x00348EE0` | `0x00348170` |\n| `func_L30_00349550` | `0x00349550` | `0x003487E0` |\n| `func_L30_00349A20` | `0x00349A20` | `0x00348CB0` |\n| `func_L30_00349CA8` | `0x00349CA8` | `0x00348F10` |\n| `func_L30_00349EE8` | `0x00349EE8` | `0x00349150` |\n\n## Checks\n\n- [x] Rebuilt PAL and NTSC-U level 30. The rebuilt ELF and disc-format overlay matched each disc's retail hashes. Confirmed all 10 placements link from C.\n- [x] `tools/build.py --target all` reported 3/3 PAL core matches. `tools/carry_us.sh` reported 54/54 NTSC-U targets matched.\n- [x] `tools/pr_check.py --target all` reported OK for all three core programs. Both progress checks, repository checks and all 205 unit tests passed.\n- [x] The US placement table changes only the five intended rows, from zero to one linked pl"
+     },
+     {
+      "number": 92,
+      "title": "feat(levels): match 26 functions in shared level code",
+      "author": "TheBoso",
+      "untrustedBody": "## Functions\n\n26 functions, all plain C, in 2 batch commits (14 and 12): shared level 1, 3, 4 and 5 code and a few single-level files. Every one is byte-exact at every place it has in the 49 PAL levels.\n\n- `func_L13_003C5838`: plain C\n- `func_L01_003000F8`: plain C\n- `func_L04_003E2390`: plain C\n- `func_L05_003C8B78`: plain C\n- `func_L01_003BC658`: plain C\n- `func_L01_0045D248`: plain C\n- `func_L01_0045C950`: plain C\n- `func_L03_003A4FC8`: plain C\n- `func_L05_003296F8`: plain C\n- `func_L01_00306628`: plain C\n- `func_L01_0041A508`: plain C\n- `func_L05_003C2B50`: plain C\n- `func_L01_0047B9B8`: plain C\n- `func_L01_0047C538`: plain C\n- `func_L05_0032AB50`: plain C\n- `func_L05_003C2618`: plain C\n- `func_L04_003629A8`: plain C\n- `func_L03_003C5190`: plain C\n- `func_L01_004A1910`: plain C\n- `func_L01_004A32E0`: plain C\n- `func_L01_004A1AC8`: plain C\n- `func_L01_0049E710`: plain C\n- `func_L01_0049F8E8`: plain C\n- `func_L01_004A1630`: plain C\n- `func_L01_004A2560`: plain C\n- `func_L01_0046ECB8`"
+     },
+     {
+      "number": 93,
+      "title": "fix(levels): resolve six level 35 aliases on NTSC-U",
+      "author": "stephendolan2017",
+      "untrustedBody": "## Functions\n\nSix existing plain-C functions in level 35 now link from C on both discs. The patch keeps the original file flags, types, and size hints.\n\n| Function | PAL level 35 | NTSC-U level 35 |\n| --- | --- | --- |\n| `func_L35_003A48F0` | `0x003A48F0` | `0x003A2FD8` |\n| `func_L35_003A4A88` | `0x003A4A88` | `0x003A3170` |\n| `func_L35_003A4BD8` | `0x003A4BD8` | `0x003A32C0` |\n| `func_L35_003A4D00` | `0x003A4D00` | `0x003A33E8` |\n| `func_L35_003A53F8` | `0x003A53F8` | `0x003A3AE0` |\n| `func_L35_003A5780` | `0x003A5780` | `0x003A3E68` |\n\n## Checks\n\n- [x] Rebuilt PAL and NTSC-U level 35. Verified the retail ELF and disc overlay hashes and the compiled C object at all 12 placements.\n- [x] `tools/build.py --target all` reported 3/3 PAL core matches. `tools/carry_us.sh` reported 54/54 NTSC-U matches.\n- [x] Both progress checks and the repository check passed. All 205 unit tests passed. The PR check reported OK for all three core programs.\n- [x] The US placement report changes only the six "
+     },
+     {
+      "number": 94,
+      "title": "feat(levels): match 5 functions (twins and ports of matched level code)",
+      "author": "gelatinous-bullion",
+      "untrustedBody": "## Functions\n\nAll plain C with their file's own flags.\n- `func_L03_003C4288` (`L03_003C3FE0.c`), `func_L03_003C2448` (`L03_003C21A0.c`), `func_L02_003B4A98` (`src/levels/shared/L02_003B4A98.c`): twins of `func_L03_003C6FD0`\n- `func_L18_00352AF8` (`src/levels/shared/L18_003514B8.c`): ported from `func_L39_00544DF8`\n- `func_L20_003EEB40` (`src/levels/20_final_boss/L20_003EE688.c`): ported from `func_L39_00535028`\n\n## Checks\n\n- [x] `python tests/check_repository.py` passes and `python tools/pr_check.py` prints `OK`\n- [x] Full build prints `MATCH`: `tools/build.py --target all` gives 3× MATCH, `tools/build_levels.py` gives 49 of 49 levels, `tools/carry_us.sh` gives 54 of 54 NTSC-U targets\n- [x] No retail or generated files in the diff (`config/us/` and `progress/` are `tools/carry_us.sh`'s)\n- [x] No new aliases; no flag overrides (one whole-file flag line, below)\n- [x] Based on current `master`. Unit tests OK.\n\n## Notes\n\n**Twins of `func_L03_003C6FD0`.** Equal relocation-masked words (`too"
+     },
+     {
+      "number": 95,
+      "title": "fix(levels): separate Obani Moons globals on NTSC-U",
+      "author": "stephendolan2017",
+      "untrustedBody": "## Functions\n\n`func_L11_003AFF60` in Obani Moons now builds from its existing C on both discs. It is at `0x003AFF60` on PAL and `0x003AE170` on NTSC-U, both in level 11.\n\n## Checks\n\n- [x] PAL and NTSC-U level 11 matched the retail ELF and disc overlay hashes. Confirmed both placements are linked from C.\n- [x] `tools/build.py --target all` reported 3/3 PAL core matches. `tools/carry_us.sh` reported 54/54 NTSC-U matches.\n- [x] Both progress checks, the repository check, and all 205 unit tests passed. The PR check reported OK for all three core programs.\n- [x] The US C placement table changes only the row for `func_L11_003AFF60`, from zero to one linked C placement.\n\n## Notes\n\nThe existing C matched in isolation. While placing it in US level 11, the build found four names already used by NTSC-U-native `func_L11_003ACB98`. The native function reads floats at `0x001DE174`, `0x001DE178`, `0x001DE17C` and `0x001DE180`. This function reads integers under the same four names at addresses `0x30`"
+     },
+     {
+      "number": 96,
+      "title": "feat(levels): match 5 functions (twins and ports of matched level code)",
+      "author": "gelatinous-bullion",
+      "untrustedBody": "## Functions\n\nAll plain C with their file's own flags.\n- `func_L05_0038B7A0`, `func_L27_00375CD0`, `func_L30_0037E5D0` (each alone in its file): twins of `func_L03_00372D20`\n- `func_L13_003C63A8` (`src/levels/shared/L13_003C62A8.c`): ported from `func_L19_003D7F80`\n- `func_L40_003D65A8` (`src/levels/shared/L40_003D6248.c`): ported from `func_L39_005614B0`\n\n## Checks\n\n- [x] `python tests/check_repository.py` passes and `python tools/pr_check.py` prints `OK`\n- [x] Full build prints `MATCH`: `tools/build.py --target all` gives 3× MATCH, `tools/build_levels.py` gives 49 of 49 levels, `tools/carry_us.sh` gives 54 of 54 NTSC-U targets\n- [x] No retail or generated files in the diff (`config/us/` and `progress/` are `tools/carry_us.sh`'s)\n- [x] No new aliases; no flag overrides (whole-file flag lines, below)\n- [x] Based on current `master`. Unit tests OK.\n\n## Notes\n\n**Twins of `func_L03_00372D20`** (the other eight are in #88 and #89). Each is that C with its level's own data names, read from "
+     },
+     {
+      "number": 97,
+      "title": "fix(levels): carry all shared Florana placements to NTSC-U",
+      "author": "stephendolan2017",
+      "untrustedBody": "## Functions\n\n`func_L02_00326C90` is shared by 18 levels on PAL and NTSC-U. All 18 US placements now link from the existing C.\n\n- Newly linked from C in US levels 02, 04, 05, 07, 08, 09, 10, 13, 14, 17, 19 and 28.\n- Still linked from C in US levels 06, 21, 24, 27, 34 and 35.\n\n## Checks\n\n- [x] All 18 affected PAL levels matched the retail ELF and disc overlay hashes. Verified the C source and linked object at each placement. Rebuilt level 35 after the latest upstream carry changed its other source files. The inputs for the other 17 affected levels stayed the same.\n- [x] `tools/carry_us.sh` reported 54/54 NTSC-U matches. Confirmed C at all 18 US placements. The placement table changes only this function, from 6 to 18.\n- [x] The three PAL core builds reported MATCH. The PR check reported OK for each core program. Both progress checks, the repository check and all 205 unit tests passed.\n\n## Notes\n\nThe existing C passed in isolation. In the twelve US levels above, the linked US-native `func"
+     },
+     {
+      "number": 98,
+      "title": "fix(levels): separate six Vidcomic globals on NTSC-U",
+      "author": "stephendolan2017",
+      "untrustedBody": "## Functions\n\n`func_L30_0034BA88` now links from its existing C in level 30 on both discs. Its placement is `0x0034BA88` on PAL and `0x0034ABA8` on NTSC-U.\n\n## Checks\n\n- [x] PAL and NTSC-U level 30 reported MATCH for the retail ELF and disc overlay hashes. The linker selected C at both placements.\n- [x] Three PAL core programs and all 54 NTSC-U targets reported MATCH.\n- [x] The US placement table changes only this function, from zero to one C placement.\n- [x] Repository and progress checks, the core PR checks and all 205 unit tests passed.\n\n## Notes\n\nThe C matched in isolation. The native US `func_L30_00349F90` had already used six of the same symbol names for different addresses. The placement check reported `D_L30_001DD454` first. Replaying the rest of the relocations showed five more conflicts with the same `0x40` difference.\n\n| Existing name | Native address | Address read by this function |\n| --- | --- | --- |\n| `D_L30_001DD44C` | `0x001DD44C` | `0x001DD48C` |\n| `D_L30_001DD454` |"
+     },
+     {
+      "number": 99,
+      "title": "feat(levels): match 5 functions ported from matched copies in other levels",
+      "author": "gelatinous-bullion",
+      "untrustedBody": "## Functions\n\nAll plain C with their file's own flags; each is ported from an already-matched copy of the same code in another level.\n- `func_L18_00323760` (`src/levels/shared/L18_00322F80.c`) from `func_L39_00529130`\n- `func_L30_004BB3E0` (`src/levels/shared/L30_004BB3E0.c`) from `func_L23_004CF590`\n- `func_L07_003DCFF8` (`src/levels/07_annihilation_nation/L07_003DCB60.c`) from `func_L24_0034C8D0`\n- `func_L20_003F0418` (`src/levels/20_final_boss/L20_003EE688.c`) from `func_L11_00350360`\n- `func_L23_004E1920` (`src/levels/23_holostar_studios_clank/L23_004E1920.c`) from `func_L30_004CD998`\n\n## Checks\n\n- [x] `python tests/check_repository.py` passes and `python tools/pr_check.py` prints `OK`\n- [x] Full build prints `MATCH`: `tools/build.py --target all` gives 3× MATCH, `tools/build_levels.py` gives 49 of 49 levels, `tools/carry_us.sh` gives 54 of 54 NTSC-U targets\n- [x] No retail or generated files in the diff (`config/us/` and `progress/` are `tools/carry_us.sh`'s)\n- [x] No new aliases;"
+     },
+     {
+      "number": 100,
+      "title": "fix(levels): link the native Vidcomic function in seven US levels",
+      "author": "stephendolan2017",
+      "untrustedBody": "## Functions\n\nThe NTSC-U-native `func_L30_0034D828` now links from C in all seven Vidcomic levels that contain it. Its PAL counterpart, `func_L30_0034E710`, has different code and still links from its existing PAL C in the same seven levels.\n\n| Level | PAL counterpart | NTSC-U placement |\n| --- | --- | --- |\n| 30 | `0x0034E710` | `0x0034D828` |\n| 31 | `0x0034DC70` | `0x0034CFF8` |\n| 32 | `0x0034AE20` | `0x0034A1B8` |\n| 33 | `0x00348118` | `0x00347600` |\n| 34 | `0x0034C348` | `0x0034B760` |\n| 35 | `0x0034BE00` | `0x0034B198` |\n| 36 | `0x00350D00` | `0x00350008` |\n\n## Checks\n\n- [x] PAL and NTSC-U levels 30–36 match the retail ELF and disc overlay hashes. Confirmed C selected at all 14 placements.\n- [x] The three PAL core programs and all 54 NTSC-U targets match. The placement table changes only the native function's row, from zero to seven linked placements.\n- [x] Repository, progress and PR checks passed. All 205 unit tests passed.\n\n## Notes\n\nThe native C compiled correctly in isolation"
+     },
+     {
+      "number": 101,
+      "title": "feat(levels): match 36 functions in shared level code",
+      "author": "TheBoso",
+      "untrustedBody": "## Functions\n\n36 functions, all plain C, in 3 batch commits (12, 13 and 12): shared level 1, 3, 4, 5, 10 and 19 code. Every one is byte-exact at every place it has in the 49 PAL levels.\n\n- `func_L19_003D7210`: plain C\n- `func_L01_003119F0`: plain C\n- `func_L01_003C7000`: plain C\n- `func_L01_0045B110`: plain C\n- `func_L03_003C5460`: plain C\n- `func_L05_003BD078`: plain C\n- `func_L05_003BDB68`: plain C\n- `func_L01_00312DD8`: plain C\n- `func_L01_0032BCB0`: plain C\n- `func_L01_0032C390`: plain C\n- `func_L01_003EEF30`: plain C\n- `func_L01_003F0140`: plain C\n- `func_L01_00412E70`: plain C\n- `func_L01_0049D5E8`: plain C\n- `func_L04_00355058`: plain C\n- `func_L10_003B90E0`: plain C\n- `func_L01_00304AA0`: plain C\n- `func_L01_0033F1F0`: plain C\n- `func_L01_003AC8C0`: plain C\n- `func_L03_0039AFF0`: plain C\n- `func_L19_0044BFC8`: plain C\n- `func_L01_004241F0`: plain C\n- `func_L01_0032DED0`: plain C\n- `func_L01_00423690`: plain C\n- `func_L04_003D3228`: plain C\n- `func_L01_004ACDB0`: plain C\n- `func"
+     },
+     {
+      "number": 102,
+      "title": "fix(levels): declare level 20's camera rows once in L20_003EE688.c",
+      "author": "gelatinous-bullion",
+      "untrustedBody": "## Fix\n\n`src/levels/20_final_boss/L20_003EE688.c` doesn't compile on master: `conflicting types for 'D_L20_001E2E80'`, so level 20 fails to build. Two of my PRs each added a function to this file, `func_L20_003EEB40` in #94 and `func_L20_003F0418` in #99, and each declared the camera table in its own block with its own struct type. Each PR built alone; together they don't. Sorry about that.\n\nThe row type (0x460 bytes: the position at 0, the vector at 0x1D0) and the `extern` move to the file's prelude as `Cam_003EE688`, the type both functions use (docs/build/levels.md: types several functions of a file use go in its prelude). No function's code changes.\n\n## Checks\n\n- [x] `python tests/check_repository.py` passes and `python tools/pr_check.py` prints `OK`\n- [x] Full build prints `MATCH`: `tools/build.py --target all` gives 3× MATCH, `tools/build_levels.py` gives 49 of 49 levels (master: level 20 fails), `tools/carry_us.sh` gives 54 of 54 NTSC-U targets\n- [x] No retail or generated files"
+     },
+     {
+      "number": 103,
+      "title": "feat(levels): match 5 functions (level 2 port, four level 7 functions)",
+      "author": "gelatinous-bullion",
+      "untrustedBody": "## Functions\n\nAll plain C with their file's own flags.\n- `func_L02_004D1C60` (`src/levels/shared/L02_004D1C60.c`): ported from `func_L23_004E1920` (#99)\n- `func_L07_00353D98` (`L07_00351C58.c`) and `func_L07_003A63E8` (`L07_003A46C8.c`): written as the matched `func_L07_003CE330` is\n- `func_L07_003B8CE0` (`L07_003B7408.c`): written from retail, a variant of `func_L07_003B6B38`\n- `func_L07_00353820` (`L07_00351C58.c`): the existing draft, which needed `-mvu0-use-vf0-vf2`\n\n## Checks\n\n- [x] `python tests/check_repository.py` passes and `python tools/pr_check.py` prints `OK`\n- [x] Full build prints `MATCH`: `tools/build.py --target all` gives 3× MATCH, `tools/build_levels.py` gives 49 of 49 levels, `tools/carry_us.sh` gives 54 of 54 NTSC-U targets\n- [x] No retail or generated files in the diff (`config/us/` and `progress/` are `tools/carry_us.sh`'s)\n- [x] No new aliases; no flag overrides (whole-file flag lines, below)\n- [x] Based on current `master` (512cdf9c). Unit tests OK.\n\n## Notes\n\n*"
+     },
+     {
+      "number": 104,
+      "title": "fix(levels): separate native NTSC-U level 39 pointer aliases",
+      "author": "stephendolan2017",
+      "untrustedBody": "## Functions\n\nRestore ten existing native NTSC-U C placements in level 39. Their object code matched in isolation, but the full linker saw one global name used for two retail addresses. These ten functions load a pointer at `0x00247A74`. The already-linked shared `func_L39_0067BE08` uses the same name for a float at `0x00247BD4`.\n\nThe native declarations, size hints and references now use caller-specific aliases, in the existing style. Each retains its original type and flags. The original symbol still serves the shared caller.\n\n| NTSC-U function | PAL counterpart checked |\n| --- | --- |\n| `func_L39_00689E60` | No mapped counterpart |\n| `func_L39_0068AFE8` | `func_L39_0068D6D8` |\n| `func_L39_006986E0` | `func_L39_0069AEF0` |\n| `func_L39_0069C140` | `func_L39_0069E950` |\n| `func_L39_0069E3E8` | `func_L39_006A0BF8` |\n| `func_L39_006A34D0` | `func_L39_006A5CE0` |\n| `func_L39_006A5070` | `func_L39_006A7928` |\n| `func_L39_006AC620` | `func_L39_006AEF70` |\n| `func_L39_006AE070` | `func_L39_0"
+     },
+     {
+      "number": 105,
+      "title": "fix(levels): carry two native NTSC-U Vidcomic functions",
+      "author": "stephendolan2017",
+      "untrustedBody": "## Functions\n\nRestore four NTSC-U C placements for two native Vidcomic functions. They already matched in isolation. During the full link, eight global names also appeared in selected shared C, which used addresses 0x40 higher in both levels. The build kept the native functions in assembly when the names disagreed.\n\nThis patch gives the eight references caller-specific aliases in the native sources. It preserves the compiler flags, declarations' types and shared callers' symbol names.\n\n| Level | Native C placements restored | Existing PAL C placements verified |\n| --- | --- | --- |\n| 31 | `00348488`, `00349E40` | `00348FE8`, `0034AA20` |\n| 36 | `00349868`, `0034B220` | `0034A448`, `0034BE80` |\n\n## Checks\n\n- Reproduced all four full-link fallbacks on clean `512cdf9c`.\n- The three PAL core programs reported MATCH with the same PAL inputs. `python3 tools/build_levels.py 31 36 --setup -P 2 -j 2` printed 2 of 2 levels matching. Verified both PAL ELFs, disc overlays and all four PAL C select"
+     },
+     {
+      "number": 106,
+      "title": "feat(us): match 20 native level functions across 270 placements",
+      "author": "llesieur99",
+      "untrustedBody": "## Changes\n\nAdd NTSC-U-only C for 20 level functions, adapting the existing PAL implementations to the constants, interfaces and global addresses measured in SCUS_973.53. The functions cover 270 placements and 4,180 distinct body bytes. Thirteen are under 200 bytes and seven are 240–388 bytes. File flags are inherited from the corresponding PAL source files.\n\nThe additions use the repository's permitted VU0 helpers and sequences. The DMA-control access in func_L39_006058F8 uses the EE hardware-register exception documented in AGENTS.md.\n\n| Function | Bytes | Placements |\n| --- | ---: | ---: |\n| `func_L01_00318428` | 312 | 34 |\n| `func_L01_0032EA90` | 152 | 34 |\n| `func_L01_00335048` | 340 | 10 |\n| `func_L01_003351A0` | 388 | 10 |\n| `func_L01_00390508` | 328 | 34 |\n| `func_L01_003A5340` | 240 | 7 |\n| `func_L01_003CFFB0` | 332 | 6 |\n| `func_L01_00461E08` | 356 | 50 |\n| `func_L06_00350528` | 176 | 2 |\n| `func_L06_003505D8` | 132 | 2 |\n| `func_L09_003C4F18` | 108 | 5 |\n| `func_L13_003ACD60"
+     },
+     {
+      "number": 107,
+      "title": "feat(levels): match 83 functions in shared level code",
+      "author": "TheBoso",
+      "untrustedBody": "## Functions\n\n83 functions, all plain C, in 4 clustered commits. Every one is byte-exact at every place it has in the 49 PAL levels.\n\n**Commit 1 (15 functions): shared level 1, 3, 5, 8 and 31 code, mostly near-miss drafts of earlier rounds finished by xhigh workers**\n\n- `func_L03_003B19E0`\n- `func_L01_00409B08`\n- `func_L05_00359878`\n- `func_L08_003A8388`\n- `func_L03_0034A7D8`\n- `func_L31_003AB8D0`\n- `func_L01_00492B50`\n- `func_L01_00491E68`\n- `func_L01_00491290`\n- `func_L02_00351208`\n- `func_L03_00348B88`\n- `func_L01_003A4810`\n- `func_L01_0040CA60`\n- `func_L01_00451768`\n- `func_L04_00355C60`\n\n**Commit 2 (19 functions): near-miss drafts of earlier rounds finished, plus a fix to tools/level_tree.py**\n\n- `func_L13_003D2690`\n- `func_L03_003B97E0`\n- `func_L01_003F7CE0`\n- `func_L01_003F8B30`\n- `func_L09_003BDED0`\n- `func_L01_00302048`\n- `func_L05_0036BAD0`\n- `func_L16_003DD860`\n- `func_L17_003BEEE8`\n- `func_L24_00351448`\n- `func_L24_003515A8`\n- `func_L01_0047E738`\n- `func_L31_003464C0`\n- `fu"
+     },
+     {
+      "number": 108,
+      "title": "Match 5 more level 23 functions (batch 9)",
+      "author": "xx255q",
+      "untrustedBody": "Matches five more Holostar Studios (Clank) functions. The full level 23 build is MATCH, and level 01 still matches too. Unit tests pass.\n\nFunctions:\n- func_L23_003A31D8\n- func_L23_003A7048\n- func_L23_003A38C8\n- func_L23_003B57B8\n- func_L23_003A4460\n\nOther changes:\n- L23_003A2068.c and L23_003A4448.c get `@ps2as`. L23_003A4448.c also gets `-mvu0-use-vf0-vf2`.\n- divs_nops rows for func_L23_003A7048 and func_L23_003B57B8.\n- Externs fixed to agree with their definitions (func_0038CAD0, func_L01_003F7CE0, func_L01_004450F0, and the L23_003B3BB8.c callees). func_L01_004D4340 now takes its argument and is LF.\n- func_L23_003A5328 is defined with its second argument, which callers pass.\n- The switch cases of 003B57B8 and 003A4460 follow retail's jump tables.\n- tools/level_symbols.py: `split_data()` accepts a string item that splat writes over two lines inside a jump table. Level 23's table at 0x2C00A0 reads as strings. A test covers this"
+     },
+     {
+      "number": 109,
+      "title": "feat(levels): match 22 functions in shared level code",
+      "author": "TheBoso",
+      "untrustedBody": "## Functions\n\n22 functions, all plain C, in 2 commits. Every one is byte-exact at every place it has in the 49 PAL levels.\n\n**Commit 1 (11 functions): near-miss drafts finished by xhigh workers, plus the notes of eight drafts that stay open**\n\n- `func_L01_003EE7B0`\n- `func_L01_0032BE90`\n- `func_L01_003104B8`\n- `func_L01_003A3F68`\n- `func_L01_003C6BB0`\n- `func_L01_003ADFC0`\n- `func_L01_00358338`\n- `func_L01_004ACD40`\n- `func_L05_003BD448`\n- `func_L01_0049CFA8`\n- `func_L01_00305C50`\n\n**Commit 2 (11 functions): near-miss drafts with 21 to 100 diffs finished, several by porting the NTSC-U C of drafts to PAL**\n\n- `func_L01_003C7560`\n- `func_L01_003B2DE8`\n- `func_L01_0032CEB8`\n- `func_L19_0035D7D0`\n- `func_L03_003AC868`\n- `func_L01_00313270`\n- `func_L03_003AD580`\n- `func_L05_0032A0B0`\n- `func_L10_00359EA0`\n- `func_L03_003C8918`\n- `func_L11_003BDA60`\n\n## Checks\n\nRun once, in Ubuntu with the real toolchain, on the branch as it was on `d2abc3d1` (this PR only adds sources, drafts and level conf"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": {
+    "before": {
+     "code": {
+      "done": 4408084,
+      "total": 7525064
+     },
+     "functions": {
+      "done": 13537,
+      "total": 16533
+     }
+    },
+    "after": {
+     "code": {
+      "done": 4582560,
+      "total": 7525064
+     },
+     "functions": {
+      "done": 13815,
+      "total": 16533
+     }
+    }
+   },
+   "contributors": [
+    "Bozo",
+    "gelatinous-bullion",
+    "llesieur99",
+    "stephendolan2017",
+    "TheBoso",
+    "Veradictus",
+    "xx255q"
+   ]
+  },
+  {
+   "repo": "rac4-decomp",
+   "title": "Ratchet: Deadlocked",
+   "branches": [
+    {
+     "name": "main",
+     "commits": [
+      {
+       "sha": "eb0efd351f0fcc5fe90da0a5c299ba2f5f8467ac",
+       "title": "chore(progress): 9408 of 18172 US, 9724 of 18136 PAL functions after merging #180",
+       "author": "Veradictus",
+       "date": "2026-11-18T17:42:28Z"
+      },
+      {
+       "sha": "f15db51b2cea4299bbcdb0521d3dde099d95a692",
+       "title": "pal: match level 00 record helpers (#180)",
+       "author": "Adrian1845",
+       "date": "2026-11-18T17:39:31Z"
+      },
+      {
+       "sha": "f573953c503144f676b6acc827d8d31061652a3d",
+       "title": "docs: ask contributors to batch matches into one pull request with clustered commits",
+       "author": "Veradictus",
+       "date": "2026-11-18T06:53:28Z"
+      },
+      {
+       "sha": "3a082c5684eedd1a19ca61efc43bb6bc18e8e4ea",
+       "title": "Match 56 functions (#179)",
+       "author": "Adam1400",
+       "date": "2026-11-18T04:57:26Z"
+      },
+      {
+       "sha": "5e5d4dad6a14406ab4b54c2ad4489ab8740d1bcf",
+       "title": "chore(progress): 9352 of 18172 US, 9662 of 18136 PAL functions after merging #178",
+       "author": "Veradictus",
+       "date": "2026-11-18T02:42:03Z"
+      },
+      {
+       "sha": "7b70367751aadd685b67b23dd88933b6fdac86bf",
+       "title": "Add PAL C for 7 PAL-only functions (#178)",
+       "author": "chistianh",
+       "date": "2026-11-18T02:40:01Z"
+      },
+      {
+       "sha": "66daf8baecfd67803b93c464a460e46e4f802971",
+       "title": "chore(progress): 9352 of 18172 US, 9655 of 18136 PAL functions after merging #177",
+       "author": "Veradictus",
+       "date": "2026-11-18T00:57:06Z"
+      },
+      {
+       "sha": "81203fcd3a0f252c2139cd3e987786bc9bef0229",
+       "title": "Match 69 PAL functions and preserve 3 exact PAL variants (#177)",
+       "author": "Shaar-games",
+       "date": "2026-11-18T00:54:47Z"
+      },
+      {
+       "sha": "31a83beea984e6ef9cfcf41113690172cf3ffe33",
+       "title": "chore(progress): 9352 of 18172 US, 9586 of 18136 PAL functions after merging #176",
+       "author": "Veradictus",
+       "date": "2026-11-18T00:54:05Z"
+      },
+      {
+       "sha": "c5bbdcc35be7981fa18a1880bb46221ac1fe6869",
+       "title": "Match 15 more US functions (6 game, 9 net, 2.1 KB) (#176)",
+       "author": "farfeduc",
+       "date": "2026-11-18T00:52:14Z"
+      }
+     ]
+    }
+   ],
+   "commitCount": 10,
+   "pullRequests": {
+    "merged": [
+     {
+      "number": 178,
+      "title": "Add PAL C for 7 PAL-only functions",
+      "author": "chistianh",
+      "untrustedBody": "7 PAL-only functions, one commit each, all reserved in #112 (my comment there).\n\n| PAL | Where | Size |\n|---|---|---|\n| func_L01_00457468 | `src/pal/overlays/l01_dreadzone_station/` | 548 |\n| func_L00_0077C8F8 | `src/pal/overlays/l00_multiplayer_menu/` | 560 |\n| func_0045FCB0 | `src/pal/game/` | 576 |\n| func_004F55C0 | `src/pal/game/` | 580 |\n| func_L00_0077BAC0 | `src/pal/overlays/l00_multiplayer_menu/` | 596 |\n| func_L00_00779AE8 | `src/pal/overlays/l00_multiplayer_menu/` | 692 |\n| func_L00_005D6880 | `src/pal/overlays/shared/` | 960 |\n\nChecks: every file in `src/pal/` MATCHES with `tools/check_func.py --version pal`, checked with `src/pal/` set aside, except files that fail in my checker only: `L15_004D8550.c`, `L01_00496500.c`, `L01_004AC708.c`, `core/0012C680.c`, `net/01EEE13C.c` (a `Type1` redefinition in my build), and the `@ee296` files (a compiler I do not have installed). The branch is based on `main` (3e197974). `config/` and the reports are not regenerated. The C is plain C",
+      "mergedAt": "2026-11-18T02:40:01Z"
+     },
+     {
+      "number": 180,
+      "title": "PAL: match level 00 record helpers",
+      "author": "Adrian1845",
+      "untrustedBody": "## Summary\n- Match six PAL (SCES_532.85) level 00 record helpers in C.\n- Keep `func_L00_00533D30` as a documented near miss outside `src/`.\n- Update the PAL and US maps and the PAL progress report.\n\n## Functions by commit\n\n`36a448b2 pal: match level 00 record helpers`\n- `func_L00_00533368`\n- `func_L00_005333C8`\n- `func_L00_00533430`\n- `func_L00_00533490`\n- `func_L00_00533508`\n- `func_L00_005335D8`\n\n## Verification\n- PAL reference assembly build: 49/49 `MATCH`.\n- All six candidates: `MATCH` with `tools/check_func.py --version pal`.\n- All six landed files compile with `@ee296 -O2 -G0`; call and data relocation targets were checked against PAL assembly.\n- `tools/match_map.py --version pal --check` and `--version us --check` pass.\n- `tools/progress.py --version pal --check` and `--version us --check` pass.\n- `git diff --check` passes.\n\nThe US disc is not available locally, so the full US source build and US relocation audit were not run. This is a draft while the remaining reserved functio",
+      "mergedAt": "2026-11-18T17:39:32Z"
+     }
+    ],
+    "opened": [
+     {
+      "number": 177,
+      "title": "Match 69 PAL functions and preserve 3 exact PAL variants",
+      "author": "Shaar-games",
+      "untrustedBody": "- `func_00159718`\n- `func_0045E708`\n- `func_0054BD48`\n- `func_01EED598`\n- `func_01EF587C`\n- `func_L00_005304D8`\n- `func_L00_00531870`\n- `func_L00_006D0D88`\n- `func_L00_006F0D30`\n- `func_L00_0070F130`\n- `func_L00_00714BE8`\n- `func_L00_0071B920`\n- `func_L00_0071DCD8`\n- `func_L00_0074AE60`\n- `func_L00_00769118`\n- `func_L00_00769E40`\n- `func_L00_0076C0B0`\n- `func_L00_0076C200`\n- `func_L00_0076C350`\n- `func_L00_0076C4A0`\n- `func_L00_0076C5F0`\n- `func_L00_0076C740`\n- `func_L00_0076C890`\n- `func_L00_00771360`\n- `func_L00_00771EE0`\n- `func_L00_00776A98`\n- `func_L00_00779F88`\n- `func_L00_0077C658`\n- `func_L00_0077C7A8`\n- `func_L00_0077C810`\n- `func_L01_003D7D00`\n- `func_L01_0043C4F0`\n- `func_L01_0046AA20`\n- `func_L01_0046AA60`\n- `func_L01_0046AAD8`\n- `func_L01_0046AB60`\n- `func_L01_00479FE8`\n- `func_L01_00489F08`\n- `func_L01_00493F30`\n- `func_L01_00496778`\n- `func_L01_00496B28`\n- `func_L01_00497058`\n- `func_L01_004970E8`\n- `func_L01_0049C038`\n- `func_L01_004B57C0`\n- `func_L01_004BDD90`\n- `func_"
+     },
+     {
+      "number": 178,
+      "title": "Add PAL C for 7 PAL-only functions",
+      "author": "chistianh",
+      "untrustedBody": "7 PAL-only functions, one commit each, all reserved in #112 (my comment there).\n\n| PAL | Where | Size |\n|---|---|---|\n| func_L01_00457468 | `src/pal/overlays/l01_dreadzone_station/` | 548 |\n| func_L00_0077C8F8 | `src/pal/overlays/l00_multiplayer_menu/` | 560 |\n| func_0045FCB0 | `src/pal/game/` | 576 |\n| func_004F55C0 | `src/pal/game/` | 580 |\n| func_L00_0077BAC0 | `src/pal/overlays/l00_multiplayer_menu/` | 596 |\n| func_L00_00779AE8 | `src/pal/overlays/l00_multiplayer_menu/` | 692 |\n| func_L00_005D6880 | `src/pal/overlays/shared/` | 960 |\n\nChecks: every file in `src/pal/` MATCHES with `tools/check_func.py --version pal`, checked with `src/pal/` set aside, except files that fail in my checker only: `L15_004D8550.c`, `L01_00496500.c`, `L01_004AC708.c`, `core/0012C680.c`, `net/01EEE13C.c` (a `Type1` redefinition in my build), and the `@ee296` files (a compiler I do not have installed). The branch is based on `main` (3e197974). `config/` and the reports are not regenerated. The C is plain C",
+      "mergedAt": "2026-11-18T02:40:01Z"
+     },
+     {
+      "number": 179,
+      "title": "Match 56 functions",
+      "author": "Adam1400",
+      "untrustedBody": "Matches 56 functions for SCUS_974.65, each in a file of its own; 56 of them match SCES_532.85 too.\n\nFunctions:\n\n- `func_L00_007092B0` (`src/overlays/l00_multiplayer_menu/L00_007092B0.c`)\n- `func_01EB5758` (`src/net/01EB5758.c`)\n- `func_01EA0558` (`src/net/01EA0558.c`)\n- `func_01F058D8` (`src/net/01F058D8.c`)\n- `func_01EB5810` (`src/net/01EB5810.c`)\n- `func_01EB55C0` (`src/net/01EB55C0.c`)\n- `func_01EEDE74` (`src/net/01EEDE74.c`)\n- `func_01EEF088` (`src/net/01EEF088.c`)\n- `func_01EF7CD0` (`src/net/01EF7CD0.c`)\n- `func_01EFB224` (`src/net/01EFB224.c`)\n- `func_01EAC128` (`src/net/01EAC128.c`)\n- `func_01EB4E98` (`src/net/01EB4E98.c`)\n- `func_01EB5458` (`src/net/01EB5458.c`)\n- `func_01EC9920` (`src/net/01EC9920.c`)\n- `func_01EB32F8` (`src/net/01EB32F8.c`)\n- `func_01EB3470` (`src/net/01EB3470.c`)\n- `func_01EE94F8` (`src/net/01EE94F8.c`)\n- `func_01ECCCD8` (`src/net/01ECCCD8.c`)\n- `func_01EE7EEC` (`src/net/01EE7EEC.c`)\n- `func_01EEBB48` (`src/net/01EEBB48.c`)\n- `func_01EF8A64` (`src/net/01EF8A"
+     },
+     {
+      "number": 180,
+      "title": "PAL: match level 00 record helpers",
+      "author": "Adrian1845",
+      "untrustedBody": "## Summary\n- Match six PAL (SCES_532.85) level 00 record helpers in C.\n- Keep `func_L00_00533D30` as a documented near miss outside `src/`.\n- Update the PAL and US maps and the PAL progress report.\n\n## Functions by commit\n\n`36a448b2 pal: match level 00 record helpers`\n- `func_L00_00533368`\n- `func_L00_005333C8`\n- `func_L00_00533430`\n- `func_L00_00533490`\n- `func_L00_00533508`\n- `func_L00_005335D8`\n\n## Verification\n- PAL reference assembly build: 49/49 `MATCH`.\n- All six candidates: `MATCH` with `tools/check_func.py --version pal`.\n- All six landed files compile with `@ee296 -O2 -G0`; call and data relocation targets were checked against PAL assembly.\n- `tools/match_map.py --version pal --check` and `--version us --check` pass.\n- `tools/progress.py --version pal --check` and `--version us --check` pass.\n- `git diff --check` passes.\n\nThe US disc is not available locally, so the full US source build and US relocation audit were not run. This is a draft while the remaining reserved functio",
+      "mergedAt": "2026-11-18T17:39:32Z"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [],
+    "closed": []
+   },
+   "releases": [],
+   "progress": {
+    "before": {
+     "code": {
+      "done": 1055180,
+      "total": 5781424
+     },
+     "functions": {
+      "done": 9337,
+      "total": 18172
+     }
+    },
+    "after": {
+     "code": {
+      "done": 1071864,
+      "total": 5781424
+     },
+     "functions": {
+      "done": 9408,
+      "total": 18172
+     }
+    }
+   },
+   "contributors": [
+    "Adam1400",
+    "Adrian1845",
+    "chistianh",
+    "farfeduc",
+    "Shaar-games",
+    "Veradictus"
+   ]
+  },
+  {
+   "repo": "openrac-mods",
+   "title": "OpenRAC mods",
+   "branches": [
+    {
+     "name": "master",
+     "commits": [
+      {
+       "sha": "856852d54d51cf6c86403c3855bdbcfb0cbf61a2",
+       "title": "fix(ng-plus-plus): play the in-hand level-up, keep experience across new games, name a bought tier after the purchase, 0.1.11",
+       "author": "Veradictus",
+       "date": "2026-11-18T08:37:51Z"
+      }
+     ]
+    }
+   ],
+   "commitCount": 1,
+   "pullRequests": {
+    "merged": [],
+    "opened": [
+     {
+      "number": 216,
+      "title": "List ryno-ammo-drops",
+      "author": "openrac-bot[bot]",
+      "untrustedBody": "From #215, checked by the listing bot. @OpenRAC/maintainers, please review.\n\nCloses #215",
+      "mergedAt": "2026-11-19T06:03:39Z"
+     },
+     {
+      "number": 218,
+      "title": "List auto-head-gear",
+      "author": "Promises",
+      "untrustedBody": "Lists **Auto Head Gear**, https://github.com/Promises/rac1-auto-head-gear (v1.0.0, released by the SDK 1.20.0 workflow on every platform, with `SHA256SUMS`).\n\nThe Sonic Summoner and the O2 Mask work as soon as they are owned, as if worn, like in the later games. The game checks the head slot inside six moby updates: the sand mice and their houses for the Summoner, Blarg's toxic gas vents and Rilgar's extermibot and extermitank for the mask. The mod wraps those updates. When the item is owned, the head slot reads as that item for the length of the update, then it is put back. Ratchet's head is never changed visibly. It uses the behaviour catalogue's moby update hook points.\n\n- `aiAssisted: true`: AI tools helped write it.\n- **Tested** in game (NTSC-U, launcher 1.1.0): the sand mice answer the Summoner with nothing worn and with the O2 Mask worn. The gas part is not tested in game yet.\n- `python3 tools/build_index.py --check-entry index/auto-head-gear.json` passes. The new version waits ",
+      "mergedAt": "2026-11-19T06:03:51Z"
+     }
+    ]
+   },
+   "issues": {
+    "opened": [
+     {
+      "number": 215,
+      "title": "Submit: RYNO Ammo Drops",
+      "author": "glawks"
+     },
+     {
+      "number": 217,
+      "title": "The mod index build failed",
+      "author": "openrac-bot[bot]"
+     },
+     {
+      "number": 219,
+      "title": "Review bolt-multiplier 0.3.1",
+      "author": "openrac-bot[bot]"
+     },
+     {
+      "number": 220,
+      "title": "Review expanded-quick-select 1.0.2",
+      "author": "openrac-bot[bot]"
+     },
+     {
+      "number": 221,
+      "title": "Review pause-weapon-wheel 1.0.3",
+      "author": "openrac-bot[bot]"
+     }
+    ],
+    "closed": [
+     {
+      "number": 217,
+      "title": "The mod index build failed",
+      "author": "openrac-bot[bot]"
+     }
+    ]
+   },
+   "releases": [
+    {
+     "tag": "ng-plus-plus-v0.1.11",
+     "name": "ng-plus-plus-v0.1.11",
+     "publishedAt": "2026-11-18T17:58:03Z"
+    }
+   ],
+   "progress": null,
+   "contributors": [
+    "Promises",
+    "Veradictus"
+   ]
+  }
+ ]
+}
