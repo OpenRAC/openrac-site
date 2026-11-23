@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState, useSyncExternalStore, type ReactNode } from "react";
+import { useEffect, useRef, useState, useSyncExternalStore, type ReactNode, type RefObject } from "react";
 import { preload } from "react-dom";
 import HeroGalaxies from "@/components/ui/HeroGalaxies";
 import { HERO_SHOTS, heroSrc } from "@/lib/heroShots";
@@ -216,9 +216,50 @@ function useHeroShot(missing: ReadonlySet<number>, paused: boolean) {
 }
 
 /** A bar per clip: the showing one fills over its time; a click jumps to that clip. */
+/**
+ * While the clip bars sit where the corner dock (News, GitHub, Discord) floats, as on a phone whose first
+ * screen ends right at them, the dock slides down out of the way; it comes back once they scroll past.
+ */
+function useDockClear(bar: RefObject<HTMLDivElement | null>) {
+  useEffect(() => {
+    const root = document.documentElement;
+    let frame = 0;
+    const check = () => {
+      frame = 0;
+      const dock = document.querySelector<HTMLElement>(".site-dock");
+      const el = bar.current;
+      if (!dock || !el) return;
+      // The dock's resting place, from its layout (not its rect, which moves while it slides away).
+      const css = getComputedStyle(dock);
+      const bottom = window.innerHeight - parseFloat(css.bottom);
+      const right = window.innerWidth - parseFloat(css.right);
+      const top = bottom - dock.offsetHeight;
+      const left = right - dock.offsetWidth;
+      const b = el.getBoundingClientRect();
+      const gap = 8;
+      const under = b.bottom > top - gap && b.top < bottom + gap && b.right > left - gap && b.left < right + gap;
+      root.toggleAttribute("data-dock-off", under);
+    };
+    const later = () => {
+      if (!frame) frame = requestAnimationFrame(check);
+    };
+    check();
+    window.addEventListener("scroll", later, { passive: true });
+    window.addEventListener("resize", later);
+    return () => {
+      cancelAnimationFrame(frame);
+      window.removeEventListener("scroll", later);
+      window.removeEventListener("resize", later);
+      root.removeAttribute("data-dock-off");
+    };
+  }, [bar]);
+}
+
 function HeroShotBar({ at, round, go, missing, hidden }: { at: number; round: number; go: (i: number) => void; missing: ReadonlySet<number>; hidden: boolean }) {
+  const bar = useRef<HTMLDivElement>(null);
+  useDockClear(bar);
   return (
-    <div className="mt-6 max-[700px]:mt-10">
+    <div ref={bar} className="mt-6 max-[700px]:mt-10">
       <div className="-ml-1.5 flex max-[700px]:ml-0 max-[700px]:justify-center" role="group" aria-label="Clips">
         {HERO_SHOTS.map((shot, i) => missing.has(i) ? null : (
           <button

@@ -7,22 +7,26 @@ import HeroStage from "@/components/ui/HeroShots";
 import HeroDownload from "@/components/sections/HeroDownload";
 import Link from "next/link";
 import type { LauncherRelease } from "@/lib/releases";
+import LatestVideo from "@/components/ui/LatestVideo";
+import type { LatestVideo as Video } from "@/lib/youtube";
 
 /**
  * The home page's first screen, like a game's title screen: free-camera clips from the games crossfading
  * edge to edge, the headline numbers as a HUD in the corner, and bottom left the latest release, the
- * headline and one download button for the visitor's system.
+ * headline and one download button for the visitor's system. The channel's newest video sits under the
+ * numbers (on phones, under the release pill).
  */
-export default function Hero({ progress, mods, release }: { progress: Partial<Record<ProjectId, ProjectProgress>>; mods: number; release: LauncherRelease | null }) {
+export default function Hero({ progress, mods, release, video }: { progress: Partial<Record<ProjectId, ProjectProgress>>; mods: number; release: LauncherRelease | null; video: Video | null }) {
   const active = Object.values(progress);
   const bytes = active.reduce((sum, p) => sum + (p?.code.done ?? 0), 0);
 
   const bolt = "M12 1.5 21.1 6.75v10.5L12 22.5 2.9 17.25V6.75L12 1.5Zm0 6.2a4.3 4.3 0 1 0 0 8.6 4.3 4.3 0 0 0 0-8.6Z";
 
   // The numbers as a game HUD in the top corner (left out on phones, for room): the bolt counter is the code verified so far.
+  // Above the text block (z-10), which spans the full width and would take the clicks on the video.
   // The intro's colours (body text, amber numbers), a soft dark halo around each letter and a faint glow behind keep them readable on a bright clip.
   const hud = (
-    <div className="absolute right-[max(16px,calc(50%-524px))] top-[86px] isolate animate-rise text-right [animation-delay:.6s] [text-shadow:0_0_10px_rgb(5_5_5/.9),0_0_22px_rgb(5_5_5/.6)] before:absolute before:-inset-x-12 before:-inset-y-8 before:-z-10 before:bg-[radial-gradient(closest-side,rgb(5_5_5/.45),transparent)] before:content-[''] max-[700px]:hidden">
+    <div className="absolute right-[max(16px,calc(50%-524px))] top-[86px] z-10 isolate animate-rise text-right [animation-delay:.6s] [text-shadow:0_0_10px_rgb(5_5_5/.9),0_0_22px_rgb(5_5_5/.6)] before:absolute before:-inset-x-12 before:-inset-y-8 before:-z-10 before:bg-[radial-gradient(closest-side,rgb(5_5_5/.45),transparent)] before:content-[''] max-[700px]:hidden">
       <div className="flex items-center justify-end gap-2.5 font-orbitron text-[clamp(22px,4vw,30px)] font-extrabold tabular-nums text-amber">
         <svg viewBox="0 0 24 24" aria-hidden="true" className="size-[0.9em] fill-amber">
           <path fillRule="evenodd" d={bolt} />
@@ -35,19 +39,25 @@ export default function Hero({ progress, mods, release }: { progress: Partial<Re
         {/* Left out while the mod list cannot be read, rather than claiming none. */}
         {mods > 0 && <> · <b className="text-amber"><CountUp value={mods} /></b> mods</>}
       </p>
+      {video && <LatestVideo video={video} look="hud" />}
     </div>
   );
 
   return (
     <HeroStage hud={hud}>
-      {/* What is new: the launcher's latest release and its notes. */}
-      {release && (
-        <a href={release.url} className="mb-6 max-[700px]:mb-8 inline-flex max-w-full flex-wrap gap-x-1.5 rounded-full border-0 bg-coal px-4 py-2 text-[13px] leading-snug text-soft no-underline backdrop-blur-sm transition-colors hover:bg-coal-hi sm:text-[14px]">
-          <b className="font-semibold text-text">Launcher v{release.version} is out.</b>
-          <span>
-            See <span className="text-amber underline decoration-amber/40 underline-offset-2">what&apos;s new</span>
-          </span>
-        </a>
+      {/* What is new: the launcher's latest release and its notes, and on phones the newest video under it, as wide as it. */}
+      {(release || video) && (
+        <div className="mb-6 max-[700px]:mb-8 inline-grid max-w-full gap-2">
+          {release && (
+            <a href={release.url} className="inline-flex max-w-full flex-wrap gap-x-1.5 rounded-full border-0 bg-coal px-4 py-2 text-[13px] leading-snug text-soft no-underline backdrop-blur-sm transition-colors hover:bg-coal-hi sm:text-[14px]">
+              <b className="font-semibold text-text">Launcher v{release.version} is out.</b>
+              <span>
+                See <span className="text-amber underline decoration-amber/40 underline-offset-2">what&apos;s new</span>
+              </span>
+            </a>
+          )}
+          {video && <LatestVideo video={video} look="pill" fill={Boolean(release)} />}
+        </div>
       )}
       <h1 className="max-w-[640px] text-pretty font-audiowide text-[clamp(30px,5.4vw,54px)] leading-[1.08] [text-shadow:0_2px_24px_rgb(0_0_0/0.6)]">
         <span className="text-amber">

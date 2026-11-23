@@ -17,13 +17,14 @@ import { isWithdrawn } from "@/lib/mods/logic";
 import { homeLd, ldJson, siteUrl } from "@/lib/machine";
 import { getProgress } from "@/lib/progress";
 import { getLauncherRelease } from "@/lib/releases";
+import { getLatestVideo } from "@/lib/youtube";
 
 // Rendered on the server and cached; rebuilt in the background at most every 5 minutes.
 export const revalidate = 300;
 
 /** The home page: every section in order, with the progress, activity and latest launcher release loaded on the server. Downloads live on /install. */
 export default async function Home() {
-  const [progress, commits, release, { catalog }, news] = await Promise.all([getProgress(), getActivity(), getLauncherRelease(), getModCatalog(), getLatestReports(3)]);
+  const [progress, commits, release, { catalog }, news, video] = await Promise.all([getProgress(), getActivity(), getLauncherRelease(), getModCatalog(), getLatestReports(3), getLatestVideo()]);
   // Counted as on /mods, so the two numbers agree.
   const mods = catalog.mods.filter((m) => !isWithdrawn(catalog.revoked, m.id)).length;
 
@@ -31,7 +32,7 @@ export default async function Home() {
     <PageTransition>
     <main className="bands mx-auto max-w-[1080px] px-4">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: ldJson(homeLd(siteUrl(), release)) }} />
-      <Hero progress={progress} mods={mods} release={release} />
+      <Hero progress={progress} mods={mods} release={release} video={video} />
       <Progress progress={progress} />
       <Contribute />
       {news.length > 0 && <LatestNews reports={news} />}

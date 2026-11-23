@@ -1,3 +1,4 @@
+import { parseLatestVideo, type FeedVideo } from "./feed";
 import { parseVideoId } from "./parse";
 
 export interface VideoInfo {
@@ -25,5 +26,25 @@ export async function getVideoInfo(input: string): Promise<VideoInfo | null> {
     return { id, title: j.title, channel: j.author_name, channelUrl, thumbnail };
   } catch {
     return { id };
+  }
+}
+
+/** The OpenRAC YouTube channel (@OpenRAC). */
+const CHANNEL_ID = "UCFJeXPneWbO6K6ulqx0UTPA";
+
+export type LatestVideo = FeedVideo & { thumbnail: string };
+
+/**
+ * The channel's newest video, read from its public feed on our server (no API key), so a new upload
+ * shows up on its own. Rechecked at most every 10 minutes. null when YouTube does not answer.
+ */
+export async function getLatestVideo(): Promise<LatestVideo | null> {
+  try {
+    const res = await fetch(`https://www.youtube.com/feeds/videos.xml?channel_id=${CHANNEL_ID}`, { next: { revalidate: 600 }, signal: AbortSignal.timeout(8_000) });
+    if (!res.ok) return null;
+    const video = parseLatestVideo(await res.text());
+    return video && { ...video, thumbnail: `https://i.ytimg.com/vi/${video.id}/hqdefault.jpg` };
+  } catch {
+    return null;
   }
 }

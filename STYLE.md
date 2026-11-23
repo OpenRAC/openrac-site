@@ -116,6 +116,10 @@ the `d-*` classes for the mod docs). Use them before writing new classes.
 - The stats HUD (top right, under the bar, hidden on phones): the big number in `text-amber`, labels in
   `text-body`, counts in amber. No hard text shadow; only a soft halo behind the letters so it reads on
   bright clips.
+- The newest YouTube video (read from the channel feed on the server) sits in the HUD under the numbers:
+  a mono "NEW VIDEO · date" label, the title cut after two lines with "...", a small thumbnail with a dark
+  play mark (never gold: the download stays the one gold action). On phones it is a pill under the release
+  pill, as wide and as tall as it, 8 px apart. Pressing it opens the youtube-nocookie player in a dialog.
 - The clips are served from the server (`IMAGE_DIR` through `/img/…`), like the card pictures; never from
   git. A clip that is not on the server drops out; with none at all the first screen is the plain page grey.
 - The clip melts into the page with an eased mask, never a hard line. The galaxies easter egg (Konami
