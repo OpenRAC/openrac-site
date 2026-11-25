@@ -33,6 +33,7 @@ import {
   isWithdrawn,
   latest,
   mediaSrc,
+  repoLinks,
   widthFor,
   worksWith,
   gameOf,
@@ -179,8 +180,8 @@ export default async function ModPage(props: PageProps<"/mods/[id]">) {
     discussionUrl && { id: "comments", label: "Comments" },
   ].filter((s): s is { id: string; label: string } => !!s);
 
-  // Relative links in the README and changelogs point into the mod's own folder, at the release shown.
-  const readmeBase = `${mod.repo.replace(/\/$/, "")}/blob/${v?.tag || "HEAD"}/${mod.path ? `${mod.path.replace(/^\/|\/$/g, "")}/` : ""}`;
+  // Relative links in the page text point next to the file it came from, the changelogs' into the mod's folder, at the release shown.
+  const where = repoLinks(mod, v?.tag);
   const install = !revokedAll && v && (
     <InstallButton mods={[{ id: mod.id }]} game={gameOf(mod.games)} label={mod.type === "pack" ? "Install modpack" : "Install"} devOnly={works !== "release"} />
   );
@@ -305,7 +306,7 @@ export default async function ModPage(props: PageProps<"/mods/[id]">) {
 
             <section id="about" data-reveal="fade" className="scroll-mt-28 pt-10">
               <H2>About</H2>
-              {mod.readme?.trim() ? <Markdown base={readmeBase} anchors>{mod.readme}</Markdown> : <p className="text-soft">{mod.description}</p>}
+              {mod.readme?.trim() ? <Markdown base={where.page} anchors>{mod.readme}</Markdown> : <p className="text-soft">{mod.description}</p>}
             </section>
 
             <section id="details" data-reveal="fade" className="scroll-mt-28 pt-10">
@@ -339,6 +340,11 @@ export default async function ModPage(props: PageProps<"/mods/[id]">) {
                   <a href={mod.repo} className="text-amber" rel="nofollow ugc noopener">
                     Repository
                   </a>
+                  {where.readme && (
+                    <a href={where.readme} className="text-amber" rel="nofollow ugc noopener">
+                      README on GitHub
+                    </a>
+                  )}
                   {mod.links?.bugs && (
                     <a href={mod.links.bugs} className="text-amber" rel="nofollow ugc noopener">
                       Report a bug
@@ -390,7 +396,7 @@ export default async function ModPage(props: PageProps<"/mods/[id]">) {
                           <span aria-hidden className="plus ml-auto text-xl text-amber transition-transform">+</span>
                         </summary>
                         <div className="border-t border-line px-4 py-3">
-                          {ver.changelog.trim() ? <Markdown base={readmeBase}>{ver.changelog}</Markdown> : <p className="text-dim">No notes for this version.</p>}
+                          {ver.changelog.trim() ? <Markdown base={where.folder}>{ver.changelog}</Markdown> : <p className="text-dim">No notes for this version.</p>}
                           {!gone && i > 0 && (
                             <div className="mt-3">
                               <InstallButton mods={[{ id: mod.id, version: ver.version }]} game={gameOf(ver.games)} label={`Install v${ver.version}`} small primary={false} devOnly={!apiFits(ver.api, catalog.ports.stable.api)} />
