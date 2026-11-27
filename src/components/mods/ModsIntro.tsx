@@ -22,7 +22,7 @@ export default function ModsIntro({ onCheckedOnly }: { onCheckedOnly: () => void
       close={false}
       actions={
         <>
-          <a href={READ_MORE} className="self-center whitespace-nowrap px-2 py-2 text-[14px] text-amber min-[480px]:mr-auto" rel="noopener">
+          <a href={READ_MORE} className="self-center whitespace-nowrap py-2 text-[14px] text-amber min-[480px]:mr-auto" rel="noopener">
             Read more
           </a>
           <button
@@ -45,8 +45,8 @@ export default function ModsIntro({ onCheckedOnly }: { onCheckedOnly: () => void
       <ul className="mt-4 grid gap-2">
         {TRUSTS.map((t) => (
           <li key={t} className="grid items-center gap-x-4 gap-y-1 rounded-lg bg-raised px-4 py-2.5 text-[14px] text-soft min-[480px]:grid-cols-[150px_1fr]">
-            <span className="-ml-1 justify-self-start">
-              <TrustBadge trust={t} big />
+            <span className="justify-self-start">
+              <TrustBadge trust={t} big edge />
             </span>
             <span>{TRUST_LABEL[t].hint}</span>
           </li>

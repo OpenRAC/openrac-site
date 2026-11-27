@@ -70,16 +70,17 @@ export function DiscBadges({ games }: { games: Record<string, string[]> }) {
 
 /**
  * How much OpenRAC checked the mod: an amber icon and plain words, its meaning in the tooltip. Not checked
- * is the one label in coral, on a faint coral fill, so it stands out in a list.
+ * is the one label in coral, on a faint coral fill (the only one with padding), so it stands out in a list.
+ * `edge`: the badge starts a line, so even Not checked's icon lines up with the text above.
  */
-export function TrustBadge({ trust, big = false }: { trust?: Trust; big?: boolean }) {
+export function TrustBadge({ trust, big = false, edge = false }: { trust?: Trust; big?: boolean; edge?: boolean }) {
   if (!trust) return null;
   const t = TRUST_LABEL[trust];
   const risk = trust === "unchecked";
   return (
     <span
       title={t.hint}
-      className={`inline-flex flex-none items-center gap-1 whitespace-nowrap rounded py-0.5 pl-1 pr-1.5 font-medium leading-[1.4] ${big ? "text-[14px]" : "text-[13px]"} ${risk ? "bg-coral/15 font-semibold text-coral" : "text-soft"}`}
+      className={`inline-flex flex-none items-center gap-1 whitespace-nowrap rounded py-0.5 font-medium leading-[1.4] ${big ? "text-[14px]" : "text-[13px]"} ${risk ? `bg-coral/15 pl-1 pr-1.5 font-semibold text-coral ${edge ? "-ml-1" : ""}` : "text-soft"}`}
     >
       <b aria-hidden className={`w-3.5 text-center ${risk ? "font-bold text-coral" : "font-normal text-amber"}`}>
         {t.icon}

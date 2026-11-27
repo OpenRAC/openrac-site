@@ -250,7 +250,7 @@ export default async function ModPage(props: PageProps<"/mods/[id]">) {
           </div>
           <p className="mt-4 max-w-[680px] text-[16px] leading-relaxed text-soft sm:text-[17px]">{mod.description}</p>
           <div className="mt-4 flex flex-wrap items-center gap-1.5">
-            <TrustBadge trust={mod.trust} big />
+            <TrustBadge trust={mod.trust} big edge />
             <TypeBadge type={mod.type} />
             <WorksBadge works={works} />
             {mod.aiAssisted && <AiBadge />}
@@ -326,7 +326,7 @@ export default async function ModPage(props: PageProps<"/mods/[id]">) {
               <div className="surface p-5">
                 <dl className="grid gap-y-0 text-[14px]">
                   {[
-                    ["Label", mod.trust ? <><TrustBadge trust={mod.trust} /> <span className="ml-1">{TRUST_LABEL[mod.trust].hint}</span></> : "Not stated by this list"],
+                    ["Label", mod.trust ? <><TrustBadge trust={mod.trust} edge /> <span className="ml-1">{TRUST_LABEL[mod.trust].hint}</span></> : "Not stated by this list"],
                     ["Runs", mod.type === "native" ? "Code on your computer, outside the game's sandbox" : mod.type === "script" ? "Scripts in the game's sandbox: they can only change the game" : "Nothing: it only adds files"],
                     ["Built", v?.built === "ci" ? <>By its own CI from tag <code className="text-gold">{v.tag}</code></> : v?.built === "hand" ? "Uploaded by its author, not built by CI" : null],
                     ["Can reach", v?.scan ? (v.scan.labels.length ? v.scan.labels.join(", ") : "Nothing outside the game") : null],
