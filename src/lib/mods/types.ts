@@ -83,6 +83,11 @@ export interface Mod {
   recommends: string[];
   suggests: string[];
   readme?: string;
+  /**
+   * The file `readme` was read from, a path from the mod's folder (`README.md`, or another Markdown file the
+   * listing names). Absent in older indexes and for modpacks, whose readme is the listing's own text.
+   */
+  readmeFile?: string;
   media: {
     icon: ModImage | null;
     banner: ModImage | null;

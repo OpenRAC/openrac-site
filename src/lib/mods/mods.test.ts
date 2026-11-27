@@ -17,6 +17,7 @@ import {
   latest,
   meets,
   newestFitting,
+  repoLinks,
   sortMods,
   trendingScore,
   worksWith,
@@ -33,7 +34,7 @@ const mod = (id: string) => catalog.mods.find((m) => m.id === id)!;
 
 test("the fixture is the shared one (same bytes as openrac-mods/tools/fixtures/index/index.json)", () => {
   // Change the fixture in openrac-mods first, then copy it here and update this hash.
-  assert.equal(createHash("sha256").update(raw).digest("hex"), "f000bb611b66edeeac6b48113b491225796f4b397ca055c988473ff4098fa0d9");
+  assert.equal(createHash("sha256").update(raw).digest("hex"), "b125b752433481692bc25e873c28808ec1d03ee9bed8b0dee41b6bf9729b582a");
 });
 
 test("semver: order, pre-releases first, constraints", () => {
@@ -119,6 +120,25 @@ test("install links: short form, list form, Android intent", () => {
   assert.equal(installUrl([{ id: "a" }], { game: "rac1", disc: "pal" }), "openrac://install?mods=a&game=rac1&disc=pal");
   const intent = intentUrl([{ id: "a" }], "https://openrac.dev/#download");
   assert.match(intent, /^intent:\/\/install\?mods=a#Intent;scheme=openrac;package=dev\.openrac\.launcher;S\.browser_fallback_url=https%3A%2F%2Fopenrac\.dev%2F%23download;end$/);
+});
+
+test("repository links: the page text's links read next to its file, changelogs' in the mod's folder", () => {
+  const repo = "https://github.com/a/b";
+  const at = "https://github.com/a/b/blob/m-v1.0.0/mods/m/";
+  // No readmeFile (an older index, a modpack) or README.md: as before, everything in the mod's folder, no extra link.
+  assert.deepEqual(repoLinks({ repo, path: "mods/m" }, "m-v1.0.0"), { folder: at, page: at });
+  assert.deepEqual(repoLinks({ repo, path: "/mods/m/", readmeFile: "README.md" }, "m-v1.0.0"), { folder: at, page: at });
+  assert.deepEqual(repoLinks({ repo: `${repo}/`, path: "" }), { folder: "https://github.com/a/b/blob/HEAD/", page: "https://github.com/a/b/blob/HEAD/" });
+  // Another file: its own folder for the text, and the README.md linked.
+  assert.deepEqual(repoLinks({ repo, path: "mods/m", readmeFile: "HUB.md" }, "m-v1.0.0"), { folder: at, page: at, readme: `${at}README.md` });
+  assert.deepEqual(repoLinks({ repo, path: "mods/m", readmeFile: "docs/players/HUB.md" }, "m-v1.0.0"), { folder: at, page: `${at}docs/players/`, readme: `${at}README.md` });
+  assert.deepEqual(repoLinks({ repo, path: "", readmeFile: "docs/HUB.md" }, ""), { folder: "https://github.com/a/b/blob/HEAD/", page: "https://github.com/a/b/blob/HEAD/docs/", readme: "https://github.com/a/b/blob/HEAD/README.md" });
+  // A name the index build would refuse (another index can send anything) counts as README.md.
+  for (const readmeFile of ["../x.md", "docs/../../x.md", "/HUB.md", "HUB.txt", "https://x/HUB.md", "a\\b.md", ""]) {
+    assert.deepEqual(repoLinks({ repo, path: "mods/m", readmeFile }, "m-v1.0.0"), { folder: at, page: at }, readmeFile);
+  }
+  // The shared fixture records README.md for every mod but the pack.
+  for (const m of fixture.mods) assert.equal(m.readmeFile, m.type === "pack" ? undefined : "README.md", m.id);
 });
 
 test("words", () => {

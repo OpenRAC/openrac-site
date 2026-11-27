@@ -212,6 +212,21 @@ export function intentUrl(mods: Wanted[], fallback: string): string {
   return `intent://install?mods=${list(mods)}#Intent;scheme=openrac;package=dev.openrac.launcher;S.browser_fallback_url=${encodeURIComponent(fallback)};end`;
 }
 
+/** A readmeFile the page can use: a Markdown file inside the mod's folder (as the index build checks it). */
+const safeReadmeFile = (f?: string) => (f && /\.md$/.test(f) && !f.startsWith("/") && !/\\|:\/\//.test(f) && !f.split("/").includes("..") ? f : "README.md");
+
+/**
+ * Where a mod's texts live in its repository, at the release shown (`ref`, its tag; HEAD when there is none).
+ * `folder` is the mod's folder, what the changelogs' relative links are read against. `page` is the folder of
+ * the file the page text came from (the index's readmeFile), what that text's links are read against. `readme`
+ * is the mod's README.md on GitHub, given only when the page text is another file.
+ */
+export function repoLinks(mod: Pick<Mod, "repo" | "path" | "readmeFile">, ref?: string): { folder: string; page: string; readme?: string } {
+  const folder = `${mod.repo.replace(/\/$/, "")}/blob/${ref || "HEAD"}/${mod.path ? `${mod.path.replace(/^\/|\/$/g, "")}/` : ""}`;
+  const file = safeReadmeFile(mod.readmeFile);
+  return { folder, page: folder + file.slice(0, file.lastIndexOf("/") + 1), ...(file !== "README.md" && { readme: `${folder}README.md` }) };
+}
+
 // ---------- media ----------
 
 /** Pictures are served by this site (src/app/mods/media), never hot-linked: visitors only ever talk to openrac.dev. */

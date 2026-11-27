@@ -171,8 +171,16 @@ test("README from a second index renders inert", async ({ page }) => {
   await expect(page.locator('#about a[href*="decoration"]')).toHaveCount(0);
   await expect(page.locator('#about a[href="https://example.com"]')).toHaveAttribute("rel", "nofollow ugc noopener noreferrer");
   expect(requests.some((u) => u.includes("evil.example"))).toBe(false); // the tracker picture is a link, not a load
-  // A relative link points into the mod's repository at its release, never at this site.
+  // A relative link points into the mod's repository at its release, never at this site, next to the
+  // file the text came from (its listing's readmeFile, docs/HUB.md).
   await expect(page.locator('#about a', { hasText: "docs" })).toHaveAttribute("href", /^https:\/\/github\.com\/OpenRAC\/openrac-mods\/blob\/evil-readme-v1\.2\.0\/camera-base\/docs\/setup\.md$/);
+});
+
+test("mod page: a page text other than the README links the README", async ({ page }) => {
+  await page.goto("/mods/evil-readme");
+  await expect(page.locator("#details").getByRole("link", { name: "README on GitHub" })).toHaveAttribute("href", "https://github.com/OpenRAC/openrac-mods/blob/evil-readme-v1.2.0/camera-base/README.md");
+  await page.goto("/mods/lock-strafe");
+  await expect(page.getByRole("link", { name: "README on GitHub" })).toHaveCount(0);
 });
 
 test("README: in-page links reach its headings and footnotes, never the page's own sections", async ({ page }) => {
