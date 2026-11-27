@@ -13,7 +13,7 @@ import Resources from "@/components/sections/Resources";
 import { getActivity } from "@/lib/activity";
 import { getModCatalog } from "@/lib/mods";
 import { getLatestReports } from "@/lib/news";
-import { isWithdrawn } from "@/lib/mods/logic";
+import { isShown } from "@/lib/mods/logic";
 import { homeLd, ldJson, siteUrl } from "@/lib/machine";
 import { getProgress } from "@/lib/progress";
 import { getLauncherRelease } from "@/lib/releases";
@@ -26,7 +26,7 @@ export const revalidate = 300;
 export default async function Home() {
   const [progress, commits, release, { catalog }, news, video] = await Promise.all([getProgress(), getActivity(), getLauncherRelease(), getModCatalog(), getLatestReports(3), getLatestVideo()]);
   // Counted as on /mods, so the two numbers agree.
-  const mods = catalog.mods.filter((m) => !isWithdrawn(catalog.revoked, m.id)).length;
+  const mods = catalog.mods.filter((m) => isShown(m, catalog.revoked)).length;
 
   return (
     <PageTransition>

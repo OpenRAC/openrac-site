@@ -14,6 +14,7 @@ function publicMod(m: ListedMod) {
   const copy: Partial<ListedMod> = { ...m };
   delete copy.mediaBase;
   delete copy.indexSource;
+  delete copy.indexBase;
   delete copy.readme;
   return copy;
 }

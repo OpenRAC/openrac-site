@@ -10,7 +10,7 @@ import ModBrowser from "@/components/mods/ModBrowser";
 import ModCard from "@/components/mods/ModCard";
 import { SHARE_IMAGE, ldJson, modsIndexLd, siteUrl } from "@/lib/machine";
 import { getModCatalog } from "@/lib/mods";
-import { gameOf, isFresh, isWithdrawn, renderedAt, sortMods } from "@/lib/mods/logic";
+import { gameOf, isFresh, isShown, renderedAt, sortMods } from "@/lib/mods/logic";
 import { CONTENT_RULES, LIST_YOUR_MOD, SDK_DOCS } from "@/lib/mods/links";
 import { slim } from "@/lib/mods/slim";
 
@@ -52,10 +52,15 @@ export const metadata: Metadata = {
 export default async function ModsPage() {
   const { catalog } = await getModCatalog();
   const now = renderedAt();
-  const mods = catalog.mods.filter((m) => !isWithdrawn(catalog.revoked, m.id)).map((m) => slim(m, catalog));
+  const mods = catalog.mods.filter((m) => isShown(m, catalog.revoked)).map((m) => slim(m, catalog));
   const trending = sortMods(mods, "trending", now);
-  // The picked ones, or the most active when none are picked; never sliding by itself.
-  const featured = (mods.some((m) => m.featured) ? mods.filter((m) => m.featured) : trending).slice(0, 3);
+  // This week's picks from the index (checked mods only, chosen each Monday); else the featured ones,
+  // or the most active when none are featured. Never sliding by itself.
+  const byId = new Map(mods.map((m) => [m.id, m]));
+  const weekly = Object.values(catalog.picks?.games ?? {})
+    .flat()
+    .flatMap((id) => byId.get(id) ?? []);
+  const featured = weekly.length ? weekly.slice(0, 6) : (mods.some((m) => m.featured) ? mods.filter((m) => m.featured) : trending).slice(0, 3);
   const fresh = sortMods(mods.filter((m) => isFresh(m, now) && !featured.includes(m)), "updated", now).slice(0, 8);
 
   return (
@@ -73,7 +78,7 @@ export default async function ModsPage() {
           <span className="text-amber">Mods</span> for the Ratchet &amp; Clank port
         </h1>
         <p className="mt-4 max-w-[620px] text-[15px] leading-relaxed text-soft sm:text-[17px]">
-          Made by the community for OpenRAC. Press <b className="font-semibold text-hi">Install</b> and the launcher adds the mod with everything it needs, checks every file, and keeps it up to date
+          Made by the community for OpenRAC. Each mod shows how much OpenRAC checked it. Press <b className="font-semibold text-hi">Install</b> and the launcher adds the mod with everything it needs, checks every file, and keeps it up to date
         </p>
         <div className="mt-6 grid animate-rise gap-3 [animation-delay:.3s] min-[560px]:flex min-[560px]:flex-wrap">
           <a href="#all" className="btn btn-primary">
@@ -95,7 +100,7 @@ export default async function ModsPage() {
       )}
 
       {featured.length > 0 && (
-        <Section id="featured" title="Featured" sub="Picked by the community: a good place to start.">
+        <Section id="featured" title={weekly.length ? "This week" : "Featured"} sub={weekly.length ? "Picked each week from OpenRAC, Verified and Trusted author mods: a good place to start." : "Picked by the community: a good place to start."}>
           <div className="grid gap-4 min-[480px]:grid-cols-2 min-[821px]:grid-cols-3">
             {featured.map((m, i) => (
               <ModCard key={m.id} mod={m} now={now} priority={i === 0} morph={false} actions={<InstallButton mods={[{ id: m.id }]} game={gameOf(m.games)} small primary={false} devOnly={m.works !== "release"} />} />

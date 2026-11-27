@@ -5,7 +5,7 @@ import { useEffect, useState, ViewTransition, type ReactNode } from "react";
 import { ago, formatCount } from "@/lib/mods/logic";
 import type { SlimMod } from "@/lib/mods/slim";
 import { highlight } from "@/lib/mods/search";
-import { AiBadge, DiscBadges, ImpactBadges, TypeBadge, WorksBadge } from "./Badges";
+import { AiBadge, DiscBadges, ImpactBadges, TrustBadge, TypeBadge, WorksBadge } from "./Badges";
 import ModImage from "./ModImage";
 
 /** Text with the search words marked. */
@@ -41,7 +41,7 @@ function CardPicture({ mod, sizes, priority, morph, children }: { mod: SlimMod; 
 
   const picture = (
       <div
-        className="relative aspect-[2/1] overflow-hidden bg-gradient-to-br from-panel-hi to-ink"
+        className="relative aspect-video overflow-hidden bg-gradient-to-br from-panel-hi to-ink"
         onPointerEnter={(e) => e.pointerType === "mouse" && setHovered(true)}
         onPointerLeave={() => {
           setHovered(false);
@@ -112,7 +112,7 @@ export default function ModCard({
 }) {
   return (
     <article
-      className="group/card surface surface-link [--stripes:linear-gradient(#171717,#171717)] [--stripes-hi:linear-gradient(#1c1c1c,#1c1c1c)] relative isolate flex flex-col overflow-hidden [contain-intrinsic-size:auto_380px] [content-visibility:auto]"
+      className="group/card surface surface-link [--stripes:linear-gradient(#171717,#171717)] [--stripes-hi:linear-gradient(#1c1c1c,#1c1c1c)] relative isolate flex flex-col overflow-hidden [contain-intrinsic-size:auto_410px] [content-visibility:auto]"
     >
       <CardPicture mod={mod} sizes={sizes} priority={priority} morph={morph}>
         {/* One line of badges on the picture's dark bottom edge: a long one shortens with "…" rather than wrapping. */}
@@ -132,8 +132,11 @@ export default function ModCard({
               <Marked text={mod.name} query={query} />
             </Link>
           </h3>
-          <p className="mt-0.5 text-[13px] text-dim">
-            by <Marked text={mod.author} query={query} />
+          <p className="mt-0.5 flex flex-wrap items-center gap-x-2 text-[13px] text-dim">
+            <span>
+              by <Marked text={mod.author} query={query} />
+            </span>
+            <TrustBadge trust={mod.trust} />
           </p>
         </div>
         <p className="line-clamp-2 text-[15px] leading-snug text-soft">

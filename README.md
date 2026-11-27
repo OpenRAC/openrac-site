@@ -61,6 +61,12 @@ the index build and served from this site (`/mods/media/...`), so visitors never
 - Authors list a mod through openrac-mods' submission form on GitHub, where a bot checks it; `/mods/submit` redirects there.
 - `/mods/set?m=id@1.2.0,...` is a "Share my setup" link from the launcher: a friend's mods at exact versions.
 - Mod pages show the latest comments of the mod's GitHub Discussion (needs `GITHUB_TOKEN`); commenting happens on GitHub.
+- Each mod carries a label of how much OpenRAC checked it: OpenRAC, Verified, Trusted author or Not checked (the
+  one label in coral). The list filters by it (`?checked=1` for the three checked ones), a first visit shows what
+  they mean, and a mod page's Safety part adds how it was built, what the scan says it can reach, and a report link.
+  A mod held for review is not listed. `community.json` (new Not checked mods) is read beside `index.json`; when it
+  is not there, nothing is wrong. Readme and changelogs may come from `details-<id>.json`, used only when its
+  SHA-256 matches the one in the index.
 
 `/mods/docs` is the mod SDK's documentation, per SDK release, generated from OpenRAC's `sdk-v*` tags
 ([mod-docs/](mod-docs/README.md)).

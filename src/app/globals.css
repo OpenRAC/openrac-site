@@ -40,6 +40,8 @@
   --color-line: rgb(255 255 255 / 0.09);
   /* Discord's blurple, a touch lighter so it reads on the dark page and bar. */
   --color-discord: #6f7af5;
+  /* The site's one status colour: only the "Not checked" mod label uses it, so that label stands out. */
+  --color-coral: #e8917a;
 
   --animate-rise: rise 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) both;
   --animate-drift: drift 16s ease-in-out infinite alternate;

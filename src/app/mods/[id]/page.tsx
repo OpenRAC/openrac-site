@@ -6,7 +6,7 @@ import { DiscordIcon, GithubIcon } from "@/components/ui/icons";
 import Boundary from "@/components/ui/Boundary";
 import Markdown from "@/components/ui/Markdown";
 import AddToSet from "@/components/mods/AddToSet";
-import { AiBadge, DiscBadges, ImpactBadges, TypeBadge, WorksBadge } from "@/components/mods/Badges";
+import { AiBadge, DiscBadges, ImpactBadges, TrustBadge, TypeBadge, WorksBadge } from "@/components/mods/Badges";
 import InPageNav from "@/components/mods/InPageNav";
 import InstallBar from "@/components/mods/InstallBar";
 import InstallButton from "@/components/mods/InstallButton";
@@ -16,6 +16,7 @@ import { formatSize } from "@/lib/format";
 import { ldJson, modLd, siteUrl } from "@/lib/machine";
 import Image from "next/image";
 import { getMod, getMods } from "@/lib/mods";
+import { withDetails } from "@/lib/mods/details";
 import { getDiscussion } from "@/lib/mods/discussion";
 import { CONTENT_RULES } from "@/lib/mods/links";
 import {
@@ -23,6 +24,7 @@ import {
   GAME_LABEL,
   IMPACT_LABEL,
   PLATFORM_LABEL,
+  TRUST_LABEL,
   TYPE_LABEL,
   ago,
   renderedAt,
@@ -34,6 +36,7 @@ import {
   latest,
   mediaSrc,
   repoLinks,
+  reportUrl,
   widthFor,
   worksWith,
   gameOf,
@@ -149,8 +152,9 @@ function Facts({ mod, catalog, now }: { mod: ListedMod; catalog: ModCatalog; now
 /** One mod's page: a showcase to scroll through, with the install button always in reach. */
 export default async function ModPage(props: PageProps<"/mods/[id]">) {
   const { id } = await props.params;
-  const { mod, catalog } = await getMod(id);
-  if (!mod) notFound();
+  const { mod: listed, catalog } = await getMod(id);
+  if (!listed) notFound();
+  const mod = await withDetails(listed);
 
   const site = siteUrl();
   const now = renderedAt();
@@ -159,6 +163,7 @@ export default async function ModPage(props: PageProps<"/mods/[id]">) {
   const v = latest(mod, catalog.revoked);
   const works = worksWith(mod, catalog.ports, catalog.revoked);
   const revokedAll = isWithdrawn(catalog.revoked, mod.id);
+  const held = !revokedAll && !!mod.held;
   const banner = mod.media.banner ?? mod.media.screenshots[0] ?? null;
   const [blur, discussion] = await Promise.all([thumbDataUrl(banner?.thumbhash), getDiscussion(mod.indexSource, mod.discussion)]);
   const discussionUrl = mod.discussion ? `${mod.indexSource.replace(/\/$/, "")}/discussions/${mod.discussion}` : undefined;
@@ -173,6 +178,7 @@ export default async function ModPage(props: PageProps<"/mods/[id]">) {
   const sections = [
     gallery.length && { id: "showcase", label: "Showcase" },
     { id: "about", label: "About" },
+    { id: "safety", label: "Safety" },
     { id: "details", label: "Details" },
     { id: "relationships", label: "Relationships" },
     { id: "versions", label: "Versions" },
@@ -182,7 +188,7 @@ export default async function ModPage(props: PageProps<"/mods/[id]">) {
 
   // Relative links in the page text point next to the file it came from, the changelogs' into the mod's folder, at the release shown.
   const where = repoLinks(mod, v?.tag);
-  const install = !revokedAll && v && (
+  const install = !revokedAll && !held && v && (
     <InstallButton mods={[{ id: mod.id }]} game={gameOf(mod.games)} label={mod.type === "pack" ? "Install modpack" : "Install"} devOnly={works !== "release"} />
   );
 
@@ -243,7 +249,8 @@ export default async function ModPage(props: PageProps<"/mods/[id]">) {
             </div>
           </div>
           <p className="mt-4 max-w-[680px] text-[16px] leading-relaxed text-soft sm:text-[17px]">{mod.description}</p>
-          <div className="mt-4 flex flex-wrap gap-1.5">
+          <div className="mt-4 flex flex-wrap items-center gap-1.5">
+            <TrustBadge trust={mod.trust} big />
             <TypeBadge type={mod.type} />
             <WorksBadge works={works} />
             {mod.aiAssisted && <AiBadge />}
@@ -252,7 +259,7 @@ export default async function ModPage(props: PageProps<"/mods/[id]">) {
           </div>
           <div className="mt-6 flex flex-wrap items-center gap-2.5">
             {install && <div id="hero-install">{install}</div>}
-            {!revokedAll && v && <AddToSet id={mod.id} />}
+            {!revokedAll && !held && v && <AddToSet id={mod.id} />}
             <a href={mod.homepage ?? mod.repo} className="btn" rel="nofollow ugc noopener">
               <GithubIcon className="size-4" />
               Source
@@ -273,6 +280,11 @@ export default async function ModPage(props: PageProps<"/mods/[id]">) {
         {revokedAll && (
           <p className="mt-6 rounded-xl bg-amber/10 px-4 py-3 text-soft">
             <b className="text-gold">This mod was taken off the list.</b> {catalog.revoked.find((r) => r.id === mod.id)?.reason} Launchers turn it off by themselves.
+          </p>
+        )}
+        {held && (
+          <p className="mt-6 rounded-xl bg-coral/10 px-4 py-3 text-soft">
+            <b className="text-coral">Held for review.</b> The check of version {mod.held!.version} found something a person must look at first, so it is not offered now. Players keep the version they have.
           </p>
         )}
         {works !== "release" && !revokedAll && (
@@ -307,6 +319,29 @@ export default async function ModPage(props: PageProps<"/mods/[id]">) {
             <section id="about" data-reveal="fade" className="scroll-mt-28 pt-10">
               <H2>About</H2>
               {mod.readme?.trim() ? <Markdown base={where.page} anchors>{mod.readme}</Markdown> : <p className="text-soft">{mod.description}</p>}
+            </section>
+
+            <section id="safety" data-reveal="fade" className="scroll-mt-28 pt-10">
+              <H2>Safety</H2>
+              <div className="surface p-5">
+                <dl className="grid gap-y-0 text-[14px]">
+                  {[
+                    ["Label", mod.trust ? <><TrustBadge trust={mod.trust} /> <span className="ml-1">{TRUST_LABEL[mod.trust].hint}</span></> : "Not stated by this list"],
+                    ["Runs", mod.type === "native" ? "Code on your computer, outside the game's sandbox" : mod.type === "script" ? "Scripts in the game's sandbox: they can only change the game" : "Nothing: it only adds files"],
+                    ["Built", v?.built === "ci" ? <>By its own CI from tag <code className="text-gold">{v.tag}</code></> : v?.built === "hand" ? "Uploaded by its author, not built by CI" : null],
+                    ["Can reach", v?.scan ? (v.scan.labels.length ? v.scan.labels.join(", ") : "Nothing outside the game") : null],
+                    [v ? `New in ${v.version}` : "New", v?.scan ? (v.scan.new.length ? v.scan.new.join(", ") : "Nothing new it can reach") : null],
+                    ["Problem?", <a key="report" href={reportUrl(mod.id)} className="text-amber" rel="noopener">Report this mod</a>],
+                  ]
+                    .filter(([, x]) => x)
+                    .map(([k, x]) => (
+                      <div key={String(k)} className="grid gap-x-6 gap-y-1 border-t border-line py-2.5 first:border-0 sm:grid-cols-[120px_1fr]">
+                        <dt className="text-dim">{k}</dt>
+                        <dd className="text-soft [overflow-wrap:anywhere]">{x}</dd>
+                      </div>
+                    ))}
+                </dl>
+              </div>
             </section>
 
             <section id="details" data-reveal="fade" className="scroll-mt-28 pt-10">

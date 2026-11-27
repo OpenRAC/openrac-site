@@ -4,7 +4,7 @@ import Link from "next/link";
 import { ago, formatCount, type Sort } from "@/lib/mods/logic";
 import type { SlimMod } from "@/lib/mods/slim";
 import { formatSize } from "@/lib/format";
-import { AiBadge, DiscBadges, TypeBadge, WorksBadge } from "./Badges";
+import { AiBadge, DiscBadges, TrustBadge, TypeBadge, WorksBadge } from "./Badges";
 import { Marked } from "./ModCard";
 import ModImage from "./ModImage";
 
@@ -59,6 +59,7 @@ export default function ModTable({
               <span className="sr-only">Add to set</span>
             </th>
             {head("Name", "w-full")}
+            {head("Label")}
             {head("Type")}
             {head("Version")}
             {head("Discs")}
@@ -101,8 +102,14 @@ export default function ModTable({
                   </div>
                 </div>
               </td>
+              <td className="whitespace-nowrap px-2 py-2 max-[1024px]:hidden">
+                <TrustBadge trust={m.trust} />
+              </td>
               <td className="px-2 py-2 max-[1024px]:p-0 max-[1024px]:text-right max-[560px]:col-start-2 max-[560px]:my-1 max-[560px]:text-left">
                 <span className="inline-flex flex-wrap justify-end gap-1 max-[560px]:justify-start">
+                  <span className="min-[1024px]:hidden">
+                    <TrustBadge trust={m.trust} />
+                  </span>
                   <TypeBadge type={m.type} />
                   <WorksBadge works={m.works} />
                   {m.aiAssisted && <AiBadge />}

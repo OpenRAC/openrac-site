@@ -3,14 +3,15 @@
 import dynamic from "next/dynamic";
 import { usePathname, useSearchParams } from "next/navigation";
 import { useDeferredValue, useEffect, useMemo, useRef, useState, type ReactNode } from "react";
-import { GAME_LABEL, IMPACT_LABEL, gameOf, SORTS, TYPE_LABEL, sortMods, type Sort } from "@/lib/mods/logic";
+import { CHECKED, GAME_LABEL, IMPACT_LABEL, gameOf, SORTS, TRUST_LABEL, TRUSTS, TYPE_LABEL, sortMods, type Sort } from "@/lib/mods/logic";
 import { closest, prepare, search } from "@/lib/mods/search";
 import type { SlimMod } from "@/lib/mods/slim";
-import type { Impact, ModType } from "@/lib/mods/types";
+import type { Impact, ModType, Trust } from "@/lib/mods/types";
 import Boundary from "@/components/ui/Boundary";
 import InstallButton from "./InstallButton";
 import ModCard from "./ModCard";
 import ModTable from "./ModTable";
+import ModsIntro from "./ModsIntro";
 import Sheet from "./Sheet";
 import { usePicked, useStoredView } from "./store";
 
@@ -75,6 +76,9 @@ export default function ModBrowser({ mods, tags, now }: { mods: SlimMod[]; tags:
   const types = useMemo(() => new Set(list(params.get("type")) as ModType[]), [params]);
   const impacts = useMemo(() => new Set(list(params.get("impact")) as Impact[]), [params]);
   const tagOn = useMemo(() => new Set(list(params.get("tag"))), [params]);
+  // `checked=1` (the launcher's link with its "Checked by OpenRAC only" on) is the three checked labels.
+  const trustOn = useMemo(() => new Set((params.get("checked") ? CHECKED : list(params.get("trust"))) as Trust[]), [params]);
+  const labelled = useMemo(() => mods.some((m) => m.trust), [mods]);
   const game = params.get("game") ?? "";
   const [storedView, storeView] = useStoredView();
   const view: "grid" | "list" = params.get("view") === "list" ? "list" : params.get("view") === "grid" ? "grid" : (storedView ?? "grid");
@@ -138,11 +142,12 @@ export default function ModBrowser({ mods, tags, now }: { mods: SlimMod[]; tags:
       (!game || m.games[game]) &&
       (!types.size || types.has(m.type)) &&
       [...impacts].every((i) => m.impact.includes(i)) &&
-      [...tagOn].every((t) => m.tags.includes(t));
+      [...tagOn].every((t) => m.tags.includes(t)) &&
+      (!trustOn.size || (!!m.trust && trustOn.has(m.trust)));
     const found = search(prepared, query).filter(pass);
     // With a query the best matches come first; otherwise the chosen order.
     return query.trim() ? found : sortMods(found, sort, now);
-  }, [prepared, query, preset, game, types, impacts, tagOn, sort, now]);
+  }, [prepared, query, preset, game, types, impacts, tagOn, trustOn, sort, now]);
 
   // The count, read out once results settle, from a live region that is always on the page.
   useEffect(() => {
@@ -159,8 +164,24 @@ export default function ModBrowser({ mods, tags, now }: { mods: SlimMod[]; tags:
     return () => io.disconnect();
   }, [shown, results.length]);
 
+  /** One label on or off; the `checked` shorthand becomes the list it stands for. */
+  const toggleTrust = (t: Trust) => {
+    const next = new Set(trustOn);
+    if (next.has(t)) next.delete(t);
+    else next.add(t);
+    setTrust([...next]);
+  };
+  const setTrust = (on: Trust[]) => {
+    const q = new URLSearchParams(location.search);
+    q.delete("checked");
+    if (on.length) q.set("trust", on.join(","));
+    else q.delete("trust");
+    const str = q.toString();
+    history.replaceState(null, "", str ? `${pathname}?${str}` : pathname);
+    setShown(PAGE);
+  };
   const pick = (id: string) => setPicked(picked.includes(id) ? picked.filter((x) => x !== id) : [...picked, id]);
-  const active = types.size + impacts.size + tagOn.size + (game ? 1 : 0);
+  const active = types.size + impacts.size + tagOn.size + trustOn.size + (game ? 1 : 0);
   const clearAll = () => {
     setQ("");
     history.replaceState(null, "", pathname);
@@ -175,6 +196,7 @@ export default function ModBrowser({ mods, tags, now }: { mods: SlimMod[]; tags:
       {games.length > 1 && (
         <Chips legend="Game" items={games} on={new Set(game ? [game] : [])} label={(g) => GAME_LABEL[g] ?? g} toggle={(g) => setParam("game", game === g ? null : g)} />
       )}
+      {labelled && <Chips legend="Checked by OpenRAC" items={TRUSTS} on={trustOn} label={(t) => `${TRUST_LABEL[t].icon} ${TRUST_LABEL[t].text}`} toggle={toggleTrust} />}
       <Chips legend="Type" items={TYPES} on={types} label={(t) => TYPE_LABEL[t]} toggle={(t) => toggleIn("type", types, t)} />
       <Chips legend="Impact" items={IMPACTS} on={impacts} label={(i) => IMPACT_LABEL[i]} toggle={(i) => toggleIn("impact", impacts, i)} />
       <Chips legend="Tags" items={tags} on={tagOn} label={(t) => t} toggle={(t) => toggleIn("tag", tagOn, t)} />
@@ -257,6 +279,7 @@ export default function ModBrowser({ mods, tags, now }: { mods: SlimMod[]; tags:
       {active > 0 && (
         <ul aria-label="Filters in use" className="mb-3 flex flex-wrap gap-1.5">
           {game && <Active label={GAME_LABEL[game] ?? game} onRemove={() => setParam("game", null)} />}
+          {[...trustOn].map((t) => <Active key={t} label={TRUST_LABEL[t].text} onRemove={() => toggleTrust(t)} />)}
           {[...types].map((t) => <Active key={t} label={TYPE_LABEL[t]} onRemove={() => toggleIn("type", types, t)} />)}
           {[...impacts].map((i) => <Active key={i} label={IMPACT_LABEL[i]} onRemove={() => toggleIn("impact", impacts, i)} />)}
           {[...tagOn].map((t) => <Active key={t} label={t} onRemove={() => toggleIn("tag", tagOn, t)} />)}
@@ -353,6 +376,7 @@ export default function ModBrowser({ mods, tags, now }: { mods: SlimMod[]; tags:
         </div>
       )}
 
+      {labelled && <ModsIntro onCheckedOnly={() => setTrust(CHECKED)} />}
       <Sheet
         open={filtersOpen}
         onClose={() => setFiltersOpen(false)}

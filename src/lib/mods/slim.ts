@@ -1,6 +1,6 @@
 import { thumbHashToAverageRGBA } from "thumbhash";
 import { latest, worksWith, type Works } from "./logic.ts";
-import type { Impact, ListedMod, ModCatalog, ModImage, ModType, Requirement } from "./types.ts";
+import type { Impact, ListedMod, ModCatalog, ModImage, ModType, Requirement, Trust } from "./types.ts";
 
 /**
  * What the mod list sends to the browser: one card's worth per mod (a few hundred bytes), never the
@@ -43,6 +43,10 @@ export interface SlimMod {
   card: SlimImage | null;
   shots: SlimImage[];
   hasVideo: boolean;
+  /** How much OpenRAC checked it; absent in older indexes. */
+  trust?: Trust;
+  /** What the scan says its newest version can reach (native mods). */
+  reach?: string[];
 }
 
 /** A ThumbHash's average colour as CSS; the panel colour when there is none or it cannot be read. */
@@ -89,6 +93,8 @@ export function slim(m: ListedMod, catalog: Pick<ModCatalog, "ports" | "revoked"
     card: slimImage(m.media.banner ?? m.media.screenshots[0]),
     shots: m.media.screenshots.slice(0, 3).flatMap((s) => slimImage(s) ?? []),
     hasVideo: m.media.videos.length > 0,
+    ...(m.trust && { trust: m.trust }),
+    ...(v?.scan && { reach: v.scan.labels }),
   };
 }
 

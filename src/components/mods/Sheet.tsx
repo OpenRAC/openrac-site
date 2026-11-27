@@ -7,7 +7,7 @@ import { useEffect, useId, useRef, type ReactNode } from "react";
  * goes inert. Focus moves to the heading on open and back to what opened it on close. On a phone it
  * is a sheet from the bottom, its actions in thumb reach; the striped top edge echoes the header.
  */
-export default function Sheet({ open, onClose, title, children, actions, wide = false }: { open: boolean; onClose: () => void; title: string; children: ReactNode; actions?: ReactNode; wide?: boolean }) {
+export default function Sheet({ open, onClose, title, children, actions, wide = false, close = true }: { open: boolean; onClose: () => void; title: string; children: ReactNode; actions?: ReactNode; wide?: boolean; /** False when the actions hold their own way out. */ close?: boolean }) {
   const ref = useRef<HTMLDialogElement>(null);
   const heading = useRef<HTMLHeadingElement>(null);
   const opener = useRef<Element | null>(null);
@@ -46,9 +46,11 @@ export default function Sheet({ open, onClose, title, children, actions, wide = 
           {children}
         </div>
         <div className="flex flex-col-reverse gap-2 border-t border-line px-5 pb-[max(16px,env(safe-area-inset-bottom))] pt-4 sm:px-6 min-[480px]:flex-row min-[480px]:justify-end">
-          <button type="button" className="btn" onClick={() => ref.current?.close()}>
-            Close
-          </button>
+          {close && (
+            <button type="button" className="btn" onClick={() => ref.current?.close()}>
+              Close
+            </button>
+          )}
           {actions}
         </div>
       </div>
