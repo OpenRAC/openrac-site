@@ -414,6 +414,8 @@ summary::-webkit-details-marker { display: none; }
 .m-sheet[open]::backdrop { animation: m-fade 0.3s ease; }
 @keyframes m-sheet { from { opacity: 0; translate: 0 18px; scale: 0.97; } }
 @keyframes m-fade { from { opacity: 0; } }
+.game-tab::after { content: ""; position: absolute; inset: auto 0 -1px; height: 2px; border-radius: 2px; background: var(--color-amber); scale: 0 1; transition: scale 0.35s cubic-bezier(0.2, 0.8, 0.2, 1); }
+.game-tab[aria-checked="true"]::after { scale: 1 1; }
 .seg > button { transition: background-color 0.25s ease, color 0.25s ease; }
 /* Folding cards (the phone menu, versions) open and close smoothly instead of jumping. */
 details.d-card { interpolate-size: allow-keywords; }

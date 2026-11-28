@@ -397,12 +397,20 @@ export default function ModBrowser({ mods: listed, now, picks, notice, children 
     <ModsShell side={side} top={searchField} menuLabel={<span>Filters <span className="font-normal text-dim">· {results.length} mods</span></span>}>
       <main id="content">
         {games.length > 0 && (
-          <div className="mb-6 overflow-x-auto [scrollbar-width:none]">
-            <div role="radiogroup" aria-label="Game" className="seg">
+          // Tabs as in the docs: plain names on one line, the open game underlined in amber.
+          <div className="mb-7 overflow-x-auto border-b border-line [scrollbar-width:none]">
+            <div role="radiogroup" aria-label="Game" className="flex gap-7">
               {games.map((g) => (
-                <button key={g.id} type="button" role="radio" aria-checked={game === g.id} onClick={() => setParams({ game: g.id === games[0].id ? null : g.id, disc: null, cat: null })}>
+                <button
+                  key={g.id}
+                  type="button"
+                  role="radio"
+                  aria-checked={game === g.id}
+                  onClick={() => setParams({ game: g.id === games[0].id ? null : g.id, disc: null, cat: null })}
+                  className={`game-tab relative flex min-h-11 flex-none items-center gap-2 whitespace-nowrap text-[15px] font-medium transition-colors ${game === g.id ? "text-hi" : "text-dim hover:text-soft"}`}
+                >
                   {GAME_LABEL[g.id] ?? g.id}
-                  <span className="ml-2 text-[12.5px] font-normal tabular-nums opacity-70">{g.count}</span>
+                  <span className={`text-[13px] font-normal tabular-nums ${game === g.id ? "text-amber" : "text-dim"}`}>{g.count}</span>
                 </button>
               ))}
             </div>
