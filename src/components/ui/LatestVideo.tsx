@@ -54,11 +54,12 @@ export default function LatestVideo({ video, look, fill = false }: { video: Vide
         </span>
       </button>
     ) : (
+      // The pill shows 34 px tall; clear top and bottom edges make it a 40 px target without moving anything.
       <button
         type="button"
         onClick={() => setOpen(true)}
         aria-label={label}
-        className={`${fill ? "w-0 min-w-full" : "max-w-full"} flex min-h-10 cursor-pointer items-center gap-2 rounded-full border-0 bg-coal py-1 pl-1.5 pr-4 text-left text-[13px] leading-snug text-soft backdrop-blur-sm transition-colors hover:bg-coal-hi min-[701px]:hidden`}
+        className={`${fill ? "w-0 min-w-full" : "max-w-full"} -my-[3px] flex cursor-pointer items-center gap-2 rounded-full border-y-[3px] border-x-0 border-transparent bg-coal bg-clip-padding py-1 pl-1 pr-4 text-left text-[13px] leading-snug text-soft backdrop-blur-sm transition-colors hover:bg-coal-hi min-[701px]:hidden`}
       >
         <span className="relative h-[26px] w-[46px] flex-none overflow-hidden rounded-full bg-ink-deep">
           <Image src={video.thumbnail} alt="" fill sizes="46px" className="object-cover" />

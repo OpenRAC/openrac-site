@@ -10,6 +10,8 @@ import { useState } from "react";
  */
 export default function YouTubeFacade({ id, title, thumbnail, label }: { id: string; title: string; thumbnail?: string; label?: string }) {
   const [playing, setPlaying] = useState(false);
+  // The cover fades in over a spinner rather than popping up.
+  const [shown, setShown] = useState(false);
 
   return (
     <div className="overflow-hidden rounded-xl bg-black shadow-[0_12px_32px_rgb(0_0_0/0.4)]">
@@ -30,8 +32,9 @@ export default function YouTubeFacade({ id, title, thumbnail, label }: { id: str
             aria-label={`Play video: ${title}`}
             className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-panel-hi to-ink"
           >
+            {thumbnail && !shown && <span aria-hidden className="spinner absolute bottom-3 right-3 z-10" />}
             {thumbnail && (
-              <Image src={thumbnail} alt="" fill sizes="(min-width: 1080px) 340px, (min-width: 640px) 45vw, 100vw" className="object-cover" />
+              <Image src={thumbnail} alt="" fill sizes="(min-width: 1080px) 340px, (min-width: 640px) 45vw, 100vw" onLoad={() => setShown(true)} className={`object-cover transition-opacity duration-500 ${shown ? "opacity-100" : "opacity-0"}`} />
             )}
             <span aria-hidden className="absolute inset-0 bg-black/30" />
             <span aria-hidden className="relative flex size-16 items-center justify-center rounded-full bg-brand text-[#1a0d00] shadow-[0_6px_24px_rgb(0_0_0/0.5)]">

@@ -351,3 +351,24 @@ test("the window shrinks to a phone and grows back mid-visit", async ({ page }) 
   await expect(page).toHaveURL(/cat=camera/);
   ok();
 });
+
+test("slow pictures: a spinner until each arrives (or fails), and nothing moves", async ({ page }) => {
+  const ok = guard(page);
+  await introRead(page);
+  let release!: () => void;
+  const gate = new Promise<void>((r) => (release = r));
+  await page.route("**/mods/media/**", async (route) => {
+    await gate;
+    await route.continue();
+  });
+  // The load event waits for pictures, so only wait for the page itself.
+  await page.goto("/mods/lock-strafe", { waitUntil: "domcontentloaded" });
+  const img = page.locator(".mod-img").first();
+  await expect(img).toHaveAttribute("data-img", "loading");
+  const before = await img.boundingBox();
+  release();
+  // The fixture's media files do not exist, so here it ends as failed: just its colour, no spinner.
+  await expect(img).toHaveAttribute("data-img", /loaded|cached|failed/);
+  expect(await img.boundingBox()).toEqual(before);
+  ok();
+});

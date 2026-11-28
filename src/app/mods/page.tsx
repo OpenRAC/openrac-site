@@ -54,7 +54,13 @@ export default async function ModsPage() {
     <PageTransition>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: ldJson(modsIndexLd(siteUrl(), trending)) }} />
       {/* As tall as a screen and more, so the footer below never moves into view as the list arrives. */}
-      <Suspense fallback={<div className="mx-auto min-h-[150vh] max-w-[1320px] px-4 pt-6" />}>
+      <Suspense
+        fallback={
+          <div role="status" aria-label="Loading the mod list" className="mx-auto grid min-h-[150vh] max-w-[1360px] content-start justify-items-center px-4 pt-[30vh]">
+            <span className="spinner" />
+          </div>
+        }
+      >
         <Boundary what="mod list">
           <ModBrowser
             mods={mods}

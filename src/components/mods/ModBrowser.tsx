@@ -18,7 +18,14 @@ import ModsShell, { Count, SideGroup, sideItem } from "./ModsShell";
 import { usePicked } from "./store";
 
 // Loaded when first opened: most visitors never review a set.
-const ChangeSetDialog = dynamic(() => import("./ChangeSetDialog"));
+// Its code comes only when a set is opened; a spinner holds its place meanwhile.
+const ChangeSetDialog = dynamic(() => import("./ChangeSetDialog"), {
+  loading: () => (
+    <span role="status" aria-label="Loading" className="fixed inset-0 z-40 grid place-items-center bg-black/50">
+      <span className="spinner" />
+    </span>
+  ),
+});
 
 const PAGE = 48;
 const DAY = 86_400_000;
