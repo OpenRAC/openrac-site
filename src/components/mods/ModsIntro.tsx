@@ -1,5 +1,6 @@
 "use client";
 
+import type { CSSProperties } from "react";
 import { TRUST_LABEL, TRUSTS } from "@/lib/mods/logic";
 import { TrustBadge } from "./Badges";
 import Sheet from "./Sheet";
@@ -46,9 +47,9 @@ export default function ModsIntro({ onCheckedOnly, reopen = false, onClose }: { 
       }
     >
       <p className="text-[15px] text-soft">Mods are made by people in the community, not by OpenRAC. Each one shows how much we checked it.</p>
-      <ul className="mt-4 grid gap-2">
-        {TRUSTS.map((t) => (
-          <li key={t} className="grid items-center gap-x-4 gap-y-1 rounded-lg bg-raised px-4 py-2.5 text-[14px] text-soft min-[480px]:grid-cols-[150px_1fr]">
+      <ul className="mt-4 grid">
+        {TRUSTS.map((t, i) => (
+          <li key={t} style={{ "--i": i + 1 } as CSSProperties} className="m-in grid items-center gap-x-6 gap-y-1 border-t border-line py-3 text-[14px] text-soft first:border-0 min-[480px]:grid-cols-[140px_1fr]">
             <span className="justify-self-start">
               <TrustBadge trust={t} big edge />
             </span>
@@ -56,10 +57,10 @@ export default function ModsIntro({ onCheckedOnly, reopen = false, onClose }: { 
           </li>
         ))}
       </ul>
-      <p className="mt-4 text-[14px] leading-relaxed text-dim">
+      <p className="mt-3 rounded-lg border-l-2 border-coral bg-coral/10 px-4 py-3 text-[14px] leading-relaxed text-soft">
         <b className="text-hi">The risk:</b> a mod marked <b className="text-hi">⚠ Runs code</b> is a program. A bad one could harm your computer, your files or your accounts. Script mods run in a sandbox and can only change the game.
       </p>
-      <p className="mt-3 text-[14px] leading-relaxed text-dim">
+      <p className="mt-3 px-1 text-[14px] leading-relaxed text-dim">
         <b className="text-hi">OpenRAC takes no responsibility</b> for what any mod does, checked or not. You install mods at your own risk.
       </p>
     </Sheet>

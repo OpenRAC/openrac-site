@@ -32,6 +32,7 @@
  "mods": [
   {
    "id": "evil-readme",
+   "trust": "trusted",
    "name": "Evil readme",
    "author": "OpenRAC contributors",
    "description": "A test mod whose README tries every trick.",

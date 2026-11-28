@@ -150,8 +150,12 @@ function Pick({ mod, now }: { mod: SlimMod; now: number }) {
  * show, all kept in the address so a filtered list can be shared. Filtering runs here in the browser
  * on the slim list, so it answers as you type. Picked mods gather in the bar at the bottom.
  */
-export default function ModBrowser({ mods, now, picks, notice, children }: { mods: SlimMod[]; now: number; picks: Record<string, string[]>; notice?: ReactNode; children?: ReactNode }) {
+export default function ModBrowser({ mods: listed, now, picks, notice, children }: { mods: SlimMod[]; now: number; picks: Record<string, string[]>; notice?: ReactNode; children?: ReactNode }) {
   const pathname = usePathname();
+  // With labels in the list, a mod from an index that gives none counts as not checked: it stays
+  // listed and the label filter treats it like any other.
+  const labelled = useMemo(() => listed.some((m) => m.trust), [listed]);
+  const mods = useMemo(() => (labelled ? listed.map((m) => (m.trust ? m : { ...m, trust: "unchecked" as const })) : listed), [listed, labelled]);
   const router = useRouter();
   const params = useSearchParams();
 
@@ -163,7 +167,6 @@ export default function ModBrowser({ mods, now, picks, notice, children }: { mod
   // `checked=1` (the launcher's link with its "Checked by OpenRAC only" on) is the three checked labels.
   const trustOn = useMemo(() => new Set((params.get("checked") ? CHECKED : params.get("trust") !== null ? list(params.get("trust")) : TRUSTS) as Trust[]), [params]);
   const discOn = useMemo(() => new Set(list(params.get("disc"))), [params]);
-  const labelled = useMemo(() => mods.some((m) => m.trust), [mods]);
 
   // The games with mods, most first; the address picks one, else the one with the most.
   const games = useMemo(() => {

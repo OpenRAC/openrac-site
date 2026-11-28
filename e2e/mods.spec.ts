@@ -2,6 +2,11 @@ import { expect, test, type Page } from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
 
 /** Scrolls through the page so every section has faded in (they reveal on scroll). */
+// "Before you install mods" has been read: these tests are about what lies under it (its own are in mods-journeys).
+test.beforeEach(async ({ page }) => {
+  await page.addInitScript(() => localStorage.setItem("openrac.mods.intro-seen", "1"));
+});
+
 async function revealAll(page: Page) {
   for (let y = 0; y < 15; y++) {
     await page.mouse.wheel(0, 700);
