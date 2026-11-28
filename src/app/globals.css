@@ -97,6 +97,9 @@
   .bg-coal :is(.btn:not(.btn-primary, .btn-ghost), .chip):hover { background-color: var(--color-raised-hi); }
 }
 .bg-coal :is(.d-field, .d-btn:not(.d-btn-primary), .d-seg) { background-color: var(--color-raised); }
+/* Dialogs (.m-sheet) sit on the card fill, so their buttons and fields take two steps up to stand out. */
+.m-sheet :is(.field, .chip, .seg, .btn:not(.btn-primary, .btn-ghost)) { background-color: var(--color-raised-hi); }
+.m-sheet :is(.btn:not(.btn-primary, .btn-ghost), .chip):hover { background-color: #3a3a3a; }
 .bg-coal .d-btn:not(.d-btn-primary):hover { background-color: var(--color-raised-hi); }
 
 /* The shared pieces every section is built from, so buttons and panels look the same everywhere. */
