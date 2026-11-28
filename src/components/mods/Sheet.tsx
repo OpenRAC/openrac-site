@@ -35,7 +35,7 @@ export default function Sheet({ open, onClose, title, children, actions, wide = 
       }}
       // A click on the backdrop (the dialog box itself, outside its content) closes it.
       onClick={(e) => e.target === e.currentTarget && ref.current?.close()}
-      className={`m-sheet m-0 mt-auto w-full max-w-none overflow-hidden rounded-t-xl bg-[#1e1e1e] p-0 text-text shadow-[0_24px_80px_rgb(0_0_0/0.6)] ring-1 ring-white/10 backdrop:bg-black/70 backdrop:backdrop-blur-[3px] min-[821px]:m-auto min-[821px]:rounded-xl ${wide ? "min-[821px]:max-w-[720px]" : "min-[821px]:max-w-[520px]"}`}
+      className={`m-sheet m-0 mt-auto w-full max-w-none overflow-hidden rounded-t-xl bg-ink p-0 text-text shadow-[0_24px_80px_rgb(0_0_0/0.6)] ring-1 ring-white/10 backdrop:bg-black/70 backdrop:backdrop-blur-[3px] min-[821px]:m-auto min-[821px]:rounded-xl ${wide ? "min-[821px]:max-w-[720px]" : "min-[821px]:max-w-[520px]"}`}
     >
       <div className="flex max-h-[min(85svh,760px)] flex-col">
         <div className="overflow-y-auto overscroll-contain px-5 pb-4 pt-5 sm:px-6">
