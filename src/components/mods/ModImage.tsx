@@ -8,8 +8,8 @@ import type { SlimImage } from "@/lib/mods/slim";
  * A picture from the mod index: AVIF, then WebP, at the widths the index build made, sized by
  * `sizes`. It sits on its own average colour until it loads, so nothing jumps and no grey box shows.
  * Not next/image: these files are already optimized, so the server does no work for them. A file
- * that fails to load leaves just the colour, never a broken-picture icon. While it loads, a small
- * spinner turns on the colour; then the picture fades in instead of popping up.
+ * that fails to load leaves just the colour, never a broken-picture icon. While it loads, its colour
+ * shows as a skeleton with a soft light passing over it; then the picture fades in.
  */
 export default function ModImage({
   img,

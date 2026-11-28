@@ -352,7 +352,7 @@ test("the window shrinks to a phone and grows back mid-visit", async ({ page }) 
   ok();
 });
 
-test("slow pictures: a spinner until each arrives (or fails), and nothing moves", async ({ page }) => {
+test("slow pictures: a skeleton until each arrives (or fails), and nothing moves", async ({ page }) => {
   const ok = guard(page);
   await introRead(page);
   let release!: () => void;
@@ -366,7 +366,7 @@ test("slow pictures: a spinner until each arrives (or fails), and nothing moves"
   const img = page.locator(".mod-img").first();
   await expect(img).toHaveAttribute("data-img", "loading");
   // Let the entrance animations end first: they move things on purpose.
-  const settled = () => page.evaluate(() => Promise.all(document.getAnimations().map((a) => a.finished)));
+  const settled = () => page.evaluate(() => Promise.all(document.getAnimations().filter((a) => a.effect?.getTiming().iterations !== Infinity).map((a) => a.finished)));
   await settled();
   const before = await img.boundingBox();
   release();

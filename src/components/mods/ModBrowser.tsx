@@ -18,11 +18,16 @@ import ModsShell, { Count, SideGroup, sideItem } from "./ModsShell";
 import { usePicked } from "./store";
 
 // Loaded when first opened: most visitors never review a set.
-// Its code comes only when a set is opened; a spinner holds its place meanwhile.
+// Its code comes only when a set is opened; a skeleton of the dialog holds its place meanwhile.
 const ChangeSetDialog = dynamic(() => import("./ChangeSetDialog"), {
   loading: () => (
-    <span role="status" aria-label="Loading" className="fixed inset-0 z-40 grid place-items-center bg-black/50">
-      <span className="spinner" />
+    <span role="status" aria-label="Loading" className="fixed inset-0 z-40 grid place-items-center bg-black/70 px-4">
+      <span className="grid w-full max-w-[520px] gap-3 rounded-xl bg-ink p-6 ring-1 ring-white/10">
+        <span className="skeleton h-6 w-1/2" />
+        <span className="skeleton h-14" />
+        <span className="skeleton h-14" />
+        <span className="skeleton ml-auto h-10 w-40" />
+      </span>
     </span>
   ),
 });
@@ -93,7 +98,7 @@ function ModRow({ mod, now, query, picked, onPick, i }: { mod: SlimMod; now: num
       <label className="relative z-10 -m-[13px] grid size-11 cursor-pointer place-items-center">
         <Tick on={picked} onChange={onPick} label={`Add ${mod.name} to the set`} />
       </label>
-      <span aria-hidden className="block aspect-video w-[88px] overflow-hidden rounded-md bg-no-picture m-thumb max-sm:hidden">
+      <span aria-hidden className={`block aspect-video w-[88px] overflow-hidden rounded-md m-thumb max-sm:hidden ${mod.card ? "" : "bg-no-picture"}`} style={mod.card ? { backgroundColor: mod.card.color } : undefined}>
         {mod.card && <ModImage img={mod.card} sizes="88px" alt="" className="size-full object-cover" />}
       </span>
       <div className="min-w-0">

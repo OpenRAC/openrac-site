@@ -10,7 +10,7 @@ import { useState } from "react";
  */
 export default function YouTubeFacade({ id, title, thumbnail, label }: { id: string; title: string; thumbnail?: string; label?: string }) {
   const [playing, setPlaying] = useState(false);
-  // The cover fades in over a spinner rather than popping up.
+  // The cover fades in over a skeleton rather than popping up.
   const [shown, setShown] = useState(false);
 
   return (
@@ -32,7 +32,7 @@ export default function YouTubeFacade({ id, title, thumbnail, label }: { id: str
             aria-label={`Play video: ${title}`}
             className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-panel-hi to-ink"
           >
-            {thumbnail && !shown && <span aria-hidden className="spinner absolute bottom-3 right-3 z-10" />}
+            {thumbnail && !shown && <span aria-hidden className="skeleton absolute inset-0 rounded-none" />}
             {thumbnail && (
               <Image src={thumbnail} alt="" fill sizes="(min-width: 1080px) 340px, (min-width: 640px) 45vw, 100vw" onLoad={() => setShown(true)} className={`object-cover transition-opacity duration-500 ${shown ? "opacity-100" : "opacity-0"}`} />
             )}

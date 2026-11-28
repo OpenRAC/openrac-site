@@ -416,12 +416,20 @@ summary::-webkit-details-marker { display: none; }
 @keyframes m-fade { from { opacity: 0; } }
 .game-tab::after { content: ""; position: absolute; inset: auto 0 -1px; height: 2px; border-radius: 2px; background: var(--color-amber); scale: 0 1; transition: scale 0.35s cubic-bezier(0.2, 0.8, 0.2, 1); }
 .game-tab[aria-checked="true"]::after { scale: 1 1; }
-/* A mod picture: a spinner on its own colour while it loads, then a short fade in. */
-.mod-img[data-img="loading"] { background-image: var(--spinner); background-repeat: no-repeat; background-position: center; background-size: 22px; }
-.mod-img[data-img="loaded"] { animation: m-fade 0.45s ease; }
-:root { --spinner: url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27%3E%3Ccircle cx=%2712%27 cy=%2712%27 r=%279%27 fill=%27none%27 stroke=%27%23ffffff%27 stroke-opacity=%27.12%27 stroke-width=%272.5%27/%3E%3Cpath d=%27M12 3a9 9 0 0 1 9 9%27 fill=%27none%27 stroke=%27%23f5c040%27 stroke-opacity=%27.8%27 stroke-width=%272.5%27 stroke-linecap=%27round%27%3E%3CanimateTransform attributeName=%27transform%27 type=%27rotate%27 from=%270 12 12%27 to=%27360 12 12%27 dur=%270.8s%27 repeatCount=%27indefinite%27/%3E%3C/path%3E%3C/svg%3E"); }
-/* A spinner on its own: where a whole part of the page is still on its way. */
-.spinner { display: block; width: 28px; height: 28px; background: var(--spinner) center / contain no-repeat; }
+/* "Something goes here, it is on its way": a skeleton block with a soft light passing over it, as
+   social sites do. On a mod picture it runs on the picture's own colour; then the picture fades in. */
+.skeleton, .mod-img[data-img="loading"] {
+  background-image: linear-gradient(100deg, transparent 20%, rgb(255 255 255 / 0.06) 45%, rgb(255 255 255 / 0.06) 55%, transparent 80%);
+  background-size: 250% 100%;
+  background-repeat: no-repeat;
+  animation: shimmer 1.6s ease-in-out infinite;
+}
+.skeleton { background-color: var(--color-coal); border-radius: 8px; }
+@keyframes shimmer { from { background-position: 130% 0; } to { background-position: -30% 0; } }
+.mod-img { transition: opacity 0.5s ease; }
+.mod-img[data-img="loading"] { opacity: 1; }
+.mod-img[data-img="loaded"] { animation: img-in 0.5s ease both; }
+@keyframes img-in { from { opacity: 0; } }
 .seg > button { transition: background-color 0.25s ease, color 0.25s ease; }
 /* Folding cards (the phone menu, versions) open and close smoothly instead of jumping. */
 details.d-card { interpolate-size: allow-keywords; }

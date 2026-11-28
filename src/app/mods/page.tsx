@@ -43,6 +43,34 @@ export const metadata: Metadata = {
 };
 
 
+/** While the list wakes up: skeleton blocks where the menu, the tabs and the rows will be. As tall as a
+ * screen and more, so the footer never moves into view as the list arrives. */
+function ListSkeleton() {
+  return (
+    <div aria-busy="true" aria-label="Loading the mod list" className="mx-auto min-h-[150vh] max-w-[1360px] px-4 pb-16 pt-6 lg:grid lg:grid-cols-[232px_minmax(0,1fr)] lg:gap-12 lg:pl-6 lg:pr-10 xl:pr-14">
+      <div className="grid content-start gap-2 max-lg:hidden">
+        <span className="skeleton h-6 w-32" />
+        {Array.from({ length: 9 }, (_, i) => (
+          <span key={i} className="skeleton mt-2 h-6" />
+        ))}
+      </div>
+      <div className="grid content-start gap-4">
+        <span className="skeleton h-11" />
+        <span className="skeleton h-9 w-72" />
+        <span className="skeleton mt-4 h-9 w-80" />
+        <div className="mt-6 grid gap-3 md:grid-cols-3">
+          {[0, 1, 2].map((i) => (
+            <span key={i} className="skeleton h-24" />
+          ))}
+        </div>
+        {Array.from({ length: 6 }, (_, i) => (
+          <span key={i} className="skeleton mt-2 h-14" />
+        ))}
+      </div>
+    </div>
+  );
+}
+
 /** The mod list, framed like the SDK docs: a game at a time, then how to publish a mod. */
 export default async function ModsPage() {
   const { catalog } = await getModCatalog();
@@ -54,13 +82,7 @@ export default async function ModsPage() {
     <PageTransition>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: ldJson(modsIndexLd(siteUrl(), trending)) }} />
       {/* As tall as a screen and more, so the footer below never moves into view as the list arrives. */}
-      <Suspense
-        fallback={
-          <div role="status" aria-label="Loading the mod list" className="mx-auto grid min-h-[150vh] max-w-[1360px] content-start justify-items-center px-4 pt-[30vh]">
-            <span className="spinner" />
-          </div>
-        }
-      >
+      <Suspense fallback={<ListSkeleton />}>
         <Boundary what="mod list">
           <ModBrowser
             mods={mods}
