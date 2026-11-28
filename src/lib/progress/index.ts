@@ -1,10 +1,9 @@
 /**
  * Progress of every project, read on the server from the projects' own repositories on GitHub.
  * Most publish an objdiff report (the same file ByteMatch reads); the others publish their own
- * format, parsed in this folder (objdiff.ts, gc.ts, gm.ts, sm.ts, sac.ts, each with tests).
+ * format, parsed in this folder (objdiff.ts, gc.ts, gm.ts, sac.ts, each with tests).
  */
 import { unstable_cache } from "next/cache";
-import { parseSmStatus } from "./sm";
 import { parseGcReport } from "./gc";
 import { parseGmReadme } from "./gm";
 import { parseObjdiff } from "./objdiff";
@@ -52,11 +51,8 @@ async function loadGm(): Promise<Progress> {
   return parseGmReadme(readme);
 }
 
-/** Size Matters (PS2, NTSC-U): read the project's own scoped progress snapshot. */
-async function loadSm(): Promise<Progress> {
-  const status = await (await get(`${RAW}/OpenRAC/rac5-sm-decomp/master/progress/status.json`)).json();
-  return parseSmStatus(status);
-}
+/** Size Matters (PS2, NTSC-U): read the project's own objdiff progress report (the file ByteMatch reads). */
+const loadSm = () => loadObjdiff(`${RAW}/OpenRAC/rac5-sm-decomp/master/progress/report.json`, "sm");
 
 /** Secret Agent Clank (PS2, NTSC-U): read from placement tables and candidate summaries. */
 async function loadSac(): Promise<Progress> {
@@ -115,7 +111,7 @@ const FALLBACK: Partial<Record<ProjectId, Progress>> = {
   uya: { functions: { done: 5807, total: 16164 }, code: { done: 657780, total: 7546948 }, source: "snapshot 2026-10-24" },
   deadlocked: { functions: { done: 3598, total: 18085 }, code: { done: 262428, total: 5782424 }, source: "snapshot 2026-10-24" },
   gm: { functions: { done: 351, total: 351 }, code: { done: 545639, total: 545639 }, source: "snapshot 2026-10-24" },
-  sm: { functions: { done: 9531, total: null }, code: { done: 618320, total: 6418204 }, source: "snapshot 2026-10-26" },
+  sm: { functions: { done: 9048, total: 14409 }, code: { done: 1344568, total: 5171856 }, source: "snapshot 2026-11-28" },
   sac: { functions: { done: 395, total: 427 }, code: { done: 31104, total: 7279840 }, source: "snapshot 2026-10-26" },
 };
 
