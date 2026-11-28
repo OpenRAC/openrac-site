@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ViewTransition, type ReactNode } from "react";
+import { ViewTransition, type CSSProperties, type ReactNode } from "react";
 import { GithubIcon } from "@/components/ui/icons";
 import Boundary from "@/components/ui/Boundary";
 import Markdown from "@/components/ui/Markdown";
@@ -80,7 +80,7 @@ function RelationCard({ m, note }: { m: SlimMod; note?: string }) {
   return (
     <li>
       <Link href={`/mods/${m.id}`} className="d-card d-card-link flex items-center gap-3 p-2.5 pr-4 no-underline">
-        {m.card ? <ModImage img={m.card} sizes="80px" className="aspect-video w-20 flex-none rounded-lg object-cover" /> : <span aria-hidden className="aspect-video w-20 flex-none rounded-lg bg-gradient-to-br from-panel-hi to-ink" />}
+        {m.card ? <ModImage img={m.card} sizes="80px" className="aspect-video w-20 flex-none rounded-lg object-cover" /> : <span aria-hidden className="aspect-video w-20 flex-none rounded-lg bg-no-picture" />}
         <span className="min-w-0">
           <span className="block text-[15px] font-semibold text-hi [overflow-wrap:anywhere]">{m.name}</span>
           <span className="block text-[13px] text-dim">{note ?? `by ${m.author}`}</span>
@@ -214,7 +214,7 @@ export default async function ModPage(props: PageProps<"/mods/[id]">) {
       <main id="content" className="pb-10">
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: ldJson(ld) }} />
 
-        <nav aria-label="Breadcrumb" className="mb-4 text-[14px] text-dim">
+        <nav aria-label="Breadcrumb" className="m-in mb-4 text-[14px] text-dim">
           <ol className="flex flex-wrap gap-1.5">
             <li>
               <Link href="/mods" className="text-dim no-underline hover:text-hi">
@@ -234,10 +234,10 @@ export default async function ModPage(props: PageProps<"/mods/[id]">) {
           </ol>
         </nav>
 
-        <header className="flex flex-wrap items-center gap-x-5 gap-y-4">
+        <header className="m-in flex flex-wrap items-center gap-x-5 gap-y-4" style={{ "--i": 1 } as CSSProperties}>
           {/* Named like the mod's picture in the list: on browsers with view transitions it grows into this one. */}
           <ViewTransition name={`mod-${mod.id}`} share="morph" default="none">
-            <div className="aspect-video w-[132px] flex-none overflow-hidden rounded-lg bg-gradient-to-br from-panel-hi to-ink bg-cover bg-center sm:w-[184px]" style={blur ? { backgroundImage: `url(${blur})` } : undefined}>
+            <div className="aspect-video w-[132px] flex-none overflow-hidden rounded-lg bg-no-picture bg-cover bg-center sm:w-[184px]" style={blur ? { backgroundImage: `url(${blur})` } : undefined}>
               {(mod.media.icon ?? banner) && <ModImage img={slimImageOf(banner ?? mod.media.icon)!} sizes="184px" priority alt="" className="size-full object-cover" style={{ backgroundColor: "transparent" }} />}
             </div>
           </ViewTransition>
@@ -290,10 +290,10 @@ export default async function ModPage(props: PageProps<"/mods/[id]">) {
           </p>
         )}
 
-        <div className="mt-8 grid gap-x-10 gap-y-8 min-[1100px]:grid-cols-[minmax(0,1fr)_300px]">
+        <div className="mt-8 grid gap-x-12 gap-y-8 min-[1100px]:grid-cols-[minmax(0,1fr)_300px]">
           <div className="grid min-w-0 content-start gap-10">
             {gallery.length > 0 && (
-              <section id="showcase" className="scroll-mt-6">
+              <section id="showcase" className="m-in scroll-mt-6" style={{ "--i": 3 } as CSSProperties}>
                 <h2 className="sr-only">Showcase</h2>
                 <Boundary what="gallery">
                   <MediaGallery items={gallery} name={mod.name} />
@@ -301,7 +301,7 @@ export default async function ModPage(props: PageProps<"/mods/[id]">) {
               </section>
             )}
 
-            <section id="safety" className="scroll-mt-6">
+            <section id="safety" className="m-in scroll-mt-6" style={{ "--i": 4 } as CSSProperties}>
               <div className="d-card p-5">
                 <H2>Safety</H2>
                 <dl className="text-[14.5px]">
@@ -324,12 +324,12 @@ export default async function ModPage(props: PageProps<"/mods/[id]">) {
               </div>
             </section>
 
-            <section id="about" className="scroll-mt-6">
+            <section id="about" className="m-in scroll-mt-6" style={{ "--i": 5 } as CSSProperties}>
               <H2>Read me</H2>
               {mod.readme?.trim() ? <Markdown base={where.page} anchors>{mod.readme}</Markdown> : <p className="text-soft">{mod.description}</p>}
             </section>
 
-            <section id="relationships" className="scroll-mt-6">
+            <section id="relationships" className="m-in scroll-mt-6" style={{ "--i": 6 } as CSSProperties}>
               <H2>Relationships</H2>
               <div className="grid gap-6">
                 <Relations
@@ -344,7 +344,7 @@ export default async function ModPage(props: PageProps<"/mods/[id]">) {
               </div>
             </section>
 
-            <section id="versions" className="scroll-mt-6">
+            <section id="versions" className="m-in scroll-mt-6" style={{ "--i": 7 } as CSSProperties}>
               <H2>Versions</H2>
               <ul className="grid grid-cols-[minmax(0,1fr)] gap-2">
                 {mod.versions.map((ver, i) => {
@@ -378,7 +378,7 @@ export default async function ModPage(props: PageProps<"/mods/[id]">) {
             </section>
 
             {v && v.files.length > 0 && (
-              <section id="files" className="scroll-mt-6">
+              <section id="files" className="m-in scroll-mt-6" style={{ "--i": 7 } as CSSProperties}>
                 <H2>Files</H2>
                 <details className="d-card p-4">
                   <summary className="flex min-h-11 cursor-pointer items-center text-soft">
@@ -392,7 +392,7 @@ export default async function ModPage(props: PageProps<"/mods/[id]">) {
             )}
 
             {discussionUrl && (
-              <section id="comments" className="scroll-mt-6">
+              <section id="comments" className="m-in scroll-mt-6" style={{ "--i": 7 } as CSSProperties}>
                 <H2>Comments</H2>
                 {discussion?.comments.length ? (
                   <ul className="mb-4 grid grid-cols-[minmax(0,1fr)] gap-3">
@@ -421,7 +421,7 @@ export default async function ModPage(props: PageProps<"/mods/[id]">) {
           </div>
 
           {/* Beside the page on a wide screen, under the header on a narrow one. */}
-          <aside className="grid content-start gap-8 max-[1100px]:order-first">
+          <aside className="m-in grid content-start gap-8 max-[1100px]:order-first" style={{ "--i": 2 } as CSSProperties}>
             <section id="details" className="d-card p-5">
               <H2>Details</H2>
               <dl className="text-[14.5px]">

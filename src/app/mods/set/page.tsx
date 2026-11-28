@@ -47,7 +47,7 @@ export default async function SetupPage(props: PageProps<"/mods/set">) {
           <ul className="mb-6 grid grid-cols-[minmax(0,1fr)] gap-2.5">
             {rows.map((r) => (
               <li key={r.id} className="surface flex items-center gap-4 p-3 pr-5">
-                {r.mod?.card ? <ModImage img={r.mod.card} sizes="96px" className="aspect-video w-24 flex-none rounded-lg object-cover max-[480px]:hidden" /> : <span aria-hidden className="aspect-video w-24 flex-none rounded-lg bg-gradient-to-br from-panel-hi to-ink max-[480px]:hidden" />}
+                {r.mod?.card ? <ModImage img={r.mod.card} sizes="96px" className="aspect-video w-24 flex-none rounded-lg object-cover max-[480px]:hidden" /> : <span aria-hidden className="aspect-video w-24 flex-none rounded-lg bg-no-picture max-[480px]:hidden" />}
                 <div className="min-w-0 flex-1">
                   {r.mod ? (
                     <Link href={`/mods/${r.id}`} className="font-orbitron font-bold text-gold no-underline hover:text-amber [overflow-wrap:anywhere]">

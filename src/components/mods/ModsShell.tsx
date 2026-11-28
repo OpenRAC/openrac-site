@@ -42,7 +42,7 @@ function Brand() {
  */
 export default function ModsShell({ side, menuLabel, top, children }: { side: ReactNode; menuLabel: ReactNode; top: ReactNode; children: ReactNode }) {
   return (
-    <div className="mx-auto max-w-[1320px] px-4 pb-16 pt-6 lg:grid lg:grid-cols-[232px_minmax(0,1fr)] lg:gap-10">
+    <div className="mx-auto max-w-[1360px] px-4 pb-16 pt-6 lg:grid lg:grid-cols-[232px_minmax(0,1fr)] lg:gap-12 lg:pl-6 lg:pr-10 xl:pr-14">
       <aside aria-label="Mods menu" className="hidden lg:block">
         <div className="sticky top-6 grid max-h-[calc(100vh-48px)] gap-6 overflow-y-auto pb-6 pr-1 [scrollbar-width:thin]">
           <Brand />

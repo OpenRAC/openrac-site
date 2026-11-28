@@ -3,7 +3,7 @@
 import dynamic from "next/dynamic";
 import Link from "next/link";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { useDeferredValue, useEffect, useMemo, useRef, useState, type ReactNode } from "react";
+import { useDeferredValue, useEffect, useMemo, useRef, useState, type CSSProperties, type ReactNode } from "react";
 import { ago, CHECKED, DISC_LABEL, formatCount, GAME_LABEL, gameOf, SORTS, sortMods, TRUSTS, type Sort } from "@/lib/mods/logic";
 import { closest, prepare, search } from "@/lib/mods/search";
 import type { SlimMod } from "@/lib/mods/slim";
@@ -56,7 +56,7 @@ function Tick({ on, onChange, label }: { on: boolean; onChange: () => void; labe
   return (
     <span className="relative grid size-[18px] flex-none place-items-center">
       <input type="checkbox" checked={on} onChange={onChange} aria-label={label} className="peer absolute inset-0 m-0 cursor-pointer opacity-0" />
-      <span aria-hidden className={`grid size-[18px] place-items-center rounded-[4px] text-[12px] font-bold leading-none peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-amber ${on ? "bg-amber text-[#1a0d00]" : "bg-raised"}`}>
+      <span aria-hidden key={String(on)} className={`grid size-[18px] place-items-center rounded-[4px] transition-colors duration-200 ${on ? "m-pop" : ""} text-[12px] font-bold leading-none peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-amber ${on ? "bg-amber text-[#1a0d00]" : "bg-raised"}`}>
         {on ? "✓" : ""}
       </span>
     </span>
@@ -76,16 +76,17 @@ function CheckRow({ on, toggle, label, n, extra }: { on: boolean; toggle: () => 
 }
 
 /** One mod in the list: the box to pick it, its picture, name and line, label, kind, numbers and Install. */
-function ModRow({ mod, now, query, picked, onPick }: { mod: SlimMod; now: number; query: string; picked: boolean; onPick: () => void }) {
+function ModRow({ mod, now, query, picked, onPick, i }: { mod: SlimMod; now: number; query: string; picked: boolean; onPick: () => void; i: number }) {
   return (
     <li
-      className={`group/row relative grid grid-cols-[18px_minmax(0,1fr)_auto] items-center gap-x-4 gap-y-1.5 border-t border-line px-3 py-3 first:border-0 sm:grid-cols-[18px_88px_minmax(0,1fr)_auto] xl:grid-cols-[18px_88px_minmax(0,1fr)_150px_150px_76px_104px] ${picked ? "bg-amber/[.06]" : "hover:bg-coal"}`}
+      style={{ "--i": Math.min(i, 12) } as CSSProperties}
+      className={`m-row m-in group/row relative grid grid-cols-[18px_minmax(0,1fr)_auto] items-center gap-x-4 gap-y-1.5 border-t border-line px-3 py-3 first:border-0 sm:grid-cols-[18px_88px_minmax(0,1fr)_auto] xl:grid-cols-[18px_88px_minmax(0,1fr)_150px_150px_76px_104px] ${picked ? "bg-amber/[.06]" : "hover:bg-coal"}`}
     >
       {/* A 44 px target around the small box. */}
       <label className="relative z-10 -m-[13px] grid size-11 cursor-pointer place-items-center">
         <Tick on={picked} onChange={onPick} label={`Add ${mod.name} to the set`} />
       </label>
-      <span aria-hidden className="block aspect-video w-[88px] overflow-hidden rounded-md bg-gradient-to-br from-panel-hi to-ink max-sm:hidden">
+      <span aria-hidden className="block aspect-video w-[88px] overflow-hidden rounded-md bg-no-picture m-thumb max-sm:hidden">
         {mod.card && <ModImage img={mod.card} sizes="88px" alt="" className="size-full object-cover" />}
       </span>
       <div className="min-w-0">
@@ -133,8 +134,8 @@ function Pick({ mod, now }: { mod: SlimMod; now: number }) {
   const days = Math.floor((now - Date.parse(mod.updated)) / DAY);
   const why = mod.featured ? "Featured" : days < 3 ? `Updated ${days < 1 ? "today" : ago(mod.updated, now)}` : mod.downloads7d > 0 ? `Trending · +${formatCount(mod.downloads7d)} this week` : `Popular · ${formatCount(mod.downloads)} downloads`;
   return (
-    <Link href={`/mods/${mod.id}`} prefetch={false} className="d-card d-card-link grid grid-cols-[42%_minmax(0,1fr)] overflow-hidden no-underline">
-      {mod.card ? <ModImage img={mod.card} sizes="200px" className="aspect-video size-full object-cover" /> : <span aria-hidden className="aspect-video bg-gradient-to-br from-panel-hi to-ink" />}
+    <Link href={`/mods/${mod.id}`} prefetch={false} className="m-pick d-card d-card-link grid grid-cols-[42%_minmax(0,1fr)] overflow-hidden no-underline">
+      <span className="m-thumb block overflow-hidden">{mod.card ? <ModImage img={mod.card} sizes="200px" className="aspect-video size-full object-cover" /> : <span aria-hidden className="block aspect-video bg-no-picture" />}</span>
       <span className="grid min-w-0 content-center gap-0.5 px-4 py-3">
         <span className="truncate text-[12.5px] text-dim">{why}</span>
         <span className="truncate text-[15px] font-semibold text-hi">{mod.name}</span>
@@ -405,7 +406,7 @@ export default function ModBrowser({ mods, now, picks, notice, children }: { mod
           </div>
         )}
 
-        <header className="mb-8">
+        <header key={game} className="m-in mb-8">
           <h1 className="text-balance text-[28px] font-semibold leading-[1.12] tracking-tight text-hi sm:text-[32px]">{gameName} mods</h1>
           <p className="mt-2 max-w-[720px] text-[15.5px] leading-relaxed text-soft">Made by the community. Each mod shows how much OpenRAC checked it.</p>
         </header>
@@ -417,8 +418,10 @@ export default function ModBrowser({ mods, now, picks, notice, children }: { mod
               This week <small className="text-[14px] font-normal text-dim">picked from OpenRAC, verified and trusted mods</small>
             </h2>
             <div className="grid gap-3 md:grid-cols-3">
-              {top.map((m) => (
-                <Pick key={m.id} mod={m} now={now} />
+              {top.map((m, i) => (
+                <div key={`${game}-${m.id}`} className="m-in" style={{ "--i": i + 1 } as CSSProperties}>
+                  <Pick mod={m} now={now} />
+                </div>
               ))}
             </div>
           </section>
@@ -484,9 +487,10 @@ export default function ModBrowser({ mods, now, picks, notice, children }: { mod
                   <span className="text-right">Downloads</span>
                   <span />
                 </div>
-                <ul aria-label={`${gameName} mods`}>
-                  {results.slice(0, shown).map((m) => (
-                    <ModRow key={m.id} mod={m} now={now} query={query} picked={picked.includes(m.id)} onPick={() => pick(m.id)} />
+                {/* A new filter or sort deals the rows in again, one after another; typing in the search does not. */}
+                <ul key={[game, cat, sort, dev, [...trustOn].join(), [...discOn].join()].join("|")} aria-label={`${gameName} mods`}>
+                  {results.slice(0, shown).map((m, i) => (
+                    <ModRow key={m.id} i={i % PAGE} mod={m} now={now} query={query} picked={picked.includes(m.id)} onPick={() => pick(m.id)} />
                   ))}
                 </ul>
               </>
@@ -507,9 +511,9 @@ export default function ModBrowser({ mods, now, picks, notice, children }: { mod
       {/* The picked mods: a bar at the bottom of the screen, in reach of a thumb. */}
       {picked.length > 0 && (
         <div className="pointer-events-none fixed inset-x-0 bottom-0 z-30 flex justify-center px-4 pb-[max(16px,env(safe-area-inset-bottom))]">
-          <div className="pointer-events-auto flex items-center gap-2 rounded-xl bg-coal p-2 pl-4 shadow-[0_12px_40px_rgb(0_0_0/0.6)] ring-1 ring-white/10">
+          <div className="m-bar pointer-events-auto flex items-center gap-2 rounded-xl bg-coal p-2 pl-4 shadow-[0_12px_40px_rgb(0_0_0/0.6)] ring-1 ring-white/10">
             <p className="mr-2 text-[15px] text-soft">
-              <b className="font-semibold text-amber">{picked.length}</b>
+              <b key={picked.length} className="m-pop inline-block font-semibold text-amber">{picked.length}</b>
               <span className="max-sm:hidden"> mod{picked.length === 1 ? "" : "s"}</span> picked
             </p>
             <button type="button" className="btn btn-primary btn-sm" onClick={() => setReview(true)}>
