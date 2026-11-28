@@ -330,6 +330,12 @@ body { background: var(--color-ink); color: var(--color-text); }
 
 
 details[open] > summary .plus { transform: rotate(45deg); }
+.fold { display: grid; place-items: center; width: 28px; height: 28px; border-radius: 999px; color: var(--color-amber); background: rgb(255 255 255 / 0.04); box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.08); transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), background-color 0.15s ease, box-shadow 0.15s ease; }
+details[open] > summary .fold { transform: rotate(180deg); }
+.fold-row { border-radius: 8px; transition: background-color 0.15s ease; }
+.fold-row:hover { background-color: rgb(255 255 255 / 0.03); }
+.fold-row:hover .fold { background-color: rgb(245 192 64 / 0.12); box-shadow: inset 0 0 0 1px rgb(245 192 64 / 0.3); }
+.fold-row:focus-visible { outline: 2px solid var(--color-amber); outline-offset: -2px; }
 details[open] > :not(summary) { animation: rise 0.35s ease both; }
 summary::-webkit-details-marker { display: none; }
 

@@ -2,7 +2,7 @@ import { test } from "node:test";
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import { createHash } from "node:crypto";
-import { checkIndex, indexUrls, loadCatalog, merge, withRetry, type Fetcher } from "./index.ts";
+import { checkIndex, httpsUrl, indexUrls, loadCatalog, merge, withRetry, type Fetcher } from "./index.ts";
 import {
   gameOf,
   ago,
@@ -376,4 +376,24 @@ test("gameOf names the game only when every mod shares one", () => {
   assert.equal(gameOf({ rac1: ["pal"], rac2: ["pal"] }), undefined);
   assert.equal(gameOf({ rac1: [] }, { rac2: [] }), undefined);
   assert.equal(gameOf(), undefined);
+});
+
+test("merge: a mod's addresses are https or left out, and a mod with a strange id or repository is dropped", () => {
+  const base = fixture.mods[0];
+  const odd = {
+    ...fixture,
+    mods: [
+      { ...base, id: "odd-links", homepage: "javascript:alert(1)", links: { bugs: "data:text/html,x", docs: "//evil.example", discord: "https://discord.gg/ok" }, discussion: "1/../x", media: { ...base.media, videos: [{ youtube: 'x"><script>', caption: "" }, { youtube: "dQw4w9WgXcQ", caption: "" }] } },
+      { ...base, id: "odd-repo", repo: "data:text/html,<script>alert(1)</script>" },
+      { ...base, id: "../odd-id" },
+    ],
+  } as unknown as typeof fixture;
+  const m = merge([odd], NOW).mods;
+  assert.deepEqual(m.map((x) => x.id), ["odd-links"]);
+  assert.equal(m[0].homepage, undefined);
+  assert.deepEqual(m[0].links, { discord: "https://discord.gg/ok" });
+  assert.equal(m[0].discussion, undefined);
+  assert.deepEqual(m[0].media.videos.map((v) => v.youtube), ["dQw4w9WgXcQ"]);
+  assert.equal(httpsUrl('https://x.example/"onclick'), undefined);
+  assert.equal(httpsUrl("https://github.com/OpenRAC/openrac-mods"), "https://github.com/OpenRAC/openrac-mods");
 });

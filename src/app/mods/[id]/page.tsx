@@ -100,21 +100,41 @@ function Relations({ title, items, empty }: { title: string; items: { m: SlimMod
   );
 }
 
-/** Files of the newest archive as a folder tree, folded by default (it can be long). */
+/** Round chevron on a folding row: turns over when the row opens. */
+function Fold() {
+  return (
+    <span aria-hidden className="fold">
+      <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M4 6l4 4 4-4" />
+      </svg>
+    </span>
+  );
+}
+
+const FOLDER = <svg aria-hidden viewBox="0 0 16 16" width="14" height="14" className="shrink-0 text-amber/80" fill="currentColor"><path d="M1.5 3.5A1.5 1.5 0 0 1 3 2h3.2l1.5 1.6H13A1.5 1.5 0 0 1 14.5 5v7.5A1.5 1.5 0 0 1 13 14H3a1.5 1.5 0 0 1-1.5-1.5z" /></svg>;
+const FILE = <svg aria-hidden viewBox="0 0 16 16" width="14" height="14" className="shrink-0 text-dim" fill="none" stroke="currentColor" strokeWidth="1.3"><path d="M4 1.5h5L12.5 5v9.5h-8.5z M9 1.5V5h3.5" /></svg>;
+
+/** Files of the newest archive as a folder tree. */
 function FileTree({ files }: { files: string[] }) {
   type Node = { [k: string]: Node };
   const root: Node = {};
   for (const f of files) f.split("/").reduce((n, part) => (n[part] ??= {}), root);
   const render = (n: Node, depth: number): ReactNode => (
-    <ul className={depth ? "ml-4 border-l border-line pl-3" : ""}>
+    <ul className={depth ? "ml-[7px] border-l border-line pl-3" : ""}>
       {Object.keys(n)
         .sort((a, b) => Number(!Object.keys(n[a]).length) - Number(!Object.keys(n[b]).length) || a.localeCompare(b))
-        .map((k) => (
-          <li key={k} className="py-0.5">
-            <span className={Object.keys(n[k]).length ? "text-hi" : "text-soft"}>{Object.keys(n[k]).length ? `${k}/` : k}</span>
-            {Object.keys(n[k]).length > 0 && render(n[k], depth + 1)}
-          </li>
-        ))}
+        .map((k) => {
+          const dir = Object.keys(n[k]).length > 0;
+          return (
+            <li key={k}>
+              <span className={`flex items-center gap-2 py-1 [overflow-wrap:anywhere] ${dir ? "text-hi" : "text-soft"}`}>
+                {dir ? FOLDER : FILE}
+                {k}
+              </span>
+              {dir && render(n[k], depth + 1)}
+            </li>
+          );
+        })}
     </ul>
   );
   return <div className="font-mono text-[13px]">{render(root, 0)}</div>;
@@ -306,7 +326,7 @@ export default async function ModPage(props: PageProps<"/mods/[id]">) {
                 <H2>Safety</H2>
                 <dl className="text-[14.5px]">
                   {[
-                    ["Label", mod.trust ? <><TrustBadge trust={mod.trust} edge /> <span className="ml-2">{TRUST_LABEL[mod.trust].hint}</span></> : "Not stated by this list"],
+                    ["Label", mod.trust ? <span className="grid justify-items-start gap-1.5"><TrustBadge trust={mod.trust} boxed /><span>{TRUST_LABEL[mod.trust].hint}</span></span> : "Not stated by this list"],
                     ["Runs", mod.type === "native" ? "Code on your computer, outside the game's sandbox" : mod.type === "script" ? "Scripts in the game's sandbox: they can only change the game" : "Nothing: it only adds files"],
                     ["Built", v?.built === "ci" ? <>Built by CI from tag <code className="rounded bg-ink-deep px-1.5 py-0.5 text-[13px] text-gold">{v.tag}</code></> : v?.built === "hand" ? "Uploaded by its author, not built by CI" : null],
                     ["Can reach", v?.scan ? (v.scan.labels.length ? <span className="flex flex-wrap gap-1.5">{v.scan.labels.map((l) => <span key={l} className="rounded bg-ink-deep px-2 py-0.5 text-[13px] text-soft">{l}</span>)}</span> : "Nothing outside the game") : null],
@@ -352,7 +372,7 @@ export default async function ModPage(props: PageProps<"/mods/[id]">) {
                   return (
                     <li key={ver.version}>
                       <details className="d-card group open:pb-1" open={i === 0}>
-                        <summary className="flex min-h-12 cursor-pointer list-none flex-wrap items-center gap-x-4 gap-y-1 px-4 py-2.5">
+                        <summary className="fold-row flex min-h-12 cursor-pointer list-none flex-wrap items-center gap-x-4 gap-y-1 px-4 py-2.5">
                           <span className="font-semibold tabular-nums text-hi">{ver.version}</span>
                           {ver.prerelease && <span className="rounded bg-amber/10 px-2 text-[12px] text-amber">Pre-release</span>}
                           {gone && <span className="rounded bg-ink-deep px-2 text-[12px] text-dim">Withdrawn</span>}
@@ -360,7 +380,7 @@ export default async function ModPage(props: PageProps<"/mods/[id]">) {
                           <span className="text-[13px] text-dim">{Object.values(ver.games).flat().map((d) => DISC_LABEL[d] ?? d).join(", ")}</span>
                           {ver.size > 0 && <span className="text-[13px] tabular-nums text-dim">{formatSize(ver.size)}</span>}
                           <span className="text-[13px] text-dim">{ver.api ? `interface ${ver.api}` : ""}</span>
-                          <span aria-hidden className="plus ml-auto text-xl text-amber transition-transform">+</span>
+                          <span className="ml-auto"><Fold /></span>
                         </summary>
                         <div className="border-t border-line px-4 py-3">
                           {ver.changelog.trim() ? <Markdown base={where.folder}>{ver.changelog}</Markdown> : <p className="text-dim">No notes for this version.</p>}
@@ -380,11 +400,19 @@ export default async function ModPage(props: PageProps<"/mods/[id]">) {
             {v && v.files.length > 0 && (
               <section id="files" className="m-in scroll-mt-6" style={{ "--i": 7 } as CSSProperties}>
                 <H2>Files</H2>
-                <details className="d-card p-4">
-                  <summary className="flex min-h-11 cursor-pointer items-center text-soft">
-                    {v.files.length} file{v.files.length === 1 ? "" : "s"} in {v.version}
+                <details className="d-card group" open={v.files.length <= 20}>
+                  <summary className="fold-row flex min-h-12 cursor-pointer list-none items-center gap-3 px-4 py-2.5">
+                    <span className="text-hi">
+                      {v.files.length} file{v.files.length === 1 ? "" : "s"}
+                    </span>
+                    <span className="text-[13px] text-dim">in {v.version}</span>
+                    <span className="ml-auto flex items-center gap-2 text-[13px] text-dim">
+                      <span className="group-open:hidden">Show</span>
+                      <span className="hidden group-open:inline">Hide</span>
+                      <Fold />
+                    </span>
                   </summary>
-                  <div className="mt-3 max-h-[420px] overflow-auto">
+                  <div className="max-h-[420px] overflow-auto border-t border-line px-4 py-3">
                     <FileTree files={v.files} />
                   </div>
                 </details>
@@ -436,7 +464,7 @@ export default async function ModPage(props: PageProps<"/mods/[id]">) {
                 {row("Interface", v?.api ? `${v.api}${apiFits(v.api, catalog.ports.stable.api) ? " (release ✓)" : apiFits(v.api, catalog.ports.dev.api) ? " (dev build)" : ""}` : null)}
                 {row("Impact", mod.impact.map((i) => IMPACT_LABEL[i]).join(", ") || null)}
                 {row("Tags", mod.tags.join(", ") || null)}
-                {row("AI", mod.aiAssisted === undefined ? null : <>{mod.aiAssisted ? "Yes" : "No"}, stated by the author (<Link href="/#ai" className="text-amber">our view</Link>)</>)}
+                {row("AI", mod.aiAssisted === undefined ? null : <>{mod.aiAssisted ? "Yes" : "No"}, stated by the author</>)}
                 {row("Id", <code className="text-[13px] text-gold">{mod.id}</code>)}
                 {row(
                   "Links",

@@ -95,6 +95,24 @@ export function checkIndex(value: unknown): ModIndex {
 
 const NO_PORT: Port = { launcher: null, api: null };
 
+/** An https address with nothing a link could be tricked by (spaces, quotes, angle brackets), or undefined. */
+export const httpsUrl = (u: unknown): string | undefined => (typeof u === "string" && u.length <= 500 && /^https:\/\/[^\s"'<>\\]+$/.test(u) ? u : undefined);
+
+const YOUTUBE_ID = /^[\w-]{11}$/;
+
+/**
+ * A mod's addresses as the page may use them. The index build checks them too; this keeps any index
+ * (a second one, an old one) from putting a javascript: link or a strange video id on the page.
+ * Null for a mod whose id or repository address is not one the index build allows.
+ */
+export function safeAddresses<T extends Mod>(m: T): T | null {
+  if (!httpsUrl(m.repo) || !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(m.id) || m.id.length > 64) return null;
+  const links = Object.fromEntries(Object.entries(m.links ?? {}).filter(([, u]) => httpsUrl(u)));
+  const videos = (m.media.videos ?? []).filter((v) => typeof v.youtube === "string" && YOUTUBE_ID.test(v.youtube));
+  const discussion = Number.isInteger(m.discussion) && m.discussion! > 0 ? m.discussion : undefined;
+  return { ...m, homepage: httpsUrl(m.homepage), links, discussion, media: { ...m.media, videos } };
+}
+
 /** Several indexes as one list. The first index to name an id keeps it; ids are unique across indexes by rule. */
 export function merge(indexes: ModIndex[], now: number, stale = false): ModCatalog {
   const seen = new Set<string>();
@@ -103,7 +121,8 @@ export function merge(indexes: ModIndex[], now: number, stale = false): ModCatal
     for (const m of idx.mods)
       if (!seen.has(m.id)) {
         seen.add(m.id);
-        mods.push({ ...m, mediaBase: idx.media, indexSource: idx.source } as ListedMod);
+        const safe = safeAddresses(m);
+        if (safe) mods.push({ ...safe, mediaBase: idx.media, indexSource: idx.source } as ListedMod);
       }
   const first = indexes[0];
   return {

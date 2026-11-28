@@ -34,7 +34,7 @@ test("browse: category, search, dev build and sort live in the address", async (
     await page.getByRole("checkbox", { name: "Dev build mods too" }).check();
     await expect(page).toHaveURL(/dev=1/, { timeout: 1000 });
   }).toPass();
-  await expect(status).toHaveText("10 mods");
+  await expect(status).toHaveText("11 mods");
 
   await page.getByRole("searchbox", { name: "Search mods" }).fill("radnomizer");
   await expect(page).toHaveURL(/q=radnomizer/);
@@ -171,6 +171,31 @@ test("README from a second index renders inert", async ({ page }) => {
   await expect(page.locator('#about a', { hasText: "docs" })).toHaveAttribute("href", /^https:\/\/github\.com\/OpenRAC\/openrac-mods\/blob\/evil-readme-v1\.2\.0\/camera-base\/docs\/setup\.md$/);
 });
 
+test("a mod whose every field is hostile renders inert", async ({ page }) => {
+  const outside: string[] = [];
+  page.on("request", (r) => void (/^https?:\/\/(localhost|127\.0\.0\.1)/.test(r.url()) || outside.push(r.url())));
+  page.on("dialog", (d) => void d.dismiss());
+  await page.goto("/mods/evil-fields");
+  await revealAll(page);
+  await page.evaluate(() => document.querySelectorAll("details").forEach((d) => (d.open = true)));
+  await page.mouse.move(400, 400);
+  expect(await page.evaluate(() => (window as unknown as { __pwned?: number }).__pwned)).toBeUndefined();
+  const main = page.locator("main");
+  await expect(main.locator("script:not([type='application/ld+json']), iframe, object, embed, form, style, svg script, video, audio, textarea, [onerror], [onload], [onclick], [onfocus], [ontoggle]")).toHaveCount(0);
+  await expect(page.locator("base, meta[http-equiv], link[href*='evil.example']")).toHaveCount(0);
+  // Every link goes to this site, an in-page spot, or an https address.
+  const hrefs = await main.locator("a[href]").evaluateAll((as) => as.map((a) => a.getAttribute("href")!));
+  expect(hrefs.filter((h) => !/^(\/|#|https:\/\/)/.test(h))).toEqual([]);
+  // A bad homepage, bug link or protocol-relative docs link is left out, not shown.
+  await expect(page.locator("#details a")).toHaveText(["Source"]);
+  // A README can't take the page's own ids, and its classes never reach the page.
+  await expect(page.locator("#about #details, #about #__next")).toHaveCount(0);
+  await expect(page.locator("#about .fixed")).toHaveCount(0);
+  await expect(page.locator("#showcase a[href*='youtube']")).toHaveCount(0); // a video id that is not one is dropped
+  await expect(page).toHaveTitle(/^Evil "fields" <\/title><script>/); // shown as text
+  expect(outside).toEqual([]);
+});
+
 test("mod page: a page text other than the README links the README", async ({ page }) => {
   await page.goto("/mods/evil-readme");
   await expect(page.locator("#details").getByRole("link", { name: "README on GitHub" })).toHaveAttribute("href", "https://github.com/OpenRAC/openrac-mods/blob/evil-readme-v1.2.0/camera-base/README.md");
@@ -228,7 +253,7 @@ test("mods.json: the list for scripts, without server-only parts", async ({ requ
   expect(r.headers()["access-control-allow-origin"]).toBe("*");
   expect(r.headers()["cache-control"]).toContain("stale-if-error");
   const body = await r.json();
-  expect(body.mods.length).toBe(11); // the withdrawn test mod too: scripts see it with its reason in "revoked"
+  expect(body.mods.length).toBe(12); // the withdrawn test mod too: scripts see it with its reason in "revoked"
   expect(body.revoked.some((r: { id: string }) => r.id === "gone-mod")).toBe(true);
   expect("mediaBase" in body.mods[0]).toBe(false);
 });
