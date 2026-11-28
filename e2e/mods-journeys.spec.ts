@@ -365,10 +365,14 @@ test("slow pictures: a spinner until each arrives (or fails), and nothing moves"
   await page.goto("/mods/lock-strafe", { waitUntil: "domcontentloaded" });
   const img = page.locator(".mod-img").first();
   await expect(img).toHaveAttribute("data-img", "loading");
+  // Let the entrance animations end first: they move things on purpose.
+  const settled = () => page.evaluate(() => Promise.all(document.getAnimations().map((a) => a.finished)));
+  await settled();
   const before = await img.boundingBox();
   release();
   // The fixture's media files do not exist, so here it ends as failed: just its colour, no spinner.
   await expect(img).toHaveAttribute("data-img", /loaded|cached|failed/);
+  await settled();
   expect(await img.boundingBox()).toEqual(before);
   ok();
 });
