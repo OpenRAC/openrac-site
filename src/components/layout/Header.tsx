@@ -83,8 +83,9 @@ export default function Header() {
   const home = pathname === "/";
   const inMods = pathname === "/mods" || pathname.startsWith("/mods/");
   const inNews = pathname === "/news" || pathname.startsWith("/news/");
-  // The SDK docs have their own frame: a logo back to the site instead of the bar.
-  const inDocs = pathname === "/mods/docs" || pathname.startsWith("/mods/docs/");
+  // The SDK docs and the mod pages have their own frame: a logo back to the site instead of the bar.
+  // A shared setup (/mods/set) keeps the bar.
+  const inDocs = pathname === "/mods" || (pathname.startsWith("/mods/") && !pathname.startsWith("/mods/set"));
   const [open, setOpen] = useState(false);
 
   // The menu closes with Escape, and on its own when the screen grows past the mobile layout.

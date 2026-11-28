@@ -10,13 +10,17 @@ const READ_MORE = "https://github.com/OpenRAC/openrac-mods#labels";
 /**
  * "Before you install mods": once per browser, on the first visit to the list. What the four labels mean,
  * the risk of a mod that runs code, and that OpenRAC takes no responsibility. "Show only checked mods"
- * turns on the Checked by OpenRAC filter.
+ * turns on the Checked by OpenRAC filter. The "?" by that filter opens it again (`reopen`).
  */
-export default function ModsIntro({ onCheckedOnly }: { onCheckedOnly: () => void }) {
-  const [seen, markSeen] = useIntroSeen();
+export default function ModsIntro({ onCheckedOnly, reopen = false, onClose }: { onCheckedOnly: () => void; reopen?: boolean; onClose?: () => void }) {
+  const [seen, markIntroSeen] = useIntroSeen();
+  const markSeen = () => {
+    markIntroSeen();
+    onClose?.();
+  };
   return (
     <Sheet
-      open={seen === false}
+      open={seen === false || reopen}
       onClose={markSeen}
       title="Before you install mods"
       close={false}

@@ -2,15 +2,10 @@ import type { Metadata } from "next";
 import { Suspense } from "react";
 import PageTransition from "@/components/layout/PageTransition";
 import Boundary from "@/components/ui/Boundary";
-import Cards from "@/components/ui/Cards";
-import Particles from "@/components/ui/Particles";
-import Section from "@/components/ui/Section";
-import InstallButton from "@/components/mods/InstallButton";
 import ModBrowser from "@/components/mods/ModBrowser";
-import ModCard from "@/components/mods/ModCard";
 import { SHARE_IMAGE, ldJson, modsIndexLd, siteUrl } from "@/lib/machine";
 import { getModCatalog } from "@/lib/mods";
-import { gameOf, isFresh, isShown, renderedAt, sortMods } from "@/lib/mods/logic";
+import { isShown, renderedAt, sortMods } from "@/lib/mods/logic";
 import { CONTENT_RULES, LIST_YOUR_MOD, SDK_DOCS } from "@/lib/mods/links";
 import { slim } from "@/lib/mods/slim";
 
@@ -48,102 +43,55 @@ export const metadata: Metadata = {
 };
 
 
-/** The mod list: featured mods, what is new, then every mod to browse, and how to publish one. */
+/** The mod list, framed like the SDK docs: a game at a time, then how to publish a mod. */
 export default async function ModsPage() {
   const { catalog } = await getModCatalog();
   const now = renderedAt();
   const mods = catalog.mods.filter((m) => isShown(m, catalog.revoked)).map((m) => slim(m, catalog));
   const trending = sortMods(mods, "trending", now);
-  // This week's picks from the index (checked mods only, chosen each Monday); else the featured ones,
-  // or the most active when none are featured. Never sliding by itself.
-  const byId = new Map(mods.map((m) => [m.id, m]));
-  const weekly = Object.values(catalog.picks?.games ?? {})
-    .flat()
-    .flatMap((id) => byId.get(id) ?? []);
-  const featured = weekly.length ? weekly.slice(0, 6) : (mods.some((m) => m.featured) ? mods.filter((m) => m.featured) : trending).slice(0, 3);
-  const fresh = sortMods(mods.filter((m) => isFresh(m, now) && !featured.includes(m)), "updated", now).slice(0, 8);
 
   return (
     <PageTransition>
-    <main className="mx-auto max-w-[1080px] px-4">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: ldJson(modsIndexLd(siteUrl(), trending)) }} />
-
-      <div className="relative isolate pb-2 pt-10 sm:pb-4 sm:pt-14">
-        <Particles />
-        <div aria-hidden className="absolute -right-56 -top-24 -z-10 size-[680px] bg-[radial-gradient(closest-side,rgb(214_160_32/0.28),transparent)] will-change-transform sm:animate-drift" />
-        <p className="mb-4 whitespace-nowrap font-orbitron text-[clamp(7px,2.35vw,11px)] font-bold uppercase tracking-[.2em] text-brand after:mt-2 after:block after:h-[3px] after:w-11 after:rounded-sm after:bg-brand after:content-[''] sm:text-[13px] sm:tracking-[.28em]">
-          Community made · one-click install
-        </p>
-        <h1 className="max-w-[860px] text-balance font-audiowide text-[clamp(30px,5.6vw,56px)] leading-[1.06]">
-          <span className="text-amber">Mods</span> for the Ratchet &amp; Clank port
-        </h1>
-        <p className="mt-4 max-w-[620px] text-[15px] leading-relaxed text-soft sm:text-[17px]">
-          Made by the community for OpenRAC. Each mod shows how much OpenRAC checked it. Press <b className="font-semibold text-hi">Install</b> and the launcher adds the mod with everything it needs, checks every file, and keeps it up to date
-        </p>
-        <div className="mt-6 grid animate-rise gap-3 [animation-delay:.3s] min-[560px]:flex min-[560px]:flex-wrap">
-          <a href="#all" className="btn btn-primary">
-            Browse {mods.length ? `${mods.length} mods` : "mods"}
-          </a>
-          <a href="#publish" className="btn">
-            Publish your mod
-          </a>
-          <a href={SDK_DOCS} className="btn">
-            SDK docs
-          </a>
-        </div>
-      </div>
-
-      {catalog.stale && (
-        <p className="mb-2 rounded-xl bg-brand/10 px-4 py-3 text-[15px] text-soft">
-          {mods.length ? "The mod list may be a little out of date: GitHub did not answer just now. It refreshes by itself." : "The mod list could not be loaded just now. It refreshes by itself; try again in a minute."}
-        </p>
-      )}
-
-      {featured.length > 0 && (
-        <Section id="featured" title={weekly.length ? "This week" : "Featured"} sub={weekly.length ? "Picked each week from OpenRAC, Verified and Trusted author mods: a good place to start." : "Picked by the community: a good place to start."}>
-          <div className="grid gap-4 min-[480px]:grid-cols-2 min-[821px]:grid-cols-3">
-            {featured.map((m, i) => (
-              <ModCard key={m.id} mod={m} now={now} priority={i === 0} morph={false} actions={<InstallButton mods={[{ id: m.id }]} game={gameOf(m.games)} small primary={false} devOnly={m.works !== "release"} />} />
-            ))}
-          </div>
-        </Section>
-      )}
-
-      {fresh.length > 0 && (
-        <Section id="fresh" title="New & updated" sub="Released or updated in the last two weeks.">
-          {/* A row to swipe through, snapping to each card; it never moves by itself. A scrolling row also
-              clips up and down, so the room above (pt, undone by -mt) keeps a hovered card's lifted border in view. */}
-          <div className="-mx-4 -mt-2 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-3 pt-2 [scrollbar-width:thin]">
-            {fresh.map((m) => (
-              <div key={m.id} className="w-[min(280px,80vw)] flex-none snap-start">
-                <ModCard mod={m} now={now} sizes="280px" morph={false} />
-              </div>
-            ))}
-          </div>
-        </Section>
-      )}
-
-      <Section id="all" title="All mods" sub="Search, filter and compare. Pick several to install them together, with everything they need.">
-        <Suspense fallback={<div className="surface h-[420px] animate-pulse" />}>
-          <Boundary what="mod list">
-            <ModBrowser mods={mods} tags={catalog.tags} now={now} />
-          </Boundary>
-        </Suspense>
-      </Section>
-
-      <Section id="publish" title="Publish your mod" sub="Players install it in one click, and every new release reaches them by itself.">
-        <Cards
-          items={[
-            ["Build it with the SDK", "Write a script in Luau, or a native mod in C or C++. A template sets it all up.", <a key="a" className="btn btn-sm" href={SDK_DOCS}>SDK docs</a>],
-            ["Release it on GitHub", "Push a version tag. The template builds the mod and publishes the release for you.", null],
-            ["List it once", "Fill in a short form on GitHub. A bot checks the mod and tells you what to fix. Then every new release shows up here within an hour.", <a key="c" className="btn btn-sm" href={LIST_YOUR_MOD}>Open the submission on GitHub</a>],
-          ]}
-        />
-        <p className="mt-6 text-[14px] text-dim">
-          Every listing follows the <a href={CONTENT_RULES} className="text-amber underline">content rules</a>.
-        </p>
-      </Section>
-    </main>
+      {/* As tall as a screen and more, so the footer below never moves into view as the list arrives. */}
+      <Suspense fallback={<div className="mx-auto min-h-[150vh] max-w-[1320px] px-4 pt-6" />}>
+        <Boundary what="mod list">
+          <ModBrowser
+            mods={mods}
+            now={now}
+            picks={catalog.picks?.games ?? {}}
+            notice={
+              catalog.stale && (
+                <p className="mb-6 rounded-lg border-l-2 border-brand bg-brand/10 px-4 py-3 text-[14.5px] text-soft">
+                  {mods.length ? "The mod list may be a little out of date: GitHub did not answer just now. It refreshes by itself." : "The mod list could not be loaded just now. It refreshes by itself; try again in a minute."}
+                </p>
+              )
+            }
+          >
+            <section id="publish" className="mt-14 scroll-mt-6 border-t border-line pt-8">
+              <h2 className="text-[18px] font-semibold text-hi">Publish your mod</h2>
+              <p className="mt-1 text-[15px] text-soft">Players install it in one click, and every new release reaches them by itself.</p>
+              <ol className="mt-4 grid gap-3 md:grid-cols-3">
+                {[
+                  ["Build it with the SDK", "Write a script in Luau, or a native mod in C or C++. A template sets it all up.", <a key="a" className="text-amber" href={SDK_DOCS}>SDK docs</a>],
+                  ["Release it on GitHub", "Push a version tag. The template builds the mod and publishes the release for you.", null],
+                  ["List it once", "Fill in a short form on GitHub. A bot checks the mod and tells you what to fix. Then every new release shows up here within an hour.", <a key="c" className="text-amber" href={LIST_YOUR_MOD}>Open the submission on GitHub</a>],
+                ].map(([t, d, a], i) => (
+                  <li key={i} className="d-card grid content-start gap-1.5 p-4">
+                    <span className="text-[12.5px] text-dim">Step {i + 1}</span>
+                    <span className="font-semibold text-hi">{t}</span>
+                    <span className="text-[14px] text-soft">{d}</span>
+                    {a && <span className="text-[14px]">{a}</span>}
+                  </li>
+                ))}
+              </ol>
+              <p className="mt-4 text-[14px] text-dim">
+                Every listing follows the <a href={CONTENT_RULES} className="text-amber underline">content rules</a>.
+              </p>
+            </section>
+          </ModBrowser>
+        </Boundary>
+      </Suspense>
     </PageTransition>
   );
 }

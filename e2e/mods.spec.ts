@@ -18,43 +18,42 @@ test("the blog is gone and Mods is in the nav", async ({ page }) => {
   await expect(page.getByRole("link", { name: "Blog" })).toHaveCount(0);
 });
 
-test("browse: presets, search, filters and sort live in the address", async ({ page }) => {
+test("browse: category, search, dev build and sort live in the address", async ({ page }) => {
   await page.goto("/mods");
   const status = page.getByRole("status").filter({ hasText: /mods?$/ });
-  await expect(status).toHaveText("8 mods"); // works on release: no dev-only mods, no packs (7 + the second index's one)
+  await expect(status).toHaveText("9 mods"); // works on release (8 + the second index's one)
+  await expect(page.getByRole("heading", { level: 1 })).toHaveText("Ratchet & Clank mods");
 
   // A press before the page has hydrated does nothing, so the first one is retried.
   await expect(async () => {
-    await page.getByRole("radio", { name: "All" }).click();
-    await expect(page).toHaveURL(/preset=all/, { timeout: 1000 });
+    await page.getByRole("checkbox", { name: "Dev build mods too" }).check();
+    await expect(page).toHaveURL(/dev=1/, { timeout: 1000 });
   }).toPass();
   await expect(status).toHaveText("10 mods");
 
   await page.getByRole("searchbox", { name: "Search mods" }).fill("radnomizer");
   await expect(page).toHaveURL(/q=radnomizer/);
-  await expect(page.locator("#results article").first()).toContainText("Item randomizer");
-
+  await expect(page.locator("#results li").first()).toContainText("Item randomizer");
   await page.getByRole("searchbox", { name: "Search mods" }).fill("");
-  // The filters live in one panel; the ones in use show under the search box, each to remove.
-  await page.getByRole("button", { name: "Filters", exact: true }).click();
-  await page.getByRole("dialog").getByRole("button", { name: "Native", exact: true }).click();
-  await expect(page).toHaveURL(/type=native/);
-  await page.keyboard.press("Escape");
+  await expect(page).not.toHaveURL(/q=/);
+
+  await page.getByRole("button", { name: /^camera/i }).click();
+  await expect(page).toHaveURL(/cat=camera/);
   await page.reload();
-  await expect(page.getByRole("button", { name: "Remove filter: Native" })).toBeVisible();
-  await page.getByRole("button", { name: /^Filters/ }).click();
-  await expect(page.getByRole("dialog").getByRole("button", { name: "Native", exact: true })).toHaveAttribute("aria-pressed", "true");
-  await page.keyboard.press("Escape");
+  await expect(page.getByRole("button", { name: /^camera/i })).toHaveAttribute("aria-pressed", "true");
+  await expect(status).toHaveText("3 mods");
 
   await page.getByLabel("Sort").selectOption("name");
   await expect(page).toHaveURL(/sort=name/);
 });
 
-test("browse: the change set gathers what picks bring along", async ({ page }) => {
-  await page.goto("/mods?preset=all");
-  const card = page.locator("#results article", { hasText: "Lock-strafe" });
-  await card.getByRole("button", { name: "Add to set" }).click();
-  await page.getByRole("button", { name: "Review & install" }).click();
+test("browse: picked mods install together, with what they bring along", async ({ page }) => {
+  await page.goto("/mods?dev=1");
+  await expect(async () => {
+    await page.getByRole("checkbox", { name: "Add Lock-strafe to the set" }).check();
+    await expect(page.getByRole("button", { name: "Install together" })).toBeVisible({ timeout: 1000 });
+  }).toPass();
+  await page.getByRole("button", { name: "Install together" }).click();
   const dialog = page.getByRole("dialog");
   // Lock-strafe, the two camera mods it needs, and Xbox icons, recommended and so ticked.
   await expect(dialog.getByRole("heading", { name: "Install 4 mods" })).toBeVisible();
@@ -64,15 +63,6 @@ test("browse: the change set gathers what picks bring along", async ({ page }) =
   await expect(dialog).toContainText("runs native code");
   await page.keyboard.press("Escape");
   await expect(dialog).toBeHidden();
-});
-
-test("browse: list view is a real sortable table", async ({ page }) => {
-  await page.goto("/mods?view=list&preset=all");
-  const table = page.getByRole("table");
-  await expect(table).toBeVisible();
-  await table.getByRole("button", { name: /Downloads/ }).click();
-  await expect(table.getByRole("columnheader", { name: /Downloads/ })).toHaveAttribute("aria-sort", "descending");
-  await expect(table.getByRole("row").nth(1)).toContainText("Item randomizer");
 });
 
 test("install: opens the launcher link, then offers help if nothing took it", async ({ page }) => {
@@ -194,9 +184,8 @@ test("README: in-page links reach its headings and footnotes, never the page's o
   await page.locator("#about a", { hasText: "to setup" }).click();
   await expect(page).toHaveURL(/#user-content-set-up$/);
   await expect(heading).toBeInViewport();
-  // Clear of the stuck header and contents bar, once the smooth scroll has settled.
-  const nav = page.getByRole("navigation", { name: "On this page" });
-  await expect.poll(async () => (await heading.boundingBox())!.y - (await nav.boundingBox())!.y - (await nav.boundingBox())!.height).toBeGreaterThanOrEqual(0);
+  // Below the top of the screen, once the smooth scroll has settled.
+  await expect.poll(async () => (await heading.boundingBox())!.y).toBeGreaterThanOrEqual(0);
   await page.locator('#about sup a[href="#user-content-fn-1"]').click();
   await expect(page.locator("#about li#user-content-fn-1")).toContainText("A footnote.");
   await expect(page.locator("#about li#user-content-fn-1")).toBeInViewport();
