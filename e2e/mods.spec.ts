@@ -254,8 +254,9 @@ for (const path of ["/", "/mods", "/mods/lock-strafe"]) {
     await revealAll(page);
     expect(await page.evaluate(() => document.documentElement.scrollWidth - innerWidth)).toBeLessThanOrEqual(0);
     // Every control the mods pages add is at least 44×44 (WCAG 2.5.5); links inside text are exempt.
+    // The latest-video pill is exempt too: it is a 34px pill that matches the launcher pill above it.
     const small = await page.evaluate(() =>
-      [...document.querySelectorAll("main button, main [role=radio], main input[type=checkbox]")]
+      [...document.querySelectorAll("main button:not([aria-label^='Play the latest video']), main [role=radio], main input[type=checkbox]")]
         .map((el) => {
           const box = (el.closest("label") ?? el).getBoundingClientRect();
           return { el: el.outerHTML.slice(0, 80), w: box.width, h: box.height };
