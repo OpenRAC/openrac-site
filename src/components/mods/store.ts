@@ -10,6 +10,7 @@ import { useSyncExternalStore } from "react";
 
 const PICKED = "openrac.mods.picked";
 const VIEW = "openrac.mods.view";
+const INTRO = "openrac.mods.intro-seen";
 const listeners = new Set<() => void>();
 const memory = new Map<string, string>();
 
@@ -32,7 +33,7 @@ function write(key: string, value: string) {
 function subscribe(l: () => void) {
   listeners.add(l);
   // Another tab changing the set shows here too.
-  const onStorage = (e: StorageEvent) => (e.key === PICKED || e.key === VIEW) && l();
+  const onStorage = (e: StorageEvent) => (e.key === PICKED || e.key === VIEW || e.key === INTRO) && l();
   addEventListener("storage", onStorage);
   return () => {
     listeners.delete(l);
@@ -67,4 +68,14 @@ export function useStoredView(): ["grid" | "list" | null, (v: "grid" | "list") =
     () => null,
   );
   return [v === "list" || v === "grid" ? v : null, (next) => write(VIEW, next)];
+}
+
+/** Whether this browser has read "Before you install mods"; null before the page knows (the server, the first paint). */
+export function useIntroSeen(): [boolean | null, () => void] {
+  const seen = useSyncExternalStore(
+    subscribe,
+    () => read(INTRO) === "1",
+    () => null,
+  );
+  return [seen, () => write(INTRO, "1")];
 }

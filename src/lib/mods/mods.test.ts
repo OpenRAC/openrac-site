@@ -2,7 +2,7 @@ import { test } from "node:test";
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import { createHash } from "node:crypto";
-import { checkIndex, indexUrls, loadCatalog, merge, withRetry, type Fetcher } from "./index.ts";
+import { checkIndex, httpsUrl, indexUrls, loadCatalog, merge, withRetry, type Fetcher } from "./index.ts";
 import {
   gameOf,
   ago,
@@ -197,6 +197,52 @@ test("index loading: last good copy on failure, never an older serial, never thr
   assert.equal(expired.catalog.stale, true);
 });
 
+test("community.json is optional: its failure is no error, its mods join the list", async () => {
+  const main = "https://x.test/index/index.json";
+  const side = "https://x.test/index/community.json";
+  const extra = { ...structuredClone(fixture.mods[0]), id: "new-hud", trust: "unchecked" as const };
+  const both: Fetcher = async (url) => (url === side ? { ...structuredClone(fixture), mods: [extra] } : structuredClone(fixture));
+  const got = await loadCatalog([main, side], both, NOW, new Map());
+  assert.equal(got.catalog.mods.length, fixture.mods.length + 1);
+  assert.equal(got.catalog.mods.find((m) => m.id === "new-hud")?.indexBase, "https://x.test/index/");
+  const onlyMain: Fetcher = async (url) => {
+    if (url === side) throw new Error("404");
+    return structuredClone(fixture);
+  };
+  const quiet = await loadCatalog([main, side], onlyMain, NOW, new Map());
+  assert.equal(quiet.error, undefined);
+  assert.equal(quiet.catalog.stale, false);
+});
+
+test("labels: held mods are not shown; the label reaches the card", async () => {
+  const { isShown } = await import("./logic.ts");
+  const { slim } = await import("./slim.ts");
+  const m = { ...mod("lock-strafe"), trust: "verified" as const, held: { version: "9.9.9", reasons: ["mentions cmd.exe"] } };
+  assert.equal(isShown(m, []), false);
+  assert.equal(isShown(mod("lock-strafe"), []), true);
+  const v = { ...m.versions[0], scan: { labels: ["Network"], new: [] } };
+  const s = slim({ ...m, versions: [v, ...m.versions.slice(1)] }, catalog);
+  assert.equal(s.trust, "verified");
+  assert.deepEqual(s.reach, ["Network"]);
+  assert.equal("trust" in slim(mod("xbox-icons"), catalog), false); // an older index says nothing
+});
+
+test("details: filled from the file only when its SHA-256 matches", async () => {
+  const { withDetails } = await import("./details.ts");
+  const body = new TextEncoder().encode(JSON.stringify({ id: "ammo-max", readme: "Long text", versions: [{ version: "1.0.1", changelog: "Fixed" }] }));
+  const sha = createHash("sha256").update(body).digest("hex");
+  const bare = { ...mod("ammo-max"), readme: "", versions: mod("ammo-max").versions.map((v) => ({ ...v, changelog: "" })), indexBase: "https://x.test/", details: { asset: "details-ammo-max.json", sha256: sha } };
+  const filled = await withDetails(bare, async () => body);
+  assert.equal(filled.readme, "Long text");
+  assert.equal(filled.versions.find((v) => v.version === "1.0.1")?.changelog, "Fixed");
+  const swapped = await withDetails(bare, async () => new TextEncoder().encode('{"id":"ammo-max","readme":"evil"}'));
+  assert.equal(swapped.readme, "");
+  // A name that is not a plain file name is never fetched.
+  let asked = false;
+  await withDetails({ ...bare, details: { asset: "../x.json", sha256: sha } }, async () => ((asked = true), body));
+  assert.equal(asked, false);
+});
+
 test("index shape is checked; extra fields are fine", () => {
   assert.throws(() => checkIndex({ format: 2, mods: [] }));
   assert.throws(() => checkIndex({ format: 1, media: "x", mods: [{ id: "a" }] }));
@@ -211,7 +257,10 @@ test("merge: first index keeps an id; media base travels with the mod", () => {
 });
 
 test("MOD_INDEXES is a comma list with a default", () => {
-  assert.deepEqual(indexUrls(undefined), ["https://github.com/OpenRAC/openrac-mods/releases/download/index/index.json"]);
+  assert.deepEqual(indexUrls(undefined), [
+    "https://github.com/OpenRAC/openrac-mods/releases/download/index/index.json",
+    "https://github.com/OpenRAC/openrac-mods/releases/download/index/community.json",
+  ]);
   assert.deepEqual(indexUrls(" a , ,b"), ["a", "b"]);
 });
 
@@ -327,4 +376,24 @@ test("gameOf names the game only when every mod shares one", () => {
   assert.equal(gameOf({ rac1: ["pal"], rac2: ["pal"] }), undefined);
   assert.equal(gameOf({ rac1: [] }, { rac2: [] }), undefined);
   assert.equal(gameOf(), undefined);
+});
+
+test("merge: a mod's addresses are https or left out, and a mod with a strange id or repository is dropped", () => {
+  const base = fixture.mods[0];
+  const odd = {
+    ...fixture,
+    mods: [
+      { ...base, id: "odd-links", homepage: "javascript:alert(1)", links: { bugs: "data:text/html,x", docs: "//evil.example", discord: "https://discord.gg/ok" }, discussion: "1/../x", media: { ...base.media, videos: [{ youtube: 'x"><script>', caption: "" }, { youtube: "dQw4w9WgXcQ", caption: "" }] } },
+      { ...base, id: "odd-repo", repo: "data:text/html,<script>alert(1)</script>" },
+      { ...base, id: "../odd-id" },
+    ],
+  } as unknown as typeof fixture;
+  const m = merge([odd], NOW).mods;
+  assert.deepEqual(m.map((x) => x.id), ["odd-links"]);
+  assert.equal(m[0].homepage, undefined);
+  assert.deepEqual(m[0].links, { discord: "https://discord.gg/ok" });
+  assert.equal(m[0].discussion, undefined);
+  assert.deepEqual(m[0].media.videos.map((v) => v.youtube), ["dQw4w9WgXcQ"]);
+  assert.equal(httpsUrl('https://x.example/"onclick'), undefined);
+  assert.equal(httpsUrl("https://github.com/OpenRAC/openrac-mods"), "https://github.com/OpenRAC/openrac-mods");
 });

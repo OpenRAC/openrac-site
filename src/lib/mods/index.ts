@@ -1,4 +1,4 @@
-import type { ListedMod, ModCatalog, ModIndex, Port } from "./types.ts";
+import type { ListedMod, Mod, ModCatalog, ModIndex, Port } from "./types.ts";
 
 /**
  * The mod list, read on the server from each index the site is told about (MOD_INDEXES, comma
@@ -13,11 +13,14 @@ import type { ListedMod, ModCatalog, ModIndex, Port } from "./types.ts";
  */
 
 export const DEFAULT_INDEX = "https://github.com/OpenRAC/openrac-mods/releases/download/index/index.json";
+/** New Not checked mods, published beside index.json only while there are some: a failed fetch of it is not an error. */
+export const COMMUNITY_INDEX = "https://github.com/OpenRAC/openrac-mods/releases/download/index/community.json";
+const optional = (url: string) => url.endsWith("/community.json");
 const CACHE_MS = 300_000;
 const TIMEOUT_MS = 10_000;
 
 export const indexUrls = (env = process.env.MOD_INDEXES) =>
-  (env ?? DEFAULT_INDEX)
+  (env ?? `${DEFAULT_INDEX},${COMMUNITY_INDEX}`)
     .split(",")
     .map((u) => u.trim())
     .filter(Boolean);
@@ -92,6 +95,24 @@ export function checkIndex(value: unknown): ModIndex {
 
 const NO_PORT: Port = { launcher: null, api: null };
 
+/** An https address with nothing a link could be tricked by (spaces, quotes, angle brackets), or undefined. */
+export const httpsUrl = (u: unknown): string | undefined => (typeof u === "string" && u.length <= 500 && /^https:\/\/[^\s"'<>\\]+$/.test(u) ? u : undefined);
+
+const YOUTUBE_ID = /^[\w-]{11}$/;
+
+/**
+ * A mod's addresses as the page may use them. The index build checks them too; this keeps any index
+ * (a second one, an old one) from putting a javascript: link or a strange video id on the page.
+ * Null for a mod whose id or repository address is not one the index build allows.
+ */
+export function safeAddresses<T extends Mod>(m: T): T | null {
+  if (!httpsUrl(m.repo) || !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(m.id) || m.id.length > 64) return null;
+  const links = Object.fromEntries(Object.entries(m.links ?? {}).filter(([, u]) => httpsUrl(u)));
+  const videos = (m.media.videos ?? []).filter((v) => typeof v.youtube === "string" && YOUTUBE_ID.test(v.youtube));
+  const discussion = Number.isInteger(m.discussion) && m.discussion! > 0 ? m.discussion : undefined;
+  return { ...m, homepage: httpsUrl(m.homepage), links, discussion, media: { ...m.media, videos } };
+}
+
 /** Several indexes as one list. The first index to name an id keeps it; ids are unique across indexes by rule. */
 export function merge(indexes: ModIndex[], now: number, stale = false): ModCatalog {
   const seen = new Set<string>();
@@ -100,7 +121,8 @@ export function merge(indexes: ModIndex[], now: number, stale = false): ModCatal
     for (const m of idx.mods)
       if (!seen.has(m.id)) {
         seen.add(m.id);
-        mods.push({ ...m, mediaBase: idx.media, indexSource: idx.source });
+        const safe = safeAddresses(m);
+        if (safe) mods.push({ ...safe, mediaBase: idx.media, indexSource: idx.source } as ListedMod);
       }
   const first = indexes[0];
   return {
@@ -108,12 +130,19 @@ export function merge(indexes: ModIndex[], now: number, stale = false): ModCatal
     revoked: indexes.flatMap((i) => i.revoked),
     ports: first?.ports ?? { stable: NO_PORT, dev: NO_PORT },
     tags: [...new Set(indexes.flatMap((i) => i.tags))],
+    ...(first?.picks && { picks: first.picks }),
     generated: first?.generated ?? null,
     stale: stale || indexes.some((i) => Date.parse(i.expires) < now),
   };
 }
 
 type Entry = { index: ModIndex; at: number };
+
+/** The index with each mod knowing the folder its index file is in (where its details file is). */
+const withBase = (index: ModIndex, url: string): ModIndex => {
+  const base = url.slice(0, url.lastIndexOf("/") + 1);
+  return { ...index, mods: index.mods.map((m) => ({ ...m, indexBase: base }) as Mod) };
+};
 const lastGood = new Map<string, Entry>();
 let inflight: Promise<{ catalog: ModCatalog; error?: IndexError }> | null = null;
 let memo: { at: number; value: { catalog: ModCatalog; error?: IndexError } } | null = null;
@@ -131,13 +160,17 @@ export async function loadCatalog(urls: string[], fetcher: Fetcher, now: number,
         const prev = memory.get(url);
         const use = prev && prev.index.serial > index.serial ? prev.index : index;
         memory.set(url, { index: use, at: now });
-        indexes[i] = use;
+        indexes[i] = withBase(use, url);
       } catch (e) {
         if (isNextSignal(e)) throw e;
-        error = e instanceof FetchError ? e.kind : "parse";
         const prev = memory.get(url);
+        if (optional(url)) {
+          if (prev) indexes[i] = withBase(prev.index, url);
+          return;
+        }
+        error = e instanceof FetchError ? e.kind : "parse";
         if (prev) {
-          indexes[i] = prev.index;
+          indexes[i] = withBase(prev.index, url);
           stale = true;
         }
       }

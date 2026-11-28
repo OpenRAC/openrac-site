@@ -41,16 +41,25 @@ export default function MediaGallery({ items, name }: { items: GalleryItem[]; na
 
   return (
     <div>
-      <div className="relative overflow-hidden rounded-xl bg-ink-deep">
+      <div className="relative overflow-hidden rounded-lg bg-ink-deep">
         {item.kind === "video" ? (
-          <YouTubeFacade key={item.youtube} id={item.youtube} title={item.title} thumbnail={youtubeThumb(item.youtube)} label="Video" />
+          <YouTubeFacade key={item.youtube} id={item.youtube} title={item.title} thumbnail={youtubeThumb(item.youtube)} plain />
         ) : (
           <button type="button" onClick={() => setFull(true)} className="group block w-full cursor-zoom-in" aria-label={`Open ${item.alt} full screen`}>
             <ModImage img={item.img} sizes="(min-width: 1080px) 700px, 100vw" alt={item.alt} className="aspect-video w-full object-cover transition duration-500 group-hover:scale-[1.015]" />
           </button>
         )}
       </div>
-      {caption && item.kind === "image" && <p className="mt-2 text-[14px] text-dim">{caption}</p>}
+      {item.kind === "video" ? (
+        <p className="mt-2 flex items-center gap-3 text-[14px] text-dim">
+          <span className="min-w-0 flex-1 truncate">{caption}</span>
+          <a href={`https://www.youtube.com/watch?v=${item.youtube}`} className="flex-none text-dim no-underline hover:text-amber" rel="noopener">
+            Watch on YouTube ↗
+          </a>
+        </p>
+      ) : (
+        caption && <p className="mt-2 text-[14px] text-dim">{caption}</p>
+      )}
 
       {/* Padding keeps the selected outline inside the scroll box, which clips. */}
       {items.length > 1 && (
@@ -67,8 +76,8 @@ export default function MediaGallery({ items, name }: { items: GalleryItem[]; na
                 {x.kind === "video" ? (
                   <>
                     <Image src={youtubeThumb(x.youtube)} alt="" fill sizes="118px" className="object-cover" />
-                    <span aria-hidden className="absolute inset-0 flex items-center justify-center bg-black/30">
-                      <svg viewBox="0 0 24 24" className="size-6 fill-amber">
+                    <span aria-hidden className="absolute inset-0 flex items-center justify-center bg-black/20">
+                      <svg viewBox="0 0 24 24" className="size-7 rounded-full bg-black/55 fill-text p-1.5 pl-2 ring-1 ring-white/15">
                         <path d="M7.5 5v14l11-7z" />
                       </svg>
                     </span>

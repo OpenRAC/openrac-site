@@ -4,6 +4,8 @@
  */
 
 export type ModType = "script" | "native" | "data" | "pack";
+/** How much OpenRAC checked a mod: its own repository, looked at when added, a trusted author, or none. */
+export type Trust = "openrac" | "verified" | "trusted" | "unchecked";
 export type Impact = "cosmetic" | "gameplay" | "speedrun-safe" | "touches-saves" | "online";
 
 /** A picture, already resized by the index build: each width exists as AVIF and WebP. */
@@ -56,6 +58,10 @@ export interface ModVersion {
   size: number;
   files: string[];
   platforms: Record<string, PlatformFile>;
+  /** What the scan of a native version's files found it can reach; `new` is what the version before could not. */
+  scan?: { labels: string[]; new: string[] };
+  /** The newest native version only: `ci` when the mod's own CI built it from its tag, else `hand`. */
+  built?: "ci" | "hand";
 }
 
 export interface Mod {
@@ -98,6 +104,14 @@ export interface Mod {
   versions: ModVersion[];
   /** Number of its GitHub Discussion in the index repository, once the bot has made one. */
   discussion?: number;
+  /** How much OpenRAC checked it; absent in older indexes. */
+  trust?: Trust;
+  /** The GitHub account an outside mod's repository belongs to. */
+  owner?: { login: string; id: number | null };
+  /** Its newest version is held for a person to look at (the scan found something): the mod is not shown. */
+  held?: { version: string; reasons: string[] };
+  /** The file with its readme and changelogs, named with its SHA-256 (the index may leave those texts out). */
+  details?: { asset: string; sha256: string };
 }
 
 export interface Revoked {
@@ -124,6 +138,8 @@ export interface ModIndex {
   tags: string[];
   mods: Mod[];
   revoked: Revoked[];
+  /** The weekly picks: up to three mod ids per game. */
+  picks?: { week: string; games: Record<string, string[]> };
 }
 
 /** A mod as the site keeps it after merging indexes: which index it came from travels with it. */
@@ -132,6 +148,8 @@ export interface ListedMod extends Mod {
   mediaBase: string;
   /** The repository of its index (where its Discussion lives). */
   indexSource: string;
+  /** The folder URL of its index file, ending in `/` (its details file is there). */
+  indexBase?: string;
 }
 
 /** Every index merged, plus how fresh the data is. */
@@ -140,6 +158,7 @@ export interface ModCatalog {
   revoked: Revoked[];
   ports: { stable: Port; dev: Port };
   tags: string[];
+  picks?: { week: string; games: Record<string, string[]> };
   generated: string | null;
   /** True when the data is older than its index allows, or comes from the last good copy after a failure. */
   stale: boolean;

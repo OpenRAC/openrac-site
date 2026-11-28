@@ -1,5 +1,5 @@
-import { DISC_LABEL, IMPACT_LABEL, TYPE_LABEL, type Works } from "@/lib/mods/logic";
-import type { Impact, ModType } from "@/lib/mods/types";
+import { DISC_LABEL, IMPACT_LABEL, TRUST_LABEL, TYPE_LABEL, type Works } from "@/lib/mods/logic";
+import type { Impact, ModType, Trust } from "@/lib/mods/types";
 
 // min-w-0 and a truncating label: in a one-line row (a mod card) a long badge shortens with "…" instead of spilling out.
 const pill = "inline-flex min-w-0 max-w-full items-center gap-1.5 whitespace-nowrap rounded px-2 py-0.5 font-orbitron text-[10px] font-bold uppercase tracking-[.15em] leading-[1.4]";
@@ -65,5 +65,34 @@ export function DiscBadges({ games }: { games: Record<string, string[]> }) {
           </span>
         ))}
     </>
+  );
+}
+
+/**
+ * How much OpenRAC checked the mod: an amber icon and plain words, its meaning in the tooltip. Not checked
+ * is the one label in coral, on a faint coral fill (the only one with padding), so it stands out in a list.
+ * `edge`: the badge starts a line, so even Not checked's icon lines up with the text above.
+ * `boxed`: a small framed tag of its own, for a line that explains the label beside or under it.
+ */
+export function TrustBadge({ trust, big = false, edge = false, boxed = false }: { trust?: Trust; big?: boolean; edge?: boolean; boxed?: boolean }) {
+  if (!trust) return null;
+  const t = TRUST_LABEL[trust];
+  const risk = trust === "unchecked";
+  return (
+    <span
+      title={t.hint}
+      className={`inline-flex flex-none items-center gap-1 whitespace-nowrap rounded py-0.5 font-medium leading-[1.4] ${big ? "text-[14px]" : "text-[13px]"} ${
+        boxed
+          ? `rounded-md pl-1.5 pr-2 ring-1 ring-inset ${risk ? "bg-coral/15 font-semibold text-coral ring-coral/30" : "bg-white/[0.04] text-hi ring-white/10"}`
+          : risk
+            ? `bg-coral/15 pl-1 pr-1.5 font-semibold text-coral ${edge ? "-ml-1" : ""}`
+            : "text-soft"
+      }`}
+    >
+      <b aria-hidden className={`w-3.5 text-center ${risk ? "font-bold text-coral" : "font-normal text-amber"}`}>
+        {t.icon}
+      </b>
+      {t.text}
+    </span>
   );
 }

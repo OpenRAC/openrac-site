@@ -3,7 +3,7 @@ import { siteUrl } from "@/lib/machine";
 import { getModCatalog } from "@/lib/mods";
 import { getDocsIndex, getRelease } from "@/lib/modDocs";
 import { docsHref, pagesOf } from "@/lib/modDocs/logic";
-import { isWithdrawn, mediaSrc, widthFor } from "@/lib/mods/logic";
+import { isShown, mediaSrc, widthFor } from "@/lib/mods/logic";
 import { getNewsIndex } from "@/lib/news";
 
 // Rebuilt with the mod list, so a new mod is listed within minutes.
@@ -26,7 +26,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const site = siteUrl();
   const { catalog } = await getModCatalog();
   // Mods taken off the list (revoked as a whole) keep a page but are not offered to search engines.
-  const mods = catalog.mods.filter((m) => !isWithdrawn(catalog.revoked, m.id));
+  const mods = catalog.mods.filter((m) => isShown(m, catalog.revoked));
   const newest = mods.reduce((t, m) => Math.max(t, Date.parse(m.updated)), 0);
   // Weeks with only facts are thin pages: only written reports are offered.
   const news = ((await getNewsIndex())?.weeks ?? []).filter((w) => w.report);

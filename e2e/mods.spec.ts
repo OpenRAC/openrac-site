@@ -2,6 +2,11 @@ import { expect, test, type Page } from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
 
 /** Scrolls through the page so every section has faded in (they reveal on scroll). */
+// "Before you install mods" has been read: these tests are about what lies under it (its own are in mods-journeys).
+test.beforeEach(async ({ page }) => {
+  await page.addInitScript(() => localStorage.setItem("openrac.mods.intro-seen", "1"));
+});
+
 async function revealAll(page: Page) {
   for (let y = 0; y < 15; y++) {
     await page.mouse.wheel(0, 700);
@@ -18,43 +23,42 @@ test("the blog is gone and Mods is in the nav", async ({ page }) => {
   await expect(page.getByRole("link", { name: "Blog" })).toHaveCount(0);
 });
 
-test("browse: presets, search, filters and sort live in the address", async ({ page }) => {
+test("browse: category, search, dev build and sort live in the address", async ({ page }) => {
   await page.goto("/mods");
   const status = page.getByRole("status").filter({ hasText: /mods?$/ });
-  await expect(status).toHaveText("8 mods"); // works on release: no dev-only mods, no packs (7 + the second index's one)
+  await expect(status).toHaveText("9 mods"); // works on release (8 + the second index's one)
+  await expect(page.getByRole("heading", { level: 1 })).toHaveText("Ratchet & Clank mods");
 
   // A press before the page has hydrated does nothing, so the first one is retried.
   await expect(async () => {
-    await page.getByRole("radio", { name: "All" }).click();
-    await expect(page).toHaveURL(/preset=all/, { timeout: 1000 });
+    await page.getByRole("checkbox", { name: "Dev build mods too" }).check();
+    await expect(page).toHaveURL(/dev=1/, { timeout: 1000 });
   }).toPass();
-  await expect(status).toHaveText("10 mods");
+  await expect(status).toHaveText("11 mods");
 
   await page.getByRole("searchbox", { name: "Search mods" }).fill("radnomizer");
   await expect(page).toHaveURL(/q=radnomizer/);
-  await expect(page.locator("#results article").first()).toContainText("Item randomizer");
-
+  await expect(page.locator("#results li").first()).toContainText("Item randomizer");
   await page.getByRole("searchbox", { name: "Search mods" }).fill("");
-  // The filters live in one panel; the ones in use show under the search box, each to remove.
-  await page.getByRole("button", { name: "Filters", exact: true }).click();
-  await page.getByRole("dialog").getByRole("button", { name: "Native", exact: true }).click();
-  await expect(page).toHaveURL(/type=native/);
-  await page.keyboard.press("Escape");
+  await expect(page).not.toHaveURL(/q=/);
+
+  await page.getByRole("button", { name: /^camera/i }).click();
+  await expect(page).toHaveURL(/cat=camera/);
   await page.reload();
-  await expect(page.getByRole("button", { name: "Remove filter: Native" })).toBeVisible();
-  await page.getByRole("button", { name: /^Filters/ }).click();
-  await expect(page.getByRole("dialog").getByRole("button", { name: "Native", exact: true })).toHaveAttribute("aria-pressed", "true");
-  await page.keyboard.press("Escape");
+  await expect(page.getByRole("button", { name: /^camera/i })).toHaveAttribute("aria-pressed", "true");
+  await expect(status).toHaveText("3 mods");
 
   await page.getByLabel("Sort").selectOption("name");
   await expect(page).toHaveURL(/sort=name/);
 });
 
-test("browse: the change set gathers what picks bring along", async ({ page }) => {
-  await page.goto("/mods?preset=all");
-  const card = page.locator("#results article", { hasText: "Lock-strafe" });
-  await card.getByRole("button", { name: "Add to set" }).click();
-  await page.getByRole("button", { name: "Review & install" }).click();
+test("browse: picked mods install together, with what they bring along", async ({ page }) => {
+  await page.goto("/mods?dev=1");
+  await expect(async () => {
+    await page.getByRole("checkbox", { name: "Add Lock-strafe to the set" }).check();
+    await expect(page.getByRole("button", { name: "Install together" })).toBeVisible({ timeout: 1000 });
+  }).toPass();
+  await page.getByRole("button", { name: "Install together" }).click();
   const dialog = page.getByRole("dialog");
   // Lock-strafe, the two camera mods it needs, and Xbox icons, recommended and so ticked.
   await expect(dialog.getByRole("heading", { name: "Install 4 mods" })).toBeVisible();
@@ -64,15 +68,6 @@ test("browse: the change set gathers what picks bring along", async ({ page }) =
   await expect(dialog).toContainText("runs native code");
   await page.keyboard.press("Escape");
   await expect(dialog).toBeHidden();
-});
-
-test("browse: list view is a real sortable table", async ({ page }) => {
-  await page.goto("/mods?view=list&preset=all");
-  const table = page.getByRole("table");
-  await expect(table).toBeVisible();
-  await table.getByRole("button", { name: /Downloads/ }).click();
-  await expect(table.getByRole("columnheader", { name: /Downloads/ })).toHaveAttribute("aria-sort", "descending");
-  await expect(table.getByRole("row").nth(1)).toContainText("Item randomizer");
 });
 
 test("install: opens the launcher link, then offers help if nothing took it", async ({ page }) => {
@@ -176,6 +171,31 @@ test("README from a second index renders inert", async ({ page }) => {
   await expect(page.locator('#about a', { hasText: "docs" })).toHaveAttribute("href", /^https:\/\/github\.com\/OpenRAC\/openrac-mods\/blob\/evil-readme-v1\.2\.0\/camera-base\/docs\/setup\.md$/);
 });
 
+test("a mod whose every field is hostile renders inert", async ({ page }) => {
+  const outside: string[] = [];
+  page.on("request", (r) => void (/^https?:\/\/(localhost|127\.0\.0\.1)/.test(r.url()) || outside.push(r.url())));
+  page.on("dialog", (d) => void d.dismiss());
+  await page.goto("/mods/evil-fields");
+  await revealAll(page);
+  await page.evaluate(() => document.querySelectorAll("details").forEach((d) => (d.open = true)));
+  await page.mouse.move(400, 400);
+  expect(await page.evaluate(() => (window as unknown as { __pwned?: number }).__pwned)).toBeUndefined();
+  const main = page.locator("main");
+  await expect(main.locator("script:not([type='application/ld+json']), iframe, object, embed, form, style, svg script, video, audio, textarea, [onerror], [onload], [onclick], [onfocus], [ontoggle]")).toHaveCount(0);
+  await expect(page.locator("base, meta[http-equiv], link[href*='evil.example']")).toHaveCount(0);
+  // Every link goes to this site, an in-page spot, or an https address.
+  const hrefs = await main.locator("a[href]").evaluateAll((as) => as.map((a) => a.getAttribute("href")!));
+  expect(hrefs.filter((h) => !/^(\/|#|https:\/\/)/.test(h))).toEqual([]);
+  // A bad homepage, bug link or protocol-relative docs link is left out, not shown.
+  await expect(page.locator("#details a")).toHaveText(["Source"]);
+  // A README can't take the page's own ids, and its classes never reach the page.
+  await expect(page.locator("#about #details, #about #__next")).toHaveCount(0);
+  await expect(page.locator("#about .fixed")).toHaveCount(0);
+  await expect(page.locator("#showcase a[href*='youtube']")).toHaveCount(0); // a video id that is not one is dropped
+  await expect(page).toHaveTitle(/^Evil "fields" <\/title><script>/); // shown as text
+  expect(outside).toEqual([]);
+});
+
 test("mod page: a page text other than the README links the README", async ({ page }) => {
   await page.goto("/mods/evil-readme");
   await expect(page.locator("#details").getByRole("link", { name: "README on GitHub" })).toHaveAttribute("href", "https://github.com/OpenRAC/openrac-mods/blob/evil-readme-v1.2.0/camera-base/README.md");
@@ -194,9 +214,8 @@ test("README: in-page links reach its headings and footnotes, never the page's o
   await page.locator("#about a", { hasText: "to setup" }).click();
   await expect(page).toHaveURL(/#user-content-set-up$/);
   await expect(heading).toBeInViewport();
-  // Clear of the stuck header and contents bar, once the smooth scroll has settled.
-  const nav = page.getByRole("navigation", { name: "On this page" });
-  await expect.poll(async () => (await heading.boundingBox())!.y - (await nav.boundingBox())!.y - (await nav.boundingBox())!.height).toBeGreaterThanOrEqual(0);
+  // Below the top of the screen, once the smooth scroll has settled.
+  await expect.poll(async () => (await heading.boundingBox())!.y).toBeGreaterThanOrEqual(0);
   await page.locator('#about sup a[href="#user-content-fn-1"]').click();
   await expect(page.locator("#about li#user-content-fn-1")).toContainText("A footnote.");
   await expect(page.locator("#about li#user-content-fn-1")).toBeInViewport();
@@ -234,7 +253,7 @@ test("mods.json: the list for scripts, without server-only parts", async ({ requ
   expect(r.headers()["access-control-allow-origin"]).toBe("*");
   expect(r.headers()["cache-control"]).toContain("stale-if-error");
   const body = await r.json();
-  expect(body.mods.length).toBe(11); // the withdrawn test mod too: scripts see it with its reason in "revoked"
+  expect(body.mods.length).toBe(12); // the withdrawn test mod too: scripts see it with its reason in "revoked"
   expect(body.revoked.some((r: { id: string }) => r.id === "gone-mod")).toBe(true);
   expect("mediaBase" in body.mods[0]).toBe(false);
 });

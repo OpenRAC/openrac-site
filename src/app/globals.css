@@ -40,6 +40,8 @@
   --color-line: rgb(255 255 255 / 0.09);
   /* Discord's blurple, a touch lighter so it reads on the dark page and bar. */
   --color-discord: #6f7af5;
+  /* The site's one status colour: only the "Not checked" mod label uses it, so that label stands out. */
+  --color-coral: #e8917a;
 
   --animate-rise: rise 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) both;
   --animate-drift: drift 16s ease-in-out infinite alternate;
@@ -69,6 +71,11 @@
 }
 
 /* The thin flat gold strip on top of a sheet or panel. */
+/* What a mod without its own picture shows: a faint amber bolt on coal, calm even when a page holds many. */
+@utility bg-no-picture {
+  background: #1b1b1b url("/mods/placeholder.svg") center / cover no-repeat;
+}
+
 @utility bar-stripes {
   background: #c99222;
 }
@@ -323,6 +330,12 @@ body { background: var(--color-ink); color: var(--color-text); }
 
 
 details[open] > summary .plus { transform: rotate(45deg); }
+.fold { display: grid; place-items: center; width: 28px; height: 28px; border-radius: 999px; color: var(--color-amber); background: rgb(255 255 255 / 0.04); box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.08); transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), background-color 0.15s ease, box-shadow 0.15s ease; }
+details[open] > summary .fold { transform: rotate(180deg); }
+.fold-row { border-radius: 8px; transition: background-color 0.15s ease; }
+.fold-row:hover { background-color: rgb(255 255 255 / 0.03); }
+.fold-row:hover .fold { background-color: rgb(245 192 64 / 0.12); box-shadow: inset 0 0 0 1px rgb(245 192 64 / 0.3); }
+.fold-row:focus-visible { outline: 2px solid var(--color-amber); outline-offset: -2px; }
 details[open] > :not(summary) { animation: rise 0.35s ease both; }
 summary::-webkit-details-marker { display: none; }
 
@@ -389,6 +402,45 @@ summary::-webkit-details-marker { display: none; }
   .dl-card:hover::after { width: 30px; height: 30px; opacity: 1; }
   .dl-card:hover .dl-tile { transform: scale(1.06); box-shadow: 0 0 18px rgb(245 192 64 / 0.2); }
 }
+
+/* Mods list and pages: things rise in one after another (--i is the place in line), rows and cards
+   answer the pointer, the picked bar springs up. All on opacity and transforms, so nothing reflows. */
+.m-in { animation: m-in 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) backwards; animation-delay: calc(var(--i, 0) * 45ms); }
+@keyframes m-in { from { opacity: 0; translate: 0 12px; } }
+.m-row { transition: background-color 0.25s ease; }
+.m-thumb img, .m-thumb > span { transition: scale 0.6s cubic-bezier(0.2, 0.8, 0.2, 1); }
+.m-row:hover .m-thumb img, .m-row:hover .m-thumb > span, .m-pick:hover .m-thumb img, .m-pick:hover .m-thumb > span { scale: 1.06; }
+.m-pick { transition: translate 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.35s ease, background-color 0.25s ease; }
+.m-pick:hover { translate: 0 -3px; box-shadow: 0 14px 30px rgb(0 0 0 / 0.35); }
+.m-bar { animation: m-bar 0.5s cubic-bezier(0.34, 1.4, 0.64, 1) backwards; }
+@keyframes m-bar { from { opacity: 0; translate: 0 24px; scale: 0.96; } }
+.m-pop { animation: m-pop 0.35s cubic-bezier(0.34, 1.6, 0.64, 1); }
+@keyframes m-pop { from { scale: 0.6; } }
+.m-sheet[open] { animation: m-sheet 0.45s cubic-bezier(0.2, 0.9, 0.25, 1.05); }
+.m-sheet[open]::backdrop { animation: m-fade 0.3s ease; }
+@keyframes m-sheet { from { opacity: 0; translate: 0 18px; scale: 0.97; } }
+@keyframes m-fade { from { opacity: 0; } }
+.game-tab::after { content: ""; position: absolute; inset: auto 0 -1px; height: 2px; border-radius: 2px; background: var(--color-amber); scale: 0 1; transition: scale 0.35s cubic-bezier(0.2, 0.8, 0.2, 1); }
+.game-tab[aria-checked="true"]::after { scale: 1 1; }
+/* "Something goes here, it is on its way": a skeleton block with a soft light passing over it, as
+   social sites do. On a mod picture it runs on the picture's own colour; then the picture fades in. */
+.skeleton, .mod-img[data-img="loading"] {
+  background-image: linear-gradient(100deg, transparent 20%, rgb(255 255 255 / 0.06) 45%, rgb(255 255 255 / 0.06) 55%, transparent 80%);
+  background-size: 250% 100%;
+  background-repeat: no-repeat;
+  animation: shimmer 1.6s ease-in-out infinite;
+}
+.skeleton { background-color: var(--color-coal); border-radius: 8px; }
+@keyframes shimmer { from { background-position: 130% 0; } to { background-position: -30% 0; } }
+.mod-img { transition: opacity 0.5s ease; }
+.mod-img[data-img="loading"] { opacity: 1; }
+.mod-img[data-img="loaded"] { animation: img-in 0.5s ease both; }
+@keyframes img-in { from { opacity: 0; } }
+.seg > button { transition: background-color 0.25s ease, color 0.25s ease; }
+/* Folding cards (the phone menu, versions) open and close smoothly instead of jumping. */
+details.d-card { interpolate-size: allow-keywords; }
+details.d-card::details-content { height: 0; overflow: clip; transition: height 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), content-visibility 0.35s allow-discrete; }
+details.d-card[open]::details-content { height: auto; }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }

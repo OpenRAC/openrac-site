@@ -8,7 +8,8 @@ import type { SlimImage } from "@/lib/mods/slim";
  * A picture from the mod index: AVIF, then WebP, at the widths the index build made, sized by
  * `sizes`. It sits on its own average colour until it loads, so nothing jumps and no grey box shows.
  * Not next/image: these files are already optimized, so the server does no work for them. A file
- * that fails to load leaves just the colour, never a broken-picture icon.
+ * that fails to load leaves just the colour, never a broken-picture icon. While it loads, its colour
+ * shows as a skeleton with a soft light passing over it; then the picture fades in.
  */
 export default function ModImage({
   img,
@@ -26,6 +27,8 @@ export default function ModImage({
   style?: CSSProperties;
 }) {
   const [failed, setFailed] = useState(false);
+  // "cached": already there when the page woke up, so it shows at once with no fade.
+  const [state, setState] = useState<"loading" | "loaded" | "cached">("loading");
   const set = (ext: "avif" | "webp") => img.widths.map((w) => `${mediaSrc(img, w, ext)} ${w}w`).join(", ");
   const fallback = mediaSrc(img, img.widths.find((w) => w >= 960) ?? img.widths[img.widths.length - 1], "webp");
   return (
@@ -41,11 +44,14 @@ export default function ModImage({
         fetchPriority={priority ? "high" : "auto"}
         decoding="async"
         onError={() => setFailed(true)}
-        // A picture that failed before the page woke up never fires onError here: check it once on mount.
+        onLoad={() => setState((v) => (v === "loading" ? "loaded" : v))}
+        // A picture that failed or loaded before the page woke up fires no event here: check it once on mount.
         ref={(el) => {
           if (el?.complete && el.naturalWidth === 0 && el.currentSrc) setFailed(true);
+          else if (el?.complete && el.naturalWidth > 0) setState((v) => (v === "loading" ? "cached" : v));
         }}
-        className={`${className} ${failed ? "invisible" : ""}`}
+        data-img={failed ? "failed" : state}
+        className={`mod-img ${className} ${failed ? "invisible" : ""}`}
         style={{ backgroundColor: img.color, ...style }}
       />
     </picture>

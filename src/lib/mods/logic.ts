@@ -1,4 +1,4 @@
-import type { Impact, ListedMod, Mod, ModImage, ModType, ModVersion, Port, Revoked } from "./types.ts";
+import type { Impact, ListedMod, Mod, ModImage, ModType, ModVersion, Port, Revoked, Trust } from "./types.ts";
 
 /**
  * Pure helpers over the mod index: versions, what runs on which launcher, dependencies, ordering and
@@ -51,6 +51,23 @@ export function isRevoked(revoked: Revoked[], id: string, version: string): bool
 
 /** Taken off the list as a whole (every version revoked): its page stays, but it is no longer offered. */
 export const isWithdrawn = (revoked: Revoked[], id: string) => revoked.some((r) => r.id === id && r.versions.includes("*"));
+
+/** Shown in the lists: not withdrawn, and not held for review (its newest version waits for a person to look at it). */
+export const isShown = (m: Mod, revoked: Revoked[]) => !isWithdrawn(revoked, m.id) && !m.held;
+
+/** The labels of how much OpenRAC checked a mod, with their icon and meaning. Not checked is the one in coral. */
+export const TRUST_LABEL: Record<Trust, { icon: string; text: string; hint: string }> = {
+  openrac: { icon: "◆", text: "OpenRAC", hint: "Made in OpenRAC's own repository. Its code is reviewed." },
+  verified: { icon: "✔", text: "Verified", hint: "We looked at this mod when it was added. Updates are checked by a machine only." },
+  trusted: { icon: "★", text: "Trusted author", hint: "From someone on our trusted list. Not checked by a person." },
+  unchecked: { icon: "!", text: "Not checked", hint: "Anyone can add one. Nobody from OpenRAC looked at it." },
+};
+export const TRUSTS = Object.keys(TRUST_LABEL) as Trust[];
+/** The labels "Checked by OpenRAC" covers. */
+export const CHECKED: Trust[] = ["openrac", "verified", "trusted"];
+/** The openrac-mods form for reporting a mod. */
+export const reportUrl = (id: string) =>
+  `https://github.com/OpenRAC/openrac-mods/issues/new?template=report-mod.yml&mod=${encodeURIComponent(id)}&title=${encodeURIComponent(`Report: ${id}`)}`;
 
 /** The versions a player may be offered, newest first. */
 export function offered(mod: Mod, revoked: Revoked[], prerelease = false): ModVersion[] {
